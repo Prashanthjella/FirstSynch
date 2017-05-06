@@ -18,6 +18,8 @@ var FirstSynch = angular.module("firstSync", [
 ]);
 
 FirstSynch.constant('apiUrl', 'http://52.43.26.31:8000/');
+FirstSynch.constant('companyusertype','48KL3');
+FirstSynch.constant('studentusertype','38OD2');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
@@ -32,11 +34,28 @@ FirstSynch.run(function($rootScope, $http, apiUrl) {
           console.log("Unable to perform get Video Details");
       });
     };//Common Video Pupi - function end
+    $rootScope.LogoutUser = function () {
+      
+      var data = $.param({
+          token: window.sessionStorage.getItem('token'),
+        });
+        $http({
+            url: apiUrl+'api/v1/accounts/logout/',
+            method: "POST",
+            data: data,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data, status, headers, config) {
+                 $window.sessionStorage.removeItem('token');
+                 $window.location.href = '/';
+        }).error(function (data, status, headers, config) {
+                $scope.status = 'Please provide valid login credentials.';
+        });
+    };//Common LogoutUser - function end
 });
 
 
 //LoginUser
-FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window) {
+FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
     $scope.LoginUser = function () {
       var data = $.param({
         username: $scope.username,
@@ -47,9 +66,22 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
           method: "POST",
           data: data,
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-      }).then(function successCallback(data, status, headers, config) {
-              $window.sessionStorage.setItem('token', data.token);
-              $location.path( "/student/dashboard" );
+      }).then(function successCallback(response, status, headers, config) {
+
+              $window.sessionStorage.setItem('token', response.data.token);
+              $window.sessionStorage.setItem('usertype', response.data.usertype);
+              $window.sessionStorage.setItem('profileimage', response.data.profile_image);
+              $rootScope.userInfo = window.sessionStorage.getItem("token");
+              $rootScope.profileimage = response.data.profile_image;
+              if(companyusertype == response.data.usertype){
+                $('#logIn').modal('hide');
+                $location.path( "/company/dashboard" );
+              }
+              else if(studentusertype == response.data.usertype){
+                $('#logIn').modal('hide');
+                $location.path( "/student/dashboard" );
+              }
+              
       },function errorCallback(response){
               $scope.status = 'Please provide valid login credentials.';
       });
@@ -205,6 +237,9 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, apiUrl, $window, $l
 
     };// user logout - function end
 });
+
+
+
 
 
 ///////////////////////////////////////////////// directive ////////////////////////////////////////

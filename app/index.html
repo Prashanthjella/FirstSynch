@@ -24,7 +24,9 @@
     <base href="/">
 </head>
 <body>
-    <header class="navbar navbar-default custom-navbar-default" ng-include="'common/beforeloginheader.html'">
+    <header class="navbar navbar-default custom-navbar-default" ng-show="!userInfo" ng-include="'common/beforeloginheader.html'">
+    </header>
+    <header class="navbar navbar-default custom-navbar-default" ng-show="userInfo" ng-include="'common/afterloginheader.html'">
     </header>
 
     <div ng-view></div>
