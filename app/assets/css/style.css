@@ -1,4 +1,7 @@
-html,body{height:100%}
+@import url(font-awesome.min.css);
+html, body {
+	height: 100%;
+}
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: #303030;
@@ -86,7 +89,7 @@ h2.custom-title {
 	margin-top: 180px;
 }
 .custom-sidebar {
-    width: 230px;
+	width: 230px;
 }
 .custom-sidebar-nav {
 	list-style: none;
@@ -169,10 +172,24 @@ h2.custom-title {
 .slider-container-career .slider-recent-fairs {
 	margin-bottom: 20px;
 }
+.custom-thumbs-model-views {
+	height: 80px;
+	overflow: hidden;
+	border: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+.custom-thumbs-model-views > img {
+	width: 100%;
+	height: 100%;
+}
 .page-section {
 	width: 100%;
 	float: left;
 	margin: 30px 0;
+}
+.custom-modal-body .custom-thumbs-box-views {
+	margin-bottom: 15px;
 }
 .custom-h2 {
 	font: 900 20px 'Open Sans', sans-serif;
@@ -198,7 +215,6 @@ a.thumbnail, a.custom-large-image-gallery {
 	color: #303030;
 	clear: both
 }
-
 .custom-row-10 .col-lg-1, .custom-row-10 .col-lg-10, .custom-row-10 .col-lg-11, .custom-row-10 .col-lg-12, .custom-row-10 .col-lg-2, .custom-row-10 .col-lg-3, .custom-row-10 .col-lg-4, .custom-row-10 .col-lg-5, .custom-row-10 .col-lg-6, .custom-row-10 .col-lg-7, .custom-row-10 .col-lg-8, .custom-row-10 .col-lg-9, .custom-row-10 .col-md-1, .custom-row-10 .col-md-10, .custom-row-10 .col-md-11, .custom-row-10 .col-md-12, .custom-row-10 .col-md-2, .custom-row-10 .col-md-3, .custom-row-10 .col-md-4, .custom-row-10 .col-md-5, .custom-row-10 .col-md-6, .custom-row-10 .col-md-7, .custom-row-10 .col-md-8, .custom-row-10 .col-md-9, .custom-row-10 .col-sm-1, .custom-row-10 .col-sm-10, .custom-row-10 .col-sm-11, .custom-row-10 .col-sm-12, .custom-row-10 .col-sm-2, .custom-row-10 .col-sm-3, .custom-row-10 .col-sm-4, .custom-row-10 .col-sm-5, .custom-row-10 .col-sm-6, .custom-row-10 .col-sm-7, .custom-row-10 .col-sm-8, .custom-row-10 .col-sm-9, .custom-row-10 .col-xs-1, .custom-row-10 .col-xs-10, .custom-row-10 .col-xs-11, .custom-row-10 .col-xs-12, .custom-row-10 .col-xs-2, .custom-row-10 .col-xs-3, .custom-row-10 .col-xs-4, .custom-row-10 .col-xs-5, .custom-row-10 .col-xs-6, .custom-row-10 .col-xs-7, .custom-row-10 .col-xs-8, .custom-row-10 .col-xs-9 {
 	padding-right: 10px;
 	padding-left: 10px
@@ -217,7 +233,7 @@ a.thumbnail, a.custom-large-image-gallery {
 }
 .custom-row-5 .col-lg-1, .custom-row-5 .col-lg-10, .custom-row-5 .col-lg-11, .custom-row-5 .col-lg-12, .custom-row-5 .col-lg-2, .custom-row-5 .col-lg-3, .custom-row-5 .col-lg-4, .custom-row-5 .col-lg-5, .custom-row-5 .col-lg-6, .custom-row-5 .col-lg-7, .custom-row-5 .col-lg-8, .custom-row-5 .col-lg-9, .custom-row-5 .col-md-1, .custom-row-5 .col-md-10, .custom-row-5 .col-md-11, .custom-row-5 .col-md-12, .custom-row-5 .col-md-2, .custom-row-5 .col-md-3, .custom-row-5 .col-md-4, .custom-row-5 .col-md-5, .custom-row-5 .col-md-6, .custom-row-5 .col-md-7, .custom-row-5 .col-md-8, .custom-row-5 .col-md-9, .custom-row-5 .col-sm-1, .custom-row-5 .col-sm-10, .custom-row-5 .col-sm-11, .custom-row-5 .col-sm-12, .custom-row-5 .col-sm-2, .custom-row-5 .col-sm-3, .custom-row-5 .col-sm-4, .custom-row-5 .col-sm-5, .custom-row-5 .col-sm-6, .custom-row-5 .col-sm-7, .custom-row-5 .col-sm-8, .custom-row-5 .col-sm-9, .custom-row-5 .col-xs-1, .custom-row-5 .col-xs-10, .custom-row-5 .col-xs-11, .custom-row-5 .col-xs-12, .custom-row-5 .col-xs-2, .custom-row-5 .col-xs-3, .custom-row-5 .col-xs-4, .custom-row-5 .col-xs-5, .custom-row-5 .col-xs-6, .custom-row-5 .col-xs-7, .custom-row-5 .col-xs-8, .custom-row-5 .col-xs-9 {
 	padding-left: 5px;
-	padding-right: 5px;	
+	padding-right: 5px;
 }
 .custom-large-image-gallery, .custom-thumbnail-box-views, .custom-thumbnail-image-gallery, .custom-thumbnail-company-visit-gallery {
 	border: none;
@@ -268,13 +284,14 @@ a.thumbnail, a.custom-large-image-gallery {
 	overflow: hidden;
 }
 .custom-thumbnail-company-visit-gallery {
-	
-	padding:20px 20px 0px 20px; 
+	padding: 20px 20px 0px 20px;
 	position: relative;
 	overflow: hidden;
-	margin-bottom:35px;
+	margin-bottom: 35px;
 }
-.para-company{margin:0 0 30px 0}
+.para-company {
+	margin: 0 0 30px 0
+}
 .custom-large-image-gallery .custom-img-responsive, .custom-thumbnail-image-gallery .custom-img-responsive, .custom-img-responsive {
 	width: 100%;
 	height: 100%;
@@ -437,22 +454,26 @@ a.thumbnail, a.custom-large-image-gallery {
 	float: left;
 	margin-top: 15px;
 }
-.fair-prev, .fair-next {
-	background-color: #fff;
-	width: 46px;
-	height: 46px;
-	border: 2px solid #6b6b6b;
+.fair-prev, .fair-next, .bx-prev, .bx-next {
+	background-color: #fff !important;
+	width: 46px !important;
+	height: 46px !important;
+	border: 2px solid #6b6b6b !important;
 	position: absolute;
-	top: 125px;
+	top: 125px !important;
 	cursor: pointer;
 	font-family: 'Glyphicons Halflings';
-	line-height: 43px
+	line-height: 43px;
+	background-image: none !important;
+	text-indent: 0 !important;
+	color: #303030 !important;
+	text-align: center;
 }
-.fair-prev {
-	left: -15px;
+.fair-prev, .bx-prev {
+	left: -15px !important;
 }
-.fair-next {
-	right: -15px;
+.fair-next, .bx-next {
+	right: -15px !important;
 }
 .slider-container-career .owl-nav {
 	position: absolute;
@@ -493,10 +514,10 @@ a.thumbnail, a.custom-large-image-gallery {
 .slider-container-career .fair-next {
 	right: -15px
 }
-.fair-prev:before {
+.fair-prev:before, .bx-prev:before {
 	content: "\e091"
 }
-.fair-next:before {
+.fair-next:before, .bx-next:before {
 	content: "\e092"
 }
 .slider-inside-thumbs {
@@ -884,6 +905,10 @@ a.thumbnail, a.custom-large-image-gallery {
 }
 .page-section-about-me .custom-h1 {
 	margin-bottom: 30px;
+}
+.page-section-about-home {
+	padding-bottom: 30px;
+	min-height: 500px;
 }
 .custom-heading-01 {
 	text-transform: uppercase;
@@ -1548,9 +1573,9 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 .row-5px {
 	margin: 0 -5px;
 }
-.custom-row-5{
-	margin:0 -5px;
-	}
+.custom-row-5 {
+	margin: 0 -5px;
+}
 .row-5px .col-5px {
 	padding: 5px;
 	width: 20%;
@@ -1767,9 +1792,111 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	padding-bottom: 6px;
 	color: #6f6f6f
 }
-.custom-media-company-gallery{
-	margin-bottom:20px;
+.custom-media-company-gallery {
+	margin-bottom: 20px;
+}
+.cusom-model-media-left {
+	position: relative;
+}
+.custom-model-logo02 {
+	width: 25px;
+	position: absolute;
+	right: 5px;
+	top: 30px
+}
+.cusom-model-dashboard-header {
+	padding: 40px 40px 20px 40px;
+}
+.video-model-container {
+	background-color: #36383c;
+	padding: 40px;
+	margin-bottom:40px
+}
+.custom-modal-video-content{
+	border:none !important
 	}
+	.custom-tabs-model{
+		border-bottom:0
+		
+		}
+		.custom-tabs-model>li{
+			float:none;
+			text-transform:uppercase;
+			position:relative;
+			}
+		.custom-tabs-model>li>a, .custom-tabs-model>li , .custom-tabs-model>li>a:hover{
+			color:#b2b2b2;
+			border:none;
+			padding:0;
+			margin:10px 0;
+			
+			
+			}
+			.custom-tabs-model>li.active:before{
+				content:"-";
+				width:15px;
+				font-weight:800;
+				position:absolute;
+				top:0;
+				padding-left:15px;
+				box-sizing:content-box;
+				color:#00b58e;
+				font-size:14px;
+				left:-25px;
+				}
+				.custom-modal-video-content .media-group-container{padding:0 20px 0 40px;}
+				.col-right-40px{padding-right:40px;}
+	.custom-tabs-model>li.active>a, .custom-tabs-model>li.active>a:focus, .custom-tabs-model>li.active>a:hover{
+		background-color:inherit;
+		-webkit-border-radius:0;
+		-moz-border-radius:0;
+		border-radius:0;
+		border:none;
+		color:#00b58e
+		
+		}	
+		.custom-tabs-model>li>a:hover{
+				background-color:inherit;
+		-webkit-border-radius:0;
+		-moz-border-radius:0;
+		border-radius:0;
+		border:none;
+		
+		}
+.custom-video-modal-body {
+	padding: 0
+}
+.media-object-user {
+	width: 50px;
+}
+.custom-model-logo02 img {
+	width: 100%;
+	border: 2px solid #fff;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+.cusom-media-model-body .custom-h2 {
+	margin-top: 0
+}
+.custom-h5-model {
+	font-weight: 600
+}
+.highlighted-green {
+	color: #00b58e
+}
+.custom-h6-model {
+	color: #b2b2b2
+}
+.custom-right-icons {
+	float: left;
+	margin: 44px 0 24px 0;
+}
+.custom-right-icons a {
+	color: #303030;
+	font-size: 15px;
+	margin-left: 15px;
+}
  @media (min-width:992px) and (max-width:1199px) {
 .custom-thumbnail-box-views {
 	height: 140px

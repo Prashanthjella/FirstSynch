@@ -1,167 +1,122 @@
-<!-- Video Popup Starts -->
-		<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" ng-controller="vidoPlayer">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true"><img src="assets/images/close.png" alt="" /></span>
-					</button>
-					<div class="modal-header">
-						<div class="media">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object img-circle" src="assets/images/company-list-img.jpg" alt="img" height="80" width="80">
-									<div class="status">
-										<img class="media-object img-circle" src="assets/images/forester-logo.jpg" alt="img" height="30" width="30">
-									</div>
-								</a>
-							</div>
-							<div class="media-body pl10">
-								<h3 class="bold-text mt0">Jayden Burton</h3>
-								<p class="medium-text text-uppercase mt5">By <span class="green-text">Ramon Alexander</span> from <span class="green-text">Greystar Real Estate</span></p>
-								<p class="medium-text grey-text mt5">about 3 days ago</p>
-							</div>
+<div class="modal fade custom-model" id="VideoPopup1" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content custom-modal-video-content">
+      <div class="modal-header cusom-model-dashboard-header">
+        <div class="media cusom-model-media">
+          <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+          <div class="media-left cusom-model-media-left"> <a href="#">
+						<img src="{{vid.video.company_logo}}" class="media-object-user img-circle">
+            <div class="custom-model-logo02">
+							<img class="media-object media-object-logos img-circle" src="{{vid.video.company_logo}}" alt="img">
 						</div>
-						<a href="#" class="medium -text medium-grey-text video-reply">
-							<i class="fa fa-mail-forward"></i> Reply
-						</a>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-sm-4">
-								<ul class="nav nav-tabs" role="tablist">
-									<li role="presentation" class="mt15 active  icon-list" data-icon="&#8212;"><a href="#tellAboutYourself" aria-controls="tellAboutYourself" role="tab" data-toggle="tab" class="bold-text text-uppercase">Tell About Yourself</a></li>
-									<li role="presentation" class="mt15  icon-list" data-icon="&#8212;"><a href="#yourGoals" aria-controls="yourGoals" role="tab" data-toggle="tab" class="bold-text text-uppercase">Your Goals</a></li>
-									<li role="presentation" class="mt15  icon-list" data-icon="&#8212;"><a href="#hobbies" aria-controls="hobbies" role="tab" data-toggle="tab" class="bold-text text-uppercase">Your Hobbies and Life Priorities</a></li>
-								</ul>
-							</div>
-							<div class="col-sm-8">
-								<div class="tab-content">
-	   								<div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
-	   									<div class="video-content mt0">
-											<video class="video-js vjs-default-skin" controls data-setup='{ "autoplay": false, "preload": "false" }'>
-												<source src="assets/images/big_buck_bunny.mp4" type="video/mp4" />
-											</video>
-										</div>
-	   								</div>
-	   								<div role="tabpanel" class="tab-pane" id="yourGoals">
-	   									<div class="video-content mt0">
-											<video class="video-js vjs-default-skin" controls data-setup='{ "autoplay": false, "preload": "false" }'>
-												<source src="assets/images/big_buck_bunny.mp4" type="video/mp4" />
-											</video>
-										</div>
-	   								</div>
-	   								<div role="tabpanel" class="tab-pane" id="hobbies">
-	   									<div class="video-content mt0">
-											<video class="video-js vjs-default-skin" controls data-setup='{ "autoplay": false, "preload": "false" }'>
-												<source src="assets/images/big_buck_bunny.mp4" type="video/mp4" />
-											</video>
-										</div>
-	   								</div>
-	   							</div>
-	   						</div>
-						</div>
-					</div>
-					<div class="modal-footer text-left">
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="bold-text text-uppercase">25 Comments</p>
-								<div class="row">
-									<div class="col-sm-12 list-block">
-										<div class="media">
-											<div class="media-left">
-												<a href="#">
-													<img class="media-object img-circle" src="../assets/images/company-list-img.jpg" alt="img" height="80" width="80">
-												</a>
-											</div>
-											<div class="media-body pl10">
-												<h4 class="bold-text green-text mt0">Jayden Burton</h4>
-												<h4 class="medium-text mt5">How to excel in a technical job interview</h4>
-												<p class="medium-text grey-text mt5">about 3 days ago</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-12 list-block">
-										<div class="media">
-											<div class="media-left">
-												<a href="#">
-													<img class="media-object img-circle" src="assets/images/company-list-img.jpg" alt="img" height="80" width="80">
-												</a>
-											</div>
-											<div class="media-body pl10">
-												<h4 class="bold-text green-text mt0">Jayden Burton</h4>
-												<h4 class="medium-text mt5">How to excel in a technical job interview</h4>
-												<p class="medium-text grey-text mt5">about 3 days ago</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-12 list-block">
-										<div class="media">
-											<div class="media-left">
-												<a href="#">
-													<img class="media-object img-circle" src="assets/images/company-list-img.jpg" alt="img" height="80" width="80">
-												</a>
-											</div>
-											<div class="media-body pl10">
-												<h4 class="bold-text green-text mt0">Jayden Burton</h4>
-												<h4 class="medium-text mt5">How to excel in a technical job interview</h4>
-												<p class="medium-text grey-text mt5">about 3 days ago</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-12 list-block">
-										<div class="media">
-											<div class="media-left">
-												<a href="#">
-													<img class="media-object img-circle" src="assets/images/company-list-img.jpg" alt="img" height="80" width="80">
-												</a>
-											</div>
-											<div class="media-body pl10">
-												<h4 class="bold-text green-text mt0">Jayden Burton</h4>
-												<h4 class="medium-text mt5">How to excel in a technical job interview</h4>
-												<p class="medium-text grey-text mt5">about 3 days ago</p>
-											</div>
-										</div>
-									</div>
+            </a> </div>
+          <div class="media-body cusom-media-model-body">
+            <div class="pull-left">
+              <h2 class="custom-h2">{{vid.video.created_by.name}}</h2>
+              <h5 class="custom-h5-model">By <span class="highlighted-green">{{vid.video.created_by.name}}</span> from <span class="highlighted-green">{{vid.video.company}}</span></h5>
+              <h6 class="custom-h6-model">about 3 days ago</h6>
+            </div>
+            <div class="pull-right">
+              <div class="custom-right-icons"> <a href="#" class="icons-model"> <i class="fa fa-heart-o"></i> 5 </a> <a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body custom-video-modal-body">
+        <section class="video-model-container">
+          <div class="row">
+            <div class="col-sm-4">
+              <ul class="nav nav-tabs custom-tabs-model" role="tablist">
+                <li role="presentation" class="active"><a href="#tellAboutYourself" aria-controls="tellAboutYourself" role="tab" data-toggle="tab" class="">Tell About Yourself</a></li>
+                <li role="presentation"><a href="#yourGoals" aria-controls="yourGoals" role="tab" data-toggle="tab" class="">Your Goals</a></li>
+                <li role="presentation"><a href="#hobbies" aria-controls="hobbies" role="tab" data-toggle="tab" class="">Your Hobbies and Life Priorities</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-8">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
+                  <video controls width="100%" class="video-player" id="video-player-show">
+                    <source src="{{vid.video.video_file}}" type="video/mp4">
+                    <source src="{{vid.video.video_file}}" type="video/ogg">
+                    Your browser does not support the video tag. </video>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="yourGoals">
+                  <video controls width="100%" class="video-player" id="video-player-show">
+                    <source src="{{vid.video.video_file}}" type="video/mp4">
+                    <source src="{{vid.video.video_file}}" type="video/ogg">
+                    Your browser does not support the video tag. </video>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="hobbies">
+                  <video controls width="100%" class="video-player" id="video-player-show">
+                    <source src="{{vid.video.video_file}}" type="video/mp4">
+                    <source src="{{vid.video.video_file}}" type="video/ogg">
+                    Your browser does not support the video tag. </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="row custom-row-10">
+          <div class="col-sm-8">
+
+            <div class="media-group-container">
+            <h5 class="text-uppercase"><span>25</span> Comments</h5>
+            <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                 <div class="form-group custom-lider-form-group">
+                    <textarea class="form-control custom-text-area" rows="2" placeholder="Add Public Comments" maxlength="150"></textarea>
+                  </div>
+                </div>
+                <div> </div>
+              </div>
+              <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                  <h5 class="media-eading-h5">Denver, CO</h5>
+                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                </div>
+                <div> </div>
+              </div>
+              <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                  <h5 class="media-eading-h5">Denver, CO</h5>
+                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                </div>
+                <div> </div>
+              </div>
+              <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                  <h5 class="media-eading-h5">Denver, CO</h5>
+                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                </div>
+                <div> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+          <div class="col-right-40px">
+            <div class="row custom-row-15">
+            <h5 class="text-uppercase">More videos  by <span class="highlighted-green">{{vid.video.created_by.name}}</span></h5>
+              <div class="col-sm-6" ng-repeat="vid in vid.related_video">
+							 	  <a data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-03 custom-thumbs-box-views">
+										<img src="{{vid.thumbnail}}">
+	                  <div class="overlay "></div>
+	                  <span class="icon-btn-play"></span>
+									  </a>
 								</div>
-							</div>
-							<div class="col-sm-5">
-								<p class="bold-text text-uppercase">More videos by <span class="green-text">Ramon</span></p>
-								<div class="row row-10">
-									<div class="col-sm-6 col-10 mt20">
-										<a href="#">
-											<div class="video-content mt0 green">
-												<img class="img-responsive" src="assets/images/video-img.png" alt="">
-												<div class="video-overlay overlay">
-													<span><img class="img-responsive" src="assets/images/video-icon.png" alt=""/></span>
-												</div>
-											</div>
-										</a>
-									</div>
-									<div class="col-sm-6 col-10 mt20">
-										<a href="#">
-											<div class="video-content mt0 pink-yellow">
-												<img class="img-responsive" src="assets/images/video-img.png" alt="">
-												<div class="video-overlay overlay">
-													<span><img class="img-responsive" src="assets/images/video-icon.png" alt=""/></span>
-												</div>
-											</div>
-										</a>
-									</div>
-									<div class="col-sm-6 col-10 mt20">
-										<a href="#">
-											<div class="video-content mt0 blue-purple">
-												<img class="img-responsive" src="assets/images/video-img.png" alt="">
-												<div class="video-overlay overlay">
-													<span><img class="img-responsive" src="assets/images/video-icon.png" alt=""/></span>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-		<!-- Video Popup Ends -->
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
