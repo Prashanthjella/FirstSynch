@@ -1,0 +1,47 @@
+<!-- logIn Modal Starts -->
+<div class="modal fade" id="logIn" tabindex="-1" role="dialog">
+  <form name="userloginform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><img class="img-responsive" src="assets/images/close.png" alt="" /></span>
+      </button>
+
+      <div class="modal-body mt40">
+        <h2 class="text-uppercase text-center bold-text">Log in to FirstSynch</h2>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <span style="color:red;"> {{status}} </span>
+
+              <div class="form-group">
+                <label for="your-email">Email address</label>
+                <input type="email" name="username" class="form-control" id="username" ng-model="username" required/>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" ng-model="password" required/>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="row">
+              <div class="col-sm-6 text-center">
+                <button ng-click="LoginUser()" ng-disabled="userloginform.$invalid" class="btn btn-default btn-block">log in</button>
+              </div>
+              <div class="col-sm-6 text-left mt15">
+                <a data-toggle="modal" data-target="#ForgotPassword" data-dismiss="modal" href="#" class="medium-text grey-text">Forgot password?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+    </form>
+</div><!-- /.modal -->
+<!-- logIn Modal Ends -->

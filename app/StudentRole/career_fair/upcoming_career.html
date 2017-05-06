@@ -1,0 +1,37 @@
+<!--[Upcoming career Fairs Nearby Start]-->
+<section class="page-section page-section-upcoming" ng-controller="upcoming_career_fair">
+  <div class="container">
+    <div class="page-header custom-page-header">
+      <div class="pull-left">
+        <h2 class="h2 custom-title"><span class="highlighted">Upcoming</span> career fairs in <span class="highlighted">denver</span> with all <span class="highlighted">companies</span></h2>
+      </div>
+    </div>
+    <div class="row custom-row-10">
+      <div class="slider-container-recent">
+        <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 600, infiniteLoop: false, hideControlOnEnd: true">
+          <div class="slide" data-ng-repeat="upcome_career in upcoming_career" data-notify-when-repeat-finished>
+            <div class="slider-inside-large">
+              <div class="slider-recent-fairs"> <img ng-src="{{upcome_career.image}}" alt="img1.png">
+                <div class="slider-caption">
+                  <div class="caption-date-container"><span class="caption-date">{{upcome_career.start_date}}</span> &bull; <span class="caption-state">{{ upcome_career.city }}, {{ upcome_career.state }}</span></div>
+                  <h3 class="caption-description">{{upcome_career.title}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="slider-inside-thumbs">
+              <div class="row custom-row-15">
+                <div class="col-xs-4 col-sm-4" ng-repeat="upcome_career in upcoming_career | limitTo:3">
+                  <a class="thumbnail customn-thumbs-color-08 custom-thumbs-box-views">
+                    <img ng-src="{{upcome_career.image}}">
+                    <div class="overlay "></div>
+                    <span class="icon-btn-play"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--[Upcoming career Fairs Nearby End]--> 

@@ -1,0 +1,26 @@
+<!--[Featured Favorites Start]-->
+<section class="page-section page-section-favorites" ng-controller="cfdstudents">
+  <div class="container">
+    <div class="page-header custom-page-header">
+      <div class="pull-left">
+        <h2 class="h2 custom-h2">Students</h2>
+      </div>
+      <div class="pull-right"> <a href="javascript:void(0)" class="link-all home_students_all_link" title="Show All" ng-click="showall_studentsvideo()">Show All</a> </div>
+    </div>
+    <div class="row custom-row-10 for_home_stu_less_all">
+      	<div class="col-sm-4" ng-repeat="student in cfdstudents | limitTo:9">
+      		<a data-id="{{student.id}}" ng-click="videoPopup(student.id)"  href="#" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery"> 
+      			<img ng-src="{{student.thumbnail}}" class="img-responsive custom-img-responsive">
+    			<div class="overlay "></div>
+    			<span class="arrow-triangle"></span>
+    			<span class="link-new">New</span>
+        		<div class="box-inside-content">
+          			<h1 class="h1 custom-gallery-h1">{{student.title}}</h1>
+        		</div>
+        	</a> 
+        </div>
+    </div>
+    <div class="row custom-row-10 for_home_stu_show_all"></div>
+  </div>
+</section>
+<!--[Featured Favorites End]-->

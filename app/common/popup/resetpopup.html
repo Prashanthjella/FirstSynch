@@ -1,0 +1,39 @@
+<!--reset password-->
+<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog">
+  <form name="resetpassword">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><img class="img-responsive" src="assets/images/close.png" alt="" /></span>
+      </button>
+      <div class="modal-body">
+        <h2 class="text-uppercase text-center bold-text">Reset Password</h2>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2" style="color: green; font-weight: bold;">{{success}}</div>
+          <div ng-bind-html="Login"></div>
+          <div class="col-sm-8 col-sm-offset-2 hide1">
+              <div style="color: red; font-weight: bold;">{{failure}}</div>
+              <div class="form-group" id="success_msg">
+                <label for="email">Please Enter your new Password</label>
+                <input type="password" id="password" name="password" class="form-control" ng-model="password" ng-model="e_mail" required="" />
+                <input type="hidden" id="token" name="token" class="form-control" ng-model="token" ng-model="token" />
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer hide1">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <div class="row">
+              <div class="col-sm-6">
+                <button type="submit" ng-click="ResetPassword()" ng-disabled="resetpassword.$invalid" class="btn btn-default btn-block">Reset Password</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</form>
+</div><!-- /.modal -->
+<!-- reset password Modal Ends -->
