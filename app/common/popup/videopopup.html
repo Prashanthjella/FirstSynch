@@ -30,25 +30,11 @@
             <div class="col-sm-4">
               <ul class="nav nav-tabs custom-tabs-model" role="tablist">
                 <li role="presentation" class="active"><a href="#tellAboutYourself" aria-controls="tellAboutYourself" role="tab" data-toggle="tab" class="">Tell About Yourself</a></li>
-                <li role="presentation"><a href="#yourGoals" aria-controls="yourGoals" role="tab" data-toggle="tab" class="">Your Goals</a></li>
-                <li role="presentation"><a href="#hobbies" aria-controls="hobbies" role="tab" data-toggle="tab" class="">Your Hobbies and Life Priorities</a></li>
               </ul>
             </div>
             <div class="col-sm-8">
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
-                  <video controls width="100%" class="video-player" id="video-player-show">
-                    <source src="{{vid.video.video_file}}" type="video/mp4">
-                    <source src="{{vid.video.video_file}}" type="video/ogg">
-                    Your browser does not support the video tag. </video>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="yourGoals">
-                  <video controls width="100%" class="video-player" id="video-player-show">
-                    <source src="{{vid.video.video_file}}" type="video/mp4">
-                    <source src="{{vid.video.video_file}}" type="video/ogg">
-                    Your browser does not support the video tag. </video>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="hobbies">
                   <video controls width="100%" class="video-player" id="video-player-show">
                     <source src="{{vid.video.video_file}}" type="video/mp4">
                     <source src="{{vid.video.video_file}}" type="video/ogg">
@@ -61,7 +47,7 @@
         <div class="row custom-row-10">
           <div class="col-sm-8">
 
-            <div class="media-group-container">
+            <div class="media-group-container" style="display:none;">
             <h5 class="text-uppercase"><span>25</span> Comments</h5>
             <div class="media custom-media">
                 <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>

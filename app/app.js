@@ -33,9 +33,11 @@ FirstSynch.run(function($rootScope, $http, apiUrl) {
       }, function errorCallback(response){
           console.log("Unable to perform get Video Details");
       });
-    };//Common Video Pupi - function end
+    };//Common Video Popup - function end
+
+
     $rootScope.LogoutUser = function () {
-      
+
       var data = $.param({
           token: window.sessionStorage.getItem('token'),
         });
@@ -81,9 +83,9 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
                 $('#logIn').modal('hide');
                 $location.path( "/student/dashboard" );
               }
-              
-      },function errorCallback(response){
-              $scope.status = 'Please provide valid login credentials.';
+
+      },function errorCallback(data, status, headers, config) {
+              $scope.status = data.data;
       });
 
     };// user login - function end
