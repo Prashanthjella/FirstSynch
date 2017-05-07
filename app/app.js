@@ -30,6 +30,11 @@ FirstSynch.run(function($rootScope, $http, apiUrl) {
       $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id)
       .then(function successCallback(response){
           $rootScope.vid = response.data;
+          jwplayer("jwplayer").setup({
+            "file": response.data.video.video_file,
+            "primary": 'flash'
+          });
+          jwplayer("jwplayer").play();
       }, function errorCallback(response){
           console.log("Unable to perform get Video Details");
       });

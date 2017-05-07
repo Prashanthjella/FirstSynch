@@ -7,9 +7,9 @@
         <div class="media cusom-model-media">
           <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
           <div class="media-left cusom-model-media-left"> <a href="#">
-						<img src="{{vid.video.company_logo}}" class="media-object-user img-circle">
+						<img ng-src="{{vid.video.company_logo}}" class="media-object-user img-circle">
             <div class="custom-model-logo02">
-							<img class="media-object media-object-logos img-circle" src="{{vid.video.company_logo}}" alt="img">
+							<img class="media-object media-object-logos img-circle" ng-src="{{vid.video.company_logo}}" alt="img">
 						</div>
             </a> </div>
           <div class="media-body cusom-media-model-body">
@@ -35,10 +35,8 @@
             <div class="col-sm-8">
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
-                  <video controls width="100%" class="video-player" id="video-player-show">
-                    <source src="{{vid.video.video_file}}" type="video/mp4">
-                    <source src="{{vid.video.video_file}}" type="video/ogg">
-                    Your browser does not support the video tag. </video>
+                  <div id='jwplayer'>Loading the player...</div>
+
                 </div>
               </div>
             </div>
@@ -50,7 +48,7 @@
             <div class="media-group-container" style="display:none;">
             <h5 class="text-uppercase"><span>25</span> Comments</h5>
             <div class="media custom-media">
-                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
                 <div class="media-body custom-media-body">
                  <div class="form-group custom-lider-form-group">
                     <textarea class="form-control custom-text-area" rows="2" placeholder="Add Public Comments" maxlength="150"></textarea>
@@ -59,7 +57,7 @@
                 <div> </div>
               </div>
               <div class="media custom-media">
-                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
                 <div class="media-body custom-media-body">
                   <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
                   <h5 class="media-eading-h5">Denver, CO</h5>
@@ -68,7 +66,7 @@
                 <div> </div>
               </div>
               <div class="media custom-media">
-                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
                 <div class="media-body custom-media-body">
                   <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
                   <h5 class="media-eading-h5">Denver, CO</h5>
@@ -77,7 +75,7 @@
                 <div> </div>
               </div>
               <div class="media custom-media">
-                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
                 <div class="media-body custom-media-body">
                   <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
                   <h5 class="media-eading-h5">Denver, CO</h5>
@@ -93,7 +91,7 @@
             <h5 class="text-uppercase">More videos  by <span class="highlighted-green">{{vid.video.created_by.name}}</span></h5>
               <div class="col-sm-6" ng-repeat="vid in vid.related_video">
 							 	  <a data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-03 custom-thumbs-box-views">
-										<img src="{{vid.thumbnail}}">
+										<img ng-src="{{vid.thumbnail}}">
 	                  <div class="overlay "></div>
 	                  <span class="icon-btn-play"></span>
 									  </a>
