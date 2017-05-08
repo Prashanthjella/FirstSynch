@@ -1,16 +1,18 @@
-<section class="page-section page-bg-gray " ng-controller="all_career_fair_near_user">
+<section class="page-section page-bg-gray " ng-controller="company_all_career_fair_near_user">
   <div class="container">
     <div class="row custom-row-15">
       <div class="col-sm-4" ng-repeat="all_career_fair in all_career_fair_near_current_user">
-        <div class="thumbnail customn-thumbs-color-10 custom-thumbnail-image-gallery"> <img ng-src="{{all_career_fair.image}}">
-          <div class="overlay"></div>
-          <div class="box-inside-content">
-            <p class="date-location">{{all_career_fair.start_date}}<span> &bull;</span>{{all_career_fair.city}},{{all_career_fair.state}}</p>
-            <h1 class="custom-gallery-h1">{{all_career_fair.title}}</h1>
+        <a href="/company/careerfair/{{all_career_fair.id}}" style="color:#000;">
+          <div class="thumbnail customn-thumbs-color-10 custom-thumbnail-image-gallery"> <img ng-src="{{all_career_fair.image}}">
+            <div class="overlay"></div>
+            <div class="box-inside-content">
+              <p class="date-location">{{all_career_fair.start_date}}<span> &bull;</span>{{all_career_fair.city}},{{all_career_fair.state}}</p>
+              <h1 class="custom-gallery-h1">{{all_career_fair.title}}</h1>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 </section>
-<!--[Education Nearby End]--> 
+<!--[Education Nearby End]-->

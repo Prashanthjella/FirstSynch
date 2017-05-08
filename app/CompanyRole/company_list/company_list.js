@@ -8,7 +8,7 @@ var FirstSynch = angular.module("CompanyCompanyList", ["ngRoute"]);
 
 FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvider,$routeProvider) {
   $routeProvider.when('/company/companies', {
-    templateUrl: 'CompanyRole/company_list/company_list.html'
+    templateUrl: 'GuestRole/company_list/company_list.html'
   });
   if(window.history && window.history.pushState){
      //$locationProvider.html5Mode(true); will cause an error $location in HTML5 mode requires a  tag to be present! Unless you set baseUrl tag after head tag like so: <head> <base href="/">
@@ -25,8 +25,8 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //company page - top 3 details
-FirstSynch.controller("top_three" ,function ($scope, $http,$routeParams,apiUrl) {
- 
+FirstSynch.controller("company_top_three" ,function ($scope, $http,$routeParams,apiUrl) {
+
   $http.get(apiUrl+"api/v1/setups/top3_companies/?count=3&fields=name,logo,city,state,country")
       .then(function successCallback(response){
           $scope.top_three_company = response.data;
@@ -36,8 +36,8 @@ FirstSynch.controller("top_three" ,function ($scope, $http,$routeParams,apiUrl) 
 
 });
 //company page - company category
-FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,apiUrl) {
- 
+FirstSynch.controller("company_company_category" ,function ($scope, $http,$routeParams,apiUrl) {
+
   $http.get(apiUrl+"api/v1/setups/company_categories/?fields=id,industry_type,related_company,name,logo,city,state")
       .then(function successCallback(response){
           $scope.company_cate = response.data;
@@ -48,8 +48,8 @@ FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,a
 });
 
 //company page - All companies
-FirstSynch.controller("all_companies" ,function ($scope, $http,$routeParams,apiUrl) {
- 
+FirstSynch.controller("company_all_companies" ,function ($scope, $http,$routeParams,apiUrl) {
+
   $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=name,logo,city,state,country")
       .then(function successCallback(response){
           $scope.all_company = response.data;

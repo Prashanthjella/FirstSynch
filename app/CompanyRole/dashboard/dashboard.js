@@ -25,7 +25,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // home page - featured video
-FirstSynch.controller("futuredvideo", function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl) {
   // home page - featured video - default
   $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5&fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -69,9 +69,9 @@ FirstSynch.controller("futuredvideo", function ($scope, $http, apiUrl) {
 });
 
 // home page - mostrecented fairs
-FirstSynch.controller("mostrecentedfairvideo" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_mostrecentedfairvideo" , function ($scope, $http, apiUrl) {
 
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10&fields=id,image,start_date,city,state,title")
+  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.recent_fairs = response.data;
       }, function errorCallback(response){
@@ -81,7 +81,7 @@ FirstSynch.controller("mostrecentedfairvideo" , function ($scope, $http, apiUrl)
 });
 
 // home page - students
-FirstSynch.controller("dbstudents" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_dbstudents" , function ($scope, $http, apiUrl) {
   // home page - students - default
   $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -100,7 +100,7 @@ FirstSynch.controller("dbstudents" , function ($scope, $http, apiUrl) {
           jQuery.each(response.data, function(i) {
             var students_showall =   '<div class="col-sm-4">'
                                         +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
-                                          +'<img src="'+response.data[i].company_logo+'" class="img-responsive custom-img-responsive">'
+                                          +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'
                                         +'<span class="link-new">New</span>'
@@ -124,7 +124,7 @@ FirstSynch.controller("dbstudents" , function ($scope, $http, apiUrl) {
 });
 
 // home page - company
-FirstSynch.controller("dbcompany" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_dbcompany" , function ($scope, $http, apiUrl) {
  // home page - company - default
   $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){

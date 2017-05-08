@@ -1,52 +1,46 @@
-<!-- Company registration Modal Starts -->
-  	<div class="modal fade" id="companyregistration" tabindex="-1" role="dialog" ng-controller="IdentifyUser">
-      <form name="companyregistrations">
-  		<div class="modal-dialog" role="document">
-  			<div class="modal-content">
-  				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  					<span aria-hidden="true"><img class="img-responsive" src="assets/images/close.png" alt="" /></span>
-  				</button>
-  				<div class="modal-body">
-  					<p>
-  						<a href="#" class="green-text bold-text"><i class="fa fa-chevron-left"></i> Step 1</a>
-  					</p>
-  					<p class="text-uppercase text-center grey-text">Step 2 of 2</p>
-  					<h2 class="text-uppercase text-center bold-text">Company registration</h2>
-  					<div class="row">
-  						<div class="col-sm-8 col-sm-offset-2">
-  								<div class="form-group">
-  									<label for="your-name">Your Name</label>
-  									<input type="text" class="form-control" id="your-name" name="name" ng-model="name" required=""/>
-                    <input type="hidden" id="email" name="e_mail" ng-model="e_mail" />
-                    <input type="hidden" name="iaccept" value="true" name="iaccept" ng-model="iaccept" />
-  								</div>
-  								<div class="form-group">
-  									<label for="company-name">company Name</label>
-  									<input type="text" class="form-control" id="company-name" name="cname" ng-model="cname" required="" />
-  								</div>
-  								<div class="form-group">
-  									<label for="create-password">Create Password</label>
-  									<input type="password" class="form-control" id="create-password" name="password" ng-model="password" required="" />
-  								</div>
-  						</div>
-  					</div>
-  				</div>
-  				<div class="modal-footer">
-  					<div class="row">
-  						<div class="col-sm-8 col-sm-offset-2">
-  							<div class="row">
-  								<div class="col-sm-6">
-  									<button type="submit" ng-click="CompanyRegistratoin()" ng-disabled="companyregistrations.$invalid" class="btn btn-default btn-block">sign up</button>
-  								</div>
-  								<div class="col-sm-5">
-  									<p>By clicking "Sign Up" I agree to FirstSynch's <a href="#" class="green-text bold-text">Terms of Service.</a></p>
-  								</div>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-  			</div><!-- /.modal-content -->
-  		</div><!-- /.modal-dialog -->
-    </form>
-  	</div><!-- /.modal -->
-  	<!-- company registration Modal Ends -->
+<!-- Modal Company Registration content Start-->
+<div class="modal fade custom-model" id="companyregistration" tabindex="-1" role="dialog" ng-controller="IdentifyUser">
+  <form name="companyregistrations">
+    <div class="modal-dialog">
+      <div class="modal-content custom-modal-video-content">
+        <div class="modal-header cusom-model-dashboard-header">
+          <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+          <div class="page-step-container">
+            <div class="pull-left">
+              <a href="careerfairs.html" title="Step" class="page-prev"><span class="glyphicon glyphicon-chevron-left"></span>Step 1</a>
+            </div>
+            <span>Step 2 of 2</span>
+          </div>
+          <h1 class="custom-h1 text-center">Company Registration</h1>
+        </div>
+
+        <div class="modal-body custom-modal-body-login">
+          <div class="form-group">
+            <label class="text-uppercase">Your Name</label>
+            <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name" required=""/>
+            <input type="hidden" id="email" name="e_mail" ng-model="e_mail" />
+            <input type="hidden" name="iaccept" value="true" name="iaccept" ng-model="iaccept" />
+          </div>
+          <div class="form-group">
+            <label class="text-uppercase">Company Name</label>
+            <input type="text" class="form-control custom-form-control-br-bottom" id="company-name" name="cname" ng-model="cname" required="" />
+          </div>
+          <div class="form-group">
+            <label class="text-uppercase">Create Password</label>
+            <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required="" />
+          </div>
+        </div>
+
+        <div class="modal-footer custom-login-modal-footer">
+          <button type="submit" ng-click="CompanyRegistratoin()" ng-disabled="companyregistrations.$invalid" class="btn btn-default custom-btn-login">Sign up</button>
+          <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="#" class="link-green">Terms of Service.</a></p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </form>
+</div>
+<!-- Modal Company Registration content End-->

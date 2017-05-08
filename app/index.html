@@ -22,10 +22,13 @@
     <base href="/">
 </head>
 <body>
-    <header class="navbar navbar-default custom-navbar-default" ng-show="!userInfo" ng-include="'common/beforeloginheader.html'">
+    <header class="navbar navbar-default custom-navbar-default" ng-show="!companyuserInfo && !studentuserInfo" ng-include="'common/beforeloginheader.html'">
     </header>
-    <header class="navbar navbar-default custom-navbar-default" ng-show="userInfo" ng-include="'common/afterloginheader.html'">
+    <header class="navbar navbar-default custom-navbar-default" ng-show="companyuserInfo" ng-include="'common/companyheader.html'">
     </header>
+    <header class="navbar navbar-default custom-navbar-default" ng-show="studentuserInfo" ng-include="'common/afterloginheader.html'">
+    </header>
+
 
     <div ng-view></div>
     <!--angularjs area-->

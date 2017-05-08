@@ -39,25 +39,6 @@ FirstSynch.run(function($rootScope, $http, apiUrl) {
           console.log("Unable to perform get Video Details");
       });
     };//Common Video Popup - function end
-
-
-    $rootScope.LogoutUser = function () {
-
-      var data = $.param({
-          token: window.sessionStorage.getItem('token'),
-        });
-        $http({
-            url: apiUrl+'api/v1/accounts/logout/',
-            method: "POST",
-            data: data,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).success(function (data, status, headers, config) {
-                 $window.sessionStorage.removeItem('token');
-                 $window.location.href = '/';
-        }).error(function (data, status, headers, config) {
-                $scope.status = 'Please provide valid login credentials.';
-        });
-    };//Common LogoutUser - function end
 });
 
 
@@ -78,18 +59,19 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
               $window.sessionStorage.setItem('token', response.data.token);
               $window.sessionStorage.setItem('usertype', response.data.usertype);
               $window.sessionStorage.setItem('profileimage', response.data.profile_image);
-              $rootScope.userInfo = window.sessionStorage.getItem("token");
               $rootScope.profileimage = response.data.profile_image;
+              jQuery(".modal-backdrop.in").hide();
               if(companyusertype == response.data.usertype){
-                $('#logIn').modal('hide');
+                $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
                 $location.path( "/company/dashboard" );
               }
               else if(studentusertype == response.data.usertype){
-                $('#logIn').modal('hide');
+                $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
                 $location.path( "/student/dashboard" );
               }
 
       },function errorCallback(data, status, headers, config) {
+              //$('#logIn').modal('show');
               $scope.status = data.data;
       });
 
@@ -98,7 +80,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
 });
 
 
-FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl) {
+FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScope) {
     $scope.SendData = function () {
         var data = 'e_mail=' + $scope.e_mail;
         $http({
@@ -107,30 +89,29 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl) {
             data: data,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function successCallback(data, status, headers, config) {
-              if(data.user_type == '380D2'){
+              if(data.data.user_type == '380D2'){
                 jQuery("#registration").modal('hide');
                 jQuery("#signUp").modal('show');
-                $("#email").val($scope.e_mail);
+                $rootScope.e_mail = $scope.e_mail;
               }else{
                 jQuery("#registration").modal('hide');
                 jQuery("#companyregistration").modal('show');
-                $("#email").val($scope.e_mail);
+                $rootScope.e_mail = $scope.e_mail;
               }
         },function errorCallback(data, status, headers, config) {
-                $scope.error = data.data;
+                $scope.error = data.data.data;
         });
 
     };//find user - function end
 
     $scope.StudentRegistratoin = function () {
-
       var education_created = {
         school_name: $scope.school_name,
         gpa: $scope.gpa,
       };
 
       var data = $.param({
-        e_mail: $scope.e_mail,
+        e_mail: $rootScope.e_mail,
         iaccept: $scope.iaccept,
         name: $scope.name,
         password: $scope.password,
@@ -146,7 +127,7 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl) {
             jQuery("#signUp").modal('hide');
             jQuery("#signUpSuccess").modal('show');
       },function errorCallback(data, status, headers, config) {
-              $scope.status = status;
+              $scope.status = data.data.status;
       });
 
     };//userStudentRegistratoin - function end
@@ -157,13 +138,13 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl) {
         };
 
         var data = $.param({
-          e_mail: $scope.e_mail,
+          e_mail: $rootScope.e_mail,
           iaccept: $scope.iaccept,
           name: $scope.name,
           password: $scope.password,
           employee_created:employee_created,
         });
-        alert($scope.e_mail);
+
         $http({
             url: apiUrl+'api/v1/accounts/v2/createcompany/',
             method: "POST",
@@ -173,7 +154,7 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl) {
             jQuery("#companyregistration").modal('hide');
             jQuery("#signUpSuccess").modal('show');
         },function errorCallback(data, status, headers, config) {
-            $scope.status = status;
+            $scope.status = data.data.status;
         });
 
       };//company Registratoin - function end
@@ -192,10 +173,10 @@ FirstSynch.controller("ForgotPassword", function ($scope, $http, apiUrl) {
               data: data,
               headers: {'Content-Type': 'application/x-www-form-urlencoded'}
           }).then(function successCallback(data, status, headers, config) {
-              $scope.success = data.output;
+              $scope.success = data.data.output;
               $('.hide1').hide();
           },function errorCallback(data, status, headers, config) {
-              $scope.failure = data.error;
+              $scope.failure = data.data.error;
           });
 
     };//Forgot Password - function end
@@ -225,7 +206,7 @@ FirstSynch.controller("ResetPassword", function ($scope, $http, apiUrl) {
 });
 
 
-FirstSynch.controller("LogoutUser", function ($scope, $http, apiUrl, $window, $location) {
+FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, $window, $rootScope) {
     $scope.LogoutUser = function () {
         var data = $.param({
           token: $window.sessionStorage.getItem('token'),
@@ -235,10 +216,14 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, apiUrl, $window, $l
             method: "POST",
             data: data,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).success(function (data, status, headers, config) {
+        }).then(function successCallback(data, status, headers, config) {
                  $window.sessionStorage.removeItem('token');
-                 $window.location.href = '/';
-        }).error(function (data, status, headers, config) {
+                 $window.sessionStorage.removeItem('profileimage');
+                 $window.sessionStorage.removeItem('usertype');
+                 delete $rootScope.companyuserInfo
+                 delete $rootScope.studentuserInfo
+                 $location.path( "/" );
+        },function errorCallback(data, status, headers, config) {
                 $scope.status = 'Please provide valid login credentials.';
         });
 

@@ -146,6 +146,7 @@ FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParam
           jQuery('.for_cfd_nc_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var company_showall =   '<div class="col-sm-4">'
+                                      +'<a href="/careerfair/'+response.data[i].id+'" style="color:#fff;">'
                                       +'<div class="thumbnail customn-thumbs-color-10 custom-thumbnail-image-gallery"> <img src="'+response.data[i].image+'">'
                                         +'<div class="overlay"></div>'
                                         +'<div class="box-inside-content">'
@@ -153,6 +154,7 @@ FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParam
                                           +'<h1 class="custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</div>'
+                                      +'</a>'
                                     +'</div>';
             jQuery('.for_cfd_nc_show_all').append(company_showall);
           })

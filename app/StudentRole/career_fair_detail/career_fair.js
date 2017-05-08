@@ -9,7 +9,7 @@ var FirstSynch = angular.module("StudentcareerFairDetail", ["ngRoute"]);
 FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvider,$routeProvider) {
   $routeProvider.when('/student/careerfair/:carredid', {
     templateUrl: 'StudentRole/career_fair_detail/career_fair.html',
-    controller: 'careerfair_detail'
+    controller: 'student_careerfair_detail'
   });
   if(window.history && window.history.pushState){
      //$locationProvider.html5Mode(true); will cause an error $location in HTML5 mode requires a  tag to be present! Unless you set baseUrl tag after head tag like so: <head> <base href="/">
@@ -26,7 +26,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("careerfair_detail" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_careerfair_detail" ,function ($scope, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/?fields=id,title,city,state,where,start_date,image,description,viewed,followed,member")
       .then(function successCallback(response){
@@ -38,7 +38,7 @@ FirstSynch.controller("careerfair_detail" ,function ($scope, $http,$routeParams,
 });
 
 // students
-FirstSynch.controller("cfdstudents" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("student_cfdstudents" , function ($scope, $http, apiUrl) {
   // home page - students - default
   $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -81,7 +81,7 @@ FirstSynch.controller("cfdstudents" , function ($scope, $http, apiUrl) {
 });
 
 // company
-FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("student_cfdcompany" , function ($scope, $http, apiUrl) {
  // company - default
   $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -127,7 +127,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl) {
 });
 
 // near by career fair
-FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=3&fields=id,image,start_date,city,state,title")
       .then(function successCallback(response){
@@ -146,6 +146,7 @@ FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParam
           jQuery('.for_cfd_nc_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var company_showall =   '<div class="col-sm-4">'
+                                      +'<a href="/careerfair/'+response.data[i].id+'" style="color:#fff;">'
                                       +'<div class="thumbnail customn-thumbs-color-10 custom-thumbnail-image-gallery"> <img src="'+response.data[i].image+'">'
                                         +'<div class="overlay"></div>'
                                         +'<div class="box-inside-content">'
@@ -153,6 +154,7 @@ FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParam
                                           +'<h1 class="custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</div>'
+                                      +'</a>'
                                     +'</div>';
             jQuery('.for_cfd_nc_show_all').append(company_showall);
           })

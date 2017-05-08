@@ -1,5 +1,5 @@
 <!--[Dashboard company Start]-->
-<section class="page-section page-section-new-member"  ng-controller="cfdcompany">
+<section class="page-section page-section-new-member"  ng-controller="student_cfdcompany">
   	<div class="container">
 	    <div class="page-header custom-page-header">
 	      <div class="pull-left">
@@ -9,7 +9,7 @@
 	    </div>
 	    <div class="row custom-row-10 for_home_com_less_all" >
 	      	<div class="col-sm-4" ng-repeat="comp in cfdcompany | limitTo:9">
-	      		<a href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">
+	      		<a data-id="{{comp.id}}" ng-click="videoPopup(comp.id)"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">
 	      			<img ng-src="{{comp.thumbnail}}" class="img-responsive custom-img-responsive">
 	        		<div class="overlay "></div>
 	        		<span class="arrow-triangle"></span>

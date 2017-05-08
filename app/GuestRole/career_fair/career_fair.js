@@ -25,9 +25,9 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair page - near by career fair
-FirstSynch.controller("career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("guest_career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=10&location=Chennai&fields=id,image,start_date,city,state,title")
+  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=10")
       .then(function successCallback(response){
           $scope.career_fair_near_current_user = response.data;
       }, function errorCallback(response){
@@ -37,9 +37,9 @@ FirstSynch.controller("career_fair_near_user" ,function ($scope, $http,$routePar
 });
 
 // career fair page - near by career fair
-FirstSynch.controller("upcoming_career_fair" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("guest_upcoming_career_fair" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10&fields=id,image,start_date,city,state,title")
+  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.upcoming_career = response.data;
       }, function errorCallback(response){
