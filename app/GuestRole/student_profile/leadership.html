@@ -1,0 +1,19 @@
+<section class="page-section background-color-04  page-profile-leadership">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2">
+          <div class="col-sm-6">
+            <h1 class="custom-h1">Leadership <br>
+              Roles </h1>
+          </div>
+          <div class="col-sm-6">
+            <div class="content-profile-leadership" style="margin-top: 0px">
+              <ol class="order-list text-capitalize">
+                <li ng-repeat="leadership in student_profile_details.leadship_role"><b> {{leadership.leadership_role}} -</b>{{leadership.description}}</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

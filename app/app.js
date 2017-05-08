@@ -7,14 +7,17 @@ var FirstSynch = angular.module("firstSync", [
   "careerFair",
   "careerFairDetail",
   "CompanyList",
+  "GstudentProfile",
   "StudentDashboard",
   "StudentcareerFair",
   "StudentcareerFairDetail",
   "StudentCompanyList",
+  "SstudentProfile",
   "CompanyDashboard",
   "CompanycareerFair",
   "CompanycareerFairDetail",
-  "CompanyCompanyList"
+  "CompanyCompanyList",
+  "CstudentProfile",
 ]);
 
 FirstSynch.constant('apiUrl', 'http://52.43.26.31:8000/');

@@ -1,0 +1,49 @@
+
+<div  ng-controller="guest_student_profile">
+    <div class="container">
+
+        <div class="row"> 
+            <aside class="col-sm-2 sidebar-navi-default">
+                <nav  class="sidebar-navigation">
+                    <ul class="custom-sidebar-nav">
+                        <li><a href="#" title="Videos">Videos</a></li>
+                        <li><a href="#" title="About me">About me</a></li>
+                        <li><a href="#" title="Education">Education</a></li>
+                        <li><a href="#" title="Experience">Experience</a></li>
+                        <li><a href="#" title="Skills">Skills</a></li>
+                        <li><a href="#" title="Reviews">Reviews</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        
+            <div class="col-sm-offset-2">
+
+                <section class="page-section page-section-videos">
+
+                    <div ng-include ="'GuestRole/student_profile/basic_profile.html'"></div>
+
+                    <div ng-include ="'GuestRole/student_profile/extra.html'"></div>
+
+                    <div ng-include ="'GuestRole/student_profile/video.html'"></div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <div class="page-about-me-section">
+      
+        <div ng-include ="'GuestRole/student_profile/aboutme.html'"></div>
+
+        <div ng-include ="'GuestRole/student_profile/leadership.html'"></div>
+
+        <div ng-include ="'GuestRole/student_profile/instagram.html'"></div>
+      
+    </div>
+        
+    <div ng-include ="'GuestRole/student_profile/education.html'"></div>
+
+    <div ng-include ="'GuestRole/student_profile/experience.html'"></div>
+
+    <div ng-include ="'GuestRole/student_profile/skills.html'"></div>
+</div>
