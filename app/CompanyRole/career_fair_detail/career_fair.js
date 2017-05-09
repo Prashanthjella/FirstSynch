@@ -38,7 +38,7 @@ FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$rout
 });
 
 // students
-FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $compile) {
   // home page - students - default
   $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -66,7 +66,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl) {
                                           +'</div>'
                                         +'</a> '
                                       +'</div>';
-              jQuery('.for_home_stu_show_all').append(students_showall);
+               angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
           })
         }else{
             jQuery('.for_home_stu_show_all').slideUp(500);
@@ -81,7 +81,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl) {
 });
 
 // company
-FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $compile) {
  // company - default
   $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -113,7 +113,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl) {
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';
-              jQuery('.for_home_com_show_all').append(company_showall);
+            angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
           })
         }else{
             jQuery('.for_home_com_show_all').slideUp(500);
@@ -127,7 +127,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl) {
 });
 
 // near by career fair
-FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$compile) {
 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=3&fields=id,image,start_date,city,state,title")
       .then(function successCallback(response){
@@ -156,7 +156,7 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$ro
                                       +'</div>'
                                       +'</a>'
                                     +'</div>';
-            jQuery('.for_cfd_nc_show_all').append(company_showall);
+            angular.element(jQuery('.for_cfd_nc_show_all')).append($compile(company_showall)($scope));
           })
         }else{
             jQuery('.for_cfd_nc_show_all').slideUp(500);

@@ -25,7 +25,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // home page - featured video
-FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl) {
+FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl,$compile) {
   // home page - featured video - default
   $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5&fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -54,7 +54,7 @@ FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl) {
               +'</div>'
               +'</a>'
             +'</div>';
-              jQuery('.for_show_all_purpose').append(featurevideo_showall);
+              angular.element(jQuery('.for_show_all_purpose')).append($compile(featurevideo_showall)($scope));
           })
         }else{
             jQuery('.for_show_all_purpose').slideUp(500);
@@ -81,7 +81,7 @@ FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope, $http, ap
 });
 
 // home page - students
-FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compile) {
   // home page - students - default
   $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -109,7 +109,8 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl) {
                                           +'</div>'
                                         +'</a> '
                                       +'</div>';
-              jQuery('.for_home_stu_show_all').append(students_showall);
+            
+              angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
           })
         }else{
             jQuery('.for_home_stu_show_all').slideUp(500);
@@ -124,7 +125,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl) {
 });
 
 // home page - company
-FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compile) {
  // home page - company - default
   $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
       .then(function successCallback(response){
@@ -156,7 +157,8 @@ FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl) {
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';
-              jQuery('.for_home_com_show_all').append(company_showall);
+              angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
+
           })
         }else{
             jQuery('.for_home_com_show_all').slideUp(500);
