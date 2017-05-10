@@ -16,7 +16,8 @@
           </div>
           <div class="col-sm-3">
             <ul class="navi-skills">
-              <li class="active" ng-repeat="skills in student_profile_details.skill"><a href="#" title="Professional">{{skills.skill_type}}</a></li>
+              <li class="active" ng-repeat-start="skills in student_profile_details.skill" ng-if="$first"><a href="#" title="{{skills.skill_type}}">{{skills.skill_type}}</a></li>
+              <li ng-repeat-end ng-if="!$first"><a href="#" title="{{skills.skill_type}}">{{skills.skill_type}}</a></li>
           
             </ul>
           </div>

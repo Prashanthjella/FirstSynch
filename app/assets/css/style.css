@@ -19,6 +19,7 @@ body.fixed-scrol {
 h1, h2, h3 {
 	font-weight: 900 !important;
 	color: #303030;
+	letter-spacing:-2px;
 }
 .custom-h1 {
 	text-transform: uppercase
@@ -60,12 +61,19 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	font-size: 14px;
 	font-weight: 600
 }
+.custom-h5-02{
+	text-transform: uppercase;
+	color: #00b58e;
+	font-size: 14px;
+	font-weight: 800
+	}
 .custom-h6 {
 	font-size: 12x;
 	margin-bottom: 7px;
 	font-weight: 700;
 	text-transform: uppercase
 }
+.cont-character{width:100%; float:left; margin-bottom:60px;}
 h2.custom-title {
 	font-weight: normal !important;
 }
@@ -706,9 +714,12 @@ a.thumbnail, a.custom-large-image-gallery {
 	width: 100%;
 	float: left;
 }
+.h5-designation{color:#b2b2b2}
+.h5-companyname{color:#303030}
+.slider-profile .fa{margin-right:5px;}
 .custom-btn-edit-profile {
-	margin: 155px 0;
-	min-width: 130px;
+	margin: 155px 5px;
+	/*min-width: 130px;*/
 	height: 46px;
 	text-align: center;
 	line-height: 31px;
@@ -872,8 +883,9 @@ a.thumbnail, a.custom-large-image-gallery {
 	font-weight: 900;
 	margin: 21px 15px
 }
-.page-section.video-profile .custom-large-image-gallery, .page-section-profile.video-profile .custom-make-video-gallery {
-	height: 215px;
+.page-section.video-profile .custom-large-image-gallery, .page-section.video-profile .custom-make-video-gallery,
+.page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery{
+	height: 264px;
 }
 .custom-make-video-gallery {
 	border: 2px solid #6f7070;
@@ -910,15 +922,16 @@ a.thumbnail, a.custom-large-image-gallery {
 	color: #303030;
 	font-size: 48px;
 	text-transform: uppercase;
-	margin: 0;
+	margin: 0 0 25px 0;
 }
-.page-section-about-me .custom-h1 {
+.page-section-about-me .custom-h1,.page-section-hire-me .custom-h1 {
 	margin-bottom: 30px;
 }
 .page-section-about-home {
 	padding-bottom: 30px;
 	min-height: 500px;
 }
+
 .custom-heading-01 {
 	text-transform: uppercase;
 	margin-bottom: 30px;
@@ -963,6 +976,7 @@ a.thumbnail, a.custom-large-image-gallery {
 	font-size: 19px;
 	width: 90%;
 }
+.page-section-hire-me .custom-gallery-h1{width:40%;}
 .custom-thumbnail-profile-views {
 	margin-bottom: 15px;
 }
@@ -1930,6 +1944,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	border-radius: 0;
 	padding-left: 0;
 }
+.custom-form-control-br-bottom:focus{
+	box-shadow:none;
+	}
 .custom-modal-body-login {
 	width: 662px;
 	margin: 0 auto;
@@ -1959,9 +1976,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
     display: inline-block;
     margin-right: 5px;
 	color:#b2b2b2
-	}
-.email-support{color:#b2b2b2}
-.custom-btn-allow,.custom-btn-allow:hover{color:#fff; border-color:transparent}
+	}	
+.email-support{color:#b2b2b2}	
+.custom-btn-allow,.custom-btn-allow:hover{color:#fff; border-color:transparent}	
 .page-step-container {
 	width: 100%;
 	float: left;
@@ -1985,6 +2002,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	width:25%;
 	vertical-align:middle;
 	}
+.group-followers{margin-left:15px;}
+.counter-number{font-size:30px; color:#e6e6e6; margin:0}
+.col-sm-character{
+	float:none;
+	margin-right:-3px;
+	display:inline-block;
+	vertical-align:top
+	}
+.custom-page-h2-bottom{clear:both; margin-bottom:35px;}	
  @media (min-width:992px) and (max-width:1199px) {
 .custom-thumbnail-box-views {
 	height: 140px
@@ -2013,6 +2039,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	height: 290px;
 	text-align: center;
 }
+.page-section.video-profile .custom-large-image-gallery, .page-section-profile.video-profile .custom-make-video-gallery,.page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery {
+	height: 215px;
+}
+
 }
 @media (min-width:768px) and (max-width:991px) {
 .custom-large-image-gallery {
@@ -2113,3 +2143,4 @@ input[type="checkbox"].checkbox-input + label.checkbox-label:before {
 	padding: 0px 0
 }
 }
+

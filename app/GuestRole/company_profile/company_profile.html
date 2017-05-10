@@ -1,0 +1,50 @@
+<div  ng-controller="guest_company_profile">
+    <div class="container">
+        <div class="row"> 
+        <!--[Sidbar Navigation Start]-->
+            <aside class="col-sm-2 sidebar-navi-default">
+                <nav  class="sidebar-navigation">
+                    <ul class="custom-sidebar-nav">
+                        <li><a href="#" title="Videos">Videos</a></li>
+                        <li><a href="#" title="We are hiring">We are hiring</a></li>
+                        <li><a href="#" title="Company">Company</a></li>
+                        <li><a href="#" title="Career fair">Career fair</a></li>
+                        <li><a href="#" title="Employees">Employees</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        <!--[Sidbar Navigation End]--> 
+        
+            <div class="col-sm-offset-2">
+                <section class="page-section page-section-videos">
+
+                    <div ng-include ="'GuestRole/company_profile/company_basic_profile.html'"></div>
+            
+                    <div ng-include ="'GuestRole/company_profile/company_video.html'"></div>
+
+                </section>
+            </div>
+       
+        </div>
+    </div>
+
+    <div class="page-about-me-section" id="we-are-hiring">
+      
+        <div ng-include ="'GuestRole/company_profile/company_hiring_for.html'"></div>
+
+        <div ng-include ="'GuestRole/company_profile/company_seeking_for.html'"></div>
+      
+        <div ng-include ="'GuestRole/company_profile/company_interview.html'"></div>
+
+    </div>
+
+    <div ng-include ="'GuestRole/company_profile/company_leadership.html'"></div>
+
+    <div ng-include ="'GuestRole/company_profile/company_instagram.html'"></div>
+
+    <div ng-include ="'GuestRole/company_profile/company_education.html'"></div>
+
+    <div ng-include ="'GuestRole/company_profile/company_experience.html'"></div>
+
+    <div ng-include ="'GuestRole/company_profile/company_skills.html'"></div>
+</div>

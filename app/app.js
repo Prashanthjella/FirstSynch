@@ -8,6 +8,8 @@ var FirstSynch = angular.module("firstSync", [
   "careerFairDetail",
   "CompanyList",
   "GstudentProfile",
+  "GcompanyProfile",
+  "GemployeeProfile",
   "StudentDashboard",
   "StudentcareerFair",
   "StudentcareerFairDetail",

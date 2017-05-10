@@ -1,0 +1,29 @@
+<section class="page-section page-section-about-me">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2">
+                <h1 class="h1 custom-h1">Characteristics</h1>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <p>My friends would describe me as</p>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-character" ng-repeat=" employee_characteristic in  employee_profile_details.user_characteristic">
+                                <div class="cont-character">
+                                    <h2 class="counter-number">{{$index + 1}} </h2>
+                                    <h5 class="custom-h5-02">{{employee_characteristic.character}}</h5>
+                                    <p>While most people enjoy
+                                        casino gambling, sports
+                                        betting, lottery and bingo playing for thefun and 
+                                        excitement it provides, other may experience gambling as an addictive and distracive habit
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

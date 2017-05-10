@@ -1,0 +1,27 @@
+<section class="page-section page-section-education">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2">
+                <h1 class="h1 custom-page-h1">Education</h1>
+                <div class="thumbnail custom-thumbnail-education"  ng-repeat="emp_education in  employee_profile_details.education">
+                    <div class="row">
+                        <div class="col-sm-4"><img src="assets/images/img-education.jpg" class="img-responsive custom-img-responsive"></div>
+                        <div class="col-sm-8">
+                            <div class="edu-details">
+                                <div class="pass-year">{{emp_education.year_started}}-{{emp_education.year_graduated}}</div>
+                                <h3 class="school-name">{{emp_education.school_name}}</h3>
+                                <h5 class="department">{{emp_education.major}}</h5>
+                            </div>
+                            <div class="rating-container">
+                                <div class="pull-left">GPA : {{emp_education.gpa}}</div>
+                                <div class="pull-right">
+                                    <div class="rating-container"> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="total-star">{{emp_education.gpa_rating}}</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

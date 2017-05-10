@@ -1,0 +1,14 @@
+<section class="page-section video-profile">
+    <div class="row custom-row-15">
+        <div class="col-sm-6" ng-repeat=" company_p_video in company_profile_details.company.video">
+            <a href="#" class="thumbnail custom-large-image-gallery customn-thumbs-color-01">
+                <img ng-src="{{ company_p_video.thumbnail}}" class="img-responsive custom-img-responsive">
+                <div class="overlay "></div>
+                <span class="arrow-triangle"></span>
+                <div class="box-inside-content">
+                    <h1 class="h1 custom-gallery-h1">{{ company_p_video.title}}</h1>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
