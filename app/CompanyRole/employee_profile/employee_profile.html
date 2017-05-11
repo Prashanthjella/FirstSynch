@@ -1,0 +1,70 @@
+<div ng-controller="company_employee_profile">
+    <div class="container">
+        <div class="row">
+            <!--[Sidbar Navigation Start]-->
+            <aside class="col-sm-2 sidebar-navi-default">
+                <nav  class="sidebar-navigation">
+                    <ul class="custom-sidebar-nav">
+                        <li><a href="#" title="Videos">Videos</a></li>
+                        <li><a href="#" title="About me">About me</a></li>
+                        <li><a href="#" title="About me">Career fair</a></li>
+                        <li><a href="#" title="Education">Education</a></li>
+                        <li><a href="#" title="Experience">Experience</a></li>
+                        <li><a href="#" title="Skills">Skills</a></li>
+                        <li><a href="#" title="Reviews">Reviews</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <!--[Sidbar Navigation End]--> 
+            <!--[Page Video Section Content Start]-->
+            <div class="col-sm-offset-2">
+                <section class="page-section page-section-videos">
+
+                    <div ng-include ="'GuestRole/employee_profile/employee_basic_profile.html'"></div>
+
+                    <div ng-include ="'GuestRole/employee_profile/employee_instruction_video.html'"></div>
+                    
+                </section>
+            </div>
+            <!--[Page Video Section Content End]--> 
+        </div>
+    </div>
+    <!--[About Me Page Start]-->
+    <div class="page-about-me-section">
+
+        <div ng-include ="'GuestRole/employee_profile/employee_about_me.html'"></div>
+
+        <div ng-include ="'GuestRole/employee_profile/employee_characteristic.html'"></div>
+
+        <div ng-include ="'GuestRole/employee_profile/employee_leadership.html'"></div>
+        
+        <div ng-include ="'GuestRole/employee_profile/employee_instagram.html'"></div>
+        
+    </div>
+    <!--[About Me Page End]-->
+    <!--[Career Fairs Page Start]-->
+    <div ng-include ="'GuestRole/employee_profile/employee_career_fair.html'"></div>
+    <!--[Career Fairs Page End]-->
+    <!--[Education Page Start]-->
+    <div ng-include ="'GuestRole/employee_profile/employee_education.html'"></div>
+    <!--[Education Page End]--> 
+    <!--[Experience Page Start]-->
+    <section class="page-section page-section-experience">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-2">
+                    <h1 class="h1 custom-page-h1">Experience</h1>
+
+                    <div ng-include ="'GuestRole/employee_profile/employee_work_history.html'"></div>
+
+                    <div ng-include ="'GuestRole/employee_profile/employee_projects.html'"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--[Experience Page End]--> 
+    <!--[Skills Page Start]-->
+    <div ng-include ="'GuestRole/employee_profile/employee_skills.html'"></div>
+    <!--[Skills Page End]--> 
+</div>

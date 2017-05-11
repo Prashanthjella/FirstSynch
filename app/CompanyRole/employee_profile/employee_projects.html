@@ -1,0 +1,23 @@
+<section class="page-section page-work-history">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="h2 custom-page-h2">Projects</h2>
+        </div>
+        <div class="col-sm-7">
+            <div class="group-experience" ng-repeat="emp_project in  employee_profile_details.project">
+                <h5>{{emp_project.completation_date}}</h5>
+                <h3  class="h3 custom-sub-h3">{{emp_project.title}}
+                </h3>
+                <p class="cont-experience"{{emp_project.project_description}}</p>
+                <div class="row custom-row-15">
+                    <div class="col-sm-4">
+                        <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/instagram-01.jpg" class="img-responsive custom-img-responsive"> </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/instagram-02.jpg" class="img-responsive custom-img-responsive"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

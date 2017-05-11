@@ -2,24 +2,9 @@
 
 /////////////////////////////////// Module ///////////////////////////////////////////
 
-var FirstSynch = angular.module("hoMe", ["ngRoute"]);
+var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync"]);
 
-/////////////////////////////////// Configuration ////////////////////////////////////
 
-FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvider,$routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'GuestRole/home/home.html'
-  });
-  if(window.history && window.history.pushState){
-     //$locationProvider.html5Mode(true); will cause an error $location in HTML5 mode requires a  tag to be present! Unless you set baseUrl tag after head tag like so: <head> <base href="/">
-     // to know more about setting base URL visit: https://docs.angularjs.org/error/$location/nobase
-     // if you don't wish to set base URL then use this
-    $locationProvider.html5Mode({
-       enabled: true,
-       requireBase: false
-    }).hashPrefix('!');
-   }
-}]);
 
 
 /////////////////////////////////// Controllors ////////////////////////////////////
@@ -185,35 +170,4 @@ FirstSynch.filter('startFrom', function() {
 
 ////////////////////////////////// Directives //////////////////////////////////////
 
-FirstSynch.directive("owlCarousel", function() {
-	return {
-		restrict: 'E',
-		transclude: false,
-		link: function (scope) {
-			scope.initCarousel = function(element) {
-			  // provide any default options you want
-				var defaultOptions = {
-				};
-				var customOptions = scope.$eval($(element).attr('data-options'));
-				// combine the two options objects
-				for(var key in customOptions) {
-					defaultOptions[key] = customOptions[key];
-				}
-				// init carousel
-				$(element).owlCarousel(defaultOptions);
-			};
-		}
-	};
-})
-.directive('owlCarouselItem', [function() {
-	return {
-		restrict: 'A',
-		transclude: false,
-		link: function(scope, element) {
-		  // wait for the last item in the ng-repeat then call init
-			if(scope.$last) {
-				scope.initCarousel(element.parent());
-			}
-		}
-	};
-}]);
+

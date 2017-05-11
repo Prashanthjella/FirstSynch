@@ -7,9 +7,14 @@
 			<li><a href="/company/careerfair" title="Career fairs ">Career fairs </a></li>
 			<li><a href="/company/companies" title="Companies">Companies</a></li>
 			<li><a href="#" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
-			<li><a href="#" title="User Name" class="user-avator-img"><img src="http://52.43.26.31:8000/media/{{profileimage}}" alt"img-user-avator.png"></a></li>
-			<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
-
+			<li>
+				<a href="#" title="User Name"  data-toggle="dropdown" class="user-avator-img"><img src="http://52.43.26.31:8000/media/{{profileimage}}" alt="img-user-avator.png"></a>
+					<ul class="dropdown-menu">
+	                	<li><a href="#">My Profile</a></li>
+	                	<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
+              		</ul>
+				
+			</li>
 		</ul>
 	</div>
 </div>

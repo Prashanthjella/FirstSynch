@@ -15,11 +15,15 @@ var FirstSynch = angular.module("firstSync", [
   "StudentcareerFairDetail",
   "StudentCompanyList",
   "SstudentProfile",
+  "ScompanyProfile",
+  "SemployeeProfile",
   "CompanyDashboard",
   "CompanycareerFair",
   "CompanycareerFairDetail",
   "CompanyCompanyList",
   "CstudentProfile",
+  "CcompanyProfile",
+  "CemployeeProfile"
 ]);
 
 FirstSynch.constant('apiUrl', 'http://52.43.26.31:8000/');
@@ -28,7 +32,17 @@ FirstSynch.constant('studentusertype','38OD2');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
-FirstSynch.run(function($rootScope, $http, apiUrl) {
+FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertype) {
+    // condition based header show
+    if(companyusertype == window.sessionStorage.getItem("usertype")){
+      $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
+      $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
+    }
+    else if(studentusertype == window.sessionStorage.getItem("usertype")){
+      $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
+      $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
+    }
+
     $rootScope.videoPopup = function (value) {
       jQuery("#VideoPopup1").modal('show');
       var id = value;
