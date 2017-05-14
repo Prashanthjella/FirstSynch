@@ -1,0 +1,5002 @@
+[
+  {
+    "Institution_ID": 100016,
+    "Institution_Name": "Community College of the Air Force",
+    "Institution_Address": "130 W Maxwell Blvd",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": "36112-6613",
+    "Institution_Phone": "334-953-6436",
+    "Institution_Web_Address": "www.maxwell.af.mil/au/ccaf/"
+  },
+  {
+    "Institution_ID": 100025,
+    "Institution_Name": "Alabama A & M University",
+    "Institution_Address": "4900 Meridian St",
+    "Institution_City": "Normal",
+    "Institution_State": "AL",
+    "Institution_Zip": 35762,
+    "Institution_Phone": "256-372-5000",
+    "Institution_Web_Address": "www.aamu.edu/"
+  },
+  {
+    "Institution_ID": 100034,
+    "Institution_Name": "University of Alabama at Birmingham",
+    "Institution_Address": "1720 2nd Avenue South",
+    "Institution_City": "Birmingham",
+    "Institution_State": "AL",
+    "Institution_Zip": 35233,
+    "Institution_Phone": "205-934-4011",
+    "Institution_Web_Address": "www.uab.edu"
+  },
+  {
+    "Institution_ID": 100043,
+    "Institution_Name": "Amridge University",
+    "Institution_Address": "1200 Taylor Rd",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": "36117-3553",
+    "Institution_Phone": "334-387-3877-100",
+    "Institution_Web_Address": "www.amridgeuniversity.edu"
+  },
+  {
+    "Institution_ID": 100052,
+    "Institution_Name": "University of Alabama at Huntsville",
+    "Institution_Address": "301 Sparkman Dr",
+    "Institution_City": "Huntsville",
+    "Institution_State": "AL",
+    "Institution_Zip": 35899,
+    "Institution_Phone": "256-824-6120",
+    "Institution_Web_Address": "www.uah.edu"
+  },
+  {
+    "Institution_ID": 100061,
+    "Institution_Name": "Alabama State University",
+    "Institution_Address": "915 S Jackson Street",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": 36104,
+    "Institution_Phone": "334-229-4400",
+    "Institution_Web_Address": "www.alasu.edu"
+  },
+  {
+    "Institution_ID": 100089,
+    "Institution_Name": "The University of Alabama",
+    "Institution_Address": "739 University Boulevard",
+    "Institution_City": "Tuscaloosa",
+    "Institution_State": "AL",
+    "Institution_Zip": "35487-0100",
+    "Institution_Phone": "205-348-6010",
+    "Institution_Web_Address": "www.ua.edu/"
+  },
+  {
+    "Institution_ID": 100098,
+    "Institution_Name": "Central Alabama Community College",
+    "Institution_Address": "1675 Cherokee Road",
+    "Institution_City": "Alexander City",
+    "Institution_State": "AL",
+    "Institution_Zip": 35010,
+    "Institution_Phone": "256-234-6346",
+    "Institution_Web_Address": "www.cacc.edu"
+  },
+  {
+    "Institution_ID": 100104,
+    "Institution_Name": "Athens State University",
+    "Institution_Address": "300 N Beaty St",
+    "Institution_City": "Athens",
+    "Institution_State": "AL",
+    "Institution_Zip": 35611,
+    "Institution_Phone": "256-233-8100",
+    "Institution_Web_Address": "www.athens.edu"
+  },
+  {
+    "Institution_ID": 100113,
+    "Institution_Name": "Auburn University-Montgomery",
+    "Institution_Address": "7440 East Drive P.O. Box 244023",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": "36117-3596",
+    "Institution_Phone": "334-244-3000",
+    "Institution_Web_Address": "www.aum.edu"
+  },
+  {
+    "Institution_ID": 100122,
+    "Institution_Name": "Auburn University Main Campus",
+    "Institution_Address": "2316 Walker Building",
+    "Institution_City": "Auburn University",
+    "Institution_State": "AL",
+    "Institution_Zip": 36849,
+    "Institution_Phone": "334-844-4000",
+    "Institution_Web_Address": "www.auburn.edu"
+  },
+  {
+    "Institution_ID": 100140,
+    "Institution_Name": "Birmingham Southern College",
+    "Institution_Address": "900 Arkadelphia Road",
+    "Institution_City": "Birmingham",
+    "Institution_State": "AL",
+    "Institution_Zip": 35254,
+    "Institution_Phone": "205-226-4600",
+    "Institution_Web_Address": "www.bsc.edu"
+  },
+  {
+    "Institution_ID": 100168,
+    "Institution_Name": "Chattahoochee Valley Community College",
+    "Institution_Address": "2602 College Dr",
+    "Institution_City": "Phenix City",
+    "Institution_State": "AL",
+    "Institution_Zip": 36869,
+    "Institution_Phone": "334-291-4900",
+    "Institution_Web_Address": "www.cv.edu"
+  },
+  {
+    "Institution_ID": 100177,
+    "Institution_Name": "Concordia College Alabama",
+    "Institution_Address": "1804 Green Street",
+    "Institution_City": "Selma",
+    "Institution_State": "AL",
+    "Institution_Zip": 36701,
+    "Institution_Phone": "334-874-5700-100",
+    "Institution_Web_Address": "www.concordiaselma.edu"
+  },
+  {
+    "Institution_ID": 100201,
+    "Institution_Name": "DCH Regional Medical Center",
+    "Institution_Address": "809 University Blvd., East",
+    "Institution_City": "Tuscaloosa",
+    "Institution_State": "AL",
+    "Institution_Zip": 35401,
+    "Institution_Phone": "",
+    "Institution_Web_Address": "www.dchsystem.com"
+  },
+  {
+    "Institution_ID": 100210,
+    "Institution_Name": "Enterprise State Community College",
+    "Institution_Address": "600 Plaza Drive",
+    "Institution_City": "Enterprise",
+    "Institution_State": "AL",
+    "Institution_Zip": "36330-1300",
+    "Institution_Phone": "334-347-2623",
+    "Institution_Web_Address": "www.escc.edu"
+  },
+  {
+    "Institution_ID": 100229,
+    "Institution_Name": "James H. Faulkner State Community College",
+    "Institution_Address": "1900 US Hwy 31 S",
+    "Institution_City": "Bay Minette",
+    "Institution_State": "AL",
+    "Institution_Zip": "36507-2698",
+    "Institution_Phone": "251-580-2100",
+    "Institution_Web_Address": "www.faulknerstate.edu"
+  },
+  {
+    "Institution_ID": 100238,
+    "Institution_Name": "Faulkner University",
+    "Institution_Address": "5345 Atlanta Hwy",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": "36109-3378",
+    "Institution_Phone": "334-272-5820",
+    "Institution_Web_Address": "www.faulkner.edu"
+  },
+  {
+    "Institution_ID": 100247,
+    "Institution_Name": "Gadsden Business College",
+    "Institution_Address": "3225 Rainbow Drive Suite 246",
+    "Institution_City": "Rainbow City",
+    "Institution_State": "AL",
+    "Institution_Zip": 35906,
+    "Institution_Phone": "256-442-2805",
+    "Institution_Web_Address": "www.gadsdenbusinesscollege.com"
+  },
+  {
+    "Institution_ID": 100256,
+    "Institution_Name": "Gadsden State Community College",
+    "Institution_Address": "1001 George Wallace Dr",
+    "Institution_City": "Gadsden",
+    "Institution_State": "AL",
+    "Institution_Zip": "35902-0227",
+    "Institution_Phone": "256-549-8200",
+    "Institution_Web_Address": "www.gadsdenstate.edu"
+  },
+  {
+    "Institution_ID": 100274,
+    "Institution_Name": "George C Wallace Community College - Dothan",
+    "Institution_Address": "1141 Wallace Drive",
+    "Institution_City": "Dothan",
+    "Institution_State": "AL",
+    "Institution_Zip": "36303-9234",
+    "Institution_Phone": "334-983-3521",
+    "Institution_Web_Address": "www.wallace.edu"
+  },
+  {
+    "Institution_ID": 100283,
+    "Institution_Name": "Wallace State Community College  - Hanceville",
+    "Institution_Address": "801 Main St. P. O. Box 2000",
+    "Institution_City": "Hanceville",
+    "Institution_State": "AL",
+    "Institution_Zip": "35077-2000",
+    "Institution_Phone": "256-352-8000",
+    "Institution_Web_Address": "www.wallacestate.edu"
+  },
+  {
+    "Institution_ID": 100292,
+    "Institution_Name": "George Corley Wallace State Community College - Selma",
+    "Institution_Address": "3000 Earl Goodwin Parkway",
+    "Institution_City": "Selma",
+    "Institution_State": "AL",
+    "Institution_Zip": "36703-2808",
+    "Institution_Phone": "334-876-9227",
+    "Institution_Web_Address": "www.wccs.edu"
+  },
+  {
+    "Institution_ID": 100326,
+    "Institution_Name": "Huntingdon College",
+    "Institution_Address": "1500 East Fairview Avenue",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": "36106-2148",
+    "Institution_Phone": "334-833-4222",
+    "Institution_Web_Address": "www.huntingdon.edu"
+  },
+  {
+    "Institution_ID": 100335,
+    "Institution_Name": "Huntsville Hospital",
+    "Institution_Address": "101 Sivley Road",
+    "Institution_City": "Huntsville",
+    "Institution_State": "AL",
+    "Institution_Zip": 35801,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 100344,
+    "Institution_Name": "Heritage Christian University",
+    "Institution_Address": "3625 Helton Dr, PO Box HCU",
+    "Institution_City": "Florence",
+    "Institution_State": "AL",
+    "Institution_Zip": "35630-9977",
+    "Institution_Phone": "256-766-6610",
+    "Institution_Web_Address": "www.hcu.edu"
+  },
+  {
+    "Institution_ID": 100353,
+    "Institution_Name": "J.F. Drake State Community and Technical College",
+    "Institution_Address": "3421 Meridian St North",
+    "Institution_City": "Huntsville",
+    "Institution_State": "AL",
+    "Institution_Zip": 35811,
+    "Institution_Phone": "256-539-8161",
+    "Institution_Web_Address": "www.drakestate.edu"
+  },
+  {
+    "Institution_ID": 100362,
+    "Institution_Name": "J F Ingram State Technical College",
+    "Institution_Address": "5375 Ingram Road",
+    "Institution_City": "Deatsville",
+    "Institution_State": "AL",
+    "Institution_Zip": 36022,
+    "Institution_Phone": "334-285-7870",
+    "Institution_Web_Address": "www.ingram.cc.al.us"
+  },
+  {
+    "Institution_ID": 100371,
+    "Institution_Name": "Jacksonville State University",
+    "Institution_Address": "700 Pelham Road North",
+    "Institution_City": "Jacksonville",
+    "Institution_State": "AL",
+    "Institution_Zip": 36265,
+    "Institution_Phone": "256-782-5781",
+    "Institution_Web_Address": "www.jsu.edu/"
+  },
+  {
+    "Institution_ID": 100380,
+    "Institution_Name": "Jefferson Davis Community College",
+    "Institution_Address": "220 Alco Dr",
+    "Institution_City": "Brewton",
+    "Institution_State": "AL",
+    "Institution_Zip": 36426,
+    "Institution_Phone": "251-867-4832",
+    "Institution_Web_Address": "www.jdcc.edu"
+  },
+  {
+    "Institution_ID": 100399,
+    "Institution_Name": "Jefferson State Community College",
+    "Institution_Address": "2601 Carson Rd",
+    "Institution_City": "Birmingham",
+    "Institution_State": "AL",
+    "Institution_Zip": "35215-3098",
+    "Institution_Phone": "205-853-1200",
+    "Institution_Web_Address": "www.jeffstateonline.com"
+  },
+  {
+    "Institution_ID": 100405,
+    "Institution_Name": "Calhoun Community College",
+    "Institution_Address": "6250 U S Highway 31 N",
+    "Institution_City": "Tanner",
+    "Institution_State": "AL",
+    "Institution_Zip": 35671,
+    "Institution_Phone": "256-306-2500",
+    "Institution_Web_Address": "www.calhoun.edu"
+  },
+  {
+    "Institution_ID": 100423,
+    "Institution_Name": "Judson College",
+    "Institution_Address": "302 Bibb St",
+    "Institution_City": "Marion",
+    "Institution_State": "AL",
+    "Institution_Zip": 36756,
+    "Institution_Phone": "334-683-5100",
+    "Institution_Web_Address": "www.judson.edu"
+  },
+  {
+    "Institution_ID": 100441,
+    "Institution_Name": "University of West Alabama",
+    "Institution_Address": "205 North Washington Street",
+    "Institution_City": "Livingston",
+    "Institution_State": "AL",
+    "Institution_Zip": 35470,
+    "Institution_Phone": "205-652-3400",
+    "Institution_Web_Address": "www.uwa.edu"
+  },
+  {
+    "Institution_ID": 100450,
+    "Institution_Name": "Lurleen B Wallace Community College",
+    "Institution_Address": "1000 Dannelly Blvd.",
+    "Institution_City": "Andalusia",
+    "Institution_State": "AL",
+    "Institution_Zip": "36420-1418",
+    "Institution_Phone": "334-222-6591",
+    "Institution_Web_Address": "lbwcc.edu"
+  },
+  {
+    "Institution_ID": 100469,
+    "Institution_Name": "Marion Military Institute",
+    "Institution_Address": "1101 Washington St",
+    "Institution_City": "Marion",
+    "Institution_State": "AL",
+    "Institution_Zip": 36756,
+    "Institution_Phone": "334-683-2303",
+    "Institution_Web_Address": "www.marionmilitary.edu"
+  },
+  {
+    "Institution_ID": 100487,
+    "Institution_Name": "Miles College",
+    "Institution_Address": "5500 Myron Massey Blvd",
+    "Institution_City": "Fairfield",
+    "Institution_State": "AL",
+    "Institution_Zip": 35064,
+    "Institution_Phone": "205-929-1000",
+    "Institution_Web_Address": "www.miles.edu"
+  },
+  {
+    "Institution_ID": 100496,
+    "Institution_Name": "University of Mobile",
+    "Institution_Address": "5735 College Parkway Drive",
+    "Institution_City": "Mobile",
+    "Institution_State": "AL",
+    "Institution_Zip": "36663-0220",
+    "Institution_Phone": "251-675-5990",
+    "Institution_Web_Address": "www.umobile.edu"
+  },
+  {
+    "Institution_ID": 100502,
+    "Institution_Name": "University of Montevallo",
+    "Institution_Address": "Station 6001",
+    "Institution_City": "Montevallo",
+    "Institution_State": "AL",
+    "Institution_Zip": 35115,
+    "Institution_Phone": "205-665-6155",
+    "Institution_Web_Address": "www.montevallo.edu"
+  },
+  {
+    "Institution_ID": 100511,
+    "Institution_Name": "Northwest-Shoals Community College - Muscle Shoals",
+    "Institution_Address": "800 George Wallace Blvd",
+    "Institution_City": "Muscle Shoals",
+    "Institution_State": "AL",
+    "Institution_Zip": 35661,
+    "Institution_Phone": "256-331-5200",
+    "Institution_Web_Address": "www.nwscc.edu"
+  },
+  {
+    "Institution_ID": 100520,
+    "Institution_Name": "University of North Alabama",
+    "Institution_Address": "One Harrison Plaza",
+    "Institution_City": "Florence",
+    "Institution_State": "AL",
+    "Institution_Zip": "35632-0001",
+    "Institution_Phone": "256-765-4100",
+    "Institution_Web_Address": "www.una.edu"
+  },
+  {
+    "Institution_ID": 100539,
+    "Institution_Name": "Northeast Alabama Community College",
+    "Institution_Address": "138 Alabama Highway 35",
+    "Institution_City": "Rainsville",
+    "Institution_State": "AL",
+    "Institution_Zip": 35986,
+    "Institution_Phone": "205-638-4418-222",
+    "Institution_Web_Address": "www.nacc.edu"
+  },
+  {
+    "Institution_ID": 100548,
+    "Institution_Name": "Northwest-Shoals Community College - Phil Campbell",
+    "Institution_Address": "2080 College Road",
+    "Institution_City": "Phil Campbell",
+    "Institution_State": "AL",
+    "Institution_Zip": 35881,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 100557,
+    "Institution_Name": "Oakwood University",
+    "Institution_Address": "7000 Adventist Blvd N.W.",
+    "Institution_City": "Huntsville",
+    "Institution_State": "AL",
+    "Institution_Zip": 35896,
+    "Institution_Phone": "256-726-7000",
+    "Institution_Web_Address": "www.oakwood.edu"
+  },
+  {
+    "Institution_ID": 100566,
+    "Institution_Name": "Alabama Southern Community College",
+    "Institution_Address": "2800 South Alabama Avenue",
+    "Institution_City": "Monroeville",
+    "Institution_State": "AL",
+    "Institution_Zip": 36460,
+    "Institution_Phone": "251-575-3156-600",
+    "Institution_Web_Address": "www.ascc.edu"
+  },
+  {
+    "Institution_ID": 100575,
+    "Institution_Name": "Prince Institute - Southeast",
+    "Institution_Address": "596 W. Lamont Road",
+    "Institution_City": "Elmhurst",
+    "Institution_State": "IL",
+    "Institution_Zip": 60126,
+    "Institution_Phone": "334-271-1670",
+    "Institution_Web_Address": "princeinstitute.com"
+  },
+  {
+    "Institution_ID": 100584,
+    "Institution_Name": "Reid State Technical College",
+    "Institution_Address": "I-65 and Highway 83",
+    "Institution_City": "Evergreen",
+    "Institution_State": "AL",
+    "Institution_Zip": 36401,
+    "Institution_Phone": "251-578-1313",
+    "Institution_Web_Address": "www.rstc.cc.al.us"
+  },
+  {
+    "Institution_ID": 100593,
+    "Institution_Name": "Bishop State Community College",
+    "Institution_Address": "351 North Broad Street",
+    "Institution_City": "Mobile",
+    "Institution_State": "AL",
+    "Institution_Zip": "36603-5362",
+    "Institution_Phone": "251-405-7130",
+    "Institution_Web_Address": "www.bishop.edu"
+  },
+  {
+    "Institution_ID": 100609,
+    "Institution_Name": "Samford University",
+    "Institution_Address": "800 Lakeshore Drive",
+    "Institution_City": "Birmingham",
+    "Institution_State": "AL",
+    "Institution_Zip": "35229-2240",
+    "Institution_Phone": "205-726-2011",
+    "Institution_Web_Address": "www.samford.edu"
+  },
+  {
+    "Institution_ID": 100618,
+    "Institution_Name": "Shelton State Community College",
+    "Institution_Address": "9500 Old Greensboro Rd",
+    "Institution_City": "Tuscaloosa",
+    "Institution_State": "AL",
+    "Institution_Zip": "35405-8522",
+    "Institution_Phone": "205-391-2347",
+    "Institution_Web_Address": "www.sheltonstate.edu"
+  },
+  {
+    "Institution_ID": 100627,
+    "Institution_Name": "Snead State Community College",
+    "Institution_Address": "220 North Walnut Street",
+    "Institution_City": "Boaz",
+    "Institution_State": "AL",
+    "Institution_Zip": "35957-0734",
+    "Institution_Phone": "256-593-5120",
+    "Institution_Web_Address": "www.snead.edu"
+  },
+  {
+    "Institution_ID": 100636,
+    "Institution_Name": "University of South Alabama",
+    "Institution_Address": "307 N University Blvd",
+    "Institution_City": "Mobile",
+    "Institution_State": "AL",
+    "Institution_Zip": "36688-0002",
+    "Institution_Phone": "334-460-6101",
+    "Institution_Web_Address": "www.usouthal.edu"
+  },
+  {
+    "Institution_ID": 100645,
+    "Institution_Name": "Southern Community College",
+    "Institution_Address": "205 S Main St",
+    "Institution_City": "Tuskegee",
+    "Institution_State": "AL",
+    "Institution_Zip": "36083-0688",
+    "Institution_Phone": "334-727-5220-3022",
+    "Institution_Web_Address": "www.SOUTHERNCOMMUNITYCOLLEGE.ORG"
+  },
+  {
+    "Institution_ID": 100654,
+    "Institution_Name": "Spring Hill College",
+    "Institution_Address": "4000 Dauphin St",
+    "Institution_City": "Mobile",
+    "Institution_State": "AL",
+    "Institution_Zip": "36608-1791",
+    "Institution_Phone": "251-380-4000",
+    "Institution_Web_Address": "www.shc.edu"
+  },
+  {
+    "Institution_ID": 100663,
+    "Institution_Name": "Southeastern Bible College",
+    "Institution_Address": "2545 Valleydale Road",
+    "Institution_City": "Birmingham",
+    "Institution_State": "AL",
+    "Institution_Zip": "35244-2083",
+    "Institution_Phone": "205-970-9200",
+    "Institution_Web_Address": "www.sebc.edu"
+  },
+  {
+    "Institution_ID": 100672,
+    "Institution_Name": "Stillman College",
+    "Institution_Address": "3601 Stillman Boulevard",
+    "Institution_City": "Tuscaloosa",
+    "Institution_State": "AL",
+    "Institution_Zip": 35403,
+    "Institution_Phone": "205-349-4240",
+    "Institution_Web_Address": "www.stillman.edu"
+  },
+  {
+    "Institution_ID": 100681,
+    "Institution_Name": "Talladega College",
+    "Institution_Address": "627 W Battle St",
+    "Institution_City": "Talladega",
+    "Institution_State": "AL",
+    "Institution_Zip": 35160,
+    "Institution_Phone": "256-362-0206",
+    "Institution_Web_Address": "www.talladega.edu"
+  },
+  {
+    "Institution_ID": 100690,
+    "Institution_Name": "H. Councill Trenholm State Community College",
+    "Institution_Address": "1225 Air Base Blvd",
+    "Institution_City": "Montgomery",
+    "Institution_State": "AL",
+    "Institution_Zip": 36108,
+    "Institution_Phone": "334-420-4295",
+    "Institution_Web_Address": "www.trenholmstate.edu"
+  },
+  {
+    "Institution_ID": 100733,
+    "Institution_Name": "Troy University",
+    "Institution_Address": "University Avenue",
+    "Institution_City": "Troy",
+    "Institution_State": "AL",
+    "Institution_Zip": "36082-0001",
+    "Institution_Phone": "334-670-3100",
+    "Institution_Web_Address": "www.troy.edu"
+  },
+  {
+    "Institution_ID": 100742,
+    "Institution_Name": "Tuskegee University",
+    "Institution_Address": "Kresge Center, 3rd Floor",
+    "Institution_City": "Tuskegee",
+    "Institution_State": "AL",
+    "Institution_Zip": "36088-1920",
+    "Institution_Phone": "334-727-8011",
+    "Institution_Web_Address": "www.tuskegee.edu"
+  },
+  {
+    "Institution_ID": 100751,
+    "Institution_Name": "United States Sports Academy",
+    "Institution_Address": "One Academy Dr",
+    "Institution_City": "Daphne",
+    "Institution_State": "AL",
+    "Institution_Zip": "36526-7055",
+    "Institution_Phone": "251-626-3303-162",
+    "Institution_Web_Address": "www.ussa.edu"
+  },
+  {
+    "Institution_ID": 100760,
+    "Institution_Name": "Bevill State Community College",
+    "Institution_Address": "101 State St",
+    "Institution_City": "Sumiton",
+    "Institution_State": "AL",
+    "Institution_Zip": 35148,
+    "Institution_Phone": "205-648-3271-5400",
+    "Institution_Web_Address": "www.bscc.edu"
+  },
+  {
+    "Institution_ID": 100779,
+    "Institution_Name": "University of Alaska Anchorage",
+    "Institution_Address": "3211 Providence Drive",
+    "Institution_City": "Anchorage",
+    "Institution_State": "AK",
+    "Institution_Zip": "99508-8046",
+    "Institution_Phone": "907-786-1480",
+    "Institution_Web_Address": "www.uaa.alaska.edu"
+  },
+  {
+    "Institution_ID": 100788,
+    "Institution_Name": "University of Alaska Fairbanks",
+    "Institution_Address": "Signers' Hall",
+    "Institution_City": "Fairbanks",
+    "Institution_State": "AK",
+    "Institution_Zip": "99775-7480",
+    "Institution_Phone": "907-474-7211",
+    "Institution_Web_Address": "www.uaf.edu"
+  },
+  {
+    "Institution_ID": 100797,
+    "Institution_Name": "University of Alaska Southeast",
+    "Institution_Address": "11120 Glacier Highway",
+    "Institution_City": "Juneau",
+    "Institution_State": "AK",
+    "Institution_Zip": "99801-8697",
+    "Institution_Phone": "907-465-6457",
+    "Institution_Web_Address": "www.uas.alaska.edu"
+  },
+  {
+    "Institution_ID": 100803,
+    "Institution_Name": "Alaska Pacific University",
+    "Institution_Address": "4101 University Dr",
+    "Institution_City": "Anchorage",
+    "Institution_State": "AK",
+    "Institution_Zip": 99508,
+    "Institution_Phone": "907-561-1266",
+    "Institution_Web_Address": "www.alaskapacific.edu"
+  },
+  {
+    "Institution_ID": 100812,
+    "Institution_Name": "AVTEC - Alaska's Institute of Technology",
+    "Institution_Address": "809 Second Avenue",
+    "Institution_City": "Seward",
+    "Institution_State": "AK",
+    "Institution_Zip": "99664-0889",
+    "Institution_Phone": "907-224-3322",
+    "Institution_Web_Address": "avtec.labor.state.ak.us/"
+  },
+  {
+    "Institution_ID": 100821,
+    "Institution_Name": "Charter College",
+    "Institution_Address": "2221 E Northern Lights Blvd Ste 120",
+    "Institution_City": "Anchorage",
+    "Institution_State": "AK",
+    "Institution_Zip": 99508,
+    "Institution_Phone": "907-277-1000",
+    "Institution_Web_Address": "www.chartercollege.edu"
+  },
+  {
+    "Institution_ID": 100830,
+    "Institution_Name": "Prince William Sound Community College",
+    "Institution_Address": "303 Lowe Street",
+    "Institution_City": "Valdez",
+    "Institution_State": "AK",
+    "Institution_Zip": 99686,
+    "Institution_Phone": "907-834-1632",
+    "Institution_Web_Address": "www.pwscc.edu."
+  },
+  {
+    "Institution_ID": 100849,
+    "Institution_Name": "Sheldon Jackson College",
+    "Institution_Address": "801 Lincoln Street",
+    "Institution_City": "Sitka",
+    "Institution_State": "AK",
+    "Institution_Zip": "99835-7699",
+    "Institution_Phone": "907-747-5220",
+    "Institution_Web_Address": "www.sj-alaska.edu"
+  },
+  {
+    "Institution_ID": 100858,
+    "Institution_Name": "Alaska Career College",
+    "Institution_Address": "1415 E Tudor Road",
+    "Institution_City": "Anchorage",
+    "Institution_State": "AK",
+    "Institution_Zip": "99507-1033",
+    "Institution_Phone": "907-563-7575",
+    "Institution_Web_Address": "www.careeracademy.net"
+  },
+  {
+    "Institution_ID": 100876,
+    "Institution_Name": "Everest College - Phoenix",
+    "Institution_Address": "10400 N. 25th Avenue, Suite 190",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85021,
+    "Institution_Phone": "602-942-4141",
+    "Institution_Web_Address": "www.cci.edu"
+  },
+  {
+    "Institution_ID": 100919,
+    "Institution_Name": "Thunderbird School of Global Management",
+    "Institution_Address": "15249 N 59th Ave",
+    "Institution_City": "Glendale",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85306-6000",
+    "Institution_Phone": "602-978-7000",
+    "Institution_Web_Address": "www.t-bird.edu"
+  },
+  {
+    "Institution_ID": 100928,
+    "Institution_Name": "American Indian College",
+    "Institution_Address": "10020 N 15th Ave",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85021,
+    "Institution_Phone": "602-944-3335",
+    "Institution_Web_Address": "www.aicag.edu"
+  },
+  {
+    "Institution_ID": 100937,
+    "Institution_Name": "American Institute of Trucking",
+    "Institution_Address": "440 S 54th Ave",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85043-4729",
+    "Institution_Phone": "602-233-2222",
+    "Institution_Web_Address": "www.ait-schools.com"
+  },
+  {
+    "Institution_ID": 100946,
+    "Institution_Name": "Carrington College - Phoenix",
+    "Institution_Address": "8503 N 27th Ave",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85051-4063",
+    "Institution_Phone": "602-433-1333",
+    "Institution_Web_Address": "www.apollocollege.edu"
+  },
+  {
+    "Institution_ID": 100973,
+    "Institution_Name": "College America - Flagstaff",
+    "Institution_Address": "399 S. Malpais Ln., 2nd Fl.",
+    "Institution_City": "Flagstaff",
+    "Institution_State": "AZ",
+    "Institution_Zip": 86001,
+    "Institution_Phone": "928-526-0763",
+    "Institution_Web_Address": "www.collegeamerica.edu"
+  },
+  {
+    "Institution_ID": 100982,
+    "Institution_Name": "Arizona Academy of Beauty Inc",
+    "Institution_Address": "5631 E Speedway Blvd",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85712,
+    "Institution_Phone": "520-885-4120",
+    "Institution_Web_Address": "www.arizonaacademy.com"
+  },
+  {
+    "Institution_ID": 100991,
+    "Institution_Name": "Arizona Automotive Institute",
+    "Institution_Address": "6829 N 46th Ave",
+    "Institution_City": "Glendale",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85301-3579",
+    "Institution_Phone": "800-528-0717",
+    "Institution_Web_Address": "www.aai.edu"
+  },
+  {
+    "Institution_ID": 101000,
+    "Institution_Name": "International Institute of the Americas",
+    "Institution_Address": "6049 N 43rd Ave",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85019-1600",
+    "Institution_Phone": "602-242-6265",
+    "Institution_Web_Address": "www.iia.edu"
+  },
+  {
+    "Institution_ID": 101019,
+    "Institution_Name": "Arizona State University",
+    "Institution_Address": "P.O. Box 2203",
+    "Institution_City": "Tempe",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85287,
+    "Institution_Phone": "480-965-9011",
+    "Institution_Web_Address": "www.asu.edu"
+  },
+  {
+    "Institution_ID": 101028,
+    "Institution_Name": "Arizona Western College",
+    "Institution_Address": "P.O. Box 929",
+    "Institution_City": "Yuma",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85366,
+    "Institution_Phone": "928-317-6000",
+    "Institution_Web_Address": "www.azwestern.edu"
+  },
+  {
+    "Institution_ID": 101037,
+    "Institution_Name": "University of Arizona",
+    "Institution_Address": "1401 E University",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85721-0066",
+    "Institution_Phone": "520-621-2211",
+    "Institution_Web_Address": "www.arizona.edu"
+  },
+  {
+    "Institution_ID": 101046,
+    "Institution_Name": "Southwest University of Visual Arts",
+    "Institution_Address": "2525 North Country Club Road",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85716,
+    "Institution_Phone": "520-325-0123",
+    "Institution_Web_Address": "www.theartcenter.EDU"
+  },
+  {
+    "Institution_ID": 101055,
+    "Institution_Name": "Brillare Hairdressing Academy - Scottsdale",
+    "Institution_Address": "15147 North Scottsdale Road, Building H, Suite 300",
+    "Institution_City": "Scottsdale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85254,
+    "Institution_Phone": "480-994-4222",
+    "Institution_Web_Address": "attheacademy.com"
+  },
+  {
+    "Institution_ID": 101064,
+    "Institution_Name": "Central Arizona College",
+    "Institution_Address": "8470 N Overfield Rd",
+    "Institution_City": "Coolidge",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85228-9778",
+    "Institution_Phone": "520-426-4444",
+    "Institution_Web_Address": "www.centralaz.edu"
+  },
+  {
+    "Institution_ID": 101082,
+    "Institution_Name": "Charles of Italy Beauty College",
+    "Institution_Address": "1987 McCulloch Blvd, Suite 205",
+    "Institution_City": "Lake Havasu City",
+    "Institution_State": "AZ",
+    "Institution_Zip": 86403,
+    "Institution_Phone": "928-453-6666",
+    "Institution_Web_Address": "www.charlesofitaly.com"
+  },
+  {
+    "Institution_ID": 101091,
+    "Institution_Name": "Cochise College",
+    "Institution_Address": "4190 W. Highway 80",
+    "Institution_City": "Douglas",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85607,
+    "Institution_Phone": "520-364-7943",
+    "Institution_Web_Address": "www.cochise.edu"
+  },
+  {
+    "Institution_ID": 101125,
+    "Institution_Name": "Cortiva Institute - Tucson",
+    "Institution_Address": "6390 East Broadway Boulevard",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85710,
+    "Institution_Phone": "520-882-0899",
+    "Institution_Web_Address": "www.desertinstitute.org"
+  },
+  {
+    "Institution_ID": 101134,
+    "Institution_Name": "DeVoe College of Beauty",
+    "Institution_Address": "750 Bartow Dr",
+    "Institution_City": "Sierra Vista",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85635-1832",
+    "Institution_Phone": "520-458-8660",
+    "Institution_Web_Address": "www.personal.riverusers.com/~devoe/index.html"
+  },
+  {
+    "Institution_ID": 101152,
+    "Institution_Name": "Avalon School of Cosmetology",
+    "Institution_Address": "2111 S Alma School Rd Ste 21",
+    "Institution_City": "Mesa",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85210,
+    "Institution_Phone": "480-897-1722",
+    "Institution_Web_Address": "WWW.EARLSACADEMY.COM"
+  },
+  {
+    "Institution_ID": 101161,
+    "Institution_Name": "Eastern Arizona College",
+    "Institution_Address": "615 N. Stadium Ave.",
+    "Institution_City": "Thatcher",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85552-0769",
+    "Institution_Phone": "928-428-8322",
+    "Institution_Web_Address": "www.eac.edu"
+  },
+  {
+    "Institution_ID": 101189,
+    "Institution_Name": "Frank Lloyd Wright School of Architecture",
+    "Institution_Address": "Taliesin West, P.O. Box 4430",
+    "Institution_City": "Scottsdale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85261,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101198,
+    "Institution_Name": "Maricopa Community Colleges - Glendale Community College",
+    "Institution_Address": "6000 W Olive Ave",
+    "Institution_City": "Glendale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85302,
+    "Institution_Phone": "623-845-3000",
+    "Institution_Web_Address": "www.gc.maricopa.edu"
+  },
+  {
+    "Institution_ID": 101204,
+    "Institution_Name": "Grand Canyon University",
+    "Institution_Address": "3300 W Camelback Rd",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85017,
+    "Institution_Phone": "602-589-2500",
+    "Institution_Web_Address": "www.gcu.edu"
+  },
+  {
+    "Institution_ID": 101213,
+    "Institution_Name": "Anthem College - Phoenix",
+    "Institution_Address": "1515 E Indian School Road",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85014,
+    "Institution_Phone": "602-279-9700",
+    "Institution_Web_Address": "www.hightechschools.com"
+  },
+  {
+    "Institution_ID": 101222,
+    "Institution_Name": "International Academy of Hair Design - Mesa",
+    "Institution_Address": "1445 West Southern Avenue, Suite 2006",
+    "Institution_City": "Mesa",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85202,
+    "Institution_Phone": "480-820-9422",
+    "Institution_Web_Address": "www.intlacademy.biz"
+  },
+  {
+    "Institution_ID": 101231,
+    "Institution_Name": "Lamson College",
+    "Institution_Address": "875 West Elliot Road, Suite 206",
+    "Institution_City": "Tempe",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85284,
+    "Institution_Phone": "480-898-7000",
+    "Institution_Web_Address": "www.lamsoncollege.com"
+  },
+  {
+    "Institution_ID": 101259,
+    "Institution_Name": "Kaplan College - Phoenix",
+    "Institution_Address": "13450 N Black Canyon Hwy,  Ste 104",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85029,
+    "Institution_Phone": "602-548-1955",
+    "Institution_Web_Address": "www.longtechnicalcollege.com"
+  },
+  {
+    "Institution_ID": 101268,
+    "Institution_Name": "Maricopa Beauty College",
+    "Institution_Address": "515 W Western Ave",
+    "Institution_City": "Avondale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85323,
+    "Institution_Phone": "623-932-4414",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101277,
+    "Institution_Name": "Maricopa Community College System Office",
+    "Institution_Address": "2411 W 14th St",
+    "Institution_City": "Tempe",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85281-6942",
+    "Institution_Phone": "480-731-8000",
+    "Institution_Web_Address": "www.dist.maricopa.edu"
+  },
+  {
+    "Institution_ID": 101286,
+    "Institution_Name": "Maricopa Community Colleges - Gateway Community College",
+    "Institution_Address": "108 N. 40th Street",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85034,
+    "Institution_Phone": "602-392-5000",
+    "Institution_Web_Address": "www.gwc.maricopa.edu"
+  },
+  {
+    "Institution_ID": 101295,
+    "Institution_Name": "Maricopa Community Colleges - Mesa Community College",
+    "Institution_Address": "1833 W Southern Ave",
+    "Institution_City": "Mesa",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85202,
+    "Institution_Phone": "602-461-7000",
+    "Institution_Web_Address": "www.mc.maricopa.edu"
+  },
+  {
+    "Institution_ID": 101329,
+    "Institution_Name": "Mohave Community College",
+    "Institution_Address": "1971 Jagerson Ave",
+    "Institution_City": "Kingman",
+    "Institution_State": "AZ",
+    "Institution_Zip": "86409-1238",
+    "Institution_Phone": "928-757-4331",
+    "Institution_Web_Address": "www.mohave.edu"
+  },
+  {
+    "Institution_ID": 101338,
+    "Institution_Name": "Motorcycle Mechanics Institute a div. of Universal Technical Institute",
+    "Institution_Address": "2844 W Deer Valley Rd",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85027,
+    "Institution_Phone": "623-869-9644",
+    "Institution_Web_Address": "uticorp.com"
+  },
+  {
+    "Institution_ID": 101347,
+    "Institution_Name": "Mundus Institute",
+    "Institution_Address": "2001 W Camelback, Suite 140",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85015,
+    "Institution_Phone": "602-246-7111",
+    "Institution_Web_Address": "WWW.MUNDUSINSTITUTE.COM"
+  },
+  {
+    "Institution_ID": 101356,
+    "Institution_Name": "Dine College",
+    "Institution_Address": "P.O. Box 126",
+    "Institution_City": "Tsaile",
+    "Institution_State": "AZ",
+    "Institution_Zip": 86556,
+    "Institution_Phone": "520-724-6600",
+    "Institution_Web_Address": "dinecollege.edu"
+  },
+  {
+    "Institution_ID": 101365,
+    "Institution_Name": "Northern Arizona University",
+    "Institution_Address": "P.O. Box 4092",
+    "Institution_City": "Flagstaff",
+    "Institution_State": "AZ",
+    "Institution_Zip": 86011,
+    "Institution_Phone": "928-523-9011",
+    "Institution_Web_Address": "www.nau.edu"
+  },
+  {
+    "Institution_ID": 101374,
+    "Institution_Name": "Northland Pioneer College",
+    "Institution_Address": "P.O. Box 610",
+    "Institution_City": "Holbrook",
+    "Institution_State": "AZ",
+    "Institution_Zip": "86025-0610",
+    "Institution_Phone": "928-524-7600",
+    "Institution_Web_Address": "www.npc.edu"
+  },
+  {
+    "Institution_ID": 101392,
+    "Institution_Name": "Paralegal Institute, Inc.",
+    "Institution_Address": "7332 Butherus Drive, Suite 102",
+    "Institution_City": "Scottsdale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85260,
+    "Institution_Phone": "800-354-1254",
+    "Institution_Web_Address": "www.theparalegalinstitute.edu"
+  },
+  {
+    "Institution_ID": 101408,
+    "Institution_Name": "Empire Beauty School - Glendale",
+    "Institution_Address": "10820 North 43rd Ave Ste 12",
+    "Institution_City": "Glendale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85304,
+    "Institution_Phone": "602-248-2828",
+    "Institution_Web_Address": "artisticbeautycolleges.com"
+  },
+  {
+    "Institution_ID": 101426,
+    "Institution_Name": "Phoenix Therapeutic Massage College",
+    "Institution_Address": "8010 East McDowell Road #214",
+    "Institution_City": "Scottsdale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85257,
+    "Institution_Phone": "480-945-9461",
+    "Institution_Web_Address": "ptmcaz.edu"
+  },
+  {
+    "Institution_ID": 101435,
+    "Institution_Name": "University of Phoenix",
+    "Institution_Address": "1625 Fountainhead Parkway",
+    "Institution_City": "Tempe",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85282,
+    "Institution_Phone": "480-804-7600",
+    "Institution_Web_Address": "www.phoenix.edu/"
+  },
+  {
+    "Institution_ID": 101444,
+    "Institution_Name": "Pima Community College",
+    "Institution_Address": "4905C E. Broadway Blvd.",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85709-1005",
+    "Institution_Phone": "520-206-4500",
+    "Institution_Web_Address": "www.pima.edu"
+  },
+  {
+    "Institution_ID": 101453,
+    "Institution_Name": "Pima Medical Institute",
+    "Institution_Address": "3350 East Grant Road, Suite 200",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85716,
+    "Institution_Phone": "520-326-1600",
+    "Institution_Web_Address": "www.pmi.edu"
+  },
+  {
+    "Institution_ID": 101471,
+    "Institution_Name": "Prescott College",
+    "Institution_Address": "220 Grove Ave",
+    "Institution_City": "Prescott",
+    "Institution_State": "AZ",
+    "Institution_Zip": 86301,
+    "Institution_Phone": "928-778-2090",
+    "Institution_Web_Address": "www.prescott.edu"
+  },
+  {
+    "Institution_ID": 101480,
+    "Institution_Name": "Refrigeration School Inc",
+    "Institution_Address": "4210 E Washington",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85034-1816",
+    "Institution_Phone": "602-275-7133",
+    "Institution_Web_Address": "refrigerationschool.com"
+  },
+  {
+    "Institution_ID": 101505,
+    "Institution_Name": "Roberto-Venn School of Luthiery",
+    "Institution_Address": "1012 NW Grand Ave.",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85040,
+    "Institution_Phone": "602-243-1179",
+    "Institution_Web_Address": "www.roberto-venn.com"
+  },
+  {
+    "Institution_ID": 101514,
+    "Institution_Name": "Hair Academy of Safford",
+    "Institution_Address": "1550 West Thatcher Blvd",
+    "Institution_City": "Safford",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85546,
+    "Institution_Phone": "928-428-0331",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101541,
+    "Institution_Name": "Long Technical College - East Valley",
+    "Institution_Address": "4646 E. Van Buren Street  Suite #350",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85008-1716",
+    "Institution_Phone": "602-252-2171",
+    "Institution_Web_Address": "www.lontechnicalcollege.com/"
+  },
+  {
+    "Institution_ID": 101569,
+    "Institution_Name": "Tucson College",
+    "Institution_Address": "5151 East Broadway Boulevard, Suite 155",
+    "Institution_City": "Tucson",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85711,
+    "Institution_Phone": "520-296-3261-104",
+    "Institution_Web_Address": "www.tucsoncollege.edu"
+  },
+  {
+    "Institution_ID": 101578,
+    "Institution_Name": "Universal Technical Institute of Arizona Inc",
+    "Institution_Address": "10695 West Pierce Street",
+    "Institution_City": "Avondale",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85323,
+    "Institution_Phone": "623-245-4600",
+    "Institution_Web_Address": "uticorp.com"
+  },
+  {
+    "Institution_ID": 101587,
+    "Institution_Name": "Metropolitan College",
+    "Institution_Address": "4129 E. Van Buren Street, Suite #100",
+    "Institution_City": "Phoenix",
+    "Institution_State": "AZ",
+    "Institution_Zip": "85008-6940",
+    "Institution_Phone": "602-955-5900",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101596,
+    "Institution_Name": "Western International University",
+    "Institution_Address": "1601 W. Fountainhead Parkway",
+    "Institution_City": "Tempe",
+    "Institution_State": "AZ",
+    "Institution_Zip": 85282,
+    "Institution_Phone": "602-943-2311",
+    "Institution_Web_Address": "www.wintu.edu"
+  },
+  {
+    "Institution_ID": 101611,
+    "Institution_Name": "Yavapai College",
+    "Institution_Address": "1100 E Sheldon St",
+    "Institution_City": "Prescott",
+    "Institution_State": "AZ",
+    "Institution_Zip": 86301,
+    "Institution_Phone": "928-445-7300",
+    "Institution_Web_Address": "www.YC.EDU"
+  },
+  {
+    "Institution_ID": 101620,
+    "Institution_Name": "University of Arkansas at Little Rock",
+    "Institution_Address": "2801 S University Ave",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72204,
+    "Institution_Phone": "501-569-3000",
+    "Institution_Web_Address": "www.ualr.edu"
+  },
+  {
+    "Institution_ID": 101639,
+    "Institution_Name": "University of Arkansas for Medical Sciences",
+    "Institution_Address": "4301 W Markham",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72205,
+    "Institution_Phone": "501-686-5454",
+    "Institution_Web_Address": "www.uams.edu"
+  },
+  {
+    "Institution_ID": 101648,
+    "Institution_Name": "ABC Beauty College, Inc.",
+    "Institution_Address": "203 South 26th Street, Suites B, C & D",
+    "Institution_City": "Arkadelphia",
+    "Institution_State": "AR",
+    "Institution_Zip": 71923,
+    "Institution_Phone": "870-246-6726",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101657,
+    "Institution_Name": "Arkansas Baptist College",
+    "Institution_Address": "1621 Dr. Martin Luther King Drive",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72202,
+    "Institution_Phone": "501-374-7856",
+    "Institution_Web_Address": "www.arkansasbaptist.edu"
+  },
+  {
+    "Institution_ID": 101666,
+    "Institution_Name": "Arkansas Beauty School - Little Rock",
+    "Institution_Address": "5108 Baseline Rd",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72209,
+    "Institution_Phone": "501-562-5673",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101675,
+    "Institution_Name": "Arkansas Beauty College",
+    "Institution_Address": "109 N Commerce St",
+    "Institution_City": "Russellville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72801,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101684,
+    "Institution_Name": "Lyon College",
+    "Institution_Address": "2300 Highland Road",
+    "Institution_City": "Batesville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72503,
+    "Institution_Phone": "870-793-9813",
+    "Institution_Web_Address": "www.lyon.edu"
+  },
+  {
+    "Institution_ID": 101693,
+    "Institution_Name": "Arkansas College of Barbering and Hair Design",
+    "Institution_Address": "200 E Washington Ave",
+    "Institution_City": "North Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72114,
+    "Institution_Phone": "501-376-9696",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101709,
+    "Institution_Name": "Arthur's Beauty College, Inc - Fort Smith",
+    "Institution_Address": "2000 North B Street",
+    "Institution_City": "Fort Smith",
+    "Institution_State": "AR",
+    "Institution_Zip": "72901-3342",
+    "Institution_Phone": "479-783-6245",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101718,
+    "Institution_Name": "University of Arkansas, Fayetteville",
+    "Institution_Address": "Administration Bldg. 425",
+    "Institution_City": "Fayetteville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72701,
+    "Institution_Phone": "479-575-4148",
+    "Institution_Web_Address": "www.uark.edu"
+  },
+  {
+    "Institution_ID": 101727,
+    "Institution_Name": "University of Arkansas at Pine Bluff",
+    "Institution_Address": "1200 N University Mail Slot 4789",
+    "Institution_City": "Pine Bluff",
+    "Institution_State": "AR",
+    "Institution_Zip": 71601,
+    "Institution_Phone": "870-575-8000",
+    "Institution_Web_Address": "www.uapb.edu"
+  },
+  {
+    "Institution_ID": 101736,
+    "Institution_Name": "Arkansas State University - Beebe",
+    "Institution_Address": "P.O. Box 1000",
+    "Institution_City": "Beebe",
+    "Institution_State": "AR",
+    "Institution_Zip": "72012-1000",
+    "Institution_Phone": "501-882-3600",
+    "Institution_Web_Address": "WWW.ASUB.EDU"
+  },
+  {
+    "Institution_ID": 101745,
+    "Institution_Name": "Arkansas State University",
+    "Institution_Address": "P.O. Box 600",
+    "Institution_City": "State University",
+    "Institution_State": "AR",
+    "Institution_Zip": 72467,
+    "Institution_Phone": "870-972-3056",
+    "Institution_Web_Address": "www.astate.edu"
+  },
+  {
+    "Institution_ID": 101754,
+    "Institution_Name": "Arkansas Tech University",
+    "Institution_Address": "Administration Bldg. 200, 1509 North Boulder Avenue",
+    "Institution_City": "Russellville",
+    "Institution_State": "AR",
+    "Institution_Zip": "72801-2222",
+    "Institution_Phone": "479-968-0389",
+    "Institution_Web_Address": "www.atu.edu"
+  },
+  {
+    "Institution_ID": 101763,
+    "Institution_Name": "University of Arkansas at Monticello",
+    "Institution_Address": "Highway 425 South",
+    "Institution_City": "Monticello",
+    "Institution_State": "AR",
+    "Institution_Zip": 71656,
+    "Institution_Phone": "870-367-6811",
+    "Institution_Web_Address": "www.uamont.edu"
+  },
+  {
+    "Institution_ID": 101772,
+    "Institution_Name": "Arthur's Beauty College, Inc. - Jacksonville",
+    "Institution_Address": "2600 John Harden Drive",
+    "Institution_City": "Jacksonville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72076,
+    "Institution_Phone": "501-982-8987",
+    "Institution_Web_Address": "arthursbeautycollege.com"
+  },
+  {
+    "Institution_ID": 101781,
+    "Institution_Name": "Baptist Health Schools Little Rock",
+    "Institution_Address": "11900 Colonel Glenn Road, Suite 1000",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72210,
+    "Institution_Phone": "501-202-6200",
+    "Institution_Web_Address": "www.bhslr.edu"
+  },
+  {
+    "Institution_ID": 101790,
+    "Institution_Name": "Bee-Jay's Hairstyling Academy",
+    "Institution_Address": "1907 Hinson Loop",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72212,
+    "Institution_Phone": "501-224-2442",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101806,
+    "Institution_Name": "Black River Technical College",
+    "Institution_Address": "1410 Hwy 304 East",
+    "Institution_City": "Pocahontas",
+    "Institution_State": "AR",
+    "Institution_Zip": 72455,
+    "Institution_Phone": "870-248-4000",
+    "Institution_Web_Address": "www.blackrivertech.edu"
+  },
+  {
+    "Institution_ID": 101815,
+    "Institution_Name": "University of Central Arkansas",
+    "Institution_Address": "201 Donaghey Ave",
+    "Institution_City": "Conway",
+    "Institution_State": "AR",
+    "Institution_Zip": "72035-0001",
+    "Institution_Phone": "501-450-5000",
+    "Institution_Web_Address": "www.uca.edu"
+  },
+  {
+    "Institution_ID": 101824,
+    "Institution_Name": "Central Baptist College",
+    "Institution_Address": "1501 College Ave",
+    "Institution_City": "Conway",
+    "Institution_State": "AR",
+    "Institution_Zip": 72034,
+    "Institution_Phone": "501-329-6872",
+    "Institution_Web_Address": "www.cbc.edu"
+  },
+  {
+    "Institution_ID": 101833,
+    "Institution_Name": "Creative School of Cosmetology",
+    "Institution_Address": "100 E Main St",
+    "Institution_City": "Blytheville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72315,
+    "Institution_Phone": "870-763-4012",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101842,
+    "Institution_Name": "Cossatot Community College of the University of Arkansas",
+    "Institution_Address": "183 Hwy 399",
+    "Institution_City": "De Queen",
+    "Institution_State": "AR",
+    "Institution_Zip": 71832,
+    "Institution_Phone": "870-584-4471",
+    "Institution_Web_Address": "cccua.edu"
+  },
+  {
+    "Institution_ID": 101851,
+    "Institution_Name": "Crowley's Ridge College",
+    "Institution_Address": "100 College Dr",
+    "Institution_City": "Paragould",
+    "Institution_State": "AR",
+    "Institution_Zip": 72450,
+    "Institution_Phone": "870-236-6901",
+    "Institution_Web_Address": "www.crowleysridgecollege.edu"
+  },
+  {
+    "Institution_ID": 101860,
+    "Institution_Name": "Crowleys Ridge Technical Institute",
+    "Institution_Address": "1620 Newcastle Road",
+    "Institution_City": "Forrest City",
+    "Institution_State": "AR",
+    "Institution_Zip": "72335-0925",
+    "Institution_Phone": "870-633-5411",
+    "Institution_Web_Address": "www.crti.tec.ar.us"
+  },
+  {
+    "Institution_ID": 101879,
+    "Institution_Name": "De Luxe Beauty School",
+    "Institution_Address": "1609 West 26th Street",
+    "Institution_City": "Pine Bluff",
+    "Institution_State": "AR",
+    "Institution_Zip": "71603-1666",
+    "Institution_Phone": "870-534-7609",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101888,
+    "Institution_Name": "East Arkansas Community College",
+    "Institution_Address": "1700 Newcastle Rd",
+    "Institution_City": "Forrest City",
+    "Institution_State": "AR",
+    "Institution_Zip": 72335,
+    "Institution_Phone": "870-633-4480-208",
+    "Institution_Web_Address": "WWW.EACC.EDU"
+  },
+  {
+    "Institution_ID": 101897,
+    "Institution_Name": "Eastern College of Health Vocations",
+    "Institution_Address": "200 South University Avenue",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72205,
+    "Institution_Phone": "501-568-0211",
+    "Institution_Web_Address": "www.echv.com"
+  },
+  {
+    "Institution_ID": 101903,
+    "Institution_Name": "Imagine - Paul Mitchell Partner School",
+    "Institution_Address": "4201 East McCain Blvd.",
+    "Institution_City": "North Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "72201-2516",
+    "Institution_Phone": "501-375-0211",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101912,
+    "Institution_Name": "National Park College",
+    "Institution_Address": "101 College Dr",
+    "Institution_City": "Hot Springs",
+    "Institution_State": "AR",
+    "Institution_Zip": 71913,
+    "Institution_Phone": "501-767-9314",
+    "Institution_Web_Address": "www.npcc.edu"
+  },
+  {
+    "Institution_ID": 101921,
+    "Institution_Name": "University of Arkansas Community College-Batesville",
+    "Institution_Address": "2005 White Drive",
+    "Institution_City": "Batesville",
+    "Institution_State": "AR",
+    "Institution_Zip": "72503-3350",
+    "Institution_Phone": "870-793-7581",
+    "Institution_Web_Address": "www.uaccb.edu"
+  },
+  {
+    "Institution_ID": 101949,
+    "Institution_Name": "Harding University",
+    "Institution_Address": "915 E. Market Ave.",
+    "Institution_City": "Searcy",
+    "Institution_State": "AR",
+    "Institution_Zip": 72149,
+    "Institution_Phone": "501-279-4000",
+    "Institution_Web_Address": "www.harding.edu"
+  },
+  {
+    "Institution_ID": 101958,
+    "Institution_Name": "Henderson State University",
+    "Institution_Address": "1100 Henderson St",
+    "Institution_City": "Arkadelphia",
+    "Institution_State": "AR",
+    "Institution_Zip": "71999-0001",
+    "Institution_Phone": "870-230-5000",
+    "Institution_Web_Address": "www.hsu.edu"
+  },
+  {
+    "Institution_ID": 101967,
+    "Institution_Name": "Hendrix College",
+    "Institution_Address": "1600 Washington Ave",
+    "Institution_City": "Conway",
+    "Institution_State": "AR",
+    "Institution_Zip": "72032-3080",
+    "Institution_Phone": "501-329-6811",
+    "Institution_Web_Address": "www.hendrix.edu"
+  },
+  {
+    "Institution_ID": 101976,
+    "Institution_Name": "Hot Springs Beauty College",
+    "Institution_Address": "100 Cones Rd",
+    "Institution_City": "Hot Springs",
+    "Institution_State": "AR",
+    "Institution_Zip": 71901,
+    "Institution_Phone": "501-624-4258",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 101985,
+    "Institution_Name": "JRMC School of Nursing",
+    "Institution_Address": "1600 West 40th",
+    "Institution_City": "Pine Bluff",
+    "Institution_State": "AR",
+    "Institution_Zip": 71603,
+    "Institution_Phone": "870-541-7850",
+    "Institution_Web_Address": "www.jrmc.org"
+  },
+  {
+    "Institution_ID": 101994,
+    "Institution_Name": "John Brown University",
+    "Institution_Address": "2000 W University St",
+    "Institution_City": "Siloam Springs",
+    "Institution_State": "AR",
+    "Institution_Zip": 72761,
+    "Institution_Phone": "479-524-9500",
+    "Institution_Web_Address": "www.jbu.edu"
+  },
+  {
+    "Institution_ID": 102003,
+    "Institution_Name": "Lee's School of Cosmetology",
+    "Institution_Address": "2700 West Pershing Boulevard",
+    "Institution_City": "North Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "72114-3800",
+    "Institution_Phone": "501-758-2800",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102012,
+    "Institution_Name": "Career Academy of Hair Design",
+    "Institution_Address": "346 East Robinson Avenue",
+    "Institution_City": "Springdale",
+    "Institution_State": "AR",
+    "Institution_Zip": 72764,
+    "Institution_Phone": "479-756-6060",
+    "Institution_Web_Address": "beautyschool.edu"
+  },
+  {
+    "Institution_ID": 102021,
+    "Institution_Name": "Little Rock Job Corp Center",
+    "Institution_Address": "2020 Vance Street",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "",
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102030,
+    "Institution_Name": "Marsha Kay Beauty College",
+    "Institution_Address": "408 Hwy 201 N",
+    "Institution_City": "Mountain Home",
+    "Institution_State": "AR",
+    "Institution_Zip": "72653-3164",
+    "Institution_Phone": "870-425-7575",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102049,
+    "Institution_Name": "Academy of Salon and Spa",
+    "Institution_Address": "311 South 16th Street",
+    "Institution_City": "Fort Smith",
+    "Institution_State": "AR",
+    "Institution_Zip": 72901,
+    "Institution_Phone": "479-782-5059",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102067,
+    "Institution_Name": "Mid-South Community College",
+    "Institution_Address": "2000 W.  Broadway",
+    "Institution_City": "West Memphis",
+    "Institution_State": "AR",
+    "Institution_Zip": "72301-3829",
+    "Institution_Phone": "870-733-6722",
+    "Institution_Web_Address": "www.midsouthcc.edu"
+  },
+  {
+    "Institution_ID": 102076,
+    "Institution_Name": "Arkansas Northeastern College",
+    "Institution_Address": "2501 South Division Street",
+    "Institution_City": "Blytheville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72316,
+    "Institution_Phone": "870-762-1020-1114",
+    "Institution_Web_Address": "www.anc.edu"
+  },
+  {
+    "Institution_ID": 102085,
+    "Institution_Name": "Margaret's Hair Academy, Inc.",
+    "Institution_Address": "1509 East Main Street, Suite #2",
+    "Institution_City": "Russellville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72801,
+    "Institution_Phone": "479-890-0215",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102094,
+    "Institution_Name": "New Tyler Barber College Inc",
+    "Institution_Address": "1221 E 7th St",
+    "Institution_City": "North Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "72114-4973",
+    "Institution_Phone": "501-375-0377",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102100,
+    "Institution_Name": "North Arkansas College",
+    "Institution_Address": "1515 Pioneer Dr",
+    "Institution_City": "Harrison",
+    "Institution_State": "AR",
+    "Institution_Zip": "72601-5508",
+    "Institution_Phone": "870-391-3200",
+    "Institution_Web_Address": "www.northark.edu"
+  },
+  {
+    "Institution_ID": 102119,
+    "Institution_Name": "Northwest Technical Institute",
+    "Institution_Address": "709 S Old Missouri Road",
+    "Institution_City": "Springdale",
+    "Institution_State": "AR",
+    "Institution_Zip": 72764,
+    "Institution_Phone": "479-751-8824",
+    "Institution_Web_Address": "www.nti.tec.ar.us"
+  },
+  {
+    "Institution_ID": 102128,
+    "Institution_Name": "Ouachita Baptist University",
+    "Institution_Address": "410 Ouachita St",
+    "Institution_City": "Arkadelphia",
+    "Institution_State": "AR",
+    "Institution_Zip": "71998-0001",
+    "Institution_Phone": "870-245-5000",
+    "Institution_Web_Address": "www.obu.edu"
+  },
+  {
+    "Institution_ID": 102137,
+    "Institution_Name": "College of the Ouachitas",
+    "Institution_Address": "One College Cir",
+    "Institution_City": "Malvern",
+    "Institution_State": "AR",
+    "Institution_Zip": "72104-0816",
+    "Institution_Phone": "501-337-5000-1100",
+    "Institution_Web_Address": "www.otcweb.edu"
+  },
+  {
+    "Institution_ID": 102146,
+    "Institution_Name": "Ozarka College",
+    "Institution_Address": "218 College Dr",
+    "Institution_City": "Melbourne",
+    "Institution_State": "AR",
+    "Institution_Zip": "72556-0010",
+    "Institution_Phone": "870-368-7371",
+    "Institution_Web_Address": "www.ozarka.edu"
+  },
+  {
+    "Institution_ID": 102155,
+    "Institution_Name": "University of the Ozarks",
+    "Institution_Address": "415 N College Ave",
+    "Institution_City": "Clarksville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72830,
+    "Institution_Phone": "479-979-1000",
+    "Institution_Web_Address": "www.ozarks.edu"
+  },
+  {
+    "Institution_ID": 102164,
+    "Institution_Name": "University of Arkansas Community College-Morrilton",
+    "Institution_Address": "1537 University Blvd.",
+    "Institution_City": "Morrilton",
+    "Institution_State": "AR",
+    "Institution_Zip": 72110,
+    "Institution_Phone": "501-977-2000",
+    "Institution_Web_Address": "www.uaccm.edu"
+  },
+  {
+    "Institution_ID": 102173,
+    "Institution_Name": "Philander Smith College",
+    "Institution_Address": "900 W. Daisy Bates Drive",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "72202-3799",
+    "Institution_Phone": "501-375-9845",
+    "Institution_Web_Address": "www.philander.edu"
+  },
+  {
+    "Institution_ID": 102182,
+    "Institution_Name": "Phillips Community College of the University of Arkansas",
+    "Institution_Address": "1000 Campus Dr",
+    "Institution_City": "Helena",
+    "Institution_State": "AR",
+    "Institution_Zip": "72342-0785",
+    "Institution_Phone": "870-338-6474",
+    "Institution_Web_Address": "www.pccua.edu"
+  },
+  {
+    "Institution_ID": 102191,
+    "Institution_Name": "Southeast Arkansas College",
+    "Institution_Address": "1900 South Hazel Street",
+    "Institution_City": "Pine Bluff",
+    "Institution_State": "AR",
+    "Institution_Zip": 71603,
+    "Institution_Phone": "870-543-5900",
+    "Institution_Web_Address": "www.seark.edu"
+  },
+  {
+    "Institution_ID": 102207,
+    "Institution_Name": "Professional Cosmetology Education Center",
+    "Institution_Address": "460 North Washington Avenue",
+    "Institution_City": "El Dorado",
+    "Institution_State": "AR",
+    "Institution_Zip": 71730,
+    "Institution_Phone": "870-864-9292",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102216,
+    "Institution_Name": "Pulaski Technical College",
+    "Institution_Address": "3000 West Scenic Drive",
+    "Institution_City": "North Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": 72118,
+    "Institution_Phone": "501-812-2200",
+    "Institution_Web_Address": "www.pulaskitech.edu"
+  },
+  {
+    "Institution_ID": 102225,
+    "Institution_Name": "University of Arkansas Community College-Hope",
+    "Institution_Address": "2500 S Main",
+    "Institution_City": "Hope",
+    "Institution_State": "AR",
+    "Institution_Zip": "71802-0140",
+    "Institution_Phone": "870-722-8206",
+    "Institution_Web_Address": "www.uacch.edu"
+  },
+  {
+    "Institution_ID": 102234,
+    "Institution_Name": "Rich Mountain Community College",
+    "Institution_Address": "1100 College Dr",
+    "Institution_City": "Mena",
+    "Institution_State": "AR",
+    "Institution_Zip": 71953,
+    "Institution_Phone": "479-394-7622-1100",
+    "Institution_Web_Address": "www.rmcc.edu"
+  },
+  {
+    "Institution_ID": 102243,
+    "Institution_Name": "Paul Mitchell The School Arkansas",
+    "Institution_Address": "4156 North Steele Boulevard",
+    "Institution_City": "Fayetteville",
+    "Institution_State": "AR",
+    "Institution_Zip": 72703,
+    "Institution_Phone": "479-521-3571",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102252,
+    "Institution_Name": "CHI-St. Vincent Infirmary",
+    "Institution_Address": "Two St. Vincent Circle",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "72205-5499",
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102261,
+    "Institution_Name": "Searcy Beauty College Inc",
+    "Institution_Address": "1004 South Main Street",
+    "Institution_City": "Searcy",
+    "Institution_State": "AR",
+    "Institution_Zip": 72143,
+    "Institution_Phone": "501-268-6300",
+    "Institution_Web_Address": "searcybeautycollege.com"
+  },
+  {
+    "Institution_ID": 102270,
+    "Institution_Name": "Williams Baptist College",
+    "Institution_Address": "60 W Fulbright Avenue",
+    "Institution_City": "Walnut Ridge",
+    "Institution_State": "AR",
+    "Institution_Zip": 72476,
+    "Institution_Phone": "870-886-6741",
+    "Institution_Web_Address": "www.wbcoll.edu"
+  },
+  {
+    "Institution_ID": 102298,
+    "Institution_Name": "South Arkansas Community College",
+    "Institution_Address": "300 S West Ave",
+    "Institution_City": "El Dorado",
+    "Institution_State": "AR",
+    "Institution_Zip": "71731-7010",
+    "Institution_Phone": "870-862-8131-114",
+    "Institution_Web_Address": "www.southark.edu"
+  },
+  {
+    "Institution_ID": 102304,
+    "Institution_Name": "Southern Arkansas University Main Campus",
+    "Institution_Address": "100 E. University",
+    "Institution_City": "Magnolia",
+    "Institution_State": "AR",
+    "Institution_Zip": 71753,
+    "Institution_Phone": "870-235-4000",
+    "Institution_Web_Address": "WWW.SAUMAG.EDU"
+  },
+  {
+    "Institution_ID": 102313,
+    "Institution_Name": "Southern Arkansas University Tech",
+    "Institution_Address": "P.O. Box 3499",
+    "Institution_City": "Camden",
+    "Institution_State": "AR",
+    "Institution_Zip": "71711-1599",
+    "Institution_Phone": "870-574-4500",
+    "Institution_Web_Address": "www.sautech.edu"
+  },
+  {
+    "Institution_ID": 102331,
+    "Institution_Name": "Velvatex College of Beauty Culture",
+    "Institution_Address": "1520 Martin Luther King Dr",
+    "Institution_City": "Little Rock",
+    "Institution_State": "AR",
+    "Institution_Zip": "72202-5452",
+    "Institution_Phone": "501-372-9678",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102340,
+    "Institution_Name": "University of Arkansas-Fort Smith",
+    "Institution_Address": "5210 Grand Ave P.O. Box 3649",
+    "Institution_City": "Fort Smith",
+    "Institution_State": "AR",
+    "Institution_Zip": "72913-3649",
+    "Institution_Phone": "479-788-7004",
+    "Institution_Web_Address": "www.uafortsmith.edu"
+  },
+  {
+    "Institution_ID": 102359,
+    "Institution_Name": "Abram Friedman Occupational Center",
+    "Institution_Address": "1646 S Olive",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90015-350",
+    "Institution_Phone": "213-745-2013",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102368,
+    "Institution_Name": "Academy of Art University",
+    "Institution_Address": "79 New Montgomery",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": 94105,
+    "Institution_Phone": "415-274-2200",
+    "Institution_Web_Address": "www.academyart.edu"
+  },
+  {
+    "Institution_ID": 102386,
+    "Institution_Name": "Academy of Chinese Culture and Health Sciences",
+    "Institution_Address": "1601 Clay St",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": 94612,
+    "Institution_Phone": "510-763-7787",
+    "Institution_Web_Address": "www.acchs.edu"
+  },
+  {
+    "Institution_ID": 102401,
+    "Institution_Name": "Academy of Radio and Television Broadcasting",
+    "Institution_Address": "16052 Beach Boulevard, Suite 263N",
+    "Institution_City": "Huntington Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": 92647,
+    "Institution_Phone": "714-842-0100",
+    "Institution_Web_Address": "www.arbradio.com"
+  },
+  {
+    "Institution_ID": 102410,
+    "Institution_Name": "Academy Pacific Travel College",
+    "Institution_Address": "1777 N Vine St",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90028-5218",
+    "Institution_Phone": "323-462-3211",
+    "Institution_Web_Address": "www.academypacific.edu"
+  },
+  {
+    "Institution_ID": 102429,
+    "Institution_Name": "Avalon School of Cosmetology - Alameda",
+    "Institution_Address": "2318 Central Ave",
+    "Institution_City": "Alameda",
+    "Institution_State": "CA",
+    "Institution_Zip": 94501,
+    "Institution_Phone": "510-523-1050",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102438,
+    "Institution_Name": "College of Alameda",
+    "Institution_Address": "555 Ralph Appezzato Memorial Parkway",
+    "Institution_City": "Alameda",
+    "Institution_State": "CA",
+    "Institution_Zip": 94501,
+    "Institution_Phone": "510-748-2299",
+    "Institution_Web_Address": "www.peralta.edu"
+  },
+  {
+    "Institution_ID": 102447,
+    "Institution_Name": "Allan Hancock College",
+    "Institution_Address": "800 S College Dr",
+    "Institution_City": "Santa Maria",
+    "Institution_State": "CA",
+    "Institution_Zip": "93454-6399",
+    "Institution_Phone": "805-922-6966-3248",
+    "Institution_Web_Address": "www.hancockcollege.edu/"
+  },
+  {
+    "Institution_ID": 102465,
+    "Institution_Name": "American Baptist Seminary of the West",
+    "Institution_Address": "2606 Dwight Way",
+    "Institution_City": "Berkeley",
+    "Institution_State": "CA",
+    "Institution_Zip": "94704-3029",
+    "Institution_Phone": "510-841-1905",
+    "Institution_Web_Address": "www.absw.edu"
+  },
+  {
+    "Institution_ID": 102474,
+    "Institution_Name": "American Film Institute",
+    "Institution_Address": "2021 North Western Avenue",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90027,
+    "Institution_Phone": "323-856-7600",
+    "Institution_Web_Address": "www.afi.com"
+  },
+  {
+    "Institution_ID": 102483,
+    "Institution_Name": "American Beauty College",
+    "Institution_Address": "646 South Sunset Avenue",
+    "Institution_City": "West Covina",
+    "Institution_State": "CA",
+    "Institution_Zip": 91790,
+    "Institution_Phone": "562-866-0728",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102508,
+    "Institution_Name": "American Career College",
+    "Institution_Address": "4021 Rosewood Avenue",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90004,
+    "Institution_Phone": "323-668-7555",
+    "Institution_Web_Address": "www.americancareercollege.edu"
+  },
+  {
+    "Institution_ID": 102517,
+    "Institution_Name": "American Conservatory Theater",
+    "Institution_Address": "30 Grant Avenue 7th Floor",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": "94108-5834",
+    "Institution_Phone": "415-439-2350",
+    "Institution_Web_Address": "www.act-sf.org"
+  },
+  {
+    "Institution_ID": 102526,
+    "Institution_Name": "American Graduate University",
+    "Institution_Address": "733 North Dodsworth Avenue",
+    "Institution_City": "Covina",
+    "Institution_State": "CA",
+    "Institution_Zip": 91724,
+    "Institution_Phone": "",
+    "Institution_Web_Address": "www.agu.edu"
+  },
+  {
+    "Institution_ID": 102535,
+    "Institution_Name": "American River College",
+    "Institution_Address": "4700 College Oak Dr",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": "95841-4286",
+    "Institution_Phone": "916-484-8350",
+    "Institution_Web_Address": "www.arc.losrios.edu/"
+  },
+  {
+    "Institution_ID": 102544,
+    "Institution_Name": "Everest Institute - Hayward",
+    "Institution_Address": "22336 Main Street",
+    "Institution_City": "Hayward",
+    "Institution_State": "CA",
+    "Institution_Zip": 94541,
+    "Institution_Phone": "510-582-9500",
+    "Institution_Web_Address": "cci.edu"
+  },
+  {
+    "Institution_ID": 102553,
+    "Institution_Name": "Antelope Valley College",
+    "Institution_Address": "3041 W Ave K",
+    "Institution_City": "Lancaster",
+    "Institution_State": "CA",
+    "Institution_Zip": "93536-5426",
+    "Institution_Phone": "661-722-6300",
+    "Institution_Web_Address": "www.avc.edu"
+  },
+  {
+    "Institution_ID": 102562,
+    "Institution_Name": "Art Center College of Design",
+    "Institution_Address": "1700 Lida St",
+    "Institution_City": "Pasadena",
+    "Institution_State": "CA",
+    "Institution_Zip": 91103,
+    "Institution_Phone": "626-396-2200",
+    "Institution_Web_Address": "www.artcenter.edu"
+  },
+  {
+    "Institution_ID": 102571,
+    "Institution_Name": "Associated Technical College",
+    "Institution_Address": "1670 Wilshire Blvd",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90017-1604",
+    "Institution_Phone": "213-413-6808",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 102605,
+    "Institution_Name": "Azusa Pacific University",
+    "Institution_Address": "901 E Alosta Ave",
+    "Institution_City": "Azusa",
+    "Institution_State": "CA",
+    "Institution_Zip": 91702,
+    "Institution_Phone": "626-857-2450",
+    "Institution_Web_Address": "www.apu.edu"
+  },
+  {
+    "Institution_ID": 102614,
+    "Institution_Name": "Bakersfield College",
+    "Institution_Address": "1801 Panorama Dr",
+    "Institution_City": "Bakersfield",
+    "Institution_State": "CA",
+    "Institution_Zip": "93305-1299",
+    "Institution_Phone": "661-395-4011",
+    "Institution_Web_Address": "www.bakersfieldcollege.edu/"
+  },
+  {
+    "Institution_ID": 102623,
+    "Institution_Name": "Barstow Community College",
+    "Institution_Address": "2700 Barstow Road",
+    "Institution_City": "Barstow",
+    "Institution_State": "CA",
+    "Institution_Zip": 92311,
+    "Institution_Phone": "760-252-2411",
+    "Institution_Web_Address": "www.barstow.edu"
+  },
+  {
+    "Institution_ID": 102632,
+    "Institution_Name": "Bellus Academy - National City",
+    "Institution_Address": "1520 East Plaza Blvd",
+    "Institution_City": "National City",
+    "Institution_State": "CA",
+    "Institution_Zip": 91950,
+    "Institution_Phone": "619-474-6607",
+    "Institution_Web_Address": "www.sandiegobeautyacademy.com"
+  },
+  {
+    "Institution_ID": 102641,
+    "Institution_Name": "Bethany University",
+    "Institution_Address": "800 Bethany Dr",
+    "Institution_City": "Scotts Valley",
+    "Institution_State": "CA",
+    "Institution_Zip": "95066-2898",
+    "Institution_Phone": "831-438-3800",
+    "Institution_Web_Address": "www.bethany.edu"
+  },
+  {
+    "Institution_ID": 102650,
+    "Institution_Name": "Bethesda University",
+    "Institution_Address": "730 North Euclid St",
+    "Institution_City": "Anaheim",
+    "Institution_State": "CA",
+    "Institution_Zip": 92801,
+    "Institution_Phone": "714-517-1945",
+    "Institution_Web_Address": "www.buc.edu"
+  },
+  {
+    "Institution_ID": 102669,
+    "Institution_Name": "Biola University",
+    "Institution_Address": "13800 Biola Ave",
+    "Institution_City": "La Mirada",
+    "Institution_State": "CA",
+    "Institution_Zip": "90639-0001",
+    "Institution_Phone": "562-903-6000",
+    "Institution_Web_Address": "www.biola.edu"
+  },
+  {
+    "Institution_ID": 102678,
+    "Institution_Name": "Brooks College",
+    "Institution_Address": "4825 E. Pacific Coast Hwy",
+    "Institution_City": "Long Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": 90804,
+    "Institution_Phone": "562-597-6611-5793",
+    "Institution_Web_Address": "www.brookscollege.edu"
+  },
+  {
+    "Institution_ID": 102696,
+    "Institution_Name": "Brownson Technical School",
+    "Institution_Address": "1110 Technology Cir Ste D",
+    "Institution_City": "Anaheim",
+    "Institution_State": "CA",
+    "Institution_Zip": 92805,
+    "Institution_Phone": "714-774-9443",
+    "Institution_Web_Address": "brownsontechnicalschool.com"
+  },
+  {
+    "Institution_ID": 102711,
+    "Institution_Name": "Butte College",
+    "Institution_Address": "3536 Butte Campus Drive",
+    "Institution_City": "Oroville",
+    "Institution_State": "CA",
+    "Institution_Zip": "95965-8399",
+    "Institution_Phone": "530-895-2511",
+    "Institution_Web_Address": "www.butte.edu"
+  },
+  {
+    "Institution_ID": 102720,
+    "Institution_Name": "Phillips Graduate University",
+    "Institution_Address": "19900 Plummer Street",
+    "Institution_City": "Chatsworth",
+    "Institution_State": "CA",
+    "Institution_Zip": 91311,
+    "Institution_Phone": "818-386-5600",
+    "Institution_Web_Address": "www.pgu.edu"
+  },
+  {
+    "Institution_ID": 102739,
+    "Institution_Name": "California Institute of Integral Studies",
+    "Institution_Address": "1453 Mission St",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": "94103-2257",
+    "Institution_Phone": "415-575-6100",
+    "Institution_Web_Address": "www.ciis.edu"
+  },
+  {
+    "Institution_ID": 102757,
+    "Institution_Name": "Cabrillo College",
+    "Institution_Address": "6500 Soquel Dr",
+    "Institution_City": "Aptos",
+    "Institution_State": "CA",
+    "Institution_Zip": 95003,
+    "Institution_Phone": "831-479-6100",
+    "Institution_Web_Address": "www.cabrillo.edu"
+  },
+  {
+    "Institution_ID": 102766,
+    "Institution_Name": "California Baptist University",
+    "Institution_Address": "8432 Magnolia Ave",
+    "Institution_City": "Riverside",
+    "Institution_State": "CA",
+    "Institution_Zip": 92504,
+    "Institution_Phone": "951-689-5771",
+    "Institution_Web_Address": "www.calbaptist.edu"
+  },
+  {
+    "Institution_ID": 102784,
+    "Institution_Name": "University of California Hastings College of Law",
+    "Institution_Address": "200 McAllister St",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": 94102,
+    "Institution_Phone": "415-565-4600",
+    "Institution_Web_Address": "www.uchastings.edu"
+  },
+  {
+    "Institution_ID": 102793,
+    "Institution_Name": "California Institute of Technology",
+    "Institution_Address": "1200 E California Blvd",
+    "Institution_City": "Pasadena",
+    "Institution_State": "CA",
+    "Institution_Zip": 91125,
+    "Institution_Phone": "626-395-6811",
+    "Institution_Web_Address": "www.caltech.edu"
+  },
+  {
+    "Institution_ID": 102809,
+    "Institution_Name": "California Lutheran University",
+    "Institution_Address": "60 W Olsen Rd",
+    "Institution_City": "Thousand Oaks",
+    "Institution_State": "CA",
+    "Institution_Zip": 91360,
+    "Institution_Phone": "805-492-2411",
+    "Institution_Web_Address": "www.callutheran.edu/"
+  },
+  {
+    "Institution_ID": 102818,
+    "Institution_Name": "California Polytechnic State University-San Luis Obispo",
+    "Institution_Address": "1 Grand Avenue",
+    "Institution_City": "San Luis Obispo",
+    "Institution_State": "CA",
+    "Institution_Zip": 93407,
+    "Institution_Phone": "805-756-2246",
+    "Institution_Web_Address": "www.calpoly.edu"
+  },
+  {
+    "Institution_ID": 102854,
+    "Institution_Name": "Alliant International University",
+    "Institution_Address": "10455 Pomerado Road",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92131,
+    "Institution_Phone": "415-955-2000",
+    "Institution_Web_Address": "www.alliant.edu"
+  },
+  {
+    "Institution_ID": 102872,
+    "Institution_Name": "California State University - Bakersfield",
+    "Institution_Address": "9001 Stockdale Hwy",
+    "Institution_City": "Bakersfield",
+    "Institution_State": "CA",
+    "Institution_Zip": "93311-1022",
+    "Institution_Phone": "661-654-2782",
+    "Institution_Web_Address": "www.csub.edu"
+  },
+  {
+    "Institution_ID": 102881,
+    "Institution_Name": "California State University - Stanislaus",
+    "Institution_Address": "One University Circle",
+    "Institution_City": "Turlock",
+    "Institution_State": "CA",
+    "Institution_Zip": 95382,
+    "Institution_Phone": "209-667-3122",
+    "Institution_Web_Address": "www.csustan.edu"
+  },
+  {
+    "Institution_ID": 102906,
+    "Institution_Name": "California State University - San Bernardino",
+    "Institution_Address": "5500 University Pky",
+    "Institution_City": "San Bernardino",
+    "Institution_State": "CA",
+    "Institution_Zip": "92407-2397",
+    "Institution_Phone": "909-537-5024",
+    "Institution_Web_Address": "www.csusb.edu"
+  },
+  {
+    "Institution_ID": 102915,
+    "Institution_Name": "California State Polytechnic University, Pomona",
+    "Institution_Address": "3801 W Temple Ave",
+    "Institution_City": "Pomona",
+    "Institution_State": "CA",
+    "Institution_Zip": 91768,
+    "Institution_Phone": "909-869-7659",
+    "Institution_Web_Address": "www.cpp.edu"
+  },
+  {
+    "Institution_ID": 102924,
+    "Institution_Name": "California State University - Chico",
+    "Institution_Address": "400 West First Street",
+    "Institution_City": "Chico",
+    "Institution_State": "CA",
+    "Institution_Zip": "95929-0150",
+    "Institution_Phone": "530-898-6101",
+    "Institution_Web_Address": "www.csuchico.edu"
+  },
+  {
+    "Institution_ID": 102933,
+    "Institution_Name": "California State University - Dominguez Hills",
+    "Institution_Address": "1000 E Victoria St",
+    "Institution_City": "Carson",
+    "Institution_State": "CA",
+    "Institution_Zip": 90747,
+    "Institution_Phone": "310-243-3307",
+    "Institution_Web_Address": "www.csudh.edu"
+  },
+  {
+    "Institution_ID": 102942,
+    "Institution_Name": "California State University - Fresno",
+    "Institution_Address": "5241 N Maple Ave",
+    "Institution_City": "Fresno",
+    "Institution_State": "CA",
+    "Institution_Zip": "93740-8027",
+    "Institution_Phone": "559-278-4240",
+    "Institution_Web_Address": "www.fresnostate.edu"
+  },
+  {
+    "Institution_ID": 102951,
+    "Institution_Name": "California State University - Fullerton",
+    "Institution_Address": "800 N State College Blvd",
+    "Institution_City": "Fullerton",
+    "Institution_State": "CA",
+    "Institution_Zip": "92831-3599",
+    "Institution_Phone": "657-278-3602",
+    "Institution_Web_Address": "www.fullerton.edu"
+  },
+  {
+    "Institution_ID": 102960,
+    "Institution_Name": "California State University - East Bay",
+    "Institution_Address": "25800 Carlos Bee Blvd",
+    "Institution_City": "Hayward",
+    "Institution_State": "CA",
+    "Institution_Zip": "94542-3011",
+    "Institution_Phone": "510-885-3000",
+    "Institution_Web_Address": "www.csueastbay.edu"
+  },
+  {
+    "Institution_ID": 102979,
+    "Institution_Name": "California State University - Long Beach",
+    "Institution_Address": "1250 Bellflower Blvd",
+    "Institution_City": "Long Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": "90840-0115",
+    "Institution_Phone": "562-985-4111",
+    "Institution_Web_Address": "www.csulb.edu"
+  },
+  {
+    "Institution_ID": 102988,
+    "Institution_Name": "California State University - Los Angeles",
+    "Institution_Address": "5151 State University Dr",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90032,
+    "Institution_Phone": "323-343-3808",
+    "Institution_Web_Address": "www.calstatela.edu"
+  },
+  {
+    "Institution_ID": 102997,
+    "Institution_Name": "California State University - Northridge",
+    "Institution_Address": "18111 Nordhoff St",
+    "Institution_City": "Northridge",
+    "Institution_State": "CA",
+    "Institution_Zip": "91330-8230",
+    "Institution_Phone": "818-677-2957",
+    "Institution_Web_Address": "www.csun.edu"
+  },
+  {
+    "Institution_ID": 103006,
+    "Institution_Name": "California State University - Sacramento",
+    "Institution_Address": "6000 J St",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": "95819-6083",
+    "Institution_Phone": "916-278-5933",
+    "Institution_Web_Address": "www.csus.edu"
+  },
+  {
+    "Institution_ID": 103015,
+    "Institution_Name": "University of California, Berkeley",
+    "Institution_Address": "200 California Hall",
+    "Institution_City": "Berkeley",
+    "Institution_State": "CA",
+    "Institution_Zip": "94720-1500",
+    "Institution_Phone": "510-642-6000",
+    "Institution_Web_Address": "www.berkeley.edu"
+  },
+  {
+    "Institution_ID": 103024,
+    "Institution_Name": "University of California - Davis",
+    "Institution_Address": "One Shields Avenue",
+    "Institution_City": "Davis",
+    "Institution_State": "CA",
+    "Institution_Zip": "95616-8678",
+    "Institution_Phone": "530-752-1011",
+    "Institution_Web_Address": "www.ucdavis.edu"
+  },
+  {
+    "Institution_ID": 103033,
+    "Institution_Name": "University of California, Irvine",
+    "Institution_Address": "510 Aldrich Hall",
+    "Institution_City": "Irvine",
+    "Institution_State": "CA",
+    "Institution_Zip": "92697-1000",
+    "Institution_Phone": "949-824-5011",
+    "Institution_Web_Address": "www.uci.edu/"
+  },
+  {
+    "Institution_ID": 103042,
+    "Institution_Name": "University of California - Los Angeles",
+    "Institution_Address": "405 Hilgard Ave",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90095,
+    "Institution_Phone": "310-825-4321",
+    "Institution_Web_Address": "www.ucla.edu"
+  },
+  {
+    "Institution_ID": 103051,
+    "Institution_Name": "University of California, Riverside",
+    "Institution_Address": "900 University Ave",
+    "Institution_City": "Riverside",
+    "Institution_State": "CA",
+    "Institution_Zip": 92521,
+    "Institution_Phone": "951-827-1012",
+    "Institution_Web_Address": "WWW.UCR.EDU"
+  },
+  {
+    "Institution_ID": 103060,
+    "Institution_Name": "University of California - San Diego",
+    "Institution_Address": "9500 Gilman Dr",
+    "Institution_City": "La Jolla",
+    "Institution_State": "CA",
+    "Institution_Zip": 92093,
+    "Institution_Phone": "858-534-2230",
+    "Institution_Web_Address": "www.ucsd.edu"
+  },
+  {
+    "Institution_ID": 103079,
+    "Institution_Name": "University of California, San Francisco",
+    "Institution_Address": "500 Parnassus Avenue, MU200W",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": 94143,
+    "Institution_Phone": "415-476-9000",
+    "Institution_Web_Address": "www.ucsf.edu"
+  },
+  {
+    "Institution_ID": 103088,
+    "Institution_Name": "University of California, Santa Barbara",
+    "Institution_Address": "552 University Road",
+    "Institution_City": "Santa Barbara",
+    "Institution_State": "CA",
+    "Institution_Zip": "93106-2030",
+    "Institution_Phone": "805-893-8000",
+    "Institution_Web_Address": "www.ucsb.edu"
+  },
+  {
+    "Institution_ID": 103097,
+    "Institution_Name": "University of California, Santa Cruz",
+    "Institution_Address": "1156 High St",
+    "Institution_City": "Santa Cruz",
+    "Institution_State": "CA",
+    "Institution_Zip": 95064,
+    "Institution_Phone": "831-459-0111",
+    "Institution_Web_Address": "www.ucsc.edu/visitors/"
+  },
+  {
+    "Institution_ID": 103103,
+    "Institution_Name": "Sofia University",
+    "Institution_Address": "1069 East Meadow Circle",
+    "Institution_City": "Palo Alto",
+    "Institution_State": "CA",
+    "Institution_Zip": 94303,
+    "Institution_Phone": "650-493-4430",
+    "Institution_Web_Address": "www.sofia.edu"
+  },
+  {
+    "Institution_ID": 103112,
+    "Institution_Name": "Mountain Oaks Adult Education Center",
+    "Institution_Address": "1600 California Drive",
+    "Institution_City": "Vacaville",
+    "Institution_State": "CA",
+    "Institution_Zip": 95688,
+    "Institution_Phone": "707-453-7044",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103121,
+    "Institution_Name": "California Beauty College",
+    "Institution_Address": "1115 Fifteenth Street",
+    "Institution_City": "Modesto",
+    "Institution_State": "CA",
+    "Institution_Zip": 95354,
+    "Institution_Phone": "209-524-5184-200",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103130,
+    "Institution_Name": "California Christian College",
+    "Institution_Address": "5364 E. Belmont Avenue",
+    "Institution_City": "Fresno",
+    "Institution_State": "CA",
+    "Institution_Zip": 93727,
+    "Institution_Phone": "559-251-4215",
+    "Institution_Web_Address": "www.calchristiancollege.edu"
+  },
+  {
+    "Institution_ID": 103149,
+    "Institution_Name": "California Coast University",
+    "Institution_Address": "925 North Spurgeon Street",
+    "Institution_City": "Santa Ana",
+    "Institution_State": "CA",
+    "Institution_Zip": 92701,
+    "Institution_Phone": "714-547-9625",
+    "Institution_Web_Address": "www.calcoast.edu"
+  },
+  {
+    "Institution_ID": 103158,
+    "Institution_Name": "California College-San Diego",
+    "Institution_Address": "6602 Convoy Ct., Ste. 100",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92111,
+    "Institution_Phone": "619-295-5785",
+    "Institution_Web_Address": "www.cc-sd.edu"
+  },
+  {
+    "Institution_ID": 103176,
+    "Institution_Name": "California Hair Design Academy",
+    "Institution_Address": "8011 University Avenue, Suite A-2",
+    "Institution_City": "La Mesa",
+    "Institution_State": "CA",
+    "Institution_Zip": "91941-5055",
+    "Institution_Phone": "619-461-8600",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103185,
+    "Institution_Name": "California Institute of the Arts",
+    "Institution_Address": "24700 W McBean Pky",
+    "Institution_City": "Valencia",
+    "Institution_State": "CA",
+    "Institution_Zip": 91355,
+    "Institution_Phone": "661-255-1050",
+    "Institution_Web_Address": "www.calarts.edu"
+  },
+  {
+    "Institution_ID": 103194,
+    "Institution_Name": "California State University Maritime Academy",
+    "Institution_Address": "200 Maritime Academy Drive",
+    "Institution_City": "Vallejo",
+    "Institution_State": "CA",
+    "Institution_Zip": "94590-8181",
+    "Institution_Phone": "707-654-1000",
+    "Institution_Web_Address": "www.csum.edu"
+  },
+  {
+    "Institution_ID": 103200,
+    "Institution_Name": "California Western School of Law",
+    "Institution_Address": "225 Cedar St",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": "92101-3046",
+    "Institution_Phone": "619-525-7073",
+    "Institution_Web_Address": "www.cwsl.edu"
+  },
+  {
+    "Institution_ID": 103219,
+    "Institution_Name": "Canada College",
+    "Institution_Address": "4200 Farm Hill Blvd.",
+    "Institution_City": "Redwood City",
+    "Institution_State": "CA",
+    "Institution_Zip": "94061-1099",
+    "Institution_Phone": "650-306-3100",
+    "Institution_Web_Address": "canadacollege.edu"
+  },
+  {
+    "Institution_ID": 103228,
+    "Institution_Name": "College of the Canyons",
+    "Institution_Address": "26455 Rockwell Canyon Rd",
+    "Institution_City": "Santa Clarita",
+    "Institution_State": "CA",
+    "Institution_Zip": "91355-1899",
+    "Institution_Phone": "661-259-7800",
+    "Institution_Web_Address": "www.canyons.edu"
+  },
+  {
+    "Institution_ID": 103237,
+    "Institution_Name": "Career Academy of Beauty",
+    "Institution_Address": "12471 Valley View",
+    "Institution_City": "Garden Grove",
+    "Institution_State": "CA",
+    "Institution_Zip": "92845-0000",
+    "Institution_Phone": "714-897-3010",
+    "Institution_Web_Address": "BeautyCareers.com"
+  },
+  {
+    "Institution_ID": 103246,
+    "Institution_Name": "Casa Loma College",
+    "Institution_Address": "6725 Kester Avenue",
+    "Institution_City": "Van Nuys",
+    "Institution_State": "CA",
+    "Institution_Zip": 91405,
+    "Institution_Phone": "818-785-2726",
+    "Institution_Web_Address": "www.casalomacollege.com"
+  },
+  {
+    "Institution_ID": 103255,
+    "Institution_Name": "Center for Employment Training - San Diego",
+    "Institution_Address": "3295 Market St",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92102,
+    "Institution_Phone": "408-287-7924",
+    "Institution_Web_Address": "www.cet2000.org"
+  },
+  {
+    "Institution_ID": 103264,
+    "Institution_Name": "Center for Employment Training",
+    "Institution_Address": "701 Vine St",
+    "Institution_City": "San Jose",
+    "Institution_State": "CA",
+    "Institution_Zip": 95110,
+    "Institution_Phone": "408-287-7924",
+    "Institution_Web_Address": "www.cet2000.org"
+  },
+  {
+    "Institution_ID": 103282,
+    "Institution_Name": "Center for Employment Training - Riverside",
+    "Institution_Address": "9960 Indiana Ave., Ste. # 9",
+    "Institution_City": "Riverside",
+    "Institution_State": "CA",
+    "Institution_Zip": 92503,
+    "Institution_Phone": "408-287-7924",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103334,
+    "Institution_Name": "Cerritos College",
+    "Institution_Address": "11110 Alondra Blvd",
+    "Institution_City": "Norwalk",
+    "Institution_State": "CA",
+    "Institution_Zip": "90650-6298",
+    "Institution_Phone": "562-860-2451-2451",
+    "Institution_Web_Address": "WWW.CERRITOS.EDU"
+  },
+  {
+    "Institution_ID": 103343,
+    "Institution_Name": "Cerro Coso Community College",
+    "Institution_Address": "3000 College Hts Blvd",
+    "Institution_City": "Ridgecrest",
+    "Institution_State": "CA",
+    "Institution_Zip": "93555-9571",
+    "Institution_Phone": "760-384-6100",
+    "Institution_Web_Address": "www.cerrocoso.edu"
+  },
+  {
+    "Institution_ID": 103352,
+    "Institution_Name": "Chabot College",
+    "Institution_Address": "25555 Hesperian Blvd",
+    "Institution_City": "Hayward",
+    "Institution_State": "CA",
+    "Institution_Zip": 94545,
+    "Institution_Phone": "510-723-6600",
+    "Institution_Web_Address": "www.chabotcollege.org"
+  },
+  {
+    "Institution_ID": 103361,
+    "Institution_Name": "Chaffey College",
+    "Institution_Address": "5885 Haven Ave",
+    "Institution_City": "Rancho Cucamonga",
+    "Institution_State": "CA",
+    "Institution_Zip": "91737-3002",
+    "Institution_Phone": "909-987-1737",
+    "Institution_Web_Address": "WWW.CHAFFEY.EDU"
+  },
+  {
+    "Institution_ID": 103370,
+    "Institution_Name": "Chapman University",
+    "Institution_Address": "One University Dr.",
+    "Institution_City": "Orange",
+    "Institution_State": "CA",
+    "Institution_Zip": 92866,
+    "Institution_Phone": "714-997-6815",
+    "Institution_Web_Address": "www.chapman.edu"
+  },
+  {
+    "Institution_ID": 103389,
+    "Institution_Name": "Charles R. Drew University of Medicine and Science",
+    "Institution_Address": "1731 E 120th St",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90059,
+    "Institution_Phone": "323-563-4840",
+    "Institution_Web_Address": "www.cdrewu.edu"
+  },
+  {
+    "Institution_ID": 103398,
+    "Institution_Name": "Concordia University Irvine",
+    "Institution_Address": "1530 Concordia West",
+    "Institution_City": "Irvine",
+    "Institution_State": "CA",
+    "Institution_Zip": "92612-3299",
+    "Institution_Phone": "949-854-8002",
+    "Institution_Web_Address": "www.cui.edu"
+  },
+  {
+    "Institution_ID": 103404,
+    "Institution_Name": "San Diego Christian College",
+    "Institution_Address": "200 Riverview Parkway",
+    "Institution_City": "Santee",
+    "Institution_State": "CA",
+    "Institution_Zip": 92071,
+    "Institution_Phone": "619-201-8700",
+    "Institution_Web_Address": "sdcc.edu"
+  },
+  {
+    "Institution_ID": 103422,
+    "Institution_Name": "Church Divinity School of the Pacific",
+    "Institution_Address": "2451 Ridge Road",
+    "Institution_City": "Berkeley",
+    "Institution_State": "CA",
+    "Institution_Zip": "94709-1217",
+    "Institution_Phone": "510-204-0700",
+    "Institution_Web_Address": "www.cdsp.edu"
+  },
+  {
+    "Institution_ID": 103431,
+    "Institution_Name": "Citrus College",
+    "Institution_Address": "1000 W Foothill Blvd",
+    "Institution_City": "Glendora",
+    "Institution_State": "CA",
+    "Institution_Zip": "91741-1899",
+    "Institution_Phone": "626-963-0323",
+    "Institution_Web_Address": "www.citruscollege.edu"
+  },
+  {
+    "Institution_ID": 103440,
+    "Institution_Name": "City College of San Francisco",
+    "Institution_Address": "50 Phelan Ave",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": "94112-1898",
+    "Institution_Phone": "415-239-3000",
+    "Institution_Web_Address": "www.ccsf.edu"
+  },
+  {
+    "Institution_ID": 103468,
+    "Institution_Name": "Claremont Graduate University",
+    "Institution_Address": "150 E Tenth St",
+    "Institution_City": "Claremont",
+    "Institution_State": "CA",
+    "Institution_Zip": "91711-6160",
+    "Institution_Phone": "909-621-8135",
+    "Institution_Web_Address": "www.cgu.edu"
+  },
+  {
+    "Institution_ID": 103477,
+    "Institution_Name": "Claremont McKenna College",
+    "Institution_Address": "500 E 9th St",
+    "Institution_City": "Claremont",
+    "Institution_State": "CA",
+    "Institution_Zip": "91711-6400",
+    "Institution_Phone": "909-621-8000",
+    "Institution_Web_Address": "www.claremontmckenna.edu/"
+  },
+  {
+    "Institution_ID": 103486,
+    "Institution_Name": "Milan Institute - Visalia",
+    "Institution_Address": "6500 S. Mooney Blvd",
+    "Institution_City": "Visalia",
+    "Institution_State": "CA",
+    "Institution_Zip": 93277,
+    "Institution_Phone": "559-733-4040",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103501,
+    "Institution_Name": "Clovis Adult Education",
+    "Institution_Address": "1452 David E Cook Way",
+    "Institution_City": "Clovis",
+    "Institution_State": "CA",
+    "Institution_Zip": 93611,
+    "Institution_Phone": "559-327-2800",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103529,
+    "Institution_Name": "Coastline Community College",
+    "Institution_Address": "11460 Warner Ave",
+    "Institution_City": "Fountain Valley",
+    "Institution_State": "CA",
+    "Institution_Zip": "92708-2597",
+    "Institution_Phone": "714-546-7600",
+    "Institution_Web_Address": "coastline.cccd.edu"
+  },
+  {
+    "Institution_ID": 103538,
+    "Institution_Name": "Cogswell Polytechnical College",
+    "Institution_Address": "191 Baypointe Parkway",
+    "Institution_City": "San Jose",
+    "Institution_State": "CA",
+    "Institution_Zip": 95134,
+    "Institution_Phone": "408-498-5199",
+    "Institution_Web_Address": "www.cogswell.edu"
+  },
+  {
+    "Institution_ID": 103547,
+    "Institution_Name": "Coleman University",
+    "Institution_Address": "8888 Balboa Ave",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92123,
+    "Institution_Phone": "858-499-0202",
+    "Institution_Web_Address": "www.coleman.edu"
+  },
+  {
+    "Institution_ID": 103556,
+    "Institution_Name": "Coba Cosmetology Academy",
+    "Institution_Address": "102 N. Glassell Street",
+    "Institution_City": "Orange",
+    "Institution_State": "CA",
+    "Institution_Zip": 92866,
+    "Institution_Phone": "714-633-5950",
+    "Institution_Web_Address": "www.coba.edu"
+  },
+  {
+    "Institution_ID": 103565,
+    "Institution_Name": "National Polytechnic College of Science",
+    "Institution_Address": "272 S Fries Ave l  Los Angeles Harbor",
+    "Institution_City": "Wilmington",
+    "Institution_State": "CA",
+    "Institution_Zip": "90744-6399",
+    "Institution_Phone": "310-834-2501",
+    "Institution_Web_Address": "WWW.natpoly.edu"
+  },
+  {
+    "Institution_ID": 103574,
+    "Institution_Name": "Western University of Health Sciences",
+    "Institution_Address": "309 E Second Street College Plaza",
+    "Institution_City": "Pomona",
+    "Institution_State": "CA",
+    "Institution_Zip": "91766-1854",
+    "Institution_Phone": "909-623-6116",
+    "Institution_Web_Address": "www.westernu.edu"
+  },
+  {
+    "Institution_ID": 103583,
+    "Institution_Name": "Columbia College",
+    "Institution_Address": "11600 Columbia College Dr",
+    "Institution_City": "Sonora",
+    "Institution_State": "CA",
+    "Institution_Zip": 95370,
+    "Institution_Phone": "209-588-5100",
+    "Institution_Web_Address": "columbia.yosemite.cc.ca.us/"
+  },
+  {
+    "Institution_ID": 103592,
+    "Institution_Name": "Columbia College Hollywood",
+    "Institution_Address": "18618 Oxnard Street",
+    "Institution_City": "Tarzana",
+    "Institution_State": "CA",
+    "Institution_Zip": "91356-1411",
+    "Institution_Phone": "818-345-8414",
+    "Institution_Web_Address": "www.columbiacollege.edu"
+  },
+  {
+    "Institution_ID": 103608,
+    "Institution_Name": "Morgan Hill Community Adult School",
+    "Institution_Address": "17940 Monterey Road",
+    "Institution_City": "Morgan Hill",
+    "Institution_State": "CA",
+    "Institution_Zip": 95037,
+    "Institution_Phone": "408-779-5261",
+    "Institution_Web_Address": "www.cas.mhu.k12.ca.us"
+  },
+  {
+    "Institution_ID": 103617,
+    "Institution_Name": "Compton Community College",
+    "Institution_Address": "1111 East Artesia Blvd.",
+    "Institution_City": "Compton",
+    "Institution_State": "CA",
+    "Institution_Zip": "90221-5393",
+    "Institution_Phone": "310-900-1600-2000",
+    "Institution_Web_Address": "www.compton.cc.ca.us"
+  },
+  {
+    "Institution_ID": 103626,
+    "Institution_Name": "Western Beauty Institute",
+    "Institution_Address": "8700 Van Nuys Blvd",
+    "Institution_City": "Panorama City",
+    "Institution_State": "CA",
+    "Institution_Zip": 91402,
+    "Institution_Phone": "818-894-9550",
+    "Institution_Web_Address": "www.wbi.edu"
+  },
+  {
+    "Institution_ID": 103644,
+    "Institution_Name": "Contra Costa College",
+    "Institution_Address": "2600 Mission Bell Dr",
+    "Institution_City": "San Pablo",
+    "Institution_State": "CA",
+    "Institution_Zip": "94806-3195",
+    "Institution_Phone": "510-235-7800",
+    "Institution_Web_Address": "www.contracosta.cc.ca.us"
+  },
+  {
+    "Institution_ID": 103653,
+    "Institution_Name": "Cosumnes River College",
+    "Institution_Address": "8401 Center Pky",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": "95823-5799",
+    "Institution_Phone": "916-688-7344",
+    "Institution_Web_Address": "www.crc.losrios.edu/"
+  },
+  {
+    "Institution_ID": 103662,
+    "Institution_Name": "Crafton Hills College",
+    "Institution_Address": "11711 Sand Canyon Road",
+    "Institution_City": "Yucaipa",
+    "Institution_State": "CA",
+    "Institution_Zip": "92399-1799",
+    "Institution_Phone": "909-794-2161",
+    "Institution_Web_Address": "www.craftonhills.edu"
+  },
+  {
+    "Institution_ID": 103671,
+    "Institution_Name": "Crenshaw-Washington Community Adult School",
+    "Institution_Address": "5010 - 11th Avenue",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90043,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103680,
+    "Institution_Name": "Cuesta College",
+    "Institution_Address": "Highway 1",
+    "Institution_City": "San Luis Obispo",
+    "Institution_State": "CA",
+    "Institution_Zip": "93403-8106",
+    "Institution_Phone": "805-546-3100",
+    "Institution_Web_Address": "WWW.CUESTA.EDU"
+  },
+  {
+    "Institution_ID": 103699,
+    "Institution_Name": "Cuyamaca College",
+    "Institution_Address": "900 Rancho San Diego Pky",
+    "Institution_City": "El Cajon",
+    "Institution_State": "CA",
+    "Institution_Zip": 92019,
+    "Institution_Phone": "619-660-4000",
+    "Institution_Web_Address": "www.cuyamaca.net/"
+  },
+  {
+    "Institution_ID": 103714,
+    "Institution_Name": "Cypress College",
+    "Institution_Address": "9200 Valley View",
+    "Institution_City": "Cypress",
+    "Institution_State": "CA",
+    "Institution_Zip": "90630-5897",
+    "Institution_Phone": "714-484-7000",
+    "Institution_Web_Address": "www.cypresscollege.edu"
+  },
+  {
+    "Institution_ID": 103732,
+    "Institution_Name": "De Anza College",
+    "Institution_Address": "21250 Stevens Creek Blvd.",
+    "Institution_City": "Cupertino",
+    "Institution_State": "CA",
+    "Institution_Zip": 95014,
+    "Institution_Phone": "408-864-5678",
+    "Institution_Web_Address": "www.deanza.edu"
+  },
+  {
+    "Institution_ID": 103741,
+    "Institution_Name": "Marinello School of Beauty - Hemet",
+    "Institution_Address": "2627 W Florida Ave Ste 100",
+    "Institution_City": "Hemet",
+    "Institution_State": "CA",
+    "Institution_Zip": 92545,
+    "Institution_Phone": "909-766-5759",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103750,
+    "Institution_Name": "Deep Springs College",
+    "Institution_Address": "Deep Springs Ranch Road, Highway 168",
+    "Institution_City": "Big Pine",
+    "Institution_State": "CA",
+    "Institution_Zip": 89010,
+    "Institution_Phone": "760-872-2000",
+    "Institution_Web_Address": "www.deepsprings.edu"
+  },
+  {
+    "Institution_ID": 103769,
+    "Institution_Name": "Dell'Arte International School of Physical Theatre",
+    "Institution_Address": "131 H Street",
+    "Institution_City": "Blue Lake",
+    "Institution_State": "CA",
+    "Institution_Zip": "95525-0816",
+    "Institution_Phone": "707-668-5663-14",
+    "Institution_Web_Address": "www.dellarte.com"
+  },
+  {
+    "Institution_ID": 103778,
+    "Institution_Name": "College of the Desert",
+    "Institution_Address": "43-500 Monterey Ave",
+    "Institution_City": "Palm Desert",
+    "Institution_State": "CA",
+    "Institution_Zip": 92260,
+    "Institution_Phone": "760-346-8041",
+    "Institution_Web_Address": "www.collegeofthedesert.edu"
+  },
+  {
+    "Institution_ID": 103787,
+    "Institution_Name": "Design Institute of San Diego",
+    "Institution_Address": "8555 Commerce Ave",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92121,
+    "Institution_Phone": "858-566-1200",
+    "Institution_Web_Address": "WWW.DISD.EDU"
+  },
+  {
+    "Institution_ID": 103796,
+    "Institution_Name": "Kasson Adult School - Deuel Vocational Institution",
+    "Institution_Address": "23500 Kasson Road",
+    "Institution_City": "Tracy",
+    "Institution_State": "CA",
+    "Institution_Zip": 95378,
+    "Institution_Phone": "209-830-3822",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103811,
+    "Institution_Name": "Diablo Valley College",
+    "Institution_Address": "321 Golf Club Rd",
+    "Institution_City": "Pleasant Hill",
+    "Institution_State": "CA",
+    "Institution_Zip": 94523,
+    "Institution_Phone": "925-685-1230",
+    "Institution_Web_Address": "WWW.DVC.EDU"
+  },
+  {
+    "Institution_ID": 103820,
+    "Institution_Name": "Dominican University of California",
+    "Institution_Address": "50 Acacia Ave",
+    "Institution_City": "San Rafael",
+    "Institution_State": "CA",
+    "Institution_Zip": "94901-2298",
+    "Institution_Phone": "415-457-4440",
+    "Institution_Web_Address": "www.dominican.edu"
+  },
+  {
+    "Institution_ID": 103839,
+    "Institution_Name": "Dominican School of Philosophy and Theology",
+    "Institution_Address": "2301 Vine Street",
+    "Institution_City": "Berkeley",
+    "Institution_State": "CA",
+    "Institution_Zip": "94708-1816",
+    "Institution_Phone": "888-450-3778",
+    "Institution_Web_Address": "www.dspt.edu"
+  },
+  {
+    "Institution_ID": 103848,
+    "Institution_Name": "Don Bosco Technical Institute",
+    "Institution_Address": "1151 San Gabriel Blvd",
+    "Institution_City": "Rosemead",
+    "Institution_State": "CA",
+    "Institution_Zip": "91770-4299",
+    "Institution_Phone": "626-940-2000",
+    "Institution_Web_Address": "www.boscotech.edu"
+  },
+  {
+    "Institution_ID": 103857,
+    "Institution_Name": "East Los Angeles College",
+    "Institution_Address": "1301 Ave Cesar Chavez",
+    "Institution_City": "Monterey Park",
+    "Institution_State": "CA",
+    "Institution_Zip": "91754-6099",
+    "Institution_Phone": "323-265-8650",
+    "Institution_Web_Address": "www.elac.edu"
+  },
+  {
+    "Institution_ID": 103866,
+    "Institution_Name": "East Los Angeles Occupational Center",
+    "Institution_Address": "2100 Marengo Street",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90033,
+    "Institution_Phone": "323-233-1283",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 103875,
+    "Institution_Name": "Marinello School of Beauty - Santa Clara",
+    "Institution_Address": "955 Monroe Street",
+    "Institution_City": "Santa Clara",
+    "Institution_State": "CA",
+    "Institution_Zip": 95050,
+    "Institution_Phone": "408-247-2200",
+    "Institution_Web_Address": "www.cacosmetologycollege.com"
+  },
+  {
+    "Institution_ID": 103884,
+    "Institution_Name": "SDCCD Continuing Education",
+    "Institution_Address": "4343 Ocean View Blvd",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92113,
+    "Institution_Phone": "619-388-4850",
+    "Institution_Web_Address": "www.sdccd.net"
+  },
+  {
+    "Institution_ID": 103893,
+    "Institution_Name": "El Camino College",
+    "Institution_Address": "16007 Crenshaw Blvd",
+    "Institution_City": "Torrance",
+    "Institution_State": "CA",
+    "Institution_Zip": 90506,
+    "Institution_Phone": "310-532-3670",
+    "Institution_Web_Address": "www.elcamino.edu"
+  },
+  {
+    "Institution_ID": 103909,
+    "Institution_Name": "Elegance International",
+    "Institution_Address": "1622 N. Highland Ave",
+    "Institution_City": "Hollywood",
+    "Institution_State": "CA",
+    "Institution_Zip": "90028-6106",
+    "Institution_Phone": "323-871-8318",
+    "Institution_Web_Address": "www.ei.edu"
+  },
+  {
+    "Institution_ID": 103927,
+    "Institution_Name": "Marinello School of Beauty - Burbank",
+    "Institution_Address": "200 North San Fernando Boulevard",
+    "Institution_City": "Burbank",
+    "Institution_State": "CA",
+    "Institution_Zip": 91502,
+    "Institution_Phone": "310-552-3838",
+    "Institution_Web_Address": "www.elegantebc.com"
+  },
+  {
+    "Institution_ID": 103936,
+    "Institution_Name": "Marinello School of Beauty - Moreno Valley",
+    "Institution_Address": "24741 Alessandro Blvd",
+    "Institution_City": "Moreno Valley",
+    "Institution_State": "CA",
+    "Institution_Zip": 92553,
+    "Institution_Phone": "909-247-2047",
+    "Institution_Web_Address": "www.elegantebc.com"
+  },
+  {
+    "Institution_ID": 103945,
+    "Institution_Name": "Emperor's College of Traditional Oriental Medicine",
+    "Institution_Address": "1807-B Wilshire Blvd, Ste #200",
+    "Institution_City": "Santa Monica",
+    "Institution_State": "CA",
+    "Institution_Zip": 90403,
+    "Institution_Phone": "310-453-8300",
+    "Institution_Web_Address": "www.emperors.edu"
+  },
+  {
+    "Institution_ID": 103954,
+    "Institution_Name": "Empire College",
+    "Institution_Address": "3035 Cleveland Ave",
+    "Institution_City": "Santa Rosa",
+    "Institution_State": "CA",
+    "Institution_Zip": "95403-2126",
+    "Institution_Phone": "707-546-4000",
+    "Institution_Web_Address": "www.empcol.edu"
+  },
+  {
+    "Institution_ID": 103963,
+    "Institution_Name": "Evergreen Valley College",
+    "Institution_Address": "3095 Yerba Buena Rd",
+    "Institution_City": "San Jose",
+    "Institution_State": "CA",
+    "Institution_Zip": "95135-1598",
+    "Institution_Phone": "408-274-7900",
+    "Institution_Web_Address": "www.evc.edu"
+  },
+  {
+    "Institution_ID": 103981,
+    "Institution_Name": "FIDM/Fashion Institute of Design & Merchandising",
+    "Institution_Address": "919 South Grand Avenue",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90015-1421",
+    "Institution_Phone": "213-624-1200",
+    "Institution_Web_Address": "WWW.FIDM.EDU"
+  },
+  {
+    "Institution_ID": 103990,
+    "Institution_Name": "Fashion Careers College",
+    "Institution_Address": "1923 Morena Blvd",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": "92110-3555",
+    "Institution_Phone": "619-275-4700-301",
+    "Institution_Web_Address": "www.fashioncollege.com"
+  },
+  {
+    "Institution_ID": 104027,
+    "Institution_Name": "Feather River College",
+    "Institution_Address": "570 Golden Eagle Ave",
+    "Institution_City": "Quincy",
+    "Institution_State": "CA",
+    "Institution_Zip": "95971-9124",
+    "Institution_Phone": "530-283-0202",
+    "Institution_Web_Address": "www.frc.edu"
+  },
+  {
+    "Institution_ID": 104036,
+    "Institution_Name": "Federico Beauty Institute",
+    "Institution_Address": "1515 Sports Drive    Ste 100",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": 95834,
+    "Institution_Phone": "916-929-4242",
+    "Institution_Web_Address": "federico.edu"
+  },
+  {
+    "Institution_ID": 104045,
+    "Institution_Name": "Fielding Graduate University",
+    "Institution_Address": "2112 Santa Barbara St",
+    "Institution_City": "Santa Barbara",
+    "Institution_State": "CA",
+    "Institution_Zip": 93105,
+    "Institution_Phone": "805-687-1099",
+    "Institution_Web_Address": "www.fielding.edu"
+  },
+  {
+    "Institution_ID": 104054,
+    "Institution_Name": "Five Branches University:  Graduate School of Traditional Chinese Medicine - Santa Cruz, CA",
+    "Institution_Address": "200 7th Avenue",
+    "Institution_City": "Santa Cruz",
+    "Institution_State": "CA",
+    "Institution_Zip": 95062,
+    "Institution_Phone": "831-476-9424",
+    "Institution_Web_Address": "www.fivebranches.edu"
+  },
+  {
+    "Institution_ID": 104063,
+    "Institution_Name": "Hair California Beauty Academy",
+    "Institution_Address": "1110 N Tustin St",
+    "Institution_City": "Orange",
+    "Institution_State": "CA",
+    "Institution_Zip": 92867,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104072,
+    "Institution_Name": "Foothill College",
+    "Institution_Address": "12345 El Monte Rd",
+    "Institution_City": "Los Altos Hills",
+    "Institution_State": "CA",
+    "Institution_Zip": 94022,
+    "Institution_Phone": "650-949-7777",
+    "Institution_Web_Address": "www.foothill.edu"
+  },
+  {
+    "Institution_ID": 104081,
+    "Institution_Name": "Franciscan School of Theology",
+    "Institution_Address": "4050 Mission Avenue",
+    "Institution_City": "Oceanside",
+    "Institution_State": "CA",
+    "Institution_Zip": 92057,
+    "Institution_Phone": "760-547-1800",
+    "Institution_Web_Address": "www.fst.edu"
+  },
+  {
+    "Institution_ID": 104090,
+    "Institution_Name": "Fredrick and Charles Beauty College",
+    "Institution_Address": "831 F St",
+    "Institution_City": "Eureka",
+    "Institution_State": "CA",
+    "Institution_Zip": 95501,
+    "Institution_Phone": "707-443-2733",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104106,
+    "Institution_Name": "Fresno City College",
+    "Institution_Address": "1101 E. University Ave",
+    "Institution_City": "Fresno",
+    "Institution_State": "CA",
+    "Institution_Zip": 93741,
+    "Institution_Phone": "559-442-4600",
+    "Institution_Web_Address": "www.fresnocitycollege.com"
+  },
+  {
+    "Institution_ID": 104115,
+    "Institution_Name": "Fresno Pacific University",
+    "Institution_Address": "1717 S. Chestnut Ave.",
+    "Institution_City": "Fresno",
+    "Institution_State": "CA",
+    "Institution_Zip": 93702,
+    "Institution_Phone": "559-453-2031",
+    "Institution_Web_Address": "www.fresno.edu"
+  },
+  {
+    "Institution_ID": 104133,
+    "Institution_Name": "Fuller Theological Seminary",
+    "Institution_Address": "135 N Oakland Ave",
+    "Institution_City": "Pasadena",
+    "Institution_State": "CA",
+    "Institution_Zip": 91182,
+    "Institution_Phone": "626-584-5200",
+    "Institution_Web_Address": "www.fuller.edu"
+  },
+  {
+    "Institution_ID": 104142,
+    "Institution_Name": "Fullerton College",
+    "Institution_Address": "321 E Chapman Avenue",
+    "Institution_City": "Fullerton",
+    "Institution_State": "CA",
+    "Institution_Zip": "92832-2095",
+    "Institution_Phone": "714-992-7000",
+    "Institution_Web_Address": "www.fullcoll.edu"
+  },
+  {
+    "Institution_ID": 104151,
+    "Institution_Name": "Galen College of Medical and Dental Assistants",
+    "Institution_Address": "1604 Ford Ave",
+    "Institution_City": "Modesto",
+    "Institution_State": "CA",
+    "Institution_Zip": 95350,
+    "Institution_Phone": "559-527-5100",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104188,
+    "Institution_Name": "Gavilan College",
+    "Institution_Address": "5055 Santa Teresa Blvd",
+    "Institution_City": "Gilroy",
+    "Institution_State": "CA",
+    "Institution_Zip": 95020,
+    "Institution_Phone": "408-847-1400",
+    "Institution_Web_Address": "www.gavilan.edu"
+  },
+  {
+    "Institution_ID": 104197,
+    "Institution_Name": "Gemological Institute of America",
+    "Institution_Address": "5345 Armada Dr",
+    "Institution_City": "Carlsbad",
+    "Institution_State": "CA",
+    "Institution_Zip": 92008,
+    "Institution_Phone": "760-603-4000",
+    "Institution_Web_Address": "www.gia.edu"
+  },
+  {
+    "Institution_ID": 104203,
+    "Institution_Name": "Glendale Community College",
+    "Institution_Address": "1500 N Verdugo Rd",
+    "Institution_City": "Glendale",
+    "Institution_State": "CA",
+    "Institution_Zip": "91208-2894",
+    "Institution_Phone": "818-240-1000",
+    "Institution_Web_Address": "www.glendale.edu"
+  },
+  {
+    "Institution_ID": 104221,
+    "Institution_Name": "Gateway Seminary",
+    "Institution_Address": "3210 East Guasti Road",
+    "Institution_City": "Ontario",
+    "Institution_State": "CA",
+    "Institution_Zip": 91761,
+    "Institution_Phone": "415-380-1300",
+    "Institution_Web_Address": "www.ggbts.edu"
+  },
+  {
+    "Institution_ID": 104230,
+    "Institution_Name": "Golden Gate University",
+    "Institution_Address": "536 Mission Street",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": "94105-2968",
+    "Institution_Phone": "800-448-4968",
+    "Institution_Web_Address": "www.ggu.edu"
+  },
+  {
+    "Institution_ID": 104249,
+    "Institution_Name": "Golden West College",
+    "Institution_Address": "15744 Golden West",
+    "Institution_City": "Huntington Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": "92647-2710",
+    "Institution_Phone": "714-892-7711",
+    "Institution_Web_Address": "www.gwc.cccd.edu"
+  },
+  {
+    "Institution_ID": 104258,
+    "Institution_Name": "Graduate Theological Union",
+    "Institution_Address": "2400 Ridge Rd",
+    "Institution_City": "Berkeley",
+    "Institution_State": "CA",
+    "Institution_Zip": "94709-1212",
+    "Institution_Phone": "510-649-2440",
+    "Institution_Web_Address": "www.gtu.edu"
+  },
+  {
+    "Institution_ID": 104267,
+    "Institution_Name": "Grossmont Adult School",
+    "Institution_Address": "1100 Murray Drive",
+    "Institution_City": "El Cajon",
+    "Institution_State": "CA",
+    "Institution_Zip": 92020,
+    "Institution_Phone": "619-401-4122",
+    "Institution_Web_Address": "www.guhsd.net/adult"
+  },
+  {
+    "Institution_ID": 104285,
+    "Institution_Name": "Grossmont College",
+    "Institution_Address": "8800 Grossmont College Dr",
+    "Institution_City": "El Cajon",
+    "Institution_State": "CA",
+    "Institution_Zip": "92020-1799",
+    "Institution_Phone": "619-644-7000",
+    "Institution_Web_Address": "grossmont.gcccd.cc.ca.us/home/"
+  },
+  {
+    "Institution_ID": 104294,
+    "Institution_Name": "Salon Success Academy - San Bernardino",
+    "Institution_Address": "6780  Indiana Avenue, Suite #200",
+    "Institution_City": "Riverside",
+    "Institution_State": "CA",
+    "Institution_Zip": 92506,
+    "Institution_Phone": "909-988-7584",
+    "Institution_Web_Address": "www.gotobeautyschool.com"
+  },
+  {
+    "Institution_ID": 104300,
+    "Institution_Name": "Harbor Occupational Center",
+    "Institution_Address": "740 N Pacific Ave",
+    "Institution_City": "San Pedro",
+    "Institution_State": "CA",
+    "Institution_Zip": 90731,
+    "Institution_Phone": "310-547-5551",
+    "Institution_Web_Address": "www.lausd.k12.ca.us"
+  },
+  {
+    "Institution_ID": 104319,
+    "Institution_Name": "Hartnell College",
+    "Institution_Address": "156 Homestead Ave",
+    "Institution_City": "Salinas",
+    "Institution_State": "CA",
+    "Institution_Zip": 93901,
+    "Institution_Phone": "831-755-6700",
+    "Institution_Web_Address": "www.hartnell.edu"
+  },
+  {
+    "Institution_ID": 104328,
+    "Institution_Name": "Harvey Mudd College",
+    "Institution_Address": "301 Platt Blvd.",
+    "Institution_City": "Claremont",
+    "Institution_State": "CA",
+    "Institution_Zip": "91711-5990",
+    "Institution_Phone": "909-621-8122",
+    "Institution_Web_Address": "www.hmc.edu"
+  },
+  {
+    "Institution_ID": 104407,
+    "Institution_Name": "Hilltop Beauty School",
+    "Institution_Address": "6317 Mission St",
+    "Institution_City": "Daly City",
+    "Institution_State": "CA",
+    "Institution_Zip": 94014,
+    "Institution_Phone": "415-756-2720",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104416,
+    "Institution_Name": "Holy Names University",
+    "Institution_Address": "3500 Mountain Blvd",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": "94619-1699",
+    "Institution_Phone": "510-436-1000",
+    "Institution_Web_Address": "www.hnu.edu"
+  },
+  {
+    "Institution_ID": 104425,
+    "Institution_Name": "Pacifica Graduate Institute",
+    "Institution_Address": "249 Lambert Rd",
+    "Institution_City": "Carpinteria",
+    "Institution_State": "CA",
+    "Institution_Zip": 93013,
+    "Institution_Phone": "805-969-3626",
+    "Institution_Web_Address": "www.pacifica.edu"
+  },
+  {
+    "Institution_ID": 104434,
+    "Institution_Name": "Humboldt State University",
+    "Institution_Address": "1 Harpst Street",
+    "Institution_City": "Arcata",
+    "Institution_State": "CA",
+    "Institution_Zip": "95521-8299",
+    "Institution_Phone": "707-826-3277",
+    "Institution_Web_Address": "www.humboldt.edu"
+  },
+  {
+    "Institution_ID": 104443,
+    "Institution_Name": "Humphreys College",
+    "Institution_Address": "6650 Inglewood Avenue",
+    "Institution_City": "Stockton",
+    "Institution_State": "CA",
+    "Institution_Zip": 95207,
+    "Institution_Phone": "209-478-0800",
+    "Institution_Web_Address": "www.humphreys.edu"
+  },
+  {
+    "Institution_ID": 104452,
+    "Institution_Name": "Imperial Valley College",
+    "Institution_Address": "380 E. Aten Road",
+    "Institution_City": "Imperial",
+    "Institution_State": "CA",
+    "Institution_Zip": "92251-0158",
+    "Institution_Phone": "760-352-8320-100",
+    "Institution_Web_Address": "www.imperial.edu"
+  },
+  {
+    "Institution_ID": 104461,
+    "Institution_Name": "Institute for Business and Technology",
+    "Institution_Address": "2400 Walsh Avenue",
+    "Institution_City": "Santa Clara",
+    "Institution_State": "CA",
+    "Institution_Zip": 95051,
+    "Institution_Phone": "408-727-1060",
+    "Institution_Web_Address": "WWW.IBTTECH.COM"
+  },
+  {
+    "Institution_ID": 104470,
+    "Institution_Name": "ICR Graduate School",
+    "Institution_Address": "10946 Woodside Avenue, North",
+    "Institution_City": "Santee",
+    "Institution_State": "CA",
+    "Institution_Zip": 92071,
+    "Institution_Phone": "619-448-0900",
+    "Institution_Web_Address": "www.icr.edu"
+  },
+  {
+    "Institution_ID": 104489,
+    "Institution_Name": "LA College International",
+    "Institution_Address": "3200 Wilshire Blvd. #400",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90010-1308",
+    "Institution_Phone": "213-381-3333-100",
+    "Institution_Web_Address": "www.www.lac.edu"
+  },
+  {
+    "Institution_ID": 104498,
+    "Institution_Name": "Interior Designers Institute",
+    "Institution_Address": "1061 Camelback Rd",
+    "Institution_City": "Newport Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": 92660,
+    "Institution_Phone": "949-675-4451",
+    "Institution_Web_Address": "idi.edu"
+  },
+  {
+    "Institution_ID": 104513,
+    "Institution_Name": "TONI & GUY Hairdressing Academy - Santa Monica",
+    "Institution_Address": "1358 5th Street",
+    "Institution_City": "Santa Monica",
+    "Institution_State": "CA",
+    "Institution_Zip": 90401,
+    "Institution_Phone": "310-973-7774",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104522,
+    "Institution_Name": "Irvine Valley College",
+    "Institution_Address": "5500 Irvine Center Drive",
+    "Institution_City": "Irvine",
+    "Institution_State": "CA",
+    "Institution_Zip": "92618-0301",
+    "Institution_Phone": "949-451-5100",
+    "Institution_Web_Address": "www.ivc.edu"
+  },
+  {
+    "Institution_ID": 104568,
+    "Institution_Name": "Bellus Academy - El Cajon",
+    "Institution_Address": "1073 E Main St",
+    "Institution_City": "El Cajon",
+    "Institution_State": "CA",
+    "Institution_Zip": 92021,
+    "Institution_Phone": "619-442-3407",
+    "Institution_Web_Address": "www.sandiegobeautyacademy.com"
+  },
+  {
+    "Institution_ID": 104586,
+    "Institution_Name": "John F Kennedy University",
+    "Institution_Address": "100 Ellinwood Way",
+    "Institution_City": "Pleasant Hill",
+    "Institution_State": "CA",
+    "Institution_Zip": "94523-4817",
+    "Institution_Phone": "925-969-3300",
+    "Institution_Web_Address": "www.jfku.edu"
+  },
+  {
+    "Institution_ID": 104595,
+    "Institution_Name": "American Jewish University",
+    "Institution_Address": "15600 Mulholland Dr",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90077-1519",
+    "Institution_Phone": "310-476-9777",
+    "Institution_Web_Address": "www.aju.edu"
+  },
+  {
+    "Institution_ID": 104601,
+    "Institution_Name": "Reedley College",
+    "Institution_Address": "995 N Reed Ave",
+    "Institution_City": "Reedley",
+    "Institution_State": "CA",
+    "Institution_Zip": 93654,
+    "Institution_Phone": "559-638-3641",
+    "Institution_Web_Address": "www.reedleycollege.edu"
+  },
+  {
+    "Institution_ID": 104610,
+    "Institution_Name": "Life Pacific College",
+    "Institution_Address": "1100 W. Covina Blvd",
+    "Institution_City": "San Dimas",
+    "Institution_State": "CA",
+    "Institution_Zip": 91773,
+    "Institution_Phone": "909-599-5433",
+    "Institution_Web_Address": "www.lifepacific.edu"
+  },
+  {
+    "Institution_ID": 104638,
+    "Institution_Name": "University of La Verne",
+    "Institution_Address": "1950 Third St",
+    "Institution_City": "La Verne",
+    "Institution_State": "CA",
+    "Institution_Zip": 91750,
+    "Institution_Phone": "909-593-3511",
+    "Institution_Web_Address": "www.ulv.edu"
+  },
+  {
+    "Institution_ID": 104647,
+    "Institution_Name": "Laguna College of Art and Design",
+    "Institution_Address": "2222 Laguna Canyon Rd",
+    "Institution_City": "Laguna Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": "92651-1136",
+    "Institution_Phone": "949-376-6000-224",
+    "Institution_Web_Address": "www.lcad.edu"
+  },
+  {
+    "Institution_ID": 104665,
+    "Institution_Name": "Lake Tahoe Community College",
+    "Institution_Address": "One College Drive",
+    "Institution_City": "South Lake Tahoe",
+    "Institution_State": "CA",
+    "Institution_Zip": 96150,
+    "Institution_Phone": "530-541-4660",
+    "Institution_Web_Address": "www.ltcc.edu"
+  },
+  {
+    "Institution_ID": 104674,
+    "Institution_Name": "Lancaster Beauty School",
+    "Institution_Address": "44646 N 10th St W",
+    "Institution_City": "Lancaster",
+    "Institution_State": "CA",
+    "Institution_Zip": 93534,
+    "Institution_Phone": "661-948-1672",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104683,
+    "Institution_Name": "Laney College",
+    "Institution_Address": "900 Fallon St",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": 94607,
+    "Institution_Phone": "510-834-5740",
+    "Institution_Web_Address": "laney.peralta.cc.ca.us/"
+  },
+  {
+    "Institution_ID": 104692,
+    "Institution_Name": "Lassen Community College",
+    "Institution_Address": "Hwy 139",
+    "Institution_City": "Susanville",
+    "Institution_State": "CA",
+    "Institution_Zip": 96130,
+    "Institution_Phone": "530-257-6181",
+    "Institution_Web_Address": "www.lassencollege.edu"
+  },
+  {
+    "Institution_ID": 104708,
+    "Institution_Name": "Life Chiropractic College-West",
+    "Institution_Address": "25001 Industrial Blvd.",
+    "Institution_City": "Hayward",
+    "Institution_State": "CA",
+    "Institution_Zip": "94545-2800",
+    "Institution_Phone": "510-780-4500",
+    "Institution_Web_Address": "www.lifewest.edu"
+  },
+  {
+    "Institution_ID": 104717,
+    "Institution_Name": "Lincoln University",
+    "Institution_Address": "401 15th Street",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": "94612-2801",
+    "Institution_Phone": "510-628-8010",
+    "Institution_Web_Address": "www.lincolnuca.edu"
+  },
+  {
+    "Institution_ID": 104726,
+    "Institution_Name": "Southern California Seminary",
+    "Institution_Address": "2075 E. Madison Avenue",
+    "Institution_City": "El Cajon",
+    "Institution_State": "CA",
+    "Institution_Zip": "92019-1108",
+    "Institution_Phone": "619-201-8999",
+    "Institution_Web_Address": "www.socalsem.edu"
+  },
+  {
+    "Institution_ID": 104735,
+    "Institution_Name": "La Sierra University",
+    "Institution_Address": "4500 Riverwalk Parkway",
+    "Institution_City": "Riverside",
+    "Institution_State": "CA",
+    "Institution_Zip": "92515-8247",
+    "Institution_Phone": "951-785-2320",
+    "Institution_Web_Address": "www.lasierra.edu"
+  },
+  {
+    "Institution_ID": 104744,
+    "Institution_Name": "Loma Linda University",
+    "Institution_Address": "11060 Anderson Street",
+    "Institution_City": "Loma Linda",
+    "Institution_State": "CA",
+    "Institution_Zip": 92350,
+    "Institution_Phone": "909-651-5042",
+    "Institution_Web_Address": "www.llu.edu"
+  },
+  {
+    "Institution_ID": 104753,
+    "Institution_Name": "Long Beach City College",
+    "Institution_Address": "4901 E. Carson St.",
+    "Institution_City": "Long Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": "90808-1706",
+    "Institution_Phone": "562-938-4206",
+    "Institution_Web_Address": "www.lbcc.edu"
+  },
+  {
+    "Institution_ID": 104762,
+    "Institution_Name": "Southern California University of Health Sciences",
+    "Institution_Address": "16200 E Amber Valley Dr",
+    "Institution_City": "Whittier",
+    "Institution_State": "CA",
+    "Institution_Zip": 90604,
+    "Institution_Phone": "562-947-8755",
+    "Institution_Web_Address": "www.scuhs.edu"
+  },
+  {
+    "Institution_ID": 104780,
+    "Institution_Name": "Los Angeles Harbor College",
+    "Institution_Address": "1111 Figueroa Place",
+    "Institution_City": "Wilmington",
+    "Institution_State": "CA",
+    "Institution_Zip": "90744-2397",
+    "Institution_Phone": "310-233-4000",
+    "Institution_Web_Address": "www.lahc.edu"
+  },
+  {
+    "Institution_ID": 104799,
+    "Institution_Name": "Los Angeles Pierce College",
+    "Institution_Address": "6201 Winnetka Ave",
+    "Institution_City": "Woodland Hills",
+    "Institution_State": "CA",
+    "Institution_Zip": "91371-0002",
+    "Institution_Phone": "818-347-0551",
+    "Institution_Web_Address": "www.piercecollege.com"
+  },
+  {
+    "Institution_ID": 104805,
+    "Institution_Name": "Los Angeles Southwest College",
+    "Institution_Address": "1600 W Imperial Hwy.",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90047-4899",
+    "Institution_Phone": "323-241-5225",
+    "Institution_Web_Address": "www.lasc.edu"
+  },
+  {
+    "Institution_ID": 104814,
+    "Institution_Name": "Los Angeles Trade Technical College",
+    "Institution_Address": "400 W Washington Blvd",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90015-4181",
+    "Institution_Phone": "213-763-7000",
+    "Institution_Web_Address": "www.lattc.edu"
+  },
+  {
+    "Institution_ID": 104823,
+    "Institution_Name": "Los Angeles Valley College",
+    "Institution_Address": "5800 Fulton Avenue",
+    "Institution_City": "Valley Glen",
+    "Institution_State": "CA",
+    "Institution_Zip": "91401-4096",
+    "Institution_Phone": "818-947-2600",
+    "Institution_Web_Address": "www.lavc.cc.ca.us"
+  },
+  {
+    "Institution_ID": 104832,
+    "Institution_Name": "The Master's College and Seminary",
+    "Institution_Address": "21726 Placerita Canyon Road",
+    "Institution_City": "Santa Clarita",
+    "Institution_State": "CA",
+    "Institution_Zip": "91321-1200",
+    "Institution_Phone": "661-259-3540-3785",
+    "Institution_Web_Address": "www.masters.edu"
+  },
+  {
+    "Institution_ID": 104841,
+    "Institution_Name": "Los Angeles City College",
+    "Institution_Address": "855 N Vermont Ave",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90029,
+    "Institution_Phone": "323-953-4000",
+    "Institution_Web_Address": "www.lacitycollege.edu/"
+  },
+  {
+    "Institution_ID": 104850,
+    "Institution_Name": "L.A. County Harbor/UCLA Medical Center",
+    "Institution_Address": "1000 West Carson Street",
+    "Institution_City": "Torrance",
+    "Institution_State": "CA",
+    "Institution_Zip": "90509-2910",
+    "Institution_Phone": "310-222-2825",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104869,
+    "Institution_Name": "Los Angeles County College of Nursing and Allied Health",
+    "Institution_Address": "1237 N. Mission Rd.",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90033-1084",
+    "Institution_Phone": "323-226-4911",
+    "Institution_Web_Address": "ladhs.org/lacusc/lacnah"
+  },
+  {
+    "Institution_ID": 104878,
+    "Institution_Name": "Los Angeles Mission College",
+    "Institution_Address": "13356 Eldridge Avenue",
+    "Institution_City": "Sylmar",
+    "Institution_State": "CA",
+    "Institution_Zip": "91342-3245",
+    "Institution_Phone": "818-364-7600",
+    "Institution_Web_Address": "www.lamission.edu"
+  },
+  {
+    "Institution_ID": 104887,
+    "Institution_Name": "Los Medanos College",
+    "Institution_Address": "2700 East Leland Road",
+    "Institution_City": "Pittsburg",
+    "Institution_State": "CA",
+    "Institution_Zip": 94565,
+    "Institution_Phone": "925-439-2181",
+    "Institution_Web_Address": "www.losmedanos.net"
+  },
+  {
+    "Institution_ID": 104911,
+    "Institution_Name": "Loyola Marymount University",
+    "Institution_Address": "One LMU Drive",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90045-2659",
+    "Institution_Phone": "310-338-2700",
+    "Institution_Web_Address": "www.lmu.edu"
+  },
+  {
+    "Institution_ID": 104920,
+    "Institution_Name": "Manchester Beauty College",
+    "Institution_Address": "3756 N Blackstone Ave",
+    "Institution_City": "Fresno",
+    "Institution_State": "CA",
+    "Institution_Zip": 93726,
+    "Institution_Phone": "559-224-4242",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104939,
+    "Institution_Name": "Tulare Beauty College",
+    "Institution_Address": "1400 W Inyo St",
+    "Institution_City": "Tulare",
+    "Institution_State": "CA",
+    "Institution_Zip": 93274,
+    "Institution_Phone": "559-229-7480",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 104966,
+    "Institution_Name": "Lytle's Redwood Empire Beauty College Inc",
+    "Institution_Address": "186 Wikiup Dr",
+    "Institution_City": "Santa Rosa",
+    "Institution_State": "CA",
+    "Institution_Zip": 95403,
+    "Institution_Phone": "707-545-8449",
+    "Institution_Web_Address": "www.lytles-rebc.com"
+  },
+  {
+    "Institution_ID": 104975,
+    "Institution_Name": "MTI Business College of Stockton, Inc",
+    "Institution_Address": "6006 N. El Dorado Street",
+    "Institution_City": "Stockton",
+    "Institution_State": "CA",
+    "Institution_Zip": "95207-4349",
+    "Institution_Phone": "209-957-3030",
+    "Institution_Web_Address": "www.mtistockton.com"
+  },
+  {
+    "Institution_ID": 104984,
+    "Institution_Name": "MTI College",
+    "Institution_Address": "5221 Madison Ave",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": "95841-9817",
+    "Institution_Phone": "916-339-1500",
+    "Institution_Web_Address": "www.mticollege.edu"
+  },
+  {
+    "Institution_ID": 104993,
+    "Institution_Name": "Brightwood College - Sacramento",
+    "Institution_Address": "4330 Watt Ave., Suite 400",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": 95821,
+    "Institution_Phone": "916-649-8168",
+    "Institution_Web_Address": "www.mariccollege.edu"
+  },
+  {
+    "Institution_ID": 105002,
+    "Institution_Name": "Brightwood College - San Diego",
+    "Institution_Address": "9055 Balboa Avenue",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92123,
+    "Institution_Phone": "619-279-4500",
+    "Institution_Web_Address": "www.mariccollege.edu"
+  },
+  {
+    "Institution_ID": 105011,
+    "Institution_Name": "Brightwood College - Vista",
+    "Institution_Address": "2022 University Drive",
+    "Institution_City": "Vista",
+    "Institution_State": "CA",
+    "Institution_Zip": "92083-7736",
+    "Institution_Phone": "760-630-1555",
+    "Institution_Web_Address": "www.mariccollege.edu"
+  },
+  {
+    "Institution_ID": 105039,
+    "Institution_Name": "College of Marin",
+    "Institution_Address": "835 College Ave",
+    "Institution_City": "Kentfield",
+    "Institution_State": "CA",
+    "Institution_Zip": "94904-2590",
+    "Institution_Phone": "415-457-8811",
+    "Institution_Web_Address": "www.marin.cc.ca.us"
+  },
+  {
+    "Institution_ID": 105048,
+    "Institution_Name": "Marinello School of Beauty - Los Angeles",
+    "Institution_Address": "1241 S. Soto Street Suite #101",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90023,
+    "Institution_Phone": "213-627-5561",
+    "Institution_Web_Address": "www.marinello.com"
+  },
+  {
+    "Institution_ID": 105145,
+    "Institution_Name": "Marymount California University",
+    "Institution_Address": "30800 Palos Verdes Dr. East",
+    "Institution_City": "Rancho Palos Verdes",
+    "Institution_State": "CA",
+    "Institution_Zip": "90275-6299",
+    "Institution_Phone": "310-377-5501",
+    "Institution_Web_Address": "www.marymountcalifornia.edu/"
+  },
+  {
+    "Institution_ID": 105163,
+    "Institution_Name": "Mendocino College",
+    "Institution_Address": "1000 Hensley Creek Road",
+    "Institution_City": "Ukiah",
+    "Institution_State": "CA",
+    "Institution_Zip": 95482,
+    "Institution_Phone": "707-468-3000",
+    "Institution_Web_Address": "www.MendocinoCollege.edu"
+  },
+  {
+    "Institution_ID": 105172,
+    "Institution_Name": "Menlo College",
+    "Institution_Address": "1000 El Camino Real",
+    "Institution_City": "Atherton",
+    "Institution_State": "CA",
+    "Institution_Zip": "94027-4301",
+    "Institution_Phone": "650-543-3753",
+    "Institution_Web_Address": "www.menlo.edu"
+  },
+  {
+    "Institution_ID": 105181,
+    "Institution_Name": "Fresno Pacific Biblical Seminary",
+    "Institution_Address": "1717 S Chestnut Ave",
+    "Institution_City": "Fresno",
+    "Institution_State": "CA",
+    "Institution_Zip": 93702,
+    "Institution_Phone": "559-251-8628",
+    "Institution_Web_Address": "www.mbseminary.edu"
+  },
+  {
+    "Institution_ID": 105190,
+    "Institution_Name": "Merced College",
+    "Institution_Address": "3600 M St",
+    "Institution_City": "Merced",
+    "Institution_State": "CA",
+    "Institution_Zip": "95348-2898",
+    "Institution_Phone": "209-384-6000",
+    "Institution_Web_Address": "www.merced.cc.ca.us"
+  },
+  {
+    "Institution_ID": 105206,
+    "Institution_Name": "Merritt College",
+    "Institution_Address": "12500 Campus Dr",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": "94619-3196",
+    "Institution_Phone": "510-531-4911",
+    "Institution_Web_Address": "www.merritt.edu"
+  },
+  {
+    "Institution_ID": 105215,
+    "Institution_Name": "Mills College",
+    "Institution_Address": "5000 MacArthur Blvd",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": 94613,
+    "Institution_Phone": "510-430-2255",
+    "Institution_Web_Address": "www.mills.edu"
+  },
+  {
+    "Institution_ID": 105224,
+    "Institution_Name": "Miracosta College",
+    "Institution_Address": "One Barnard Dr",
+    "Institution_City": "Oceanside",
+    "Institution_State": "CA",
+    "Institution_Zip": "92056-3899",
+    "Institution_Phone": "760-757-2121",
+    "Institution_Web_Address": "www.miracosta.edu"
+  },
+  {
+    "Institution_ID": 105233,
+    "Institution_Name": "Marinello School of Beauty - San Francisco",
+    "Institution_Address": "1035 Market Street",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": 94103,
+    "Institution_Phone": "415-227-4240-0",
+    "Institution_Web_Address": "www.missmartys.com"
+  },
+  {
+    "Institution_ID": 105242,
+    "Institution_Name": "Mission College",
+    "Institution_Address": "3000 Mission College Blvd",
+    "Institution_City": "Santa Clara",
+    "Institution_State": "CA",
+    "Institution_Zip": "95054-1897",
+    "Institution_Phone": "408-988-2200",
+    "Institution_Web_Address": "www.missioncollege.org/"
+  },
+  {
+    "Institution_ID": 105251,
+    "Institution_Name": "Modern Beauty Academy",
+    "Institution_Address": "699 South C St",
+    "Institution_City": "Oxnard",
+    "Institution_State": "CA",
+    "Institution_Zip": 93030,
+    "Institution_Phone": "805-483-4994",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105260,
+    "Institution_Name": "Brightwood College - North Hollywood",
+    "Institution_Address": "6180 Laurel Canyon Blvd, Suite 101",
+    "Institution_City": "North Hollywood",
+    "Institution_State": "CA",
+    "Institution_Zip": "91606-3231",
+    "Institution_Phone": "818-763-2563-242",
+    "Institution_Web_Address": "WWW.MODERNTEC.COM"
+  },
+  {
+    "Institution_ID": 105279,
+    "Institution_Name": "Modesto Junior College",
+    "Institution_Address": "435 College Ave",
+    "Institution_City": "Modesto",
+    "Institution_State": "CA",
+    "Institution_Zip": "95350-5800",
+    "Institution_Phone": "209-575-6498",
+    "Institution_Web_Address": "mjc.yosemite.cc.ca.us/"
+  },
+  {
+    "Institution_ID": 105288,
+    "Institution_Name": "Moler Barber College",
+    "Institution_Address": "3815 Telegraph Ave",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": "94609-2419",
+    "Institution_Phone": "510-652-4177",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105303,
+    "Institution_Name": "Monterey Peninsula College",
+    "Institution_Address": "980 Fremont St",
+    "Institution_City": "Monterey",
+    "Institution_State": "CA",
+    "Institution_Zip": "93940-4799",
+    "Institution_Phone": "831-646-4000",
+    "Institution_Web_Address": "www.mpc.edu"
+  },
+  {
+    "Institution_ID": 105312,
+    "Institution_Name": "Montessori Teacher Education Center - San Francisco Bay Area",
+    "Institution_Address": "790 East Duane Avenue",
+    "Institution_City": "Sunnyvale",
+    "Institution_State": "CA",
+    "Institution_Zip": 94085,
+    "Institution_Phone": "510-278-1115",
+    "Institution_Web_Address": "www.montessoritrainingusa.com/"
+  },
+  {
+    "Institution_ID": 105321,
+    "Institution_Name": "Montessori Center for Teacher Education",
+    "Institution_Address": "4544 Pocahontas Ave.",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92117,
+    "Institution_Phone": "858-270-9350",
+    "Institution_Web_Address": "http://montessoricenterforteachereducation.org"
+  },
+  {
+    "Institution_ID": 105330,
+    "Institution_Name": "Montessori Western Teacher Training Program",
+    "Institution_Address": "5856 Belgrave Avenue",
+    "Institution_City": "Garden Grove",
+    "Institution_State": "CA",
+    "Institution_Zip": 92845,
+    "Institution_Phone": "714-897-3833",
+    "Institution_Web_Address": "www.montessoriwesttraining.com/Montessori_Western_"
+  },
+  {
+    "Institution_ID": 105349,
+    "Institution_Name": "Moorpark College",
+    "Institution_Address": "7075 Campus Rd",
+    "Institution_City": "Moorpark",
+    "Institution_State": "CA",
+    "Institution_Zip": "93021-1695",
+    "Institution_Phone": "805-378-1400",
+    "Institution_Web_Address": "www.moorparkcollege.edu"
+  },
+  {
+    "Institution_ID": 105358,
+    "Institution_Name": "Moro Beauty College",
+    "Institution_Address": "124 North Brand Boulevard",
+    "Institution_City": "Glendale",
+    "Institution_State": "CA",
+    "Institution_Zip": 91203,
+    "Institution_Phone": "818-246-7376",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105367,
+    "Institution_Name": "Mt San Antonio College",
+    "Institution_Address": "1100 N Grand Ave",
+    "Institution_City": "Walnut",
+    "Institution_State": "CA",
+    "Institution_Zip": "91789-1399",
+    "Institution_Phone": "909-594-5611",
+    "Institution_Web_Address": "www.mtsac.edu"
+  },
+  {
+    "Institution_ID": 105376,
+    "Institution_Name": "Mount Saint Mary's University",
+    "Institution_Address": "12001 Chalon Road",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90049,
+    "Institution_Phone": "310-954-4000",
+    "Institution_Web_Address": "www.msmu.edu"
+  },
+  {
+    "Institution_ID": 105385,
+    "Institution_Name": "Mt San Jacinto College",
+    "Institution_Address": "1499 N State St",
+    "Institution_City": "San Jacinto",
+    "Institution_State": "CA",
+    "Institution_Zip": "92583-2399",
+    "Institution_Phone": "951-487-6752",
+    "Institution_Web_Address": "www.msjc.edu"
+  },
+  {
+    "Institution_ID": 105394,
+    "Institution_Name": "Mueller College",
+    "Institution_Address": "123 Camino de la Reina, Suite 100 North",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92108,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105400,
+    "Institution_Name": "Musicians Institute",
+    "Institution_Address": "6752 Hollywood Boulevard",
+    "Institution_City": "Hollywood",
+    "Institution_State": "CA",
+    "Institution_Zip": 90028,
+    "Institution_Phone": "323-860-1143",
+    "Institution_Web_Address": "www.mi.edu"
+  },
+  {
+    "Institution_ID": 105419,
+    "Institution_Name": "Napa Valley College",
+    "Institution_Address": "2277 Napa-Vallejo Hwy",
+    "Institution_City": "Napa",
+    "Institution_State": "CA",
+    "Institution_Zip": "94558-6236",
+    "Institution_Phone": "707-253-3000",
+    "Institution_Web_Address": "www.nvc.cc.ca.us"
+  },
+  {
+    "Institution_ID": 105428,
+    "Institution_Name": "Everest Institute - San Francisco",
+    "Institution_Address": "814 Mission Street,  Suite 500",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": "94103-9946",
+    "Institution_Phone": "415-777-2500",
+    "Institution_Web_Address": "WWW.CCI.EDU"
+  },
+  {
+    "Institution_ID": 105437,
+    "Institution_Name": "Everest College - Reseda",
+    "Institution_Address": "18040 Sherman Way, Suite 400",
+    "Institution_City": "Reseda",
+    "Institution_State": "CA",
+    "Institution_Zip": 91335,
+    "Institution_Phone": "818-774-0550",
+    "Institution_Web_Address": "www.cci.edu"
+  },
+  {
+    "Institution_ID": 105446,
+    "Institution_Name": "Everest College - Los Angeles",
+    "Institution_Address": "3460 Wilshire Blvd Ste 500",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90010,
+    "Institution_Phone": "213-388-9950",
+    "Institution_Web_Address": "bryman-college.com"
+  },
+  {
+    "Institution_ID": 105455,
+    "Institution_Name": "Everest Institute - San Jose",
+    "Institution_Address": "1245 South Winchester Blvd #102",
+    "Institution_City": "San Jose",
+    "Institution_State": "CA",
+    "Institution_Zip": 95128,
+    "Institution_Phone": "408-246-4171",
+    "Institution_Web_Address": "CCI.EDU"
+  },
+  {
+    "Institution_ID": 105464,
+    "Institution_Name": "Everest College - Gardena",
+    "Institution_Address": "1045 W. Redondo Beach Boulevard, Suite 275",
+    "Institution_City": "Gardena",
+    "Institution_State": "CA",
+    "Institution_Zip": 90247,
+    "Institution_Phone": "310-527-7105",
+    "Institution_Web_Address": "cci.edu"
+  },
+  {
+    "Institution_ID": 105473,
+    "Institution_Name": "Everest College - Alhambra",
+    "Institution_Address": "2215 Mission Rd",
+    "Institution_City": "Alhambra",
+    "Institution_State": "CA",
+    "Institution_Zip": 91803,
+    "Institution_Phone": "626-979-4940",
+    "Institution_Web_Address": "www.cci.edu"
+  },
+  {
+    "Institution_ID": 105482,
+    "Institution_Name": "Everest College - San Bernardino",
+    "Institution_Address": "217 Club Center Drive, Ste. A",
+    "Institution_City": "San Bernardino",
+    "Institution_State": "CA",
+    "Institution_Zip": 92408,
+    "Institution_Phone": "909-777-3300",
+    "Institution_Web_Address": "www.bryman-college.com"
+  },
+  {
+    "Institution_ID": 105491,
+    "Institution_Name": "The National Hispanic University",
+    "Institution_Address": "14271 Story Rd",
+    "Institution_City": "San Jose",
+    "Institution_State": "CA",
+    "Institution_Zip": "95127-3823",
+    "Institution_Phone": "408-254-6900",
+    "Institution_Web_Address": "www.nhu.edu"
+  },
+  {
+    "Institution_ID": 105507,
+    "Institution_Name": "National Holistic Institute",
+    "Institution_Address": "5900 Doyle Street",
+    "Institution_City": "Emeryville",
+    "Institution_State": "CA",
+    "Institution_Zip": 94608,
+    "Institution_Phone": "510-547-6442-145",
+    "Institution_Web_Address": "www.nhimassage.com"
+  },
+  {
+    "Institution_ID": 105516,
+    "Institution_Name": "National University",
+    "Institution_Address": "11255 North Torrey Pines Road",
+    "Institution_City": "La Jolla",
+    "Institution_State": "CA",
+    "Institution_Zip": "92037-1011",
+    "Institution_Phone": "858-642-8000",
+    "Institution_Web_Address": "www.nu.edu"
+  },
+  {
+    "Institution_ID": 105525,
+    "Institution_Name": "Naval Postgraduate School",
+    "Institution_Address": "1 University Ave",
+    "Institution_City": "Monterey",
+    "Institution_State": "CA",
+    "Institution_Zip": "93943-5002",
+    "Institution_Phone": "831-656-1068",
+    "Institution_Web_Address": "www.nps.edu"
+  },
+  {
+    "Institution_ID": 105534,
+    "Institution_Name": "New College of California",
+    "Institution_Address": "777 Valencia St.",
+    "Institution_City": "San Francisco",
+    "Institution_State": "CA",
+    "Institution_Zip": 94110,
+    "Institution_Phone": "415-437-3400",
+    "Institution_Web_Address": "www.newcollege.edu"
+  },
+  {
+    "Institution_ID": 105543,
+    "Institution_Name": "NewSchool of Architecture and Design",
+    "Institution_Address": "1249 F St",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": 92101,
+    "Institution_Phone": "619-684-8786-100",
+    "Institution_Web_Address": "www.newschoolarch.edu"
+  },
+  {
+    "Institution_ID": 105561,
+    "Institution_Name": "Newberry School of Beauty",
+    "Institution_Address": "16852 Devonshire Blvd",
+    "Institution_City": "Granada Hills",
+    "Institution_State": "CA",
+    "Institution_Zip": "91344-7401",
+    "Institution_Phone": "818-366-3211",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105570,
+    "Institution_Name": "North Adrian's Beauty College",
+    "Institution_Address": "124 Floyd Avenue",
+    "Institution_City": "Modesto",
+    "Institution_State": "CA",
+    "Institution_Zip": "95350-2381",
+    "Institution_Phone": "209-526-2040",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105598,
+    "Institution_Name": "North Valley Occupational Center - Aviation Center",
+    "Institution_Address": "11450 Sharp Avenue",
+    "Institution_City": "Mission Hills",
+    "Institution_State": "CA",
+    "Institution_Zip": 91345,
+    "Institution_Phone": "818-365-9645",
+    "Institution_Web_Address": "www.nvoc-ac.org"
+  },
+  {
+    "Institution_ID": 105604,
+    "Institution_Name": "North-West College - Pomona",
+    "Institution_Address": "134 W Holt Ave",
+    "Institution_City": "Pomona",
+    "Institution_State": "CA",
+    "Institution_Zip": 91768,
+    "Institution_Phone": "909-623-1552",
+    "Institution_Web_Address": "www.north-westcollege.com"
+  },
+  {
+    "Institution_ID": 105613,
+    "Institution_Name": "North-West College-West Covina",
+    "Institution_Address": "2121 W Garvey Ave",
+    "Institution_City": "West Covina",
+    "Institution_State": "CA",
+    "Institution_Zip": 91790,
+    "Institution_Phone": "626-960-5046",
+    "Institution_Web_Address": "www.north-westcollege.com"
+  },
+  {
+    "Institution_ID": 105622,
+    "Institution_Name": "North-West College - Pasadena",
+    "Institution_Address": "530 E Union",
+    "Institution_City": "Pasadena",
+    "Institution_State": "CA",
+    "Institution_Zip": 91101,
+    "Institution_Phone": "626-796-5815",
+    "Institution_Web_Address": "www.north-westcollege.com"
+  },
+  {
+    "Institution_ID": 105631,
+    "Institution_Name": "Northwestern Polytechnic University",
+    "Institution_Address": "47671 Westinghouse Drive",
+    "Institution_City": "Fremont",
+    "Institution_State": "CA",
+    "Institution_Zip": 94539,
+    "Institution_Phone": "510-657-5913",
+    "Institution_Web_Address": "www.npu.edu"
+  },
+  {
+    "Institution_ID": 105640,
+    "Institution_Name": "Notre Dame de Namur University",
+    "Institution_Address": "1500 Ralston Ave",
+    "Institution_City": "Belmont",
+    "Institution_State": "CA",
+    "Institution_Zip": "94002-1908",
+    "Institution_Phone": "650-508-3500",
+    "Institution_Web_Address": "www.ndnu.edu"
+  },
+  {
+    "Institution_ID": 105659,
+    "Institution_Name": "Occidental College",
+    "Institution_Address": "1600 Campus Rd",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90041-3314",
+    "Institution_Phone": "323-259-2500",
+    "Institution_Web_Address": "www.oxy.edu"
+  },
+  {
+    "Institution_ID": 105668,
+    "Institution_Name": "Oceanside College of Beauty",
+    "Institution_Address": "1575 S Coast Hwy",
+    "Institution_City": "Oceanside",
+    "Institution_State": "CA",
+    "Institution_Zip": "92054-5356",
+    "Institution_Phone": "760-757-6161-13",
+    "Institution_Web_Address": "ocb.edu"
+  },
+  {
+    "Institution_ID": 105677,
+    "Institution_Name": "Ohlone College",
+    "Institution_Address": "43600 Mission Blvd",
+    "Institution_City": "Fremont",
+    "Institution_State": "CA",
+    "Institution_Zip": "94539-0390",
+    "Institution_Phone": "510-659-6000",
+    "Institution_Web_Address": "www.ohlone.edu"
+  },
+  {
+    "Institution_ID": 105686,
+    "Institution_Name": "Opportunities Industrialization Center - West",
+    "Institution_Address": "1200 O'Brien Drive",
+    "Institution_City": "Menlo Park",
+    "Institution_State": "CA",
+    "Institution_Zip": 94025,
+    "Institution_Phone": "650-330-6429",
+    "Institution_Web_Address": "www.oicw.org"
+  },
+  {
+    "Institution_ID": 105695,
+    "Institution_Name": "Orange Coast College",
+    "Institution_Address": "2701 Fairview Road",
+    "Institution_City": "Costa Mesa",
+    "Institution_State": "CA",
+    "Institution_Zip": "92628-5005",
+    "Institution_Phone": "714-432-5072",
+    "Institution_Web_Address": "www.occ.cccd.edu"
+  },
+  {
+    "Institution_ID": 105701,
+    "Institution_Name": "Otis College of Art and Design",
+    "Institution_Address": "9045 Lincoln Blvd",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90045,
+    "Institution_Phone": "800-527-6847",
+    "Institution_Web_Address": "www.otis.edu"
+  },
+  {
+    "Institution_ID": 105710,
+    "Institution_Name": "Oxnard College",
+    "Institution_Address": "4000 S Rose Ave",
+    "Institution_City": "Oxnard",
+    "Institution_State": "CA",
+    "Institution_Zip": "93033-6699",
+    "Institution_Phone": "805-986-5800",
+    "Institution_Web_Address": "www.oxnardcollege.edu"
+  },
+  {
+    "Institution_ID": 105729,
+    "Institution_Name": "Hope International University",
+    "Institution_Address": "2500 E Nutwood Ave",
+    "Institution_City": "Fullerton",
+    "Institution_State": "CA",
+    "Institution_Zip": 92831,
+    "Institution_Phone": "714-879-3901",
+    "Institution_Web_Address": "www.hiu.edu"
+  },
+  {
+    "Institution_ID": 105738,
+    "Institution_Name": "Concorde Career College",
+    "Institution_Address": "4393 Imperial Avenue, Suite 100",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": "92113-1964",
+    "Institution_Phone": "619-688-0800",
+    "Institution_Web_Address": "www.concorde.edu"
+  },
+  {
+    "Institution_ID": 105747,
+    "Institution_Name": "Palo Alto University",
+    "Institution_Address": "1791 Arastadero Road",
+    "Institution_City": "Palo Alto",
+    "Institution_State": "CA",
+    "Institution_Zip": 94303,
+    "Institution_Phone": "800-818-6136",
+    "Institution_Web_Address": "www.paloaltou.edu"
+  },
+  {
+    "Institution_ID": 105765,
+    "Institution_Name": "Pacific Oaks College",
+    "Institution_Address": "55 Eureka Street",
+    "Institution_City": "Pasadena",
+    "Institution_State": "CA",
+    "Institution_Zip": 91103,
+    "Institution_Phone": "626-529-8500",
+    "Institution_Web_Address": "www.pacificoaks.edu"
+  },
+  {
+    "Institution_ID": 105774,
+    "Institution_Name": "Pacific School of Religion",
+    "Institution_Address": "1798 Scenic Ave",
+    "Institution_City": "Berkeley",
+    "Institution_State": "CA",
+    "Institution_Zip": 94709,
+    "Institution_Phone": "510-849-8200",
+    "Institution_Web_Address": "www.psr.edu"
+  },
+  {
+    "Institution_ID": 105783,
+    "Institution_Name": "Pacific States University",
+    "Institution_Address": "3424 Wilshire Blvd., 12th Floor",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90010,
+    "Institution_Phone": "323-731-2383-11",
+    "Institution_Web_Address": "www.psuca.edu"
+  },
+  {
+    "Institution_ID": 105792,
+    "Institution_Name": "Pacific Union College",
+    "Institution_Address": "One Angwin Ave",
+    "Institution_City": "Angwin",
+    "Institution_State": "CA",
+    "Institution_Zip": "94508-9797",
+    "Institution_Phone": "707-965-6234",
+    "Institution_Web_Address": "www.puc.edu"
+  },
+  {
+    "Institution_ID": 105808,
+    "Institution_Name": "University of the Pacific",
+    "Institution_Address": "3601 Pacific Ave",
+    "Institution_City": "Stockton",
+    "Institution_State": "CA",
+    "Institution_Zip": 95211,
+    "Institution_Phone": "209-946-2285",
+    "Institution_Web_Address": "www.pacific.edu"
+  },
+  {
+    "Institution_ID": 105817,
+    "Institution_Name": "Pacoima Skills Center",
+    "Institution_Address": "13545 Van Nuys Boulevard",
+    "Institution_City": "Pacoima",
+    "Institution_State": "CA",
+    "Institution_Zip": 91331,
+    "Institution_Phone": "818-896-9558",
+    "Institution_Web_Address": "www.lausd.k12.ca.us"
+  },
+  {
+    "Institution_ID": 105835,
+    "Institution_Name": "Palo Verde College",
+    "Institution_Address": "One College Drive",
+    "Institution_City": "Blythe",
+    "Institution_State": "CA",
+    "Institution_Zip": 92225,
+    "Institution_Phone": "760-921-5500",
+    "Institution_Web_Address": "www.paloverde.edu"
+  },
+  {
+    "Institution_ID": 105844,
+    "Institution_Name": "Palomar College",
+    "Institution_Address": "1140 W. Mission",
+    "Institution_City": "San Marcos",
+    "Institution_State": "CA",
+    "Institution_Zip": "92069-1487",
+    "Institution_Phone": "760-744-1150",
+    "Institution_Web_Address": "WWW.PALOMAR.EDU"
+  },
+  {
+    "Institution_ID": 105862,
+    "Institution_Name": "Paris Beauty College",
+    "Institution_Address": "1655 Willow Pass Road",
+    "Institution_City": "Concord",
+    "Institution_State": "CA",
+    "Institution_Zip": 94520,
+    "Institution_Phone": "925-685-7600",
+    "Institution_Web_Address": "Parisbeautycollege.com"
+  },
+  {
+    "Institution_ID": 105871,
+    "Institution_Name": "Pasadena City College",
+    "Institution_Address": "1570 E Colorado Blvd",
+    "Institution_City": "Pasadena",
+    "Institution_State": "CA",
+    "Institution_Zip": "91106-2003",
+    "Institution_Phone": "626-585-7123",
+    "Institution_Web_Address": "www.pasadena.edu"
+  },
+  {
+    "Institution_ID": 105880,
+    "Institution_Name": "Patten University",
+    "Institution_Address": "2433 Coolidge Ave",
+    "Institution_City": "Oakland",
+    "Institution_State": "CA",
+    "Institution_Zip": 94601,
+    "Institution_Phone": "510-261-8500",
+    "Institution_Web_Address": "www.patten.edu"
+  },
+  {
+    "Institution_ID": 105899,
+    "Institution_Name": "Peninsula Medical Center/Mills-Peninsula Health Services",
+    "Institution_Address": "1501 Trousdale Drive",
+    "Institution_City": "Burlingame",
+    "Institution_State": "CA",
+    "Institution_Zip": 94010,
+    "Institution_Phone": "",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 105905,
+    "Institution_Name": "Pepperdine University",
+    "Institution_Address": "24255 Pacific Coast Hwy",
+    "Institution_City": "Malibu",
+    "Institution_State": "CA",
+    "Institution_Zip": 90263,
+    "Institution_Phone": "310-506-4000",
+    "Institution_Web_Address": "www.pepperdine.edu/"
+  },
+  {
+    "Institution_ID": 105923,
+    "Institution_Name": "Pitzer College",
+    "Institution_Address": "1050 North Mills Avenue",
+    "Institution_City": "Claremont",
+    "Institution_State": "CA",
+    "Institution_Zip": "91711-6101",
+    "Institution_Phone": "909-621-8000",
+    "Institution_Web_Address": "www.pitzer.edu"
+  },
+  {
+    "Institution_ID": 105932,
+    "Institution_Name": "Platt College-San Diego",
+    "Institution_Address": "6250 El Cajon Blvd",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": "92115-3919",
+    "Institution_Phone": "619-265-0107",
+    "Institution_Web_Address": "www.platt.edu"
+  },
+  {
+    "Institution_ID": 105941,
+    "Institution_Name": "Point Loma Nazarene University",
+    "Institution_Address": "3900 Lomaland Dr",
+    "Institution_City": "San Diego",
+    "Institution_State": "CA",
+    "Institution_Zip": "92106-2899",
+    "Institution_Phone": "619-849-2200",
+    "Institution_Web_Address": "www.pointloma.edu"
+  },
+  {
+    "Institution_ID": 105950,
+    "Institution_Name": "Pomona College",
+    "Institution_Address": "550 North College Avenue",
+    "Institution_City": "Claremont",
+    "Institution_State": "CA",
+    "Institution_Zip": "91711-6301",
+    "Institution_Phone": "909-621-8131",
+    "Institution_Web_Address": "www.pomona.edu"
+  },
+  {
+    "Institution_ID": 105969,
+    "Institution_Name": "Porterville College",
+    "Institution_Address": "100 E College Ave",
+    "Institution_City": "Porterville",
+    "Institution_State": "CA",
+    "Institution_Zip": 93257,
+    "Institution_Phone": "559-791-2200",
+    "Institution_Web_Address": "www.pc.cc.ca.us"
+  },
+  {
+    "Institution_ID": 105978,
+    "Institution_Name": "Westwood College - Long Beach",
+    "Institution_Address": "3901 Via Oro Avenue, Suite 103",
+    "Institution_City": "Long Beach",
+    "Institution_State": "CA",
+    "Institution_Zip": 90502,
+    "Institution_Phone": "310-522-2088",
+    "Institution_Web_Address": "www.westwood.edu"
+  },
+  {
+    "Institution_ID": 105987,
+    "Institution_Name": "Professional Institute of Beauty",
+    "Institution_Address": "10801 E. Valley Mall",
+    "Institution_City": "El Monte",
+    "Institution_State": "CA",
+    "Institution_Zip": 91731,
+    "Institution_Phone": "626-443-9401",
+    "Institution_Web_Address": "www.pibschool.com"
+  },
+  {
+    "Institution_ID": 105996,
+    "Institution_Name": "Queen of the Holy Rosary College",
+    "Institution_Address": "PO Box 3908",
+    "Institution_City": "Fremont",
+    "Institution_State": "CA",
+    "Institution_Zip": 94539,
+    "Institution_Phone": "",
+    "Institution_Web_Address": "msjdominicans.org"
+  },
+  {
+    "Institution_ID": 106014,
+    "Institution_Name": "Santa Ana College",
+    "Institution_Address": "1530 W. 17th Street",
+    "Institution_City": "Santa Ana",
+    "Institution_State": "CA",
+    "Institution_Zip": "92706-3398",
+    "Institution_Phone": "714-564-6000",
+    "Institution_Web_Address": "www.sac.edu"
+  },
+  {
+    "Institution_ID": 106023,
+    "Institution_Name": "Pardee RAND Graduate School",
+    "Institution_Address": "1776 Main Street Box 2138",
+    "Institution_City": "Santa Monica",
+    "Institution_State": "CA",
+    "Institution_Zip": "90407-2138",
+    "Institution_Phone": "310-393-0411",
+    "Institution_Web_Address": "www.prgs.edu"
+  },
+  {
+    "Institution_ID": 106032,
+    "Institution_Name": "University of Redlands",
+    "Institution_Address": "1200 E. Colton Ave PO Box 3080",
+    "Institution_City": "Redlands",
+    "Institution_State": "CA",
+    "Institution_Zip": "92373-0999",
+    "Institution_Phone": "909-793-2121",
+    "Institution_Web_Address": "www.redlands.edu"
+  },
+  {
+    "Institution_ID": 106041,
+    "Institution_Name": "College of the Redwoods",
+    "Institution_Address": "7351 Tompkins Hill Rd",
+    "Institution_City": "Eureka",
+    "Institution_State": "CA",
+    "Institution_Zip": "95501-9300",
+    "Institution_Phone": "707-476-4100",
+    "Institution_Web_Address": "www.redwoods.edu"
+  },
+  {
+    "Institution_ID": 106050,
+    "Institution_Name": "Salon Success Academy - Upland",
+    "Institution_Address": "1385 E. Foothill Blvd",
+    "Institution_City": "Upland",
+    "Institution_State": "CA",
+    "Institution_Zip": 91786,
+    "Institution_Phone": "909-988-7584",
+    "Institution_Web_Address": "www.gotobeautyschool.com"
+  },
+  {
+    "Institution_ID": 106069,
+    "Institution_Name": "Salon Success Academy",
+    "Institution_Address": "2097 Compton Avenue, Suite 201",
+    "Institution_City": "Corona",
+    "Institution_State": "CA",
+    "Institution_Zip": 92881,
+    "Institution_Phone": "909-988-7584",
+    "Institution_Web_Address": "www.gotobeautyschool.com"
+  },
+  {
+    "Institution_ID": 106078,
+    "Institution_Name": "Rio Hondo College",
+    "Institution_Address": "3600 Workman Mill Rd",
+    "Institution_City": "Whittier",
+    "Institution_State": "CA",
+    "Institution_Zip": "90601-1699",
+    "Institution_Phone": "562-692-0921",
+    "Institution_Web_Address": "www.riohondo.edu"
+  },
+  {
+    "Institution_ID": 106087,
+    "Institution_Name": "Riverside City College",
+    "Institution_Address": "4800 Magnolia Ave",
+    "Institution_City": "Riverside",
+    "Institution_State": "CA",
+    "Institution_Zip": "92506-1299",
+    "Institution_Phone": "951-222-8000",
+    "Institution_Web_Address": "www.rcc.edu/"
+  },
+  {
+    "Institution_ID": 106102,
+    "Institution_Name": "Rosemead Beauty School",
+    "Institution_Address": "8531 E Valley Blvd",
+    "Institution_City": "Rosemead",
+    "Institution_State": "CA",
+    "Institution_Zip": "91770-1639",
+    "Institution_Phone": "626-286-2146",
+    "Institution_Web_Address": ""
+  },
+  {
+    "Institution_ID": 106111,
+    "Institution_Name": "Dongguk University - Los Angeles",
+    "Institution_Address": "440 Shatto Pl",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": "90020-1704",
+    "Institution_Phone": "213-487-0110",
+    "Institution_Web_Address": "www.dula.edu"
+  },
+  {
+    "Institution_ID": 106120,
+    "Institution_Name": "Sacramento City College",
+    "Institution_Address": "3835 Freeport Blvd",
+    "Institution_City": "Sacramento",
+    "Institution_State": "CA",
+    "Institution_Zip": "95822-1386",
+    "Institution_Phone": "916-558-2111",
+    "Institution_Web_Address": "www.scc.losrios.edu/"
+  },
+  {
+    "Institution_ID": 106139,
+    "Institution_Name": "Saddleback College",
+    "Institution_Address": "28000 Marguerite Pky",
+    "Institution_City": "Mission Viejo",
+    "Institution_State": "CA",
+    "Institution_Zip": "92692-3635",
+    "Institution_Phone": "949-582-4500",
+    "Institution_Web_Address": "www.saddleback.cc.ca.us"
+  },
+  {
+    "Institution_ID": 106148,
+    "Institution_Name": "St. John's Seminary in California",
+    "Institution_Address": "5012 Seminary Road",
+    "Institution_City": "Camarillo",
+    "Institution_State": "CA",
+    "Institution_Zip": "93012-2500",
+    "Institution_Phone": "805-482-2755",
+    "Institution_Web_Address": "www.stjohnsem.edu"
+  },
+  {
+    "Institution_ID": 106157,
+    "Institution_Name": "St. Patrick's Seminary and University",
+    "Institution_Address": "320 Middlefield Road",
+    "Institution_City": "Menlo Park",
+    "Institution_State": "CA",
+    "Institution_Zip": "94025-3596",
+    "Institution_Phone": "650-325-5621-101",
+    "Institution_Web_Address": "www.stpsu.edu"
+  },
+  {
+    "Institution_ID": 106166,
+    "Institution_Name": "Salvation Army College for Officer Training at Crestmont",
+    "Institution_Address": "30840 Hawthorne Blvd.",
+    "Institution_City": "Rancho Palos Verdes",
+    "Institution_State": "CA",
+    "Institution_Zip": 90275,
+    "Institution_Phone": "",
+    "Institution_Web_Address": "www.crestmontcollege.edu"
+  },
+  {
+    "Institution_ID": 106175,
+    "Institution_Name": "Samra University of Oriental Medicine",
+    "Institution_Address": "1730 W. Olympic Blvd., 3rd Floor",
+    "Institution_City": "Los Angeles",
+    "Institution_State": "CA",
+    "Institution_Zip": 90015,
+    "Institution_Phone": "213-381-2221",
+    "Institution_Web_Address": "www.samra.edu"
+  }
+]

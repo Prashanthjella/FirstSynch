@@ -27,7 +27,19 @@
           </div>
           <div class="form-group">
             <label class="text-uppercase">University Name</label>
-            <input type="text" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" ng-model="school_name" required/>
+            <div angucomplete-alt id="universities"
+              placeholder="Search countries"
+              maxlength="50"
+              pause="100"
+              selected-object="selecteduniversity"
+              local-data="university"
+              search-fields="Institution_Name"
+              title-field="Institution_Name"
+              minlength="1"
+              input-class="form-control custom-form-control-br-bottom"
+              field-required="true"
+              match-class="highlight"></div>
+            <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="school_name"/>
           </div>
 
           <div class="form-group">
@@ -55,7 +67,7 @@
 
         <div class="modal-footer custom-login-modal-footer">
           <button type="submit" ng-click="StudentRegistratoin()" ng-disabled="studentregistration.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
-          <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="#" class="link-green">Terms of Service.</a></p>
+          <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
 
         </div>
 

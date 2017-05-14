@@ -3,8 +3,26 @@
         <div class="form-group has-feedback">
             <div class="input-group">
                 <span class="input-group-addon input-custom-search glyphicon glyphicon-search"></span>
-                <input type="text" placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " >
+                <!-- <angucomplete id="Search"
+                    placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools"
+                    pause="400"
+                    selectedobject="testObj"
+                    url="http://52.43.26.31:8000/api/v1/flat_pages/recent_career_fairs/?fields="
+                    titlefield="title,city"
+                    inputclass="form-control custom-form-control-search-box"/> -->
+                <angucomplete-alt id="Search"
+                    placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools"
+                    pause="400"
+                    selected-object="testObj"
+                    remote-url="http://52.43.26.31:8000/api/v1/flat_pages/recent_career_fairs/?fields="
+                    title-field="title,city"
+                    input-class="form-control custom-form-control-search-box"/>
+                <!-- <input type="text" placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " > -->
             </div>
+            <div class="" ng-show="testObj">
+                    You selected <span class="bold-span">{{testObj.title}}</span> which has a country code of <span class="bold-span">{{testObj.title}}</span>
+            </div>
+
             <span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
         </div>
         <div class="search-result-container">

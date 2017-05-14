@@ -1,20 +1,33 @@
 'use strict';
 
 FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvider,$routeProvider,apiUrl) {
+    ////////////////////////////////////////// Common /////////////////////////////////
+
+    // Term and conditions - general
+    $routeProvider.when('/termsandcondtion', {
+        templateUrl: 'common/terms.html',
+    });
+
+    // Privacy policy - general
+    $routeProvider.when('/privacy', {
+        templateUrl: 'common/privacy.html',
+    });
+
+
 
     //////////////////////////////////////////Guest role //////////////////////////////////
     //  home page
     $routeProvider.when('/', {
       templateUrl: 'GuestRole/home/home.html',
       resolve:{
-        "check":function($location){   
+        "check":function($location){
             if(window.sessionStorage.getItem("usertype") == '48KL3'){
-                $location.path('/company/dashboard'); 
+                $location.path('/company/dashboard');
             }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
-                $location.path('/student/dashboard'); 
+                $location.path('/student/dashboard');
             }
             else{
-                $location.path('/'); 
+                $location.path('/');
             }
         }
       }
@@ -47,6 +60,11 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     //  guest - employee profile
     $routeProvider.when('/guest/employee/profile', {
         templateUrl: 'GuestRole/employee_profile/employee_profile.html',
+    });
+
+    //  guest - student list
+    $routeProvider.when('/students', {
+        templateUrl: 'GuestRole/student_list/student_list.html'
     });
 
     //  guest - search landing

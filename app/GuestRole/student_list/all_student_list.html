@@ -1,22 +1,22 @@
 <!--[All Comapnies Section Start]-->
-<section class="page-section  page-section-All-companies allcompanies_act" ng-controller="all_companies">
+<section class="page-section  page-section-All-companies" ng-controller="all_studentss">
   <div class="container">
     <div class="row custom-row-10">
       <div class="col-sm-12">
         <div class="page-header custom-page-header">
           <div class="pull-left">
-            <h2 class="h2 custom-h2">All Companies</h2>
+            <h2 class="h2 custom-h2">All Students</h2>
           </div>
         </div>
       </div>
-      <div class="col-sm-2" ng-repeat="all_comp in all_company">
-        <div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{all_comp.logo}}" class="logo-companies-box"> </div>
+      <div class="col-sm-2" ng-repeat="all_stu in all_student">
+        <div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{all_stu.profile_picture}}" class="logo-companies-box"> </div>
         <div class="company-heading-group">
-          <h4 class="h4 custom-h4">{{all_comp.name}} </h4>
-          <h5 class="h5 custom-h5">{{all_comp.city.name}}, {{all_comp.state.name}}, {{all_comp.country.name}}</h5>
+          <h4 class="h4 custom-h4">{{all_stu.first_name}} </h4>
+          <h5 class="h5 custom-h5">{{all_stu.about_me | limitTo: 10}}{{all_stu.about_me.length > 10 ? '...' : ''}}</h5>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!--[All Company Sections End]--> 
+<!--[All Company Sections End]-->

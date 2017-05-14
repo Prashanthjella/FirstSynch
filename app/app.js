@@ -4,10 +4,12 @@
 var FirstSynch = angular.module("firstSync", [
     "ngRoute",
     "angularMoment",
+    "angucomplete-alt",
     "hoMe",
     "careerFair",
     "careerFairDetail",
     "CompanyList",
+    "StudentList",
     "GstudentProfile",
     "GcompanyProfile",
     "GemployeeProfile",
@@ -101,6 +103,13 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
 
 
 FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScope) {
+
+    $http.get("school.json")
+        .then(function successCallback(response){
+            $scope.university = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get company profile details");
+    });
 
     $scope.SendData = function () {
         var data = 'e_mail=' + $scope.e_mail;
@@ -257,7 +266,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
     };// user logout - function end
 });
 
-FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$location) {    
+FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$location) {
     if($location.search()['activate']){
         var data = 'token='+$location.search()['activate'];
         $http({

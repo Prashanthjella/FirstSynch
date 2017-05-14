@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     $(window).scroll(function() {
 
         var scroll = $(window).scrollTop();
@@ -39,7 +39,7 @@ $(document).ready(function() {
     //         url = "http://52.43.26.31:8000/api/v1/accounts/activate/"
 
     //         $.ajax({
-    //             type: "POST",    
+    //             type: "POST",
     //             url: url,
     //             data: data,
     //             success: function(output) {

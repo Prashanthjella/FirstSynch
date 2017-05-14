@@ -8,9 +8,11 @@
 <meta name="author" content="">
 <!--<link rel="icon" href="../../favicon.ico">-->
 <title>FirstSync</title>
+<base href="/">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
 <link rel="stylesheet" href="bower_components/font-awsome/css/font-awesome.min.css">
 <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="bower_components/angucomplete-alt/angucomplete-alt.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="assets/css/jquery.bxslider.css">
 <!-- <style type="text/css">
@@ -23,7 +25,7 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-    <base href="/">
+
 </head>
 <body>
     <header class="navbar navbar-default custom-navbar-default" ng-show="!companyuserInfo && !studentuserInfo" ng-include="'common/beforeloginheader.html'">
@@ -36,7 +38,7 @@
     <div ng-view></div>
     <!--angularjs area-->
     <script src="assets/js/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
+    <!-- <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script> -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.bxslider.js"></script>
     <script type="text/javascript" src="assets/js/jwplayer-mirror/jwplayer.js"></script>
@@ -48,13 +50,16 @@
     <script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
     <script type="text/javascript">jwplayer.key="BhfADAQ7lWZWy8Rn3tbsOZIwWwgnD8L3+TtqRg==";</script>
     <script src="assets/js/script.js"></script>
+    <script src="bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
     <script src="app.js"></script>
     <script src="route.js"></script>
+
 
     <script src="GuestRole/home/home.js"></script>
     <script src="GuestRole/career_fair/career_fair.js"></script>
     <script src="GuestRole/career_fair_detail/career_fair.js"></script>
     <script src="GuestRole/company_list/company_list.js"></script>
+    <script src="GuestRole/student_list/student_list.js"></script>
     <script src="GuestRole/student_profile/student_profile.js"></script>
     <script src="GuestRole/company_profile/company_profile.js"></script>
     <script src="GuestRole/employee_profile/employee_profile.js"></script>
@@ -75,6 +80,6 @@
     <script src="CompanyRole/student_profile/student_profile.js"></script>
     <script src="CompanyRole/company_profile/company_profile.js"></script>
     <script src="CompanyRole/employee_profile/employee_profile.js"></script>
-    
+
     </body>
 </html>
