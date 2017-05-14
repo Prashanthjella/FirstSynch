@@ -15,7 +15,7 @@
                 <a href="/careerfair/{{fairs.id}}" style="color:#000;">
                 <img ng-src="{{fairs.image}}" alt="img1.png" style="width:555px; height:315px;">
                 <div class="slider-caption">
-                  <div class="caption-date-container"><span class="caption-date">{{fairs.start_date}}</span> &bull; <span class="caption-state">{{ fairs.city }}, {{ fairs.state }}</span></div>
+                  <div class="caption-date-container"><span class="caption-date">{{fairs.start_date | date:"MMM d, y"}}</span> &bull; <span class="caption-state">{{ fairs.city }}, {{ fairs.state }}</span></div>
                   <h3 class="caption-description">{{fairs.title}}</h3>
                 </div>
               </a>

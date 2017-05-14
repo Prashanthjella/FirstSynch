@@ -6,7 +6,7 @@
           <div class="thumbnail customn-thumbs-color-10 custom-thumbnail-image-gallery"> <img ng-src="{{all_career_fair.image}}">
             <div class="overlay"></div>
             <div class="box-inside-content">
-              <p class="date-location">{{all_career_fair.start_date}}<span> &bull;</span>{{all_career_fair.city}},{{all_career_fair.state}}</p>
+              <p class="date-location">{{all_career_fair.start_date | date:"MMM d, y"}}<span> &bull;</span>{{all_career_fair.city}},{{all_career_fair.state}}</p>
               <h1 class="custom-gallery-h1">{{all_career_fair.title}}</h1>
             </div>
           </div>

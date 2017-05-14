@@ -16,7 +16,8 @@
             <div class="pull-left">
               <h2 class="custom-h2">{{vid.video.created_by.name}}</h2>
               <h5 class="custom-h5-model">By <span class="highlighted-green">{{vid.video.created_by.name}}</span> from <span class="highlighted-green">{{vid.video.company}}</span></h5>
-              <h6 class="custom-h6-model">about 3 days ago</h6>
+              <!-- <h6 class="custom-h6-model">{{vid.video.created_by.created_at | date:"dd/MM/yyyy"}}</h6> -->
+              <h6 class="custom-h6-model">about {{ today | amDifference:  vid.video.created_by.created_at : 'days'}} days ago</h6>
             </div>
             <div class="pull-right">
               <div class="custom-right-icons"> <a href="#" class="icons-model"> <i class="fa fa-heart-o"></i> 5 </a> <a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a> </div>

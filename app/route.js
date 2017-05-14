@@ -1,4 +1,5 @@
 'use strict';
+
 FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvider,$routeProvider,apiUrl) {
 
     //////////////////////////////////////////Guest role //////////////////////////////////
@@ -46,6 +47,11 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     //  guest - employee profile
     $routeProvider.when('/guest/employee/profile', {
         templateUrl: 'GuestRole/employee_profile/employee_profile.html',
+    });
+
+    //  guest - search landing
+    $routeProvider.when('/search', {
+        templateUrl: 'GuestRole/search/search.html',
     });
 
     // student - dashboard page

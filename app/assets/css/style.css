@@ -1,10 +1,13 @@
 html, body {
 	height: 100%;
+	
 }
+html{min-height:770px;}
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: #303030;
 	font-size: 13px;
+	
 }
 .container {
 	padding: 0 20px;
@@ -19,7 +22,7 @@ body.fixed-scrol {
 h1, h2, h3 {
 	font-weight: 900 !important;
 	color: #303030;
-	letter-spacing:-2px;
+	letter-spacing: -2px;
 }
 .custom-h1 {
 	text-transform: uppercase
@@ -61,19 +64,29 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	font-size: 14px;
 	font-weight: 600
 }
-.custom-h5-02{
+.custom-h5-02 {
 	text-transform: uppercase;
 	color: #00b58e;
 	font-size: 14px;
 	font-weight: 800
-	}
+}
+.custom-h5-03 {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 800;
+	color: #303030;
+}
 .custom-h6 {
 	font-size: 12x;
 	margin-bottom: 7px;
 	font-weight: 700;
 	text-transform: uppercase
 }
-.cont-character{width:100%; float:left; margin-bottom:60px;}
+.cont-character {
+	width: 100%;
+	float: left;
+	margin-bottom: 60px;
+}
 h2.custom-title {
 	font-weight: normal !important;
 }
@@ -257,7 +270,7 @@ a.thumbnail, a.custom-large-image-gallery {
 	-moz-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
 	box-shadow: 0px 0 15px rgba(0,0,0,0.2);
 }
-.custom-thumbs-box-views {
+.custom-thumbs-box-views, .custom-thumbnail {
 	background-color: transparent;
 	border: none;
 	padding: 0;
@@ -265,6 +278,9 @@ a.thumbnail, a.custom-large-image-gallery {
 	overflow: hidden;
 	position: relative;
 	border-radius: 0
+}
+.custom-thumbnail h5 {
+	font-weight: 700;
 }
 .slider-container-career .custom-gallery-h1 {
 	color: #fff;
@@ -392,6 +408,13 @@ a.thumbnail, a.custom-large-image-gallery {
 	float: left;
 	width: 100%;
 }
+.custom-search-page-header{
+	border-bottom: none;
+	margin: 0;
+	float: left;
+	width: 100%;
+	border-bottom:2px solid #f0f0f0;
+	}
 .link-all {
 	float: left;
 	margin: 22px 0 0;
@@ -714,9 +737,15 @@ a.thumbnail, a.custom-large-image-gallery {
 	width: 100%;
 	float: left;
 }
-.h5-designation{color:#b2b2b2}
-.h5-companyname{color:#303030}
-.slider-profile .fa{margin-right:5px;}
+.h5-designation {
+	color: #b2b2b2
+}
+.h5-companyname {
+	color: #303030
+}
+.slider-profile .fa {
+	margin-right: 5px;
+}
 .custom-btn-edit-profile {
 	margin: 155px 5px;
 	/*min-width: 130px;*/
@@ -883,8 +912,7 @@ a.thumbnail, a.custom-large-image-gallery {
 	font-weight: 900;
 	margin: 21px 15px
 }
-.page-section.video-profile .custom-large-image-gallery, .page-section.video-profile .custom-make-video-gallery,
-.page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery{
+.page-section.video-profile .custom-large-image-gallery, .page-section.video-profile .custom-make-video-gallery, .page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery {
 	height: 264px;
 }
 .custom-make-video-gallery {
@@ -924,14 +952,13 @@ a.thumbnail, a.custom-large-image-gallery {
 	text-transform: uppercase;
 	margin: 0 0 25px 0;
 }
-.page-section-about-me .custom-h1,.page-section-hire-me .custom-h1 {
+.page-section-about-me .custom-h1, .page-section-hire-me .custom-h1 {
 	margin-bottom: 30px;
 }
 .page-section-about-home {
 	padding-bottom: 30px;
 	min-height: 500px;
 }
-
 .custom-heading-01 {
 	text-transform: uppercase;
 	margin-bottom: 30px;
@@ -976,7 +1003,9 @@ a.thumbnail, a.custom-large-image-gallery {
 	font-size: 19px;
 	width: 90%;
 }
-.page-section-hire-me .custom-gallery-h1{width:40%;}
+.page-section-hire-me .custom-gallery-h1 {
+	width: 40%;
+}
 .custom-thumbnail-profile-views {
 	margin-bottom: 15px;
 }
@@ -1126,10 +1155,10 @@ a.thumbnail, a.custom-large-image-gallery {
 	line-height: 25px;
 	font-weight: 600
 }
-.page-section-career-details, .page-section-companies {
+.page-section-career-details, .page-section-companies, .page-section-seach {
 	margin-top: 0
 }
-.page-section-companies {
+.page-section-companies, .page-section-seach {
 	padding-top: 120px;
 	padding-bottom: 70px;
 }
@@ -1944,9 +1973,50 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	border-radius: 0;
 	padding-left: 0;
 }
-.custom-form-control-br-bottom:focus{
-	box-shadow:none;
-	}
+.custom-form-control-search-box {
+	background: transparent;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	padding-bottom: 18px;
+	padding-left:40px !important;
+	border-bottom: 2px solid #f0f0f0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	padding-left: 0;
+	font-size: 18px;
+	font-weight: 700;
+}
+.input-custom-search {
+	background-color: transparent;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	top: 0;
+	border-width: 0 0 2px 0;
+	border-color: #f0f0f0;
+	padding-top: 0;
+	padding-bottom: 11px;
+}
+.custom-form-control-search-box::-webkit-input-placeholder {
+ color: #303030;
+}
+ .custom-form-control-search-box::-moz-placeholder {
+ color: #303030;
+}
+.custom-form-control-search-box:-ms-input-placeholder {
+ color: #303030;
+}
+.custom-form-control-search-box:-moz-placeholder {
+ color: #303030;
+}
+.custom-form-control-br-bottom:focus, .custom-form-control-search-box:focus {
+	box-shadow: none;
+}
 .custom-modal-body-login {
 	width: 662px;
 	margin: 0 auto;
@@ -1957,28 +2027,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	border-radius: 30px;
 	background-color: transparent;
 	font-size: 12px;
-	background-color:#fff;
+	background-color: #fff;
 }
-.custom-btn-allow,.custom-btn-forbid{
+.custom-btn-allow, .custom-btn-forbid {
 	text-transform: uppercase;
 	padding: 6px 20px;
 	border-radius: 30px;
 	background-color: transparent;
 	font-size: 12px;
-	}
-.circle-icon{
-	    border: 2px solid #b2b2b2;
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
-    line-height: 20px;
-    text-align: center;
-    display: inline-block;
-    margin-right: 5px;
-	color:#b2b2b2
-	}	
-.email-support{color:#b2b2b2}	
-.custom-btn-allow,.custom-btn-allow:hover{color:#fff; border-color:transparent}	
+}
+.circle-icon {
+	border: 2px solid #b2b2b2;
+	border-radius: 50%;
+	height: 24px;
+	width: 24px;
+	line-height: 20px;
+	text-align: center;
+	display: inline-block;
+	margin-right: 5px;
+	color: #b2b2b2
+}
+.email-support {
+	color: #b2b2b2
+}
+.custom-btn-allow, .custom-btn-allow:hover {
+	color: #fff;
+	border-color: transparent
+}
 .page-step-container {
 	width: 100%;
 	float: left;
@@ -1997,20 +2072,114 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	font-weight: 800;
 	padding-right: 3px;
 }
-.link-signup-student{
-	display:inline-block;
-	width:25%;
-	vertical-align:middle;
+.link-signup-student {
+	display: inline-block;
+	width: 25%;
+	vertical-align: middle;
+}
+.group-followers {
+	margin-left: 15px;
+}
+.counter-number {
+	font-size: 30px;
+	color: #e6e6e6;
+	margin: 0
+}
+.col-sm-character {
+	float: none;
+	margin-right: -3px;
+	display: inline-block;
+	vertical-align: top
+}
+.custom-page-h2-bottom {
+	clear: both;
+	margin-bottom: 35px;
+}
+.search-result-container {
+	width: 100%;
+	float: left;
+}
+.custom-gray-badge {
+	background-color: #ececec;
+	color: #b2b2b2;
+	padding: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.search-results {
+	width: 100%;
+	float: left;
+}
+.search-answer {
+	width: 100%;
+	float: left
+}
+.search-name-display {
+	display: inline-block;
+	width: 80%;
+	vertical-align: middle;
+}
+.help-container-link .circle-icon {
+	width: 30px;
+	height: 30px;
+	background-color: red;
+	border: 2px solid #88e1ce;
+	line-height: 25px;
+	font-size: 13px;
+	color: #303030;
+	display: inline-block;
+	vertical-align: middle;
+	background: #2ec1a1;
+	background: -webkit-linear-gradient(#88e1ce, #2ec1a1);
+	background: -o-linear-gradient(#88e1ce, #2ec1a1);
+	background: -moz-linear-gradient(#88e1ce, #2ec1a1);
+	background: linear-gradient(#88e1ce, #2ec1a1);
+	border-color: #88e1ce;
+	transform: rotate(-180deg);
+	color: #fff;
+}
+.help-container-link:hover,.help-container-link:focus{text-decoration:none}
+.help-container-link.collapsed .circle-icon {
+	background: #fff;
+	border: 2px solid #b2b2b2;
+	transform: rotate(0);
+	color: #303030;
+}
+.help-container-link {
+	color: #303030;
+	font-weight: 600;
+	font-size: 16px;
+	display: inline-block;
+	margin: 7px 0;
+	width: 100%;
+}
+.title-help {
+	width: calc(100% - 45px);
+	display: inline-block;
+	margin: 0 0;
+	vertical-align: middle
+}
+.help-content-container {
+	padding-left: 45px
+}
+.media-search-group-container{width:100%; float:left; margin-top:30px;}
+.media-search-group-container .custom-media-object{width:115px; }
+.media-search-group-container .group-followers{margin-left:0; margin-right:15px;}
+.search-link{width:100%; float:left; position:relative;}
+.search-link:hover,.search-link:focus{text-decoration:none }
+.searech-folow{position:absolute; bottom:0}
+.media-search-group-container .custom-media{width:100%; float:left;}
+.media-search-group-container .custom-media:last-child{border-bottom:none}
+.search-container{width:100%; float:left; margin-bottom:35px;}
+.media-search-group-container .search-link .searech-folow {color:#303030}
+.media-search-group-container .custom-media-left{}
+.search-img-container,.search-car-img-container{width:115px; height:115px ;background-color:#fff; -webkit-box-shadow: 0px 0 15px rgba(0,0,0,0.2); -moz-box-shadow: 0px 0 15px rgba(0,0,0,0.2); box-shadow: 0px 0 15px rgba(0,0,0,0.2); text-align:center; line-height:115px}
+.search-img-container img{
+	width:55px;
 	}
-.group-followers{margin-left:15px;}
-.counter-number{font-size:30px; color:#e6e6e6; margin:0}
-.col-sm-character{
-	float:none;
-	margin-right:-3px;
-	display:inline-block;
-	vertical-align:top
-	}
-.custom-page-h2-bottom{clear:both; margin-bottom:35px;}	
+.input-custom-search{left:0;top:-5px;}	
+.search-input-roup{width:100%;}
  @media (min-width:992px) and (max-width:1199px) {
 .custom-thumbnail-box-views {
 	height: 140px
@@ -2039,10 +2208,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	height: 290px;
 	text-align: center;
 }
-.page-section.video-profile .custom-large-image-gallery, .page-section-profile.video-profile .custom-make-video-gallery,.page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery {
+.page-section.video-profile .custom-large-image-gallery, .page-section-profile.video-profile .custom-make-video-gallery, .page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery {
 	height: 215px;
 }
-
 }
 @media (min-width:768px) and (max-width:991px) {
 .custom-large-image-gallery {
@@ -2143,4 +2311,3 @@ input[type="checkbox"].checkbox-input + label.checkbox-label:before {
 	padding: 0px 0
 }
 }
-

@@ -1,5 +1,5 @@
 <!--E-mail activation model-->
-<div class="modal fade" id="activate" tabindex="-1" role="dialog">
+<div class="modal fade" id="activate" tabindex="-1" role="dialog" ng-controller="UserActivation">
   <form name="activate">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -15,7 +15,7 @@
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
               <div class="form-group">
-                <span id="activate_message" style="color: green; font-weight: bold;">Congratulations! You have successfully activated your account.</span>
+                <span id="activate_message" style="color: green; font-weight: bold;">{{ activate_msg }}</span>
               </div>
               </div>
           </div>

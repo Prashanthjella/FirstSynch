@@ -1,0 +1,28 @@
+<section class="page-section page-section-help" ng-controller="searchhelp">
+    <div class="container">
+        <h2 class="h2 custom-h2">Help</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="help-container" ng-repeat="help in search_help" ng-if="$odd">
+                    <h4><a  class="help-container-link collapsed" data-toggle="collapse" data-target="#help-{{$index}}" aria-expanded="false" aria-controls="help-{{$index}}"><span class="circle-icon glyphicon glyphicon-menu-down"></span>
+                        <span class="title-help">
+                        {{help.title}}</span></a>
+                    </h4>
+                    <div class="collapse help-content-container" id="help-{{$index}}">
+                        <p>{{help.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="help-container"  ng-repeat="help in search_help" ng-if="$even">
+                    <h4><a  class="help-container-link collapsed" data-toggle="collapse" data-target="#help-{{$index}}" aria-expanded="false" aria-controls="help-{{$index}}"><span class="circle-icon glyphicon glyphicon-menu-down"></span>
+                        <span class="title-help">{{help.title}}</span></a>
+                    </h4>
+                    <div class="collapse help-content-container" id="help-{{$index}}">
+                        <p>{{help.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
