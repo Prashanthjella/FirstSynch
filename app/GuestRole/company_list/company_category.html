@@ -10,16 +10,16 @@
                     </div>
                     <div class="media-group-container">
                         <div class="media custom-media" ng-repeat="companise in compa_cate.related_company">
-                            <a href="#" >
+                            <a href="/company/{{companise.id}}" >
                                 <div class="media-left media-middle custom-media-left"> <img class="media-object custom-media-object" ng-src="{{companise.logo}}" alt="Comopany">  </div>
                                 <div class="media-body custom-media-body">
                                     <h4 class="media-heading custom-media-heading">{{companise.name}}</h4>
                                     <h5 class="media-eading-h5">{{companise.city.name}}</h5>
                                     <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
-                                    </span> 
+                                    </span>
                                 </div>
                             </a>
-                            <div>                
+                            <div>
                             </div>
                         </div>
                     </div>

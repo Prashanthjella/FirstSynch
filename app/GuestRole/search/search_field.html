@@ -1,31 +1,26 @@
-<section class="page-section  page-bg-gray page-section-seach">
+<section class="page-section  page-bg-gray page-section-seach" ng-controller="UserSearch">
     <div class="container">
         <div class="form-group has-feedback">
             <div class="input-group">
                 <span class="input-group-addon input-custom-search glyphicon glyphicon-search"></span>
-                <!-- <angucomplete id="Search"
-                    placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools"
-                    pause="400"
-                    selectedobject="testObj"
-                    url="http://52.43.26.31:8000/api/v1/flat_pages/recent_career_fairs/?fields="
-                    titlefield="title,city"
-                    inputclass="form-control custom-form-control-search-box"/> -->
-                <angucomplete-alt id="Search"
+                <!-- <angucomplete-alt id="Search"
                     placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools"
                     pause="400"
                     selected-object="testObj"
                     remote-url="http://52.43.26.31:8000/api/v1/flat_pages/recent_career_fairs/?fields="
                     title-field="title,city"
-                    input-class="form-control custom-form-control-search-box"/>
-                <!-- <input type="text" placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " > -->
+                    input-class="form-control custom-form-control-search-box"/> -->
+                <form ng-submit="SearchsubmitFunc()">
+                    <input type="text" ng-model='keywords' placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " >
+                </form>
             </div>
-            <div class="" ng-show="testObj">
+            <!-- <div class="" ng-show="testObj">
                     You selected <span class="bold-span">{{testObj.title}}</span> which has a country code of <span class="bold-span">{{testObj.title}}</span>
-            </div>
+            </div> -->
 
             <span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
         </div>
-        <div class="search-result-container">
+        <div class="search-result-container search_result_remove_act">
             <div class="row custom-row-35">
                 <div class="col-sm-6">
                     <h5 class="custom-h5-03">Recent Searches</h5>
@@ -43,6 +38,35 @@
                         <h4 class="search-answer"><span class="search-name-display">Sketch</span> <small class="custom-gray-badge pull-right">Skills</small></h4>
                         <h4 class="search-answer"><span class="search-name-display">Korean vining</span> <small class="custom-gray-badge pull-right">Student</small></h4>
                         <h4 class="search-answer"><span class="search-name-display">University of Denver fall Career Fair 2015-2016</span> <small class="custom-gray-badge pull-right">Career Fair</small></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-container search_result_show_act" style="display:none;">
+            <div class="row custom-row-35">
+                <div class="col-sm-12">
+                    <div class="search-container">
+                        <div class="page-header custom-search-page-header">
+                            <div class="pull-left">
+                                <h2 class="h2 custom-h2">Career fairs</h2>
+                            </div>
+                            <!-- <div class="pull-right"> <a href="#" class="link-all" title="Show All">Show All</a> </div> -->
+                        </div>
+                        <div class="media-search-group-container search_results_career_page_act">
+
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <div class="page-header custom-search-page-header">
+                            <div class="pull-left">
+                                <h2 class="h2 custom-h2">Companies</h2>
+                            </div>
+                            <!-- <div class="pull-right"> <a href="#" class="link-all" title="Show All">Show All</a> </div> -->
+                        </div>
+                        <div class="media-search-group-container search_results_companies_act">
+
+
+                        </div>
                     </div>
                 </div>
             </div>

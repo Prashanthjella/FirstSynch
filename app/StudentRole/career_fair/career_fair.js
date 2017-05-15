@@ -10,12 +10,19 @@ var FirstSynch = angular.module("StudentcareerFair", ["ngRoute"]);
 // career fair page - near by career fair
 FirstSynch.controller("student_career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=10")
-      .then(function successCallback(response){
-          $scope.career_fair_near_current_user = response.data;
-      }, function errorCallback(response){
-          console.log("Unable to perform get career fair near for current user");
-  });
+    var current_city = function (){
+        return $http.get("https://ipinfo.io").then(function successCallback(response) {
+            $scope.current_city = response.data.city;
+        });
+    }
+    current_city().then(function(data) {
+        $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$scope.current_city+"&count=10")
+        .then(function successCallback(response){
+            $scope.career_fair_near_current_user = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get career fair near for current user");
+        });
+    });
 
 });
 

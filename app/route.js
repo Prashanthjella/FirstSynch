@@ -15,16 +15,16 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 
 
 
-    //////////////////////////////////////////Guest role //////////////////////////////////
+    //////////////////////////////////////////Guest role ///////////////////////////////
     //  home page
     $routeProvider.when('/', {
       templateUrl: 'GuestRole/home/home.html',
       resolve:{
         "check":function($location){
             if(window.sessionStorage.getItem("usertype") == '48KL3'){
-                $location.path('/company/dashboard');
+                $location.path('/com/dashboard');
             }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
-                $location.path('/student/dashboard');
+                $location.path('/stu/dashboard');
             }
             else{
                 $location.path('/');
@@ -48,13 +48,15 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     });
 
     //  guest - student profile
-    $routeProvider.when('/guest/student/profile', {
+    $routeProvider.when('/student/:studentid', {
         templateUrl: 'GuestRole/student_profile/student_profile.html',
+        controller: 'guest_student_profile'
     });
 
     //  guest - company profile
-    $routeProvider.when('/guest/company/profile', {
+    $routeProvider.when('/company/:companyid', {
         templateUrl: 'GuestRole/company_profile/company_profile.html',
+        controller: 'guest_company_profile'
     });
 
     //  guest - employee profile
@@ -73,74 +75,74 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     });
 
     // student - dashboard page
-    $routeProvider.when('/student/dashboard', {
+    $routeProvider.when('/stu/dashboard', {
         templateUrl: 'StudentRole/dashboard/dashboard.html'
     });
 
     // student - career fair
-    $routeProvider.when('/student/careerfair', {
+    $routeProvider.when('/stu/careerfair', {
         templateUrl: 'StudentRole/career_fair/career_fair.html',
     });
 
     // student - career fair details
-    $routeProvider.when('/student/careerfair/:carredid', {
+    $routeProvider.when('/stu/careerfair/:carredid', {
         templateUrl: 'StudentRole/career_fair_detail/career_fair.html',
         controller: 'student_careerfair_detail'
     });
 
     // student - companies list
-    $routeProvider.when('/student/companies', {
+    $routeProvider.when('/stu/companies', {
         templateUrl: 'StudentRole/company_list/company_list.html'
     });
 
     // student - companies profile
-    $routeProvider.when('/student/company/profile', {
+    $routeProvider.when('/stu/company/profile', {
         templateUrl: 'StudentRole/company_profile/company_profile.html',
     });
 
     // student - employee profile
-    $routeProvider.when('/student/employee/profile', {
+    $routeProvider.when('/stu/employee/profile', {
         templateUrl: 'StudentRole/employee_profile/employee_profile.html',
     });
 
     // student - student profile
-    $routeProvider.when('/student/student/profile', {
+    $routeProvider.when('/stu/student/profile', {
         templateUrl: 'StudentRole/student_profile/student_profile.html',
     });
 
     // company - dashboard
-    $routeProvider.when('/company/dashboard', {
+    $routeProvider.when('/com/dashboard', {
         templateUrl: 'CompanyRole/dashboard/dashboard.html'
     });
 
     // company - careerfair
-    $routeProvider.when('/company/careerfair', {
+    $routeProvider.when('/com/careerfair', {
         templateUrl: 'GuestRole/career_fair/career_fair.html',
     });
 
     // company - careerfair details
-    $routeProvider.when('/company/careerfair/:carredid', {
+    $routeProvider.when('/com/careerfair/:carredid', {
         templateUrl: 'GuestRole/career_fair_detail/career_fair.html',
         controller: 'company_careerfair_detail'
     });
 
     // company - companies
-    $routeProvider.when('/company/companies', {
+    $routeProvider.when('/com/companies', {
         templateUrl: 'GuestRole/company_list/company_list.html'
     });
 
     // company - company profile
-    $routeProvider.when('/company/company/profile', {
+    $routeProvider.when('/com/company/profile', {
         templateUrl: 'CompanyRole/company_profile/company_profile.html',
     });
 
     // company - employee profile
-    $routeProvider.when('/company/employee/profile', {
+    $routeProvider.when('/com/employee/profile', {
         templateUrl: 'CompanyRole/employee_profile/employee_profile.html',
     });
 
     // company - student profile
-    $routeProvider.when('/company/student/profile', {
+    $routeProvider.when('/com/student/profile', {
         templateUrl: 'CompanyRole/student_profile/student_profile.html',
     });
 

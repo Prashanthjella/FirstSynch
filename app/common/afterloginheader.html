@@ -4,18 +4,19 @@
 		<a class="navbar-brand custom-navbar-brand" href="/student/dashboard" title="FirstSync"><img src="assets/images/logo.png" alt="logo.png"></a> </div>
 		<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav navbar-right custom-navbar-nav">
-			<li><a href="/student/careerfair" title="Career fairs ">Career fairs </a></li>
-			<li><a href="/student/companies" title="Companies">Companies</a></li>
-			<li><a href="#" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
+			<li><a href="/stu/careerfair" title="Career fairs ">Career fairs </a></li>
+			<li><a href="/stu/companies" title="Companies">Companies</a></li>
+			<li><a href="/stu/students" title="Companies">Companies</a></li>
+			<li><a href="/search" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
 			<li>
 				<a href="#" title="User Name"  data-toggle="dropdown" class="user-avator-img">
-					<img src="http://52.43.26.31:8000/media/{{profileimage}}" alt="img-user-avator.png">
+					<img src="http://firstsynchvideos.s3.amazonaws.com/{{profileimage}}" alt="img-user-avator.png">
 				</a>
 				<ul class="dropdown-menu">
-                	<li><a href="#">My Profile</a></li>
+                	<li><a href="/stus/student/{{user_id}}" target="_blank">My Profile</a></li>
                 	<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
           		</ul>
-				
+
 			</li>
 		</ul>
 	</div>

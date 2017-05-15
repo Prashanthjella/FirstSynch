@@ -70,7 +70,7 @@ FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,a
 //company page - All companies
 FirstSynch.controller("all_companies" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=name,logo,city,state,country")
+  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=id,name,logo,city,state,country")
       .then(function successCallback(response){
           $scope.all_company = response.data;
       }, function errorCallback(response){
