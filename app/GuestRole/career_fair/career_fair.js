@@ -47,8 +47,34 @@ FirstSynch.controller("all_career_fair_near_user" ,function ($scope, $http,$rout
     });
 
 });
-/////////////////////////////////// filters ////////////////////////////////////
+// career fair page - near by all career fair
+FirstSynch.controller("all_career_fair_near_user_city" ,function ($scope, $http,$routeParams,apiUrl) {
 
+    $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=all&fields=city")
+    .then(function successCallback(response){
+        $scope.all_career_fair_near_current_user_city = response.data;
+    }, function errorCallback(response){
+        console.log("Unable to perform get career fair near for current user");
+    });
+
+});
+/////////////////////////////////// filters ////////////////////////////////////
+FirstSynch.filter('unique', function() {
+   return function(collection, keyname) {
+      var output = [],
+          keys = [];
+
+      angular.forEach(collection, function(item) {
+          var key = item[keyname];
+          if(keys.indexOf(key) === -1) {
+              keys.push(key);
+              output.push(item);
+          }
+      });
+
+      return output;
+   };
+});
 
 
 
