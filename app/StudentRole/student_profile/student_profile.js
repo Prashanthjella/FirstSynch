@@ -8,7 +8,7 @@ var FirstSynch = angular.module("SstudentProfile", ["ngRoute"]);
 // student details
 FirstSynch.controller("student_student_profile" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/user_profile/api/v1/student_profile/2/")
+  $http.get(apiUrl+"api/v1/user_profile/api/v1/student_profile/"+$routeParams.studentid+"/")
       .then(function successCallback(response){
           $scope.student_profile_details = response.data;
           jwplayer("jwplayerforprofile").setup({

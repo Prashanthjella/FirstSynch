@@ -1,39 +1,44 @@
-	<!--[Top 3 Comapnies Section Start]-->
-	<section class="page-section page-bg-gray page-section-companies" ng-controller="student_top_three">
-	  	<div class="container">
-	   		<div class="page-header custom-page-header">
-	      		<div class="pull-left">
-	        		<h1 class="h2 custom-page-h2">Companies</h1>
-    				<div>2157, Companies</div>
-	      		</div>
-    		</div>
-	    	<div class="page-header custom-page-header">
-	      		<div class="pull-left">
-	        		<h2 class="h2 custom-title"> Show companies from
-	        			<span class="dropdown">
-	        				<span class="highlighted dropdown-toggle"  id="allcities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all cities</span>
-				        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allcities">
-				    				<li>
-				    					<div class="form-group custom-form-group-cities">
-				  							<input type="text" class="form-control form-control-cities" placeholder="Search for cities">
-										</div>
-									</li>
-				    				<li><a href="#" title="All Cities">All Cities</a></li>
-				    				<li><a href="#">West Douglaz, <span class="text-uppercase">Mn<span></a></li>
-				    				<li><a href="companies-denver.html">Denver co, <span class="text-uppercase">Co<span></a></li>
-				    				<li><a href="#">Austin, <span class="text-uppercase">Tx<span></a></li>
-				    				<li><a href="#">Jacksonville, <span class="text-uppercase">Fl<span></a></li>
-				    				<li><a href="#">Fortworth, <span class="text-uppercase">Tx<span></a></li>
-				    				<li><a href="#">Seattle, <span class="text-uppercase">Wa<span></a></li>
-				    				<li><a href="#">Memphis, <span class="text-uppercase">Tn<span></a></li>
-				     				<li><a href="#">Louisville, <span class="text-uppercase">Ky<span></a></li>
-								</ul>
-	        				</span>
-	        			, specializing in <span class="highlighted">all industries</span>
-	        		</h2>
-	      		</div>
-	    	</div>
-	    	<div class="row custom-row-35">
+<section class="page-section page-bg-gray page-section-companies">
+	<div class="container">
+		<div class="page-header custom-page-header" ng-controller="student_all_companies">
+			<div class="pull-left">
+				<h1 class="h2 custom-page-h2">Companies</h1>
+				<div>{{all_company.length }} Companies</div>
+			</div>
+		</div>
+		<div class="page-header custom-page-header">
+			<div class="pull-left">
+				<h2 class="h2 custom-title"> Show companies from
+					<span class="dropdown"  ng-controller="student_all_companies">
+						<span class="highlighted dropdown-toggle"  id="allcities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all cities</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allcities">
+							<li>
+								<div class="form-group custom-form-group-cities">
+									<input type="text" class="form-control form-control-cities" placeholder="Search for cities">
+								</div>
+							</li>
+							<li><a href="#" title="All Cities">All Cities</a></li>
+							<li ng-repeat="all_comp in all_company"><a ng-click="allcitysearch()" href="#">{{all_comp.company.city.name}},<span class="text-uppercase"> {{all_comp.company.state.name}}</span></a></li>
+						</ul>
+					</span>
+					, specializing in
+					<span class="dropdown" ng-controller="student_company_category">
+						<span class="highlighted dropdown-toggle" id="allcategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all industries</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allindustries">
+							<li>
+								<div class="form-group custom-form-group-cities">
+									<input type="text" class="form-control form-control-industry" placeholder="Search for industries">
+								</div>
+							</li>
+							<li><a href="#" title="All Cities">All Industries</a></li>
+							<li ng-repeat="compa_cate in company_cate "><a href="#">{{ compa_cate.industry_type }}</a></li>
+						</ul>
+					</span>
+
+				</h2>
+			</div>
+		</div>
+	    	<div class="row custom-row-35"  ng-controller="student_top_three">
 	      		<div class="col-sm-12">
 	        		<div class="page-header custom-page-header">
 	          			<div class="pull-left">
@@ -42,11 +47,13 @@
 	        		</div>
 	      		</div>
 	      		<div class="col-sm-4" ng-repeat="comp in top_three_company">
-	        		<div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{ comp.logo }}" class="logo-companies-box"> </div>
-	        		<div class="company-heading-group">
-	          			<h4 class="h4 custom-h4">{{ comp.name }} </h4>
-	          			<h5>{{ comp.city.name }}, {{ comp.state.name }}, {{ comp.country.name }}</h5>
-	        		</div>
+					<a href="/stu/company/{{ comp.company.id }}">
+		        		<div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{ comp.company.logo }}" class="logo-companies-box"> </div>
+		        		<div class="company-heading-group">
+		          			<h4 class="h4 custom-h4">{{ comp.company.name }} </h4>
+		          			<h5>{{ comp.company.city.name }}, {{ comp.company.state.name }}, {{ comp.company.country.name }}</h5>
+		        		</div>
+					</a>
 	      		</div>
 
 	    	</div>

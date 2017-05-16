@@ -1,16 +1,17 @@
 <div class="container">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-		<a class="navbar-brand custom-navbar-brand" href="/company/dashboard" title="FirstSync"><img src="assets/images/logo.png" alt="logo.png"></a> </div>
+		<a class="navbar-brand custom-navbar-brand" href="/com/dashboard" title="FirstSync"><img src="assets/images/logo.png" alt="logo.png"></a> </div>
 		<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav navbar-right custom-navbar-nav">
-			<li><a href="/careerfair" title="Career fairs ">Career fairs </a></li>
-			<li><a href="/companies" title="Companies">Companies</a></li>
-			<li><a href="#" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
+			<li><a href="/com/careerfair" title="Career fairs ">Career fairs </a></li>
+			<li><a href="/com/companies" title="Companies">Companies</a></li>
+			<li><a href="/com/students" title="Companies">Companies</a></li>
+			<li><a href="/search" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
 			<li>
 				<a href="#" title="User Name"  data-toggle="dropdown" class="user-avator-img"><img src="assets/images/profileicon.png" ng-if="!profileimage" alt="img-user-avator.png"><img src="http://firstsynchvideos.s3.amazonaws.com/{{profileimage}}" ng-if="profileimage" alt="img-user-avator.png"></a>
 					<ul class="dropdown-menu">
-	                	<li><a href="/company/{{user_id}}">My Profile</a></li>
+	                	<li><a href="/com/company/{{user_id}}">My Profile</a></li>
 	                	<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
               		</ul>
 

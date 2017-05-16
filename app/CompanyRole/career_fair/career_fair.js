@@ -8,8 +8,12 @@ var FirstSynch = angular.module("CompanycareerFair", ["ngRoute"]);
 
 // career fair page - near by career fair
 FirstSynch.controller("company_career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl) {
-
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=10")
+    var current_city = function (){
+        return $http.get("https://ipinfo.io").then(function successCallback(response) {
+            $scope.current_city = response.data.city;
+        });
+    }
+  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$scope.current_city+"&count=10")
       .then(function successCallback(response){
           $scope.career_fair_near_current_user = response.data;
       }, function errorCallback(response){

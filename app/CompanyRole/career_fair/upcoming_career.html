@@ -11,10 +11,10 @@
         <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 600, infiniteLoop: false, hideControlOnEnd: true">
           <div class="slide" data-ng-repeat="upcome_career in upcoming_career" style="margin-right: 40px;" data-notify-when-repeat-finished>
             <div class="slider-inside-large">
-              <a href="/company/careerfair/{{upcome_career.id}}" style="color:#000;">
+              <a href="/com/careerfair/{{upcome_career.id}}" style="color:#000;">
               <div class="slider-recent-fairs"> <img  style="width:600px; height:315px;" ng-src="{{upcome_career.image}}" alt="img1.png">
                 <div class="slider-caption">
-                  <div class="caption-date-container"><span class="caption-date">{{upcome_career.start_date}}</span> &bull; <span class="caption-state">{{ upcome_career.city }}, {{ upcome_career.state }}</span></div>
+                  <div class="caption-date-container"><span class="caption-date">{{upcome_career.start_date | date:"MMM d, y"}}</span> &bull; <span class="caption-state">{{ upcome_career.city }}, {{ upcome_career.state }}</span></div>
                   <h3 class="caption-description">{{upcome_career.title}}</h3>
                 </div>
               </div>

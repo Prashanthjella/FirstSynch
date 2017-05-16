@@ -3,8 +3,6 @@
 
 var FirstSynch = angular.module("careerFairDetail", ["ngRoute"]);
 
-
-
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
@@ -95,7 +93,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl, $compile) 
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';
-              
+
               angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
           })
         }else{

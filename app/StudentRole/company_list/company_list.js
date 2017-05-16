@@ -9,7 +9,7 @@ var FirstSynch = angular.module("StudentCompanyList", ["ngRoute"]);
 //company page - top 3 details
 FirstSynch.controller("student_top_three" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=3&fields=name,logo,city,state,country")
+  $http.get(apiUrl+"api/v1/toplist/top3companies/")
       .then(function successCallback(response){
           $scope.top_three_company = response.data;
       }, function errorCallback(response){
@@ -32,7 +32,7 @@ FirstSynch.controller("student_company_category" ,function ($scope, $http,$route
 //company page - All companies
 FirstSynch.controller("student_all_companies" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=name,logo,city,state,country")
+  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=id,name,logo,city,state,country")
       .then(function successCallback(response){
           $scope.all_company = response.data;
       }, function errorCallback(response){

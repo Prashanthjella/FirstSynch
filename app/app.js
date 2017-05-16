@@ -17,6 +17,7 @@ var FirstSynch = angular.module("firstSync", [
     "StudentcareerFair",
     "StudentcareerFairDetail",
     "StudentCompanyList",
+    "SStudentList",
     "SstudentProfile",
     "ScompanyProfile",
     "SemployeeProfile",
@@ -24,6 +25,7 @@ var FirstSynch = angular.module("firstSync", [
     "CompanycareerFair",
     "CompanycareerFairDetail",
     "CompanyCompanyList",
+    "CStudentList",
     "CstudentProfile",
     "CcompanyProfile",
     "CemployeeProfile",
@@ -36,7 +38,7 @@ FirstSynch.constant('studentusertype','38OD2');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
-FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertype) {
+FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertype,$location) {
     // condition based header show
     if(companyusertype == window.sessionStorage.getItem("usertype")){
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
@@ -48,6 +50,7 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
         $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
         $rootScope.user_id = window.sessionStorage.getItem("user_id");
     }
+    $rootScope.current_url = $location.path();
     $rootScope.today = new Date();
     $rootScope.apiurl = apiUrl;
     $rootScope.videoPopup = function (value) {
@@ -86,6 +89,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
                 $window.sessionStorage.setItem('token', response.data.token);
                 $window.sessionStorage.setItem('usertype', response.data.usertype);
                 $window.sessionStorage.setItem('profileimage', response.data.profile_image);
+                $window.sessionStorage.setItem('user_id', response.data.user_id);
                 $rootScope.profileimage = response.data.profile_image;
                 $rootScope.user_id = response.data.user_id;
                 jQuery(".modal-backdrop.in").hide();
@@ -299,13 +303,45 @@ FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$c
                         jQuery('.search_result_remove_act').remove();
                         jQuery('.search_result_show_act').show();
                         jQuery('.search_results_career_page_act').empty();
-                        jQuery.each(response.data.careerfair, function(i) {
-                            var career_fair_result = '<div class="media custom-media">'
-                                                        +'<a href="/careerfair/'+response.data.careerfair[i].id+'" class="search-link">'
-                                                            +'<div class="media-left media-middle custom-media-left"> <img style="height:117px;" class="media-object custom-media-object" src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.careerfair[i].image+'" alt="">  </div>'
+                        jQuery('.search_results_companies_act').empty();
+                        if(response.data.careerfair){
+                            jQuery('.search_results_career_page_container_act').show();
+                            jQuery.each(response.data.careerfair, function(i) {
+                                var career_fair_result = '<div class="media custom-media">'
+                                                            +'<a href="/careerfair/'+response.data.careerfair[i].id+'" class="search-link">'
+                                                                +'<div class="media-left media-middle custom-media-left"> <img style="height:117px;" class="media-object custom-media-object" src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.careerfair[i].image+'" alt="">  </div>'
+                                                                +'<div class="media-body custom-media-body">'
+                                                                    +'<h4 class="media-heading custom-media-heading">'+response.data.careerfair[i].title+'</h4>'
+                                                                    +'<h5 class="media-eading-h5">'+response.data.careerfair[i].start_date+' &bull; '+response.data.careerfair[i].city+'</h5>'
+                                                                    +'<div class="searech-folow pull-left">'
+                                                                        +'<span class="group-followers"><span class="total-followers">36</span> Posts</span>'
+                                                                        +'<span class="group-followers"><span class="total-followers">41</span> Companies</span>'
+                                                                        +'<span class="group-followers"><span class="total-followers">5</span> followers</span>'
+                                                                    +'</div>'
+                                                                +'</div>'
+                                                            +'</a>'
+                                                            +'<div>'
+                                                            +'</div>'
+                                                        +'</div>';
+                                angular.element(jQuery('.search_results_career_page_act')).append($compile(career_fair_result)($scope));
+                            });
+                        }
+                        else{
+                            jQuery('.search_results_career_page_container_act').hide();
+                        }
+                        if(response.data.company){
+                            jQuery('.search_results_companies_container_act').show();
+                            jQuery.each(response.data.company, function(i) {
+                                var companies_result ='<div class="media custom-media">'
+                                                        +'<a href="/company/'+response.data.company[i].id+'" class="search-link">'
+                                                            +'<div class="media-left media-middle custom-media-left">'
+                                                                +'<div class="search-img-container">'
+                                                                    +'<img src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.company[i].logo+'" class="logo-companies-box">'
+                                                                +'</div>'
+                                                            +'</div>'
                                                             +'<div class="media-body custom-media-body">'
-                                                                +'<h4 class="media-heading custom-media-heading">'+response.data.careerfair[i].title+'</h4>'
-                                                                +'<h5 class="media-eading-h5">'+response.data.careerfair[i].start_date+' &bull; '+response.data.careerfair[i].city+'</h5>'
+                                                                +'<h4 class="media-heading custom-media-heading">'+response.data.company[i].name+'</h4>'
+                                                                +'<h5 class="media-eading-h5">'+response.data.company[i].city+'&bull; '+response.data.company[i].state+'</h5>'
                                                                 +'<div class="searech-folow pull-left">'
                                                                     +'<span class="group-followers"><span class="total-followers">36</span> Posts</span>'
                                                                     +'<span class="group-followers"><span class="total-followers">41</span> Companies</span>'
@@ -316,31 +352,12 @@ FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$c
                                                         +'<div>'
                                                         +'</div>'
                                                     +'</div>';
-                            angular.element(jQuery('.search_results_career_page_act')).append($compile(career_fair_result)($scope));
-                        });
-                        jQuery.each(response.data.company, function(i) {
-                            var companies_result ='<div class="media custom-media">'
-                                                    +'<a href="#" class="search-link">'
-                                                        +'<div class="media-left media-middle custom-media-left">'
-                                                            +'<div class="search-img-container">'
-                                                                +'<img src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.company[i].logo+'" class="logo-companies-box">'
-                                                            +'</div>'
-                                                        +'</div>'
-                                                        +'<div class="media-body custom-media-body">'
-                                                            +'<h4 class="media-heading custom-media-heading">'+response.data.company[i].name+'</h4>'
-                                                            +'<h5 class="media-eading-h5">'+response.data.company[i].city+'&bull; '+response.data.company[i].state+'</h5>'
-                                                            +'<div class="searech-folow pull-left">'
-                                                                +'<span class="group-followers"><span class="total-followers">36</span> Posts</span>'
-                                                                +'<span class="group-followers"><span class="total-followers">41</span> Companies</span>'
-                                                                +'<span class="group-followers"><span class="total-followers">5</span> followers</span>'
-                                                            +'</div>'
-                                                        +'</div>'
-                                                    +'</a>'
-                                                    +'<div>'
-                                                    +'</div>'
-                                                +'</div>';
-                        angular.element(jQuery('.search_results_companies_act')).append($compile(companies_result)($scope));
-                        });
+                            angular.element(jQuery('.search_results_companies_act')).append($compile(companies_result)($scope));
+                            });
+                        }
+                        else{
+                            jQuery('.search_results_companies_container_act').show();
+                        }
                     },
                     function errorCallback(response)
                     {

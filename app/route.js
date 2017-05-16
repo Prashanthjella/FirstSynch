@@ -13,7 +13,15 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         templateUrl: 'common/privacy.html',
     });
 
+    //  search landing
+    $routeProvider.when('/search', {
+        templateUrl: 'GuestRole/search/search.html',
+    });
 
+    //  search landing
+    $routeProvider.when('/login', {
+        templateUrl: 'GuestRole/home/home.html',
+    });
 
     //////////////////////////////////////////Guest role ///////////////////////////////
     //  home page
@@ -35,48 +43,129 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     // guest - careerfair
     $routeProvider.when('/careerfair', {
         templateUrl: 'GuestRole/career_fair/career_fair.html',
+        resolve:{
+          "check":function($location){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/careerfair');
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/careerfair');
+              }
+              else{
+                  $location.path('/careerfair');
+              }
+          }
+        }
     });
     // guest - careerfair details
     $routeProvider.when('/careerfair/:carredid', {
         templateUrl: 'GuestRole/career_fair_detail/career_fair.html',
-        controller: 'careerfair_detail'
+        controller: 'careerfair_detail',
+        resolve:{
+          "check":function($location,$route){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/careerfair/'+$route.current.params.carredid);
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/careerfair/'+$route.current.params.carredid);
+              }
+          }
+        }
     });
 
     //  guest - company list
     $routeProvider.when('/companies', {
-        templateUrl: 'GuestRole/company_list/company_list.html'
-    });
-
-    //  guest - student profile
-    $routeProvider.when('/student/:studentid', {
-        templateUrl: 'GuestRole/student_profile/student_profile.html',
-        controller: 'guest_student_profile'
+        templateUrl: 'GuestRole/company_list/company_list.html',
+        resolve:{
+          "check":function($location){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/companies');
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/companies');
+              }
+          }
+        }
     });
 
     //  guest - company profile
     $routeProvider.when('/company/:companyid', {
         templateUrl: 'GuestRole/company_profile/company_profile.html',
-        controller: 'guest_company_profile'
+        controller: 'guest_company_profile',
+        resolve:{
+          "check":function($location,$route){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/company/'+$route.current.params.companyid);
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/company/'+$route.current.params.companyid);
+              }
+          }
+        }
+    });
+
+    //  guest - student list
+    $routeProvider.when('/students', {
+        templateUrl: 'GuestRole/student_list/student_list.html',
+        resolve:{
+          "check":function($location){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/employee/profile');
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/employee/profile');
+              }
+              else{
+                  $location.path('/guest/employee/profile');
+              }
+          }
+        }
+    });
+
+    //  guest - student profile
+    $routeProvider.when('/student/:studentid', {
+        templateUrl: 'GuestRole/student_profile/student_profile.html',
+        controller: 'guest_student_profile',
+        resolve:{
+          "check":function($location,$route){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/student/'+$route.current.params.companyid);
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/student/'+$route.current.params.companyid);
+              }
+          }
+        }
     });
 
     //  guest - employee profile
     $routeProvider.when('/guest/employee/profile', {
         templateUrl: 'GuestRole/employee_profile/employee_profile.html',
+        resolve:{
+          "check":function($location){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/com/employee/profile');
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/employee/profile');
+              }
+              else{
+                  $location.path('/guest/employee/profile');
+              }
+          }
+        }
     });
 
-    //  guest - student list
-    $routeProvider.when('/students', {
-        templateUrl: 'GuestRole/student_list/student_list.html'
-    });
 
-    //  guest - search landing
-    $routeProvider.when('/search', {
-        templateUrl: 'GuestRole/search/search.html',
-    });
 
     // student - dashboard page
     $routeProvider.when('/stu/dashboard', {
-        templateUrl: 'StudentRole/dashboard/dashboard.html'
+        templateUrl: 'StudentRole/dashboard/dashboard.html',
+        resolve:{
+          "check":function($location){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/');
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/dashboard');
+              }
+              else{
+                  $location.path('/login');
+              }
+          }
+        }
     });
 
     // student - career fair
@@ -96,8 +185,9 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     });
 
     // student - companies profile
-    $routeProvider.when('/stu/company/profile', {
+    $routeProvider.when('/stu/company/:companyid', {
         templateUrl: 'StudentRole/company_profile/company_profile.html',
+        controller: 'student_company_profile'
     });
 
     // student - employee profile
@@ -105,9 +195,15 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         templateUrl: 'StudentRole/employee_profile/employee_profile.html',
     });
 
+    //  student - student list
+    $routeProvider.when('/stu/students', {
+        templateUrl: 'StudentRole/student_list/student_list.html'
+    });
+
     // student - student profile
-    $routeProvider.when('/stu/student/profile', {
+    $routeProvider.when('/stu/student/:studentid', {
         templateUrl: 'StudentRole/student_profile/student_profile.html',
+        controller: 'student_student_profile'
     });
 
     // company - dashboard
@@ -117,23 +213,24 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
 
     // company - careerfair
     $routeProvider.when('/com/careerfair', {
-        templateUrl: 'GuestRole/career_fair/career_fair.html',
+        templateUrl: 'CompanyRole/career_fair/career_fair.html',
     });
 
     // company - careerfair details
     $routeProvider.when('/com/careerfair/:carredid', {
-        templateUrl: 'GuestRole/career_fair_detail/career_fair.html',
+        templateUrl: 'CompanyRole/career_fair_detail/career_fair.html',
         controller: 'company_careerfair_detail'
     });
 
     // company - companies
     $routeProvider.when('/com/companies', {
-        templateUrl: 'GuestRole/company_list/company_list.html'
+        templateUrl: 'CompanyRole/company_list/company_list.html'
     });
 
     // company - company profile
-    $routeProvider.when('/com/company/profile', {
+    $routeProvider.when('/com/company/:companyid', {
         templateUrl: 'CompanyRole/company_profile/company_profile.html',
+        controller: 'company_company_profile'
     });
 
     // company - employee profile
@@ -141,8 +238,13 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         templateUrl: 'CompanyRole/employee_profile/employee_profile.html',
     });
 
+    //  student - student list
+    $routeProvider.when('/com/students', {
+        templateUrl: 'CompanyRole/student_list/student_list.html'
+    });
+
     // company - student profile
-    $routeProvider.when('/com/student/profile', {
+    $routeProvider.when('/com/student/:studentid', {
         templateUrl: 'CompanyRole/student_profile/student_profile.html',
     });
 
