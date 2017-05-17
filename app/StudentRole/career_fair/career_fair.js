@@ -27,14 +27,42 @@ FirstSynch.controller("student_career_fair_near_user" ,function ($scope, $http,$
 });
 
 // career fair page - near by career fair
-FirstSynch.controller("student_upcoming_career_fair" ,function ($scope, $http,$routeParams,apiUrl) {
-
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
+FirstSynch.controller("student_upcoming_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$timeout) {
+	$scope.visible = true;
+  	$http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.upcoming_career = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming career fair");
-  });
+  	});
+  
+   	$scope.careerfair_filters = function(obj){
+    	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.dataupcomingval.value = obj.currentTarget.attributes.datavalue.value;
+    	var upcoming_data = $('#upcoming').attr('dataupcomingval');
+    	var city_data = $('#all_cer_city').attr('dataupcomingval');
+    	var company_data = $('#all_cer_company').attr('dataupcomingval');
+    	var query_string = '';
+    	if(upcoming_data != ''){
+    		query_string += 'when='+upcoming_data;
+    	}
+    	if(city_data != ''){
+    		query_string += '&city='+city_data;
+    	}
+    	if(company_data != ''){
+    		query_string += '&company='+company_data;
+    	}
+    	
+ 		$http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?"+query_string)
+	    .then(function successCallback(response){
+	    	$scope.visible = false;
+	        $scope.upcoming_career = response.data;
+	        $timeout(function() {
+      			$scope.visible = true;
+    		});
+	    }, function errorCallback(response){
+	        console.log("Unable to perform get upcoming career fair");
+	    });
+    };
 
 });
 
