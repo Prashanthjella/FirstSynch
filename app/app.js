@@ -60,7 +60,7 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
         .then(function successCallback(response){
             $rootScope.vid = response.data;
             jwplayer("jwplayer").setup({
-                "file": response.data.video.video_file,
+                "file": response.data.video.streaming_video,
                 "primary": 'flash'
             });
             jwplayer("jwplayer").play();
