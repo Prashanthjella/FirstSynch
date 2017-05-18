@@ -1,5 +1,10 @@
 $(document).ready(function() {
-    
+
+  $("#VideoPopup1").on("hidden", function () {
+    jwplayer('jwplayer').stop();
+  });
+
+
     $(window).scroll(function() {
 
         var scroll = $(window).scrollTop();
