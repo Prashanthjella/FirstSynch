@@ -3,8 +3,11 @@ $(document).ready(function() {
   $("#VideoPopup1").on("hidden", function () {
     jwplayer('jwplayer').stop();
   });
-
-
+    $('.grid').masonry({
+  	// options
+  		itemSelector: '.grid-item',
+ 
+	});
     $(window).scroll(function() {
 
         var scroll = $(window).scrollTop();

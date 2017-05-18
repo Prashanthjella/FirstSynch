@@ -65,24 +65,24 @@ FirstSynch.controller("student_mostrecentedfairvideo" , function ($scope, $http,
 });
 
 // home page - students
-FirstSynch.controller("student_dbstudents" , function ($scope, $http, apiUrl, $compile) {
+FirstSynch.controller("student_favorites" , function ($scope, $http, apiUrl, $compile) {
   // home page - students - default
-  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/favorite_video_list/")
       .then(function successCallback(response){
-          $scope.dbstudents = response.data;
+          $scope.favorites = response.data;
       }, function errorCallback(response){
-          console.log("Unable to perform get dbstudents");
+          console.log("Unable to perform student_favorites");
   });
   // home page - students - showall and lessall
   $scope.showall_studentsvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/favorite_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_stu_less_all').is(":visible")){
           jQuery('.for_home_stu_less_all').slideUp(500);
           jQuery('.home_students_all_link').text('Less All');
           jQuery('.for_home_stu_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
-            var students_showall =   '<div class="col-sm-4">'
+            var favorite_showall =   '<div class="col-sm-4">'
                                         +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
                                           +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
@@ -94,7 +94,7 @@ FirstSynch.controller("student_dbstudents" , function ($scope, $http, apiUrl, $c
                                         +'</a> '
                                       +'</div>';
               
-              angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
+              angular.element(jQuery('.for_home_stu_show_all')).append($compile(favorite_showall)($scope));
           })
         }else{
             jQuery('.for_home_stu_show_all').slideUp(500);
@@ -108,25 +108,25 @@ FirstSynch.controller("student_dbstudents" , function ($scope, $http, apiUrl, $c
 
 });
 
-// home page - company
-FirstSynch.controller("student_dbcompany" , function ($scope, $http, apiUrl ,$compile) {
- // home page - company - default
-  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
+// home page - newest member
+FirstSynch.controller("student_newest_member" , function ($scope, $http, apiUrl ,$compile) {
+ // home page - newest member - default
+  $http.get(apiUrl+"api/v1/flat_pages/newest_member_video_list/")
       .then(function successCallback(response){
-          $scope.dbcompany = response.data;
+          $scope.newest_member = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get dbcompany");
   });
-  // home page - company - show all and less all
+  // home page - newest member - show all and less all
   $scope.showall_companyvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/newest_member_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_com_less_all').is(":visible")){
           jQuery('.for_home_com_less_all').slideUp(500);
           jQuery('.home_company_all_link').text('Less All');
           jQuery('.for_home_com_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
-            var company_showall =   '<div class="col-sm-4">'
+            var newest_showall =   '<div class="col-sm-4">'
                                       +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
                                         +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
@@ -141,7 +141,7 @@ FirstSynch.controller("student_dbcompany" , function ($scope, $http, apiUrl ,$co
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';
-            angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
+            angular.element(jQuery('.for_home_com_show_all')).append($compile(newest_showall)($scope));
           })
         }else{
             jQuery('.for_home_com_show_all').slideUp(500);
@@ -151,7 +151,7 @@ FirstSynch.controller("student_dbcompany" , function ($scope, $http, apiUrl ,$co
       }, function errorCallback(response){
           console.log("Unable to perform get featurevideo showall");
     });
-  }
+  };
 });
 
 /////////////////////////////////// filters ////////////////////////////////////

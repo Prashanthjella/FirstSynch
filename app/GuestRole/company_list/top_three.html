@@ -7,35 +7,24 @@
     				<div>{{all_company.length }} Companies</div>
 	      		</div>
     		</div>
-	    	<div class="page-header custom-page-header">
+	    	<div class="page-header custom-page-header" ng-controller="top_three_companies">
 	      		<div class="pull-left">
 	        		<h2 class="h2 custom-title"> Show companies from
-	        			<span class="dropdown"  ng-controller="all_companies">
-	        				<span class="highlighted dropdown-toggle"  id="allcities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all cities</span>
-			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allcities">
-			    				<li>
-			    					<div class="form-group custom-form-group-cities">
-			  							<input type="text" class="form-control form-control-cities" placeholder="Search for cities">
-									</div>
-								</li>
-			    				<li><a href="#" title="All Cities">All Cities</a></li>
-			    				<li ng-repeat="all_comp in all_company"><a ng-click="allcitysearch()" href="#">{{all_comp.company.city.name}},<span class="text-uppercase"> {{all_comp.company.state.name}}</span></a></li>
+	                    <span  class="dropdown" ng-controller="all_companies">
+	        				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_com_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allcities</span>
+			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
+			        			<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
+			    				<li ng-click="company_filters($event)"  ng-repeat="allcities in all_company | unique:'city.name'| orderBy : 'city.name'" datavalue="{{allcities.city.name}}"><a href="" title="cities">{{allcities.city.name}}</a></li>
 							</ul>
-        				</span>
-	        			, specializing in
-	        			<span class="dropdown" ng-controller="company_category">
-		        			<span class="highlighted dropdown-toggle" id="allcategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all industries</span>
-		        			<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allindustries">
-			    				<li>
-			    					<div class="form-group custom-form-group-cities">
-			  							<input type="text" class="form-control form-control-industry" placeholder="Search for industries">
-									</div>
-								</li>
-			    				<li><a href="#" title="All Cities">All Industries</a></li>
-			    				<li ng-repeat="compa_cate in company_cate "><a href="#">{{ compa_cate.industry_type }}</a></li>
+	    				</span>
+	                    , specializing in
+	                    <span class="dropdown" ng-controller="company_category">
+	        				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_com_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allindustries</span>
+			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
+			    				<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allcompanies</a></li>
+			    				<li ng-click="company_filters($event)" ng-repeat="compa_cate in company_cate " datavalue="{{compa_cate.industry_type}}"><a href="" title="upcoming">{{compa_cate.industry_type}}</a></li>
 							</ul>
-	        			</span>
-
+	    				</span>
 	        		</h2>
 	      		</div>
 	    	</div>
@@ -58,6 +47,7 @@
 	      		</div>
 
 	    	</div>
+	    	<div class="company_search_result grid"></div>
 		</div>
 	</section>
 <!--[Top 3 Company Sections End]-->

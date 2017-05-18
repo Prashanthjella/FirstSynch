@@ -3,11 +3,36 @@
   <div class="container">
     <div class="page-header custom-page-header">
       <div class="pull-left">
-        <h2 class="h2 custom-title"><span class="highlighted">Upcoming</span> career fairs in <span class="highlighted">denver</span> with all <span class="highlighted">companies</span></h2>
+        <h2 class="h2 custom-title">
+        	<span class="dropdown">
+				<span ng-bind="upcomingValue" class="highlighted dropdown-toggle"  id="upcoming" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Upcoming</span>
+        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" upcoming-menu="upcomingValue" aria-labelledby="upcoming">
+    				<li ng-click="careerfair_filters($event)" datavalue="next"><a href="" title="upcoming">Upcoming</a></li>
+    				<li ng-click="careerfair_filters($event)" datavalue="prev"><a href="" title="previous">Previous</a></li>
+                    <li ng-click="careerfair_filters($event)" datavalue="now"><a href="" title="Current">Current</a></li>
+				</ul>
+			</span>
+            career fairs in
+            <span  class="dropdown" ng-controller="all_career_fair_near_user_city">
+				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_cer_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Allcities</span>
+        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
+        			<li ng-click="careerfair_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
+    				<li ng-click="careerfair_filters($event)"  ng-repeat="allcities in all_career_fair_near_current_user_city | unique:'city'| orderBy : 'city'" datavalue="{{allcities.city}}"><a href="" title="upcoming">{{allcities.city}}</a></li>
+				</ul>
+			</span>
+            with all
+            <span class="dropdown" ng-controller="all_companies">
+				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_cer_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Allcompanies</span>
+        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
+    				<li ng-click="careerfair_filters($event)"  datavalue=""><a href="" title="upcoming">Allcompanies</a></li>
+    				<li ng-click="careerfair_filters($event)" ng-repeat="allcompanies in all_company | unique:'name' | orderBy : 'name'" datavalue="{{allcompanies.name}}"><a href="" title="upcoming">{{allcompanies.name}}</a></li>
+				</ul>
+			</span>
+        </h2>
       </div>
     </div>
     <div class="row custom-row-10">
-      <div class="slider-container-recent">
+      <div class="slider-container-recent" ng-if="visible">
         <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 600, infiniteLoop: false, hideControlOnEnd: true">
           <div class="slide" data-ng-repeat="upcome_career in upcoming_career" style="margin-right: 40px;" data-notify-when-repeat-finished>
             <div class="slider-inside-large">
