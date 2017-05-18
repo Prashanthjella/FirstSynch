@@ -1,13 +1,9 @@
 $(document).ready(function() {
-
-  $("#VideoPopup1").on("hidden", function () {
-    jwplayer('jwplayer').stop();
+  $(document).on('hide.bs.modal','#VideoPopup1', function () {
+                  jwplayer('jwplayer').stop();
+   //Do stuff here
   });
-    $('.grid').masonry({
-  	// options
-  		itemSelector: '.grid-item',
- 
-	});
+
     $(window).scroll(function() {
 
         var scroll = $(window).scrollTop();
