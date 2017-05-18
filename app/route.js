@@ -76,9 +76,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         templateUrl: 'GuestRole/company_list/company_list.html',
         resolve:{
           "check":function($location){
-              if(window.sessionStorage.getItem("usertype") == '48KL3'){
-                  $location.path('/com/companies');
-              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+              if(window.sessionStorage.getItem("usertype") == '38OD2'){
                   $location.path('/stu/companies');
               }
           }
@@ -111,7 +109,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
                   $location.path('/stu/employee/profile');
               }
               else{
-                  $location.path('/guest/employee/profile');
+                  $location.path('/students');
               }
           }
         }
@@ -196,9 +194,9 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     });
 
     //  student - student list
-    $routeProvider.when('/stu/students', {
-        templateUrl: 'StudentRole/student_list/student_list.html'
-    });
+    // $routeProvider.when('/stu/students', {
+        // templateUrl: 'StudentRole/student_list/student_list.html'
+    // });
 
     // student - student profile
     $routeProvider.when('/stu/student/:studentid', {
@@ -223,9 +221,9 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     });
 
     // company - companies
-    $routeProvider.when('/com/companies', {
-        templateUrl: 'CompanyRole/company_list/company_list.html'
-    });
+    // $routeProvider.when('/com/companies', {
+        // templateUrl: 'CompanyRole/company_list/company_list.html'
+    // });
 
     // company - company profile
     $routeProvider.when('/com/company/:companyid', {

@@ -1,5 +1,9 @@
 $(document).ready(function() {
-    
+    $('.grid').masonry({
+  	// options
+  		itemSelector: '.grid-item',
+ 
+	});
     $(window).scroll(function() {
 
         var scroll = $(window).scrollTop();

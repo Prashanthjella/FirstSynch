@@ -88,6 +88,7 @@ FirstSynch.controller("all_career_fair_near_user_city" ,function ($scope, $http,
 
 });
 /////////////////////////////////// filters ////////////////////////////////////
+
 FirstSynch.filter('unique', function() {
    return function(collection, keyname) {
       var output = [],

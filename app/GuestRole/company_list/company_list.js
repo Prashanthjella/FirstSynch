@@ -17,24 +17,40 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
           console.log("Unable to perform get top 3 company details");
   });
 
-  $scope.allcitysearch = function(){
+  $scope.company_filters = function(obj){
+  	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datacompanyval.value = obj.currentTarget.attributes.datavalue.value;
+	var city_data = $('#all_com_city').attr('datacompanyval');
+	var company_data = $('#all_com_company').attr('datacompanyval');
+	var query_string = '';
+	if(city_data != ''){
+		query_string += 'city='+city_data;
+	}
+	if(company_data != ''){
+		query_string += '&category='+company_data;
+	}
+    	
     $('.allcompanies_act').hide();
     $('.companies_act_categ').hide();
     $('.top_three_company_act').hide();
-    for(var i=0;i<10;i++){
-      var search_result = '<div class="grid-item col-sm-4">'
+    $('.company_search_result').empty();
+    $http.get(apiUrl+"api/v1/setups/api/v1/company_filters/?"+query_string)
+    .then(function successCallback(response){
+       jQuery.each(response.data, function(i) {
+        var search_result = '<a href="/company/'+response.data[i].id+'">'
+        					+'<div class="grid-item col-sm-4">'
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
                                     +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="assets/images/forester-logo.jpg" alt="forester-logo.jpg">'
+                                        +'<img class="media-object custom-media-object" src="'+response.data[i].logo+'" alt="forester-logo.jpg">'
                                     +'</div>'
                                     +'<div class="media-body">'
-                                        +'<h4 class="media-heading">Foresters Financial Service</h4>'
-                                        +'<h5 class="media-eading-h5">Denver, CO</h5>'
+                                        +'<h4 class="media-heading">'+response.data[i].name+'</h4>'
+                                        +'<h5 class="media-eading-h5">'+response.data[i].city.name+', '+response.data[i].state.name+'</h5>'
                                     +'</div>'
                                     +'<div> </div>'
                                 +'</div>'
-                                +'<div class="row custom-row-5">'
+                                +'<p class="para-company">'+response.data[i].city.description+'</p>'
+                                +'<!--<div class="row custom-row-5">'
                                     +'<div class="col-sm-6">'
                                         +'<a class="thumbnail customn-thumbs-color-09 custom-thumbs-box-views">'
                                             +'<img src="assets/images/img1.png">'
@@ -50,10 +66,13 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
                                         +'</a>'
                                     +'</div>'
                                 +'</div>'
-                            +'</div>';
+                            +'</div>--></a>';
         angular.element(jQuery('.company_search_result')).append($compile(search_result)($scope));
-    }
-  }
+       });
+    }, function errorCallback(response){
+        console.log("Unable to perform get upcoming career fair");
+    });
+  };
 });
 //company page - company category
 FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,apiUrl) {
@@ -80,7 +99,22 @@ FirstSynch.controller("all_companies" ,function ($scope, $http,$routeParams,apiU
 });
 /////////////////////////////////// filters ////////////////////////////////////
 
+FirstSynch.filter('unique', function() {
+   return function(collection, keyname) {
+      var output = [],
+          keys = [];
 
+      angular.forEach(collection, function(item) {
+          var key = item[keyname];
+          if(keys.indexOf(key) === -1) {
+              keys.push(key);
+              output.push(item);
+          }
+      });
+
+      return output;
+   };
+});
 
 
 ////////////////////////////////// Directives //////////////////////////////////////
