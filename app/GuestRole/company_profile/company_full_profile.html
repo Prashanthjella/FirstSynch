@@ -1,0 +1,267 @@
+<h1 class="h1 custom-page-h1">Company</h1>
+<section class="page-section page-section-date-establishment">
+    <div class="row row-35">
+        <div class="col-sm-5 text-center">
+            <h1 class="custom-h1-02">
+                Date of Establishment
+            </h1>
+            <p class="">{{company_profile_details.company.est_date_description}}</p>
+        </div>
+        <div class="col-sm-6 col-sm-offset-1">
+            <img src="assets/images/establishment-img.png" class="img-responsive" alt="">
+            <div class="text-date-establishment">{{company_profile_details.company.establishment_date| date:"y"}}</div>
+        </div>
+
+    </div>
+</section>
+<section class="page-section page-section-intership">
+    <div class="row">
+        <div class="col-sm-6 pull-left">
+            <img src="assets/images/skills-img.png" class="img-responsive" alt="">
+            <div class="text-intership">{{company_profile_details.company.internships_to_jobs}}</div>
+        </div>
+
+        <div class="col-sm-6">
+            <h1 class="custom-h1-02">
+                Internships
+            </h1>
+            <h3 class="">that turn into full-time jobs</h3>
+            <p class="">{{company_profile_details.company.internships_job_description}}</p>
+        </div>
+
+    </div>
+</section>
+<section class="page-section page-section-company-size">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="custom-h1-02">
+                Company Size
+            </h1>
+            <p class="">{{company_profile_details.company.company_size_description}}</p>
+        </div>
+        <div class="col-sm-5 col-sm-offset-1">
+            <img src="assets/images/company-size-icon.png" class="img-responsive" alt="">
+            <div class="text-company-size">
+                {{company_profile_details.company.company_size}}+
+                <span class="medium-text">people work for us</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="page-section page-section-hire-departure">
+    <div class="row">
+        <div class="col-sm-6 mt60 hire-section">
+            <h1 class="custom-h1-02">
+                Hire Rates
+            </h1>
+            <p>
+                <span class="large-text bold-text green-text">{{company_profile_details.company.hire_rates}}</span>
+                <span class="bold-text"> people per year</span>
+            </p>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.company.hire_rates_description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt60 hire-section departure-section">
+            <h1 class="custom-h1-02">
+                Departure Rates
+            </h1>
+            <p>
+                <span class="large-text bold-text green-text">{{company_profile_details.company.departure_rate}}</span>
+                <span class="bold-text"> people per year</span>
+            </p>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.company.departure_rate_description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section page-section-avg-salary">
+    <div class="row">
+        <div class="col-sm-4">
+            <h1 class="custom-h1-02">
+                Average Entry Level Salary
+            </h1>
+        </div>
+        <div class="col-sm-8">
+            <img src="assets/images/entry-level-img.png" class="img-responsive" alt="">
+            <div class="text-avg-salary">
+                <small class="salary-per-month">$</small>721
+                <span class="txt-permonth">per month</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section page-section-company-growth">
+    <div class="row">
+        <div class="col-sm-6  pull-right">
+            <h1 class="custom-h1-02">
+                Company Growth Rate
+            </h1>
+            <h3 class="">during the last 10 years</h3>
+            <p class="">{{company_profile_details.company.growth_rate_description}}</p>
+        </div>
+        <div class="col-sm-6 pull-left">
+            <img src="assets/images/growth-img.png" class="img-responsive" alt="">
+            <div class="txt-company-growth">+{{company_profile_details.company.growth_rate|number:0}}%</div>
+        </div>
+
+    </div>
+</section>
+<section class="page-section page-section-investor-confidence">
+    <div class="row">
+        <div class="col-sm-5">
+            <h1 class="custom-h1-02">
+                Investor Confidence
+            </h1>
+            <p class="">{{company_profile_details.company.investor_conf_description}}</p>
+        </div>
+        <div class="col-sm-7">
+            <img src="assets/images/investor-bg.png" class="img-responsive" alt="">
+            <div class="txt-investor">
+                {{company_profile_details.company.investor_confidence|number:2}}
+                <span class="txt-investor-02"><i class="fa fa-long-arrow-down"></i> 6.5</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section page-section-date-character">
+    <div class="row">
+        <h1 class="h1 custom-h1">Characteristics</h1>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <p>My friends would describe me as</p>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-character">
+                        <div class="cont-character">
+                            <h2 class="counter-number">01 </h2>
+                            <h5 class="custom-h5-02">Hard working</h5>
+                            <p>While most people enjoy
+                                casino gambling, sports
+                                betting, lottery and bingo playing for thefun and
+                                excitement it provides, other may experience gambling as an addictive and distracive habit</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-sm-character">
+                            <div class="cont-character">
+                                <h2 class="counter-number">02 </h2>
+                                <h5 class="custom-h5-02">Lucky</h5>
+                                <p>Are you one of the thousands of Iphone
+                                    owners who has no idea that they can get free games
+                                    for their Iphone?</p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-sm-character">
+                                <div class="cont-character">
+                                    <h2 class="counter-number">03</h2>
+                                    <h5 class="custom-h5-02">Resistant</h5>
+                                    <p>As soos as computerized tomography or CT scans
+                                        become accessible in the 1970’s, the reformed the practice of
+                                        neurology.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-sm-character">
+                                    <div class="cont-character">
+                                        <h2 class="counter-number">04</h2>
+                                        <h5 class="custom-h5-02">Decent</h5>
+                                        <p>The $79 iwork’08 appears to be a good deal for anyone needing an
+                                            affordable office suite for the mac.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 col-sm-character">
+                                        <div class="cont-character">
+                                            <h2 class="counter-number">05</h2>
+                                            <h5 class="custom-h5-02">Attentive</h5>
+                                            <p>About 64% of all on-line teens say that do things
+                                                online that they wouldn’’t want their parents to know about.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="page-section page-section-office">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <h1 class="custom-h1-02">
+                                    Office
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row row-10">
+                            <div class="col-sm-3">
+                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+                            </div>
+                            <div class="col-sm-3">
+                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+                            </div>
+                            <div class="col-sm-3">
+                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+                            </div>
+                            <div class="col-sm-3">
+                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+                            </div>
+                            <div class="col-sm-3">
+                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+                            </div>
+                            <div class="col-sm-3">
+                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="page-section page-section-locations">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 ">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h1 class="custom-h1-02">
+                                            Locations
+                                        </h1>
+                                        <h4 class="">Corporate Head Office</h4>
+                                        <p class="">Lorem Ipsum</p>
+                                        <p class="">+91 9876543210</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div id="map" class="map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="page-section page-section-locations">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <h1 class="custom-h1-02">
+                                    Founders
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row row-30">
+                            <div class="col-sm-4">
+                                <img src="assets/images/harry-hunt.jpg" class="img-responsive" alt="Founder">
+                                <h4 class="text-uppercase bold-text">Harry Hunt</h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="assets/images/danny-cunningham.jpg" class="img-responsive" alt="Founder">
+                                <h4 class="text-uppercase bold-text">Danny Cunningham</h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="assets/images/carlos-morton.jpg" class="img-responsive" alt="Founder">
+                                <h4 class="text-uppercase bold-text">Carlos Morton</h4>
+                            </div>
+                        </div>
+                    </section>

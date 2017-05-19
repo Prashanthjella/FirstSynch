@@ -1,50 +1,56 @@
-<div  ng-controller="student_company_profile">
-    <div class="container">
-        <div class="row"> 
-        <!--[Sidbar Navigation Start]-->
-            <aside class="col-sm-2 sidebar-navi-default">
-                <nav  class="sidebar-navigation">
-                    <ul class="custom-sidebar-nav">
-                        <li><a href="#" title="Videos">Videos</a></li>
-                        <li><a href="#" title="We are hiring">We are hiring</a></li>
-                        <li><a href="#" title="Company">Company</a></li>
-                        <li><a href="#" title="Career fair">Career fair</a></li>
-                        <li><a href="#" title="Employees">Employees</a></li>
-                    </ul>
-                </nav>
-            </aside>
-        <!--[Sidbar Navigation End]--> 
-        
-            <div class="col-sm-offset-2">
-                <section class="page-section page-section-videos">
-
-                    <div ng-include ="'GuestRole/company_profile/company_basic_profile.html'"></div>
-            
-                    <div ng-include ="'GuestRole/company_profile/company_video.html'"></div>
-
-                </section>
-            </div>
-       
+<div class="container" ng-controller="student_company_profile">
+    <div class="row">
+        <aside class="col-sm-2 sidebar-navi-default">
+            <nav  class="sidebar-navigation">
+                <ul class="custom-sidebar-nav">
+                    <li><a href="#" title="Videos">Videos</a></li>
+                    <li><a href="#" title="We are hiring">We are hiring</a></li>
+                    <li><a href="#" title="Company">Company</a></li>
+                    <li><a href="#" title="Career fairs">Career fairs</a></li>
+                    <li><a href="#" title="Employees">Employees</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="col-sm-offset-2" >
+            <section class="page-section page-section-videos">
+                <div ng-include ="'GuestRole/company_profile/company_basic.html'"></div>
+                <div ng-include ="'GuestRole/company_profile/company_videos.html'"></div>
+            </section>
         </div>
     </div>
-
-    <div class="page-about-me-section" id="we-are-hiring">
-      
-        <div ng-include ="'GuestRole/company_profile/company_hiring_for.html'"></div>
-
-        <div ng-include ="'GuestRole/company_profile/company_seeking_for.html'"></div>
-      
-        <div ng-include ="'GuestRole/company_profile/company_interview.html'"></div>
-
-    </div>
-
-    <div ng-include ="'GuestRole/company_profile/company_leadership.html'"></div>
-
-    <div ng-include ="'GuestRole/company_profile/company_instagram.html'"></div>
-
-    <div ng-include ="'GuestRole/company_profile/company_education.html'"></div>
-
-    <div ng-include ="'GuestRole/company_profile/company_experience.html'"></div>
-
-    <div ng-include ="'GuestRole/company_profile/company_skills.html'"></div>
 </div>
+<div class="page-about-we-hiresection">
+    <div ng-include ="'GuestRole/company_profile/company_wehire.html'"></div>
+    <div ng-include ="'GuestRole/company_profile/company_position.html'"></div>
+    <div ng-include ="'GuestRole/company_profile/company_skills.html'"></div>
+    <div ng-include ="'GuestRole/company_profile/company_questions.html'"></div>
+</div>
+<div class="page-about-company">
+    <section class="page-section page-company">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-2">
+                    <div ng-include ="'GuestRole/company_profile/company_full_profile.html'"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="page-section page-section-career-fair" id="career-fairs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2">
+                <div ng-include ="'GuestRole/company_profile/company_careerfair.html'"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="employees">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2">
+                <div ng-include ="'GuestRole/company_profile/company_employee.html'"></div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -75,8 +75,22 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
             console.log("Unable to perform get Video Details");
         });
     };//Common Video Popup - function end
+
 });
 
+// FirstSynch.config(['$httpProvider', function($httpProvider) {
+//  $httpProvider.interceptors.push('noCacheInterceptor');
+// }]).factory('noCacheInterceptor', function () {
+//             return {
+//                 request: function (config) {
+//                     if(config.method=='GET'){
+//                         var separator = config.url.indexOf('?') === -1 ? '?' : '&';
+//                         config.url = config.url+separator+'noCache=' + new Date().getTime();
+//                     }
+//                     return config;
+//                }
+//            };
+//     });
 //LoginUser
 FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
     $scope.LoginUser = function () {
