@@ -94,7 +94,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
                                           +'</div>'
                                         +'</a> '
                                       +'</div>';
-            
+
               angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
           })
         }else{
@@ -169,5 +169,3 @@ FirstSynch.filter('startFrom', function() {
 });
 
 ////////////////////////////////// Directives //////////////////////////////////////
-
-

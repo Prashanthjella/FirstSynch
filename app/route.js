@@ -18,7 +18,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         templateUrl: 'GuestRole/search/search.html',
     });
 
-    //  search landing
+    //  login
     $routeProvider.when('/login', {
         templateUrl: 'GuestRole/home/home.html',
     });
@@ -202,6 +202,12 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     $routeProvider.when('/stu/student/:studentid', {
         templateUrl: 'StudentRole/student_profile/student_profile.html',
         controller: 'student_student_profile'
+    });
+
+    // student - edit profile
+    $routeProvider.when('/stu/editprofile', {
+        templateUrl: 'StudentRole/student_edit_profile/student_edit_profile.html',
+        controller: 'studenteditprofiles'
     });
 
     // company - dashboard

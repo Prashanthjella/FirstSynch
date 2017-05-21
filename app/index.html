@@ -15,11 +15,18 @@
 <link href="bower_components/angucomplete-alt/angucomplete-alt.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="assets/css/jquery.bxslider.css">
-<!-- <style type="text/css">
-  .grid-item {
-    width: 353px !important;
-  }
-</style> -->
+<link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery.css">
+<link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload.css">
+<link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload-ui.css">
+<!-- CSS adjustments for browsers with JavaScript disabled -->
+<noscript><link rel="stylesheet" href="bower_components/blueimp-file-upload/bower_components/blueimp-file-upload/css/jquery.fileupload-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
+<style>
+/* Hide Angular JS elements before initializing */
+.ng-cloak {
+    display: none;
+}
+</style>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
@@ -59,8 +66,8 @@
     <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
     <script type="text/javascript">jwplayer.key="M+MkqByIrfw2S7qYm4xGbYI2q/bN6bvClxju+ue6Ltc=";</script>
-    <script src="assets/js/script.js"></script>
     <script src="bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+    <script src="assets/js/script.js"></script>
     <script src="app.js"></script>
     <script src="route.js"></script>
 
@@ -83,6 +90,7 @@
     <script src="StudentRole/student_profile/student_profile.js"></script>
     <script src="StudentRole/company_profile/company_profile.js"></script>
     <script src="StudentRole/employee_profile/employee_profile.js"></script>
+    <script src="StudentRole/student_edit_profile/student_edit_profile.js"></script>
 
     <script src="CompanyRole/dashboard/dashboard.js"></script>
     <script src="CompanyRole/career_fair/career_fair.js"></script>

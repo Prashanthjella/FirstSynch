@@ -21,6 +21,7 @@ var FirstSynch = angular.module("firstSync", [
     "SstudentProfile",
     "ScompanyProfile",
     "SemployeeProfile",
+    "StudentEditProfile",
     "CompanyDashboard",
     "CompanycareerFair",
     "CompanycareerFairDetail",
@@ -93,6 +94,11 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
 //     });
 //LoginUser
 FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
+    var url = window.location.href;
+    var idexvalue = url.indexOf("/login");
+    if(idexvalue != -1) {
+        jQuery('#logIn').modal('show');
+    }
     $scope.LoginUser = function () {
         var data = $.param({
             username: $scope.username,
@@ -113,11 +119,14 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
                 $rootScope.profileimage = response.data.profile_image;
                 $rootScope.user_id = response.data.user_id;
                 jQuery(".modal-backdrop.in").hide();
+                jQuery('#logIn').modal('hide');
                 if(companyusertype == response.data.usertype){
+                    $('#logIn').modal('hide');
                     $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
                     $location.path( "/com/dashboard" );
                 }
                 else if(studentusertype == response.data.usertype){
+                    $('#logIn').modal('hide');
                     $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
                     $location.path( "/stu/dashboard" );
                 }

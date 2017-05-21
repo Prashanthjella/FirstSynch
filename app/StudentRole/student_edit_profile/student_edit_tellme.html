@@ -1,0 +1,22 @@
+<div id="proudest-achievement" class="tab-pane tab-pane-yourgoals active">
+    <div class="contanier-inside">
+        <h1 class="page-title text-center">Tell me about your proudest achievement</h1>
+        <div class="content-group">
+            <div class="video-player-container">
+                <video controls width="100%" class="video-player" id="video-player-show">
+                    <source src="images/movie.mp4" type="video/mp4">
+                    <source src="images/movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <!-- <p class="text-center">
+                <input   class="btn btn-default custom-btn btn-lg" type="file" id="take-video" value="Upload">
+            </p> -->
+
+            <div class="formContainer">
+                <ng-upload-form url="/files/" auto-upload="true" size-limit="500000"></ng-upload-form>
+                <ng-upload-form url="//jquery-file-upload.appspot.com/"></ng-upload-form>
+            </div>
+        </div>
+    </div>
+</div>
