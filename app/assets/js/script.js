@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  $(document).on('hide.bs.modal','#VideoPopup1', function () {
-                  jwplayer('jwplayer').stop();
-   //Do stuff here
-  });
+
+    $(document).on('hide.bs.modal','#VideoPopup1', function () {
+        jwplayer('jwplayer').stop();
+    });
 
     $(window).scroll(function() {
 
@@ -19,48 +19,22 @@ $(document).ready(function() {
         }
     });
 
-    // $(window).on("load", function() {
-    //     var getQueryString = function(field, url) {
-    //         var href = url ? url : window.location.href;
-    //         var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
-    //         var string = reg.exec(href);
-    //         return string ? string[1] : null;
-    //     };
-
-    //     var token = getQueryString('resetpassword');
-    //     if (token !== null && token !== undefined && token.length > 0) {
-    //         jQuery("#resetpassword").modal('show');
-    //         jQuery("#token").val(token);
-    //     }
-
-    //     //email activate function
-    //     var email_activate = getQueryString('activate');
-    //     if (email_activate !== null && email_activate !== undefined && email_activate.length > 0) {
-    //         jQuery("#activate").modal('show');
-    //         data = {
-    //             'token': email_activate
-    //         }
-    //         url = "http://52.43.26.31:8000/api/v1/accounts/activate/"
-
-    //         $.ajax({
-    //             type: "POST",
-    //             url: url,
-    //             data: data,
-    //             success: function(output) {
-    //                 $('#activate_message').html('Congratulations! You have successfully registered!. Please activate your account.')
-    //             },
-    //             error: function(data) {
-    //                 $('#activate_message').html('Your Account is already active.')
-    //             }
-    //         });
-    //     }
-
-    // });
-
     $('.grid').masonry({
         itemSelector: '.grid-item',
         //columnWidth: 373,
     });
 
-
+    $(document).on('click','.student_edit_profile_side_child_title',function(){
+        $('.student_edit_profile_side_child_collapsable').hide();
+        $(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
+        // if($(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').is(':visible')){
+        //     $(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
+        // }
+    });
+    $(document).on('click','.student_edit_profile_inner_title',function(){
+        var current_div = $(this).attr('data-id');
+        alert(current_div);
+        $('.student_edit_profile_main_content_child').hide();
+        $('#'+current_div).removeClass('hide').show();
+    });
 });
