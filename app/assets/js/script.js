@@ -33,7 +33,6 @@ $(document).ready(function() {
     });
     $(document).on('click','.student_edit_profile_inner_title',function(){
         var current_div = $(this).attr('data-id');
-        alert(current_div);
         $('.student_edit_profile_main_content_child').hide();
         $('#'+current_div).removeClass('hide').show();
     });

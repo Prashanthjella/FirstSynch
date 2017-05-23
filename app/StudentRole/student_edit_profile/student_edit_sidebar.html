@@ -14,7 +14,7 @@
                 <div class="panel-body custom-panel-body">
                     <ul class="nav nav-tabs custom-nav-tabs">
                         <li class="custom-list-group-item active">
-                            <a data-id="basic_profile" class="student_edit_profile_inner_title" data-toggle="tab" title="My schools">
+                            <a data-id="basic_profile" class="student_edit_profile_inner_title" data-toggle="tab" title="My schools" href="">
                                 <div class="custom-list-group-item-title"> Basic Profile </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge inactive">01</span>
@@ -35,12 +35,12 @@
                     <span class="custom-accordion-drag"></span>
                 </h4>
             </div>
-            <div id="videos" class="panel-collapse collapse student_edit_profile_side_child_collapsable">
+            <div id="videos" class="panel-collapse collapse student_edit_profile_side_child_collapsable" >
                 <div id="video-scroll-navi" class="sideba-navi-scroll">
                     <div class="panel-body custom-panel-body">
                         <ul class="nav nav-tabs custom-nav-tabs">
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" data-id="your-self" class="student_edit_profile_inner_title" title=" Tell about your self">
+                                <a data-toggle="tab" data-id="your-self" class="student_edit_profile_inner_title" href="" title=" Tell about your self" ng-click="tellmeaboutyourvideo()">
                                     <div class="custom-list-group-item-title"> Tell about your self </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">01</span>
@@ -49,7 +49,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" data-id="your-goals" class="student_edit_profile_inner_title" title=" Your goals">
+                                <a data-toggle="tab" data-id="your-goals" class="student_edit_profile_inner_title" href="" title=" Your goals"  ng-click="yourgoalsvideo()">
                                     <div class="custom-list-group-item-title"> Your goals </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">02</span>
@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a  data-toggle="tab" data-id="your-hobbies" class="student_edit_profile_inner_title" title=" Your hobbies and life priorities">
+                                <a  data-toggle="tab" data-id="your-hobbies" class="student_edit_profile_inner_title" href="" title=" Your hobbies and life priorities" ng-click="yourhobbivideo()">
                                     <div class="custom-list-group-item-title"> Your hobbies and life priorities </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">03</span>
@@ -67,7 +67,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a  data-toggle="tab" data-id="wehire-you" class="student_edit_profile_inner_title" title=" Why should we hire you">
+                                <a  data-toggle="tab" data-id="wehire-you" class="student_edit_profile_inner_title" href="" title=" Why should we hire you">
                                     <div class="custom-list-group-item-title"> Why should we hire you </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">04</span>
@@ -76,7 +76,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a  data-toggle="tab" data-id="your-strengths" class="student_edit_profile_inner_title" title="What are your strengths ">
+                                <a  data-toggle="tab" data-id="your-strengths" class="student_edit_profile_inner_title" href="" title="What are your strengths ">
                                     <div class="custom-list-group-item-title"> What are your strengths </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">05</span>
@@ -85,7 +85,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" data-id="personal-statement" class="student_edit_profile_inner_title" title=" What is your personal mission statement">
+                                <a data-toggle="tab" data-id="personal-statement" class="student_edit_profile_inner_title" href="" title=" What is your personal mission statement">
                                     <div class="custom-list-group-item-title"> What is your personal mission statement </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">06</span>
@@ -94,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" data-id="like-todo" class="student_edit_profile_inner_title" title=" What do you like to do">
+                                <a data-toggle="tab" data-id="like-todo" class="student_edit_profile_inner_title" href="" title=" What do you like to do">
                                     <div class="custom-list-group-item-title"> What do you like to do </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">07</span>
@@ -103,7 +103,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" data-id="proudest-achievement" class="student_edit_profile_inner_title" title="  Tell me about your proudest achievement">
+                                <a data-toggle="tab" data-id="proudest-achievement" class="student_edit_profile_inner_title" href="" title="  Tell me about your proudest achievement">
                                     <div class="custom-list-group-item-title"> Tell me about your proudest achievement</div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge inactive">08</span>
@@ -124,7 +124,7 @@
                 <div class="panel-body custom-panel-body">
                     <ul class="nav nav-tabs custom-nav-tabs">
                         <li class="custom-list-group-item">
-                            <a data-id="aboutme-hobbies" class="student_edit_profile_inner_title" data-toggle="tab"  title="Hobbies">
+                            <a data-id="aboutme-hobbies" class="student_edit_profile_inner_title" data-toggle="tab" title="Hobbies" href="" ng-click="hobbies_edit()">
                                 <div class="custom-list-group-item-title"> Hobbies </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">01</span>
@@ -133,7 +133,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item">
-                            <a data-id="characteristics" class="student_edit_profile_inner_title" data-toggle="tab" title="Characteristics">
+                            <a data-id="characteristics" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Characteristics">
                                 <div class="custom-list-group-item-title"> Characteristics </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">02</span>
@@ -142,7 +142,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item ">
-                            <a data-id="what-iam-looking" class="student_edit_profile_inner_title" data-toggle="tab" title="What I'm looking for">
+                            <a data-id="what-iam-looking" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="What I'm looking for">
                                 <div class="custom-list-group-item-title"> What I'm looking for </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">03</span>
@@ -151,7 +151,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item">
-                            <a data-id="leadership-roles" class="student_edit_profile_inner_title" data-toggle="tab" title="Leadership roles">
+                            <a data-id="leadership-roles" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Leadership roles">
                                 <div class="custom-list-group-item-title"> Leadership roles </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">04</span>
@@ -160,7 +160,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item">
-                            <a data-id="instagram-photos" class="student_edit_profile_inner_title" data-toggle="tab" title="Instagram photos">
+                            <a data-id="instagram-photos" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Instagram photos">
                                 <div class="custom-list-group-item-title"> Instagram photos </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">05</span>
@@ -185,7 +185,7 @@
                 <div class="panel-body custom-panel-body">
                     <ul class="nav nav-tabs custom-nav-tabs">
                         <li class="custom-list-group-item">
-                            <a data-id="my-schools" class="student_edit_profile_inner_title" data-toggle="tab" title="My schools">
+                            <a data-id="my-schools" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="My schools">
                                 <div class="custom-list-group-item-title"> My schools </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge inactive">01</span>
@@ -210,7 +210,7 @@
                 <div class="panel-body custom-panel-body">
                     <ul class="nav nav-tabs custom-nav-tabs">
                         <li class="custom-list-group-item">
-                            <a data-id="work-history" class="student_edit_profile_inner_title" data-toggle="tab" title="Work history">
+                            <a data-id="work-history" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Work history">
                                 <div class="custom-list-group-item-title"> Work history </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">01</span>
@@ -219,7 +219,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item">
-                            <a data-id="projects" class="student_edit_profile_inner_title" data-toggle="tab" title="Projects">
+                            <a data-id="projects" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Projects">
                                 <div class="custom-list-group-item-title"> Projects </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">02</span>
@@ -244,7 +244,7 @@
                 <div class="panel-body custom-panel-body">
                     <ul class="nav nav-tabs custom-nav-tabs">
                         <li class="custom-list-group-item">
-                            <a data-id="personal" class="student_edit_profile_inner_title" data-toggle="tab" title="Personal">
+                            <a data-id="personal" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Personal">
                                 <div class="custom-list-group-item-title"> Personal </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge inactive">01</span>
@@ -253,7 +253,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item">
-                            <a data-id="software" class="student_edit_profile_inner_title" data-toggle="tab" title="Software">
+                            <a data-id="software" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Software">
                                 <div class="custom-list-group-item-title"> Software </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">02</span>
@@ -262,7 +262,7 @@
                             </a>
                         </li>
                         <li class="custom-list-group-item">
-                            <a data-id="professional" class="student_edit_profile_inner_title" data-toggle="tab" title="Professional">
+                            <a data-id="professional" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Professional">
                                 <div class="custom-list-group-item-title"> Professional </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge active">03</span>
