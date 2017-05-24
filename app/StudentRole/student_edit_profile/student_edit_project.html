@@ -1,33 +1,56 @@
 <div id="projects" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="projectmessage">{{projectmessage}}</div>
         <h1 class="page-title">Projects</h1>
-        <form>
+        <table>
+            <tr>
+                <th>S.no</th>
+                <th>Project</th>
+                <th>Start Date</th>
+                <th>Leave Date</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+
+            <tr ng-repeat="projects in projectsform">
+                <td>{{ $index+1 }}</td>
+                <td>{{ projects.title }}</td>
+                <td>{{ projects.start_date }}</td>
+                <td>{{ projects.completation_date }}</td>
+                <td>{{ projects.project_description }}</td>
+                <td><a ng-click="editproject( projects )" class="button">Edit</a> | <a ng-click="removeprojects( projects )" class="button">Remove</a></td>
+            </tr>
+
+        </table>
+        <!-- <hr class="hr-line-lidership"> -->
+        <form ng-submit="projectsubmit()">
             <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Projects #1</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Project Title">
+                        <label class="text-uppercase">Projects</label>
+                        <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.user" name="user">
+                        <input type="text" class="form-control custom-textbox" ng-model="projectsform.title" placeholder="Company Name">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Start Date</label>
-                        <input type="date" class="form-control custom-textbox" placeholder="Start Date">
+                        <input type="text" class="form-control custom-textbox" ng-model="projectsform.start_date" placeholder="Start Date">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">End Date</label>
-                        <input type="date" class="form-control custom-textbox" placeholder="Graduated Year">
+                        <input type="text" class="form-control custom-textbox" ng-model="projectsform.completation_date" placeholder="Graduated Year">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your project" maxlength="150"></textarea>
+                        <textarea class="form-control custom-text-area" rows="4" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
                     </div>
                 </div>
-                <hr class="hr-line-lidership">
+                <input type="submit" value="Submit" />
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Projects</a> </div>
-            </div>
+                <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
+            </div> -->
         </form>
     </div>
 </div>

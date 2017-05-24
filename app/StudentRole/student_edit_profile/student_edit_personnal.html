@@ -1,29 +1,35 @@
 <div id="personal" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="workhistroymessage">{{workhistroymessage}}</div>
         <h1 class="page-title">Personal</h1>
-        <form>
+        <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="personnalskill in skillsetpersonnalform | filter:{skill_type:'Personal'}">
+            <input id="personnalskill" class="checkbox-input" checked="" type="checkbox">
+            <label for="personnalskill" class="checkbox-label"> {{personnalskill.name}} - {{personnalskill.rating}}</label>
+        </div>
+        <form ng-submit="personnalskillsubmit()">
             <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <input type="hidden" class="form-control custom-textbox" name="user">
-                        <input type="hidden" class="form-control custom-textbox" name="skill_type">
+                        <input type="hidden" class="form-control custom-textbox" ng-model="skillsetpersonnalform.user" name="user">
+                        <input type="hidden" class="form-control custom-textbox" ng-model="skillsetpersonnalform.skilltype" name="skill_type">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Name</label>
-                        <input type="text" class="form-control custom-textbox" name="name" placeholder="Skill Name">
+                        <input type="text" class="form-control custom-textbox" ng-model="skillsetpersonnalform.name" name="name" placeholder="Skill Name">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Rating</label>
-                        <input type="text" class="form-control custom-textbox" name="rating" placeholder="Skill Rating">
+                        <input type="text" class="form-control custom-textbox" ng-model="skillsetpersonnalform.rating" name="rating" placeholder="Skill Rating">
                     </div>
                 </div>
-                <hr class="hr-line-lidership">
+                <input type="submit" value="Submit" />
+                <!-- <hr class="hr-line-lidership"> -->
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
-            </div>
+            </div> -->
         </form>
     </div>
 </div>
