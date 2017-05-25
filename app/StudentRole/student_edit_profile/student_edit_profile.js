@@ -63,6 +63,39 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         });
     };
 
+    // student edit profile - usercharacteristics
+    $scope.characterform = {
+        user:"",
+        character : ""
+    };
+    $scope.character_edit = function(){
+
+        $http.get(apiUrl+"api/v1/user_profile/api/v1/usercharacteristicdetails/")
+            .then(function successCallback(response){
+                $scope.listofcharacter = response.data;
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+    };
+    $scope.selectedCharacter = {};
+
+    $scope.charactersubmit = function(){
+        $scope.selectchar = [];
+        angular.forEach($scope.selectedCharacter, function (selected, characters) {
+            if (selected) {
+                $scope.selectchar.push({user:$rootScope.user_id,character:characters,created_by:$rootScope.user_id,updated_at:$rootScope.user_id});
+
+            }
+        });
+        //alert(JSON.stringify($scope.selectchar));
+
+        $http.post(apiUrl+"api/v1/user_profile/api/v1/usercharacteristicdetails/",JSON.stringify($scope.selectchar))
+        .then(function (response) {
+            $scope.charactermessage = 'Successfully updated';
+        });
+    };
+
+
     //student edit profile - personal skill set
     $scope.skillsetpersonnalform = {
         user:"",
@@ -260,6 +293,57 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         $scope.projectsform.start_date = projects.start_date;
         $scope.projectsform.completation_date= projects.completation_date
         $scope.projectsform.project_description = projects.project_description
+    };
+
+
+    //student edit profile - education
+    $scope.educationform = {
+        user:"",
+        school_name : "",
+        year_started : "",
+        year_graduated : "",
+        major : "",
+        gpa : "",
+        gpa_rating : ""
+
+    };
+    $scope.educationedit = function(){
+        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_education_details/"+$rootScope.user_id+"/")
+            .then(function successCallback(response){
+                $scope.educationform = response.data;
+                $scope.educationform.user = response.data[0].user;
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+    };
+    $scope.educationsubmit = function(){
+        var education_data = {
+            user : $scope.educationform.user,
+            school_name : $scope.educationform.school_name,
+            year_started : $scope.educationform.year_started,
+            year_graduated : $scope.educationform.year_graduated,
+            major : $scope.educationform.major,
+            gpa : $scope.educationform.gpa,
+            gpa_rating : $scope.educationform.gpa_rating,
+            created_by : $scope.educationform.user,
+            updated_by : $scope.educationform.user
+        }
+        //alert(JSON.stringify(education_data));
+        $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(software_skill_data))
+        .then(function (response) {
+            $scope.educationmessage = 'Successfully updated';
+            $scope.workhistroyform =response.data;
+
+        });
+    };
+    $scope.editeducation = function(education){
+        $scope.educationform.user = education.user;
+        $scope.educationform.school_name = education.school_name;
+        $scope.educationform.year_started = education.year_started;
+        $scope.educationform.year_graduated= education.year_graduated
+        $scope.educationform.major = education.major;
+        $scope.educationform.gpa = education.gpa;
+        $scope.educationform.gpa_rating = education.gpa_rating;
     };
 
 });
