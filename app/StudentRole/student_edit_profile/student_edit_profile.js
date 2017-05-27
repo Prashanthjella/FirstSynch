@@ -2,18 +2,12 @@
 
 /////////////////////////////////// Module ////////////////////////////////////
 
-var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync"]);
+var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ngFileUpload"]);
 
 /////////////////////////////////// Module ////////////////////////////////////
 
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http, apiUrl,$timeout) {
-    $http.get(apiUrl+"api/v1/user_profile/api/v1/student_profile/"+$rootScope.user_id+"/")
-        .then(function successCallback(response){
-            $scope.student_datas = response.data;
-        }, function errorCallback(response){
-            console.log("Unable to perform get student profile details");
-    });
 
     $scope.tellmeaboutyourvideo = function(){
         alert('Page under construction');
@@ -38,10 +32,10 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
     };
     $scope.hobbies_edit = function(){
 
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_hobby_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/api/v1/get_hobby_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.hobbiesform = response.data;
-                $scope.hobbiesform.user = response.data[0].user;
+                $scope.hobbiesform.stud_id = $rootScope.stud_id;
                 //alert(JSON.stringify(response.data));
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
@@ -49,13 +43,11 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
     };
     $scope.hobbiessubmit = function(){
         var hobbies_data = {
-            user : $scope.hobbiesform.user,
             name : $scope.hobbiesform.name,
-            created_by : $scope.hobbiesform.user,
-            updated_by : $scope.hobbiesform.user
+            student : $scope.hobbiesform.stud_id
         }
-        // /alert(JSON.stringify(hobbies_data));
-        $http.post(apiUrl+"api/v1/user_profile/api/v1/hobbyinfo/",JSON.stringify(hobbies_data))
+        //alert(JSON.stringify(hobbies_data));
+        $http.post(apiUrl+"api/v1/student/api/v1/hobbyinfo/",JSON.stringify(hobbies_data))
         .then(function (response) {
             $scope.hobbiesmessage = 'Successfully updated';
             $scope.hobbiesform.splice(0, 0, response.data);
@@ -65,12 +57,11 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
     // student edit profile - usercharacteristics
     $scope.characterform = {
-        user:"",
         character : ""
     };
     $scope.character_edit = function(){
 
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/usercharacteristicdetails/")
+        $http.get(apiUrl+"api/v1/student/api/v1/studentcharacteristic/")
             .then(function successCallback(response){
                 $scope.listofcharacter = response.data;
             }, function errorCallback(response){
@@ -83,13 +74,13 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         $scope.selectchar = [];
         angular.forEach($scope.selectedCharacter, function (selected, characters) {
             if (selected) {
-                $scope.selectchar.push({user:$rootScope.user_id,character:characters,created_by:$rootScope.user_id,updated_at:$rootScope.user_id});
+                $scope.selectchar.push({student:$rootScope.stud_id,character:characters});
 
             }
         });
         //alert(JSON.stringify($scope.selectchar));
 
-        $http.post(apiUrl+"api/v1/user_profile/api/v1/usercharacteristicdetails/",JSON.stringify($scope.selectchar))
+        $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
         .then(function (response) {
             $scope.charactermessage = 'Successfully updated';
         });
@@ -98,116 +89,111 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
     //student edit profile - personal skill set
     $scope.skillsetpersonnalform = {
-        user:"",
-        skilltype : "",
+        student:"",
+        skill_type : "",
         name : "",
         rating : ""
     };
     $scope.skillpersonnaledit = function(){
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.skillsetpersonnalform = response.data;
-                $scope.skillsetpersonnalform.user = response.data[0].user;
-                $scope.skillsetpersonnalform.skilltype = response.data[0].skill_type;
+                $scope.skillsetpersonnalform.student = $rootScope.stud_id;
+                $scope.skillsetpersonnalform.skill_type = "FDHD";
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
+
     $scope.personnalskillsubmit = function(){
         var personnal_skill_data = {
-            user : $scope.skillsetpersonnalform.user,
-            skill_type : $scope.skillsetpersonnalform.skilltype,
+            student : $scope.skillsetpersonnalform.student,
+            skill_type : $scope.skillsetpersonnalform.skill_type,
             name : $scope.skillsetpersonnalform.name,
-            rating : $scope.skillsetpersonnalform.rating,
-            created_by : $scope.skillsetpersonnalform.user,
-            updated_by : $scope.skillsetpersonnalform.user
+            rating : $scope.skillsetpersonnalform.rating
         }
-        // alert(JSON.stringify(personnal_skill_data));
-        // $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(personnal_skill_data))
-        // .then(function (response) {
-        //     $scope.personnalskillmessage = 'Successfully updated';
-        //     $scope.skillsetpersonnalform.splice(0, 0, response.data);
-        //     $scope.skillsetpersonnalform.name = "";
-        //     $scope.skillsetpersonnalform.rating = "";
-        // });
+        //alert(JSON.stringify(personnal_skill_data));
+        $http.post(apiUrl+"api/v1/student/api/v1/skillinfo/",JSON.stringify(personnal_skill_data))
+        .then(function (response) {
+            $scope.personnalskillmessage = 'Successfully updated';
+            $scope.skillsetpersonnalform.splice(0, 0, response.data);
+            $scope.skillsetpersonnalform.name = "";
+            $scope.skillsetpersonnalform.rating = "";
+        });
     };
 
 
     //student edit profile - professional skill set
     $scope.skillsetprofessionalform = {
-        user:"",
-        skilltype : "",
+        student:"",
+        skill_type : "",
         name : "",
         rating : ""
     };
     $scope.skillprofessionaledit = function(){
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.skillsetprofessionalform = response.data;
-                $scope.skillsetprofessionalform.user = response.data[0].user;
-                $scope.skillsetprofessionalform.skilltype = response.data[0].skill_type;
+                $scope.skillsetpersonnalform.student = $rootScope.stud_id;
+                $scope.skillsetprofessionalform.skill_type = "RYRD";
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
-    $scope.personnalskillsubmit = function(){
+    $scope.professionalskillsubmit = function(){
         var professional_skill_data = {
-            user : $scope.skillsetprofessionalform.user,
-            skill_type : $scope.skillsetprofessionalform.skilltype,
+            student : $scope.skillsetprofessionalform.student,
+            skill_type : $scope.skillsetprofessionalform.skill_type,
             name : $scope.skillsetprofessionalform.name,
-            rating : $scope.skillsetprofessionalform.rating,
-            created_by : $scope.skillsetprofessionalform.user,
-            updated_by : $scope.skillsetprofessionalform.user
+            rating : $scope.skillsetprofessionalform.rating
         }
-        // alert(JSON.stringify(personnal_skill_data));
-        // $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(professional_skill_data))
-        // .then(function (response) {
-        //     $scope.professionalskillmessage = 'Successfully updated';
-        //     $scope.skillsetprofessionalform.splice(0, 0, response.data);
-        //     $scope.skillsetprofessionalform.name = "";
-        //     $scope.skillsetprofessionalform.rating = "";
-        // });
+        //alert(JSON.stringify(personnal_skill_data));
+        $http.post(apiUrl+"api/v1/student/api/v1/skillinfo/",JSON.stringify(professional_skill_data))
+        .then(function (response) {
+            $scope.professionalskillmessage = 'Successfully updated';
+            $scope.skillsetprofessionalform.splice(0, 0, response.data);
+            $scope.skillsetprofessionalform.name = "";
+            $scope.skillsetprofessionalform.rating = "";
+        });
     };
 
     //student edit profile - software skill set
     $scope.skillsetsoftwareform = {
-        user:"",
-        skilltype : "",
+        student:"",
+        skill_type : "",
         name : "",
         rating : ""
     };
     $scope.skillsoftwareedit = function(){
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.skillsetsoftwareform = response.data;
-                $scope.skillsetsoftwareform.user = response.data[0].user;
-                $scope.skillsetsoftwareform.skilltype = response.data[0].skill_type;
+                $scope.skillsetpersonnalform.student = $rootScope.stud_id;
+                $scope.skillsetsoftwareform.skill_type = "FDDA";
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
     $scope.softwareskillsubmit = function(){
         var software_skill_data = {
-            user : $scope.skillsetsoftwareform.user,
-            skill_type : $scope.skillsetsoftwareform.skilltype,
+            student : $scope.skillsetsoftwareform.student,
+            skill_type : $scope.skillsetsoftwareform.skill_type,
             name : $scope.skillsetsoftwareform.name,
             rating : $scope.skillsetsoftwareform.rating,
-            created_by : $scope.skillsetsoftwareform.user,
-            updated_by : $scope.skillsetsoftwareform.user
         }
         // alert(JSON.stringify(software_skill_data));
-        // $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(software_skill_data))
-        // .then(function (response) {
-        //     $scope.softwareskillmessage = 'Successfully updated';
-        //     $scope.skillsetsoftwareform.splice(0, 0, response.data);
-        //     $scope.skillsetsoftwareform.name = "";
-        //     $scope.skillsetsoftwareform.rating = "";
-        // });
+        $http.post(apiUrl+"api/v1/student/api/v1/skillinfo/",JSON.stringify(software_skill_data))
+        .then(function (response) {
+            $scope.softwareskillmessage = 'Successfully updated';
+            $scope.skillsetsoftwareform.splice(0, 0, response.data);
+            $scope.skillsetsoftwareform.name = "";
+            $scope.skillsetsoftwareform.rating = "";
+        });
     };
 
     //student edit profile - work histroy
     $scope.workhistroyform = {
-        user:"",
+        student:"",
         company : "",
         start_date : "",
         leave_date : "",
@@ -215,32 +201,29 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         job_description : ""
     };
     $scope.workhistroyeedit = function(){
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_experience_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/get_experience_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.workhistroyform = response.data;
-                $scope.workhistroyform.user = response.data[0].user;
+                $scope.workhistroyform.user = response.data[0].student;
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
     $scope.workhistroysubmit = function(){
         var workhistroy_data = {
-            user : $scope.workhistroyform.user,
+            student : $scope.workhistroyform.user,
             company : $scope.workhistroyform.company,
             start_date : $scope.workhistroyform.start_date,
             leave_date : $scope.workhistroyform.leave_date,
             job_title : $scope.workhistroyform.job_title,
-            job_description : $scope.workhistroyform.job_description,
-            created_by : $scope.workhistroyform.user,
-            updated_by : $scope.workhistroyform.user
+            job_description : $scope.workhistroyform.job_description
         }
-        //alert(JSON.stringify(workhistroy_data));
-        // $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(software_skill_data))
-        // .then(function (response) {
-        //     $scope.personnalskillmessage = 'Successfully updated';
-        //     $scope.workhistroyform.splice(0, 0, response.data);
-
-        // });
+        // alert(JSON.stringify(workhistroy_data));
+        $http.post(apiUrl+"api/v1/student/api/v1/experiencedetails/",JSON.stringify(software_skill_data))
+        .then(function (response) {
+            $scope.workhistroymessage = 'Successfully updated';
+            $scope.workhistroyform.splice(0, 0, response.data);
+        });
     };
     $scope.editworkinghistroy = function(workhistroy){
         $scope.workhistroyform.user = workhistroy.user;
@@ -346,6 +329,42 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         $scope.educationform.gpa_rating = education.gpa_rating;
     };
 
+    //student edit profile - leadership role
+    $scope.leadershipform = {
+        student:"",
+        leadership_role : "",
+        description : ""
+
+    };
+    $scope.leadershipedit = function(){
+        $http.get(apiUrl+"api/v1/student/get_leadershiproles_details/"+$rootScope.user_id+"/")
+            .then(function successCallback(response){
+                $scope.leadershipform = response.data;
+                $scope.leadershipform.student = response.data[0].student;
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+    };
+    $scope.leadershipsubmit = function(){
+        var leadership_data = {
+            student : $scope.leadershipform.student,
+            leadership_role : $scope.leadershipform.leadership_role,
+            description : $scope.leadershipform.description
+        }
+        //alert(JSON.stringify(education_data));
+        $http.post(apiUrl+"api/v1/student/api/v1/leadershipdetails/",JSON.stringify(leadership_data))
+        .then(function (response) {
+            $scope.leadershipmessage = 'Successfully updated';
+            $scope.leadershipform.splice(0, 0, response.data);
+
+        });
+    };
+    $scope.editleadership = function(leadership){
+        $scope.leadershipform.leadership_role = leadership.leadership_role;
+        $scope.leadershipform.description = leadership.description;
+    };
+
+
 });
 
 
@@ -363,11 +382,16 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
         facebook_url : "",
         linkedin_url : "",
         twitter_url : "",
-        website : ""
+        website : "",
+        stackoverflow_url:"",
+        github_url:"",
+        //profile_picture:"",
+        about_me:""
     };
     // student basic profile get information
-    $http.get(apiUrl+"api/v1/user_profile/api/v1/get_basicprofile_details/"+$rootScope.user_id+"/")
+    $http.get(apiUrl+"api/v1/student/get_student_details/"+$rootScope.user_id+"/")
         .then(function successCallback(response){
+            $rootScope.stud_id = response.data[0].id;
             $scope.basicprofileform.id = response.data[0].id;
             $scope.basicprofileform.user = response.data[0].user;
             $scope.basicprofileform.first_name = response.data[0].first_name;
@@ -378,6 +402,11 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
             $scope.basicprofileform.linkedin_url = response.data[0].linkedin_url;
             $scope.basicprofileform.twitter_url = response.data[0].twitter_url;
             $scope.basicprofileform.website = response.data[0].website;
+            $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
+            $scope.basicprofileform.github_url = response.data[0].github_url;
+            $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
+            // $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
+            $scope.basicprofileform.about_me = response.data[0].about_me;
         }, function errorCallback(response){
             console.log("Unable to perform get student basic profile details");
     });
@@ -392,10 +421,15 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
             facebook_url: $scope.basicprofileform.facebook_url,
             linkedin_url: $scope.basicprofileform.linkedin_url,
             twitter_url: $scope.basicprofileform.twitter_url,
-            website: $scope.basicprofileform.website
+            website: $scope.basicprofileform.website,
+            github_url:$scope.basicprofileform.github_url,
+            stackoverflow_url:$scope.basicprofileform.stackoverflow_url,
+            //profile_picture:$scope.basicprofileform.profile_picture,
+            about_me:$scope.basicprofileform.about_me
+
         };
-        //alert(JSON.stringify(data));
-        $http.patch(apiUrl+"api/v1/user_profile/api/v1/userprofile/"+$scope.basicprofileform.user+"/",JSON.stringify(data))
+        // alert(JSON.stringify(data));
+        $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.basicprofilemessage = 'Successfully updated';
         });

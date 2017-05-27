@@ -5,6 +5,7 @@ var FirstSynch = angular.module("firstSync", [
     "ngRoute",
     "angularMoment",
     "angucomplete-alt",
+    "ngFileUpload",
     "hoMe",
     "careerFair",
     "careerFairDetail",
@@ -36,6 +37,9 @@ var FirstSynch = angular.module("firstSync", [
 FirstSynch.constant('apiUrl', 'http://52.43.26.31:8000/');
 FirstSynch.constant('companyusertype','48KL3');
 FirstSynch.constant('studentusertype','38OD2');
+FirstSynch.constant('Personal','FDHD');
+FirstSynch.constant('Software','FDDA');
+FirstSynch.constant('Professional','RYRD');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
@@ -396,6 +400,29 @@ FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$c
         };
     });
 
+    // FirstSynch.controller("MyCtrl", function ($scope, Upload,apiUrl) {
+    //     // upload later on form submit or something similar
+    //     $scope.submit = function() {
+    //       if ($scope.form.file.$valid && $scope.file) {
+    //         $scope.upload($scope.file);
+    //       }
+    //     };
+    //
+    //     // upload on file select or drop
+    //     $scope.upload = function (file) {
+    //         Upload.upload({
+    //             url: apiUrl+"api/v1/career_fairs/videos/",
+    //             data: {file: file}
+    //         }).then(function (resp) {
+    //             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+    //         }, function (resp) {
+    //             console.log('Error status: ' + resp.status);
+    //         }, function (evt) {
+    //             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+    //             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+    //         });
+    //     };
+    // });
 ///////////////////////////////////////////////// directive ////////////////////////////////////////
 
 FirstSynch.directive('uixBxslider', function(){

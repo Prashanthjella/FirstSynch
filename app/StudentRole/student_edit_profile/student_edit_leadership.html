@@ -1,25 +1,45 @@
 <div id="leadership-roles" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="leadershipmessage">{{leadershipmessage}}</div>
         <h1 class="page-title">Lidership roles</h1>
-        <form>
+        <table>
+            <tr>
+                <th>S.no</th>
+                <th>Lidership</th>
+                <th>Discription</th>
+
+                <th>Action</th>
+            </tr>
+
+            <tr ng-repeat="leadership in leadershipform">
+                <td>{{ $index+1 }}</td>
+                <td>{{ leadership.leadership_role }}</td>
+                <td>{{ leadership.description }}</td>
+                <td><a ng-click="editleadership(leadership)" class="button">Edit</a> | <a ng-click="removeleadership( leadership )" class="button">Remove</a></td>
+            </tr>
+
+        </table>
+        <form ng-submit="leadershipsubmit()" >
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Lidership role #1</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a name">
+                        <label class="text-uppercase">Lidership role</label>
+                        <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.student" name="student">
+                        <input type="text" class="form-control custom-textbox" ng-model="leadershipform.leadership_role" placeholder="Give it a name">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
+                        <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
                     </div>
                 </div>
-                <hr class="hr-line-lidership">
+                <input type="submit" value="Submit" />
+                <!-- <hr class="hr-line-lidership"> -->
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add role</a> </div>
-            </div>
+            </div> -->
         </form>
     </div>
 </div>

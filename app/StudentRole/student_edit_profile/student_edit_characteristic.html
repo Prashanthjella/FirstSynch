@@ -5,7 +5,7 @@
         <p>Select things that are important in a potential job <span class="text-description">(Select 4/5 characteristics)</span></p>
         <form>
             <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="characters in listofcharacter | unique:'character'">
-                <input id="{{characters.character}}" class="checkbox-input" ng-model="selectedCharacter[characters.character]" type="checkbox"  ng-checked="characters.user == user_id">
+                <input id="{{characters.character}}" class="checkbox-input" ng-model="selectedCharacter[characters.character]" type="checkbox"  ng-checked="characters.student == stud_id">
                 <label for="{{characters.character}}" class="checkbox-label"> {{characters.character}}</label>
             </div>
             <p>
