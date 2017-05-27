@@ -204,7 +204,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         $http.get(apiUrl+"api/v1/student/get_experience_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.workhistroyform = response.data;
-                $scope.workhistroyform.user = response.data[0].student;
+                $scope.workhistroyform.user = $rootScope.stud_id;
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
@@ -237,38 +237,36 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
     //student edit profile - projects
     $scope.projectsform = {
-        user:"",
+        student:"",
         title : "",
         start_date : "",
         completation_date : "",
         project_description : ""
     };
     $scope.projectsedit = function(){
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_project_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/get_project_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.projectsform = response.data;
-                $scope.projectsform.user = response.data[0].user;
+                $scope.projectsform.user = $rootScope.stud_id;
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
     $scope.projectsubmit = function(){
         var projects_data = {
-            user : $scope.projectsform.user,
-            title : $scope.projectsform.company,
+            student : $scope.projectsform.user,
+            title : $scope.projectsform.title,
             start_date : $scope.projectsform.start_date,
             completation_date : $scope.projectsform.completation_date,
-            project_description : $scope.projectsform.project_description,
-            created_by : $scope.projectsform.user,
-            updated_by : $scope.projectsform.user
+            project_description : $scope.projectsform.project_description
         }
-        alert(JSON.stringify(projects_data));
-        // $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(software_skill_data))
-        // .then(function (response) {
-        //     $scope.personnalskillmessage = 'Successfully updated';
-        //     $scope.workhistroyform.splice(0, 0, response.data);
+        //alert(JSON.stringify(projects_data));
+        $http.post(apiUrl+"api/v1/student/api/v1/projectdetails/",JSON.stringify(projects_data))
+        .then(function (response) {
+            $scope.personnalskillmessage = 'Successfully updated';
+            $scope.projectsform.splice(0, 0, response.data);
 
-        // });
+        });
     };
     $scope.editproject = function(projects){
         $scope.projectsform.user = projects.user;
@@ -281,7 +279,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
     //student edit profile - education
     $scope.educationform = {
-        user:"",
+        student:"",
         school_name : "",
         year_started : "",
         year_graduated : "",
@@ -291,31 +289,29 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
     };
     $scope.educationedit = function(){
-        $http.get(apiUrl+"api/v1/user_profile/api/v1/get_education_details/"+$rootScope.user_id+"/")
+        $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.educationform = response.data;
-                $scope.educationform.user = response.data[0].user;
+                $scope.educationform.user = $rootScope.stud_id;
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
     $scope.educationsubmit = function(){
         var education_data = {
-            user : $scope.educationform.user,
+            student : $scope.educationform.user,
             school_name : $scope.educationform.school_name,
             year_started : $scope.educationform.year_started,
             year_graduated : $scope.educationform.year_graduated,
             major : $scope.educationform.major,
             gpa : $scope.educationform.gpa,
-            gpa_rating : $scope.educationform.gpa_rating,
-            created_by : $scope.educationform.user,
-            updated_by : $scope.educationform.user
+            gpa_rating : $scope.educationform.gpa_rating
         }
         //alert(JSON.stringify(education_data));
-        $http.post(apiUrl+"api/v1/user_profile/api/v1/skillinfo/",JSON.stringify(software_skill_data))
+        $http.post(apiUrl+"api/v1/student/api/v1/educationdetails/",JSON.stringify(education_data))
         .then(function (response) {
             $scope.educationmessage = 'Successfully updated';
-            $scope.workhistroyform =response.data;
+            $scope.educationform.splice(0, 0, response.data);
 
         });
     };
@@ -340,7 +336,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         $http.get(apiUrl+"api/v1/student/get_leadershiproles_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.leadershipform = response.data;
-                $scope.leadershipform.student = response.data[0].student;
+                $scope.leadershipform.student = $rootScope.stud_id;
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
