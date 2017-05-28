@@ -252,6 +252,12 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         templateUrl: 'CompanyRole/student_profile/student_profile.html',
     });
 
+    // company - edit profile
+    $routeProvider.when('/com/editprofile', {
+        templateUrl: 'CompanyRole/company_edit_profile/company_edit_profile.html',
+        controller: 'companyeditprofiles'
+    });
+
     // remove hash bang
     if(window.history && window.history.pushState){
          //$locationProvider.html5Mode(true); will cause an error $location in HTML5 mode requires a  tag to be present! Unless you set baseUrl tag after head tag like so: <head> <base href="/">

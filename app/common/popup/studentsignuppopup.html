@@ -1,6 +1,6 @@
 <!-- Modal Registration content Start-->
 <div class="modal fade custom-model" id="signUp" tabindex="-1" role="dialog"  ng-controller="IdentifyUser" data-backdrop="static">
-  <form name="studentregistration">
+  <form name="studentregistration" ng-submit="StudentRegistratoin()">
     <div class="modal-dialog">
       <div class="modal-content custom-modal-video-content">
         <div class="modal-header cusom-model-dashboard-header">
@@ -66,7 +66,7 @@
         </div>
 
         <div class="modal-footer custom-login-modal-footer">
-          <button type="submit" ng-click="StudentRegistratoin()" ng-disabled="studentregistration.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
+          <button type="submit" ng-disabled="studentregistration.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
           <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
 
         </div>

@@ -31,6 +31,10 @@ $(document).ready(function() {
         //     $(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
         // }
     });
+    $(document).on('click','.company_edit_profile_side_child_title',function(){
+        $('.company_edit_profile_side_child_collapsable').hide();
+        $(this).parents('.company_edit_profile_side_parent').find('.company_edit_profile_side_child_collapsable').toggle();
+    });
     $(document).on('click','.student_edit_profile_inner_title',function(){
         var current_div = $(this).attr('data-id');
         $('.student_edit_profile_main_content_child').hide();

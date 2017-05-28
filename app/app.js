@@ -31,6 +31,7 @@ var FirstSynch = angular.module("firstSync", [
     "CstudentProfile",
     "CcompanyProfile",
     "CemployeeProfile",
+    "CompanyEditProfile",
     "Search"
 ]);
 
@@ -178,23 +179,17 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
     };//find user - function end
 
     $scope.StudentRegistratoin = function () {
-        var education_created = {
-            school_name: $scope.school_name,
-            gpa: $scope.gpa,
-        };
 
-        var data = $.param({
-            e_mail: $rootScope.e_mail,
-            iaccept: $scope.iaccept,
-            name: $scope.name,
-            password: $scope.password,
-            education_created:education_created,
-        });
+        var data = {
+            education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
+            student : {first_name : $scope.name},
+            user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
+        }
+        //alert(JSON.stringify(data));
         $http({
-            url: apiUrl+'api/v1/accounts/v2/createstudent/',
+            url: apiUrl+'api/v1/student/student_signup/',
             method: "POST",
-            data: data,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            data: data
         })
         .then(function successCallback(data, status, headers, config) {
             jQuery("#signUp").modal('hide');
