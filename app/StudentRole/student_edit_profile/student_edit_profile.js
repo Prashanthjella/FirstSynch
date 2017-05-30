@@ -88,12 +88,12 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
 
     //student edit profile - personal skill set
-    $scope.skillsetpersonnalform = {
+    $scope.skillsetpersonnalform = [{
         student:"",
         skill_type : "",
         name : "",
         rating : ""
-    };
+    }];
     $scope.skillpersonnaledit = function(){
         $http.get(apiUrl+"api/v1/student/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -124,12 +124,12 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
 
     //student edit profile - professional skill set
-    $scope.skillsetprofessionalform = {
+    $scope.skillsetprofessionalform = [{
         student:"",
         skill_type : "",
         name : "",
         rating : ""
-    };
+    }];
     $scope.skillprofessionaledit = function(){
         $http.get(apiUrl+"api/v1/student/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -158,12 +158,12 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
     };
 
     //student edit profile - software skill set
-    $scope.skillsetsoftwareform = {
+    $scope.skillsetsoftwareform = [{
         student:"",
         skill_type : "",
         name : "",
         rating : ""
-    };
+    }];
     $scope.skillsoftwareedit = function(){
         $http.get(apiUrl+"api/v1/student/api/v1/get_skillset_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -209,17 +209,18 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
                 console.log("Unable to perform get student profile details");
         });
     };
-    $scope.workhistroysubmit = function(){
+    $scope.workhistroyformsubmit = function(){
         var workhistroy_data = {
             student : $scope.workhistroyform.user,
-            company : $scope.workhistroyform.company,
+            //company : $scope.workhistroyform.company,
+            company : 1,
             start_date : $scope.workhistroyform.start_date,
             leave_date : $scope.workhistroyform.leave_date,
             job_title : $scope.workhistroyform.job_title,
             job_description : $scope.workhistroyform.job_description
         }
         // alert(JSON.stringify(workhistroy_data));
-        $http.post(apiUrl+"api/v1/student/api/v1/experiencedetails/",JSON.stringify(software_skill_data))
+        $http.post(apiUrl+"api/v1/student/api/v1/experiencedetails/",workhistroy_data)
         .then(function (response) {
             $scope.workhistroymessage = 'Successfully updated';
             $scope.workhistroyform.splice(0, 0, response.data);
@@ -352,6 +353,8 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
         .then(function (response) {
             $scope.leadershipmessage = 'Successfully updated';
             $scope.leadershipform.splice(0, 0, response.data);
+            $scope.leadershipform.leadership_role = "";
+            $scope.leadershipform.description ="";
 
         });
     };
