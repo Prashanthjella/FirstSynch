@@ -214,7 +214,7 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
         });
 
         $http({
-            url: apiUrl+'api/v1/accounts/v2/createcompany/',
+            url: apiUrl+'api/v1/setups/api/v1/company/',
             method: "POST",
             data: data,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
