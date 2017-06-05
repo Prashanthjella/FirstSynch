@@ -8,10 +8,9 @@ var FirstSynch = angular.module("CcompanyProfile", ["ngRoute"]);
 
 // company details
 FirstSynch.controller("company_company_profile" ,function ($scope, $http,$routeParams,apiUrl) {
-
-  $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$routeParams.companyid+"/")
+  $http.get(apiUrl+"api/v1/setups/api/v1/company/"+$routeParams.comid+"/")
       .then(function successCallback(response){
-          $scope.company_profile_details = response.data;
+          $scope.com_company_profile_details = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get company profile details");
   });

@@ -1,40 +1,40 @@
 <section class="slider-profile-container">
-    <div class="background-color-02 slider-profile">
+    <div class="background-color-01 slider-company-profile">
         <div class="row">
             <div class="col-sm-7 text-center">
-                <div class="slider-content-container"> 
-                    <img ng-src="{{company_profile_details.company.logo}}" class="img-user-profile">
+                <div class="slider-content-container"> <img ng-src="{{com_company_profile_details.logo}}" class="img-user-profile">
                     <div class="slider-content-group">
-                        <h1 class="h1 custom-h1">{{company_profile_details.company.name}}</h1>
-                            <p class="para-slider">{{company_profile_details.company.description}}</p>
+                        <h1 class="h1 custom-h1">{{com_company_profile_details.name}}</h1>
+                        <h5 class="h5-companyname">{{com_company_profile_details.product_category}}</h5>
+                        <div class="button-company-slider">
+                            <a href="#" title="Message" class="btn btn-default custom-btn-edit-profile"><span class="fa fa-envelope-o"></span>Message</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 pull-right">
-                <a href="#" title="Edit profile" class="btn btn-default pull-right custom-btn-edit-profile">
-                    <span class="icon-img icon-edit-img"></span>Edit Profile
-                </a>
+            <div class="col-sm-4 pull-left text-right">
+                <div class="video-content">
+                    <video width="100%" controls>
+                        <source src="assets/images/big_buck_bunny.mp4" type="video/mp4">
+                        <source src="assets/images/big_buck_bunny.ogg" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
             </div>
         </div>
     </div>
     <div class="social-network-container">
         <div class="pull-left">
             <ul class="social-network">
-                <li><a href="{{company_profile_details.company.facebook_url}}" class="fa fa-facebook"></a></li>
-                <li><a href="{{company_profile_details.company.linkedin_url}}" class="fa fa-linkedin"></a></li>
-                <li><a href="{{company_profile_details.company.twitter_url}}" class="fa fa-twitter"></a></li>
+                <li><a href="{{com_company_profile_details.facebook_url}}" class="fa fa-facebook"></a></li>
+                <li><a href="{{com_company_profile_details.linkedin_url}}" class="fa fa-linkedin"></a></li>
+                <li><a href="{{com_company_profile_details.twitter_url}}" class="fa fa-twitter"></a></li>
             </ul>
         </div>
         <div class="pull-right">
-            <span class="group-followers">
-                <span class="total-followers">{{company_profile_details.career_fair.length}}</span> career fair
-            </span>
-            <span class="group-followers">
-                <span class="total-followers">{{company_profile_details.company.employees}}</span> employees
-            </span>
-            <span class="group-followers">
-                <span class="total-followers">{{company_profile_details.company.followers.length}}</span> followers
-            </span>
+            <span class="group-followers"><span class="total-followers">{{com_company_profile_details.career_fair.length}}</span> career fair</span>
+            <span class="group-followers"><span class="total-followers">{{com_company_profile_details.employees}}</span> employees</span>
+            <span class="group-followers"><span class="total-followers">{{com_company_profile_details.followers.length}}</span> followers</span>
         </div>
     </div>
 </section>
