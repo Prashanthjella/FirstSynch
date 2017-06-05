@@ -1,0 +1,25 @@
+<div id="company_doe" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
+    <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="establishmentmessage">{{establishmentmessage}}</div>
+        <h1 class="page-title">DATE OF ESTABLISHMENT</h1>
+        <form ng-submit="establishmentsubmit()">
+            <div class="row">
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">ESTABLISHMENT DATE</label>
+                        <input type="hidden" name="id" ng-model="establishmentform.id">
+                        <input type="date" class="form-control custom-textbox" placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Description</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a establishment description" name="est_date_description" ng-model="establishmentform.est_date_description">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <input type="submit" class="form-control" value="Save"/>
+                    </div>
+                </div>
+                <hr class="hr-line-lidership">
+            </div>
+        </form>
+    </div>
+</div><!--company_doe-->

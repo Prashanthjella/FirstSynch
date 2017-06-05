@@ -1,0 +1,46 @@
+<div id="maininfo" class="tab-pane tabe-pane-lidarship company_edit_profile_main_content_child" ng-controller="companybasicprofileupload">
+    <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="basicinfomessage">{{basicinfomessage}}</div>
+        <h1 class="page-title">Company Information</h1>
+        <form ng-submit="basicinfosubmit()">
+            <div class="row">
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Company Name</label>
+                        <input type="hidden" name="id" ng-model="basicinfoform.id">
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" >
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Industry</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Industry name"  name="category"  ng-model="basicinfoform.category" >
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Product Category</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" >
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Website</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" >
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Linkedin</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Twitter</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Facebook</label>
+                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <input type="submit" class="form-control" value="Save"/>
+                    </div>
+                </div>
+                <hr class="hr-line-lidership">
+            </div>
+        </form>
+    </div>
+
+</div><!--proudest-achievement-->

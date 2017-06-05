@@ -3,7 +3,7 @@
   <form name="studentregistration" ng-submit="StudentRegistratoin()">
     <div class="modal-dialog">
       <div class="modal-content custom-modal-video-content">
-        <div class="modal-header cusom-model-dashboard-header">
+        <div class="modal-header cusom-model-dashboard-header peoplesearch_remove">
           <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
           <div class="page-step-container">
             <div class="pull-left">
@@ -17,7 +17,7 @@
           <h1 class="custom-h1 text-center">Student Registration</h1>
         </div>
 
-        <div class="modal-body custom-modal-body-login">
+        <div class="modal-body custom-modal-body-login peoplesearch_remove">
           <span style="color: green; font-weight: bold;">{{message}}</span>
           <div class="form-group">
             <label class="text-uppercase">Your Name</label>
@@ -51,25 +51,281 @@
             <label class="text-uppercase">Create Password</label>
             <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required/>
           </div>
-          <!--<div class="form-group">
+          <div class="form-group">
             <div class="pull-left">
               <label class="text-uppercase">Request to use information Password</label>
               <p>Allow us to pull your info from open sources</p>
             </div>
             <div class="pull-right">
-              <button type="button" class="btn btn-default background-color-05 custom-btn-allow" >Allow</button>
+              <button type="button" class="btn btn-default background-color-05 custom-btn-allow peoplesearch_remove_act" >Allow</button>
               <button type="button" class="btn btn-default custom-btn-forbid" >Forbid</button>
             </div>
 
-          </div>-->
+          </div>
 
         </div>
 
-        <div class="modal-footer custom-login-modal-footer">
+        <div class="modal-footer custom-login-modal-footer peoplesearch_remove">
           <button type="submit" ng-disabled="studentregistration.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
           <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
 
         </div>
+        <section class="page-section  page-bg-gray page-section-onboarding peoplesearch_show" style="display:none;margin:0px;">
+            <div class="container">
+                <div class="page-header custom-page-header">
+                    <div class="pull-left">
+                        <h1 class="h1 custom-h1">Onboarding</h1>
+                    </div>
+                    <div class="pull-right"> <a href="#" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</a> </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section peoplesearch_show"  style="display:none;background:#fff;margin:0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <p class=""> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                        <section class="page-section-education">
+                            <div class="page-header custom-page-header">
+                                <div class="pull-left">
+                                    <h2 class="h2 custom-h2">Education</h2>
+                                </div>
+                            </div>
+                            <div class="page-header custom-page-header-brline">
+                                <h4 class="h4 custom-h4-02">School#1</h4>
+                            </div>
+                            <div class="panel-group custom-panel-onboarding-group">
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#collapse1" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                School
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">Colorado Schoo of tradition chinese</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Industry</a>
+                                        </div>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#dates" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Dates Attended
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">2004-2005</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Date</a>
+                                        </div>
+                                    </div>
+                                    <div id="dates" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#major" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Major
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">Psychology</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Major</a>
+                                        </div>
+                                    </div>
+                                    <div id="major" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class=" page-section-education">
+                            <div class="page-header custom-page-header">
+                                <div class="pull-left">
+                                    <h2 class="h2 custom-h2">Work History</h2>
+                                </div>
+                            </div>
+                            <div class="page-header custom-page-header-brline">
+                                <h4 class="h4 custom-h4-02">First Job</h4>
+                            </div>
+                            <div class="panel-group custom-panel-onboarding-group">
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#compnay-name" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Company Name
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">Vongreed</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Company Name</a>
+                                        </div>
+                                    </div>
+                                    <div id="compnay-name" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#dates-started" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Dates Started
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">2004-2005</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Date</a>
+                                        </div>
+                                    </div>
+                                    <div id="dates-started" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#leave-date" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Leave Date
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">Psychology</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Date</a>
+                                        </div>
+                                    </div>
+                                    <div id="leave-date" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#job-title" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Job title
+                                            </h5>
+                                            <h5 class="h5 custom-h5-01">Junior developer</h5>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Job title</a>
+                                        </div>
+                                    </div>
+                                    <div id="job-title" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <button data-toggle="collapse" href="#job-description" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Job description
+                                            </h5>
+                                            <p >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.     </p>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit description</a>
+                                        </div>
+                                    </div>
+                                    <div id="job-description" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class=" page-section-education">
+                            <div class="page-header custom-page-header-brline">
+                                <div class="pull-left">
+                                    <h2 class="h2 custom-h2">About me</h2>
+                                </div>
+                            </div>
+                            <div class="panel-group custom-panel-onboarding-group">
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Connect to facebook
+                                            </h5>
+                                            <p >Connect to your facebook and we’ll gather information about
+                                                your hobbies and characteristics. We will never post to facebook without your permission,.
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default bg-facebook custom-btn-default-02" id="fb-connect-btn">Connect to facebook</a>
+                                            <div class="text-center collapse fb-connect" aria-expanded="true">
+                                                <img src="images/img-user-avator.png" class="circle-img">
+                                                <h5 class="username">Angel Gomez</h5>
+                                                <h6 class="user-status">Disconnect</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default custom-panel-onboarding-default ">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="h4 custom-h5">
+                                                Connect to instagram
+                                            </h5>
+                                            <p >You can add photos to your profile from your Instagram
+                                                after you connect to your Instagram accoubnt. We will never post to Instagram without your permission.
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a href="#" class="btn btn-default bg-instagrem custom-btn-default-02">Connect to Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- List Starts -->
+                        <!-- List Ends -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
       </div>
 

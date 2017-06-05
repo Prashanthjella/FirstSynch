@@ -165,10 +165,12 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
             if(data.data.user_type == '380D2'){
                 jQuery("#registration").modal('hide');
                 jQuery("#signUp").modal('show');
+                setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
                 $rootScope.e_mail = $scope.e_mail;
             }else{
                 jQuery("#registration").modal('hide');
                 jQuery("#companyregistration").modal('show');
+                setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
                 $rootScope.e_mail = $scope.e_mail;
             }
         },

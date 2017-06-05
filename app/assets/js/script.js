@@ -140,4 +140,14 @@ $(document).ready(function() {
         $('#'+current_div).removeClass('hide').show();
     });
 
+    $(document).on('click','.company_edit_profile_inner_title',function(){
+        var current_div = $(this).attr('data-id');
+        $('.company_edit_profile_main_content_child').hide();
+        $('#'+current_div).removeClass('hide').show();
+    });
+    $(document).on('click','.peoplesearch_remove_act',function(){
+        $('.peoplesearch_remove').remove();
+        $('.peoplesearch_show').show();
+    });
+
 });

@@ -14,7 +14,7 @@
                 <div class="panel-body custom-panel-body">
                     <ul class="nav nav-tabs custom-nav-tabs">
                         <li class="custom-list-group-item active">
-                            <a data-id="basic_profile" class="company_edit_profile_inner_title" data-toggle="tab" title="My schools" href="">
+                            <a data-id="maininfo" class="company_edit_profile_inner_title" data-toggle="tab" title="My schools" href="">
                                 <div class="custom-list-group-item-title"> Main info </div>
                                 <div class="custom-list-group-right">
                                     <span class="badge custom-badge inactive">01</span>
@@ -40,7 +40,7 @@
                     <div class="panel-body custom-panel-body">
                         <ul class="nav nav-tabs custom-nav-tabs">
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="company_doe" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="" ng-click="establishment_edit()">
                                     <div class="custom-list-group-item-title"> Date of establishment </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">01</span>
@@ -49,7 +49,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="company_internships" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="" ng-click="internship_edit()">
                                     <div class="custom-list-group-item-title"> Internships </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">02</span>
@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="company_size" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="" ng-click="companysize_edit()">
                                     <div class="custom-list-group-item-title"> Company size </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">03</span>
@@ -67,7 +67,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="hire_departure_rates" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="" ng-click="hirerate_edit()">
                                     <div class="custom-list-group-item-title"> Hire & Departure Rates </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">04</span>
@@ -76,7 +76,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="averageentrylevelsalary" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
                                     <div class="custom-list-group-item-title"> Average entry level salary </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">05</span>
@@ -85,7 +85,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="total_funding_size" data-toggle="tab" class="company_edit_profile_inner_title" href="" title=""  ng-click="funding_edit()">
                                     <div class="custom-list-group-item-title"> Total funding size </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">06</span>
@@ -94,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="company_growth_rate" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="" ng-click="growthrate_edit()">
                                     <div class="custom-list-group-item-title"> Company growth rate </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">07</span>
@@ -103,7 +103,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="invester_confidence" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="" ng-click="investor_edit()">
                                     <div class="custom-list-group-item-title"> Investor Confidence </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">08</span>
@@ -112,7 +112,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="company_characteristics" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
                                     <div class="custom-list-group-item-title"> Characteristics </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">09</span>
@@ -121,7 +121,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
                                     <div class="custom-list-group-item-title"> Office </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">10</span>
@@ -130,7 +130,7 @@
                                 </a>
                             </li>
                             <li class="custom-list-group-item">
-                                <a data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
+                                <a data-id="company_location" data-toggle="tab" class="company_edit_profile_inner_title" href="" title="">
                                     <div class="custom-list-group-item-title"> Location </div>
                                     <div class="custom-list-group-right">
                                         <span class="badge custom-badge active">11</span>
