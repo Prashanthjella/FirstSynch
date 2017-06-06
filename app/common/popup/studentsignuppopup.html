@@ -23,6 +23,7 @@
             <label class="text-uppercase">Your Name</label>
             <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required/>
             <input type="hidden" id="e_mail" name="e_mail" ng-model="e_mail" />
+            <input type="hidden" id="allow_pipl" value="0">
             <input type="hidden" name="iaccept" value="true" name="iaccept" ng-model="iaccept" />
           </div>
           <div class="form-group">
@@ -57,7 +58,7 @@
               <p>Allow us to pull your info from open sources</p>
             </div>
             <div class="pull-right">
-              <button type="button" class="btn btn-default background-color-05 custom-btn-allow peoplesearch_remove_act" >Allow</button>
+              <button type="button" ng-disabled="studentregistration.$invalid" class="btn btn-default background-color-05 custom-btn-allow peoplesearch_remove_act" ng-click="piplsearch()"  >Allow</button>
               <button type="button" class="btn btn-default custom-btn-forbid" >Forbid</button>
             </div>
 
@@ -76,7 +77,7 @@
                     <div class="pull-left">
                         <h1 class="h1 custom-h1">Onboarding</h1>
                     </div>
-                    <div class="pull-right"> <a href="#" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</a> </div>
+                    <div class="pull-right"> <button type="submit" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
                 </div>
             </div>
         </section>
@@ -84,7 +85,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <p class=""> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
                         <section class="page-section-education">
                             <div class="page-header custom-page-header">
                                 <div class="pull-left">
@@ -92,71 +92,75 @@
                                 </div>
                             </div>
                             <div class="page-header custom-page-header-brline">
-                                <h4 class="h4 custom-h4-02">School#1</h4>
+                                <h4 class="h4 custom-h4-02">School</h4>
                             </div>
                             <div class="panel-group custom-panel-onboarding-group">
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#collapse1" class="btn btn-default circle-btn">
-                                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    <!-- <button data-toggle="collapse" href="#collapse1" class="btn btn-default circle-btn">
+                                    <span class="glyphicon glyphicon-minus"></span> -->
+                                    <!-- </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 School
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">Colorado Schoo of tradition chinese</h5>
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="stu_school_name" value="{{piplschool_name}}" id="pipl_school_name" readonly>
+                                            <!-- <h5 class="h5 custom-h5-01"></h5> -->
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Industry</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit School</a>
                                         </div>
                                     </div>
-                                    <div id="collapse1" class="panel-collapse collapse">
+                                    <!-- <div id="collapse1" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#dates" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#dates" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Dates Attended
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">2004-2005</h5>
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="pipl_dateattended" value="{{pipldateattended}}" id="pipl_dateattended" readonly>
+                                            <!-- <h5 class="h5 custom-h5-01"></h5> -->
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Date</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
                                         </div>
                                     </div>
-                                    <div id="dates" class="panel-collapse collapse">
+                                    <!-- <div id="dates" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#major" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#major" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Major
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">Psychology</h5>
+                                            <input type="hidden" id="workhistroy_count" value="{{workhistroy_count}}">
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="pipl_major" value="{{piplmajor}}" id="pipl_major" readonly>
+                                            <!-- <h5 class="h5 custom-h5-01"></h5> -->
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Major</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Major</a>
                                         </div>
                                     </div>
-                                    <div id="major" class="panel-collapse collapse">
+                                    <!-- <div id="major" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </section>
@@ -166,115 +170,122 @@
                                     <h2 class="h2 custom-h2">Work History</h2>
                                 </div>
                             </div>
+                            <div  ng-repeat="stu_jobs in pipljobs">
                             <div class="page-header custom-page-header-brline">
-                                <h4 class="h4 custom-h4-02">First Job</h4>
+                                <h4 class="h4 custom-h4-02">Job#{{$index+1}}</h4>
                             </div>
                             <div class="panel-group custom-panel-onboarding-group">
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#compnay-name" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#compnay-name" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Company Name
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">Vongreed</h5>
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="pipl_company_name{{$index}}" value="{{stu_jobs.company_name}}" id="pipl_company_name{{$index}}" readonly>
+                                            <!-- <h5 class="h5 custom-h5-01"></h5> -->
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Company Name</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Company Name</a>
                                         </div>
                                     </div>
-                                    <div id="compnay-name" class="panel-collapse collapse">
+                                    <!-- <div id="compnay-name" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#dates-started" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#dates-started" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Dates Started
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">2004-2005</h5>
+                                            <!-- <h5 class="h5 custom-h5-01"></h5> -->
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="pipl_datestarted{{$index}}" value="{{stu_jobs.datestarted}}" id="pipl_datestarted{{$index}}" readonly>
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Date</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
                                         </div>
                                     </div>
-                                    <div id="dates-started" class="panel-collapse collapse">
+                                    <!-- <div id="dates-started" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#leave-date" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#leave-date" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Leave Date
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">Psychology</h5>
+                                            <!-- <h5 class="h5 custom-h5-01">{{stu_jobs.leavedate}}</h5> -->
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="pipl_leavedate{{$index}}" value="{{stu_jobs.leavedate}}" id="pipl_leavedate{{$index}}" readonly>
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Date</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
                                         </div>
                                     </div>
-                                    <div id="leave-date" class="panel-collapse collapse">
+                                    <!-- <div id="leave-date" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#job-title" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#job-title" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Job title
                                             </h5>
-                                            <h5 class="h5 custom-h5-01">Junior developer</h5>
+                                            <!-- <h5 class="h5 custom-h5-01">{{stu_jobs.jobtitle}}</h5> -->
+                                            <input type="text" class="form-control custom-form-control-br-bottom" name="pipl_jobtitle{{$index}}" value="{{stu_jobs.jobtitle}}" id="pipl_jobtitle{{$index}}" readonly>
+
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit Job title</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Job title</a>
                                         </div>
                                     </div>
-                                    <div id="job-title" class="panel-collapse collapse">
+                                    <!-- <div id="job-title" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <button data-toggle="collapse" href="#job-description" class="btn btn-default circle-btn">
+                                    <!-- <button data-toggle="collapse" href="#job-description" class="btn btn-default circle-btn">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
+                                    </button> -->
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <h5 class="h4 custom-h5">
                                                 Job description
                                             </h5>
-                                            <p >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.     </p>
+                                            <textarea readonly id="pipl_jobdescription{{$index}}" name="pipl_jobdescription{{$index}}">{{stu_jobs.jobdescription}}</textarea>
                                         </div>
                                         <div class="col-sm-4 text-right">
-                                            <a href="#" class="btn btn-default custom-btn-default-02">Edit description</a>
+                                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit description</a>
                                         </div>
                                     </div>
-                                    <div id="job-description" class="panel-collapse collapse">
+                                    <!-- <div id="job-description" class="panel-collapse collapse">
                                         <div class="panel-body">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
+                        </div>
                         </section>
                         <section class=" page-section-education">
                             <div class="page-header custom-page-header-brline">

@@ -81,6 +81,28 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
             console.log("Unable to perform get Video Details");
         });
     };//Common Video Popup - function end
+    $rootScope.StudentvideoPopup = function (value) {
+        jQuery("#VideoPopupStudent").modal('show');
+        var id = value;
+        $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id)
+        .then(function successCallback(response){
+            $rootScope.vid = response.data;
+            jwplayer("jwplayer").setup({
+              playlist: [{
+                  image: response.data.video.thumbnail,
+                  sources: [{
+                      file: response.data.video.streaming_video
+                  },{
+                      file: response.data.video.video_file
+                  }]
+              }],
+              primary: "flash"
+            });
+            jwplayer("jwplayer").play();
+        }, function errorCallback(response){
+            console.log("Unable to perform get Video Details");
+        });
+    };//Common Video Popup - function end
 
 });
 
@@ -181,11 +203,25 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
     };//find user - function end
 
     $scope.StudentRegistratoin = function () {
-
-        var data = {
-            education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
-            student : {first_name : $scope.name},
-            user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
+        var allow_pipl_check = parseInt($('#allow_pipl').val());
+        var workhistroy_arry = [];
+        if(allow_pipl_check){
+            for(var w=0;w<parseInt($('#workhistroy_count').val());w++){
+                workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
+            }
+            var data = {
+                education : {school_name : $('#pipl_school_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
+                student : {first_name : $scope.name},
+                user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
+                jobs:workhistroy_arry
+            }
+        }
+        else {
+            var data = {
+                education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
+                student : {first_name : $scope.name},
+                user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
+            }
         }
         //alert(JSON.stringify(data));
         $http({
@@ -201,6 +237,23 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
             $scope.status = data.data.status;
         });
     };//userStudentRegistratoin - function end
+
+    $scope.piplsearch = function () {
+        $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
+            .then(function successCallback(response){
+                $scope.piplimage = response.data.image;
+                $scope.piplschool_name= response.data.school_name;
+                $scope.pipldateattended= response.data.dateattended;
+                $scope.piplmajor= response.data.major;
+                $scope.pipljobs= response.data.jobs;
+                $scope.workhistroy_count= response.data.jobs.length;
+                $('#allow_pipl').val('1');
+                $('.peoplesearch_remove').hide();
+                $('.peoplesearch_show').show();
+            }, function errorCallback(response){
+                console.log("Unable to perform get company basic profile details");
+        });
+    };//piplsearch - function end
 
     $scope.CompanyRegistratoin = function () {
         var employee_created = {

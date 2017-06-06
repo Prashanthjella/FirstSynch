@@ -145,7 +145,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
             .then(function successCallback(response){
                 $scope.skillsetpersonnalform = response.data;
                 $scope.skillsetpersonnalform.student = $rootScope.stud_id;
-                $scope.skillsetpersonnalform.skill_type = "FDHD";
+                $scope.skillsetpersonnalform.skill_type = "Personal";
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
@@ -181,7 +181,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
             .then(function successCallback(response){
                 $scope.skillsetprofessionalform = response.data;
                 $scope.skillsetpersonnalform.student = $rootScope.stud_id;
-                $scope.skillsetprofessionalform.skill_type = "RYRD";
+                $scope.skillsetprofessionalform.skill_type = "Professional";
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
@@ -215,7 +215,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
             .then(function successCallback(response){
                 $scope.skillsetsoftwareform = response.data;
                 $scope.skillsetpersonnalform.student = $rootScope.stud_id;
-                $scope.skillsetsoftwareform.skill_type = "FDDA";
+                $scope.skillsetsoftwareform.skill_type = "Software";
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });

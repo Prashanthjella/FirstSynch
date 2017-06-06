@@ -145,9 +145,8 @@ $(document).ready(function() {
         $('.company_edit_profile_main_content_child').hide();
         $('#'+current_div).removeClass('hide').show();
     });
-    $(document).on('click','.peoplesearch_remove_act',function(){
-        $('.peoplesearch_remove').remove();
-        $('.peoplesearch_show').show();
+    $(document).on('click','.edit_option',function(){
+        $(this).parent().parent('.row').find('input,textarea').removeAttr('readonly');
     });
 
 });

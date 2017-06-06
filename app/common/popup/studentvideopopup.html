@@ -1,0 +1,107 @@
+<div class="modal fade custom-model" id="VideoPopupStudent" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content custom-modal-video-content">
+      <div class="modal-header cusom-model-dashboard-header">
+        <div class="media cusom-model-media">
+          <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+          <div class="media-left cusom-model-media-left"> <a href="#">
+						<img ng-src="{{vid.video.company_logo}}" class="media-object-user img-circle">
+            <div class="custom-model-logo02">
+							<img class="media-object media-object-logos img-circle" ng-src="{{vid.video.company_logo}}" alt="img">
+						</div>
+            </a> </div>
+          <div class="media-body cusom-media-model-body">
+            <div class="pull-left">
+              <h2 class="custom-h2">{{vid.video.created_by.name}}</h2>
+              <h5 class="custom-h5-model">By <span class="highlighted-green">{{vid.video.created_by.name}}</span> from <span class="highlighted-green">{{vid.video.company}}</span></h5>
+              <!-- <h6 class="custom-h6-model">{{vid.video.created_by.created_at | date:"dd/MM/yyyy"}}</h6> -->
+              <h6 class="custom-h6-model">about {{ today | amDifference:  vid.video.created_by.created_at : 'days'}} days ago</h6>
+            </div>
+            <div class="pull-right">
+              <div class="custom-right-icons"> <a href="#" class="icons-model"> <i class="fa fa-heart-o"></i> 5 </a> <a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body custom-video-modal-body">
+        <section class="video-model-container">
+          <div class="row">
+            <div class="col-sm-4">
+              <ul class="nav nav-tabs custom-tabs-model" role="tablist">
+                <li role="presentation" class="active"><a href="#tellAboutYourself" aria-controls="tellAboutYourself" role="tab" data-toggle="tab" class="">Tell About Yourself</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-8">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
+                  <div id='jwplayer'>Loading the player...</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="row custom-row-10">
+          <div class="col-sm-8">
+
+            <div class="media-group-container" style="display:none;">
+            <h5 class="text-uppercase"><span>25</span> Comments</h5>
+            <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                 <div class="form-group custom-lider-form-group">
+                    <textarea class="form-control custom-text-area" rows="2" placeholder="Add Public Comments" maxlength="150"></textarea>
+                  </div>
+                </div>
+                <div> </div>
+              </div>
+              <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                  <h5 class="media-eading-h5">Denver, CO</h5>
+                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                </div>
+                <div> </div>
+              </div>
+              <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                  <h5 class="media-eading-h5">Denver, CO</h5>
+                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                </div>
+                <div> </div>
+              </div>
+              <div class="media custom-media">
+                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                <div class="media-body custom-media-body">
+                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                  <h5 class="media-eading-h5">Denver, CO</h5>
+                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                </div>
+                <div> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+          <div class="col-right-40px">
+            <div class="row custom-row-15">
+            <h5 class="text-uppercase">More videos  by <span class="highlighted-green">{{vid.video.created_by.name}}</span></h5>
+              <div class="col-sm-6" ng-repeat="vid in vid.related_video">
+							 	  <a data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-03 custom-thumbs-box-views">
+										<img ng-src="{{vid.thumbnail}}">
+	                  <div class="overlay "></div>
+	                  <span class="icon-btn-play"></span>
+									  </a>
+								</div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
