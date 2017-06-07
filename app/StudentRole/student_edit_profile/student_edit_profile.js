@@ -55,21 +55,6 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
           alert("Files uploaded successfully.");
       }
 
-    $scope.tellmeaboutyourvideo = function(){
-        alert("manikandan");
-    };
-    $scope.yourgoalsvideo = function(){
-        alert('Page under construction');
-    };
-    $scope.yourhobbivideo = function(){
-        alert('Page under construction');
-    };
-    $scope.wehireyouvideo = function(){
-        alert('Page under construction');
-    };
-    $scope.yourstrengthvideo = function(){
-        alert('Page under construction');
-    };
 
     // student edit profile - hobbies
     $scope.hobbiesform = {
@@ -102,18 +87,18 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
     };
 
     // student edit profile - usercharacteristics
-    $scope.characterform = {
-        character : ""
-    };
-    $scope.character_edit = function(){
-
-        $http.get(apiUrl+"api/v1/student/api/v1/studentcharacteristic/")
-            .then(function successCallback(response){
-                $scope.listofcharacter = response.data;
-            }, function errorCallback(response){
-                console.log("Unable to perform get student profile details");
-        });
-    };
+    // $scope.characterform = {
+    //     character : ""
+    // };
+    // $scope.character_edit = function(){
+    //
+    //     $http.get(apiUrl+"api/v1/student/api/v1/studentcharacteristic/")
+    //         .then(function successCallback(response){
+    //             $scope.listofcharacter = response.data;
+    //         }, function errorCallback(response){
+    //             console.log("Unable to perform get student profile details");
+    //     });
+    // };
     $scope.selectedCharacter = {};
 
     $scope.charactersubmit = function(){
