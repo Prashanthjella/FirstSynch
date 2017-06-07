@@ -30,7 +30,9 @@
           <div class="row">
             <div class="col-sm-4">
               <ul class="nav nav-tabs custom-tabs-model" role="tablist">
-                <li role="presentation" class="active"><a href="#tellAboutYourself" aria-controls="tellAboutYourself" role="tab" data-toggle="tab" class="">Tell About Yourself</a></li>
+                <li role="presentation" class="active" ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
+                  <a class="" onclick='jwplayer().seek(10)'>{{chapter.title}}</a>
+                </li>
               </ul>
             </div>
             <div class="col-sm-8">
@@ -46,7 +48,7 @@
         <div class="row custom-row-10">
           <div class="col-sm-8">
 
-            <div class="media-group-container" style="display:none;">
+            <div class="media-group-container">
             <h5 class="text-uppercase"><span>25</span> Comments</h5>
             <div class="media custom-media">
                 <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
@@ -57,33 +59,16 @@
                 </div>
                 <div> </div>
               </div>
-              <div class="media custom-media">
+              <div class="media custom-media" ng-repeat="comment in vid.video.comments | orderBy: 'updated_at'">
                 <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
                 <div class="media-body custom-media-body">
                   <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
-                  <h5 class="media-eading-h5">Denver, CO</h5>
-                  <h6 class="custom-h6-model">about 3 days ago</h6>
+                  <h5 class="media-eading-h5">{{comment.comment}}</h5>
+                  <h6 class="custom-h6-model">{{ today | amDifference:  comment.comment : 'days'}}</h6>
                 </div>
                 <div> </div>
-              </div>
-              <div class="media custom-media">
-                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
-                <div class="media-body custom-media-body">
-                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
-                  <h5 class="media-eading-h5">Denver, CO</h5>
-                  <h6 class="custom-h6-model">about 3 days ago</h6>
-                </div>
-                <div> </div>
-              </div>
-              <div class="media custom-media">
-                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
-                <div class="media-body custom-media-body">
-                  <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
-                  <h5 class="media-eading-h5">Denver, CO</h5>
-                  <h6 class="custom-h6-model">about 3 days ago</h6>
-                </div>
-                <div> </div>
-              </div>
+              </div><!--media-->
+
             </div>
           </div>
           <div class="col-sm-4">
