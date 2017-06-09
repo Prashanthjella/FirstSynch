@@ -68,18 +68,15 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
             jwplayer("jwplayer").setup({
               playlist: [{
                   image: response.data.video.thumbnail,
-                  tracks: [{
-                      file: response.data.video.vtt_file,
-                      label: "English",
-                      kind: "captions",
-                      "default": true
+                  sources: [
+                      {file: response.data.video.streaming_video},
+                      {file: response.data.video.video_file}
+                    ],
+                    tracks: [{
+                      file:response.data.video.vtt_file,
+                      kind:'chapters'
+                    }],
                   }],
-                  sources: [{
-                      file: response.data.video.streaming_video
-                  },{
-                      file: response.data.video.video_file
-                  }]
-              }],
               primary: "flash"
             });
             jwplayer("jwplayer").play();
