@@ -1,0 +1,498 @@
+<div id="dashboard-filter" class="modal fade dashboard-filter" role="dialog" ng-controller="dashboard_filter_process">
+    <form>
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><span class="icon-filter"></span>Filters <span class="jobs-total"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 custom-col-justify">
+                            <div class="media-group-container" ng-init="filter_option =  'industry'">
+                                <div class="reset-control">
+                                    <h3 class="custom-h3">Filters</h3>
+                                    <button type="reset" class="btn-reset">Reset all</button>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_option = 'industry'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">Industry</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_industry">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_option = 'salary'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">Salary range</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_salary">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_option = 'employement'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">Employement Type</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_employement">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_option = 'skills'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">By skills</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_skills">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_option = 'companyf'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">By company</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_company">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'industry'">
+                            <div class="media-group-container all_industry_type">
+                                <h3 class="custom-h3">Industry</h3>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Accommodations" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Accommodations" class="checkbox-label"> Accommodations</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Accounting" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Accounting" class="checkbox-label"> Accounting</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Advertising" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Advertising" class="checkbox-label"> Advertising</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Aerospace" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Aerospace" class="checkbox-label"> Aerospace</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Agriculture" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Agriculture" class="checkbox-label"> Agriculture &amp; Agribusiness</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="AirTransportation" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="AirTransportation" class="checkbox-label"> Air Transportation</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Accessories" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Accessories" class="checkbox-label"> Apparel &amp; Accessories</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Auto" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Auto" class="checkbox-label"> Auto</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Banking" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Banking" class="checkbox-label"> Banking</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="BeautyCosmetics" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="BeautyCosmetics" class="checkbox-label"> Beauty & Cosmetics</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Biotechnology" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Biotechnology" class="checkbox-label"> Biotechnology</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Chemical" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Chemical" class="checkbox-label"> Chemical</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Communications" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Communications" class="checkbox-label"> Communications</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Computer" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Computer" class="checkbox-label"> Computer</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Construction" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Construction" class="checkbox-label"> Construction</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Consulting" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Consulting" class="checkbox-label"> Consulting</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="ConsumerProducts" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="ConsumerProducts" class="checkbox-label"> Consumer Products</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Education" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Education" class="checkbox-label"> Education</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Electronics" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Electronics" class="checkbox-label"> Electronics</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Employment" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Employment" class="checkbox-label"> Employment</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Energy" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Energy" class="checkbox-label"> Energy</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="EntertainmentRecreation" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="EntertainmentRecreation" class="checkbox-label"> Entertainment &amp; Recreation</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Fashion" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Fashion" class="checkbox-label"> Fashion</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="FinancialServices" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="FinancialServices" class="checkbox-label"> Financial Services</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="FineArts" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="FineArts" class="checkbox-label"> Fine Arts</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="FoodBeverage" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="FoodBeverage" class="checkbox-label"> Food & Beverage</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Health" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Health" class="checkbox-label"> Health</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Information" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Information" class="checkbox-label"> Information</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="InformationTechnology" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="InformationTechnology" class="checkbox-label"> Information Technology</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Insurance" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Insurance" class="checkbox-label"> Insurance</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="JournalismNews" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="JournalismNews" class="checkbox-label"> Journalism &amp; News</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="LegalServices" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="LegalServices" class="checkbox-label"> Legal Services</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Manufacturing" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Manufacturing" class="checkbox-label"> Manufacturing</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="MediaBroadcasting" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="MediaBroadcasting" class="checkbox-label"> Media &amp; Broadcasting</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="MedicalDevicesSupplies" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="MedicalDevicesSupplies" class="checkbox-label"> Medical Devices &amp; Supplies</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="MotionPicturesVideo" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="MotionPicturesVideo" class="checkbox-label"> Motion Pictures &amp; Video</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Music" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Music" class="checkbox-label"> Music</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Pharmaceutical" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Pharmaceutical" class="checkbox-label"> Pharmaceutical</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="PublicAdministration" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="PublicAdministration" class="checkbox-label"> Public Administration</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="PublicRelations" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="PublicRelations" class="checkbox-label"> Public Relations</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Publishing" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Publishing" class="checkbox-label"> Publishing</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="RealEstate" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="RealEstate" class="checkbox-label"> RealEstate</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Retail" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Retail" class="checkbox-label"> Retail</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Service" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Service" class="checkbox-label"> Service</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Sports" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Sports" class="checkbox-label"> Sports</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Technology" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Technology" class="checkbox-label"> Technology</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Telecommunications" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Telecommunications" class="checkbox-label"> Telecommunications</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Tourism" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Tourism" class="checkbox-label"> Tourism</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Transportation" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Transportation" class="checkbox-label"> Transportation</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Travel" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Travel" class="checkbox-label"> Travel</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="Utilities" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Utilities" class="checkbox-label"> Utilities</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="VideoGame" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="VideoGame" class="checkbox-label"> Video Game</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="WebServices" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="WebServices" class="checkbox-label"> Web Services</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'salary'">
+                            <div class="media-group-container all_salary_range">
+                                <h3 class="custom-h3">Salary range</h3>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range" class="salary_range" type="radio" value="600" ng-click="dashboard_filter_form()">$300 - $600
+                                        <!-- <label data-val="600"> $300 - $600</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="900" ng-click="dashboard_filter_form()">$600 - $900
+                                        <!-- <input id="s900" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="900"> -->
+                                        <!-- <label data-val="900" > $600 - $900</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="1200" ng-click="dashboard_filter_form()">$900 - $1200
+                                        <!-- <input id="s1200" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="1200"> -->
+                                        <!-- <label data-val="1200"> $900 - $1200</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="1500" ng-click="dashboard_filter_form()">$1200 - $1500
+                                        <!-- <input id="s1500" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="1500"> -->
+                                        <!-- <label data-val="1500"> $1200 - $1500</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="negotiable" ng-click="dashboard_filter_form()">Negotiable
+                                        <!-- <input id="Negotiable" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="Negotiable"> -->
+                                        <label data-val="negotiable"> Negotiable</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'employement'">
+                            <div class="media-group-container all_employeement_type">
+                                <h3 class="custom-h3">Employement Type</h3>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="partime" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="partime" class="checkbox-label"> Part time</label> -->
+                                        <input name="employement" data-val = 'FSFA'  class="employement" type="radio" value="parttime" ng-click="dashboard_filter_form()">Part time
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="Fulltime" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Fulltime" class="checkbox-label"> Full time</label> -->
+                                        <input name="employement" data-val = 'SDGD' class="employement" type="radio" value="fulltime" ng-click="dashboard_filter_form()">Full time
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="internship" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="internship" class="checkbox-label"> Internship</label> -->
+                                        <input name="employement" data-val = 'HGA'  class="employement" type="radio" value="internship" ng-click="dashboard_filter_form()">Internship
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="Consultant" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="Consultant" class="checkbox-label"> Consultant</label> -->
+                                        <input name="employement" data-val = 'GREA'  class="employement" type="radio" value="consultant" ng-click="dashboard_filter_form()">Consultant
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'skills'">
+                            <div class="media-group-container all_skills_filter">
+                                <h3 class="custom-h3">Skills</h3>
+                                <input type="text" class="form-control custom-form-control-br-bottom skillname"  name="skillname" ng-model="skillname" required=""/>
+                                <button class="btn btn-default custom-btn-login" ng-click="dashboard_filter_form()">+ Add</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-controller="all_companies_namess" ng-show="filter_option == 'companyf'">
+                            <div class="media-group-container all_company_filter">
+                                <h3 class="custom-h3">Company</h3>
+                                <div class="form-group" ng-repeat="cmpnyname in all_company_names">
+                                    <div class="checkbox">
+                                        <input id="{{cmpnyname.name|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
+                                        <label for="{{cmpnyname.name|removeSpaces}}" class="checkbox-label"> {{cmpnyname.name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

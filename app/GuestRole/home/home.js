@@ -12,7 +12,7 @@ var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync"]);
 // home page - featured video
 FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl,$compile) {
   // home page - featured video - default
-  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5")
       .then(function successCallback(response){
           $scope.feature = response.data;
       }, function errorCallback(response){
@@ -20,7 +20,7 @@ FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl,$comp
   });
   // home page - featured video - showall and lessall
   $scope.showall_featuredvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
         if(jQuery('.less_all_purpose').is(":visible")){
           jQuery('.less_all_purpose').slideUp(500);
@@ -33,8 +33,8 @@ FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl,$comp
               +'<div class="overlay "></div>'
               +'<span class="arrow-triangle"></span>'
               +'<div class="box-inside-content">'
-                  +'<span class="logo-companies"><img src="'+response.data[i].company_logo+'" class="img-responsive"></span>'
-                  +'<h6 class="h6 custom-h6">'+response.data[i].company+'</h6>'
+                  +'<span class="logo-companies"><img src="'+response.data[i].company.logo+'" class="img-responsive"></span>'
+                  +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
                 +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
               +'</div>'
               +'</a>'
@@ -68,7 +68,7 @@ FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope, $http, ap
 // home page - students
 FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compile) {
   // home page - students - default
-  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3")
       .then(function successCallback(response){
           $scope.dbstudents = response.data;
       }, function errorCallback(response){
@@ -76,7 +76,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
   });
   // home page - students - showall and lessall
   $scope.showall_studentsvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_stu_less_all').is(":visible")){
           jQuery('.for_home_stu_less_all').slideUp(500);
@@ -112,7 +112,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
 // home page - company
 FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compile) {
  // home page - company - default
-  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3")
       .then(function successCallback(response){
           $scope.dbcompany = response.data;
       }, function errorCallback(response){
@@ -120,7 +120,7 @@ FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compi
   });
   // home page - company - show all and less all
   $scope.showall_companyvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_com_less_all').is(":visible")){
           jQuery('.for_home_com_less_all').slideUp(500);
@@ -135,9 +135,9 @@ FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compi
                                         +'<span class="link-new">New</span>'
                                         +'<div class="box-inside-content">'
                                             +'<span class="logo-companies">'
-                                              +'<img src="'+response.data[i].company_logo+'" class="img-responsive">'
+                                              +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
                                             +'</span>'
-                                              +'<h6 class="h6 custom-h6">'+response.data[i].company+'</h6>'
+                                              +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
                                               +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</a>'
@@ -156,6 +156,134 @@ FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compi
   }
 });
 
+FirstSynch.controller("all_companies_namess" ,function ($scope, $http,$routeParams,apiUrl) {
+
+  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=name")
+      .then(function successCallback(response){
+          $scope.all_company_names = response.data;
+      }, function errorCallback(response){
+          console.log("Unable to perform get top 3 company details");
+  });
+
+});
+FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$routeParams,apiUrl,$timeout,$compile) {
+    $scope.dashboard_filter_form = function(){
+        var keywords = '';
+        var industries = '';
+        var salary = '';
+        var employee_type ='';
+        var skiills = '';
+        var companyd = '';
+        $('.filtered_kw_industry').empty();
+        $('.all_industry_type .checkbox-input:checked').each(function(){
+            keywords += ','+$(this).next().text();
+        });
+        if(keywords.substring(1)==''){
+            $('.filtered_kw_industry').text('Not specified');
+            industries = '';
+        }
+        else{
+            $('.filtered_kw_industry').text(keywords.substring(1));
+            industries = keywords.substring(1);
+        }
+        if($('.all_salary_range .salary_range:checked').val() === undefined){
+            $('.filtered_kw_salary').text('Not specified');
+            salary ='';
+        }
+        else{
+            $('.filtered_kw_salary').text('$'+$('.all_salary_range .salary_range:checked').val());
+            salary = $('.all_salary_range .salary_range:checked').val();
+        }
+        if($('.all_employeement_type .employement:checked').val() === undefined){
+            $('.filtered_kw_employement').text('Not specified');
+            employee_type = '';
+        }
+        else{
+            $('.filtered_kw_employement').text($('.all_employeement_type .employement:checked').val());
+            employee_type = $('.all_employeement_type .employement:checked').attr('data-val');
+        }
+        var prev_skill_data = $('.filtered_kw_skills').text();
+        if($('.all_skills_filter .skillname').val() == '' && prev_skill_data.replace(/\s/g, '')=="Notspecified"){
+            $('.filtered_kw_skills').text(prev_skill_data);
+            skiills = '';
+        }
+        else{
+            if(prev_skill_data.replace(/\s/g, '')=="Notspecified"){
+                var new_skill_data = $('.all_skills_filter .skillname').val();
+            }
+            else if($('.all_skills_filter .skillname').val()!='' ){
+                var new_skill_data = prev_skill_data+','+$('.all_skills_filter .skillname').val();
+            }
+            else{
+                var new_skill_data = prev_skill_data;
+            }
+            if(new_skill_data.charAt(0)==','){
+                $('.filtered_kw_skills').text(new_skill_data.substring(1));
+            }
+            else{
+                $('.filtered_kw_skills').text(new_skill_data);
+            }
+            skiills = $('.filtered_kw_skills').text();
+        }
+
+        $('.all_skills_filter .skillname').val('');
+        var companies = '';
+        $('.filtered_kw_company').empty();
+        $('.all_company_filter .checkbox-input:checked').each(function(){
+            companies += ','+$(this).next().text();
+        });
+        if(companies.substring(1)==''){
+            $('.filtered_kw_company').text('Not specified');
+            companyd = '';
+        }
+        else{query_params
+            $('.filtered_kw_company').text(companies.substring(1));
+            companyd = companies.substring(1);
+        }
+
+        var query_params = '?';
+        if(industries != ''){
+            query_params += 'industry='+industries;
+        }
+        if(salary != ''){
+            query_params += '&salary_range='+salary;
+        }
+        if(employee_type != ''){
+            query_params += '&employement_type='+employee_type;
+        }
+        if(skiills != ''){
+            query_params += '&skills='+skiills;
+        }
+        if(companyd != ''){
+            query_params += '&company='+companyd;
+        }
+        $http.get(apiUrl+"api/v1/career_fairs/video_filter/"+query_params)
+            .then(function successCallback(response){
+                //$scope.video_filter_results = response.data;
+                jQuery.each(response.data, function(i) {
+                  var video_fileter_search_resul = '<div class="col-sm-4">'
+                                                      +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+                                                          +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
+                                                          +'<div class="overlay "></div>'
+                                                          +'<span class="arrow-triangle"></span> <span class="link-new">New</span>'
+                                                          +'<div class="box-inside-content">'
+                                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                                          +'</div>'
+                                                      +'</a>'
+                                                  +'</div>';
+                    angular.element(jQuery('.video_filter_search_result')).append($compile(video_fileter_search_resul)($scope));
+
+                });
+            }, function errorCallback(response){
+                console.log("Unable to perform get top 3 company details");
+        });
+    };
+});
+FirstSynch.controller("page_reload" ,function ($scope,$route) {
+    $scope.reloadRoute = function() {
+        $route.reload();
+    }
+});
 /////////////////////////////////// filters ////////////////////////////////////
 
 FirstSynch.filter('startFrom', function() {
@@ -167,5 +295,12 @@ FirstSynch.filter('startFrom', function() {
         return [];
     }
 });
-
+FirstSynch.filter('removeSpaces', function() {
+    return function(string) {
+        if (!angular.isString(string)) {
+            return string;
+        }
+        return string.replace(/[\s]/g, '');
+    };
+});
 ////////////////////////////////// Directives //////////////////////////////////////

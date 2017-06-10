@@ -9,16 +9,16 @@
 	    </div>
 	    <div class="row custom-row-10 for_home_com_less_all" >
 	      	<div class="col-sm-4" ng-repeat="nmember in newest_member | limitTo:9">
-	      		<a href="" ng-click="StudentStudentvideoPopup(nmember.id)" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">
+	      		<a href="" ng-click="videoPopup(nmember.id)" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">
 	      			<img ng-src="{{nmember.thumbnail}}" class="img-responsive custom-img-responsive">
 	        		<div class="overlay "></div>
 	        		<span class="arrow-triangle"></span>
 	        		<span class="link-new">New</span>
 	        		<div class="box-inside-content">
 	          			<span class="logo-companies">
-	          				<img ng-src="{{nmember.company_logo}}" class="img-responsive">
+	          				<img ng-src="{{nmember.student.profile_picture}}" class="img-responsive">
 	          			</span>
-	                	<h6 class="h6 custom-h6">{{nmember.company}}</h6>
+	                	<h6 class="h6 custom-h6">{{nmember.student.first_name}}</h6>
 	              		<h1 class="h1 custom-gallery-h1">{{nmember.title}}</h1>
 	        		</div>
 	        	</a>
