@@ -36,7 +36,7 @@ FirstSynch.controller("student_cfdstudents" , function ($scope, $http, apiUrl, $
           jQuery('.for_home_stu_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var students_showall =   '<div class="col-sm-4">'
-                                        +'<a data-id="'+response.data[i].id+'" ng-click="StudentvideoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+                                        +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
                                           +'<img src="'+response.data[i].company_logo+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'
@@ -80,7 +80,7 @@ FirstSynch.controller("student_cfdcompany" , function ($scope, $http, apiUrl, $c
           jQuery('.for_home_com_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var company_showall =   '<div class="col-sm-4">'
-                                      +'<a href="#" data-id="'+response.data[i].id+'" ng-click="StudentvideoPopup('+response.data[i].id+')"  class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+                                      +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
                                         +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'

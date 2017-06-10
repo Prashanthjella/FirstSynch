@@ -9,7 +9,7 @@ var FirstSynch = angular.module("CompanyDashboard", ["ngRoute"]);
 // home page - featured video
 FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl, $compile) {
   // home page - featured video - default
-  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5")
       .then(function successCallback(response){
           $scope.feature = response.data;
       }, function errorCallback(response){
@@ -17,7 +17,7 @@ FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl, $
   });
   // home page - featured video - showall and lessall
   $scope.showall_featuredvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
         if(jQuery('.less_all_purpose').is(":visible")){
           jQuery('.less_all_purpose').slideUp(500);
@@ -30,8 +30,8 @@ FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl, $
               +'<div class="overlay "></div>'
               +'<span class="arrow-triangle"></span>'
               +'<div class="box-inside-content">'
-                  +'<span class="logo-companies"><img src="'+response.data[i].company_logo+'" class="img-responsive"></span>'
-                  +'<h6 class="h6 custom-h6">'+response.data[i].company+'</h6>'
+                  +'<span class="logo-companies"><img src="'+response.data[i].company.logo+'" class="img-responsive"></span>'
+                  +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
                 +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
               +'</div>'
               +'</a>'
@@ -66,7 +66,7 @@ FirstSynch.controller("company_mostrecentedfairvideo" , function ($scope, $http,
 // home page - students
 FirstSynch.controller("company_dbstudents" , function ($scope, $http, apiUrl, $compile) {
   // home page - students - default
-  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3")
       .then(function successCallback(response){
           $scope.dbstudents = response.data;
       }, function errorCallback(response){
@@ -74,7 +74,7 @@ FirstSynch.controller("company_dbstudents" , function ($scope, $http, apiUrl, $c
   });
   // home page - students - showall and lessall
   $scope.showall_studentsvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_stu_less_all').is(":visible")){
           jQuery('.for_home_stu_less_all').slideUp(500);
@@ -109,7 +109,7 @@ FirstSynch.controller("company_dbstudents" , function ($scope, $http, apiUrl, $c
 // home page - company
 FirstSynch.controller("company_dbcompany" , function ($scope, $http, apiUrl,$compile) {
  // home page - company - default
-  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3&fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3")
       .then(function successCallback(response){
           $scope.dbcompany = response.data;
       }, function errorCallback(response){
@@ -117,7 +117,7 @@ FirstSynch.controller("company_dbcompany" , function ($scope, $http, apiUrl,$com
   });
   // home page - company - show all and less all
   $scope.showall_companyvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_com_less_all').is(":visible")){
           jQuery('.for_home_com_less_all').slideUp(500);
@@ -132,9 +132,9 @@ FirstSynch.controller("company_dbcompany" , function ($scope, $http, apiUrl,$com
                                         +'<span class="link-new">New</span>'
                                         +'<div class="box-inside-content">'
                                             +'<span class="logo-companies">'
-                                              +'<img src="'+response.data[i].company_logo+'" class="img-responsive">'
+                                              +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
                                             +'</span>'
-                                              +'<h6 class="h6 custom-h6">'+response.data[i].company+'</h6>'
+                                              +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
                                               +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</a>'

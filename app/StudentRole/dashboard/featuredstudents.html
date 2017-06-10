@@ -11,13 +11,13 @@
     </div>
     <div class="row custom-row-10 less_all_purpose">
       <div class="col-sm-6" ng-repeat="vid in feature | limitTo:2">
-        <a href="#" data-id="{{vid.id}}" ng-click="StudentStudentvideoPopup(vid.id)" class = "thumbnail custom-large-image-gallery customn-thumbs-color-02">
+        <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class = "thumbnail custom-large-image-gallery customn-thumbs-color-02">
           <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
           <div class="overlay "></div>
           <span class="arrow-triangle"></span> <span class="link-new">New</span>
           <div class="box-inside-content">
-            <span class="logo-companies"><img ng-src="{{vid.company_logo}}" class="img-responsive"></span>
-                <h6 class="h6 custom-h6">{{vid.company}}</h6>
+            <span class="logo-companies"><img ng-src="{{vid.company.logo}}" class="img-responsive"></span>
+                <h6 class="h6 custom-h6">{{vid.company.name}}</h6>
               <h1 class="h1 custom-gallery-h1">{{vid.title}}</h1>
           </div>
         </a>
@@ -26,13 +26,13 @@
 
     <div class="row custom-row-10 less_all_purpose">
       <div class="col-sm-4 custom-cols-thumbs-4" ng-repeat="sm_vid in feature | startFrom : 2 | limitTo: 3">
-        <a href="#" data-id="{{sm_vid.id}}" ng-click="StudentStudentvideoPopup(sm_vid.id)" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-01">
+        <a href="#" data-id="{{sm_vid.id}}" ng-click="videoPopup(sm_vid.id)" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-01">
           <img ng-src="{{sm_vid.thumbnail}}" class="img-responsive custom-img-responsive">
           <div class="overlay "></div>
           <span class="arrow-triangle"></span>
           <div class="box-inside-content">
-          <span class="logo-companies"><img ng-src="{{sm_vid.company_logo}}" class="img-responsive"></span>
-                <h6 class="h6 custom-h6">{{sm_vid.company}}</h6>
+          <span class="logo-companies"><img ng-src="{{sm_vid.company.logo}}" class="img-responsive"></span>
+                <h6 class="h6 custom-h6">{{sm_vid.company.name}}</h6>
               <h1 class="h1 custom-gallery-h1">{{sm_vid.title}}</h1>
           </div>
         </a>
