@@ -33,11 +33,7 @@
             <div class="col-sm-4">
               <ul class="nav nav-tabs custom-tabs-model" role="tablist">
                 <li role="presentation" class="active" ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
-<<<<<<< HEAD
-                  <a href="javascript:void(0)" class="" onclick='jwplayer().seek({chapter.cue_points})'>{{chapter.title}}</a>
-=======
-                  <a href="javascript:void(0)" class="" onclick='jwplayer().seek(10)'>{{video.title}}</a>
->>>>>>> 6a9b90eea6db47e1027a06771d3c197ccb6e9515
+                  <a href="javascript:void(0);" ng-click="jwplayer().seek({{chapter.cue_points}})">{{chapter.title}}</a>
                 </li>
               </ul>
             </div>
