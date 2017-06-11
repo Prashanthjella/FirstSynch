@@ -33,7 +33,7 @@ FirstSynch.controller("guest_upcoming_career_fair" ,function ($scope, $http,$rou
     }, function errorCallback(response){
         console.log("Unable to perform get upcoming career fair");
     });
-    
+
     $scope.careerfair_filters = function(obj){
     	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.dataupcomingval.value = obj.currentTarget.attributes.datavalue.value;
     	var upcoming_data = $('#upcoming').attr('dataupcomingval');
@@ -49,7 +49,7 @@ FirstSynch.controller("guest_upcoming_career_fair" ,function ($scope, $http,$rou
     	if(company_data != ''){
     		query_string += '&company='+company_data;
     	}
-    	
+
  		$http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?"+query_string)
 	    .then(function successCallback(response){
 	    	$scope.visible = false;
@@ -61,25 +61,31 @@ FirstSynch.controller("guest_upcoming_career_fair" ,function ($scope, $http,$rou
 	        console.log("Unable to perform get upcoming career fair");
 	    });
     };
-    
+
 
 });
 
 // career fair page - near by all career fair
 FirstSynch.controller("all_career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl) {
-
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=all&location=Chennai&fields=id,image,start_date,city,state,title")
-    .then(function successCallback(response){
-        $scope.all_career_fair_near_current_user = response.data;
-    }, function errorCallback(response){
-        console.log("Unable to perform get career fair near for current user");
+    var current_city = function (){
+        return $http.get("https://ipinfo.io").then(function successCallback(response) {
+            $scope.current_city = response.data.city;
+        });
+    };
+    current_city().then(function(data) {
+        $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=all&location="+$scope.current_city)
+        .then(function successCallback(response){
+            $scope.all_career_fair_near_current_user = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get career fair near for current user");
+        });
     });
 
 });
 // career fair page - near by all career fair
 FirstSynch.controller("all_career_fair_near_user_city" ,function ($scope, $http,$routeParams,apiUrl) {
 
-    $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=all&fields=city")
+    $http.get(apiUrl+"api/v1/career_fairs/api/v1/career_fair_city/")
     .then(function successCallback(response){
         $scope.all_career_fair_near_current_user_city = response.data;
     }, function errorCallback(response){
@@ -119,16 +125,16 @@ FirstSynch.directive('upcomingMenu', function() {
         // set the initial value
         var $el = $(element);
         scope.upcomingMenu = $el.find('li:first').text();
-        
+
         // listen for changes
         $el.on('click', 'li', function() {
           scope.upcomingMenu = $(this).text();
-          scope.$apply(); 
+          scope.$apply();
         });
       }
     };
   });
-  
+
 FirstSynch.directive('cityMenu', function() {
     return {
       restrict: 'A',
@@ -139,16 +145,16 @@ FirstSynch.directive('cityMenu', function() {
         // set the initial value
         var $el = $(element);
         scope.cityMenu = $el.find('li:first').text();
-        
+
         // listen for changes
         $el.on('click', 'li', function() {
           scope.cityMenu = $(this).text();
-          scope.$apply(); 
+          scope.$apply();
         });
       }
     };
   });
-  
+
 FirstSynch.directive('companyMenu', function() {
     return {
       restrict: 'A',
@@ -159,11 +165,11 @@ FirstSynch.directive('companyMenu', function() {
         // set the initial value
         var $el = $(element);
         scope.companyMenu = $el.find('li:first').text();
-        
+
         // listen for changes
         $el.on('click', 'li', function() {
           scope.companyMenu = $(this).text();
-          scope.$apply(); 
+          scope.$apply();
         });
       }
     };

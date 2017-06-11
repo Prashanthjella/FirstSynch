@@ -1,4 +1,4 @@
-<section class="page-section video-profile">
+<section class="page-section video-profile" ng-if=" company_profile_details.video > 0">
     <div class="row custom-row-15">
         <div class="col-sm-6" ng-repeat="cmpny_video in company_profile_details.company.video">
             <a href="" ng-click="videoPopup(cmpny_video.id)" class="thumbnail custom-large-image-gallery customn-thumbs-color-01">

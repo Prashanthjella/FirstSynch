@@ -10,19 +10,19 @@
 	    	<div class="page-header custom-page-header" ng-controller="top_three_companies">
 	      		<div class="pull-left">
 	        		<h2 class="h2 custom-title"> Show companies from
-	                    <span  class="dropdown" ng-controller="all_companies">
+	                    <span  class="dropdown" ng-controller="all_cities_list">
 	        				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_com_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allcities</span>
 			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
 			        			<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
-			    				<li ng-click="company_filters($event)"  ng-repeat="allcities in all_company | unique:'city.name'| orderBy : 'city.name'" datavalue="{{allcities.city.name}}"><a href="" title="cities">{{allcities.city.name}}</a></li>
+			    				<li ng-click="company_filters($event)"  ng-repeat="allcities in all_city_list | unique:'city'| orderBy : 'city'" datavalue="{{allcities.city}}"><a href="" title="cities">{{allcities.city}}</a></li>
 							</ul>
 	    				</span>
 	                    , specializing in
 	                    <span class="dropdown" ng-controller="company_category">
 	        				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_com_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allindustries</span>
 			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
-			    				<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allcompanies</a></li>
-			    				<li ng-click="company_filters($event)" ng-repeat="compa_cate in company_cate " datavalue="{{compa_cate.industry_type}}"><a href="" title="upcoming">{{compa_cate.industry_type}}</a></li>
+			    				<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allindustries</a></li>
+			    				<li ng-click="company_filters($event)" ng-repeat="compa_cate in company_cate | unique:'category'| orderBy : 'category' " datavalue="{{compa_cate.category}}"><a href="" title="upcoming">{{compa_cate.category}}</a></li>
 							</ul>
 	    				</span>
 	        		</h2>
@@ -41,7 +41,7 @@
 		        		<div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{ comp.company.logo }}" class="logo-companies-box"> </div>
 		        		<div class="company-heading-group">
 		          			<h4 class="h4 custom-h4">{{ comp.company.name }} </h4>
-		          			<h5>{{ comp.company.city.name }}, {{ comp.company.state.name }}, {{ comp.company.country.name }}</h5>
+		          			<h5>{{ comp.company.city }}, {{ comp.company.state }}, {{ comp.company.country }}</h5>
 		        		</div>
 					</a>
 	      		</div>

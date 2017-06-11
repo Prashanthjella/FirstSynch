@@ -1,13 +1,13 @@
 	<!--[Top 3 Comapnies Section Start]-->
 	<section class="page-section page-bg-gray page-section-companies">
 	  	<div class="container">
-	   		<div class="page-header custom-page-header">
+	   		<div class="page-header custom-page-header" ng-controller="all_studentss">
 	      		<div class="pull-left">
 	        		<h1 class="h2 custom-page-h2">Students</h1>
-    				<div>0 students</div>
+    				<div>{{all_student.length}} students</div>
 	      		</div>
     		</div>
-	    	<div class="page-header custom-page-header">
+	    	<!-- <div class="page-header custom-page-header">
 	      		<div class="pull-left">
 	        		<h2 class="h2 custom-title"> Show studnets from
 	        			<span class="dropdown">
@@ -56,8 +56,8 @@
 	        			</span>
 	        		</h2>
 	      		</div>
-	    	</div>
-	    	<div class="row custom-row-35 top_three_company_act" ng-controller="top_three_students">
+	    	</div> -->
+	    	<div class="row custom-row-35 top_three_company_act" ng-controller="top_three_students" ng-if="top_three_student.length > 0">
 	      		<div class="col-sm-12">
 	        		<div class="page-header custom-page-header">
 	          			<div class="pull-left">

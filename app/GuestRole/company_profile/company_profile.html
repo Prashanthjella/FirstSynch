@@ -22,7 +22,7 @@
 <div class="page-about-we-hiresection">
     <div ng-include ="'GuestRole/company_profile/company_wehire.html'"></div>
     <div ng-include ="'GuestRole/company_profile/company_position.html'"></div>
-    <div ng-include ="'GuestRole/company_profile/company_skills.html'"></div>
+    <div ng-include ="'GuestRole/company_profile/company_skill.html'"></div>
     <div ng-include ="'GuestRole/company_profile/company_questions.html'"></div>
 </div>
 <div class="page-about-company">
@@ -36,7 +36,7 @@
         </div>
     </section>
 </div>
-<section class="page-section page-section-career-fair" id="career-fairs">
+<section class="page-section page-section-career-fair" id="career-fairs" ng-if ="company_profile_details.career_fair > 0">
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">

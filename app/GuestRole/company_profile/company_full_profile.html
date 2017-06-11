@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6 col-sm-offset-1">
             <img src="assets/images/establishment-img.png" class="img-responsive" alt="">
-            <div class="text-date-establishment">{{company_profile_details.company.establishment_date| date:"y"}}</div>
+            <div class="text-date-establishment">{{company_profile_details.establishment_date| date:"y"}}</div>
         </div>
 
     </div>
@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-sm-6 pull-left">
             <img src="assets/images/skills-img.png" class="img-responsive" alt="">
-            <div class="text-intership">{{company_profile_details.company.internships_to_jobs}}</div>
+            <div class="text-intership">{{company_profile_details.internships_to_jobs}}</div>
         </div>
 
         <div class="col-sm-6">
@@ -26,7 +26,7 @@
                 Internships
             </h1>
             <h3 class="">that turn into full-time jobs</h3>
-            <p class="">{{company_profile_details.company.internships_job_description}}</p>
+            <p class="">{{company_profile_details.internships_job_description}}</p>
         </div>
 
     </div>
@@ -37,12 +37,12 @@
             <h1 class="custom-h1-02">
                 Company Size
             </h1>
-            <p class="">{{company_profile_details.company.company_size_description}}</p>
+            <p class="">{{company_profile_details.company_size_description}}</p>
         </div>
         <div class="col-sm-5 col-sm-offset-1">
             <img src="assets/images/company-size-icon.png" class="img-responsive" alt="">
             <div class="text-company-size">
-                {{company_profile_details.company.company_size}}+
+                {{company_profile_details.company_size}}+
                 <span class="medium-text">people work for us</span>
             </div>
         </div>
@@ -56,12 +56,12 @@
                 Hire Rates
             </h1>
             <p>
-                <span class="large-text bold-text green-text">{{company_profile_details.company.hire_rates}}</span>
+                <span class="large-text bold-text green-text">{{company_profile_details.hire_rates}}</span>
                 <span class="bold-text"> people per year</span>
             </p>
             <div class="row">
                 <div class="col-sm-8">
-                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.company.hire_rates_description}}</p>
+                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.hire_rates_description}}</p>
                 </div>
             </div>
         </div>
@@ -70,12 +70,12 @@
                 Departure Rates
             </h1>
             <p>
-                <span class="large-text bold-text green-text">{{company_profile_details.company.departure_rate}}</span>
+                <span class="large-text bold-text green-text">{{company_profile_details.departure_rate}}</span>
                 <span class="bold-text"> people per year</span>
             </p>
             <div class="row">
                 <div class="col-sm-8">
-                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.company.departure_rate_description}}</p>
+                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.departure_rate_description}}</p>
                 </div>
             </div>
         </div>
@@ -104,11 +104,11 @@
                 Company Growth Rate
             </h1>
             <h3 class="">during the last 10 years</h3>
-            <p class="">{{company_profile_details.company.growth_rate_description}}</p>
+            <p class="">{{company_profile_details.growth_rate_description}}</p>
         </div>
         <div class="col-sm-6 pull-left">
             <img src="assets/images/growth-img.png" class="img-responsive" alt="">
-            <div class="txt-company-growth">+{{company_profile_details.company.growth_rate|number:0}}%</div>
+            <div class="txt-company-growth">+{{company_profile_details.growth_rate|number:0}}%</div>
         </div>
 
     </div>
@@ -119,12 +119,12 @@
             <h1 class="custom-h1-02">
                 Investor Confidence
             </h1>
-            <p class="">{{company_profile_details.company.investor_conf_description}}</p>
+            <p class="">{{company_profile_details.investor_conf_description}}</p>
         </div>
         <div class="col-sm-7">
             <img src="assets/images/investor-bg.png" class="img-responsive" alt="">
             <div class="txt-investor">
-                {{company_profile_details.company.investor_confidence|number:2}}
+                {{company_profile_details.investor_confidence|number:2}}
                 <span class="txt-investor-02"><i class="fa fa-long-arrow-down"></i> 6.5</span>
             </div>
         </div>

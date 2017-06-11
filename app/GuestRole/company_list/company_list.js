@@ -28,7 +28,7 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
 	if(company_data != ''){
 		query_string += '&category='+company_data;
 	}
-    	
+
     $('.allcompanies_act').hide();
     $('.companies_act_categ').hide();
     $('.top_three_company_act').hide();
@@ -45,7 +45,7 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
                                     +'</div>'
                                     +'<div class="media-body">'
                                         +'<h4 class="media-heading">'+response.data[i].name+'</h4>'
-                                        +'<h5 class="media-eading-h5">'+response.data[i].city.name+', '+response.data[i].state.name+'</h5>'
+                                        +'<h5 class="media-eading-h5">'+response.data[i].city+', '+response.data[i].state+'</h5>'
                                     +'</div>'
                                     +'<div> </div>'
                                 +'</div>'
@@ -77,7 +77,7 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
 //company page - company category
 FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/setups/company_categories/?fields=id,industry_type,related_company,name,logo,city,state")
+  $http.get(apiUrl+"api/v1/setups/company_categories/")
       .then(function successCallback(response){
           $scope.company_cate = response.data;
       }, function errorCallback(response){
@@ -89,9 +89,19 @@ FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,a
 //company page - All companies
 FirstSynch.controller("all_companies" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all&fields=id,name,logo,city,state,country")
+  $http.get(apiUrl+"api/v1/setups/top3_companies/?count=all")
       .then(function successCallback(response){
           $scope.all_company = response.data;
+      }, function errorCallback(response){
+          console.log("Unable to perform get top 3 company details");
+  });
+
+});
+FirstSynch.controller("all_cities_list" ,function ($scope, $http,$routeParams,apiUrl) {
+
+  $http.get(apiUrl+"api/v1/career_fairs/api/v1/career_fair_city/")
+      .then(function successCallback(response){
+          $scope.all_city_list = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get top 3 company details");
   });
