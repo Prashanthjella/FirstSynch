@@ -49,15 +49,8 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
                                     +'</div>'
                                     +'<div> </div>'
                                 +'</div>'
-                                +'<p class="para-company">'+response.data[i].city.description+'</p>'
-                                +'<!--<div class="row custom-row-5">'
-                                    +'<div class="col-sm-6">'
-                                        +'<a class="thumbnail customn-thumbs-color-09 custom-thumbs-box-views">'
-                                            +'<img src="assets/images/img1.png">'
-                                            +'<div class="overlay "></div>'
-                                            +'<span class="icon-btn-play"></span>'
-                                        +'</a>'
-                                    +'</div>'
+                                +'<p class="para-company">'+response.data[i].description+'</p>'
+                                +'<div class="row custom-row-5">'
                                     +'<div class="col-sm-6">'
                                         +'<a class="thumbnail customn-thumbs-color-09 custom-thumbs-box-views">'
                                             +'<img src="assets/images/img1.png">'
@@ -66,7 +59,7 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
                                         +'</a>'
                                     +'</div>'
                                 +'</div>'
-                            +'</div>--></a>';
+                            +'</div></a>';
         angular.element(jQuery('.company_search_result')).append($compile(search_result)($scope));
        });
     }, function errorCallback(response){
