@@ -1,0 +1,35 @@
+<div id="professional" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
+    <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="professionalskillmessage">{{professionalskillmessage}}</div>
+        <h1 class="page-title">Professional</h1>
+        <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="professionalskill in skillsetprofessionalform | filter:{skill_type:'Professional'}">
+            <input id="professionalskill" class="checkbox-input" checked="" type="checkbox">
+            <label for="professionalskill" class="checkbox-label"> {{professionalskill.name}} - {{professionalskill.rating}}</label>
+        </div>
+        <form  ng-submit="professionalskillsubmit()">
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-grou">
+                        <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
+                        <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.skill_type" name="skill_type">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Name</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.name" name="name" placeholder="Skill Name">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Rating</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating">
+                    </div>
+                </div>
+                <input type="submit" value="Submit" />
+                <!-- <hr class="hr-line-lidership"> -->
+            </div>
+            <!-- <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
+            </div> -->
+        </form>
+    </div>
+</div>

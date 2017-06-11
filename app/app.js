@@ -32,6 +32,7 @@ var FirstSynch = angular.module("firstSync", [
     "CcompanyProfile",
     "CemployeeProfile",
     "CompanyEditProfile",
+    "EmployeeEditProfile",
     "Search"
 ]);
 
