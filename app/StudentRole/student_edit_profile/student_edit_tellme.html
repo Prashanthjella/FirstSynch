@@ -1,16 +1,15 @@
 <div id="proudest-achievement" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
         <h1 class="page-title text-center">About Me</h1>
+        <form>
         <div class="content-group">
-          <p class="text-center">
-              <div>
+          <input type="text" id="title" name="title" placeholder="Please enter your title" />
+          <input type="text" id="skill_text" name="skill_text" placeholder="Enter your skills with comma separated" />
+
+              <div class="col-md-5">
                   <input type="file" class="file_multi_video" accept="video/*" id="file" name="file" multiple
                       onchange="angular.element(this).scope().getFileDetails(this)" />
-                  <input type="button" class="btn btn-default custom-btn btn-lg" ng-click="uploadFiles()" value="Upload" />
-                  <p><progress id="pro" value="0"></progress></p>
               </div>
-          </p>
-
 
           <section id="main-slider" class="no-margin">
               <div class="container">
@@ -46,7 +45,7 @@
       							</div>
       							<h4>Return</h4>
       							<div class="col-sm-12">
-      								<textarea id="result" class="form-control"></textarea>
+      								<textarea id="result" ng-model="video_chapters" class="form-control"></textarea>
       							</div>
       						</div>
 
@@ -56,6 +55,10 @@
       			</div>
       		</div>
           </section>
+          <div class="col-md-5">
+              <input type="button" class="btn btn-default" ng-click="uploadFiles()" value="Upload" />
+          </div>
+        </form>
 
         </div>
     </div>

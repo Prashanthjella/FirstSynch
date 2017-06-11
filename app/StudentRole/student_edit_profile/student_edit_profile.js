@@ -31,14 +31,21 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
           for (var i in $scope.files) {
               data.append("video_file", $scope.files[i]);
           }
-
+          alert(angular.element('#result')[0].value);
+          data.append("title", angular.element('#title')[0].value);
+          data.append("student", $rootScope.stud_id);
+          data.append("skill_text", angular.element('#skill_text')[0].value);
+          data.append("video_chapters", angular.element('#result')[0].value);
+          data.append("student_video", 'True');
+          data.append("active", 'True');
+          data.append("published", 'True');
           // ADD LISTENERS.
           var objXhr = new XMLHttpRequest();
           objXhr.addEventListener("progress", updateProgress, false);
           objXhr.addEventListener("load", transferComplete, false);
 
           // SEND FILE DETAILS TO THE API.
-          objXhr.open("POST", "http://localhost:8000/api/v1/career_fairs/api/v1/video/");
+          objXhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/");
           objXhr.send(data);
       }
 
@@ -402,6 +409,17 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
 
 FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope, $http, apiUrl) {
+    // GET THE FILE INFORMATION.
+    $scope.getFileDetails = function (e) {
+        $scope.files = [];
+        $scope.$apply(function () {
+            for (var i = 0; i < e.files.length; i++) {
+                $scope.files.push(e.files[i])
+            }
+
+        });
+    };
+
     $scope.basicprofileform = {
         id:"",
         user:"",
@@ -409,13 +427,14 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
         last_name : "",
         dob : "",
         gender : "",
+        category : "",
         facebook_url : "",
         linkedin_url : "",
         twitter_url : "",
         website : "",
         stackoverflow_url:"",
         github_url:"",
-        //profile_picture:"",
+        profile_picture:"",
         about_me:""
     };
     // student basic profile get information
@@ -428,6 +447,7 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
             $scope.basicprofileform.last_name = response.data[0].last_name;
             $scope.basicprofileform.dob = response.data[0].dob;
             $scope.basicprofileform.gender = response.data[0].gender;
+            $scope.basicprofileform.category = response.data[0].category;
             $scope.basicprofileform.facebook_url = response.data[0].facebook_url;
             $scope.basicprofileform.linkedin_url = response.data[0].linkedin_url;
             $scope.basicprofileform.twitter_url = response.data[0].twitter_url;
@@ -435,31 +455,38 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
             $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
             $scope.basicprofileform.github_url = response.data[0].github_url;
             $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
-            // $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
+            $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
             $scope.basicprofileform.about_me = response.data[0].about_me;
+            $scope.basicprofileform.about_me = response.data[0].profile_picture;
         }, function errorCallback(response){
             console.log("Unable to perform get student basic profile details");
     });
 
     $scope.basicprofilesubmit = function(){
-        var data = {
+      //var pro_image = new FormData();
+      //for (var i in $scope.files) {
+      //    pro_image.append("profile_picture", $scope.files[i]);
+      //}
+
+      var data = {
             user:$scope.basicprofileform.user,
             first_name : $scope.basicprofileform.first_name,
             last_name: $scope.basicprofileform.last_name,
             dob: $scope.basicprofileform.dob,
             gender: $scope.basicprofileform.gender,
+            category: $scope.basicprofileform.category,
             facebook_url: $scope.basicprofileform.facebook_url,
             linkedin_url: $scope.basicprofileform.linkedin_url,
             twitter_url: $scope.basicprofileform.twitter_url,
             website: $scope.basicprofileform.website,
             github_url:$scope.basicprofileform.github_url,
             stackoverflow_url:$scope.basicprofileform.stackoverflow_url,
-            //profile_picture:$scope.basicprofileform.profile_picture,
+            //profile_picture:pro_image,
             about_me:$scope.basicprofileform.about_me
 
         };
         // alert(JSON.stringify(data));
-        $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",JSON.stringify(data))
+        $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
         .then(function (response) {
             $scope.basicprofilemessage = 'Successfully updated';
         });

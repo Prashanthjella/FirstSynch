@@ -31,6 +31,21 @@
                         </select>
                     </div>
                     <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Category</label>
+                        <select name="category" ng-model="basicprofileform.category">
+                            <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
+                            <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
+                            <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
+                            <option value="Number Cruncher" ng-selected="{{ basicprofileform.category == 'Number Cruncher' }}">Number Cruncher</option>
+                            <option value="Builder" ng-selected="{{ basicprofileform.category == 'Builder' }}">Builder</option>
+                            <option value="Negotiator" ng-selected="{{ basicprofileform.category == 'Negotiator' }}">Negotiator</option>
+                            <option value="Entrepreneur" ng-selected="{{ basicprofileform.category == 'Entrepreneur' }}">Entrepreneur</option>
+                            <option value="Entertainer" ng-selected="{{ basicprofileform.category == 'Entertainer' }}">Entertainer</option>
+                            <option value="Organizer" ng-selected="{{ basicprofileform.category == 'Organizer' }}">Organizer</option>
+                            <option value="Social Butterfly" ng-selected="{{ basicprofileform.category == 'Social Butterfly' }}">Social Butterfly</option>
+                        </select>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Social Network Link</label>
                         <input type="text" class="form-control custom-textbox"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
                         <input type="text" class="form-control custom-textbox" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
@@ -50,6 +65,12 @@
                         <label class="text-uppercase">About me</label>
                         <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
                     </div>
+                    <!--<div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Profile Image</label>
+                        <input type="file" class="file_multi_video" id="file" accept="image/*" name="file" multiple
+                            onchange="angular.element(this).scope().getFileDetails(this)" />
+                        <img src="basicprofileform.profile_picture"/>
+                    </div>-->
                 </div>
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
