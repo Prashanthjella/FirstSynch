@@ -108,6 +108,11 @@
     <script src="CompanyRole/company_profile/company_profile.js"></script>
     <script src="CompanyRole/employee_profile/employee_profile.js"></script>
     <script src="CompanyRole/company_edit_profile/company_edit_profile.js"></script>
-
+    <script>
+      $(document).ready(function ({
+        $('.cue_pt').click(function ({
+          jwplayer().seek($(this).attr('data'));
+        });
+      });
     </body>
 </html>
