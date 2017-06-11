@@ -1,20 +1,23 @@
-<!--[Company category Section Start]-->
-<section class="page-section  page-section-employees">
+<!--[Student category Section Start]-->
+<section class="page-section  page-section-employees companies_act_categ"  ng-controller="student_category">
     <div class="container">
         <div class="row custom-row-35">
-            <div class="col-sm-4">
+            <div class="col-sm-4"  ng-repeat="student_det in student_cate | limitTo:3">
                 <div class="panel panel-default custom-panne1-companies">
                     <!-- Default panel contents -->
                     <div class="panel-heading custom-panel-heading-companies">
-                        <h3 class="h3 custom-h3"><span class="small custom-small-h3 pull-right">154</span></h3>
+                        <h3 class="h3 custom-h3">{{ student_det.category }}
+                          <span class="small custom-small-h3 pull-right">{{student_det.students.length}}</span>
+                        </h3>
                     </div>
                     <div class="media-group-container">
-                        <div class="media custom-media">
-                            <a href="#" >
-                                <div class="media-left media-middle custom-media-left"> <img class="media-object custom-media-object" ng-src="" alt="Comopany">  </div>
+                        <div class="media custom-media" ng-repeat="stu in student_det.students">
+                            <a href="/student/{{stu.id}}" >{{student_det.student}}
+                                <div class="media-left media-middle custom-media-left">
+                                  <img class="media-object custom-media-object" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>
                                 <div class="media-body custom-media-body">
-                                    <h4 class="media-heading custom-media-heading"></h4>
-                                    <h5 class="media-eading-h5"></h5>
+                                    <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
+                                    <h5 class="media-eading-h5">{{stu.city}}</h5>
                                     <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
                                     </span>
                                 </div>

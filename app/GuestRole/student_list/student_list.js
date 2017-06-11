@@ -14,7 +14,7 @@ FirstSynch.controller("top_three_students" ,function ($scope, $http,$routeParams
       .then(function successCallback(response){
           $scope.top_three_student = response.data;
       }, function errorCallback(response){
-          console.log("Unable to perform get top 3 company details");
+          console.log("Unable to perform get top 3 student details");
   });
 
 });
@@ -32,7 +32,17 @@ FirstSynch.controller("all_studentss" ,function ($scope, $http,$routeParams,apiU
 });
 /////////////////////////////////// filters ////////////////////////////////////
 
+//student page - student category
+FirstSynch.controller("student_category" ,function ($scope, $http,$routeParams,apiUrl) {
 
+  $http.get(apiUrl+"api/v1/student/api/v1/student_categories/")
+      .then(function successCallback(response){
+          $scope.student_cate = response.data;
+      }, function errorCallback(response){
+          console.log("Unable to perform get student details as category wise");
+  });
+
+});
 
 
 ////////////////////////////////// Directives //////////////////////////////////////
