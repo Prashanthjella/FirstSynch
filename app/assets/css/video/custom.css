@@ -1,4 +1,8 @@
+#main-slider .container {
 
+	width: 100% !important;
+
+}
 #source-list {
 	background-color: #fff;
 	height: 600px;
