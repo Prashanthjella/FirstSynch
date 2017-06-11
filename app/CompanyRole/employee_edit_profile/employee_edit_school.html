@@ -1,0 +1,68 @@
+<div id="my-schools" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
+    <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="educationmessage">{{educationmessage}}</div>
+        <h1 class="page-title">My Schools</h1>
+        <table>
+            <tr>
+                <th>S.no</th>
+                <th>School</th>
+                <th>Major</th>
+                <th>Year Started</th>
+                <th>Graduated Year</th>
+                <th>GPA</th>
+                <th>GPA Rating</th>
+                <th>Action</th>
+            </tr>
+
+            <tr ng-repeat="education in educationform">
+                <td>{{ $index+1 }}</td>
+                <td>{{ education.school_name }}</td>
+                <td>{{ education.year_started }}</td>
+                <td>{{ education.year_graduated }}</td>
+                <td>{{ education.major }}</td>
+                <td>{{ education.gpa }}</td>
+                <td>{{ education.gpa_rating }}</td>
+                <td><a ng-click="editeducation( education )" class="button">Edit</a> | <a ng-click="removeeducation( education )" class="button">Remove</a></td>
+            </tr>
+
+        </table>
+        <!-- <hr class="hr-line-lidership"> -->
+        <form ng-submit="educationsubmit()">
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">School</label>
+                        <input type="hidden" class="form-control custom-textbox" ng-model="educationform.user" name="user">
+                        <input type="text" class="form-control custom-textbox" ng-model="educationform.school_name" placeholder="Company Name">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Major</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="educationform.major" placeholder="Start Date">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Year Started</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="educationform.year_started" placeholder="Start Date">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Graduated Year</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="educationform.year_graduated" placeholder="Graduated Year">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">GPA</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa" placeholder="GPA">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">GPA Rating</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
+                    </div>
+                </div>
+                <input type="submit" value="Submit" />
+            </div>
+            <!-- <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
+            </div> -->
+        </form>
+    </div>
+</div>

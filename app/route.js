@@ -157,6 +157,9 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         controller: 'company_company_profile'
     }).when('/com/employee/profile', {
         templateUrl: 'CompanyRole/employee_profile/employee_profile.html',
+    }).when('/com/employee/editprofile', {
+        templateUrl: 'CompanyRole/employee_edit_profile/employee_edit_profile.html',
+        controller: 'employeeeditprofiles'
     }).when('/com/students', {
         templateUrl: 'CompanyRole/student_list/student_list.html'
     }).when('/com/student/:studentid', {
