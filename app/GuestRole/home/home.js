@@ -260,6 +260,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
         $http.get(apiUrl+"api/v1/career_fairs/video_filter/"+query_params)
             .then(function successCallback(response){
                 //$scope.video_filter_results = response.data;
+                var filter_job_count = 0;
                 jQuery.each(response.data, function(i) {
                   var video_fileter_search_resul = '<div class="col-sm-4">'
                                                       +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
@@ -272,16 +273,25 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
                                                       +'</a>'
                                                   +'</div>';
                     angular.element(jQuery('.video_filter_search_result')).append($compile(video_fileter_search_resul)($scope));
-
+                    filter_job_count++;
                 });
+                angular.element(jQuery('.filter_job_count')).text('('+filter_job_count+' jobs)');
             }, function errorCallback(response){
                 console.log("Unable to perform get top 3 company details");
         });
+    };
+    $scope.reset_filter_form = function(){
+        angular.element(jQuery('.filtered_kw_industry,.filtered_kw_salary,.filtered_kw_employement,.filtered_kw_skills,.filtered_kw_company')).text('Not specified');
+        angular.element(jQuery('.filter_job_count,.video_filter_search_result')).empty();
+        $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
     };
 });
 FirstSynch.controller("page_reload" ,function ($scope,$route) {
     $scope.reloadRoute = function() {
         $route.reload();
+        angular.element(jQuery('.filtered_kw_industry,.filtered_kw_salary,.filtered_kw_employement,.filtered_kw_skills,.filtered_kw_company')).text('Not specified');
+        angular.element(jQuery('.filter_job_count,.video_filter_search_result')).empty();
+        $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
     }
 });
 /////////////////////////////////// filters ////////////////////////////////////

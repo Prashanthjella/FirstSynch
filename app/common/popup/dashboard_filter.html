@@ -5,7 +5,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><span class="icon-filter"></span>Filters <span class="jobs-total"></span></h4>
+                    <h4 class="modal-title"><span class="icon-filter"></span>Filters <span class="jobs-total filter_job_count"></span></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -13,7 +13,7 @@
                             <div class="media-group-container" ng-init="filter_option =  'industry'">
                                 <div class="reset-control">
                                     <h3 class="custom-h3">Filters</h3>
-                                    <button type="reset" class="btn-reset">Reset all</button>
+                                    <button type="reset" class="btn-reset" ng-click="reset_filter_form()">Reset all</button>
                                 </div>
                                 <div class="media custom-media">
                                     <a href="#" ng-click="filter_option = 'industry'">
