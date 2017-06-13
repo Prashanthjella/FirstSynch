@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-offset-2">
         <h1 class="h1 custom-heading-01">Experience</h1>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-7">
             <div class="group-experience" ng-repeat="experiences in student_profile_details.experience">
               <h5>{{experiences.start_date | date:"MMMM d, y"}} - {{experiences.leave_date | date:"MMMM d, y"}}</h5>
@@ -19,7 +19,28 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+        <section class="page-section page-work-history">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="h2 custom-page-h2">Projects</h2>
+                </div>
+                <div class="col-sm-7">
+                    <div class="group-experience"  ng-repeat="studentproject in student_profile_details.project">
+                        <h5>{{studentproject.start_date | date:"MMMM y"}}</h5>
+                        <h3  class="h3 custom-sub-h3">{{studentproject.title}}</h3>
+                        <p class="cont-experience">{{studentproject.project_description}}</p>
+                        <div class="row custom-row-15" ng-if="studentproject.image">
+                            <div class="col-sm-4">
+                                <div class="thumbnail custom-thumbnail-profile-views">
+                                    <img ng-src="{{studentproject.image}}" class="img-responsive custom-img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
       </div>
     </div>
   </div>
