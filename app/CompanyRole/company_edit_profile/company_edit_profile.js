@@ -9,6 +9,58 @@ var FirstSynch = angular.module("CompanyEditProfile", ["ngRoute","firstSync","ng
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("companyeditprofiles" , function ($rootScope,$scope, $http, apiUrl,$timeout) {
 
+    // GET THE FILE INFORMATION.
+    $scope.getFileDetails = function (e) {
+
+        $scope.files = [];
+        $scope.$apply(function () {
+
+            // STORE THE FILE OBJECT IN AN ARRAY.
+            for (var i = 0; i < e.files.length; i++) {
+                $scope.files.push(e.files[i])
+            }
+
+        });
+    };
+
+    // NOW UPLOAD THE FILES.
+    $scope.uploadFiles = function () {
+
+        //FILL FormData WITH FILE DETAILS.
+        var data = new FormData();
+        for (var i in $scope.files) {
+            data.append("video_file", $scope.files[i]);
+        }
+        //alert(angular.element('#result')[0].value);
+        data.append("title", angular.element('#title')[0].value);
+        data.append("company", $rootScope.user_id);
+        data.append("skill_text", angular.element('#skill_text')[0].value);
+        data.append("video_chapters", angular.element('#result')[0].value);
+        data.append("company_video", 'True');
+        data.append("active", 'True');
+        data.append("published", 'True');
+        // ADD LISTENERS.
+        var objXhr = new XMLHttpRequest();
+        objXhr.addEventListener("progress", updateProgress, false);
+        objXhr.addEventListener("load", transferComplete, false);
+
+        // SEND FILE DETAILS TO THE API.
+        objXhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/");
+        objXhr.send(data);
+    }
+
+    // UPDATE PROGRESS BAR.
+    function updateProgress(e) {
+        if (e.lengthComputable) {
+            document.getElementById('pro').setAttribute('value', e.loaded);
+            document.getElementById('pro').setAttribute('max', e.total);
+        }
+    }
+
+    // CONFIRMATION.
+    function transferComplete(e) {
+        //alert("Files uploaded successfully.");
+    }
 
     // company profile date of establishmentform edit
     $scope.establishmentform = {

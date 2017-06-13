@@ -31,7 +31,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
           for (var i in $scope.files) {
               data.append("video_file", $scope.files[i]);
           }
-          alert(angular.element('#result')[0].value);
+          //alert(angular.element('#result')[0].value);
           data.append("title", angular.element('#title')[0].value);
           data.append("student", $rootScope.stud_id);
           data.append("skill_text", angular.element('#skill_text')[0].value);
@@ -59,7 +59,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
       // CONFIRMATION.
       function transferComplete(e) {
-          alert("Files uploaded successfully.");
+          //alert("Files uploaded successfully.");
       }
 
 
