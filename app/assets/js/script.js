@@ -149,4 +149,13 @@ $(document).ready(function() {
         $(this).parent().parent('.row').find('input,textarea').removeAttr('readonly');
     });
 
+    $(document).on('click','.skill_click_function',function(){
+        var skill_type = $(this).attr('title');
+        $(this).parents('ul').find('li').removeClass('active');
+        $(this).parent().addClass('active');
+        $('.skill_show_main_function .skill_show_function').hide();
+        $('.skill_show_main_function .skill_show_function').removeClass('ng-hide');
+        $('.skill_show_main_function .skill_show_function.'+skill_type).show();
+    });
+
 });
