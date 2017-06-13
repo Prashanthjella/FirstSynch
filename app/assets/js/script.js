@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
 
+
   (function( $, undefined ) {
 
   $.widget("ui.dragslider", $.ui.slider, {
