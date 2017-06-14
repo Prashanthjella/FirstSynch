@@ -12,26 +12,26 @@
                         <div class="box bg-green">
                             <div class="tab-content">
 
-                                <div role="tabpanel" class="tab-pane" id="benefits">
+                                <div role="tabpanel" class="tab-pane" id="benefits" ng-if="company_profile_details.hiring[0].benefits">
                                     <h3 class="text-uppercase bold-text">Benefits</h3>
-                                    <p class="medium-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                    <p class="medium-text">{{company_profile_details.hiring[0].benefits}}</p>
                                 </div>
-                                <div role="tabpanel" class="tab-pane" id="perks">
+                                <div role="tabpanel" class="tab-pane" id="perks"  ng-if="company_profile_details.hiring[0].perks">
                                     <h3 class="text-uppercase bold-text">Perks</h3>
-                                    <p class="medium-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                    <p class="medium-text">{{company_profile_details.hiring[0].perks}}</p>
                                 </div>
-                                <div role="tabpanel" class="tab-pane active" id="culture">
+                                <div role="tabpanel" class="tab-pane active" id="culture"  ng-if="company_profile_details.hiring[0].culture">
                                     <h3 class="text-uppercase bold-text">Culture</h3>
-                                    <p class="medium-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                    <p class="medium-text">{{company_profile_details.hiring[0].culture}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <ul class="nav nav-tabs custom-tab-vertical" role="tablist">
-                            <li role="presentation" class=""><a href="" data-target="#benefits" aria-controls="benefits" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="false">Benefits</a></li>
-                            <li role="presentation" class=""><a href="" data-target="#perks" aria-controls="perks" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="false">Perks</a></li>
-                            <li role="presentation" class="active"><a href="" data-target="#culture" aria-controls="culture" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="true">Culture</a></li>
+                            <li role="presentation" class="" ng-if="company_profile_details.hiring[0].benefits"><a href="" data-target="#benefits" aria-controls="benefits" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="false">Benefits</a></li>
+                            <li role="presentation" class="" ng-if="company_profile_details.hiring[0].perks"><a href="" data-target="#perks" aria-controls="perks" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="false">Perks</a></li>
+                            <li role="presentation" class="active" ng-if="company_profile_details.hiring[0].culture"><a href="" data-target="#culture" aria-controls="culture" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="true">Culture</a></li>
                         </ul>
                     </div>
                 </div>

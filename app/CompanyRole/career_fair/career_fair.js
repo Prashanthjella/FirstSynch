@@ -12,28 +12,30 @@ FirstSynch.controller("company_career_fair_near_user" ,function ($scope, $http,$
         return $http.get("https://ipinfo.io").then(function successCallback(response) {
             $scope.current_city = response.data.city;
         });
-    }
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$scope.current_city+"&count=10")
-      .then(function successCallback(response){
-          $scope.career_fair_near_current_user = response.data;
-      }, function errorCallback(response){
-          console.log("Unable to perform get career fair near for current user");
-  });
+    };
+    current_city().then(function(data) {
+        $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$scope.current_city+"&count=10")
+        .then(function successCallback(response){
+            $scope.career_fair_near_current_user = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get career fair near for current user");
+        });
+    });
 
 });
 
 // career fair page - near by career fair
 FirstSynch.controller("company_upcoming_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$timeout) {
-
+    $scope.visible = true;
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.upcoming_career = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming career fair");
   });
-  
+
   $scope.careerfair_filters = function(obj){
-  		$scope.visible = true;
+
     	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.dataupcomingval.value = obj.currentTarget.attributes.datavalue.value;
     	var upcoming_data = $('#upcoming').attr('dataupcomingval');
     	var city_data = $('#all_cer_city').attr('dataupcomingval');
@@ -48,7 +50,7 @@ FirstSynch.controller("company_upcoming_career_fair" ,function ($scope, $http,$r
     	if(company_data != ''){
     		query_string += '&company='+company_data;
     	}
-    	
+
  		$http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?"+query_string)
 	    .then(function successCallback(response){
 	    	$scope.visible = false;
@@ -66,12 +68,19 @@ FirstSynch.controller("company_upcoming_career_fair" ,function ($scope, $http,$r
 // career fair page - near by all career fair
 FirstSynch.controller("company_all_career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=all&location=Chennai&fields=id,image,start_date,city,state,title")
-      .then(function successCallback(response){
-          $scope.all_career_fair_near_current_user = response.data;
-      }, function errorCallback(response){
-          console.log("Unable to perform get career fair near for current user");
-  });
+    var current_city = function (){
+        return $http.get("https://ipinfo.io").then(function successCallback(response) {
+            $scope.current_city = response.data.city;
+        });
+    };
+    current_city().then(function(data) {
+        $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=all&location="+$scope.current_city)
+        .then(function successCallback(response){
+            $scope.all_career_fair_near_current_user = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get career fair near for current user");
+        });
+    });
 
 });
 /////////////////////////////////// filters ////////////////////////////////////

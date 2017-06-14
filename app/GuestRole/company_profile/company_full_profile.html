@@ -5,7 +5,7 @@
             <h1 class="custom-h1-02">
                 Date of Establishment
             </h1>
-            <p class="">{{company_profile_details.company.est_date_description}}</p>
+            <p class="">{{company_profile_details.est_date_description}}</p>
         </div>
         <div class="col-sm-6 col-sm-offset-1">
             <img src="assets/images/establishment-img.png" class="img-responsive" alt="">
@@ -130,138 +130,90 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-date-character">
+<section class="page-section page-section-date-character"  ng-if="company_profile_details.characteristics.length > 0 ">
     <div class="row">
         <h1 class="h1 custom-h1">Characteristics</h1>
-
         <div class="row">
             <div class="col-sm-2">
                 <p>My friends would describe me as</p>
             </div>
             <div class="col-sm-10">
                 <div class="row">
-                    <div class="col-sm-4 col-sm-character">
+                    <div class="col-sm-4 col-sm-character" ng-repeat="characteristics in company_profile_details.characteristics">
                         <div class="cont-character">
-                            <h2 class="counter-number">01 </h2>
-                            <h5 class="custom-h5-02">Hard working</h5>
-                            <p>While most people enjoy
-                                casino gambling, sports
-                                betting, lottery and bingo playing for thefun and
-                                excitement it provides, other may experience gambling as an addictive and distracive habit</p>
-                            </div>
+                            <h2 class="counter-number">{{$index+1}} </h2>
+                            <h5 class="custom-h5-02">{{characteristics.characteristic}}</h5>
+                            <p>{{characteristics.description}}</p>
                         </div>
-
-                        <div class="col-sm-4 col-sm-character">
-                            <div class="cont-character">
-                                <h2 class="counter-number">02 </h2>
-                                <h5 class="custom-h5-02">Lucky</h5>
-                                <p>Are you one of the thousands of Iphone
-                                    owners who has no idea that they can get free games
-                                    for their Iphone?</p>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4 col-sm-character">
-                                <div class="cont-character">
-                                    <h2 class="counter-number">03</h2>
-                                    <h5 class="custom-h5-02">Resistant</h5>
-                                    <p>As soos as computerized tomography or CT scans
-                                        become accessible in the 1970’s, the reformed the practice of
-                                        neurology.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-sm-character">
-                                    <div class="cont-character">
-                                        <h2 class="counter-number">04</h2>
-                                        <h5 class="custom-h5-02">Decent</h5>
-                                        <p>The $79 iwork’08 appears to be a good deal for anyone needing an
-                                            affordable office suite for the mac.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-sm-character">
-                                        <div class="cont-character">
-                                            <h2 class="counter-number">05</h2>
-                                            <h5 class="custom-h5-02">Attentive</h5>
-                                            <p>About 64% of all on-line teens say that do things
-                                                online that they wouldn’’t want their parents to know about.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="page-section page-section-office">
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12">
-                                <h1 class="custom-h1-02">
-                                    Office
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row row-10">
-                            <div class="col-sm-3">
-                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-                            </div>
-                            <div class="col-sm-3">
-                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-                            </div>
-                            <div class="col-sm-3">
-                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-                            </div>
-                            <div class="col-sm-3">
-                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-                            </div>
-                            <div class="col-sm-3">
-                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-                            </div>
-                            <div class="col-sm-3">
-                                <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-                            </div>
-                        </div>
-                    </section>
-                    <section class="page-section page-section-locations">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 ">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h1 class="custom-h1-02">
-                                            Locations
-                                        </h1>
-                                        <h4 class="">Corporate Head Office</h4>
-                                        <p class="">Lorem Ipsum</p>
-                                        <p class="">+91 9876543210</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div id="map" class="map"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="page-section page-section-locations">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12">
-                                <h1 class="custom-h1-02">
-                                    Founders
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row row-30">
-                            <div class="col-sm-4">
-                                <img src="assets/images/harry-hunt.jpg" class="img-responsive" alt="Founder">
-                                <h4 class="text-uppercase bold-text">Harry Hunt</h4>
-                            </div>
-                            <div class="col-sm-4">
-                                <img src="assets/images/danny-cunningham.jpg" class="img-responsive" alt="Founder">
-                                <h4 class="text-uppercase bold-text">Danny Cunningham</h4>
-                            </div>
-                            <div class="col-sm-4">
-                                <img src="assets/images/carlos-morton.jpg" class="img-responsive" alt="Founder">
-                                <h4 class="text-uppercase bold-text">Carlos Morton</h4>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section page-section-office">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <h1 class="custom-h1-02">
+                Office
+            </h1>
+        </div>
+    </div>
+    <div class="row row-10">
+        <div class="col-sm-3">
+            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+        </div>
+        <div class="col-sm-3">
+            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+        </div>
+        <div class="col-sm-3">
+            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+        </div>
+        <div class="col-sm-3">
+            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+        </div>
+        <div class="col-sm-3">
+            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+        </div>
+        <div class="col-sm-3">
+            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+        </div>
+    </div>
+</section>
+<section class="page-section page-section-locations">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 ">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="custom-h1-02">
+                        Locations
+                    </h1>
+                    <p class="">{{company_profile_details.contacts[0].address_1}}, {{company_profile_details.contacts[0].address_2}}</p>
+                    <p class="">{{company_profile_details.contacts[0].city}}, {{company_profile_details.contacts[0].state}}</p>
+                    <p class="">{{company_profile_details.contacts[0].country}}</p>
+                    <p class="">{{company_profile_details.contacts[0].zip_code}}</p>
+                    <p class="">{{company_profile_details.contacts[0].contact_no}}</p>
+                    <p class="">{{company_profile_details.contacts[0].e_mail}}</p>
+                </div>
+                <div class="col-sm-6">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section page-section-locations" ng-if="company_profile_details.founder.length > 0">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <h1 class="custom-h1-02">
+                Founders
+            </h1>
+        </div>
+    </div>
+    <div class="row row-30">
+        <div class="col-sm-4" ng-repeat="companyfounder in company_profile_details.founder">
+            <img ng-src="{{companyfounder.photo}}" class="img-responsive" alt="Founder">
+            <h4 class="text-uppercase bold-text">{{companyfounder.designation}}</h4>
+        </div>
+    </div>
+</section>

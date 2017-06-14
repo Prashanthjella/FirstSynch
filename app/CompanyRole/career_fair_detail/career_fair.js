@@ -9,7 +9,7 @@ var FirstSynch = angular.module("CompanycareerFairDetail", ["ngRoute"]);
 // career fair details
 FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/?fields=id,title,city,state,where,start_date,image,description,viewed,followed,member")
+  $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/")
       .then(function successCallback(response){
           $scope.careerfair_details = response.data;
       }, function errorCallback(response){
@@ -21,7 +21,7 @@ FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$rout
 // students
 FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $compile) {
   // home page - students - default
-  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
       .then(function successCallback(response){
           $scope.cfdstudents = response.data;
       }, function errorCallback(response){
@@ -29,7 +29,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
   });
   //  students - showall and lessall
   $scope.showall_studentsvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_stu_less_all').is(":visible")){
           jQuery('.for_home_stu_less_all').slideUp(500);
@@ -38,7 +38,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
           jQuery.each(response.data, function(i) {
             var students_showall =   '<div class="col-sm-4">'
                                         +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
-                                          +'<img src="'+response.data[i].company_logo+'" class="img-responsive custom-img-responsive">'
+                                          +'<img src="'+response.data[i].company.logo+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'
                                         +'<span class="link-new">New</span>'
@@ -64,7 +64,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
 // company
 FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $compile) {
  // company - default
-  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
       .then(function successCallback(response){
           $scope.cfdcompany = response.data;
       }, function errorCallback(response){
@@ -72,7 +72,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
   });
   // company - show all and less all
   $scope.showall_companyvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?fields=id,company,thumbnail,company_logo,company,title")
+    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
       .then(function successCallback(response){
         if(jQuery('.for_home_com_less_all').is(":visible")){
           jQuery('.for_home_com_less_all').slideUp(500);
@@ -87,9 +87,9 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
                                         +'<span class="link-new">New</span>'
                                         +'<div class="box-inside-content">'
                                             +'<span class="logo-companies">'
-                                              +'<img src="'+response.data[i].company_logo+'" class="img-responsive">'
+                                              +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
                                             +'</span>'
-                                              +'<h6 class="h6 custom-h6">'+response.data[i].company+'</h6>'
+                                              +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
                                               +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</a>'
@@ -110,7 +110,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
 // near by career fair
 FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$compile) {
 
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=3&fields=id,image,start_date,city,state,title")
+  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/")
       .then(function successCallback(response){
           $scope.near_by_career = response.data;
       }, function errorCallback(response){
@@ -119,7 +119,7 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$ro
 
   // near by career - show all and less all
   $scope.showall_near_by_career = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?fields=id,image,start_date,city,state,title")
+    $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/")
       .then(function successCallback(response){
         if(jQuery('.for_cfd_nc_less_all').is(":visible")){
           jQuery('.for_cfd_nc_less_all').slideUp(500);
@@ -131,7 +131,7 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$ro
                                       +'<div class="thumbnail customn-thumbs-color-10 custom-thumbnail-image-gallery"> <img src="'+response.data[i].image+'">'
                                         +'<div class="overlay"></div>'
                                         +'<div class="box-inside-content">'
-                                         +' <p class="date-location">'+response.data[i].start_date+'<span> •</span> '+response.data[i].city+', '+response.data[i].state+'</p>'
+                                         +' <p class="date-location">'+response.data[i].start_date+'<span> •</span> '+response.data[i].where+', '+response.data[i].country+'</p>'
                                           +'<h1 class="custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</div>'
