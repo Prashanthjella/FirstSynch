@@ -159,24 +159,9 @@
             </h1>
         </div>
     </div>
-    <div class="row row-10">
-        <div class="col-sm-3">
-            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-        </div>
-        <div class="col-sm-3">
-            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-        </div>
-        <div class="col-sm-3">
-            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-        </div>
-        <div class="col-sm-3">
-            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-        </div>
-        <div class="col-sm-3">
-            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
-        </div>
-        <div class="col-sm-3">
-            <img src="assets/images/office-img.jpg" class="img-responsive" alt="Office">
+    <div class="row row-10" ng-if="company_profile_details.gallery.length > 0">
+        <div class="col-sm-3" ng-repeat="galleries in company_profile_details.gallery">
+            <img ng-src="{{galleries.photo}}" class="img-responsive" alt="Office">
         </div>
     </div>
 </section>

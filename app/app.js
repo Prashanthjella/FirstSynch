@@ -209,28 +209,45 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
     $scope.StudentRegistratoin = function () {
         var allow_pipl_check = parseInt($('#allow_pipl').val());
         var workhistroy_arry = [];
+        var data = {
+            education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
+            student : {first_name : $scope.name},
+            user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
+        }
         if($scope.piplsearch == 'allow'){
             $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
                 .then(function successCallback(response){
-                    $scope.piplimage = response.data.image;
-                    $scope.piplschool_name= response.data.school_name;
-                    $scope.pipldateattended= response.data.dateattended;
-                    $scope.piplmajor= response.data.major;
-                    $scope.pipljobs= response.data.jobs;
-                    $scope.workhistroy_count= response.data.jobs.length;
-                    $('#allow_pipl').val('0');
-                    $('.peoplesearch_remove').hide();
-                    $('.peoplesearch_show').show();
+                    $scope.piplimage = response.data.image ? response.data.image : "" ;
+                    $scope.piplschool_name= response.data.school_name ? response.data.school_name : "" ;
+                    $scope.pipldateattended= response.data.dateattended ? response.data.dateattended :"";
+                    $scope.piplmajor= response.data.major ?response.data.major :"";
+                    $scope.pipljobs= response.data.jobs ? response.data.jobs : "" ;
+                    $scope.workhistroy_count= response.data.jobs ? response.data.jobs.length : 0 ;
+                    if($scope.piplimage || $scope.piplschool_name || $scope.pipldateattended || $scope.piplmajor || $scope.pipljobs){
+                        $('#allow_pipl').val('0');
+                        $('.peoplesearch_remove').hide();
+                        $('.peoplesearch_show').show();
+                    }
+                    else{
+                        $http({
+                            url: apiUrl+'api/v1/student/student_signup/',
+                            method: "POST",
+                            data: data
+                        })
+                        .then(function successCallback(data, status, headers, config) {
+                            jQuery("#signUp").modal('hide');
+                            jQuery("#signUpSuccess").modal('show');
+                        },
+                        function errorCallback(data, status, headers, config) {
+                            $scope.status = data.data.status;
+                        });
+                    }
+
                 }, function errorCallback(response){
                     console.log("Unable to perform get company basic profile details");
             });
         }
-        else {
-            var data = {
-                education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
-                student : {first_name : $scope.name},
-                user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
-            }
+        else if($scope.piplsearch == 'deny') {
             $http({
                 url: apiUrl+'api/v1/student/student_signup/',
                 method: "POST",
@@ -244,11 +261,12 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
                 $scope.status = data.data.status;
             });
         }
+
         if(allow_pipl_check == 0){
             for(var w=0;w<parseInt($('#workhistroy_count').val());w++){
                 workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
             }
-            var data = {
+            var datap = {
                 education : {school_name : $('#pipl_school_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
                 student : {first_name : $scope.name},
                 user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
@@ -257,7 +275,7 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
             $http({
                 url: apiUrl+'api/v1/student/student_signup/',
                 method: "POST",
-                data: data
+                data: datap
             })
             .then(function successCallback(data, status, headers, config) {
                 jQuery("#signUp").modal('hide');
@@ -271,22 +289,6 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
 
     };//userStudentRegistratoin - function end
 
-    $scope.piplsearch = function () {
-        $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
-            .then(function successCallback(response){
-                $scope.piplimage = response.data.image;
-                $scope.piplschool_name= response.data.school_name;
-                $scope.pipldateattended= response.data.dateattended;
-                $scope.piplmajor= response.data.major;
-                $scope.pipljobs= response.data.jobs;
-                $scope.workhistroy_count= response.data.jobs.length;
-                $('#allow_pipl').val('1');
-                $('.peoplesearch_remove').hide();
-                $('.peoplesearch_show').show();
-            }, function errorCallback(response){
-                console.log("Unable to perform get company basic profile details");
-        });
-    };//piplsearch - function end
 
     $scope.CompanyRegistratoin = function () {
         var employee_created = {

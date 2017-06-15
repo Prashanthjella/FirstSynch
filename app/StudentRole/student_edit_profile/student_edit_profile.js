@@ -408,7 +408,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
 
 
-FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope, $http, apiUrl) {
+FirstSynch.controller("studentbasicprofileupload" , function ($rootScope,Upload, $scope, $http, apiUrl) {
     // GET THE FILE INFORMATION.
     $scope.getFileDetails = function (e) {
         $scope.files = [];
@@ -462,12 +462,11 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
             console.log("Unable to perform get student basic profile details");
     });
 
-    $scope.basicprofilesubmit = function(){
+    $scope.basicprofilesubmit = function(file){
       //var pro_image = new FormData();
       //for (var i in $scope.files) {
       //    pro_image.append("profile_picture", $scope.files[i]);
       //}
-
       var data = {
             user:$scope.basicprofileform.user,
             first_name : $scope.basicprofileform.first_name,
@@ -481,10 +480,14 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope, $scope
             website: $scope.basicprofileform.website,
             github_url:$scope.basicprofileform.github_url,
             stackoverflow_url:$scope.basicprofileform.stackoverflow_url,
-            //profile_picture:pro_image,
             about_me:$scope.basicprofileform.about_me
 
         };
+        file.upload = Upload.upload({
+            url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",
+            data: {user:$scope.basicprofileform.user,profile_picture: file},
+            method:'PUT',
+        });
         // alert(JSON.stringify(data));
         $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
         .then(function (response) {
