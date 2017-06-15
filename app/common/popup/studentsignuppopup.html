@@ -23,7 +23,7 @@
             <label class="text-uppercase">Your Name</label>
             <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required/>
             <input type="hidden" id="e_mail" name="e_mail" ng-model="e_mail" />
-            <input type="hidden" id="allow_pipl" value="0">
+            <input type="hidden" id="allow_pipl" value="1">
             <input type="hidden" name="iaccept" value="true" name="iaccept" ng-model="iaccept" />
           </div>
           <div class="form-group">
@@ -57,9 +57,9 @@
               <label class="text-uppercase">Request to use information Password</label>
               <p>Allow us to pull your info from open sources</p>
             </div>
-            <div class="pull-right">
-              <button type="button" ng-disabled="studentregistration.$invalid" class="btn btn-default background-color-05 custom-btn-allow peoplesearch_remove_act" ng-click="piplsearch()"  >Allow</button>
-              <button type="button" class="btn btn-default custom-btn-forbid" >Forbid</button>
+            <div class="pull-right" ng-init="piplsearch='allow'">
+              <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'allow'"class="btn btn-default background-color-05 custom-btn-allow pipl_search_allow peoplesearch_remove_act">Allow
+              <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'deny'"class="btn btn-default custom-btn-forbid pipl_search_deny" >Forbid
             </div>
 
           </div>

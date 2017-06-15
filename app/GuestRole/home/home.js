@@ -261,6 +261,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
             .then(function successCallback(response){
                 //$scope.video_filter_results = response.data;
                 var filter_job_count = 0;
+                jQuery('.video_filter_search_result').empty();
                 jQuery.each(response.data, function(i) {
                   var video_fileter_search_resul = '<div class="col-sm-4">'
                                                       +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
