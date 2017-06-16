@@ -37,7 +37,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
           jQuery('.for_home_stu_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var students_showall =   '<div class="col-sm-4">'
-                                        +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+                                        +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                           +'<img src="'+response.data[i].company.logo+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'

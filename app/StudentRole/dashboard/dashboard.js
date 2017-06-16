@@ -26,7 +26,7 @@ FirstSynch.controller("student_futuredvideo", function ($scope, $http, apiUrl, $
           jQuery('.for_show_all_purpose').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var featurevideo_showall =   '<div class="col-sm-4 custom-cols-thumbs-4">'
-              +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-01">'
+              +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-{{10 | randomize}}">'
                 +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
               +'<div class="overlay "></div>'
               +'<span class="arrow-triangle"></span>'
@@ -83,7 +83,7 @@ FirstSynch.controller("student_favorites" , function ($scope, $http, apiUrl, $co
           jQuery('.for_home_stu_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var favorite_showall =   '<div class="col-sm-4">'
-                                        +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+                                        +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                           +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'
@@ -127,7 +127,7 @@ FirstSynch.controller("student_newest_member" , function ($scope, $http, apiUrl 
           jQuery('.for_home_com_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
             var newest_showall =   '<div class="col-sm-4">'
-                                      +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+                                      +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail  customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                         +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'

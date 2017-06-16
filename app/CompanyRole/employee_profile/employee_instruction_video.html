@@ -1,7 +1,7 @@
 <section class="page-section video-profile">
     <div class="row custom-row-15">
         <div class="col-sm-6" ng-repeat=" instruction_video in employee_profile_details.video ">
-            <a href="#" class="thumbnail custom-large-image-gallery customn-thumbs-color-01">
+            <a href="#" class="thumbnail custom-large-image-gallery customn-thumbs-color-{{10 | randomize}}">
                 <img ng-src="{{instruction_video.thumbnail}}" class="img-responsive custom-img-responsive">
                 <div class="overlay "></div>
                 <span class="arrow-triangle"></span>

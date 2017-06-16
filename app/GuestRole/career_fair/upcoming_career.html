@@ -48,7 +48,7 @@
                         <div class="slider-inside-thumbs">
                             <div class="row custom-row-15">
                                 <div class="col-xs-4 col-sm-4" ng-repeat="uc in upcome_career.related_video | limitTo:3">
-                                    <a href="#" ng-click="videoPopup(uc.id)" class="thumbnail customn-thumbs-color-08 custom-thumbs-box-views">
+                                    <a href="#" ng-click="videoPopup(uc.id)" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">
                                         <img class="img-responsive custom-img-responsive" style="height:100px;" ng-src="{{uc.thumbnail}}">
                                         <div class="overlay "></div>
                                         <span class="icon-btn-play"></span>

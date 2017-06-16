@@ -13,10 +13,10 @@
                         </h2>
                     </div>
                     <div class="col-sm-6" ng-repeat="emp_career_fair in  employee_profile_details.career_fair">
-                        <a href="#" class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">
+                        <a href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
                             <img ng-src="{{emp_career_fair.image}}" class="img-responsive custom-img-responsive">
                             <div class="overlay "></div>
-                            <span class="arrow-triangle"></span> 
+                            <span class="arrow-triangle"></span>
                             <div class="box-inside-content">
                                 <h6 class="h6 custom-h6">{{emp_career_fair.title}}</h6>
                                 <h1 class="h1 custom-gallery-h1">{{emp_career_fair.where}}</h1>

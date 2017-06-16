@@ -11,7 +11,7 @@
     </div>
     <div class="row custom-row-10 less_all_purpose">
       <div class="col-sm-6" ng-repeat="vid in feature | limitTo:2">
-        <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class = "thumbnail custom-large-image-gallery customn-thumbs-color-02">
+        <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class = "thumbnail custom-large-image-gallery customn-thumbs-color-{{10 | randomize}}">
           <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
           <div class="overlay "></div>
           <span class="arrow-triangle"></span> <span class="link-new">New</span>
@@ -26,7 +26,7 @@
 
     <div class="row custom-row-10 less_all_purpose">
       <div class="col-sm-4 custom-cols-thumbs-4" ng-repeat="sm_vid in feature | startFrom : 2 | limitTo: 3">
-        <a href="#" data-id="{{sm_vid.id}}" ng-click="videoPopup(sm_vid.id)" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-01">
+        <a href="#" data-id="{{sm_vid.id}}" ng-click="videoPopup(sm_vid.id)" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-{{10 | randomize}}">
           <img ng-src="{{sm_vid.thumbnail}}" class="img-responsive custom-img-responsive">
           <div class="overlay "></div>
           <span class="arrow-triangle"></span>
