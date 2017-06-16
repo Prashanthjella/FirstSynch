@@ -1,3 +1,4 @@
+@import url(font-awesome.min.css);
 html, body {
 	height: 100%;
 }
@@ -2707,6 +2708,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b58e', end
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	border-width: 0 0 1px 0;
+	display: none
 }
 .icon-filter {
 	width: 13px;
@@ -2920,6 +2922,7 @@ body {
 .slider-container-recent .bx-wrapper {
 	margin-bottom: 0
 }
+.custom-thumbs-box-views, .custom-thumbnail{height:auto}
 }
 @media (min-width:768px) and (max-width:991px) {
 body {
@@ -3257,4 +3260,7 @@ display:none !important
 .slider-profile{padding:0 15px}
 .custom-accordion-title a{padding:13px 10px}
 .page-profile-leadership{height:auto}
+.custom-thumbs-box-views, .custom-thumbnail{
+	height:auto;
+	}
 }
