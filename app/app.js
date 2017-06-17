@@ -419,7 +419,7 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
         });
     }
 });
-FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$compile)
+FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http, apiUrl,$location,$compile)
     {
     $scope.SearchsubmitFunc = function ()
         {
