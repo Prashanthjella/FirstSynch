@@ -491,7 +491,6 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http, apiUrl,
                         else{
                             jQuery('.search_results_companies_container_act').hide();
                         }
-                        alert(JSON.stringify(response.data.student));
                         if(response.data.student){
                             jQuery('.search_results_student_container_act').show();
                             jQuery.each(response.data.student, function(i) {
