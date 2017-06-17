@@ -6,39 +6,28 @@
 				<div>{{all_company.length }} Companies</div>
 			</div>
 		</div>
-		<div class="page-header custom-page-header">
+		<div class="page-header custom-page-header" ng-controller="student_top_three">
 			<div class="pull-left">
 				<h2 class="h2 custom-title"> Show companies from
-					<span class="dropdown"  ng-controller="student_all_companies">
-						<span class="highlighted dropdown-toggle"  id="allcities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all cities</span>
-						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allcities">
-							<li>
-								<div class="form-group custom-form-group-cities">
-									<input type="text" class="form-control form-control-cities" placeholder="Search for cities">
-								</div>
-							</li>
-							<li><a href="#" title="All Cities">All Cities</a></li>
-							<li ng-repeat="all_comp in all_company"><a ng-click="allcitysearch()" href="#">{{all_comp.company.city.name}},<span class="text-uppercase"> {{all_comp.company.state.name}}</span></a></li>
+					<span  class="dropdown" ng-controller="student_all_cities_list">
+						<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_com_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allcities</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
+							<li ng-click="student_company_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
+							<li ng-click="student_company_filters($event)"  ng-repeat="allcities in all_city_list | unique:'city'| orderBy : 'city'" datavalue="{{allcities.city}}"><a href="" title="cities">{{allcities.city}}</a></li>
 						</ul>
 					</span>
 					, specializing in
 					<span class="dropdown" ng-controller="student_company_category">
-						<span class="highlighted dropdown-toggle" id="allcategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all industries</span>
-						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allindustries">
-							<li>
-								<div class="form-group custom-form-group-cities">
-									<input type="text" class="form-control form-control-industry" placeholder="Search for industries">
-								</div>
-							</li>
-							<li><a href="#" title="All Cities">All Industries</a></li>
-							<li ng-repeat="compa_cate in company_cate "><a href="#">{{ compa_cate.industry_type }}</a></li>
+						<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_com_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allindustries</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
+							<li ng-click="student_company_filters($event)"  datavalue=""><a href="" title="upcoming">Allindustries</a></li>
+							<li ng-click="student_company_filters($event)" ng-repeat="compa_cate in company_cate | unique:'category'| orderBy : 'category' " datavalue="{{compa_cate.category}}"><a href="" title="upcoming">{{compa_cate.category}}</a></li>
 						</ul>
 					</span>
-
 				</h2>
 			</div>
 		</div>
-	    	<div class="row custom-row-35"  ng-controller="student_top_three">
+	    	<div class="row custom-row-35 top_three_company_act"  ng-controller="student_top_three">
 	      		<div class="col-sm-12">
 	        		<div class="page-header custom-page-header">
 	          			<div class="pull-left">
@@ -51,12 +40,13 @@
 		        		<div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{ comp.company.logo }}" class="logo-companies-box"> </div>
 		        		<div class="company-heading-group">
 		          			<h4 class="h4 custom-h4">{{ comp.company.name }} </h4>
-		          			<h5>{{ comp.company.city.name }}, {{ comp.company.state.name }}, {{ comp.company.country.name }}</h5>
+		          			<h5>{{ comp.company.city }}, {{ comp.company.state }}, {{ comp.company.country }}</h5>
 		        		</div>
 					</a>
 	      		</div>
 
 	    	</div>
+			<div class="student_company_search_result grid"></div>
 		</div>
 	</section>
 <!--[Top 3 Company Sections End]-->

@@ -8,7 +8,7 @@ var FirstSynch = angular.module("CompanyList", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //company page - top 3 details
-FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParams,apiUrl,$compile,$templateCache) {
+FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParams,apiUrl,$compile,$templateCache,usSpinnerService) {
 
   $http.get(apiUrl+"api/v1/toplist/top3companies/")
       .then(function successCallback(response){
@@ -18,6 +18,7 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
   });
 
   $scope.company_filters = function(obj){
+    usSpinnerService.spin('spinner-1');
   	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datacompanyval.value = obj.currentTarget.attributes.datavalue.value;
 	var city_data = $('#all_com_city').attr('datacompanyval');
 	var company_data = $('#all_com_company').attr('datacompanyval');
@@ -36,6 +37,37 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
     $http.get(apiUrl+"api/v1/setups/api/v1/company_filters/?"+query_string)
     .then(function successCallback(response){
        jQuery.each(response.data, function(i) {
+        var video_result ='';
+        if(response.data[i].related_video.length > 0){
+            if(response.data[i].related_video[0]){
+                video_result += '<div class="col-sm-6">'
+                                    +'<a href="" ng-click="videoPopup('+response.data[i].related_video[0].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
+                                        +'<img src="'+response.data[i].related_video[0].thumbnail+'">'
+                                        +'<div class="overlay "></div>'
+                                        +'<span class="icon-btn-play"></span>'
+                                    +'</a>'
+                                +'</div>';
+            }
+            if(response.data[i].related_video[1]){
+                video_result += '<div class="col-sm-6">'
+                                    +'<a href="" ng-click="videoPopup('+response.data[i].related_video[1].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
+                                        +'<img src="'+response.data[i].related_video[1].thumbnail+'">'
+                                        +'<div class="overlay "></div>'
+                                        +'<span class="icon-btn-play"></span>'
+                                    +'</a>'
+                                +'</div>';
+            }
+            if(response.data[i].related_video[2]){
+                video_result += '<div class="col-sm-6">'
+                                    +'<a href="" ng-click="videoPopup('+response.data[i].related_video[2].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
+                                        +'<img src="'+response.data[i].related_video[2].thumbnail+'">'
+                                        +'<div class="overlay "></div>'
+                                        +'<span class="icon-btn-play"></span>'
+                                    +'</a>'
+                                +'</div>';
+            }
+
+        }
         var search_result = '<a href="/company/'+response.data[i].id+'">'
         					+'<div class="grid-item col-sm-4">'
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
@@ -51,17 +83,12 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
                                 +'</div>'
                                 +'<p class="para-company">'+response.data[i].description+'</p>'
                                 +'<div class="row custom-row-5">'
-                                    +'<div class="col-sm-6">'
-                                        +'<a href="" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
-                                            +'<img src="assets/images/img1.png">'
-                                            +'<div class="overlay "></div>'
-                                            +'<span class="icon-btn-play"></span>'
-                                        +'</a>'
-                                    +'</div>'
+                                +video_result
                                 +'</div>'
                             +'</div></a>';
         angular.element(jQuery('.company_search_result')).append($compile(search_result)($scope));
        });
+       usSpinnerService.stop('spinner-1');
     }, function errorCallback(response){
         console.log("Unable to perform get upcoming career fair");
     });

@@ -1,5 +1,5 @@
 <!--[All Comapnies Section Start]-->
-<section class="page-section  page-section-All-companies" ng-controller="student_all_companies">
+<section class="page-section  page-section-All-companies allcompanies_act" ng-controller="student_all_companies">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -11,10 +11,12 @@
             </div>
             <div class="col-sm-2" ng-repeat="all_comp in all_company">
                 <a href="/stu/company/{{all_comp.id}}">
-                    <div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{all_comp.logo}}" class="logo-companies-box"> </div>
+                    <div class="thumbnail custom-thumbnail-company-logo">
+                        <img ng-src="{{all_comp.logo}}" class="logo-companies-box">
+                    </div>
                     <div class="company-heading-group">
                         <h4 class="h4 custom-h4">{{all_comp.name}} </h4>
-                        <h5 class="h5 custom-h5">{{all_comp.city.name}}, {{all_comp.state.name}}, {{all_comp.country.name}}</h5>
+                        <h5 class="h5 custom-h5">{{all_comp.city.name}}</h5>
                     </div>
                 </a>
             </div>
