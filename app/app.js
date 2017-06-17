@@ -64,7 +64,9 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
     $rootScope.videoPopup = function (value) {
         jQuery("#VideoPopup1").modal('show');
         var id = value;
-        $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id)
+        $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
+          headers: {'Authorization' : 'Token 8ce17dfd673572c3925f26043f9d378a44bdf942'}
+        })
         .then(function successCallback(response){
             $rootScope.vid = response.data;
             jwplayer("jwplayer").setup({
@@ -414,7 +416,9 @@ FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$c
     {
     $scope.SearchsubmitFunc = function ()
         {
-            $http.get(apiUrl+"api/v1/search/?q="+$scope.keywords)
+            $http.get(apiUrl+"api/v1/search/?q="+$scope.keywords, {
+                  headers: {'Authorization' : 'Token 8ce17dfd673572c3925f26043f9d378a44bdf942'}
+                })
                 .then(function successCallback(response)
                     {
                         jQuery('.search_result_remove_act').remove();
