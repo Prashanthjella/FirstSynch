@@ -147,7 +147,7 @@ $(document).ready(function() {
         $('#'+current_div).removeClass('hide').show();
     });
     $(document).on('click','.edit_option',function(){
-        $(this).parent().parent('.row').find('input,textarea').removeAttr('readonly');
+        $(this).parent().parent('.row').find('input,textarea').removeAttr('readonly').css({"border-style":"none none solid"}).focus();
     });
 
     $(document).on('click','.skill_click_function',function(){
