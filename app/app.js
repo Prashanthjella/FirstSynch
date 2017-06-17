@@ -177,12 +177,12 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
 
 FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScope) {
 
-    $http.get("school.json")
-        .then(function successCallback(response){
-            $scope.university = response.data;
-        }, function errorCallback(response){
-            console.log("Unable to perform get company profile details");
-    });
+    // $http.get("school.json")
+    //     .then(function successCallback(response){
+    //         $scope.university = response.data;
+    //     }, function errorCallback(response){
+    //         console.log("Unable to perform get company profile details");
+    // });
 
     $scope.SendData = function () {
         var data = 'e_mail=' + $scope.e_mail;
@@ -309,7 +309,7 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
         });
 
         $http({
-            url: apiUrl+'api/v1/setups/api/v1/company/',
+            url: apiUrl+'api/v1/employee/api/employee_signup/',
             method: "POST",
             data: data,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}

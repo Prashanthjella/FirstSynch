@@ -52,7 +52,7 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
                                 +'<p class="para-company">'+response.data[i].description+'</p>'
                                 +'<div class="row custom-row-5">'
                                     +'<div class="col-sm-6">'
-                                        +'<a class="thumbnail customn-thumbs-color-09 custom-thumbs-box-views">'
+                                        +'<a href="" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
                                             +'<img src="assets/images/img1.png">'
                                             +'<div class="overlay "></div>'
                                             +'<span class="icon-btn-play"></span>'
