@@ -477,7 +477,37 @@ FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$c
                             });
                         }
                         else{
-                            jQuery('.search_results_companies_container_act').show();
+                            jQuery('.search_results_companies_container_act').hide();
+                        }
+                        alert(JSON.stringify(response.data.student));
+                        if(response.data.student){
+                            jQuery('.search_results_student_container_act').show();
+                            jQuery.each(response.data.student, function(i) {
+                                var student_result ='<div class="media custom-media">'
+                                                        +'<a href="/company/'+response.data.student[i].id+'" class="search-link">'
+                                                            +'<div class="media-left media-middle custom-media-left">'
+                                                                +'<div class="search-img-container">'
+                                                                    +'<img src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.student[i].profile_picture+'" class="logo-companies-box">'
+                                                                +'</div>'
+                                                            +'</div>'
+                                                            +'<div class="media-body custom-media-body">'
+                                                                +'<h4 class="media-heading custom-media-heading">'+response.data.student[i].first_name+'</h4>'
+                                                                +'<h5 class="media-eading-h5">'+response.data.student[i].city+'&bull; '+response.data.student[i].state+'</h5>'
+                                                                +'<div class="searech-folow pull-left">'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.student[i].viewed+'</span> Views</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.student[i].liked+'</span> Likes</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.student[i].followers+'</span> followers</span>'
+                                                                +'</div>'
+                                                            +'</div>'
+                                                        +'</a>'
+                                                        +'<div>'
+                                                        +'</div>'
+                                                    +'</div>';
+                            angular.element(jQuery('.search_results_student_act')).append($compile(student_result)($scope));
+                            });
+                        }
+                        else{
+                            jQuery('.search_results_companies_container_act').hide();
                         }
                     },
                     function errorCallback(response)
