@@ -296,23 +296,17 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
 
 
     $scope.CompanyRegistratoin = function () {
-        var employee_created = {
-            company_name: $scope.cname,
+        var data = {
+            company_name:$scope.cname,
+            user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
+            employee : {}
         };
-
-        var data = $.param({
-            e_mail: $rootScope.e_mail,
-            iaccept: $scope.iaccept,
-            name: $scope.name,
-            password: $scope.password,
-            employee_created:employee_created,
-        });
 
         $http({
             url: apiUrl+'api/v1/employee/api/employee_signup/',
             method: "POST",
             data: data,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            headers: {'Content-Type': 'application/json'}
         })
         .then(function successCallback(data, status, headers, config) {
             jQuery("#companyregistration").modal('hide');
