@@ -64,8 +64,13 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
     $rootScope.videoPopup = function (value) {
         jQuery("#VideoPopup1").modal('show');
         var id = value;
+        if (angular.isDefined($rootScope.token_id)) {
+          var token_id = $rootScope.token_id;
+        } else {
+          var token_id = "8ce17dfd673572c3925f26043f9d378a44bdf942";
+        }
         $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
-          headers: {'Authorization' : 'Token 8ce17dfd673572c3925f26043f9d378a44bdf942'}
+          headers: {'Authorization' : 'Token '+token_id}
         })
         .then(function successCallback(response){
             $rootScope.vid = response.data;
@@ -156,6 +161,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
                 $window.sessionStorage.setItem('user_id', response.data.user_id);
                 $rootScope.profileimage = response.data.profile_image;
                 $rootScope.user_id = response.data.user_id;
+                $rootScope.token_id = response.data.token;
                 jQuery(".modal-backdrop.in").hide();
                 jQuery('#logIn').modal('hide');
                 if(companyusertype == response.data.usertype){
@@ -385,6 +391,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
             $window.sessionStorage.removeItem('usertype');
             delete $rootScope.companyuserInfo
             delete $rootScope.studentuserInfo
+            delete $rootScope.token_id
             $location.path( "/" );
         },
         function errorCallback(data, status, headers, config) {
@@ -416,8 +423,13 @@ FirstSynch.controller("UserSearch", function ($scope, $http, apiUrl,$location,$c
     {
     $scope.SearchsubmitFunc = function ()
         {
+            if (angular.isDefined($rootScope.token_id)) {
+              var token_id = $rootScope.token_id;
+            } else {
+              var token_id = "8ce17dfd673572c3925f26043f9d378a44bdf942";
+            }
             $http.get(apiUrl+"api/v1/search/?q="+$scope.keywords, {
-                  headers: {'Authorization' : 'Token 8ce17dfd673572c3925f26043f9d378a44bdf942'}
+                  headers: {'Authorization' : 'Token '+token_id}
                 })
                 .then(function successCallback(response)
                     {
