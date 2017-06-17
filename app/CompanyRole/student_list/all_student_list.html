@@ -1,5 +1,4 @@
-<!--[All Comapnies Section Start]-->
-<section class="page-section  page-section-All-companies" ng-controller="student_all_studentss">
+<section class="page-section  page-section-All-companies all_studeent_act" ng-controller="company_all_studentss">
     <div class="container">
         <div class="row custom-row-10">
             <div class="col-sm-12">
@@ -10,15 +9,17 @@
                 </div>
             </div>
             <div class="col-sm-2" ng-repeat="all_stu in all_student">
-                <a href="/stu/student/{{all_stu.user}}">
-                    <div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{all_stu.profile_picture}}" class="logo-companies-box"> </div>
+                <a href="/com/student/{{all_stu.user}}">
+                    <div class="thumbnail custom-thumbnail-company-logo">
+                      <img ng-src="assets/images/profileicon.png" class="logo-companies-box" ng-if="!all_stu.profile_picture" alt="img-user-avator.png">
+                      <img ng-if="all_stu.profile_picture" ng-src="{{all_stu.profile_picture}}" class="logo-companies-box">
+                    </div>
                     <div class="company-heading-group">
                         <h4 class="h4 custom-h4">{{all_stu.first_name}} </h4>
-                        <h5 class="h5 custom-h5">{{all_stu.about_me | limitTo: 10}}{{all_stu.about_me.length > 10 ? '...' : ''}}</h5>
+                        <!--<h5 class="h5 custom-h5">{{all_stu.city}}</h5>-->
                     </div>
                 </a>
             </div>
         </div>
     </div>
 </section>
-<!--[All Company Sections End]-->

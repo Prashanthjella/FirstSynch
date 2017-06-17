@@ -1,82 +1,62 @@
-	<!--[Top 3 Comapnies Section Start]-->
-	<section class="page-section page-bg-gray page-section-companies">
-	  	<div class="container">
-	   		<div class="page-header custom-page-header">
-	      		<div class="pull-left">
-	        		<h1 class="h2 custom-page-h2">Students</h1>
-    				<div>0 students</div>
-	      		</div>
-    		</div>
-	    	<div class="page-header custom-page-header">
-	      		<div class="pull-left">
-	        		<h2 class="h2 custom-title"> Show studnets from
-	        			<span class="dropdown">
-	        				<span class="highlighted dropdown-toggle"  id="allcities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all cities</span>
-			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allcities">
-			    				<li>
-			    					<div class="form-group custom-form-group-cities">
-			  							<input type="text" class="form-control form-control-cities" placeholder="Search for cities">
-									</div>
-								</li>
-			    				<li>
-									<a href="#" title="All Cities">All Cities</a>
-								</li>
-			    				<li>
-									<a href="#">,
-										<span class="text-uppercase"></span>
-									</a>
-								</li>
-							</ul>
-        				</span>
-	        			, studying in
-	        			<span class="dropdown">
-		        			<span class="highlighted dropdown-toggle" id="allcategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all universities</span>
-		        			<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allindustries">
-			    				<li>
-			    					<div class="form-group custom-form-group-cities">
-			  							<input type="text" class="form-control form-control-industry" placeholder="Search for industries">
-									</div>
-								</li>
-			    				<li><a href="#" title="All Cities">All Universities</a></li>
-			    				<li><a href="#"></a></li>
-							</ul>
-	        			</span>
-						<br>,specializing in
-						<span class="dropdown">
-		        			<span class="highlighted dropdown-toggle" id="allcategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">all industries</span>
-		        			<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" aria-labelledby="allindustries">
-			    				<li>
-			    					<div class="form-group custom-form-group-cities">
-			  							<input type="text" class="form-control form-control-industry" placeholder="Search for industries">
-									</div>
-								</li>
-			    				<li><a href="#" title="All Cities">All Industries</a></li>
-			    				<li><a href="#"></a></li>
-							</ul>
-	        			</span>
-	        		</h2>
-	      		</div>
-	    	</div>
-	    	<div class="row custom-row-35 top_three_company_act" ng-controller="student_top_three_students">
-	      		<div class="col-sm-12">
-	        		<div class="page-header custom-page-header">
-	          			<div class="pull-left">
-	            			<h2 class="h2 custom-h2">Top 3 Studentss</h2>
-	          			</div>
-	        		</div>
-	      		</div>
-	      		<div class="col-sm-4" ng-repeat="stud in top_three_student">
-					<a href="/stu/student/{{ stud.student.user }}">
-		        		<div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{ stud.student.profile_picture }}" class="logo-companies-box"> </div>
-		        		<div class="company-heading-group">
-		          			<h4 class="h4 custom-h4">{{ stud.student.first_name }} </h4>
-		          			<h5>Rank : {{ stud.rank }}</h5>
-		        		</div>
-					</a>
-	      		</div>
-
-	    	</div>
+<!--[Top 3 Comapnies Section Start]-->
+<section class="page-section page-bg-gray page-section-companies">
+	<div class="container">
+		<div class="page-header custom-page-header" ng-controller="company_all_studentss">
+			<div class="pull-left">
+				<h1 class="h2 custom-page-h2">Students</h1>
+				<div>{{all_student.length}} students</div>
+			</div>
+		</div>
+		<div class="page-header custom-page-header" ng-controller="company_top_three_students">
+			<div class="pull-left">
+				<h2 class="h2 custom-title"> Show student from
+					<span  class="dropdown">
+						<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_stu_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">Allcities</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_stuents_city">
+							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
+							<li ng-click="student_filters($event)"  ng-repeat="stucities in student_city_list | unique:'city'| orderBy : 'city'" datavalue="{{stucities.city}}"><a href="" title="cities">{{stucities.city}}</a></li>
+						</ul>
+					</span>
+					, studying in
+					<span class="dropdown">
+						<span ng-bind="univValue" class="highlighted dropdown-toggle"  id="all_stu_univ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">Alluniversities</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" univ-menu="univValue" aria-labelledby="all_student_university">
+							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">Alluniversities</a></li>
+							<li ng-click="student_filters($event)" ng-repeat="university in student_univ_list | unique:'school_name'| orderBy : 'school_name' " datavalue="{{university.school_name}}"><a href="" title="upcoming">{{university.school_name}}</a></li>
+						</ul>
+					</span>,<br/>
+					specializing in
+					<span class="dropdown">
+						<span ng-bind="majorValue" class="highlighted dropdown-toggle"  id="all_stu_major" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">Allindustries</span>
+						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" major-menu="majorValue" aria-labelledby="all_student_category">
+							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">Allindustries</a></li>
+							<li ng-click="student_filters($event)" ng-repeat="stud_indus in student_indus_list | unique:'major'| orderBy : 'major' " datavalue="{{stud_indus.major}}"><a href="" title="upcoming">{{stud_indus.major}}</a></li>
+						</ul>
+					</span>
+				</h2>
+			</div>
+		</div>
+		<div class="row custom-row-35 top_three_student_act" ng-controller="company_top_three_students">
+			<div class="col-sm-12">
+				<div class="page-header custom-page-header">
+					<div class="pull-left">
+						<h2 class="h2 custom-h2">Top 3 Students</h2>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" ng-repeat="stud in top_three_student">
+						<a href="/student/{{ stud.student.id }}">
+					<div class="thumbnail custom-thumbnail-company-logo">
+								<img ng-src="{{ stud.student.profile_picture }}" class="logo-companies-box"> </div>
+					<div class="company-heading-group">
+						<h4 class="h4 custom-h4">{{ stud.student.first_name }} </h4>
+						<h5>Rank : {{ stud.rank }}</h5>
+					</div>
+						</a>
+			</div>
 
 		</div>
-	</section>
+		<div class="student_search_result grid"></div>
+	</div>
+</section>
 <!--[Top 3 Company Sections End]-->

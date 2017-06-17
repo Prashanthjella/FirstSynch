@@ -7,8 +7,36 @@
     				<div>{{all_student.length}} students</div>
 	      		</div>
     		</div>
-
-	    	<div class="row custom-row-35 top_three_company_act" ng-controller="top_three_students">
+			<div class="page-header custom-page-header" ng-controller="top_three_students">
+	      		<div class="pull-left">
+	        		<h2 class="h2 custom-title"> Show student from
+	                    <span  class="dropdown">
+	        				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_stu_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">Allcities</span>
+			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_stuents_city">
+			        			<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
+			    				<li ng-click="student_filters($event)"  ng-repeat="stucities in student_city_list | unique:'city'| orderBy : 'city'" datavalue="{{stucities.city}}"><a href="" title="cities">{{stucities.city}}</a></li>
+							</ul>
+	    				</span>
+						, studying in
+	                    <span class="dropdown">
+	        				<span ng-bind="univValue" class="highlighted dropdown-toggle"  id="all_stu_univ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">Alluniversities</span>
+			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" univ-menu="univValue" aria-labelledby="all_student_university">
+			    				<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">Alluniversities</a></li>
+			    				<li ng-click="student_filters($event)" ng-repeat="university in student_univ_list | unique:'school_name'| orderBy : 'school_name' " datavalue="{{university.school_name}}"><a href="" title="upcoming">{{university.school_name}}</a></li>
+							</ul>
+	    				</span>,<br/>
+	                    specializing in
+	                    <span class="dropdown">
+	        				<span ng-bind="majorValue" class="highlighted dropdown-toggle"  id="all_stu_major" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">Allindustries</span>
+			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" major-menu="majorValue" aria-labelledby="all_student_category">
+			    				<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">Allindustries</a></li>
+			    				<li ng-click="student_filters($event)" ng-repeat="stud_indus in student_indus_list | unique:'major'| orderBy : 'major' " datavalue="{{stud_indus.major}}"><a href="" title="upcoming">{{stud_indus.major}}</a></li>
+							</ul>
+	    				</span>
+	        		</h2>
+	      		</div>
+	    	</div>
+	    	<div class="row custom-row-35 top_three_student_act" ng-controller="top_three_students">
 	      		<div class="col-sm-12">
 	        		<div class="page-header custom-page-header">
 	          			<div class="pull-left">
@@ -28,7 +56,7 @@
 	      		</div>
 
 	    	</div>
-
+			<div class="student_search_result grid"></div>
 		</div>
 	</section>
 <!--[Top 3 Company Sections End]-->
