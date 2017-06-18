@@ -1,8 +1,6 @@
 <div id="proudest-achievement" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child">
   <!--[Career fair Details Slider Start]-->
   <section class="page-section page-bg-gray page-section-career-details">
-    <div class="container">
-
       <div class="row custom-row-15">
 
         <div class="col-sm-6 col-md-5">
@@ -22,13 +20,11 @@
                 </div>
               </div>
             </div>
-          </div>
         </section>
         <!--[Career fair Details Slider End]-->
 
         <!--[Jobs Scetion Start]-->
         <section class="page-section page-section-templates">
-          <div class="container">
             <div class="page-header custom-page-header">
               <div class="pull-left">
                 <h2 class="h2 custom-h2">Templates</h2>
@@ -63,9 +59,20 @@
                 </div>
               </div>
 
+              <div class="thumbnail thumbnail-templates">
+                <span class="glyphicon glyphicon-pencil circle-icon"></span>
+                <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive" src="https://dw9u6jy0dq3vj.cloudfront.net/aca5c3cf073e740ff3/thumbnail_00001.png">
+                <div class="box-inside-content">
+                  <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="customn-thumbs-color-{{10 | randomize}}">
+                    <div class="overlay"></div>
+                    <div class="box-inside-content">
+                      <h5 class="h5 custom-h5-01 ng-binding">{{vid.title}}</h5>
+                    </div>
+                  </a>
+                </div>
+              </div>
 
             </div>
-          </div>
         </section>
         <!--[Jobs Scetion End]-->
 
