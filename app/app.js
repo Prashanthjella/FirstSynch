@@ -33,8 +33,7 @@ var FirstSynch = angular.module("firstSync", [
     "CemployeeProfile",
     "CompanyEditProfile",
     "EmployeeEditProfile",
-    "Search",
-    "angularSpinner"
+    "Search"
 ]);
 
 FirstSynch.constant('apiUrl', 'http://52.43.26.31:8000/');
@@ -131,10 +130,6 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
 //                }
 //            };
 //     });
-FirstSynch.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {
-    usSpinnerConfigProvider.setTheme('bigBlue', {color: 'blue', radius: 20});
-    usSpinnerConfigProvider.setTheme('smallRed', {color: 'red', radius: 6});
-}]);
 //LoginUser
 FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
     var url = window.location.href;

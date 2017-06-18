@@ -17,11 +17,20 @@
 <link rel="stylesheet" href="assets/css/jquery.bxslider.css">
 
 <link href="assets/css/video/jquery-ui.css" rel="stylesheet" >
+<link href="bower_components/please-wait/build/please-wait.css" rel="stylesheet">
+<link href="assets/css/spinner.css" rel="stylesheet">
 <link href="assets/css/video/custom.css" rel="stylesheet">
 <style>
 /* Hide Angular JS elements before initializing */
 .ng-cloak {
     display: none;
+}
+body > .inner {
+  display: none;
+}
+
+body.pg-loaded > .inner {
+  display: block;
 }
 </style>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -39,7 +48,7 @@
     <header class="navbar navbar-default custom-navbar-default" ng-if="studentuserInfo" ng-include="'common/afterloginheader.html'">
     </header>
 
-    <div ng-view></div>
+    <div class="inner" ng-view></div>
 
     <div ng-include ="'common/popup/companysinguppopup.html'"></div>
     <div ng-include ="'common/popup/signuppopup.html'"></div>
@@ -52,7 +61,6 @@
     <div ng-include ="'common/popup/videopopup.html'"></div>
     <div ng-include ="'common/popup/studentvideopopup.html'"></div>
     <div ng-include ="'common/popup/dashboard_filter.html'"></div>
-    <span us-spinner="{radius:30, width:8, length: 16}" spinner-theme="bigBlue" spinner-key="spinner-1"></span>
     <!--angularjs area-->
     <script src="assets/js/jquery.min.js"></script>
     <!-- <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script> -->
@@ -70,7 +78,7 @@
     <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
     <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
-    <script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
+    <script src="bower_components/please-wait/build/please-wait.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="app.js"></script>
     <script src="route.js"></script>
@@ -119,6 +127,13 @@
       ga('create', 'UA-100952464-1', 'auto');
       ga('send', 'pageview');
 
+    </script>
+    <script type="text/javascript">
+      window.loading_screen = window.pleaseWait({
+        logo: "assets/images/logo.png",
+        backgroundColor: '#fff',
+        loadingHtml: "<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>"
+      });
     </script>
     </body>
 </html>

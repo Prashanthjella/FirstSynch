@@ -2,7 +2,7 @@
 
 /////////////////////////////////// Module ///////////////////////////////////////////
 
-var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync","angularSpinner"]);
+var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync"]);
 
 
 
@@ -10,16 +10,14 @@ var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync","angularSpinner"]
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // home page - featured video
-FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl,$compile,usSpinnerService) {
+FirstSynch.controller("guestfuturedvideo", function ($scope,$window,$http, apiUrl,$compile,$timeout) {
   // home page - featured video - default
-  usSpinnerService.spin('spinner-1');
   $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5")
       .then(function successCallback(response){
           $scope.feature = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get featurevideo");
   });
-
   // home page - featured video - showall and lessall
   $scope.showall_featuredvideo = function(){
     $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
@@ -56,7 +54,7 @@ FirstSynch.controller("guestfuturedvideo", function ($scope, $http, apiUrl,$comp
 });
 
 // home page - mostrecented fairs
-FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope,$window,$timeout, $http, apiUrl) {
 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
@@ -65,15 +63,21 @@ FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope, $http, ap
           console.log("Unable to perform get recent_fairs");
   });
 
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+
+  });
+
 });
 
 // home page - students
-FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compile,usSpinnerService) {
+FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compile) {
   // home page - students - default
   $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3")
       .then(function successCallback(response){
           $scope.dbstudents = response.data;
-          usSpinnerService.stop('spinner-1');
       }, function errorCallback(response){
           console.log("Unable to perform get dbstudents");
   });

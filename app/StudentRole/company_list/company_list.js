@@ -7,7 +7,7 @@ var FirstSynch = angular.module("StudentCompanyList", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //company page - top 3 details
-FirstSynch.controller("student_top_three" ,function ($scope, $http,$routeParams,apiUrl,$compile,$templateCache,usSpinnerService) {
+FirstSynch.controller("student_top_three" ,function ($scope, $http,$routeParams,apiUrl,$compile,$templateCache) {
 
     $http.get(apiUrl+"api/v1/toplist/top3companies/")
         .then(function successCallback(response){
@@ -17,7 +17,6 @@ FirstSynch.controller("student_top_three" ,function ($scope, $http,$routeParams,
     });
 
     $scope.student_company_filters = function(obj){
-        usSpinnerService.spin('spinner-1');
       obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datacompanyval.value = obj.currentTarget.attributes.datavalue.value;
       var city_data = $('#all_com_city').attr('datacompanyval');
       var company_data = $('#all_com_company').attr('datacompanyval');
@@ -87,7 +86,6 @@ FirstSynch.controller("student_top_three" ,function ($scope, $http,$routeParams,
                               +'</div></a>';
                               angular.element($('.student_company_search_result')).append($compile(search_result)($scope));
          });
-         usSpinnerService.stop('spinner-1');
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming career fair");
       });

@@ -8,7 +8,7 @@ var FirstSynch = angular.module("CStudentList", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //student page - top 3 details
-FirstSynch.controller("company_top_three_students" ,function ($scope,$compile, $http,$routeParams,apiUrl,usSpinnerService) {
+FirstSynch.controller("company_top_three_students" ,function ($scope,$compile, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/toplist/top3students/")
       .then(function successCallback(response){
@@ -35,7 +35,6 @@ FirstSynch.controller("company_top_three_students" ,function ($scope,$compile, $
           console.log("Unable to perform get student_city_list");
   });
   $scope.student_filters = function(obj){
-    usSpinnerService.spin('spinner-1');
     obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datastudentval.value = obj.currentTarget.attributes.datavalue.value;
 	var city_data = $('#all_stu_city').attr('datastudentval');
     var univ_data = $('#all_stu_univ').attr('datastudentval');
@@ -77,7 +76,6 @@ FirstSynch.controller("company_top_three_students" ,function ($scope,$compile, $
                             +'</div></a>';
         angular.element(jQuery('.student_search_result')).append($compile(search_result)($scope));
        });
-       usSpinnerService.stop('spinner-1');
     }, function errorCallback(response){
         console.log("Unable to perform get upcoming career fair");
     });
