@@ -1888,7 +1888,7 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 	text-transform: uppercase;
 	color: #303030
 }
-.custom-btn-following:hover, .custom-btn-following:focus, .custom-btn-following.active, .custom-btn-following:active {
+.custom-btn-following:hover, .custom-btn-following:focus, .custom-btn-following.active, .custom-btn-following:active, .followed_btn {
 	color: #fff !important;
 	background: #2cc1a0;
 	border-color: transparent;

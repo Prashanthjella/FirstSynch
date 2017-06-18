@@ -1,4 +1,4 @@
-<div id="proudest-achievement" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child" ng-controller="studentvideomaking">
+<div id="proudest-achievement" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child">
   <!--[Career fair Details Slider Start]-->
   <section class="page-section page-bg-gray page-section-career-details">
     <div class="container">
@@ -48,15 +48,21 @@
               </div>
 
               <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="vid in video_list">
-                <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-{{10 | randomize}}">
-                  <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
-                  <div class="overlay"></div>
-                  <span class="arrow-triangle"></span>
+                <div class="thumbnail thumbnail-templates">
+                  <span class="glyphicon glyphicon-pencil circle-icon"></span>
                   <div class="box-inside-content">
-                  <h1 class="h1 custom-gallery-h1">{{vid.title}}</h1>
-                  </div>
-                </a>
+                      <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail custom-thumbnail-image-gallery customn-thumbs-color-{{10 | randomize}}">
+                        <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
+                        <div class="overlay"></div>
+                        <span class="arrow-triangle"></span>
+                        <div class="box-inside-content">
+                          <h5 class="h5 custom-h5-01">{{vid.title}}</h5>
+                        </div>
+                      </a>
+                    </div>
+                </div>
               </div>
+
 
             </div>
           </div>

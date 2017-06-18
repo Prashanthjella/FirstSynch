@@ -6,9 +6,11 @@ var FirstSynch = angular.module("careerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("careerfair_detail" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("careerfair_detail" ,function ($scope, guest_token, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/")
+  $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
+        headers: {'Authorization' : 'Token '+guest_token}
+      })
       .then(function successCallback(response){
           $scope.careerfair_details = response.data;
       }, function errorCallback(response){

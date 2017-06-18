@@ -12,6 +12,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
           $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
               .then(function successCallback(response){
                   $scope.video_list = response.data;
+                  alert($scope.video_list);
               }, function errorCallback(response){
                   console.log("Unable to perform get student videos details");
           });

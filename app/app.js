@@ -42,10 +42,11 @@ FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
 FirstSynch.constant('Software','FDDA');
 FirstSynch.constant('Professional','RYRD');
+FirstSynch.constant('guest_token', '8ce17dfd673572c3925f26043f9d378a44bdf942');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
-FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertype,$location) {
+FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
     // condition based header show
     if(companyusertype == window.sessionStorage.getItem("usertype")){
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
@@ -66,7 +67,7 @@ FirstSynch.run(function($rootScope, $http, apiUrl,companyusertype,studentusertyp
         if (angular.isDefined($rootScope.token_id)) {
           var token_id = $rootScope.token_id;
         } else {
-          var token_id = "8ce17dfd673572c3925f26043f9d378a44bdf942";
+          var token_id = guest_token;
         }
         $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
           headers: {'Authorization' : 'Token '+token_id}
@@ -415,14 +416,14 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
         });
     }
 });
-FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http, apiUrl,$location,$compile)
+FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_token, apiUrl,$location,$compile)
     {
     $scope.SearchsubmitFunc = function ()
         {
             if (angular.isDefined($rootScope.token_id)) {
               var token_id = $rootScope.token_id;
             } else {
-              var token_id = "8ce17dfd673572c3925f26043f9d378a44bdf942";
+              var token_id = guest_token;
             }
             $http.get(apiUrl+"api/v1/search/?q="+$scope.keywords, {
                   headers: {'Authorization' : 'Token '+token_id}
