@@ -8,7 +8,14 @@ var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ng
 
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http, apiUrl,$timeout) {
-
+      $scope.uploadvideolist = function(){
+          $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
+              .then(function successCallback(response){
+                  $scope.video_list = response.data;
+              }, function errorCallback(response){
+                  console.log("Unable to perform get student videos details");
+          });
+      };
       // GET THE FILE INFORMATION.
       $scope.getFileDetails = function (e) {
 
@@ -36,9 +43,11 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
           data.append("student", $rootScope.stud_id);
           data.append("skill_text", angular.element('#skill_text')[0].value);
           data.append("video_chapters", angular.element('#result')[0].value);
+          data.append("description", angular.element('#description')[0].value);
           data.append("student_video", 'True');
           data.append("active", 'True');
-          data.append("published", 'True');
+          data.append("published", angular.element('#published')[0].value);
+
           // ADD LISTENERS.
           var objXhr = new XMLHttpRequest();
           objXhr.addEventListener("progress", updateProgress, false);
