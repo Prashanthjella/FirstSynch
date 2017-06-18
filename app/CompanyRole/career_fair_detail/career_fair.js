@@ -12,9 +12,21 @@ FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$rout
   $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/")
       .then(function successCallback(response){
           $scope.careerfair_details = response.data;
+          $scope.availability_followup = false;
+          $.each(response.data.followed, function(i,obj) {
+              if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_followup = true;}
+            });
       }, function errorCallback(response){
           console.log("Unable to perform get career fair details");
   });
+  $scope.company_career_follow = function(careerid){
+      $http.get(apiUrl+"api/v1/career_fairs/career_fair_follow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
+          .then(function successCallback(response){
+              $scope.careerfair_followup = response.data;
+          }, function errorCallback(response){
+              console.log("Unable to perform get career fair details");
+      });
+  };
 
 });
 
@@ -108,7 +120,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
 });
 
 // near by career fair
-FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$compile) {
+FirstSynch.controller("company_near_by_career_fair" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl,$compile) {
 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/")
       .then(function successCallback(response){
@@ -148,6 +160,11 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($scope, $http,$ro
           console.log("Unable to perform get featurevideo showall");
     });
   }
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+  });
 });
 /////////////////////////////////// filters ////////////////////////////////////
 

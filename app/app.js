@@ -138,6 +138,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
         jQuery('#logIn').modal('show');
     }
     $scope.LoginUser = function () {
+        var redirectulrs = $('#redirecturl').val();
         var data = $.param({
             username: $scope.username,
             password: $scope.password,
@@ -162,12 +163,12 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
                 if(companyusertype == response.data.usertype){
                     $('#logIn').modal('hide');
                     $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
-                    $location.path( "/com/dashboard" );
+                    $location.path( "/com"+redirectulrs );
                 }
                 else if(studentusertype == response.data.usertype){
                     $('#logIn').modal('hide');
                     $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
-                    $location.path( "/stu/dashboard" );
+                    $location.path( "/stu"+redirectulrs );
                 }
         },
         function errorCallback(data, status, headers, config) {

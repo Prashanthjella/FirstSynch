@@ -18,13 +18,19 @@ FirstSynch.controller("searchhelp" , function ($scope, $http, apiUrl) {
 });
 
 // search page - tutorial
-FirstSynch.controller("searchtutorial" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("searchtutorial" , function ($timeout,$window,$scope, $http, apiUrl) {
 
   $http.get(apiUrl+"api/v1/support/tutorials/")
       .then(function successCallback(response){
           $scope.search_tutorial_video = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get search_tutorial");
+  });
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+
   });
 
 });

@@ -159,4 +159,9 @@ $(document).ready(function() {
         $('.skill_show_main_function .skill_show_function.'+skill_type).show();
     });
 
+    $(document).on('click','#userlogin',function(){
+        var redirect = window.location.pathname;
+        $('#redirecturl').val(redirect);
+    });
+
 });

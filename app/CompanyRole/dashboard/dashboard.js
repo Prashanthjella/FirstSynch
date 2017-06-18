@@ -52,13 +52,18 @@ FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl, $
 });
 
 // home page - mostrecented fairs
-FirstSynch.controller("company_mostrecentedfairvideo" , function ($scope, $http, apiUrl) {
+FirstSynch.controller("company_mostrecentedfairvideo" , function ($timeout,$window,$scope, $http, apiUrl) {
 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.recent_fairs = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get recent_fairs");
+  });
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
   });
 
 });

@@ -127,7 +127,21 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
               }
           }
         }
-    }).when('/stu/careerfair', {
+    }).when('/stu', {
+        resolve:{
+          "check":function($location){
+              if(window.sessionStorage.getItem("usertype") == '48KL3'){
+                  $location.path('/');
+              }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
+                  $location.path('/stu/dashboard');
+              }
+              else{
+                  $location.path('/login');
+              }
+          }
+        }
+    })
+    .when('/stu/careerfair', {
         templateUrl: 'StudentRole/career_fair/career_fair.html',
     }).when('/stu/careerfair/:carredid', {
         templateUrl: 'StudentRole/career_fair_detail/career_fair.html',
@@ -147,7 +161,14 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         controller: 'studenteditprofiles'
     }).when('/com/dashboard', {
         templateUrl: 'CompanyRole/dashboard/dashboard.html'
-    }).when('/com/careerfair', {
+    }).when('/com', {
+        resolve:{
+          "check":function($location){
+                  $location.path('/com/dashboard');
+          }
+        }
+    })
+    .when('/com/careerfair', {
         templateUrl: 'CompanyRole/career_fair/career_fair.html',
     }).when('/com/careerfair/:carredid', {
         templateUrl: 'CompanyRole/career_fair_detail/career_fair.html',

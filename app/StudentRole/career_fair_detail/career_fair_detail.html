@@ -10,8 +10,8 @@
             <div class="col-sm-6 col-md-5">
                 <h2 class="h2 custom-sub-heading-02">{{ careerfair_details.title }}</h2>
                 <p class="details-content">{{ careerfair_details.description }}</p>
-
-                <div class="slider-btn-group"><a class="btn  custom-btn-following"><span class="glyphicon  custom-glyphicon-plus"></span>Follow</a></div>
+                <div class="slider-btn-group" ng-if="availability_followup"><a class="btn  custom-btn-following"><span class="glyphicon  custom-glyphicon-plus"></span>Followed</a></div>
+                <div class="slider-btn-group" ng-if="!availability_followup"><a ng-click="student_career_follow(careerfair_details.id)" class="btn  custom-btn-following"><span class="glyphicon  custom-glyphicon-plus"></span>Follow</a></div>
             </div>
             <div class="col-sm-5 col-md-5 col-lg-4 pull-right">
 
@@ -29,13 +29,13 @@
                 </div>
                 <div class="pull-right">
                     <div class="pull-left social-total-list">
-                        <span class="total-followers"></span> Posts
+                        <span class="total-followers">{{ careerfair_details.requested.length }}</span> Posts
                     </div>
                     <div class="pull-left social-total-list">
-                        <span class="total-followers"></span> Companies
+                        <span class="total-followers">{{ careerfair_details.viewed.length }}</span> Views
                     </div>
                     <div class="pull-left social-total-list">
-                        <span class="total-followers"></span> Followers
+                        <span class="total-followers">{{ careerfair_details.followed.length }}</span> Followers
                     </div>
                 </div>
             </div>

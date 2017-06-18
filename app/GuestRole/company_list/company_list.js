@@ -8,7 +8,7 @@ var FirstSynch = angular.module("CompanyList", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //company page - top 3 details
-FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParams,apiUrl,$compile,$templateCache) {
+FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl,$compile,$templateCache) {
 
   $http.get(apiUrl+"api/v1/toplist/top3companies/")
       .then(function successCallback(response){
@@ -91,6 +91,12 @@ FirstSynch.controller("top_three_companies" ,function ($scope, $http,$routeParam
         console.log("Unable to perform get upcoming career fair");
     });
   };
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+
+  });
 });
 //company page - company category
 FirstSynch.controller("company_category" ,function ($scope, $http,$routeParams,apiUrl) {

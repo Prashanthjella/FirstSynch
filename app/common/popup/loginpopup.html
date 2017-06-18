@@ -6,7 +6,7 @@
           <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
           <h1 class="custom-h1 text-center">Log in to firstsynch</h1>
         </div>
-        
+
         <div class="modal-body custom-modal-body-login">
           <span style="color:red;"> {{status.non_field_errors}} </span>
           <div class="form-group">
@@ -17,11 +17,12 @@
           <div class="form-group">
             <label class="text-uppercase">Password</label>
             <input type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="password" required/>
+            <input type="hidden" name="redirecturl" id="redirecturl" value="" ng-model="redirecturl"/>
           </div>
         </div>
 
         <div class="modal-footer custom-login-modal-footer">
-          <button ng-click="LoginUser()" ng-disabled="userloginform.$invalid" class="btn btn-default custom-btn-login">Log in</button>
+          <button ng-click="LoginUser()" ng-disabled="userloginform.password.$invalid && userloginform.username.$invalid" class="btn btn-default custom-btn-login">Log in</button>
           <a data-toggle="modal" data-target="#ForgotPassword" data-dismiss="modal" href="#" class="link-forgot-password" href="#">Forgot Password</a>
         </div>
 

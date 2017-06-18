@@ -7,7 +7,7 @@ var FirstSynch = angular.module("GstudentProfile", ["ngRoute"]);
 /////////////////////////////////// controllers ////////////////////////////////////
 
 // student details
-FirstSynch.controller("guest_student_profile" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("guest_student_profile" ,function ($scope,$window,$timeout,$http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/")
       .then(function successCallback(response){
@@ -19,5 +19,10 @@ FirstSynch.controller("guest_student_profile" ,function ($scope, $http,$routePar
       }, function errorCallback(response){
           console.log("Unable to perform get student profile details");
   });
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
 
+  });
 });
