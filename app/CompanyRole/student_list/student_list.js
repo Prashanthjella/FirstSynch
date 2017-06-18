@@ -8,7 +8,7 @@ var FirstSynch = angular.module("CStudentList", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //student page - top 3 details
-FirstSynch.controller("company_top_three_students" ,function ($scope,$compile, $http,$routeParams,apiUrl) {
+FirstSynch.controller("company_top_three_students" ,function ($timeout,$window,$scope,$compile, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/toplist/top3students/")
       .then(function successCallback(response){
@@ -80,6 +80,11 @@ FirstSynch.controller("company_top_three_students" ,function ($scope,$compile, $
         console.log("Unable to perform get upcoming career fair");
     });
   };
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+  });
 
 });
 

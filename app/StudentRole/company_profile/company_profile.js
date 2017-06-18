@@ -7,7 +7,7 @@ var FirstSynch = angular.module("ScompanyProfile", ["ngRoute"]);
 /////////////////////////////////// controllers ////////////////////////////////////
 
 // company details
-FirstSynch.controller("student_company_profile" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_company_profile" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$routeParams.companyid+"/")
       .then(function successCallback(response){
@@ -15,5 +15,9 @@ FirstSynch.controller("student_company_profile" ,function ($scope, $http,$routeP
       }, function errorCallback(response){
           console.log("Unable to perform get company profile details");
   });
-
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+  });
 });

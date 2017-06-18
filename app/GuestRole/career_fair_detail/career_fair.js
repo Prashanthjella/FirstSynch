@@ -108,7 +108,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl, $compile) 
 });
 
 // near by career fair
-FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$compile) {
+FirstSynch.controller("near_by_career_fair" ,function ($scope, $timeout,$http,$routeParams,apiUrl,$window,$compile) {
 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=3")
       .then(function successCallback(response){
@@ -148,6 +148,12 @@ FirstSynch.controller("near_by_career_fair" ,function ($scope, $http,$routeParam
           console.log("Unable to perform get featurevideo showall");
     });
   }
+  $scope.$watch('$viewContentLoaded', function(){
+      $timeout( function(){
+          $window.loading_screen.finish();
+     }, 3000 );
+
+  });
 });
 /////////////////////////////////// filters ////////////////////////////////////
 

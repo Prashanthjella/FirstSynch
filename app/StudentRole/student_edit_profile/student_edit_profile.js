@@ -408,7 +408,7 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
 
 
-FirstSynch.controller("studentbasicprofileupload" , function ($rootScope,Upload, $scope, $http, apiUrl) {
+FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$rootScope,Upload, $scope, $http, apiUrl) {
     // GET THE FILE INFORMATION.
     $scope.getFileDetails = function (e) {
         $scope.files = [];
@@ -494,4 +494,9 @@ FirstSynch.controller("studentbasicprofileupload" , function ($rootScope,Upload,
             $scope.basicprofilemessage = 'Successfully updated';
         });
     };
+    $scope.$watch('$viewContentLoaded', function(){
+        $timeout( function(){
+            $window.loading_screen.finish();
+       }, 3000 );
+    });
 });

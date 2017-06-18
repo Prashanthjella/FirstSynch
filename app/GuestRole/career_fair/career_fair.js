@@ -25,7 +25,7 @@ FirstSynch.controller("guest_career_fair_near_user" ,function ($scope, $http,$ro
 });
 
 // career fair page - near by career fair
-FirstSynch.controller("guest_upcoming_career_fair" ,function ($scope, $http,$routeParams,apiUrl,$timeout) {
+FirstSynch.controller("guest_upcoming_career_fair" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl) {
 	$scope.visible = true;
     $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
     .then(function successCallback(response){
@@ -61,6 +61,12 @@ FirstSynch.controller("guest_upcoming_career_fair" ,function ($scope, $http,$rou
 	        console.log("Unable to perform get upcoming career fair");
 	    });
     };
+    $scope.$watch('$viewContentLoaded', function(){
+        $timeout( function(){
+            $window.loading_screen.finish();
+       }, 3000 );
+
+    });
 
 
 });

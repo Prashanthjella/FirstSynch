@@ -272,7 +272,7 @@ FirstSynch.controller("companyeditprofiles" , function ($rootScope,$scope, $http
     };
 
 });
-FirstSynch.controller("companybasicprofileupload" , function ($rootScope, $scope, $http, apiUrl) {
+FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$rootScope, $scope, $http, apiUrl) {
     $scope.basicinfoform = {
         id:"",
         name : "",
@@ -315,4 +315,9 @@ FirstSynch.controller("companybasicprofileupload" , function ($rootScope, $scope
             $scope.basicinfomessage = 'Successfully updated';
         });
     };
+    $scope.$watch('$viewContentLoaded', function(){
+        $timeout( function(){
+            $window.loading_screen.finish();
+       }, 3000 );
+    });
 });
