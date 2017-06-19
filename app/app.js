@@ -139,6 +139,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
         jQuery('#logIn').modal('show');
     }
     $scope.LoginUser = function () {
+        $('.loader_icon').show();
         var redirectulrs = $('#redirecturl').val();
         var data = $.param({
             username: $scope.username,
@@ -151,7 +152,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function successCallback(response, status, headers, config) {
-
+                $('.loader_icon').hide();
                 $window.sessionStorage.setItem('token', response.data.token);
                 $window.sessionStorage.setItem('usertype', response.data.usertype);
                 $window.sessionStorage.setItem('profileimage', response.data.profile_image);
@@ -174,6 +175,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
         },
         function errorCallback(data, status, headers, config) {
               //$('#logIn').modal('show');
+            $('.loader_icon').hide();
             $scope.status = data.data;
         });
     };// user login - function end

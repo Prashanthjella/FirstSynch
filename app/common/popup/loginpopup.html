@@ -8,7 +8,7 @@
         </div>
 
         <div class="modal-body custom-modal-body-login">
-          <span style="color:red;"> {{status.non_field_errors}} </span>
+          <span style="color:red;" class="error_message"> {{status.non_field_errors}} </span>
           <div class="form-group">
             <label class="text-uppercase">Email Address</label>
             <input type="email" name="username" class="form-control custom-form-control-br-bottom" id="username" ng-model="username" required/>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="modal-footer custom-login-modal-footer">
-          <button ng-click="LoginUser()" ng-disabled="userloginform.password.$invalid && userloginform.username.$invalid" class="btn btn-default custom-btn-login">Log in</button>
+          <button ng-click="LoginUser()" ng-disabled="userloginform.password.$invalid && userloginform.username.$invalid" class="btn btn-default custom-btn-login">Log in <img src="assets/images/loader.gif" class="loader_icon" style="width: 20px; margin-left: 10px; display:none;"></button>
           <a data-toggle="modal" data-target="#ForgotPassword" data-dismiss="modal" href="#" class="link-forgot-password" href="#">Forgot Password</a>
         </div>
 

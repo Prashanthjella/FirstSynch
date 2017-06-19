@@ -3368,6 +3368,7 @@ body {
 	-webkit-border-radius:0;
 	-moz-border-radius:0;
 	border-radius:0;
+	padding: 0px;
 	}
 .create-template{
 	padding:50px 35px;
@@ -3381,9 +3382,11 @@ body {
 	bottom:0;
 	}
 .thumbnail-templates .circle-icon{
-	color:#fff;
+	color:#303030;
+	background: #fff;
 	position:absolute;
 	cursor:pointer;
 	right:10px;
 	top:10px;
+	z-index: 999;
 	}
