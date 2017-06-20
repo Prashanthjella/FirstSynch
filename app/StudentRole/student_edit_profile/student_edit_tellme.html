@@ -17,7 +17,13 @@
               <script type="text/javaScript">
               var playerInstance = jwplayer("help_video");
               playerInstance.setup({
-                  file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/FS_How_To_Make_a_Video.mp4"
+                playlist: [{
+                    file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/FS_How_To_Make_a_Video.mp4",
+                    tracks: [{
+                        file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/makding_video_step.vtt",
+                        kind: "chapters",
+                    }]
+                }]
               });
               </script>
             </div>
@@ -48,9 +54,12 @@
 
           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="vid in video_list">
             <div class="thumbnail thumbnail-templates">
-              <span class="glyphicon glyphicon-pencil circle-icon"></span>
+              <div class="icon-template-action">
+                <span class="glyphicon glyphicon-pencil circle-icon"></span>
+                <span class="glyphicon glyphicon-trash circle-icon"></span>
+              </div>
               <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
-              <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="customn-thumbs-color-{{10 | randomize}}">
+              <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)">
                 <div class="overlay"></div>
                 <div class="box-inside-content">
                   <h5 class="h5 custom-h5-01 ng-binding">{{vid.title}}</h5>
