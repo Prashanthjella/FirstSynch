@@ -1,42 +1,40 @@
-<section class="page-section complete-profile">
-          <div class="thumbnail custom-thumbnail-pro-accordion">
-            <h5 class="custom-h5">Complete your profile</h5>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="progress custom-progress">
-                  <div class="progress-bar custom-progress-bar" role="progressbar" aria-valuenow="74"
-  aria-valuemin="0" aria-valuemax="100" style="width:74%"> </div>
-                </div>
-                <div class="toal-complete-container"> <span class="total-profile-complete">74%</span> Complete </div>
-              </div>
+    <section class="page-section complete-profile"  ng-if="student_profile_details.experience.length > 0 || student_profile_details.hobby.length > 0 || student_profile_details.student_characteristic.length > 0">
+      <div class="thumbnail custom-thumbnail-pro-accordion">
+        <!-- <h5 class="custom-h5">Complete your profile</h5> -->
+        <!-- <div class="row">
+          <div class="col-sm-12">
+            <div class="progress custom-progress">
+              <div class="progress-bar custom-progress-bar" role="progressbar" aria-valuenow="74"
+    aria-valuemin="0" aria-valuemax="100" style="width:74%"> </div>
             </div>
-            <div class="panel-group custom-panel-group" id="accordion">
-              <div class="panel panel-default custom-accordion-panel-default">
-                <div class="panel-heading custom-accordion-heading">
-                  <h4 class="panel-title custom-accordion-title"> <a  data-toggle="collapse" data-parent="#accordion" href="#work-history"><span class="glyphicon custom-glyphicon-accordion"></span>Work History</a> <span class="total-profile-complete-accordion">+<span>12</span>%</span> </h4>
-                </div>
-                <div id="work-history" class="panel-collapse custom-panel-accordion-collapse collapse">
-                  <div class="panel-body custom-accordion-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                </div>
-              </div>
-              <div class="panel panel-default custom-accordion-panel-default">
-                <div class="panel-heading custom-accordion-heading">
-                  <h4 class="panel-title custom-accordion-title"> <a data-toggle="collapse" data-parent="#accordion" href="#hobbies"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a> <span class="total-profile-complete-accordion">+<span>7</span>%</span> </h4>
-                </div>
-                <div id="hobbies" class="panel-collapse custom-panel-accordion-collapse  collapse">
-                  <div class="panel-body custom-accordion-body" ng-repeat="hobbiess in student_profile_details.hobby">{{hobbiess.name}}</div>
-                </div>
-              </div>
-              <div class="panel panel-default custom-accordion-panel-default">
-                <div class="panel-heading custom-accordion-heading">
-                  <h4 class="panel-title custom-accordion-title"> <a  data-toggle="collapse" data-parent="#accordion" href="#characteristics"><span class="glyphicon custom-glyphicon-accordion"></span>Characteristics</a> <span class="total-profile-complete-accordion">+<span>7</span>%</span> </h4>
-                </div>
-                <div id="characteristics" class="panel-collapse custom-panel-accordion-collapse collapse">
-                  <div class="panel-body custom-accordion-body" ng-repeat="characters in student_profile_details.user_characteristic">{{characters.character}}</div>
-                </div>
-              </div>
+            <div class="toal-complete-container"> <span class="total-profile-complete">74%</span> Complete </div>
+          </div>
+        </div> -->
+        <div class="panel-group custom-panel-group" id="accordion">
+          <div class="panel panel-default custom-accordion-panel-default" ng-if="student_profile_details.experience.length > 0">
+            <div class="panel-heading custom-accordion-heading">
+              <h4 class="panel-title custom-accordion-title"> <a data-target="#work-history"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Work History</a> <!--span class="total-profile-complete-accordion">+<span>12</span>%</span--> </h4>
+            </div>
+            <div id="work-history" class="panel-collapse custom-panel-accordion-collapse collapse">
+              <div class="panel-body custom-accordion-body" ng-repeat="experience in student_profile_details.experience">{{experience.company}}/{{experience.start_date}} to {{experience.leave_date}} / {{experience.job_title}}/ {{experience.job_description}}</div>
             </div>
           </div>
-        </section>
+          <div class="panel panel-default custom-accordion-panel-default" ng-if="student_profile_details.hobby.length > 0">
+            <div class="panel-heading custom-accordion-heading">
+              <h4 class="panel-title custom-accordion-title"> <a data-target="#hobbies" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a> <!--span class="total-profile-complete-accordion">+<span>7</span>%</spand--> </h4>
+            </div>
+            <div id="hobbies" class="panel-collapse custom-panel-accordion-collapse  collapse">
+              <div class="panel-body custom-accordion-body" ng-repeat="hobbiess in student_profile_details.hobby">{{hobbiess.name}}</div>
+            </div>
+          </div>
+          <div class="panel panel-default custom-accordion-panel-default" ng-if="student_profile_details.student_characteristic.length > 0">
+            <div class="panel-heading custom-accordion-heading">
+              <h4 class="panel-title custom-accordion-title"> <a data-target="#characteristics"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Characteristics</a> <!--span class="total-profile-complete-accordion">+<span>7</span>%</span--> </h4>
+            </div>
+            <div id="characteristics" class="panel-collapse custom-panel-accordion-collapse collapse">
+              <div class="panel-body custom-accordion-body" ng-repeat="characters in student_profile_details.student_characteristic">{{characters.character}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

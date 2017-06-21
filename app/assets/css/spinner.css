@@ -741,3 +741,15 @@ Spinners
     opacity: 0;
   }
 }
+.video_loader_bk{
+    background: #fff none repeat scroll 0 0;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+.video_loader{
+    top:50%;
+    left:50%;
+    position: absolute;
+}

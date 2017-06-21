@@ -63,6 +63,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
     $rootScope.apiurl = apiUrl;
     $rootScope.videoPopup = function (value) {
         jQuery("#VideoPopup1").modal('show');
+        $('.video_loader_bk').fadeIn();
         var id = value;
         if (angular.isDefined($rootScope.token_id)) {
           var token_id = $rootScope.token_id;
@@ -89,6 +90,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
               primary: "flash"
             });
             jwplayer("jwplayer").play();
+            $('.video_loader_bk').fadeOut();
         }, function errorCallback(response){
             console.log("Unable to perform get Video Details");
         });

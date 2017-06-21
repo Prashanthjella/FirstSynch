@@ -9,16 +9,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2" ng-repeat="all_comp in all_company">
+            <div class="col-sm-2" ng-repeat-start="all_comp in all_company">
                 <a href="/company/{{all_comp.id}}">
                     <div class="thumbnail custom-thumbnail-company-logo">
                       <img ng-src="{{all_comp.logo}}" class="logo-companies-box"> </div>
                     <div class="company-heading-group">
                         <h4 class="h4 custom-h4">{{all_comp.name}} </h4>
-                        <h5 class="h5 custom-h5">{{all_comp.city.name}}</h5>
+                        <h5 class="h5 custom-h5">{{all_comp.city}}</h5>
                     </div>
                 </a>
             </div>
+            <div ng-repeat-end ng-if="$index+1 % 6 == 0" class="clearfix"></div>
         </div>
     </div>
 </section>

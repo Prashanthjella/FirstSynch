@@ -1,5 +1,5 @@
-<h1 class="h1 custom-page-h1">Company</h1>
-<section class="page-section page-section-date-establishment">
+<h1 class="h1 custom-page-h1" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">Company</h1>
+<section class="page-section page-section-date-establishment" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">
     <div class="row row-35">
         <div class="col-sm-5 text-center">
             <h1 class="custom-h1-02">
@@ -14,7 +14,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-intership">
+<section class="page-section page-section-intership" ng-if="company_profile_details.internships_to_jobs && company_profile_details.internships_job_description">
     <div class="row">
         <div class="col-sm-6 pull-left">
             <img src="assets/images/skills-img.png" class="img-responsive" alt="">
@@ -31,7 +31,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-company-size">
+<section class="page-section page-section-company-size" ng-if="company_profile_details.company_size_description && company_profile_details.company_size">
     <div class="row">
         <div class="col-sm-6">
             <h1 class="custom-h1-02">
@@ -51,7 +51,7 @@
 </section>
 <section class="page-section page-section-hire-departure">
     <div class="row">
-        <div class="col-sm-6 mt60 hire-section">
+        <div class="col-sm-6 mt60 hire-section" ng-if="company_profile_details.hire_rates && company_profile_details.hire_rates_description">
             <h1 class="custom-h1-02">
                 Hire Rates
             </h1>
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 mt60 hire-section departure-section">
+        <div class="col-sm-6 mt60 hire-section departure-section" ng-if="company_profile_details.departure_rate && company_profile_details.departure_rate_description">
             <h1 class="custom-h1-02">
                 Departure Rates
             </h1>
@@ -97,7 +97,7 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-company-growth">
+<section class="page-section page-section-company-growth" ng-if="company_profile_details.growth_rate_description && company_profile_details.growth_rate">
     <div class="row">
         <div class="col-sm-6  pull-right">
             <h1 class="custom-h1-02">
@@ -113,7 +113,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-investor-confidence">
+<section class="page-section page-section-investor-confidence" ng-if="company_profile_details.investor_conf_description && company_profile_details.investor_confidence ">
     <div class="row">
         <div class="col-sm-5">
             <h1 class="custom-h1-02">
@@ -151,7 +151,7 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-office">
+<section class="page-section page-section-office" ng-if="company_profile_details.gallery.length > 0">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <h1 class="custom-h1-02">
@@ -159,13 +159,13 @@
             </h1>
         </div>
     </div>
-    <div class="row row-10" ng-if="company_profile_details.gallery.length > 0">
+    <div class="row row-10">
         <div class="col-sm-3" ng-repeat="galleries in company_profile_details.gallery">
             <img ng-src="{{galleries.photo}}" class="img-responsive" alt="Office">
         </div>
     </div>
 </section>
-<section class="page-section page-section-locations">
+<section class="page-section page-section-locations"  ng-if="company_profile_details.contacts.length > 0">
     <div class="row">
         <div class="col-xs-12 col-sm-12 ">
             <div class="row">
