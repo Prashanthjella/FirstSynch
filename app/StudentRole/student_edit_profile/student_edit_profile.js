@@ -32,8 +32,8 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
       // NOW UPLOAD THE FILES.
       $scope.uploadFiles = function () {
-
           //FILL FormData WITH FILE DETAILS.
+          $('#video_end').modal('show');
           var data = new FormData();
           for (var i in $scope.files) {
               data.append("video_file", $scope.files[i]);
@@ -69,6 +69,9 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
       // CONFIRMATION.
       function transferComplete(e) {
           //alert("Files uploaded successfully.");
+          $('#video_end').modal('hide');
+          $('#page-video-edit').modal('hide');
+          $scope.initFirst();
       }
 
 

@@ -1792,7 +1792,8 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 	float: none;
 	display: inline-block;
 	background-color: #f2f2f2;
-	text-align: center
+	text-align: center;
+	padding: 20px 20px 0px;
 }
 .video-question-title {
 	text-align: center;
@@ -3348,4 +3349,7 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 	position: absolute;
 	right: 0;
 	top: 8px;
+}
+.second_video_data{
+	display: none;
 }
