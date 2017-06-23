@@ -42,7 +42,7 @@
 
         <div class="row row-10px">
           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="thumbnail thumbnail-templates create-template  text-center">
+            <div class="thumbnail thumbnail-templates create-template text-center">
                 <span class="glyphicon glyphicon-plus"></span>
                 <h5 class="h5 custom-h5-01">
                   Upload New Video
@@ -53,13 +53,12 @@
 
           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="vid in video_list">
             <div class="thumbnail thumbnail-templates">
-              <div class="icon-template-action">
-                <span class="glyphicon glyphicon-pencil circle-icon"></span>
+              <div class="icon-template-action" style="z-index: 9999;" style="display:none;">
+                <a href="#" class="glyphicon glyphicon-pencil circle-icon" ng-click="videoEditPopup(vid.id)"></a>
                 <span class="glyphicon glyphicon-trash circle-icon"></span>
               </div>
               <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
               <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)">
-                <div class="overlay"></div>
                 <div class="box-inside-content">
                   <h5 class="h5 custom-h5-01 ng-binding">{{vid.title}}</h5>
                 </div>
@@ -113,7 +112,7 @@
           </div><!--video-player-container-->
 
             <div class="model-content-video">
-              <form class="ng-pristine ng-valid">
+              <form name="video_create_form" class="ng-pristine ng-valid">
 
                 <div class="row" id="chapter_maker_thumb">
                     <div class="col-sm-12">
@@ -142,6 +141,9 @@
                           <a href="#" title="Add new question" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="addnewquestion()">
                             <span class="glyphicon glyphicon-plus"></span>Add new question
                           </a>
+                          <button id="trim_finish" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="trimchaptermaking()">
+                            Trim & Finish
+                          </button>
                         </div>
                         <textarea style="display:none;" id="result" ng-model="video_chapters" required class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="150" rows="4"></textarea>
                         <input type="hidden" id="video_duration">
@@ -177,7 +179,7 @@
                   <div class="col-sm-12">
                     <div class="form-group custom-lider-form-group">
                       <label class="text-uppercase">Title</label>
-                      <textarea id="title" name="title" ng-model="title" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4"></textarea>
+                      <textarea id="title" name="title" ng-model="title" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4" required></textarea>
                     </div>
                   </div>
                 </div>
@@ -193,14 +195,14 @@
                   <div class="col-sm-12">
                     <div class="form-group custom-lider-form-group">
                       <label class="text-uppercase">Skills thst we are seeking [seperate with commas]</label>
-                      <textarea id="skill_text" name="skill_text" ng-model="skill_text" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4"></textarea>
+                      <textarea id="skill_text" name="skill_text" ng-model="skill_text" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4" required></textarea>
                     </div>
                   </div>
                 </div>
                 <div class="row second_video_data">
                   <div class="col-sm-12">
                     <p class="text-center">
-                      <button type="submit" ng-click="uploadFiles()" class="btn btn-default custom-btn btn-lg" id="btn-upload">
+                      <button type="submit" ng-disabled="video_create_form.skill_text.$invalid && video_create_form.skill_text.$invalid" ng-click="uploadFiles()" class="btn btn-default custom-btn btn-lg" id="btn-upload">
                         <span class="glyphicon glyphicon-arrow-up"></span>
                         Upload this video
                       </button>
@@ -249,12 +251,16 @@
             <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
             <div class="page-header custom-page-header">
               <div class="pull-left">
-                <h1 class="h3 custom-h3" style="color:#fff !important;">
-                  <img src="assets/images/loader.gif" class="loader_icon" style="width: 40px; margin-left: 10px;">
-                  Your Video is currently being processed.
-                </h3>
               </div>
             </div>
+          </div>
+          <div class="modal-body custom-video-modal-body">
+            <h1 class="h3 custom-h3" style="color:#fff !important;">
+              <img src="assets/images/loader.gif" class="loader_icon" style="width: 40px; margin-left: 10px;">
+              <p><progress id="pro" value="0"></progress></p>
+              Your Video is currently being processed.
+            </h1>
+
           </div>
 
           </div>
@@ -278,7 +284,14 @@
           $('#error_msg_model').modal('show');
         }
     });
+
   });
+
+  if ($('#result').val().trim().length > 0){
+    $('#trim_finish').prop("disabled", false);
+  }else{
+    $('#trim_finish').prop("disabled", true);
+  }
 
   var playButton = document.getElementById("play-pause");
   var muteButton = document.getElementById("mute");
@@ -533,6 +546,11 @@
       /* append leftside - chapter heading*/
       $('#chapterss ul').append('<li class="custom-list-group-item active"><a href="#"><div class="custom-list-group-item-title">'+question+'</div><div class="custom-list-group-right"><span class="badge custom-badge active"></span><span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span></div></a></li>');
 
+      if ($('#result').val().trim().length > 0){
+        $('#trim_finish').prop("disabled", false);
+      }else{
+        $('#trim_finish').prop("disabled", true);
+      }
 
       x = barwidth * min_val / 100;
       y = 0;
@@ -557,6 +575,14 @@
       $('#inoutbar').trigger('slidestop');
     }
 
+  }
+
+  function trimchaptermaking() {
+    $("#chapter_maker_thumb").hide();
+    $("#question").hide();
+    $("#vid_title").show();
+    $('.second_video_data').show();
+    $('#trim_finish').hide();
   }
 
   /*-------------------------Step 4. Sliding Event End -------------------------- ----------------------------*/
@@ -710,3 +736,4 @@
 
   </script>
 <!--popup end for create Video--->
+<div ng-include ="'StudentRole/student_edit_profile/video_edit_popup.html'"></div>

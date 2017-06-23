@@ -103,6 +103,24 @@ $(document).ready(function() {
         jwplayer('jwplayer').stop();
     });
 
+    $(document).on('hide.bs.modal','#page-video-edit', function () {
+      var $source = $('#student_video');
+      $source[0].src = "";
+      $source.parent()[0].load();
+    });
+
+    $(document).on('hide.bs.modal','#error_msg_model', function () {
+      var $source = $('#student_video');
+      $source[0].src = "";
+      $source.parent()[0].load();
+    });
+
+    $(document).on('hide.bs.modal','#video_end', function () {
+      var $source = $('#student_video');
+      $source[0].src = "";
+      $source.parent()[0].load();
+    });
+
     $(window).scroll(function() {
 
         var scroll = $(window).scrollTop();
