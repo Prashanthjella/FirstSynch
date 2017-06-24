@@ -25,7 +25,7 @@ FirstSynch.controller("student_student_profile" ,function ($timeout,$window,$sco
   });
 
 });
-FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
     $scope.basicprofilesubmit = function(file){
       //var pro_image = new FormData();
       //for (var i in $scope.files) {
@@ -47,16 +47,17 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
             about_me:$scope.basicprofileform.about_me
 
         };
-        file.upload = Upload.upload({
-            url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",
-            data: {user:$scope.basicprofileform.user,profile_picture: file},
-            method:'PUT',
-        });
-        // alert(JSON.stringify(data));
-        $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
-        .then(function (response) {
-            $scope.basicprofilemessage = 'Successfully updated';
-        });
+        alert(JSON.stringify(data));
+        // file.upload = Upload.upload({
+        //     url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",
+        //     data: {user:$scope.basicprofileform.user,profile_picture: file},
+        //     method:'PUT',
+        // });
+        // // alert(JSON.stringify(data));
+        // $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
+        // .then(function (response) {
+        //     $scope.basicprofilemessage = 'Successfully updated';
+        // });
     };
     $scope.hobbiessubmit = function(){
         var hobbies_data = {
