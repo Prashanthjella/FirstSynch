@@ -16,10 +16,10 @@
           </div>
           <div class="col-sm-3">
             <ul class="navi-skills">
-              <li class="active" ng-repeat-start="skills in student_profile_details.skill  | unique:'skill_type'" ng-if="$first">
+              <li class="active" ng-repeat-start="skills in student_profile_details.skill  | unique:'skill_type'" ng-if="skill_option == skills.skill_type">
                   <a href="#" class="skill_click_function" title="{{skills.skill_type}}">{{skills.skill_type}}</a>
               </li>
-              <li ng-repeat-end ng-if="!$first">
+              <li ng-repeat-end ng-if="skill_option != skills.skill_type">
                   <a href="#" class="skill_click_function" title="{{skills.skill_type}}">{{skills.skill_type}}</a>
               </li>
             </ul>

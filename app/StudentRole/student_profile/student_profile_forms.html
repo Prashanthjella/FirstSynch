@@ -1,7 +1,7 @@
 <section class="page-section complete-profile" ng-controller="studentprofileform">
     <div class="thumbnail custom-thumbnail-pro-accordion">
         <div class="panel-group custom-panel-group" id="accordion">
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_basic_information">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_basic_information" ng-if="!student_profile_details.profile_picture && !student_profile_details.first_name && !student_profile_details.last_name && !student_profile_details.about_me ">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#sbasicinformation"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Basic Profile</a>
@@ -88,26 +88,30 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_hobbies">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_hobbies" ng-if="student_profile_details.hobby.length ==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#shobbies"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
                     </h4>
                 </div>
                 <div id="shobbies" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="hobbiessubmit()">
+                    <form ng-submit="hobbiessubmit(hobbiesform.image)">
                         <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Hobby</label>
-                                    <input type="hidden" name="stud_id" ng-model="hobbiesform.stud_id">
+                                    <input type="hidden" name="id" ng-model="hobbiesform.id">
                                     <input type="text" class="form-control custom-textbox" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name">
                                 </div>
-                                <!-- <div class="form-group custom-lider-form-group">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Description</label>
-                                    <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150"></textarea>
-                                </div> -->
+                                    <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150" ng-model="hobbiesform.description"></textarea>
+                                </div>
+                                <div class="form-group custom-lider-form-group">
+                                    <label class="text-uppercase">Profile Picture</label>
+                                    <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
+                                </div>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
@@ -119,74 +123,128 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_characteristics">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_characteristics" ng-if="student_profile_details.student_characteristic.length == 0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#scharactertics"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
                     </h4>
                 </div>
                 <div id="scharactertics" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form>
-                        <!-- <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="characters in listofcharacter | unique:'character'">
-                            <input id="{{characters.character}}" class="checkbox-input" ng-model="selectedCharacter[characters.character]" type="checkbox"  ng-checked="characters.student == stud_id">
-                            <label for="{{characters.character}}" class="checkbox-label"> {{characters.character}}</label>
-                        </div> -->
+                    <form ng-submit="charactersubmit()">
+                        <input type="hidden" name="charid" ng-model="characteristic.id">
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Realistic" class="checkbox-input" ng-model="selectedCharacter['Realistic']" type="checkbox">
+                            <input id="Realistic" class="checkbox-input" ng-model="pselectedCharacter['Realistic']" type="checkbox">
                             <label for="Realistic" class="checkbox-label"> Realistic</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Investigative"  class="checkbox-input" ng-model="selectedCharacter['Investigative']" type="checkbox">
+                            <input id="Investigative"  class="checkbox-input" ng-model="pselectedCharacter['Investigative']" type="checkbox">
                             <label for="Investigative" class="checkbox-label"> Investigative</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Artistic" class="checkbox-input" ng-model="selectedCharacter['Artistic']" type="checkbox">
+                            <input id="Artistic" class="checkbox-input" ng-model="pselectedCharacter['Artistic']" type="checkbox">
                             <label for="Artistic" class="checkbox-label"> Artistic</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Social" class="checkbox-input" ng-model="selectedCharacter['Social']" type="checkbox">
+                            <input id="Social" class="checkbox-input" ng-model="pselectedCharacter['Social']" type="checkbox">
                             <label for="Social" class="checkbox-label"> Social</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Enterprising" class="checkbox-input" ng-model="selectedCharacter['Enterprising']" type="checkbox">
+                            <input id="Enterprising" class="checkbox-input" ng-model="pselectedCharacter['Enterprising']" type="checkbox">
                             <label for="Enterprising" class="checkbox-label"> Enterprising</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Conventional" class="checkbox-input" ng-model="selectedCharacter['Conventional']" type="checkbox">
+                            <input id="Conventional" class="checkbox-input" ng-model="pselectedCharacter['Conventional']" type="checkbox">
                             <label for="Conventional" class="checkbox-label"> Conventional</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Rule_Follower" class="checkbox-input" ng-model="selectedCharacter['Rule Follower']" type="checkbox">
+                            <input id="Rule_Follower" class="checkbox-input" ng-model="pselectedCharacter['Rule Follower']" type="checkbox">
                             <label for="Rule_Follower" class="checkbox-label"> Rule Follower</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Self-Motivated" class="checkbox-input" ng-model="selectedCharacter['Self-Motivated']" type="checkbox">
+                            <input id="Self-Motivated" class="checkbox-input" ng-model="pselectedCharacter['Self-Motivated']" type="checkbox">
                             <label for="Self-Motivated" class="checkbox-label"> Self-Motivated</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Responsibility" class="checkbox-input" ng-model="selectedCharacter['Responsibility']" type="checkbox">
+                            <input id="Responsibility" class="checkbox-input" ng-model="pselectedCharacter['Responsibility']" type="checkbox">
                             <label for="Responsibility" class="checkbox-label"> Responsibility</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Accustomed" class="checkbox-input" ng-model="selectedCharacter['Accustomed to Routine']" type="checkbox">
+                            <input id="Accustomed" class="checkbox-input" ng-model="pselectedCharacter['Accustomed to Routine']" type="checkbox">
                             <label for="Accustomed" class="checkbox-label"> Accustomed to Routine</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Study_Skills" class="checkbox-input" ng-model="selectedCharacter['Learned Study Skills']" type="checkbox">
+                            <input id="Study_Skills" class="checkbox-input" ng-model="pselectedCharacter['Learned Study Skills']" type="checkbox">
                             <label for="Study_Skills" class="checkbox-label"> Learned Study Skills</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Reading" class="checkbox-input" ng-model="selectedCharacter['Love of Reading']" type="checkbox">
+                            <input id="Reading" class="checkbox-input" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
                             <label for="Reading" class="checkbox-label"> Love of Reading</label>
                         </div>
                         <p>
-                            <input type="submit"  class="btn btn-default custom-btn btn-lg" name="submit" value="Save" ng-click="charactersubmit()"/>
-                            <button type="button" class="btn btn-primary custom-btn btn-cancel btn-lg">Cancel</button>
+                            <input type="submit" value="Submit" />
                         </p>
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_leadership">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_whatiamlooking" ng-if="student_profile_details.whatimlooking.length==0">
+                <div class="panel-heading custom-accordion-heading">
+                    <h4 class="panel-title custom-accordion-title">
+                        <a data-target="#swhatiamlooking"  data-toggle="collapse" data-parent="#accordion">
+                            <span class="glyphicon custom-glyphicon-accordion"></span>
+                            What I'm looking for
+                        </a>
+                    </h4>
+                </div>
+                <div id="swhatiamlooking" class="panel-collapse custom-panel-accordion-collapse collapse">
+                    <form  ng-submit="whatiamlooksubmit()">
+                        <input type="hidden" name="lookingid" ng-model="looking.id">
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="a-role-in-a-large-company" class="checkbox-input" ng-model="pwhatiamlooking['A role in a large company']" type="checkbox">
+                            <label for="a-role-in-a-large-company" class="checkbox-label"> A role in a large company</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="build-a-career" class="checkbox-input" ng-model="pwhatiamlooking['Build a career']" type="checkbox">
+                            <label for="build-a-career" class="checkbox-label"> Build a career</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="career-growth" class="checkbox-input" ng-model="pwhatiamlooking['Career growth']" type="checkbox">
+                            <label for="career-growth" class="checkbox-label"> Career growth</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="explain-your-motivation" class="checkbox-input" ng-model="pwhatiamlooking['Explain your motivation']" type="checkbox">
+                            <label for="explain-your-motivation" class="checkbox-label"> Explain your motivation</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="extremely-productive-and-creative" class="checkbox-input" ng-model="pwhatiamlooking['Extremely productive and creative']" type="checkbox">
+                            <label for="extremely-productive-and-creative" class="checkbox-label"> Extremely productive and creative</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="friendly-staff" class="checkbox-input" ng-model="pwhatiamlooking['Friendly staff']" type="checkbox">
+                            <label for="friendly-staff" class="checkbox-label"> Friendly staff</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="high-earnings" class="checkbox-input" ng-model="pwhatiamlooking['High earnings']" type="checkbox">
+                            <label for="high-earnings" class="checkbox-label"> High earnings</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="interesting-projects" class="checkbox-input" ng-model="pwhatiamlooking['Interesting projects']" type="checkbox">
+                            <label for="interesting-projects" class="checkbox-label"> Interesting projects</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="learn-new-things" class="checkbox-input" ng-model="pwhatiamlooking['Learn new things']" type="checkbox">
+                            <label for="learn-new-things" class="checkbox-label"> Learn new things</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="official-employment" class="checkbox-input" ng-model="pwhatiamlooking['Official employment']" type="checkbox">
+                            <label for="official-employment" class="checkbox-label"> Official employment</label>
+                        </div>
+                        <p>
+                            <input type="submit" value="Submit" />
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_leadership" ng-if="student_profile_details.leadship_role.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#sleadership"  data-toggle="collapse" data-parent="#accordion">
@@ -202,7 +260,7 @@
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Lidership role</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.student" name="student">
+                                    <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.id" name="student">
                                     <input type="text" class="form-control custom-textbox" ng-model="leadershipform.leadership_role" placeholder="Give it a name">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
@@ -220,105 +278,8 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_whatiamlooking">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#swhatiamlooking"  data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            What I'm looking for
-                        </a>
-                    </h4>
-                </div>
-                <div id="swhatiamlooking" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="interesting-projects" class="checkbox-input" type="checkbox" checked>
-                            <label for="interesting-projects" class="checkbox-label"> Interesting projects</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="official-employement" class="checkbox-input" type="checkbox">
-                            <label for="official-employement" class="checkbox-label"> Official employement</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="interesting-projects02" class="checkbox-input" type="checkbox">
-                            <label for="interesting-projects02" class="checkbox-label"> Interesting projects</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="high-earnings" class="checkbox-input" type="checkbox">
-                            <label for="high-earnings" class="checkbox-label"> High earnings</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="career-growth" class="checkbox-input" type="checkbox">
-                            <label for="career-growth" class="checkbox-label"> Career Growth</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="friendly-staff" class="checkbox-input" type="checkbox">
-                            <label for="friendly-staff" class="checkbox-label"> Friendly Staff</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="high-earnings02" class="checkbox-input" type="checkbox">
-                            <label for="high-earnings02" class="checkbox-label"> High earnings</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="your-motivation" class="checkbox-input" type="checkbox">
-                            <label for="your-motivation" class="checkbox-label"> Explain your motivation</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="intersting-projects03" class="checkbox-input" type="checkbox">
-                            <label for="intersting-projects03" class="checkbox-label"> Intersting projects</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="learn-new-things" class="checkbox-input" type="checkbox">
-                            <label for="learn-new-things" class="checkbox-label"> Learn new things</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="friendly-staff02" class="checkbox-input" type="checkbox">
-                            <label for="friendly-staff02" class="checkbox-label"> Friendly staff</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="large-company" class="checkbox-input" type="checkbox" checked>
-                            <label for="large-company" class="checkbox-label"> A role in a large company </label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="offcial-employement" class="checkbox-input" type="checkbox">
-                            <label for="offcial-employement" class="checkbox-label"> Offcial employement</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="intersting-projects04" class="checkbox-input" type="checkbox">
-                            <label for="intersting-projects04" class="checkbox-label"> Intersting projects</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="career-growth02" class="checkbox-input" type="checkbox">
-                            <label for="career-growth02" class="checkbox-label"> Career growth</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="friendly-staff03" class="checkbox-input" type="checkbox" checked>
-                            <label for="friendly-staff03" class="checkbox-label">Friendly staff</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="build-a-career" class="checkbox-input" type="checkbox">
-                            <label for="build-a-career" class="checkbox-label"> Build a Career</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="learn-new-things02" class="checkbox-input" type="checkbox" checked>
-                            <label for="learn-new-things02" class="checkbox-label">Learn new things</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="explain-your-motivation" class="checkbox-input" type="checkbox">
-                            <label for="explain-your-motivation" class="checkbox-label"> Explain your motivation</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="productive-and-creative" class="checkbox-input" type="checkbox">
-                            <label for="productive-and-creative" class="checkbox-label"> Extremely productive and creative</label>
-                        </div>
-                        <p>
-                            <button type="button" class="btn btn-default custom-btn btn-lg">Save</button>
-                            <button type="button" class="btn btn-primary custom-btn btn-cancel btn-lg">Cancel</button>
-                        </p>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_myschool">
+
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_myschool" ng-if="student_profile_details.education.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#smyschools"  data-toggle="collapse" data-parent="#accordion">
@@ -334,8 +295,20 @@
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">School</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="educationform.user" name="user">
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.school_name" placeholder="Company Name">
+                                    <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
+                                    <div angucomplete-alt id="universities"
+                                        placeholder="Search universities"
+                                        maxlength="50"
+                                        pause="100"
+                                        selected-object="selecteduniversity"
+                                        remote-url="http://developer.firstsynch.com/api/v1/auto/school_list/?q="
+                                        remote-url-data-field="results"
+                                        title-field="Institution_Name"
+                                        minlength="1"
+                                        input-class="form-control custom-form-control-br-bottom"
+                                        field-required="true"
+                                        match-class="highlight"></div>
+                                    <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="educationform.school_name"/>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Major</label>
@@ -367,7 +340,7 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_histroy">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_histroy" ng-if="student_profile_details.experience.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#sworkhistroy"  data-toggle="collapse" data-parent="#accordion">
@@ -383,7 +356,7 @@
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Work</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.user" name="user">
+                                    <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.id" name="user">
                                     <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.company" placeholder="Company Name">
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
@@ -412,7 +385,7 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_projects">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_projects" ng-if="student_profile_details.project.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#sproject"  data-toggle="collapse" data-parent="#accordion">
@@ -422,13 +395,13 @@
                     </h4>
                 </div>
                 <div id="sproject" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="projectsubmit()">
+                    <form ng-submit="projectsubmit(projectsform.image)">
                         <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Projects</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.user" name="user">
+                                    <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
                                     <input type="text" class="form-control custom-textbox" ng-model="projectsform.title" placeholder="Company Name">
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
@@ -443,6 +416,10 @@
                                     <label class="text-uppercase">Description</label>
                                     <textarea class="form-control custom-text-area" rows="4" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
                                 </div>
+                                <div class="form-group custom-lider-form-group">
+                                    <label class="text-uppercase">Profile Picture</label>
+                                    <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" >
+                                </div>
                             </div>
                             <input type="submit" value="Submit" />
                         </div>
@@ -453,7 +430,7 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_personnal">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_personnal" ng-if="student_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#spersonal"  data-toggle="collapse" data-parent="#accordion">
@@ -470,8 +447,7 @@
                             </div>
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
-                                    <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.student">
-                                    <input type="hidden" class="form-control custom-textbox" name="skill_type" ng-model="skillsetpersonnalform.skill_type">
+                                    <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Name</label>
@@ -492,7 +468,7 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_professional">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_professional"  ng-if="student_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#sprofessional"  data-toggle="collapse" data-parent="#accordion">
@@ -508,7 +484,6 @@
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.skill_type" name="skill_type">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Name</label>
@@ -529,7 +504,7 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_software">
+            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_software" ng-if="student_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
                         <a data-target="#ssoftware"  data-toggle="collapse" data-parent="#accordion">
@@ -545,7 +520,6 @@
                             <div class="col-sm-11 col-md-11">
                                 <div class="form-group custom-lider-form-grou">
                                     <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.user" name="user">
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.skilltype" name="skill_type">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Name</label>

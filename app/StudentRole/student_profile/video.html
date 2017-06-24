@@ -1,7 +1,14 @@
-<section class="page-section video-profile">
-          <div class="row custom-row-15">
-            <div class="col-sm-12">
-            <div id='jwplayerforprofile'>Loading the player...</div>
-            </div>
-          </div>
-        </section>
+<section class="page-section video-profile" ng-if="student_profile_details.video.length > 0">
+    <div class="row custom-row-15">
+        <div class="col-sm-6" ng-repeat="studentvideo in student_profile_details.video">
+            <a href="#" data-id="{{studentvideo.id}}" ng-click="videoPopup(studentvideo.id)" class="thumbnail custom-large-image-gallery customn-thumbs-color-{{10 | randomize}}">
+                <img ng-src="{{studentvideo.thumbnail}}" class="img-responsive custom-img-responsive">
+                <div class="overlay "></div>
+                <span class="arrow-triangle"></span>
+                <div class="box-inside-content">
+                    <h1 class="h1 custom-gallery-h1">{{studentvideo.title}}</h1>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
