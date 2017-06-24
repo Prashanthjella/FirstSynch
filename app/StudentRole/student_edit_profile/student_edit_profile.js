@@ -8,6 +8,21 @@ var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ng
 
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http, apiUrl,$timeout) {
+      $scope.videoEditPopup = function (value) {
+          $("#edit_video_popup").modal('show');
+          var id = value;
+          var token_id = $rootScope.token_id;
+          alert(token_id);
+          $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
+            headers: {'Authorization' : 'Token '+token_id}
+          })
+          .then(function successCallback(response){
+              $scope.vid = response.data;
+          }, function errorCallback(response){
+              console.log("Unable to perform get Video Details");
+          });
+      };//CEdit Video Popup - function end
+
       $scope.uploadvideolist = function(){
           $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
               .then(function successCallback(response){
@@ -32,8 +47,8 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
 
       // NOW UPLOAD THE FILES.
       $scope.uploadFiles = function () {
-
           //FILL FormData WITH FILE DETAILS.
+          $('#video_end').modal('show');
           var data = new FormData();
           for (var i in $scope.files) {
               data.append("video_file", $scope.files[i]);
@@ -69,6 +84,8 @@ FirstSynch.controller("studenteditprofiles" , function ($rootScope,$scope, $http
       // CONFIRMATION.
       function transferComplete(e) {
           //alert("Files uploaded successfully.");
+          $('#video_end').modal('hide');
+          $('#page-video-edit').modal('hide');
       }
 
 
