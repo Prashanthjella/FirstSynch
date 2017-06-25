@@ -8,7 +8,8 @@
                         <div class="row">
                             <div class="col-sm-4"  ng-repeat="emp_skill in  employee_profile_details.skill">
                                 <div class="cols-skills">
-                                    <div class="circle-bg">{{emp_skill.rating}}</div>
+                                    <!-- <div class="circle-bg">{{emp_skill.rating}}</div> -->
+                                    <div class="progress-circle progress-{{skills.rating}}"><span>{{emp_skill.rating}}</span></div>
                                     <h4 class="heading-skill">{{emp_skill.name}}</h4>
                                 </div>
                             </div>

@@ -8,7 +8,8 @@
             <div class="row skill_show_main_function">
               <div class="col-sm-4 skill_show_function {{skills.skill_type}}" ng-show="skill_option == skills.skill_type" ng-repeat="skills in student_profile_details.skill">
                 <div class="cols-skills">
-                  <div class="circle-bg">{{skills.rating}}</div>
+                  <!-- <div class="circle-bg">{{skills.rating}}</div> -->
+                  <div class="progress-circle progress-{{skills.rating}}"><span>{{skills.rating}}</span></div>
                   <h4 class="heading-skill">{{skills.name}}</h4>
                 </div>
               </div>

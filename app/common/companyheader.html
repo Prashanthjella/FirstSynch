@@ -11,9 +11,8 @@
 			<li>
 				<a href="#" title="User Name"  data-toggle="dropdown" class="user-avator-img"><img ng-src="assets/images/profileicon.png" ng-if="!profileimage" alt="img-user-avator.png"><img ng-src="{{profileimage}}" ng-if="profileimage" alt="img-user-avator.png"></a>
 					<ul class="dropdown-menu">
-	                	<li><a href="/com/company/{{user_id}}">My Profile</a></li>
-						<li><a href="/com/editprofile">Edit Profile</a></li>
-						<li><a href="/com/employee/editprofile">Employee Profile</a></li>
+						<li><a href="/com/employee/profile">My Profile</a></li>
+	                	<li ng-if="company_userid !=''"><a href="/com/company/{{user_id}}">Company Profile</a></li>
 	                	<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
               		</ul>
 

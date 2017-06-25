@@ -52,6 +52,12 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
         $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
         $rootScope.user_id = window.sessionStorage.getItem("user_id");
+        if(window.sessionStorage.getItem("company_userid")){
+            $rootScope.company_userid = window.sessionStorage.getItem("company_userid");
+        }
+        if(window.sessionStorage.getItem("companyedit_id")){
+            $rootScope.companyedit_id = window.sessionStorage.getItem("companyedit_id");
+        }
     }
     else if(studentusertype == window.sessionStorage.getItem("usertype")){
         $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
@@ -162,6 +168,10 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
                 $rootScope.profileimage = response.data.profile_image;
                 $rootScope.user_id = response.data.user_id;
                 $rootScope.token_id = response.data.token;
+                if(response.data.company_id){
+                    $rootScope.company_userid = response.data.company_id;
+                    $window.sessionStorage.setItem('company_userid', response.data.company_id);
+                }
                 jQuery(".modal-backdrop.in").hide();
                 jQuery('#logIn').modal('hide');
                 if(companyusertype == response.data.usertype){
