@@ -1,0 +1,64 @@
+
+        <!-- <div class="row">
+          <div class="col-sm-7">
+            <div class="group-experience" ng-repeat="experiences in employee_profile_details.experience">
+              <h5>{{experiences.start_date | date:"MMMM d, y"}} - {{experiences.leave_date | date:"MMMM d, y"}}</h5>
+              <h2 class="h2 custom-sub-h2">{{experiences.job_title}} - {{experiences.company}}</h2>
+              <p class="cont-experience">{{experiences.job_description}}</p>
+              <div class="row custom-row-15">
+                <div class="col-sm-4">
+                  <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/instagram-01.jpg" class="img-responsive custom-img-responsive"> </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/instagram-02.jpg" class="img-responsive custom-img-responsive"> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+<section class="page-section page-section-experience" ng-if="employee_profile_details.experience.length > 0 || employee_profile_details.project.length > 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2">
+                <h1 class="h1 custom-page-h1">Experience</h1>
+                <section class="page-section page-work-history" ng-if="employee_profile_details.experience.length > 0">
+                    <h2 class="h2 custom-page-h2">Work history
+                    </h2>
+                    <div class="row"  ng-repeat="experiences in employee_profile_details.experience">
+                        <div class="col-sm-4">
+                            <h2 class="">{{experiences.company}}</h2>
+                            <p class="medium-text grey-text text-uppercase">{{experiences.start_date | date:"MMM, y"}} - {{experiences.leave_date | date:"MMM, y"}}</p>
+                        </div>
+                        <div class="col-sm-5">
+                            <h2 class="">{{experiences.job_title}}</h2>
+                            <p class="">
+                                {{experiences.job_description}}
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="page-section page-work-history" ng-if="employee_profile_details.project.length > 0">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="h2 custom-page-h2">Projects</h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="group-experience"  ng-repeat="studentproject in employee_profile_details.project">
+                                <h5>{{studentproject.start_date | date:"MMMM y"}}</h5>
+                                <h3  class="h3 custom-sub-h3">{{studentproject.title}}</h3>
+                                <p class="cont-experience">{{studentproject.project_description}}</p>
+                                <div class="row custom-row-15" ng-if="studentproject.image">
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail custom-thumbnail-profile-views">
+                                            <img ng-src="{{studentproject.image}}" class="img-responsive custom-img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
