@@ -34,11 +34,11 @@
                     </div>
                     <div class="media-body cusom-media-model-body">
                         <div class="pull-left">
-                            <h2 class="custom-h2">{{vid.video.title}}</h2>
-                            <h5 class="custom-h5-model" ng-if="vid.video.company_video"> from <span class="highlighted-green">{{vid.video.company.name}}</span></h5>
-                            <h5 class="custom-h5-model" ng-if="vid.video.student_video"> By <span class="highlighted-green">{{vid.video.student.first_name}}</span></h5>
+                            <h3 class="custom-h3">{{vid.video.title}}</h3>
+                            <h6 class="custom-h6-model" ng-if="vid.video.company_video"> from <span class="highlighted-green">{{vid.video.company.name}}</span></h6>
+                            <h6 class="custom-h6-model" ng-if="vid.video.student_video"> By <span class="highlighted-green">{{vid.video.student.first_name}}</span></h6>
                             <!-- <h6 class="custom-h6-model">{{vid.video.created_by.created_at | date:"dd/MM/yyyy"}}</h6> -->
-                            <h6 class="custom-h6-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
+                            <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
                         </div>
                         <div class="pull-right">
                             <div class="custom-right-icons"> <a href="#" class="icons-model"> <i class="fa fa-heart-o"></i> {{vid.video.liked.length}} </a> <a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a> </div>
