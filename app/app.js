@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 var FirstSynch = angular.module("firstSync", [
     "ngRoute",
+    "ngRateIt",
     "angularMoment",
     "angucomplete-alt",
     "ngFileUpload",

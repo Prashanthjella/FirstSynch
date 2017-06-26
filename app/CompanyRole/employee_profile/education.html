@@ -15,7 +15,7 @@
               <div class="rating-container">
                 <div class="pull-left">GPA : {{educations.gpa}}</div>
                 <div class="pull-right">
-                  <div class="rating-container"> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="total-star">{{educations.gpa_rating}}</span> </div>
+                  <div class="rating-container"> <ng-rate-it ng-model="educations.gpa_rating" read-only="1" resetable="false"></ng-rate-it><span class="total-star">{{educations.gpa_rating}}</span>  </div>
                 </div>
               </div>
             </div>
