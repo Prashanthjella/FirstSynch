@@ -8,6 +8,20 @@ var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ng
 
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout) {
+
+      // $scope.deleteVideo = function (value) {
+      //     var id = value;
+      //     var url = apiUrl+'api/v1/career_fairs/api/v1/video/', data = id;
+      //     $confirm({text: 'Are you sure you want to delete?', title: 'Delete it', ok: 'Yes', cancel: 'No'})
+      //     .then(function() {
+      //         $http.delete(url, data).then(function (response) {
+      //           $("#delete_video").modal('hide');
+      //         }, function (response) {
+      //
+      //         });
+      //     });
+      // };//CEdit Video Popup - function end
+
       $scope.videoEditPopup = function (value) {
           $("#edit_video_popup").modal('show');
           var id = value;
