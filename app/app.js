@@ -49,6 +49,7 @@ FirstSynch.constant('guest_token', '8ce17dfd673572c3925f26043f9d378a44bdf942');
 //Video Popup Functionality
 FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
     // condition based header show
+
     if(companyusertype == window.sessionStorage.getItem("usertype")){
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
         $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
@@ -124,7 +125,13 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
             console.log("Unable to perform get Video Details");
         });
     };//Common Video Popup - function end
-
+    // facebook signin url
+    $http.get("http://api.firstsynch.com/api/v1/oauth/facebook_url/")
+    .then(function successCallback(response){
+        $rootScope.facebookloginurl = response.data.url;
+    }, function errorCallback(response){
+        console.log("Unable to perform get career fair near for current user");
+    });
 });
 
 // FirstSynch.config(['$httpProvider', function($httpProvider) {
@@ -428,6 +435,21 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
         function errorCallback(response, status, headers, config) {
             jQuery('#activate').modal('show');
             $scope.activate_msg = response.data.output;
+        });
+    }
+});
+FirstSynch.controller("FbLogin", function ($scope, $http, apiUrl,$location) {
+    if($location.search()['code']){
+        var data = {'redirect_url': window.location.href};
+        $http({
+            url: 'http://api.firstsynch.com/api/v1/oauth/facebook_auth/',
+            method: "POST",
+            data: data
+        })
+        .then(function successCallback(response, status, headers, config) {
+            alert(response.data)
+        },
+        function errorCallback(response, status, headers, config) {
         });
     }
 });
