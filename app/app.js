@@ -440,7 +440,7 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
 });
 FirstSynch.controller("FbLogin", function ($scope, $http, apiUrl,$location) {
     if($location.search()['code']){
-        var data = {'redirect_url': window.location.href};
+        var data = {'redirect_uri': window.location.href};
         $http({
             url: 'http://api.firstsynch.com/api/v1/oauth/facebook_auth/',
             method: "POST",
