@@ -9,18 +9,13 @@ var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ng
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout) {
 
-      // $scope.deleteVideo = function (value) {
-      //     var id = value;
-      //     var url = apiUrl+'api/v1/career_fairs/api/v1/video/', data = id;
-      //     $confirm({text: 'Are you sure you want to delete?', title: 'Delete it', ok: 'Yes', cancel: 'No'})
-      //     .then(function() {
-      //         $http.delete(url, data).then(function (response) {
-      //           $("#delete_video").modal('hide');
-      //         }, function (response) {
-      //
-      //         });
-      //     });
-      // };//CEdit Video Popup - function end
+      $scope.deleteVideo = function (value,index) {
+          $http.delete(apiUrl+"api/v1/career_fairs/api/v1/video/"+value+"/",JSON.stringify({'id':value}))
+          .then(function (response) {
+              angular.element(event.target).parent().parent().parent().remove();
+          });
+          $('.student_uploaded_video'+index).fadeOut();
+      };//CEdit Video Popup - function end
 
       $scope.videoEditPopup = function (value) {
           $("#edit_video_popup").modal('show');
@@ -569,3 +564,18 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
        }, 3000 );
     });
 });
+//////////////////////////////////////////Directive ///////////////////////////
+FirstSynch.directive('ngConfirmClick', [
+    function(){
+        return {
+            link: function (scope, element, attr) {
+                var msg = attr.ngConfirmClick || "Are you sure?";
+                var clickAction = attr.confirmedClick;
+                element.bind('click',function (event) {
+                    if ( window.confirm(msg) ) {
+                        scope.$eval(clickAction)
+                    }
+                });
+            }
+        };
+}])

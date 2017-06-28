@@ -37,7 +37,7 @@ var FirstSynch = angular.module("firstSync", [
     "Search"
 ]);
 
-FirstSynch.constant('apiUrl', 'http://52.43.26.31:8000/');
+FirstSynch.constant('apiUrl', 'http://52.40.1.81:8000/');
 FirstSynch.constant('companyusertype','48KL3');
 FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
@@ -148,6 +148,25 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
 //            };
 //     });
 //LoginUser
+FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
+    if (angular.isDefined($rootScope.token_id)) {
+      var token_id = $rootScope.token_id;
+    } else {
+      var token_id = guest_token;
+    }
+    $scope.video_comment_form_submit = function(videoid){
+        var videocomment_data = {
+            video : videoid,
+            comment : $scope.videocomment
+        }
+        //alert(JSON.stringify(personnal_skill_data));
+        $http.post(apiUrl+"api/v1/career_fairs/comment/create/",JSON.stringify(videocomment_data),{
+          headers: {'Authorization' : 'Token '+token_id}
+        })
+        .then(function (response) {
+        });
+    };
+});
 FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
     var url = window.location.href;
     var idexvalue = url.indexOf("/login");
@@ -472,6 +491,8 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                         jQuery('.search_result_show_act').show();
                         jQuery('.search_results_career_page_act').empty();
                         jQuery('.search_results_companies_act').empty();
+                        jQuery('.search_results_student_act').empty();
+
                         if(response.data.careerfair){
                             jQuery('.search_results_career_page_container_act').show();
                             jQuery.each(response.data.careerfair, function(i) {
@@ -530,7 +551,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                             jQuery('.search_results_student_container_act').show();
                             jQuery.each(response.data.student, function(i) {
                                 var student_result ='<div class="media custom-media">'
-                                                        +'<a href="/company/'+response.data.student[i].id+'" class="search-link">'
+                                                        +'<a href="/student/'+response.data.student[i].id+'" class="search-link">'
                                                             +'<div class="media-left media-middle custom-media-left">'
                                                                 +'<div class="search-img-container">'
                                                                     +'<img src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.student[i].profile_picture+'" class="logo-companies-box">'
@@ -554,6 +575,35 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                         }
                         else{
                             jQuery('.search_results_companies_container_act').hide();
+                        }
+                        if(response.data.video){
+                            jQuery('.search_results_video_container_act').show();
+                            jQuery.each(response.data.video, function(i) {
+                                var video_result ='<div class="media custom-media">'
+                                                        +'<a ng-click="videoPopup('+response.data.video[i].id+')" class="search-link">'
+                                                            +'<div class="media-left media-middle custom-media-left">'
+                                                                +'<div class="search-img-container">'
+                                                                    +'<img src="'+response.data.video[i].thumbnail+'" class="logo-companies-box">'
+                                                                +'</div>'
+                                                            +'</div>'
+                                                            +'<div class="media-body custom-media-body">'
+                                                                +'<h4 class="media-heading custom-media-heading">'+response.data.video[i].title+'</h4>'
+                                                                +'<h5 class="media-eading-h5"></h5>'
+                                                                +'<div class="searech-folow pull-left">'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.video[i].viewed+'</span> Views</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.video[i].liked+'</span> Likes</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.video[i].followers+'</span> followers</span>'
+                                                                +'</div>'
+                                                            +'</div>'
+                                                        +'</a>'
+                                                        +'<div>'
+                                                        +'</div>'
+                                                    +'</div>';
+                            angular.element(jQuery('.search_results_video_act')).append($compile(video_result)($scope));
+                            });
+                        }
+                        else{
+                            jQuery('.search_results_video_container_act').hide();
                         }
                     },
                     function errorCallback(response)

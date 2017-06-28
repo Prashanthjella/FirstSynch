@@ -29,6 +29,19 @@ FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$rout
               console.log("Unable to perform get career fair details");
       });
   };
+  $scope.company_career_request_member = function(careerid){
+      alert($rootScope.user_id);
+    //   var request_member_data = {
+    //       career_fair:careerid,
+    //       company :
+    //   }
+    //   $http.get(apiUrl+"api/v1/career_fairs/api/v1/requestedmember/",)
+    //       .then(function successCallback(response){
+    //           $scope.careerfair_followup = response.data;
+    //       }, function errorCallback(response){
+    //           console.log("Unable to perform get career fair details");
+    //   });
+  };
 
 });
 
