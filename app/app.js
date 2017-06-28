@@ -444,10 +444,11 @@ FirstSynch.controller("FbLogin", function ($scope, $http, apiUrl,$location) {
         $http({
             url: 'http://api.firstsynch.com/api/v1/oauth/facebook_auth/',
             method: "POST",
-            data: data
+            data: data,
+            headers: {'Content-Type': 'multipart/form-data','Accept':'application/json'}
         })
         .then(function successCallback(response, status, headers, config) {
-            alert(response.data)
+            alert(JSON.stringify(response.data));
         },
         function errorCallback(response, status, headers, config) {
         });
