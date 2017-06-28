@@ -1,32 +1,46 @@
 <div id="company_location" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
     <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="locationmessage">{{locationmessage}}</div>
         <h1 class="page-title">Location</h1>
-        <form>
+        <form  ng-submit="locationsubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Branch</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a branch name">
-                    </div>
-                    <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Adress #1</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a branch name">
+                        <label class="text-uppercase">Address #1</label>
+                        <input type="hidden" name="id" ng-model="locationform.id">
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.address_1" placeholder="Give it a Address #1">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Address #2</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a branch name">
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.address_2" placeholder="Give it a Address #2">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">City</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a branch name">
+                        <input type="text" class="form-control custom-textbox"  ng-model="locationform.city" placeholder="Give it a City">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">State</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a branch name">
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.state"  placeholder="Give it a State">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Country</label>
-                        <input type="text" class="form-control custom-textbox" placeholder="Give it a branch name">
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.country" placeholder="Give it a Country">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Zip code</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.zip_code" placeholder="Give it a Zipcode">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Contact no</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.contact_no" placeholder="Give it a Contact no">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Email</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.e_mail" placeholder="Give it a Email">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Fax no</label>
+                        <input type="text" class="form-control custom-textbox" ng-model="locationform.fax_no" placeholder="Give it a Fax no">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <input type="submit" class="form-control" value="Save"/>

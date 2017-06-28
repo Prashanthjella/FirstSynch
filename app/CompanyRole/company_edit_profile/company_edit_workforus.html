@@ -1,0 +1,29 @@
+<div id="company_workforus" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
+    <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="workforusmessage">{{workforusmessage}}</div>
+        <h1 class="page-title"> Why you should work for US </h1>
+        <form ng-submit="workforussubmit()">
+            <div class="row">
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Benefits</label>
+                        <input type="hidden" ng-model="workforusform.id">
+                        <input type="text" name="benefits" ng-model="workforusform.benefits" class="form-control custom-textbox" placeholder="Give it a benefits">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Perks</label>
+                        <input type="text" name="perks" ng-model="workforusform.perks" class="form-control custom-textbox" placeholder="Give it a Perks">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Culture</label>
+                        <input type="text" name="culture" ng-model="workforusform.culture" class="form-control custom-textbox" placeholder="Give it a Culture">
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <input type="submit" class="form-control" value="Save"/>
+                    </div>
+                </div>
+                <hr class="hr-line-lidership">
+            </div>
+        </form>
+    </div>
+</div>

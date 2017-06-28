@@ -1,0 +1,215 @@
+<aside class="col-sm-3 col-md-2 custom-sidebar" id="#accordion">
+    <h6 class="sidebar-h6">Drag <span class="glyphicon glyphicon-th custom-heaing-glyphicon"></span> to rearrange</h6>
+    <div class="panel-group sidebar-pabel-group" id="accordion">
+        <div class="panel panel-default custom-panel-default student_edit_profile_side_parent">
+            <div class="panel-heading custom-panel-heading">
+                <h4 class="panel-title custom-panel-title">
+                    <a class="accordion-toggle custom-accordion-toggle student_edit_profile_side_child_title" data-toggle="collapse" data-parent="#accordion" href="">
+                    Basic Profile <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <span class="custom-accordion-drag"></span>
+                </h4>
+            </div>
+            <div id="basic" class="panel-collapse collapse in student_edit_profile_side_child_collapsable">
+                <div class="panel-body custom-panel-body">
+                    <ul class="nav nav-tabs custom-nav-tabs">
+                        <li class="custom-list-group-item active">
+                            <a data-id="basic_profile" class="student_edit_profile_inner_title" data-toggle="tab" title="My schools" href="">
+                                <div class="custom-list-group-item-title"> Basic Profile </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge inactive">01</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default custom-panel-default student_edit_profile_side_parent">
+            <div class="panel-heading custom-panel-heading">
+                <h4 class="panel-title custom-panel-title">
+                    <a  class="accordion-toggle collapsed custom-accordion-toggle student_edit_profile_side_child_title" data-toggle="collapse" data-parent="#accordion"  href=""> Videos
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <span class="custom-accordion-drag"></span>
+                </h4>
+            </div>
+            <div id="videos" class="panel-collapse collapse student_edit_profile_side_child_collapsable" >
+                <div id="video-scroll-navi" class="sideba-navi-scroll">
+                    <div class="panel-body custom-panel-body">
+                        <ul class="nav nav-tabs custom-nav-tabs">
+                            <li class="custom-list-group-item">
+                                <a data-toggle="tab" data-id="proudest-achievement" class="student_edit_profile_inner_title" href="" title="Express Yourself" ng-click="uploadvideolist()">
+                                    <div class="custom-list-group-item-title">Express Yourself</div>
+                                    <div class="custom-list-group-right">
+                                        <span class="badge custom-badge inactive">01</span>
+                                        <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default custom-panel-default student_edit_profile_side_parent">
+            <div class="panel-heading custom-panel-heading">
+                <h4 class="panel-title custom-panel-title"> <a class="accordion-toggle collapsed student_edit_profile_side_child_title  custom-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href=""> About me <span class="glyphicon glyphicon-chevron-up"></span> </a> <span class="custom-accordion-drag"></span> </h4>
+            </div>
+            <div id="aboutme" class="panel-collapse collapse student_edit_profile_side_child_collapsable">
+                <div class="panel-body custom-panel-body">
+                    <ul class="nav nav-tabs custom-nav-tabs">
+                        <li class="custom-list-group-item">
+                            <a data-id="aboutme-hobbies" class="student_edit_profile_inner_title" data-toggle="tab" title="Hobbies" href="" ng-click="hobbies_edit()">
+                                <div class="custom-list-group-item-title"> Hobbies </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">01</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item">
+                            <a data-id="characteristics" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Characteristics" ng-click="character_edit()">
+                                <div class="custom-list-group-item-title"> Characteristics </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">02</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item ">
+                            <a data-id="what-iam-looking" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="What I'm looking for">
+                                <div class="custom-list-group-item-title"> What I'm looking for </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">03</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item">
+                            <a data-id="leadership-roles" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Leadership roles"  ng-click="leadershipedit()">
+                                <div class="custom-list-group-item-title"> Leadership roles </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">04</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item">
+                            <a data-id="instagram-photos" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Instagram photos">
+                                <div class="custom-list-group-item-title"> Instagram photos </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">05</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default custom-panel-default student_edit_profile_side_parent">
+            <div class="panel-heading custom-panel-heading">
+                <h4 class="panel-title custom-panel-title">
+                    <a class="accordion-toggle student_edit_profile_side_child_title collapsed custom-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href=""> Eduction
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <span class="custom-accordion-drag"></span>
+                </h4>
+            </div>
+            <div id="eduction" class="panel-collapse collapse student_edit_profile_side_child_collapsable">
+                <div class="panel-body custom-panel-body">
+                    <ul class="nav nav-tabs custom-nav-tabs">
+                        <li class="custom-list-group-item">
+                            <a data-id="my-schools" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="My schools" ng-click="educationedit()">
+                                <div class="custom-list-group-item-title"> My schools </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge inactive">01</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default custom-panel-default student_edit_profile_side_parent">
+            <div class="panel-heading custom-panel-heading">
+                <h4 class="panel-title custom-panel-title">
+                    <a class="accordion-toggle student_edit_profile_side_child_title collapsed custom-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href=""> Experience
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <span class="custom-accordion-drag"></span>
+                </h4>
+            </div>
+            <div id="experience" class="panel-collapse collapse student_edit_profile_side_child_collapsable">
+                <div class="panel-body custom-panel-body">
+                    <ul class="nav nav-tabs custom-nav-tabs">
+                        <li class="custom-list-group-item">
+                            <a data-id="work-history" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Work history"  ng-click="workhistroyeedit()">
+                                <div class="custom-list-group-item-title"> Work history </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">01</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item">
+                            <a data-id="projects" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Projects" ng-click="projectsedit()">
+                                <div class="custom-list-group-item-title"> Projects </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">02</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default custom-panel-default student_edit_profile_side_parent">
+            <div class="panel-heading custom-panel-heading">
+                <h4 class="panel-title custom-panel-title">
+                    <a class="accordion-toggle student_edit_profile_side_child_title collapsed custom-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href=""> Skills
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <span class="custom-accordion-drag"></span>
+                </h4>
+            </div>
+            <div id="skills" class="panel-collapse collapse student_edit_profile_side_child_collapsable">
+                <div class="panel-body custom-panel-body">
+                    <ul class="nav nav-tabs custom-nav-tabs">
+                        <li class="custom-list-group-item">
+                            <a data-id="personal" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Personal"  ng-click="skillpersonnaledit()">
+                                <div class="custom-list-group-item-title"> Personal </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge inactive">01</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item">
+                            <a data-id="software" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Software" ng-click="skillsoftwareedit()">
+                                <div class="custom-list-group-item-title"> Software </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">02</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="custom-list-group-item">
+                            <a data-id="professional" class="student_edit_profile_inner_title" data-toggle="tab" href="" title="Professional" ng-click="skillprofessionaledit()">
+                                <div class="custom-list-group-item-title"> Professional </div>
+                                <div class="custom-list-group-right">
+                                    <span class="badge custom-badge active">03</span>
+                                    <span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

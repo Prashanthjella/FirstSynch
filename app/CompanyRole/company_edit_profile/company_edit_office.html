@@ -1,0 +1,20 @@
+<div id="company_gallery" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
+    <div class="contanier-inside">
+        <div class="text-center alert alert-success" ng-if="gallerymessage">{{gallerymessage}}</div>
+        <h1 class="page-title">Office</h1>
+        <form ng-submit="gallerysubmit(galleryform.photos)">
+            <div class="row">
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-grou">
+                        <label class="text-uppercase">Office Images</label>
+                        <input type="file" ngf-multiple="true" ngf-select ng-model="galleryform.photos" name="file" accept="image/*" >
+                    </div>
+                    <div class="form-group custom-lider-form-grou">
+                        <input type="submit" class="form-control" value="Save"/>
+                    </div>
+                </div>
+                <hr class="hr-line-lidership">
+            </div>
+        </form>
+    </div>
+</div>
