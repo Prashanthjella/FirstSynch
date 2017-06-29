@@ -3619,3 +3619,10 @@ body {
 .customn-thumbs-career-fairs.custom-thumbnail-image-gallery-05 .box-inside-content {
 	color: #fff;
 }
+.profile-bg-02 {
+	background: #d9f0f0;
+	background: -moz-linear-gradient(left, #d9f0f0 0%, #dbe7f0 100%);
+	background: -webkit-linear-gradient(left, #d9f0f0 0%, #dbe7f0 100%);
+	background: linear-gradient(to right, #d9f0f0 0%, #dbe7f0 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9f0f0', endColorstr='#dbe7f0', GradientType=1 );
+}
