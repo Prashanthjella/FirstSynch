@@ -95,7 +95,6 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
                       kind:'chapters'
                     }],
                   }],
-              primary: "flash"
             });
             jwplayer("jwplayer").play();
             $('.video_loader_bk').fadeOut();
