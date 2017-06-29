@@ -16,6 +16,11 @@
 <div class="slider-btn-group" ng-if="!availability_followup">
   <a ng-click="company_career_follow(careerfair_details.id)" class="btn  custom-btn-following"><span class="glyphicon  custom-glyphicon-plus"></span>Follow</a></div>
 </div>
+<div class="slider-btn-group" ng-if="availability_requested">
+  <a class="btn custom-btn-following followed_btn"><span class="glyphicon  custom-glyphicon-plus"></span>Requested</a></div>
+<div class="slider-btn-group" ng-if="!availability_requested">
+  <a ng-click="company_career_request_member(careerfair_details.id)" class="btn  custom-btn-following"><span class="glyphicon  custom-glyphicon-plus"></span>Request Member</a></div>
+</div>
 <div class="col-sm-5 col-md-5 col-lg-4 pull-right">
 
   <img ng-src="{{ careerfair_details.image }}" class="img-responsive">

@@ -15,32 +15,35 @@ FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$rout
       .then(function successCallback(response){
           $scope.careerfair_details = response.data;
           $scope.availability_followup = false;
+          $scope.availability_requested = false;
           $.each(response.data.followed, function(i,obj) {
               if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_followup = true;}
             });
+            $.each(response.data.requested, function(i,obj) {
+                if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_requested = true;}
+              });
       }, function errorCallback(response){
           console.log("Unable to perform get career fair details");
   });
   $scope.company_career_follow = function(careerid){
       $http.get(apiUrl+"api/v1/career_fairs/career_fair_follow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
           .then(function successCallback(response){
-              $scope.careerfair_followup = response.data;
+              $scope.availability_followup = true;
           }, function errorCallback(response){
               console.log("Unable to perform get career fair details");
       });
   };
   $scope.company_career_request_member = function(careerid){
-      alert($rootScope.user_id);
-    //   var request_member_data = {
-    //       career_fair:careerid,
-    //       company :
-    //   }
-    //   $http.get(apiUrl+"api/v1/career_fairs/api/v1/requestedmember/",)
-    //       .then(function successCallback(response){
-    //           $scope.careerfair_followup = response.data;
-    //       }, function errorCallback(response){
-    //           console.log("Unable to perform get career fair details");
-    //   });
+      var request_member_data = {
+          requested :$rootScope.user_id
+      }
+      $http.get(apiUrl+"api/v1/career_fairs/"+careerid+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+      }).then(function successCallback(response){
+              $scope.availability_requested = true;
+          }, function errorCallback(response){
+              console.log("Unable to perform get career fair details");
+      });
   };
 
 });

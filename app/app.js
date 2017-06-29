@@ -37,7 +37,7 @@ var FirstSynch = angular.module("firstSync", [
     "Search"
 ]);
 
-FirstSynch.constant('apiUrl', 'http://api.firstsynch.com/');
+FirstSynch.constant('apiUrl', 'http://52.40.1.81:8000/');
 FirstSynch.constant('companyusertype','48KL3');
 FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
