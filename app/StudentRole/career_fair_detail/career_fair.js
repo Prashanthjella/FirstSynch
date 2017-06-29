@@ -24,7 +24,7 @@ FirstSynch.controller("student_careerfair_detail" ,function ($scope, $http,$rout
   $scope.student_career_follow = function(careerid){
       $http.get(apiUrl+"api/v1/career_fairs/career_fair_follow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
           .then(function successCallback(response){
-              $scope.careerfair_followup = response.data;
+              $scope.availability_followup = response.data;
           }, function errorCallback(response){
               console.log("Unable to perform get career fair details");
       });
