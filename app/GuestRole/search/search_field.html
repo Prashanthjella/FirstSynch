@@ -14,30 +14,20 @@
                     <input type="text" ng-model='keywords' placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " >
                 </form>
             </div>
-            <!-- <div class="" ng-show="testObj">
-                    You selected <span class="bold-span">{{testObj.title}}</span> which has a country code of <span class="bold-span">{{testObj.title}}</span>
-            </div> -->
-
             <span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
         </div>
         <div class="search-result-container search_result_remove_act">
             <div class="row custom-row-35">
-                <div class="col-sm-6">
+                <div class="col-sm-6"   ng-controller="recentsearch">
                     <h5 class="custom-h5-03">Recent Searches</h5>
                     <div class="search-results">
-                        <h4 class="search-answer"><span class="search-name-display">Design</span> <small class="custom-gray-badge pull-right">Industry</small></h4>
-                        <h4 class="search-answer"><span class="search-name-display">Darryl Carroll</span> <small class="custom-gray-badge pull-right">Student</small></h4>
-                        <h4 class="search-answer"><span class="search-name-display">Emily Griffith Technical College Career Fair</span> <small class="custom-gray-badge pull-right">Career Fair</small></h4>
-                        <h4 class="search-answer"><span class="search-name-display">Emily Griffith Technical College Career FairCareer FairCareer Fair</span> <small class="custom-gray-badge pull-right">Career Fair</small></h4>
+                        <h4 class="search-answer" ng-repeat="recent in search_recent"><span class="search-name-display">{{recent.query}}</span> <!--small class="custom-gray-badge pull-right">Industry</small--></h4>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6"  ng-controller="popularsearch">
                     <h5 class="custom-h5-03">Popular Searches</h5>
                     <div class="search-results">
-                        <h4 class="search-answer"><span class="search-name-display">Megan Miller</span> <small class="custom-gray-badge pull-right">Student</small></h4>
-                        <h4 class="search-answer"><span class="search-name-display">Sketch</span> <small class="custom-gray-badge pull-right">Skills</small></h4>
-                        <h4 class="search-answer"><span class="search-name-display">Korean vining</span> <small class="custom-gray-badge pull-right">Student</small></h4>
-                        <h4 class="search-answer"><span class="search-name-display">University of Denver fall Career Fair 2015-2016</span> <small class="custom-gray-badge pull-right">Career Fair</small></h4>
+                        <h4 class="search-answer" ng-repeat="popular in search_popular"><span class="search-name-display">{{popular.query}}</span> <!--small class="custom-gray-badge pull-right">Student</small--></h4>
                     </div>
                 </div>
             </div>

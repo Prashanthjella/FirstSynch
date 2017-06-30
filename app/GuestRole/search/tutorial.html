@@ -3,8 +3,22 @@
         <h2 class="h2 custom-h2">Tutorials</h2>
         <div class="row row-30">
             <div class="col-sm-6 col-30"  ng-repeat="helpvideo in search_tutorial_video">
-                <a href="#" class="thumbnail custom-thumbnail">
-                    <img ng-src="{{ helpvideo.thumbnail || 'assets/images/tutorials-1.jpg'}}" class="img-responsive" alt="">
+                <a href="#" class="thumbnail custom-thumbnail" style="height:100%;width:100%;">
+                    <!-- <img ng-src="{{ helpvideo.thumbnail || 'assets/images/tutorials-1.jpg'}}" class="img-responsive" alt=""> -->
+                    <div id="help_video"></div>
+             <script type="text/javaScript">
+             var playerInstance = jwplayer("help_video");
+             playerInstance.setup({
+               playlist: [{
+                   file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/FS_How_To_Make_a_Video.mp4",
+                   tracks: [{
+                       file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/makding_video_step.vtt",
+                       kind: "chapters",
+                   }]
+               }]
+             });
+             </script>
+           </div>
                     <div class="row">
                         <div class="col-sm-8">
                             <h5>{{ helpvideo.title }}</h5>
@@ -12,16 +26,6 @@
                     </div>
                 </a>
             </div>
-            <!-- <div class="col-sm-6 col-30" ng-repeat="helpvideo in search_tutorial_video | limitTo:1" ng-if="$even">
-                <a href="#" class="thumbnail custom-thumbnail">
-                    <img ng-src="{{ helpvideo.thumbnail || 'assets/images/tutorials-1.jpg'}}" class="img-responsive" alt="">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h5>{{ helpvideo.title }}</h5>
-                        </div>
-                    </div>
-                </a>
-            </div> -->
         </div>
     </div>
 </section>

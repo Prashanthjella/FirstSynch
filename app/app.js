@@ -37,7 +37,7 @@ var FirstSynch = angular.module("firstSync", [
     "Search"
 ]);
 
-FirstSynch.constant('apiUrl', 'http://52.40.1.81:8000/');
+FirstSynch.constant('apiUrl', 'http://api.firstsynch.com/');
 FirstSynch.constant('companyusertype','48KL3');
 FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
@@ -102,27 +102,8 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
             console.log("Unable to perform get Video Details");
         });
     };//Common Video Popup - function end
-    $rootScope.StudentvideoPopup = function (value) {
-        jQuery("#VideoPopupStudent").modal('show');
-        var id = value;
-        $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id)
-        .then(function successCallback(response){
-            $rootScope.vid = response.data;
-            jwplayer("jwplayer").setup({
-              playlist: [{
-                  image: response.data.video.thumbnail,
-                  sources: [{
-                      file: response.data.video.streaming_video
-                  },{
-                      file: response.data.video.video_file
-                  }]
-              }],
-              primary: "flash"
-            });
-            jwplayer("jwplayer").play();
-        }, function errorCallback(response){
-            console.log("Unable to perform get Video Details");
-        });
+    $rootScope.loadvideo = function (value1,value2) {
+        alert(value1);
     };//Common Video Popup - function end
     // facebook signin url
     $http.get("http://api.firstsynch.com/api/v1/oauth/facebook_url/")
