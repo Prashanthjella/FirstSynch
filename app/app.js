@@ -106,7 +106,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         alert(value1);
     };//Common Video Popup - function end
     // facebook signin url
-    $http.get("http://api.firstsynch.com/api/v1/oauth/facebook_url/")
+    $http.get("https://api.firstsynch.com/api/v1/oauth/facebook_url/")
     .then(function successCallback(response){
         $rootScope.facebookloginurl = response.data.url;
     }, function errorCallback(response){
