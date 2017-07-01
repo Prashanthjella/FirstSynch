@@ -240,9 +240,9 @@ h2.custom-h2-04 {
 	border-radius: 50%;
 	float: left;
 }
-.custom-navbar-default .navbar-nav>li>a.signoff-avator-img,
-.custom-navbar-default .navbar-nav>li>a.avator-img
-{padding:0}
+.custom-navbar-default .navbar-nav>li>a.signoff-avator-img, .custom-navbar-default .navbar-nav>li>a.avator-img {
+	padding: 0
+}
 .signoff-avator-img {
 	border-color: #a7a7a7;
 }
@@ -1329,9 +1329,18 @@ bottom: 90px;
 }
 .custom-panel-heading .accordion-toggle.custom-accordion-toggle {
 	color: #74d1b8;
+	opacity:1;
+	 font-weight: 800;
 }
 .custom-panel-heading .accordion-toggle.custom-accordion-toggle.collapsed {
-	color: #0D0D0D;
+	color: #0d0d0d;
+	opacity:0.2;
+	  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+
+ 
+	
 }
 .custom-panel-default {
 	border-radius: 0
@@ -1538,8 +1547,11 @@ input[type="checkbox"].checkbox-input + label.checkbox-label:before {
 }
 input[type="checkbox"].checkbox-input + label.checkbox-label, input[type="checkbox"].checkbox-input + label.checkbox-label-01, input[type="radio"].checkbox-input + label.checkbox-label, input[type="radio"].checkbox-input + label.checkbox-label-01 {
 	background-color: #fff;
-	border: 2px solid #e2e2e2;
+	border: 2px solid rgba(48,48,48,0.2);
 	color: #303030;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: -0.3px;
 }
 input[type="checkbox"].checkbox-input:checked + label.checkbox-label, input[type="checkbox"].checkbox-input:checked + label.checkbox-label-01, input[type="radio"].checkbox-input:checked + label.checkbox-label, input[type="radio"].checkbox-input:checked + label.checkbox-label-01 {
 	/*background-color: #0cc39d;*/
@@ -1616,7 +1628,7 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 	text-transform: uppercase
 }
 .text-description {
-	color: #b2b2b2;
+	color: #7f7f7f;
 }
 .custom-glyphicon-circle {
 	width: 32px;
@@ -1647,9 +1659,15 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 	float: left;
 	margin-top: 27px;
 }
-.custom-text-area {
+textarea.custom-text-area {
+	height: 80px;
+	border-radius: 4px;
 	background-color: #f7f7f7;
-	padding: 20px;
+	border: solid 2px rgba(48, 48, 48, 0.1);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: -0.4px;
+	color: #000000;
 }
 .custom-textbox {
 	border-width: 0 0 2px 0;
@@ -3562,26 +3580,24 @@ body {
 	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 	-webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	border-radius:0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
 }
 .custom-navbar-nav .user-profile-dropdown .dropdown-menu li>a {
 	opacity: 0.6;
-	padding:6px 20px;
+	padding: 6px 20px;
 	font-size: 11px;
 	font-weight: bold;
 	letter-spacing: -0.3px;
 	text-align: left;
 	color: #303030;
-	 font-weight: bold;
+	font-weight: bold;
 }
 .custom-navbar-nav .user-profile-dropdown .dropdown-menu li:hover>a {
 	color: #0d0d0d;
-	opacity:1;
+	opacity: 1;
 }
-
-
 /*************[]****************/
 .customn-thumbs-career-fairs .overlay, .customn-thumbs-career-fairs .overlay:before {
 	background: #3f4044;
@@ -3590,7 +3606,6 @@ body {
 	background: linear-gradient(to right, #3f4044 0%, #292b30 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4044 ', endColorstr='#292b30', GradientType=1 );
 }
-
 .customn-thumbs-career-fairs.custom-thumbnail-image-gallery-05 h1.custom-gallery-h1 {
 	font-size: 20px;
 	color: #fff;
@@ -3626,3 +3641,57 @@ body {
 	background: linear-gradient(to right, #d9f0f0 0%, #dbe7f0 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9f0f0', endColorstr='#dbe7f0', GradientType=1 );
 }
+/*****Input Type File CSS*****/
+.fileContainer {
+	overflow: hidden;
+	position: relative;
+}
+.fileContainer [type=file] {
+	cursor: pointer;
+	display: block;
+	font-size: 999px;
+	filter: alpha(opacity=0);
+	min-height: 100%;
+	min-width: 100%;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	top: 0;
+}
+.btn-link {
+	cursor: pointer;
+}
+.btn-link .glyphicon {
+	color: #000;
+	margin-left: 5px;
+}
+.text-edit-profile {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.69;
+	letter-spacing: -0.3px;
+	text-align: left;
+	color: #0d0d0d;
+	margin-bottom: 20px;
+}
+.custom-h1-btm-space-55 {
+	margin-bottom: 45px;
+}
+
+.edt-pro-btn-group{
+	margin-top:25px;
+	}
+.edt-pro-btn-group .btn-lg{
+	padding:17px;
+	width:100px;
+	
+	font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: center;
+  margin-right:7px;
+  
+	}	
+.page-section-about-home{margin-top:-20px}	
+	

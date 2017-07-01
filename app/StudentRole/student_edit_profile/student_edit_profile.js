@@ -18,15 +18,13 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
       };//CEdit Video Popup - function end
 
       $scope.videoEditPopup = function (value) {
-          $("#edit_video_popup").modal('show');
+          $("#page-editvideo-edit").modal('show');
           var id = value;
-          var token_id = $rootScope.token_id;
-          alert(token_id);
           $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
-            headers: {'Authorization' : 'Token '+token_id}
+            headers: {'Authorization' : 'Token '+$rootScope.token_id}
           })
           .then(function successCallback(response){
-              $scope.vid = response.data;
+              $scope.editvid = response.data;
           }, function errorCallback(response){
               console.log("Unable to perform get Video Details");
           });

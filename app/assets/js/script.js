@@ -104,21 +104,21 @@ $(document).ready(function() {
     });
 
     $(document).on('hide.bs.modal','#page-video-edit', function () {
-      var $source = $('#student_video');
-      $source[0].src = "";
-      $source.parent()[0].load();
+      $("#student_video video").src = '';
+      $("#student_video video").children('source').prop('src', '');
+      $("#student_video video").remove().length = 0;
     });
 
     $(document).on('hide.bs.modal','#error_msg_model', function () {
-      var $source = $('#student_video');
-      $source[0].src = "";
-      $source.parent()[0].load();
+      $("#student_video video").src = '';
+      $("#student_video video").children('source').prop('src', '');
+      $("#student_video video").remove().length = 0;
     });
 
     $(document).on('hide.bs.modal','#video_end', function () {
-      var $source = $('#student_video');
-      $source[0].src = "";
-      $source.parent()[0].load();
+      $("#student_video video").src = '';
+      $("#student_video video").children('source').prop('src', '');
+      $("#student_video video").remove().length = 0;
     });
 
     $(window).scroll(function() {

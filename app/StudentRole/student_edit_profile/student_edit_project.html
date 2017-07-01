@@ -1,8 +1,8 @@
 <div id="projects" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="projectmessage">{{projectmessage}}</div>
-        <h1 class="page-title">Projects</h1>
-        <table>
+          <h1 class="custom-h1-01 custom-h1-btm-space-55">Projects</h1>
+         <table class="table table-striped">
             <tr>
                 <th>S.no</th>
                 <th>Project</th>
@@ -18,7 +18,7 @@
                 <td>{{ projects.start_date }}</td>
                 <td>{{ projects.completation_date }}</td>
                 <td>{{ projects.project_description }}</td>
-                <td><a ng-click="editproject( projects )" class="button">Edit</a> | <a ng-click="removeprojects( projects )" class="button">Remove</a></td>
+                <td><a ng-click="editproject( projects )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>  <a ng-click="removeprojects( projects )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
 
         </table>
@@ -49,7 +49,7 @@
                         <input type="file" ngf-select ng-model="projecteditform.images" name="files" accept="image/*" >
                     </div>
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
             </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

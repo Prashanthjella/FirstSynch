@@ -1,8 +1,8 @@
 <div id="characteristics" class="tab-pane hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="charactermessage">{{charactermessage}}</div>
-        <h1 class="page-title">Charactertics</h1>
-        <p>Select things that are important in a potential job <span class="text-description">(Select 4/5 characteristics)</span></p>
+        <h1 class="custom-h1-01 custom-h1-btm-space-55">Charactertics</h1>
+        <p class="text-edit-profile">Select things that are important in a potential job <span class="text-description">(Select 4/5 characteristics)</span></p>
         <form>
             <!-- <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="characters in listofcharacter | unique:'character'">
                 <input id="{{characters.character}}" class="checkbox-input" ng-model="selectedCharacter[characters.character]" type="checkbox"  ng-checked="characters.student == stud_id">
@@ -56,7 +56,7 @@
                 <input id="Reading" class="checkbox-input" ng-model="selectedCharacter['Love of Reading']" type="checkbox">
                 <label for="Reading" class="checkbox-label"> Love of Reading</label>
             </div>
-            <p>
+            <p class="edt-pro-btn-group">
                 <input type="submit"  class="btn btn-default custom-btn btn-lg" name="submit" value="Save" ng-click="charactersubmit()"/>
                 <button type="button" class="btn btn-primary custom-btn btn-cancel btn-lg">Cancel</button>
             </p>
