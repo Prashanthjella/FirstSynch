@@ -18,13 +18,14 @@
             <label class="text-uppercase">Password</label>
             <input type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="password" required/>
             <input type="hidden" name="redirecturl" id="redirecturl" value="" ng-model="redirecturl"/>
+            <input type="hidden" name="videoid" id="videoid" value="" ng-model="videoid"/>
           </div>
         </div>
 
         <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02">
           <button ng-click="LoginUser()" ng-disabled="userloginform.password.$invalid && userloginform.username.$invalid" class="btn btn-default custom-btn-login custom-btn-login-enbled">Log in <img src="assets/images/loader.gif" class="loader_icon" style="width: 20px; margin-left: 10px; display:none;"></button>
           <a data-toggle="modal" data-target="#ForgotPassword" data-dismiss="modal" href="#" class="link-forgot-password" href="#">Forgot Password</a>
-           <a ng-controller="FbLogin" href="{{facebookloginurl}}" class="link-forgot-password" >Facebooklogin</a>
+           <a  href="{{facebookloginurl}}" class="link-forgot-password" >Facebooklogin</a>
         </div>
 
       </div>

@@ -180,6 +180,9 @@ $(document).ready(function() {
     $(document).on('click','#userlogin',function(){
         var redirect = window.location.pathname;
         $('#redirecturl').val(redirect);
+        if($(this).attr('videoid') != ''){
+            $('#videoid').val(parseInt($(this).attr('videoid')));
+        }
     });
 
 });
