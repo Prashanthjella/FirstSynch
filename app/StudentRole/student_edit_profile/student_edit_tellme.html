@@ -1,4 +1,5 @@
 <div id="proudest-achievement" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child">
+  <div class="contanier-inside">
   <!--[Career fair Details Slider Start]-->
   <section class="page-section page-section-career-details">
     <div class="row custom-row-15">
@@ -53,7 +54,7 @@
 
           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 student_uploaded_video{{$index}}" ng-repeat="vid in video_list">
             <div class="thumbnail thumbnail-templates">
-              <div class="icon-template-action" style="z-index: 9;" style="display:none;">
+              <div class="icon-template-action" style="z-index: 9;display:none;">
                 <span class="glyphicon glyphicon-pencil circle-icon" ng-click="videoEditPopup(vid.id)"></span>
                 <button style="background:none; border:none;" type="button" ng-confirm-click="Are you sure to delete this video ?" confirmed-click="deleteVideo(vid.id,$index)">
                   <span class="glyphicon glyphicon-trash circle-icon"></span>
@@ -72,7 +73,7 @@
 
       </section>
       <!--[Jobs Scetion End]-->
-
+</div>
     </div><!--proudest-achievement-->
 
 
@@ -87,7 +88,7 @@
           <div class="pull-left">
             <h1 class="h3 custom-h3">
               Adding video
-            </h3>
+            </h1>
           </div>
         </div>
       </div>
@@ -95,7 +96,7 @@
       <div class="modal-body custom-video-modal-body">
         <section id="main-slider">
           <h3 class="page-title text-center second_video_data" id="vid_title">Your video is ready</h3>
-          <input type="text" id="question" class="form-control custom-textbox" placeholder="UNTITLED">
+          <input type="text" id="question" class="form-control custom-form-control-br-bottom" placeholder="UNTITLED">
 
           <div class="video-player-container">
             <div class="row">
@@ -238,7 +239,7 @@
           <div class="modal-body custom-video-modal-body">
               <h1 class="h3 custom-h3">
                 Please upload 1 minute video.
-              </h3>
+              </h1>
           </div>
         </div>
       </div>
