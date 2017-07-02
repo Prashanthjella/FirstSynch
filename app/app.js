@@ -222,7 +222,7 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function successCallback(data, status, headers, config) {
-            if(data.data.user_type == '380D2'){
+            if(data.data.user_type == '38OD2'){
                 jQuery("#registration").modal('hide');
                 jQuery("#signUp").modal('show');
                 setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
@@ -440,12 +440,87 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
         });
     }
 });
-FirstSynch.controller("FbLogin", function ($scope, $http, apiUrl,$location) {
+FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, apiUrl,$location,companyusertype,studentusertype) {
     $scope.facebookform = {
         fbfirstname:"",
         fblastname : "",
         fbimage : "",
         fbemail : ""
+    };
+
+
+    $scope.fbsignup = function(){
+        $http({
+            url: apiUrl+'api/v1/accounts/signupemail/',
+            method: "POST",
+            data: 'e_mail=' + $scope.facebookform.fbemail,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+        .then(function successCallback(data, status, headers, config) {
+            if(data.data.user_type == '38OD2'){
+                //student
+                var data = {
+                    is_verified : true,
+                    image : $scope.facebookform.fbimage,
+                    student : {first_name : $scope.facebookform.fbfirstname},
+                    user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname}
+                };
+                $http({
+                    url: apiUrl+'api/v1/student/student_signup/',
+                    method: "POST",
+                    data: data
+                })
+                .then(function successCallback(data, status, headers, config) {
+                    $window.sessionStorage.setItem('token', data.data.token);
+                    $rootScope.token_id = data.data.token;
+                    $window.sessionStorage.setItem('user_id', data.data.user_id);
+                    $window.sessionStorage.setItem('usertype', data.data.usertype);
+                    $rootScope.user_id = data.data.user_id;
+                    $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
+                    $rootScope.e_mail = $scope.facebookform.fbemail;
+                    $location.search('code', null);
+                    $location.search('state', null);
+                    jQuery("#fbsignUp").modal('hide');
+                    $location.path("/stu");
+                },
+                function errorCallback(data, status, headers, config) {
+
+                });
+            }else{
+                //compzny
+                var data = {
+                    is_verified : true,
+                    company_name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname,
+                    image : $scope.facebookform.fbimage,
+                    user : {name :$scope.facebookform.fbfirstname+$scope.facebookform.fblastname,e_mail:$scope.facebookform.fbemail},
+                    employee : {}
+                };
+                $http({
+                    url: apiUrl+'api/v1/employee/api/employee_signup/',
+                    method: "POST",
+                    data: data,
+                    headers: {'Content-Type': 'application/json'}
+                })
+                .then(function successCallback(data, status, headers, config) {
+                    $window.sessionStorage.setItem('token', data.data.token);
+                    $rootScope.token_id = data.data.token;
+                    $window.sessionStorage.setItem('usertype', data.data.usertype);
+                    $window.sessionStorage.setItem('user_id', data.data.user_id);
+                    $rootScope.user_id = data.data.user_id;
+                    $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
+                    $rootScope.e_mail = $scope.facebookform.fbemail;
+                    $location.search('code', null);
+                    $location.search('state', null);
+                    jQuery("#fbsignUp").modal('hide');
+                    $location.path("/com");
+                },
+                function errorCallback(data, status, headers, config) {
+                });
+            }
+        },
+        function errorCallback(data, status, headers, config) {
+            $scope.error = data.data.data;
+        });
     };
     var url = window.location.href
     var split_url = url.split('?');
@@ -458,22 +533,40 @@ FirstSynch.controller("FbLogin", function ($scope, $http, apiUrl,$location) {
             headers: {'Accept':'application/json'}
         })
         .then(function successCallback(response, status, headers, config) {
-            // alert(JSON.stringify(response.data));
-            // {"first_name":"Muthu",
-            // "last_name":"Karuppan",
-            // "name":"Muthu Karuppan",
-            // "gender":"male",
-            // "image":"https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13445553_1064078153659992_9169367875563210393_n.jpg?oh=c920956d4a5110b48f49dbbca0490d56&oe=59C88987",
-            // "id":"1414777495256721",
-            // "link":"https://www.facebook.com/app_scoped_user_id/1414777495256721/",
-            // "email":"spmuthu21@gmail.com"}
-
-            $scope.facebookform.fbfirstname = response.data.first_name;
-            $scope.facebookform.fblastname = response.data.last_name;
-            $scope.facebookform.fbimage = response.data.image;
-            $scope.facebookform.fbemail = response.data.email;
-            jQuery("#fbsignUp").modal('show');
-
+            if(response.data.token){
+                $window.sessionStorage.setItem('token', response.data.token);
+                $window.sessionStorage.setItem('usertype', response.data.usertype);
+                $window.sessionStorage.setItem('profileimage', response.data.profile_image);
+                $window.sessionStorage.setItem('user_id', response.data.user_id);
+                $rootScope.profileimage = response.data.profile_image;
+                $rootScope.user_id = response.data.user_id;
+                $rootScope.token_id = response.data.token;
+                if(response.data.company_id){
+                    $rootScope.company_userid = response.data.company_id;
+                    $window.sessionStorage.setItem('company_userid', response.data.company_id);
+                }
+                if(companyusertype == response.data.usertype){
+                    $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
+                    $location.search('code', null);
+                    $location.search('state', null);
+                    $location.path( "/com");
+                }
+                else if(studentusertype == response.data.usertype){
+                    $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
+                    $location.search('code', null);
+                    $location.search('state', null);
+                    $location.path( "/stu" );
+                }
+            }
+            else{
+                $scope.facebookform.fbfirstname = response.data.first_name;
+                $scope.facebookform.fblastname = response.data.last_name;
+                $scope.facebookform.fbimage = response.data.image;
+                $scope.facebookform.fbemail = response.data.email;
+                $location.search('code', null);
+                $location.search('state', null);
+                jQuery("#fbsignUp").modal('show');
+            }
         },
         function errorCallback(response, status, headers, config) {
         });

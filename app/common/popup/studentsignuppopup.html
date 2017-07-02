@@ -362,43 +362,44 @@
 </div>
 <!-- Modal Registration content End-->
 <div class="modal fade custom-model  custom-model-registration" id="fbsignUp" ng-controller="FbLogin" tabindex="-1" role="dialog"  data-backdrop="static">
-<div class="modal-dialog">
-    <div class="modal-content custom-modal-video-content">
-        <div class="modal-header page-bg-gray cusom-model-onboard-header ">
-            <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-            <div class="page-header custom-page-header">
-                <div class="pull-left">
-                    <h1 class="h1 custom-h1">Onboarding</h1>
-                </div>
-                <div class="pull-right"> <button type="submit" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
-            </div>
-        </div>
-
-        <div class="modal-body custom-video-modal-body " >
-            <section class="page-section page-section-onboard">
-                <div class="row">
-                    <div class="col-md-12">
-                        <section class=" page-section-education">
-                            <div class="page-header custom-page-header-brline">
-                                <div class="pull-left">
-                                    <h2 class="h2 custom-h2">About me</h2>
-                                </div>
-                            </div>
-                            <div class="panel-group custom-panel-onboarding-group">
-                                <div class="panel panel-default custom-panel-onboarding-default ">
-                                    <div class="row">
-                                        <input type="text" ng-model="facebookform.fbfirstname">
-                                        <input type="text" ng-model="facebookform.fblastname">
-                                        <input type="text" ng-model="facebookform.fbimage">
-                                        <input type="text" ng-model="facebookform.fbemail">
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+    <form ng-submit="fbsignup()">
+        <div class="modal-dialog">
+            <div class="modal-content custom-modal-video-content">
+                <div class="modal-header page-bg-gray cusom-model-onboard-header ">
+                    <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+                    <div class="page-header custom-page-header">
+                        <div class="pull-left">
+                            <h1 class="h1 custom-h1">Onboarding</h1>
+                        </div>
+                        <div class="pull-right"> <button type="submit" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
                     </div>
                 </div>
-            </section>
+                <div class="modal-body custom-video-modal-body " >
+                    <section class="page-section page-section-onboard">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class=" page-section-education">
+                                    <div class="page-header custom-page-header-brline">
+                                        <div class="pull-left">
+                                            <h2 class="h2 custom-h2">About me</h2>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group custom-panel-onboarding-group">
+                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                            <div class="row">
+                                                <input type="text" ng-model="facebookform.fbfirstname">
+                                                <input type="text" ng-model="facebookform.fblastname">
+                                                <input type="text" ng-model="facebookform.fbimage">
+                                                <input type="text" ng-model="facebookform.fbemail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </form>
 </div>
