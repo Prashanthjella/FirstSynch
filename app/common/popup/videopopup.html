@@ -41,7 +41,9 @@
                             <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
                         </div>
                         <div class="pull-right">
-                            <div class="custom-right-icons"> <a href="#" class="icons-model"> <i class="fa fa-heart-o"></i> {{vid.video.liked.length}} </a> <a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a> </div>
+                            <div class="custom-right-icons"> <a href="#" class="icons-model">
+                                <i class="fa fa-heart-o" ng-if="!token_id" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
+                                <i class="fa fa-heart-o" test="{{token_id}}" ng-if="token_id" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i> {{vid.video.liked.length}} </a> <a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a> </div>
                         </div>
                     </div>
                 </div>

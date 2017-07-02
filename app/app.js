@@ -24,6 +24,7 @@ var FirstSynch = angular.module("firstSync", [
     "ScompanyProfile",
     "SemployeeProfile",
     "StudentEditProfile",
+    "SStudentSetting",
     "CompanyDashboard",
     "CompanycareerFair",
     "CompanycareerFairDetail",
@@ -33,6 +34,7 @@ var FirstSynch = angular.module("firstSync", [
     "CcompanyProfile",
     "CemployeeProfile",
     "CompanyEditProfile",
+    "CCompanySetting",
     "EmployeeEditProfile",
     "Search"
 ]);
@@ -51,6 +53,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
     // condition based header show
 
     if(companyusertype == window.sessionStorage.getItem("usertype")){
+        $rootScope.token_id = window.sessionStorage.getItem("token");
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
         $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
         $rootScope.user_id = window.sessionStorage.getItem("user_id");
@@ -62,6 +65,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         }
     }
     else if(studentusertype == window.sessionStorage.getItem("usertype")){
+        $rootScope.token_id = window.sessionStorage.getItem("token");
         $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
         $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
         $rootScope.user_id = window.sessionStorage.getItem("user_id");
@@ -102,11 +106,9 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
             console.log("Unable to perform get Video Details");
         });
     };//Common Video Popup - function end
-    $rootScope.loadvideo = function (value1,value2) {
-        alert(value1);
-    };//Common Video Popup - function end
+//Common Video Popup - function end
     // facebook signin url
-    $http.get("https://api.firstsynch.com/api/v1/oauth/facebook_url/")
+    $http.get(apiUrl+"api/v1/oauth/facebook_url/")
     .then(function successCallback(response){
         $rootScope.facebookloginurl = response.data.url;
     }, function errorCallback(response){
@@ -147,7 +149,7 @@ FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,
         });
     };
 });
-FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
+FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
     var url = window.location.href;
     var idexvalue = url.indexOf("/login");
     if(idexvalue != -1) {
@@ -156,6 +158,7 @@ FirstSynch.controller("Login", function ($scope, $http, apiUrl, $location, $wind
     $scope.LoginUser = function () {
         $('.loader_icon').show();
         var redirectulrs = $('#redirecturl').val();
+        var videoid = $('#videoid').val();
         var data = $.param({
             username: $scope.username,
             password: $scope.password,
@@ -438,16 +441,39 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
     }
 });
 FirstSynch.controller("FbLogin", function ($scope, $http, apiUrl,$location) {
+    $scope.facebookform = {
+        fbfirstname:"",
+        fblastname : "",
+        fbimage : "",
+        fbemail : ""
+    };
+    var url = window.location.href
+    var split_url = url.split('?');
     if($location.search()['code']){
-        var data = {'redirect_uri': window.location.href};
+        var data = {'redirect_uri': apiUrl+'?'+split_url[1]};
         $http({
-            url: 'http://api.firstsynch.com/api/v1/oauth/facebook_auth/',
+            url: apiUrl+'api/v1/oauth/facebook_auth/',
             method: "POST",
             data: data,
-            headers: {'Content-Type': 'multipart/form-data','Accept':'application/json'}
+            headers: {'Accept':'application/json'}
         })
         .then(function successCallback(response, status, headers, config) {
-            alert(JSON.stringify(response.data));
+            // alert(JSON.stringify(response.data));
+            // {"first_name":"Muthu",
+            // "last_name":"Karuppan",
+            // "name":"Muthu Karuppan",
+            // "gender":"male",
+            // "image":"https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13445553_1064078153659992_9169367875563210393_n.jpg?oh=c920956d4a5110b48f49dbbca0490d56&oe=59C88987",
+            // "id":"1414777495256721",
+            // "link":"https://www.facebook.com/app_scoped_user_id/1414777495256721/",
+            // "email":"spmuthu21@gmail.com"}
+
+            $scope.facebookform.fbfirstname = response.data.first_name;
+            $scope.facebookform.fblastname = response.data.last_name;
+            $scope.facebookform.fbimage = response.data.image;
+            $scope.facebookform.fbemail = response.data.email;
+            jQuery("#fbsignUp").modal('show');
+
         },
         function errorCallback(response, status, headers, config) {
         });
