@@ -1,7 +1,7 @@
 <div id="software" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="softwareskillmessage">{{softwareskillmessage}}</div>
-        <h1 class="page-title">Software</h1>
+        <h1 class="custom-h1-01 custom-h1-btm-space-55">Software</h1>
         <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="softwareskill in skillsetsoftwareform | filter:{skill_type:'Software'}">
             <input id="softwareskill" class="checkbox-input" checked="" type="checkbox">
             <label for="softwareskill" class="checkbox-label"> {{softwareskill.name}} - {{softwareskill.rating}}</label>
@@ -11,19 +11,19 @@
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.user" name="user">
-                        <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.skilltype" name="skill_type">
+                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.user" name="user">
+                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.skilltype" name="skill_type">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Name</label>
-                        <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name">
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Rating</label>
-                        <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating">
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating">
                     </div>
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
             <!-- <div class="row">

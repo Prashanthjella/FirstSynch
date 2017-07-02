@@ -1,7 +1,7 @@
 <div id="leadership-roles" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="leadershipmessage">{{leadershipmessage}}</div>
-        <h1 class="page-title">Lidership roles</h1>
+       <h1 class="custom-h1-01 custom-h1-btm-space-55">Lidership roles</h1>
         <table>
             <tr>
                 <th>S.no</th>
@@ -25,15 +25,15 @@
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Lidership role</label>
-                        <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.student" name="student">
-                        <input type="text" class="form-control custom-textbox" ng-model="leadershipform.leadership_role" placeholder="Give it a name">
+                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipform.student" name="student">
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="leadershipform.leadership_role" placeholder="Give it a name">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
                         <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
                     </div>
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
             <!-- <div class="row">
