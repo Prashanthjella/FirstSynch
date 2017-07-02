@@ -1,29 +1,29 @@
 <div id="hire_departure_rates" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="hireratemessage">{{hireratemessage}}</div>
-        <h1 class="page-title">HIRE & DEPARTURE RATES</h1>
+        <h1 class="custom-h1-01 custom-h1-btm-space-55">>HIRE & DEPARTURE RATES</h1>
         <form ng-submit="hireratesubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">HIRE RATES</label>
                         <input type="hidden" name="id" ng-model="hirerateform.id">
-                        <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="Give it a Hire rates size">
+                        <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" class="form-control custom-form-control-br-bottom" placeholder="Give it a Hire rates size">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Description</label>
-                        <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
+                        <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a hire rates description">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Departure Rates</label>
-                        <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="Give it a Departure rates size">
+                        <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" class="form-control custom-form-control-br-bottom" placeholder="Give it a Departure rates size">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Description</label>
-                        <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Give it a departure rates description">
+                        <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a departure rates description">
                     </div>
                     <div class="form-group custom-lider-form-grou">
-                        <input type="submit" class="form-control" value="Save"/>
+                        <input type="submit" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>
                 <hr class="hr-line-lidership">

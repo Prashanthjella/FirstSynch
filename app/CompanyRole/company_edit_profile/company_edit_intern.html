@@ -1,21 +1,22 @@
 <div id="company_internships" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="internshipmessage">{{internshipmessage}}</div>
-        <h1 class="page-title">INTERNSHIPS</h1>
+        
+<h1 class="custom-h1-01 custom-h1-btm-space-55">INTERNSHIPS</h1>
         <form ng-submit="internshipsubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">MIGRATION LABEL</label>
                         <input type="hidden" name="id" ng-model="internshipform.id">
-                        <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-textbox" placeholder="Give it a empoyee migration percentage">
+                        <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-form-control-br-bottom" placeholder="Give it a empoyee migration percentage">
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Description</label>
-                        <input type="text" name="internships_job_description" ng-model="internshipform.internships_job_description" class="form-control custom-textbox" placeholder="Give it a employee migration description">
+                        <input type="text" name="internships_job_description" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a employee migration description">
                     </div>
                     <div class="form-group custom-lider-form-grou">
-                        <input type="submit" class="form-control" value="Save"/>
+                        <input type="submit" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>
                 <hr class="hr-line-lidership">
