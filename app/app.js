@@ -69,6 +69,8 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
         $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
         $rootScope.user_id = window.sessionStorage.getItem("user_id");
+    }else{
+        $rootScope.token_id = guest_token;
     }
     $rootScope.current_url = $location.path();
     $rootScope.today = new Date();
@@ -106,7 +108,17 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
             console.log("Unable to perform get Video Details");
         });
     };//Common Video Popup - function end
-//Common Video Popup - function end
+    $rootScope.videolikesubmit = function(videoid){
+        var data = {
+            liked : $rootScope.user_id
+        }
+        $http.patch(apiUrl+"api/v1/career_fairs/api/v1/video/"+videoid+"/",JSON.stringify(data))
+        .then(function successCallback(response){
+                $scope.vid.video.liked.length = $scope.vid.video.liked.length+1;
+            }, function errorCallback(response){
+                console.log("Unable to perform get career fair details");
+        });
+    };
     // facebook signin url
     $http.get(apiUrl+"api/v1/oauth/facebook_url/")
     .then(function successCallback(response){
