@@ -6,7 +6,7 @@ var FirstSynch = angular.module("SstudentProfile", ["ngRoute","ngFileUpload"]);
 /////////////////////////////////// controllers ////////////////////////////////////
 
 // student details
-FirstSynch.controller("student_student_profile" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_student_profile" ,function ($rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
     $scope.basicprofileform = {
         id:"",
         user:""
@@ -43,8 +43,9 @@ FirstSynch.controller("student_student_profile" ,function ($timeout,$window,$sco
     };
 
 
-  $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/")
-      .then(function successCallback(response){
+  $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
+    headers: {'Authorization' : 'Token '+$rootScope.token_id}
+  }).then(function successCallback(response){
           $scope.student_profile_details = response.data;
           $scope.basicprofileform.id = response.data.id;
           $scope.hobbiesform.id = response.data.id;

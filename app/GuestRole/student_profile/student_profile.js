@@ -7,10 +7,11 @@ var FirstSynch = angular.module("GstudentProfile", ["ngRoute"]);
 /////////////////////////////////// controllers ////////////////////////////////////
 
 // student details
-FirstSynch.controller("guest_student_profile" ,function ($scope,$window,$timeout,$http,$routeParams,apiUrl) {
+FirstSynch.controller("guest_student_profile" ,function ($rootScope,$scope,$window,$timeout,$http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/")
-      .then(function successCallback(response){
+  $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
+    headers: {'Authorization' : 'Token '+$rootScope.token_id}
+  }).then(function successCallback(response){
           $scope.student_profile_details = response.data;
           jwplayer("jwplayerforprofile").setup({
             "file": response.data.video,

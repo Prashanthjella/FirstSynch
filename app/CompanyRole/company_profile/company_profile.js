@@ -8,8 +8,9 @@ var FirstSynch = angular.module("CcompanyProfile", ["ngRoute","ngFileUpload"]);
 
 // company details
 FirstSynch.controller("company_company_profile" ,function ($rootScope,Upload,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
-  $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$routeParams.comid+"/")
-      .then(function successCallback(response){
+  $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$routeParams.comid+"/",{
+    headers: {'Authorization' : 'Token '+$rootScope.token_id}
+  }).then(function successCallback(response){
           $scope.company_profile_details = response.data[0];
           $rootScope.companyedit_id = response.data[0].id;
           $window.sessionStorage.setItem('companyedit_id', response.data[0].id);
