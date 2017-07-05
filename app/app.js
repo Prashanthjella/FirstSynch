@@ -596,6 +596,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
             } else {
               var token_id = guest_token;
             }
+            $('.video_filter_search_result_empty').addClass('hide');
             $http.get(apiUrl+"api/v1/search/?q="+$scope.keywords, {
                   headers: {'Authorization' : 'Token '+token_id}
                 })
@@ -606,7 +607,9 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                         jQuery('.search_results_career_page_act').empty();
                         jQuery('.search_results_companies_act').empty();
                         jQuery('.search_results_student_act').empty();
-
+                        if(!response.data.careerfair && !response.data.company && !response.data.student && !response.data.video){
+                            $('.video_filter_search_result_empty').removeClass('hide');
+                        }
                         if(response.data.careerfair){
                             jQuery('.search_results_career_page_container_act').show();
                             jQuery.each(response.data.careerfair, function(i) {
