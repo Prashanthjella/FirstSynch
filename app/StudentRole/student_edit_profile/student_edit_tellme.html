@@ -3,10 +3,10 @@
   <!--[Career fair Details Slider Start]-->
   <section class="page-section page-section-career-details">
     <div class="row custom-row-15">
-
+-
       <div class="col-sm-6 col-md-5">
-        <h2 class="h2 custom-sub-heading-02">Making a video</h2>
-        <h5>About 1 minute</h5>
+       <h1 class="custom-h1-01">Making a video</h1>
+        <h5 class="h5-video">About 1 minute</h5>
         <p class="details-content">Break the video into small pieces no longer
           than 10-20 seconds with a story about yourself. Idally, the video shout not last more than a minute, so try to make
           a story about yourself in one minue</p>
@@ -37,7 +37,7 @@
       <section class="page-section page-section-templates">
         <div class="page-header custom-page-header">
           <div class="pull-left">
-            <h2 class="h2 custom-h2">Templates</h2>
+           <h2 class="custom-h2-04">Templates</h2>
           </div>
         </div>
 
@@ -82,7 +82,7 @@
 <div class="modal fade custom-model" id="page-video-edit">
   <div class="modal-dialog">
     <div class="modal-content custom-modal-video-content">
-      <div class="modal-header cusom-model-onboard-header">
+      <div class="modal-header cusom-making-video-header">
         <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
         <div class="page-header custom-page-header">
           <div class="pull-left">
@@ -93,39 +93,40 @@
         </div>
       </div>
 
-      <div class="modal-body custom-video-modal-body">
+      <div class="modal-body custom-make-video-modal-body">
         <section id="main-slider">
           <h3 class="page-title text-center second_video_data" id="vid_title">Your video is ready</h3>
-          <input type="text" id="question" class="form-control custom-form-control-br-bottom" placeholder="UNTITLED">
 
-          <div class="video-player-container">
+          <div class="make-video-player-container">
             <div class="row">
-              <div class="col-sm-3" id="chapterss">
+              <div class="col-xs-12 col-sm-8 col-md-4 col-lg-3" id="chapterss">
                 <ul class="nav nav-tabs custom-nav-tabs">
 
                 </ul>
               </div><!--col-sm-3-->
 
-              <div class="col-sm-9">
-                  <video id="myvideo" width="100%" height="100%">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
+              <div class="make-video-textbox-container">
+                   <input type="text" id="question" class="form-control custom-form-control-br-bottom text-box-video" placeholder="Untitled question"></div>
+         <video id="myvideo" width="100%" height="100%">
                     <source src="" type="video/mp4" id="student_video">
                   </video>
               </div><!--col-sm-9-->
             </div><!--row-->
           </div><!--video-player-container-->
 
-            <div class="model-content-video">
+            <div class="model-make-content-video">
               <form name="video_create_form" class="ng-pristine ng-valid">
 
                 <div class="row" id="chapter_maker_thumb">
-                    <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right overflow-slider">
                       <div class="gen-back" style="margin-top:0;"><div id="bar"><canvas id="canvas_bar"></canvas></div></div>
 
                       <div class="gen-back trim-slider">
 
                         <div id="inoutbar" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="background: linear-gradient(to right, rgba(225, 225, 225, 0.8) -1px, rgba(225, 225, 225, 0) 0px, rgba(225, 225, 225, 0) 558px, rgba(225, 225, 225, 0.8) 559px, rgba(255, 255, 255, 0.8) 100%);"><div class="ui-slider-range ui-widget-header ui-corner-all" style="width: 100%; left: 0%;"></div>
-                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
-                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span></div>
+                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;">|</span>
+                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;">|</span></div>
                         <div id="thumb1" class="thumbs-time hidden">00:00</div>
                         <div id="thumb2" class="thumbs-time hidden">00:00</div>
                       </div>
@@ -138,19 +139,7 @@
                           <div class="videocursor" style="user-select: none; margin: 0px; position: absolute; top: 0px; left: 4px;"></div>
                         </div>
                       </div>
-                      <div class="gen-back">
-
-                        <div class="col-sm-1 col-md-12 ">
-                          <a href="#" title="Add new question" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="addnewquestion()">
-                            <span class="glyphicon glyphicon-plus"></span>Add new question
-                          </a>
-                          <button id="trim_finish" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="trimchaptermaking()">
-                            Trim & Finish
-                          </button>
-                        </div>
-                        <textarea style="display:none;" id="result" ng-model="video_chapters" required class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="150" rows="4"></textarea>
-                        <input type="hidden" id="video_duration">
-                      </div>
+                      
                     </div>
 
                 </div><!--row-->
@@ -220,6 +209,24 @@
             </div><!--model-content-video-->
           </section>
         </div>
+        
+<div class="modal-footer custom-make-video-modal-footer">
+        <div class="mode">
+        <div class="gen-back">
+
+                        <div class="col-sm-1 col-md-12 ">
+                          <a href="#" title="Add new question" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="addnewquestion()">
+                            <span class="glyphicon glyphicon-plus"></span>Add new question
+                          </a>
+                          <button id="trim_finish" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="trimchaptermaking()">
+                            Trim & Finish
+                          </button>
+                        </div>
+                        <textarea style="display:none;" id="result" ng-model="video_chapters" required class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="150" rows="4"></textarea>
+                        <input type="hidden" id="video_duration">
+                      </div>
+        </div>
+     </div>
       </div>
     </div>
   </div>
