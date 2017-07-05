@@ -33,8 +33,12 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
     $('.companies_act_categ').hide();
     $('.top_three_company_act').hide();
     $('.company_search_result').empty();
+    $('.video_filter_search_result_empty').addClass('hide');
     $http.get(apiUrl+"api/v1/setups/api/v1/company_filters/?"+query_string)
     .then(function successCallback(response){
+        if(!response.data.length){
+            $('.video_filter_search_result_empty').removeClass('hide');
+        }
        jQuery.each(response.data, function(i) {
         var video_result ='';
         if(response.data[i].related_video.length > 0){

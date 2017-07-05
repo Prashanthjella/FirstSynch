@@ -54,9 +54,12 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
     $('.student_act_categ').hide();
     $('.all_studeent_act').hide();
     $('.student_search_result').empty();
+    $('.video_filter_search_result_empty').addClass('hide');
     $http.get(apiUrl+"api/v1/student/api/v1/student_filters/?"+query_string)
     .then(function successCallback(response){
-
+        if(!response.data.length){
+            $('.video_filter_search_result_empty').removeClass('hide');
+        }
        jQuery.each(response.data, function(i) {
         var search_result = '<a href="/student/'+response.data[i].id+'">'
         					+'<div class="grid-item col-sm-4">'
