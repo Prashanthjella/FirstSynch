@@ -3542,7 +3542,7 @@ body {
 }
 .model-make-content-video{
 	padding:0;
-	
+
 	}
 .custom-video-modal-body .checkbox-input {
 	position: absolute;
@@ -3765,15 +3765,15 @@ body {
 .custom-make-video-modal-body{
 	padding-left:30px;
 	padding-right:30px;
-	}	
-.video-make-control{width:100%; float:left;}	
+	}
+.video-make-control{width:100%; float:left;}
 .overflow-slider{/*overflow:hidden;*/ padding:0 23px 0 25px}
 .trim-slider{
 	height:50px !important;
 	margin-top:-40px !important;
 	}
-#inoutbar,#bar{height:50px !important;}	
-#bar #canvas_bar{height:46px !important; top:12px; position:relative;}	
+#inoutbar,#bar{height:50px !important;}
+#bar #canvas_bar{height:46px !important; top:12px; position:relative;}
 .cursorarea{margin-top:0 !important; height:auto !important}
 .ui-slider-handle.ui-corner-all.ui-state-default{
 	height:50px !important;
@@ -3784,13 +3784,15 @@ body {
 	}
 .gen-back{
 	/*height:50px !important;*/
-	top:0; position:relative;}	
-	
-	
-	
-	.custom-make-video-modal-footer{
+	top:0; position:relative;
+}
+.custom-make-video-modal-footer{
 		background-color: #f7f7f7;
 	border-top: 0;
 	margin-top: 10px;
 	}
 .custom-make-video-modal-footer	.btn-addrole{margin-top:0}
+#logIn .bg-facebook, #registration .bg-facebook{
+	padding: 14px 15px;
+	height: 45px;
+}

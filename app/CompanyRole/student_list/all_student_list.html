@@ -11,7 +11,7 @@
             <div class="col-sm-2" ng-repeat="all_stu in all_student">
                 <a href="/com/student/{{all_stu.user}}">
                     <div class="thumbnail custom-thumbnail-company-logo">
-                      <img ng-src="assets/images/profileicon.png" class="logo-companies-box" ng-if="!all_stu.profile_picture" alt="img-user-avator.png">
+                      <img ng-src="assets/images/profileicon.png" class="logo-companies-box" ng-if="!all_stu.profile_picture" alt="">
                       <img ng-if="all_stu.profile_picture" ng-src="{{all_stu.profile_picture}}" class="logo-companies-box">
                     </div>
                     <div class="company-heading-group">
