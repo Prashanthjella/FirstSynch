@@ -71,6 +71,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         $rootScope.user_id = window.sessionStorage.getItem("user_id");
     }else{
         $rootScope.token_id = guest_token;
+        $rootScope.guest_login = true;
     }
     $rootScope.current_url = $location.path();
     $rootScope.today = new Date();
@@ -112,7 +113,9 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         var data = {
             liked : $rootScope.user_id
         }
-        $http.patch(apiUrl+"api/v1/career_fairs/api/v1/video/"+videoid+"/",JSON.stringify(data))
+        $http.patch(apiUrl+"api/v1/career_fairs/api/v1/video/"+videoid+"/",JSON.stringify(data),{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        })
         .then(function successCallback(response){
                 $scope.vid.video.liked.length = $scope.vid.video.liked.length+1;
             }, function errorCallback(response){

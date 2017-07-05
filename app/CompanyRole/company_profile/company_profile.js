@@ -11,9 +11,9 @@ FirstSynch.controller("company_company_profile" ,function ($rootScope,Upload,$ti
   $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$routeParams.comid+"/",{
     headers: {'Authorization' : 'Token '+$rootScope.token_id}
   }).then(function successCallback(response){
-          $scope.company_profile_details = response.data[0];
-          $rootScope.companyedit_id = response.data[0].id;
-          $window.sessionStorage.setItem('companyedit_id', response.data[0].id);
+          $scope.company_profile_details = response.data;
+          $rootScope.companyedit_id = response.data.id;
+          $window.sessionStorage.setItem('companyedit_id', response.data.id);
       }, function errorCallback(response){
           console.log("Unable to perform get company profile details");
   });

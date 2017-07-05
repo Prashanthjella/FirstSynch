@@ -12,7 +12,7 @@ FirstSynch.controller("student_company_profile" ,function ($rootScope,$timeout,$
   $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$routeParams.companyid+"/",{
     headers: {'Authorization' : 'Token '+$rootScope.token_id}
   }).then(function successCallback(response){
-          $scope.company_profile_details = response.data[0];
+          $scope.company_profile_details = response.data;
       }, function errorCallback(response){
           console.log("Unable to perform get company profile details");
   });
