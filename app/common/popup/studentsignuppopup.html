@@ -40,6 +40,12 @@
                         <label class="text-uppercase">Last Name</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" id="your-lname" name="lname" ng-model="lname"  required/>
                     </div>
+                    <style>
+                        #universities_dropdown{
+                            height: 200px;
+                            overflow-y: scroll;
+                        }
+                    </style>
                     <div class="form-group">
                         <label class="text-uppercase">University Name</label>
                         <div angucomplete-alt id="universities"
@@ -47,7 +53,7 @@
                             maxlength="50"
                             pause="100"
                             selected-object="selecteduniversity"
-                            remote-url="http://developer.firstsynch.com/api/v1/auto/school_list/?q="
+                            remote-url="http://api.firstsynch.com/api/v1/auto/school_list/?q="
                             remote-url-data-field="results"
                             title-field="Institution_Name"
                             minlength="1"
@@ -88,7 +94,7 @@
                   </div>
                 <div class="modal-dialog">
                     <div class="modal-content custom-modal-video-content">
-                        <div class="modal-header page-bg-gray cusom-model-onboard-header peoplesearch_show">
+                        <div class="modal-header page-bg-gray cusom-model-onboard-header peoplesearch_show" style="display:none;">
                             <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
                             <div class="page-header custom-page-header">
                                 <div class="pull-left">
