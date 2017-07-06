@@ -219,7 +219,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
 });
 
 
-FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScope) {
+FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, $rootScope) {
 
     // $http.get("school.json")
     //     .then(function successCallback(response){
@@ -251,6 +251,9 @@ FirstSynch.controller("IdentifyUser", function ($scope, $http, apiUrl, $rootScop
         },
         function errorCallback(data, status, headers, config) {
             $scope.error = data.data.data;
+            $timeout( function(){
+                $scope.error = '';
+           }, 3000 );
         });
 
     };//find user - function end
