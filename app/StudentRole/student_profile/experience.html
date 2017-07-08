@@ -16,22 +16,23 @@
             </div>
           </div>
         </div> -->
-<section class="page-section page-section-experience" ng-if="student_profile_details.experience.length > 0 || student_profile_details.project.length > 0">
+<section class="page-section page-inner-experience" ng-if="student_profile_details.experience.length > 0 || student_profile_details.project.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">
+            <div class="col-sm-12 col-md-12">
                 <h1 class="h1 custom-page-h1">Experience</h1>
                 <section class="page-section page-work-history" ng-if="student_profile_details.experience.length > 0">
                     <h2 class="h2 custom-page-h2">Work history
                     </h2>
-                    <div class="row"  ng-repeat="experiences in student_profile_details.experience">
+                    <div class="row row-experience"  ng-repeat="experiences in student_profile_details.experience">
                         <div class="col-sm-4">
-                            <h2 class="">{{experiences.company}}</h2>
+                            <h2 class="h2-insde-head">{{experiences.company}}</h2>
                             <p class="medium-text grey-text text-uppercase">{{experiences.start_date | date:"MMM, y"}} - {{experiences.leave_date | date:"MMM, y"}}</p>
                         </div>
                         <div class="col-sm-5">
-                            <h2 class="">{{experiences.job_title}}</h2>
-                            <p class="">
+                            <h2 class="h2-insde-head">{{experiences.job_title}}</h2>
+                            <p class="cont-experience">
                                 {{experiences.job_description}}
                             </p>
                         </div>
@@ -58,6 +59,7 @@
                         </div>
                     </div>
                 </section>
+            </div>
             </div>
         </div>
     </div>
