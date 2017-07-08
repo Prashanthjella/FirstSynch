@@ -520,11 +520,13 @@ FirstSynch.controller("employeebasicprofileupload" , function ($timeout,$window,
             about_me:$scope.basicprofileform.about_me
 
         };
-        file.upload = Upload.upload({
-            url: apiUrl+"api/v1/employee/api/v1/employeeprofile/"+$scope.basicprofileform.id+"/",
-            data: {user:$scope.basicprofileform.user,profile_picture: file},
-            method:'PUT',
-        });
+        if(file){
+            file.upload = Upload.upload({
+                url: apiUrl+"api/v1/employee/api/v1/employeeprofile/"+$scope.basicprofileform.id+"/",
+                data: {user:$scope.basicprofileform.user,profile_picture: file},
+                method:'PUT',
+            });
+        }
         // alert(JSON.stringify(data));
         $http.patch(apiUrl+"api/v1/employee/api/v1/employeeprofile/"+$scope.basicprofileform.id+"/",data)
         .then(function (response) {
