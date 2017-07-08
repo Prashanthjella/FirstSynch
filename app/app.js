@@ -370,7 +370,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
 });
 
 
-FirstSynch.controller("ForgotPassword", function ($scope, $http, apiUrl) {
+FirstSynch.controller("ForgotPassword", function ($timeout,$scope, $http, apiUrl) {
     $scope.ForgotPassword = function () {
         var data = $.param({
             e_mail: $scope.e_mail,
@@ -384,6 +384,11 @@ FirstSynch.controller("ForgotPassword", function ($scope, $http, apiUrl) {
         .then(function successCallback(data, status, headers, config) {
             $scope.success = data.data.output;
             $('.hide1').hide();
+            $timeout( function(){
+                $scope.success = '';
+                $('#ForgotPassword').modal('hide');
+                $('.hide1').show();
+           }, 3000 );
         },
         function errorCallback(data, status, headers, config) {
             $scope.failure = data.data.error;
