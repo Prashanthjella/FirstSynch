@@ -15,8 +15,9 @@
               <div style="color: red; font-weight: bold;">{{failure}}</div>
               <div class="form-group" id="success_msg">
                 <label for="email">Please Enter your new Password</label>
-                <input type="password" id="password" name="password" class="form-control" ng-model="password" ng-model="e_mail" required="" />
-                <input type="hidden" id="token" name="token" class="form-control" ng-model="token" ng-model="token" />
+                <input type="password" id="password" name="password" class="form-control" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{cpassword}}"/>
+                <label for="email">Please Enter confirm Password</label>
+                <input type="password" id="cpassword" name="cpassword" class="form-control" ng-model="cpassword" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{password}}"/>
               </div>
           </div>
         </div>
@@ -25,8 +26,8 @@
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
             <div class="row">
-              <div class="col-sm-6">
-                <button type="submit" ng-click="ResetPassword()" ng-disabled="resetpassword.$invalid" class="btn btn-default btn-block">Reset Password</button>
+              <div class="col-sm-6 col-sm-offset-3">
+                <button type="submit" ng-disabled="resetpassword.$invalid" ng-click="ResetPassword()" class="btn btn-default btn-block">Reset Password</button>
               </div>
             </div>
           </div>

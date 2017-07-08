@@ -99,7 +99,6 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
       $timeout( function(){
           $window.loading_screen.finish();
      }, 3000 );
-
   });
 });
 //company page - company category

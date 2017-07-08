@@ -401,17 +401,20 @@ FirstSynch.controller("ForgotPassword", function ($timeout,$scope, $http, apiUrl
 });
 
 
-FirstSynch.controller("ResetPassword", function ($scope, $http, apiUrl) {
+FirstSynch.controller("ResetPassword", function ($location,$scope, $http, apiUrl) {
+    if($location.search()['resetpassword']){
+        $('#resetpassword').modal('show');
+    }
     $scope.ResetPassword = function () {
-        var data = $.param({
+        var data = {
             password: $scope.password,
-            token: $scope.token,
-        });
+            token: $location.search()['resetpassword'],
+        };
         $http({
             url: apiUrl+'api/v1/accounts/resetpasswordlink/',
             method: "POST",
-            data: data,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            data: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
         })
         .then(function successCallback(data, status, headers, config) {
             $scope.success = data.output;
@@ -601,6 +604,13 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
         function errorCallback(response, status, headers, config) {
         });
     }
+});
+FirstSynch.controller("CommonLoaderClose" ,function ($timeout,$window,$scope) {
+    $scope.$watch('$viewContentLoaded', function(){
+        $timeout( function(){
+            $window.loading_screen.finish();
+       }, 3000 );
+    });
 });
 FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_token, apiUrl,$location,$compile)
     {
@@ -795,7 +805,36 @@ FirstSynch.directive('uixBxslider', function(){
         }
     }
 ]);
+FirstSynch.directive('passwordVerify',passwordVerify);
 
+  function passwordVerify() {
+    return {
+      restrict: 'A', // only activate on element attribute
+      require: '?ngModel', // get a hold of NgModelController
+      link: function(scope, elem, attrs, ngModel) {
+        if (!ngModel) return; // do nothing if no ng-model
+
+        // watch own value and re-validate on change
+        scope.$watch(attrs.ngModel, function() {
+          validate();
+        });
+
+        // observe the other value and re-validate on change
+        attrs.$observe('passwordVerify', function(val) {
+          validate();
+        });
+
+        var validate = function() {
+          // values
+          var val1 = ngModel.$viewValue;
+          var val2 = attrs.passwordVerify;
+
+          // set validity
+          ngModel.$setValidity('passwordVerify', val1 === val2);
+        };
+      }
+    }
+  }
 ////////////////add overlay class in random manner////////////////////
 FirstSynch.filter('randomize', function() {
   return function(input, scope) {
