@@ -595,6 +595,9 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
 });
 FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_token, apiUrl,$location,$compile)
     {
+    $scope.search_field_clean = function(){
+        $scope.keywords = '';
+    }
     $scope.SearchsubmitFunc = function ()
         {
             if (angular.isDefined($rootScope.token_id)) {

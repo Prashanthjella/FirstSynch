@@ -10,11 +10,11 @@
                     remote-url="http://52.43.26.31:8000/api/v1/flat_pages/recent_career_fairs/?fields="
                     title-field="title,city"
                     input-class="form-control custom-form-control-search-box"/> -->
-                <form ng-submit="SearchsubmitFunc()">
-                    <input type="text" ng-model='keywords' placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " >
+                <form name="searchform" ng-submit="SearchsubmitFunc()">
+                    <input type="text" name="" ng-model='keywords' placeholder="Search for students, companiesm career fairs, jobs skills, industries, schools" class="form-control custom-form-control-search-box " >
                 </form>
             </div>
-            <span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
+            <span class="glyphicon form-control-feedback glyphicon-remove" ng-click="search_field_clean()" style="cursor:pointer" aria-hidden="true"></span>
         </div>
         <div class="search-result-container search_result_remove_act">
             <div class="row custom-row-35">

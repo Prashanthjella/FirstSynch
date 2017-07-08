@@ -5,7 +5,7 @@
 	      <div class="pull-left">
 	        <h3 class="h3 custom-h3" >Companies</h3>
 	      </div>
-	      <div class="pull-right"> <a href="javascript:void(0)" class="link-all home_company_all_link" title="Show All"  ng-click="showall_companyvideo()">Show All</a> </div>
+	      <div class="pull-right"> <a href="javascript:void(0)" ng-show="dbcompany.length > 3" class="link-all home_company_all_link" title="Show All"  ng-click="showall_companyvideo()">Show All</a> </div>
 	    </div>
 	    <div class="row custom-row-10 for_home_com_less_all" >
 	      	<div class="col-sm-4" ng-repeat="comp in dbcompany | limitTo:3">
