@@ -76,6 +76,12 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
     $rootScope.current_url = $location.path();
     $rootScope.today = new Date();
     $rootScope.apiurl = apiUrl;
+    $rootScope.LoginPopupopen = function(){
+        if($rootScope.guest_login){
+            jQuery("#VideoPopup1").modal('hide');
+            jQuery('#logIn').modal('show');
+        }
+    }
     $rootScope.videoPopup = function (value) {
         jQuery("#VideoPopup1").modal('show');
         $('.video_loader_bk').fadeIn();
@@ -148,18 +154,13 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
 //     });
 //LoginUser
 FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
-    if (angular.isDefined($rootScope.token_id)) {
-      var token_id = $rootScope.token_id;
-    } else {
-      var token_id = guest_token;
-    }
+    var token_id = $rootScope.token_id;
     $scope.video_comment_form_submit = function(videoid){
         var videocomment_data = {
-            video : videoid,
             comment : $scope.videocomment
         }
         //alert(JSON.stringify(personnal_skill_data));
-        $http.post(apiUrl+"api/v1/career_fairs/comment/create/",JSON.stringify(videocomment_data),{
+        $http.post(apiUrl+"api/v1/career_fairs/add_video_comment/"+videoid+"/",JSON.stringify(videocomment_data),{
           headers: {'Authorization' : 'Token '+token_id}
         })
         .then(function (response) {

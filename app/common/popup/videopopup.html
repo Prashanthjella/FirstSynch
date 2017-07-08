@@ -74,10 +74,10 @@
                             <div class="media custom-media">
                                 <div class="media-left media-top custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
                                 <div class="media-body custom-media-body" ng-controller="video_cmt_form_controller">
-                                    <form ng-submit="video_comment_form_submit(vid.video.id)">
+                                    <form name="video_comment_form" ng-submit="video_comment_form_submit(vid.video.id)">
                                         <div class="form-group custom-lider-form-group">
-                                            <textarea class="form-control custom-text-area" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150"></textarea>
-                                            <input type="submit" value="Submit">
+                                            <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>
+                                            <input type="submit" value="Submit" ng-disabled="video_comment_form.videocomment.$invalid">
                                         </div>
                                     </form>
                                 </div>
