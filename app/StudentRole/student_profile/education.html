@@ -1,8 +1,9 @@
-<section class="page-section page-section-education" ng-if="student_profile_details.education.length > 0">
+<section class="page-section page-section-education page-inner-education" ng-if="student_profile_details.education.length > 0">
   <div class="container">
     <div class="row">
       <div class="col-sm-offset-2">
-        <h1 class="h1 custom-heading-01">Education</h1>
+      <div class="col-sm-12">
+       <h1 class="h1 custom-page-h1">Education</h1>
         <div class="thumbnail custom-thumbnail-education" ng-repeat="educations in student_profile_details.education">
           <div class="row">
             <div class="col-sm-4"><img src="assets/images/img-education.jpg" class="img-responsive custom-img-responsive"></div>
@@ -21,6 +22,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
