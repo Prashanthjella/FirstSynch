@@ -636,11 +636,10 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                                                                 +'<div class="media-left media-middle custom-media-left"> <img style="height:117px;" class="media-object custom-media-object" src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.careerfair[i].image+'" alt="">  </div>'
                                                                 +'<div class="media-body custom-media-body">'
                                                                     +'<h4 class="media-heading custom-media-heading">'+response.data.careerfair[i].title+'</h4>'
-                                                                    +'<h5 class="media-eading-h5">'+response.data.careerfair[i].start_date+' &bull; '+response.data.careerfair[i].city+'</h5>'
+                                                                    +'<h5 class="media-eading-h5">'+response.data.careerfair[i].start_date+' &bull; '+(typeof response.data.careerfair[i].city != "undefined"?response.data.careerfair[i].city:"")+'</h5>'
                                                                     +'<div class="searech-folow pull-left">'
-                                                                        +'<span class="group-followers"><span class="total-followers">36</span> Posts</span>'
-                                                                        +'<span class="group-followers"><span class="total-followers">41</span> Companies</span>'
-                                                                        +'<span class="group-followers"><span class="total-followers">5</span> followers</span>'
+                                                                        +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.careerfair[i].followers != "undefined"?response.data.careerfair[i].followers:"0")+'</span> followers</span>'
+                                                                        +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.careerfair[i].followers != "undefined"?response.data.careerfair[i].followers:"0")+'</span> Companies</span>'
                                                                     +'</div>'
                                                                 +'</div>'
                                                             +'</a>'
@@ -665,11 +664,10 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                                                             +'</div>'
                                                             +'<div class="media-body custom-media-body">'
                                                                 +'<h4 class="media-heading custom-media-heading">'+response.data.company[i].name+'</h4>'
-                                                                +'<h5 class="media-eading-h5">'+response.data.company[i].city+'&bull; '+response.data.company[i].state+'</h5>'
+                                                                +'<h5 class="media-eading-h5">'+(typeof response.data.company[i].city != "undefined"?response.data.company[i].city:"")+'&bull; '+(typeof response.data.company[i].state != "undefined"?response.data.company[i].state:"")+'</h5>'
                                                                 +'<div class="searech-folow pull-left">'
-                                                                    +'<span class="group-followers"><span class="total-followers">36</span> Posts</span>'
-                                                                    +'<span class="group-followers"><span class="total-followers">41</span> Companies</span>'
-                                                                    +'<span class="group-followers"><span class="total-followers">5</span> followers</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].employees != "undefined"?response.data.company[i].employees:"0")+'</span> Employees</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].followers != "undefined"?response.data.company[i].followers:"0")+'</span> followers</span>'
                                                                 +'</div>'
                                                             +'</div>'
                                                         +'</a>'
@@ -694,11 +692,11 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                                                             +'</div>'
                                                             +'<div class="media-body custom-media-body">'
                                                                 +'<h4 class="media-heading custom-media-heading">'+response.data.student[i].first_name+'</h4>'
-                                                                +'<h5 class="media-eading-h5">'+response.data.student[i].city+'&bull; '+response.data.student[i].state+'</h5>'
+                                                                +'<h5 class="media-eading-h5">'+(typeof response.data.student[i].city != "undefined"?response.data.student[i].city:"")+'&bull; '+(typeof response.data.student[i].state != "undefined"?response.data.student[i].state:"")+'</h5>'
                                                                 +'<div class="searech-folow pull-left">'
-                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.student[i].viewed+'</span> Views</span>'
-                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.student[i].liked+'</span> Likes</span>'
-                                                                    +'<span class="group-followers"><span class="total-followers">'+response.data.student[i].followers+'</span> followers</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.student[i].viewed != "undefined"?response.data.student[i].viewed:"0")+'</span> Views</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.student[i].liked != "undefined"?response.data.student[i].liked:"0")+'</span> Likes</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.student[i].followers != "undefined"?response.data.student[i].followers:"0")+'</span> followers</span>'
                                                                 +'</div>'
                                                             +'</div>'
                                                         +'</a>'
@@ -709,7 +707,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                             });
                         }
                         else{
-                            jQuery('.search_results_companies_container_act').hide();
+                            jQuery('.search_results_student_container_act').hide();
                         }
                         if(response.data.video){
                             jQuery('.search_results_video_container_act').show();
