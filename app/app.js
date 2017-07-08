@@ -292,9 +292,13 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                         .then(function successCallback(data, status, headers, config) {
                             jQuery("#signUp").modal('hide');
                             jQuery("#signUpSuccess").modal('show');
+                            $scope.name = '';
+                            $scope.password = '';
+                            $scope.gpa = '';
                         },
                         function errorCallback(data, status, headers, config) {
                             $scope.status = data.data.status;
+
                         });
                     }
 
