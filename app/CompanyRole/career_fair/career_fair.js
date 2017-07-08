@@ -30,6 +30,14 @@ FirstSynch.controller("company_upcoming_career_fair" ,function ($window,$scope, 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.upcoming_career = response.data;
+          if(response.data.length > 2){
+              $('.bx-prev').show();
+              $('.bx-next').show();
+          }
+          else{
+              $('.bx-prev').hide();
+              $('.bx-next').hide();
+          }
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming career fair");
   });
