@@ -90,6 +90,10 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         })
         .then(function successCallback(response){
             $rootScope.vid = response.data;
+            $('#videolikebtn').css({'color':'#303030'});
+            $.each(response.data.video.liked, function(i,obj) {
+                if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});}
+            });
             jwplayer("jwplayer").setup({
               playlist: [{
                   image: response.data.video.thumbnail,
@@ -110,14 +114,12 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
         });
     };//Common Video Popup - function end
     $rootScope.videolikesubmit = function(videoid){
-        var data = {
-            liked : $rootScope.user_id
-        }
-        $http.patch(apiUrl+"api/v1/career_fairs/api/v1/video/"+videoid+"/",JSON.stringify(data),{
+        $http.get(apiUrl+"api/v1/career_fairs/video_like/"+videoid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         })
         .then(function successCallback(response){
-                $scope.vid.video.liked.length = $scope.vid.video.liked.length+1;
+                var video_coutn = parseInt($('#video_like_wrapper').text());
+                $('#video_like_wrapper').text(video_coutn+1);
             }, function errorCallback(response){
                 console.log("Unable to perform get career fair details");
         });
