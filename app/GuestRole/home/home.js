@@ -75,7 +75,7 @@ FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope,$window,$t
 // home page - students
 FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compile) {
   // home page - students - default
-  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/?count=3")
+  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
       .then(function successCallback(response){
           $scope.dbstudents = response.data;
       }, function errorCallback(response){
@@ -119,7 +119,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
 // home page - company
 FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compile) {
  // home page - company - default
-  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/?count=3")
+  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
       .then(function successCallback(response){
           $scope.dbcompany = response.data;
       }, function errorCallback(response){
