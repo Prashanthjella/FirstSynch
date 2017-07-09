@@ -1331,6 +1331,10 @@ bottom: 90px;
 }
 .custom-thumbnail-image-gallery .box-inside-content .date-location {
 	margin-bottom: 5px;
+	    font-size: 12px;
+    margin-bottom: 0px;
+    font-weight: 700;
+   color:#000;
 }
 .custom-thumbnail-image-gallery-05 .box-inside-content .date-location {
 	margin-bottom: 0;
@@ -2687,9 +2691,10 @@ textarea.custom-text-area {
 	height: 36px;
 	color: #fff;
 	padding: 9px 15px;
-	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	border-color:#3a579a !important;
+/*	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);*/
 }
 .bg-instagrem {
 	background: url(../images/bg-instagram.png) no-repeat center / 100%;
@@ -4019,3 +4024,8 @@ h3.school-name {
 .box-tab-content{
 	min-height:210px;
 	}
+	.img-career-fair{
+		-webkit-box-sizing:0 20px 40px 0 rgba(0, 0, 0, 0.3);
+		-moz-box-sizing:0 20px 40px 0 rgba(0, 0, 0, 0.3);
+		box-sizing:0 20px 40px 0 rgba(0, 0, 0, 0.3);				
+		}
