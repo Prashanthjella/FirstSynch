@@ -1,6 +1,6 @@
 <section class="page-section complete-profile" ng-controller="companyprofileform">
     <div class="thumbnail custom-thumbnail-pro-accordion">
-        <h5 class="custom-h5">Complete your profile</h5>
+        <h5 class="custom-h5 h5-video">Complete your profile</h5>
         <div class="row">
           <div class="col-sm-12">
             <div class="progress custom-progress">
@@ -68,7 +68,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_benefitperkscultrue" ng-if="company_profile_details.hiring[0].benefits =='' && company_profile_details.hiring[0].perks =='' &&company_profile_details.hiring[0].culture ==''">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cbenefitperkscultrue"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Why should you work for us</a>
+                        <a data-target="#cbenefitperkscultrue" class="collapsed" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Why should you work for us</a>
                     </h4>
                 </div>
                 <div id="cbenefitperkscultrue" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -99,7 +99,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_dateofestablishment" ng-if="company_profile_details.est_date_description =='' && company_profile_details.establishment_date==''">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cdateofestablishment"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>DATE OF ESTABLISHMENT</a>
+                        <a data-target="#cdateofestablishment" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>DATE OF ESTABLISHMENT</a>
                     </h4>
                 </div>
                 <div id="cdateofestablishment" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -126,7 +126,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_internship" ng-if="company_profile_details.internships_to_jobs =='' && company_profile_details.internships_job_description==''">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cinternship"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>INTERNSHIPS</a>
+                        <a data-target="#cinternship" class="collapsed" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>INTERNSHIPS</a>
                     </h4>
                 </div>
                 <div id="cinternship" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -154,7 +154,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_companysize" ng-if="$scope.company_profile_details.company_size_description=='' &&  $scope.company_profile_details.company_size==''">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#ccompanysize"  data-toggle="collapse" data-parent="#accordion" href="">
+                        <a data-target="#ccompanysize"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             COMPANY SIZE
                         </a>
@@ -185,7 +185,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_hireanddeparture" ng-if="company_profile_details.hire_rates=='' && company_profile_details.hire_rates_description =='' && company_profile_details.departure_rate==''&& company_profile_details.departure_rate_description">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#chireanddeparture"  data-toggle="collapse" data-parent="#accordion" href="">
+                        <a data-target="#chireanddeparture" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             HIRE &amp; DEPARTURE RATES
                         </a>
@@ -224,7 +224,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_averagesalary" ng-if="company_profile_details.average_entry_level_sal==''">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#caveragesalary"  data-toggle="collapse" data-parent="#accordion" href="">
+                        <a data-target="#caveragesalary" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Average Entry Level Salary
                         </a>
@@ -285,7 +285,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="company_profile_growthrate" ng-if="company_profile_details.growth_rate==''&& company_profile_details.growth_rate_description==''">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cgrowthrate"  data-toggle="collapse" data-parent="#accordion" href="">
+                        <a data-target="#cgrowthrate" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Company Growth Rate
                         </a>

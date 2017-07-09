@@ -19,7 +19,7 @@ body {
 	left: 0;
 	top: 0;
 	right: 0;
-	z-index: 1000;
+	z-index: 1001;
 }
 body.fixed-scrol {
 	padding-top: 138px;
@@ -4029,3 +4029,7 @@ h3.school-name {
 	-moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }
+.btn-block{
+	width:auto;
+	display:inherit;
+	}
