@@ -76,9 +76,11 @@
                                 <div class="media-body custom-media-body" ng-controller="video_cmt_form_controller">
                                     <form name="video_comment_form" ng-submit="video_comment_form_submit(vid.video.id)">
                                         <div class="form-group custom-lider-form-group">
-                                            <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>
-                                            <input type="submit" value="Submit" ng-disabled="video_comment_form.videocomment.$invalid">
+                                            <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>  
                                         </div>
+                                        <div class="form-group custom-lider-form-group">
+                                            <input type="submit" value="Submit" ng-disabled="video_comment_form.videocomment.$invalid" class="btn btn-default custom-btn btn-lg">
+                                            </div>
                                     </form>
                                 </div>
                                 <div> </div>

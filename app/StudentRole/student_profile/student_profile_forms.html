@@ -75,8 +75,11 @@
                                     <input type="text" class="form-control custom-textbox"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your Facebook URL">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
+                                <div class="upload-container">
                                     <label class="text-uppercase">Profile Picture</label>
-                                    <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" >
+                                    <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" class="upload-button" id="upload-picture">
+                                    <label class="btn btn-default custom-btn btn-lg" for="upload-picture">Choose File</label>
+                                    </div>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">About me</label>
@@ -125,8 +128,11 @@
                                     <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150" ng-model="hobbiesform.description"></textarea>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Profile Picture</label>
-                                    <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
+                                 <div class="upload-container">
+<label class="text-uppercase">Profile Picture</label>
+                                   <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" id="upload-picture-hobbies" class="upload-button">
+                                   <label class="btn btn-default custom-btn btn-lg" for="upload-picture-hobbies">Choose File</label>
+                                    </div>
                                 </div>
                                 
                                 <p class="btn-panel-group">
@@ -460,8 +466,11 @@
                                     <textarea class="form-control custom-text-area" rows="4" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
+                                  <div class="upload-container">
                                     <label class="text-uppercase">Profile Picture</label>
-                                    <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" >
+                                    <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" class="upload-button"  id="upload-picture-projects">
+                                     <label class="btn btn-default custom-btn btn-lg" for="upload-picture-projects">Choose File</label>
+                                    </div>
                                 </div>
                            
                               <p>
@@ -480,7 +489,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_personnal" ng-if="student_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#spersonal"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#spersonal"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Personal
                         </a>
@@ -489,12 +498,10 @@
                 <div id="spersonal" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="personnalskillsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel">
-                                <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span>
-                            </div>
+                            
                             <div class="col-sm-12  col-md-12">
                             
-
+<div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
                                     <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
                                 </div>
@@ -510,6 +517,7 @@
                               <p>
                             <input type="submit" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
                             </p>
+                            </div>
                             
                              </div>
                             
@@ -526,7 +534,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_professional"  ng-if="student_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sprofessional"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#sprofessional"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Professional
                         </a>
@@ -566,7 +574,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_software" ng-if="student_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#ssoftware"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#ssoftware"  class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Software
                         </a>
@@ -575,7 +583,7 @@
                 <div id="ssoftware" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form  ng-submit="softwareskillsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                            
                             <div class="col-sm-12  col-md-12">
                              <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">

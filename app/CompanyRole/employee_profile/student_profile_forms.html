@@ -1,6 +1,6 @@
 <section class="page-section complete-profile" ng-controller="employeeprofileform">
     <div class="thumbnail custom-thumbnail-pro-accordion">
-        <h5 class="custom-h5">Complete your profile</h5>
+        <h5 class="custom-h5 h5-video">Complete your profile</h5>
         <div class="row">
           <div class="col-sm-12">
             <div class="progress custom-progress">
@@ -14,15 +14,16 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_basic_information" ng-if="!employee_profile_details.profile_picture && !employee_profile_details.first_name && !employee_profile_details.last_name && !employee_profile_details.about_me ">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sbasicinformation"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Basic Profile</a>
+                        <a data-target="#sbasicinformation" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Basic Profile</a>
                     </h4>
                 </div>
                 <div id="sbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form name="basicprofile" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
+                            
+                            <div class="col-sm-12 col-md-12">
+                            <div class="form-group-edit-profile">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Basic Profile</label>
                                     <input type="hidden" name="user" ng-model="basicprofileform.user">
                                     <input type="hidden" name="id" ng-model="basicprofileform.id">
@@ -35,20 +36,26 @@
                                     <label class="text-uppercase">Last Name</label>
                                     <input type="text" class="form-control custom-textbox" name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" >
                                 </div>
+                             
+                               
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Date of Birth</label>
                                     <input type="text" class="form-control custom-textbox" name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" >
                                 </div>
+                                  <div class="row">
+                                 <div class="col-xs-12 col-md-6 col-md-6 col-lg-6">
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Gender</label>
-                                    <select name="gender" ng-model="basicprofileform.gender">
+                                    <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-textbox">
                                         <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
                                         <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
                                     </select>
                                 </div>
+                                </div>
+                                 <div class="col-xs-12 col-md-6 col-md-6 col-lg-6">
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Category</label>
-                                    <select name="category" ng-model="basicprofileform.category">
+                                    <select name="category" ng-model="basicprofileform.category" class="form-control custom-textbox">
                                         <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
                                         <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
                                         <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
@@ -61,14 +68,26 @@
                                         <option value="Social Butterfly" ng-selected="{{ basicprofileform.category == 'Social Butterfly' }}">Social Butterfly</option>
                                     </select>
                                 </div>
+                                </div>
+                                </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Social Network Link</label>
                                     <input type="text" class="form-control custom-textbox"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
+                                    </div>
+                                       <div class="form-group custom-lider-form-group">
                                     <input type="text" class="form-control custom-textbox" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
+                                     </div>
+                                       <div class="form-group custom-lider-form-group">
                                     <input type="text" class="form-control custom-textbox"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
+                                     </div>
+                                       <div class="form-group custom-lider-form-group">
                                     <input type="text" class="form-control custom-textbox"  ng-model="basicprofileform.github_url" name="twitter_url" placeholder="Please provide your Github URL">
+                                     </div>
+                                       <div class="form-group custom-lider-form-group">
                                     <input type="text" class="form-control custom-textbox"  ng-model="basicprofileform.stackoverflow_url" name="twitter_url" placeholder="Please provide your Stackoverflow URL">
-                                </div>
+                                     </div>
+
+                               
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Website</label>
                                     <input type="text" class="form-control custom-textbox"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your Facebook URL">
@@ -81,16 +100,20 @@
                                     <label class="text-uppercase">About me</label>
                                     <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
                                 </div>
+                                
+                                
                                 <!--<div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Profile Image</label>
                                     <input type="file" class="file_multi_video" id="file" accept="image/*" name="file" multiple
                                         onchange="angular.element(this).scope().getFileDetails(this)" />
                                     <img src="basicprofileform.profile_picture"/>
                                 </div>-->
+                                <p class="btn-panel-group"><input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/></p>
+                                </div>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
-                        <input type="submit" value="Submit" />
+                       
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
@@ -101,15 +124,16 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_hobbies" ng-if="employee_profile_details.hobby.length ==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#shobbies"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
+                        <a data-target="#shobbies" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
                     </h4>
                 </div>
                 <div id="shobbies" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="hobbiessubmit(hobbiesform.image)">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
+                             <div class="form-group-edit-profile">
+
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Hobby</label>
                                     <input type="hidden" name="id" ng-model="hobbiesform.id">
                                     <input type="text" class="form-control custom-textbox" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name">
@@ -121,26 +145,31 @@
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Profile Picture</label>
                                     <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
-                                </div>
+                                </div><p class="btn-panel-group">
+
+                        <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                        </p>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
-                        <input type="submit" value="Submit" />
+                        
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
                         </div> -->
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_characteristics" ng-if="employee_profile_details.student_characteristic.length == 0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#scharactertics"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
+                        <a data-target="#scharactertics" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
                     </h4>
                 </div>
                 <div id="scharactertics" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="charactersubmit()">
+                     <div class="form-group-edit-profile">
                         <input type="hidden" name="charid" ng-model="characteristic.id">
                         <div class="checkbox custom-checkbox checkbox-circle">
                             <input id="Realistic" class="checkbox-input" ng-model="pselectedCharacter['Realistic']" type="checkbox">
@@ -190,16 +219,18 @@
                             <input id="Reading" class="checkbox-input" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
                             <label for="Reading" class="checkbox-label"> Love of Reading</label>
                         </div>
-                        <p>
-                            <input type="submit" value="Submit" />
+                        
+  <p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
                         </p>
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_whatiamlooking" ng-if="employee_profile_details.whatimlooking.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#swhatiamlooking"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#swhatiamlooking" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             What I'm looking for
                         </a>
@@ -207,6 +238,7 @@
                 </div>
                 <div id="swhatiamlooking" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form  ng-submit="whatiamlooksubmit()">
+                     <div class="form-group-edit-profile">
                         <input type="hidden" name="lookingid" ng-model="looking.id">
                         <div class="checkbox custom-checkbox checkbox-circle">
                             <input id="a-role-in-a-large-company" class="checkbox-input" ng-model="pwhatiamlooking['A role in a large company']" type="checkbox">
@@ -248,16 +280,17 @@
                             <input id="official-employment" class="checkbox-input" ng-model="pwhatiamlooking['Official employment']" type="checkbox">
                             <label for="official-employment" class="checkbox-label"> Official employment</label>
                         </div>
-                        <p>
-                            <input type="submit" value="Submit" />
+                         <p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
                         </p>
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_leadership" ng-if="employee_profile_details.leadship_role.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sleadership"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#sleadership" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Lidership roles
                         </a>
@@ -266,8 +299,8 @@
                 <div id="sleadership" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="leadershipsubmit()" >
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
+                             <div class="form-group-edit-profile">
+                            <div class="col-sm-12 col-md-12">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Lidership role</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.id" name="student">
@@ -277,8 +310,12 @@
                                     <label class="text-uppercase">Description</label>
                                     <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
                                 </div>
+                                <p class="btn-panel-group">
+                            <input type="submit" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
+                            </p>
                             </div>
-                            <input type="submit" value="Submit" />
+                              
+                            </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
                         <!-- <div class="row">
@@ -292,7 +329,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_myschool" ng-if="employee_profile_details.education.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#smyschools"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#smyschools" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             MY SCHOOLS
                         </a>
@@ -301,8 +338,9 @@
                 <div id="smyschools" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="educationsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
+                            
+                            <div class="col-sm-12 col-md-12">
+                             <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">School</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
@@ -339,9 +377,12 @@
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">GPA Rating</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
-                                </div>
+                                </div>  <p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+                            </p>
                             </div>
-                            <input type="submit" value="Submit" />
+                            </div>
+                            
                         </div>
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
@@ -353,7 +394,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_histroy" ng-if="employee_profile_details.experience.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sworkhistroy"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#sworkhistroy"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Work History
                         </a>
@@ -362,22 +403,23 @@
                 <div id="sworkhistroy" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="workhistroyformsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
+                            
+                            <div class="col-sm-12 col-md-12">
+                             <div class="form-group-edit-profile">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Work</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.id" name="user">
                                     <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.company" placeholder="Company Name">
                                 </div>
-                                <div class="form-group custom-lider-form-grou">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Start Date</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.start_date" placeholder="Start Date">
                                 </div>
-                                <div class="form-group custom-lider-form-grou">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Leave Date</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.leave_date" placeholder="Graduated Year">
                                 </div>
-                                <div class="form-group custom-lider-form-grou">
+                                <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Job Title</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.job_title" placeholder="Job Title">
                                 </div>
@@ -385,8 +427,12 @@
                                     <label class="text-uppercase">Job Description</label>
                                     <textarea class="form-control custom-text-area" rows="4" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
                                 </div>
+                              
+                              <p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="
+btn btn-default custom-btn btn-lg" />
+</p>  </div>
                             </div>
-                            <input type="submit" value="Submit" />
                         </div>
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
@@ -398,7 +444,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_projects" ng-if="employee_profile_details.project.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sproject"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#sproject" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Projects
                         </a>
@@ -407,8 +453,9 @@
                 <div id="sproject" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="projectsubmit(projectsform.image)">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
+                           
+                            <div class="col-sm-12 col-md-12">
+                             <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Projects</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
@@ -429,9 +476,12 @@
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Profile Picture</label>
                                     <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" >
-                                </div>
+                                </div>   <p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                            </p>
                             </div>
-                            <input type="submit" value="Submit" />
+                            </div>
+                           
                         </div>
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
@@ -443,7 +493,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_personnal" ng-if="employee_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#spersonal"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#spersonal" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Personal
                         </a>
@@ -452,10 +502,9 @@
                 <div id="spersonal" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form ng-submit="personnalskillsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1">
-                                <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span>
-                            </div>
-                            <div class="col-sm-11 col-md-11">
+                            
+                            <div class="col-sm-12 col-md-12">
+                             <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
                                     <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
                                 </div>
@@ -467,8 +516,11 @@
                                     <label class="text-uppercase">Rating</label>
                                     <input type="text" class="form-control custom-textbox" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating">
                                 </div>
+                            
+                             <p class="btn-panel-group">
+                            <input type="submit" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
+                            </p></div>
                             </div>
-                            <input type="submit" name="submit" value="Save">
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
                         <!-- <div class="row">
@@ -481,7 +533,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_professional"  ng-if="employee_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sprofessional"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#sprofessional" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Professional
                         </a>
@@ -490,8 +542,8 @@
                 <div id="sprofessional" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form  ng-submit="professionalskillsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
+                             <div class="form-group-edit-profile">
+                            <div class="col-sm-12 col-md-12">
                                 <div class="form-group custom-lider-form-grou">
                                     <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
                                 </div>
@@ -502,9 +554,12 @@
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Rating</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating">
-                                </div>
+                                </div><p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+                            </p>
                             </div>
-                            <input type="submit" value="Submit" />
+                            </div>
+                            
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
                         <!-- <div class="row">
@@ -517,7 +572,7 @@
             <div class="panel panel-default custom-accordion-panel-default" id="student_profile_software" ng-if="employee_profile_details.skill.length==0">
                 <div class="panel-heading custom-accordion-heading">
                     <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#ssoftware"  data-toggle="collapse" data-parent="#accordion">
+                        <a data-target="#ssoftware" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Software
                         </a>
@@ -526,9 +581,10 @@
                 <div id="ssoftware" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form  ng-submit="softwareskillsubmit()">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
+                            
+                            <div class="col-sm-12 col-md-12">
+                             <div class="form-group-edit-profile">
+                                <div class="form-group custom-lider-form-group">
                                     <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.user" name="user">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
@@ -539,8 +595,11 @@
                                     <label class="text-uppercase">Rating</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating">
                                 </div>
+                            
+                            <p class="btn-panel-group">
+                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                            </p></div>
                             </div>
-                            <input type="submit" value="Submit" />
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
                         <!-- <div class="row">

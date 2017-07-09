@@ -5,8 +5,9 @@
                 <h1 class="h1 custom-page-h1">About me</h1>
 
                 <div class="row" ng-if="employee_profile_details.hobby.length > 0">
-                    <h1 class="h1 custom-h1" ng-if="employee_profile_details.hobby.length > 0">Hobbies</h1>
-                    <div class="col-sm-9">
+                    
+                    <div class="col-sm-12">
+                    <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.hobby.length > 0">Hobbies</h1>
                         <p class="cont-experience">Point of sale hardware, the till at a shop check out, has become very complex over
                             the past ten years, modern POS hardware inckudes the cash till, bar-code readers,
                             scales, belts, communications system and modern.
@@ -18,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="h1 custom-h1" ng-if="employee_profile_details.student_characteristic.length > 0">Characteristics</h1>
+                <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.student_characteristic.length > 0">Characteristics</h1>
                 <div class="row" ng-if="employee_profile_details.student_characteristic.length > 0">
                     <div class="col-sm-2">
                         <p>My friends would describe me as</p>
@@ -35,11 +36,11 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="h1 custom-h1" ng-if="employee_profile_details.whatimlooking.length > 0">What i'm looking for</h1>
+                <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.whatimlooking.length > 0">What i'm looking for</h1>
                 <div class="row" ng-if="employee_profile_details.whatimlooking.length > 0">
-                    <div class="col-sm-8">
+                    <div class="col-sm-12">
                         <div class="row custom-row-15" >
-                            <div class="col-sm-4" ng-repeat="whatiamlooking in employee_profile_details.whatimlooking">
+                            <div class="col-sm-3" ng-repeat="whatiamlooking in employee_profile_details.whatimlooking">
                                 <div class="thumbnail custom-thumbnail-profile-views">
                                     <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
                                     <div class="box-inside-content">
