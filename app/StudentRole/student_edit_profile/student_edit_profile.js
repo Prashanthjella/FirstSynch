@@ -7,6 +7,8 @@ var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ng
 /////////////////////////////////// Module ////////////////////////////////////
 
 // Student edit profile - studenteditprofiles
+
+
 FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout) {
 
       $scope.deleteVideo = function (value,index) {
@@ -38,62 +40,84 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                   console.log("Unable to perform get student videos details");
           });
       };
-      // GET THE FILE INFORMATION.
-      $scope.getFileDetails = function (e) {
 
-          $scope.files = [];
-          $scope.$apply(function () {
+    //Upload New Video Here
+        $scope.getFileDetails = function (e) {
 
-              // STORE THE FILE OBJECT IN AN ARRAY.
-              for (var i = 0; i < e.files.length; i++) {
-                  $scope.files.push(e.files[i])
-              }
+            $scope.files = [];
+            $scope.$apply(function () {
 
-          });
-      };
-
-      // NOW UPLOAD THE FILES.
-      $scope.uploadFiles = function () {
-          //FILL FormData WITH FILE DETAILS.
+                // STORE THE FILE OBJECT IN AN ARRAY.
+                for (var i = 0; i < e.files.length; i++) {
+                    $scope.files.push(e.files[i])
+                }
+                $scope.progressVisible = false
+            });
+        };
+        $scope.uploadFile = function() {
           $('#video_end').modal('show');
-          var data = new FormData();
-          for (var i in $scope.files) {
-              data.append("video_file", $scope.files[i]);
-          }
-          //alert(angular.element('#result')[0].value);
-          data.append("title", angular.element('#title')[0].value);
-          data.append("student", $rootScope.stud_id);
-          data.append("skill_text", angular.element('#skill_text')[0].value);
-          data.append("video_chapters", angular.element('#result')[0].value);
-          data.append("description", angular.element('#description')[0].value);
-          data.append("student_video", 'True');
-          data.append("active", 'True');
-          data.append("published", angular.element('#published')[0].value);
+          $('#page-video-edit').css({'z-index':'999'});
+            var fd = new FormData()
+            for (var i in $scope.files) {
+                fd.append("video_file", $scope.files[i])
+            }
+            fd.append("title", angular.element('#title')[0].value);
+            fd.append("student", $rootScope.stud_id);
+            fd.append("skill_text", angular.element('#skill_text')[0].value);
+            fd.append("video_chapters", angular.element('#result')[0].value);
+            fd.append("description", angular.element('#description')[0].value);
+            fd.append("student_video", 'True');
+            fd.append("active", 'True');
+            fd.append("published", angular.element('#published')[0].value);
 
-          // ADD LISTENERS.
-          var objXhr = new XMLHttpRequest();
-          objXhr.addEventListener("progress", updateProgress, false);
-          objXhr.addEventListener("load", transferComplete, false);
+            var xhr = new XMLHttpRequest()
+            xhr.upload.addEventListener("progress", uploadProgress, false)
+            xhr.addEventListener("load", uploadComplete, false)
+            //xhr.addEventListener("error", uploadFailed, false)
+            //xhr.addEventListener("abort", uploadCanceled, false)
+            xhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/")
+            $scope.progressVisible = true
+            xhr.send(fd)
+        }
 
-          // SEND FILE DETAILS TO THE API.
-          objXhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/");
-          objXhr.send(data);
-      }
+        function uploadProgress(evt) {
+            $scope.$apply(function(){
+                if (evt.lengthComputable) {
+                    $scope.progress = Math.round(evt.loaded * 100 / evt.total)
+                } else {
+                    $scope.progress = 'unable to compute'
+                }
+            })
+        }
 
-      // UPDATE PROGRESS BAR.
-      function updateProgress(e) {
-          if (e.lengthComputable) {
-              document.getElementById('pro').setAttribute('value', e.loaded);
-              document.getElementById('pro').setAttribute('max', e.total);
-          }
-      }
+        function uploadComplete(evt) {
+            /* This event is raised when the server send back a response */
+            $('#video_end').modal('hide');
+            $('#page-video-edit').modal('hide');
+            $('page-video-edit').css({'z-index':''});
+            $('#chapterss ul').empty();
+            $scope.$apply(function(){
+              $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
+                  .then(function successCallback(response){
+                      $scope.video_list = response.data;
+                  }, function errorCallback(response){
+                      console.log("Unable to perform get student videos details");
+              });
+            });
+        }
 
-      // CONFIRMATION.
-      function transferComplete(e) {
-          //alert("Files uploaded successfully.");
-          $('#video_end').modal('hide');
-          $('#page-video-edit').modal('hide');
-      }
+        function uploadFailed(evt) {
+            console("There was an error attempting to upload the file.")
+        }
+
+        function uploadCanceled(evt) {
+            $scope.$apply(function(){
+                $scope.progressVisible = false
+            })
+            console("The upload has been canceled by the user or the browser dropped the connection.")
+        }
+
+    //Upload Video End
 
 
     // student edit profile - hobbies
