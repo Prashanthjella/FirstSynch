@@ -94,8 +94,13 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             /* This event is raised when the server send back a response */
             $('#video_end').modal('hide');
             $('#page-video-edit').modal('hide');
-            $('page-video-edit').css({'z-index':''});
+            $('page-video-edit').css({'z-index':'1050'});
             $('#chapterss ul').empty();
+            $("#chapter_maker_thumb").show();
+            $("#question").show();
+            $('.second_video_data').hide();
+            $('.none').show();
+            $('#btn-upload').hide();
             $scope.$apply(function(){
               $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
                   .then(function successCallback(response){
