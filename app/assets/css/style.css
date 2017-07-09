@@ -203,10 +203,10 @@ h2.custom-h2-04 {
 	letter-spacing: -0.4px;
 }
 .custom-navbar-default .container-fluid, .custom-navbar-default .container {
-	padding: 27px 40px;
+	padding: 27px 20px;
 }
 .navbar-fixed-top.custom-navbar-default .container-fluid, .navbar-fixed-top.custom-navbar-default .container {
-	padding: 20px 40px;
+	padding: 20px 20px;
 }
 .navbar-fixed-top .navbar-right {
 	margin-right: 0
@@ -232,6 +232,10 @@ h2.custom-h2-04 {
 	letter-spacing: -0.4px;
 	color: #0d0d0d;
 }
+.custom-navbar-default .navbar-nav > li.user-profile-dropdown a{
+	opacity:1;
+	
+	}
 .custom-navbar-default .navbar-nav>li>a:hover {
 	color: #303030;
 	opacity: 1;
@@ -1331,10 +1335,10 @@ bottom: 90px;
 }
 .custom-thumbnail-image-gallery .box-inside-content .date-location {
 	margin-bottom: 5px;
-	    font-size: 12px;
-    margin-bottom: 0px;
-    font-weight: 700;
-   color:#000;
+	font-size: 12px;
+	margin-bottom: 0px;
+	font-weight: 700;
+	color: #000;
 }
 .custom-thumbnail-image-gallery-05 .box-inside-content .date-location {
 	margin-bottom: 0;
@@ -2691,8 +2695,7 @@ textarea.custom-text-area {
 	height: 36px;
 	color: #fff;
 	padding: 9px 15px;
-	border-color:#3a579a !important;
-/*	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	border-color: #3a579a !important;/*	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 	box-shadow: 0 5px 15px rgba(0,0,0,0.5);*/
 }
@@ -2742,10 +2745,9 @@ textarea.custom-text-area {
 	background: -o-linear-gradient(#88e1ce, #2ec1a1);
 	background: -moz-linear-gradient(#88e1ce, #2ec1a1);
 	background: linear-gradient(#88e1ce, #2ec1a1);
-	box-shadow:  0 15px 40px 0 rgba(0, 181, 142, 0.4);
-		-webkit-box-shadow:  0 15px 40px 0 rgba(0, 181, 142, 0.4);
-			-moz-box-shadow:  0 15px 40px 0 rgba(0, 181, 142, 0.4);
-	
+	box-shadow: 0 15px 40px 0 rgba(0, 181, 142, 0.4);
+	-webkit-box-shadow: 0 15px 40px 0 rgba(0, 181, 142, 0.4);
+	-moz-box-shadow: 0 15px 40px 0 rgba(0, 181, 142, 0.4);
 }
 .box {
 	padding: 20px 50px 40px;
@@ -3864,7 +3866,7 @@ body {
 }
 #logIn .bg-facebook, #registration .bg-facebook {
 	padding: 14px 15px;
-	height: 45px;
+	height: 47px;
 }
 .page-section-edit-profile {
 	margin-top: 7px;
@@ -4003,7 +4005,6 @@ h3.school-name {
 	z-index: 1;
 	margin-left: 0;
 	margin-top: 6px;/*width:110px;*/
-	
 }
 .upload-container .upload-button {
 }
@@ -4020,12 +4021,11 @@ h3.school-name {
 	padding-right: 30px;
 	height: 440px;
 }
-
-.box-tab-content{
-	min-height:210px;
-	}
-	.img-career-fair{
-		-webkit-box-sizing:0 20px 40px 0 rgba(0, 0, 0, 0.3);
-		-moz-box-sizing:0 20px 40px 0 rgba(0, 0, 0, 0.3);
-		box-sizing:0 20px 40px 0 rgba(0, 0, 0, 0.3);				
-		}
+.box-tab-content {
+	min-height: 210px;
+}
+.img-career-fair {
+	-webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+}

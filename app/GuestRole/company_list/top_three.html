@@ -3,25 +3,25 @@
 	  	<div class="container">
 	   		<div class="page-header custom-page-header" ng-controller="all_companies">
 	      		<div class="pull-left">
-	        		<h1 class="h2 custom-page-h2">Companies</h1>
+	        		<h1 class="h1 custom-h1-01">Companies</h1>
     				<div>{{all_company.length }} Companies</div>
 	      		</div>
     		</div>
 	    	<div class="page-header custom-page-header" ng-controller="top_three_companies">
 	      		<div class="pull-left">
-	        		<h2 class="h2 custom-title"> Show companies from
+	        		<h2 class="h2 custom-title custom-h2-04"> Show companies from
 	                    <span  class="dropdown" ng-controller="all_cities_list">
-	        				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_com_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allcities</span>
+	        				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_com_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">All cities</span>
 			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
-			        			<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allcities</a></li>
+			        			<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">All cities</a></li>
 			    				<li ng-click="company_filters($event)"  ng-repeat="allcities in all_city_list | unique:'city'| orderBy : 'city'" datavalue="{{allcities.city}}"><a href="" title="cities">{{allcities.city}}</a></li>
 							</ul>
 	    				</span>
 	                    , specializing in
 	                    <span class="dropdown" ng-controller="company_category">
-	        				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_com_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">Allindustries</span>
+	        				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_com_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">All industries</span>
 			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
-			    				<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">Allindustries</a></li>
+			    				<li ng-click="company_filters($event)"  datavalue=""><a href="" title="upcoming">All industries</a></li>
 			    				<li ng-click="company_filters($event)" ng-repeat="compa_cate in company_cate | unique:'category'| orderBy : 'category' " datavalue="{{compa_cate.category}}"><a href="" title="upcoming">{{compa_cate.category}}</a></li>
 							</ul>
 	    				</span>
@@ -32,7 +32,7 @@
 	      		<div class="col-sm-12">
 	        		<div class="page-header custom-page-header">
 	          			<div class="pull-left">
-	            			<h2 class="h2 custom-h2">Top 3 Companies</h2>
+	            			<h3 class="h3 custom-h3">Top 3 Companies</h3>
 	          			</div>
 	        		</div>
 	      		</div>
