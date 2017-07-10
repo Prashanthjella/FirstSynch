@@ -2370,8 +2370,8 @@ textarea.custom-text-area {
 	border-left: none;
 	border-right: none;
 	padding-bottom: 18px;
-	padding-left: 40px !important;
-	border-bottom: 2px solid #f0f0f0;
+	padding-left: 10px !important;
+	border-bottom: 2px solid #e7e7e7;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
@@ -2382,6 +2382,9 @@ textarea.custom-text-area {
 	font-size: 18px;
 	font-weight: 700;
 }
+.custom-form-control-search-box:focus{
+	border-color:#e7e7e7
+	}
 .input-custom-search {
 	background-color: transparent;
 	border-radius: 0;
@@ -2389,7 +2392,7 @@ textarea.custom-text-area {
 	-moz-border-radius: 0;
 	top: 0;
 	border-width: 0 0 2px 0;
-	border-color: #f0f0f0;
+	border-color: #e7e7e7;
 	padding-top: 0;
 	padding-bottom: 11px;
 }
@@ -2644,7 +2647,7 @@ textarea.custom-text-area {
 }
 .input-custom-search {
 	left: 0;
-	top: -5px;
+	top: 0;
 }
 .search-input-roup {
 	width: 100%;
@@ -4042,4 +4045,8 @@ h3.school-name {
 	}	
 .login-top-step-prev .circle-icon{
 	line-height:20px;
+	}	
+.page-section-grey-new{
+	background-color:#f6f6f6;
+	padding-top:40px;
 	}	
