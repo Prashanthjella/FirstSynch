@@ -216,7 +216,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
         function errorCallback(data, status, headers, config) {
               //$('#logIn').modal('show');
             $('.loader_icon').hide();
-            $scope.status = data.data;
+            $scope.status = data.data.non_field_errors[0];
         });
     };// user login - function end
 });
