@@ -20,13 +20,18 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
       };//CEdit Video Popup - function end
 
       $scope.videoEditPopup = function (value) {
-          $("#page-editvideo-edit").modal('show');
           var id = value;
           $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
             headers: {'Authorization' : 'Token '+$rootScope.token_id}
           })
           .then(function successCallback(response){
+              $("#page-editvideo-edit").modal('show');
               $scope.editvid = response.data;
+              //var Videofile = response.data.video.video_file;
+              //alert(Videofile);
+              //$('#video_wrapper video source').attr('src', Videofile);
+              //$("#video_wrapper video").html('<source src="'+Videofile+'" type="video/mp4"></source>' );
+
           }, function errorCallback(response){
               console.log("Unable to perform get Video Details");
           });
