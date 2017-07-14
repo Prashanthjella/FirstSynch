@@ -67,7 +67,7 @@ FirstSynch.controller("company_top_three_students" ,function ($timeout,$window,$
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
                                     +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="'+response.data[i].profile_picture+'" alt="forester-logo.jpg">'
+                                        +'<img class="media-object custom-media-object" src="'+(response.data[i].profile_picture != null?response.data[i].profile_picture:"assets/images/profileicon.png")+'" alt="forester-logo.jpg">'
                                     +'</div>'
                                     +'<div class="media-body">'
                                         +'<h4 class="media-heading">'+response.data[i].first_name+'</h4>'

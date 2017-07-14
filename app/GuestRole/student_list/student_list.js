@@ -67,7 +67,7 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
                                     +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="'+(typeof response.data[i].profile_picture != null?response.data[i].profile_picture:"assets/images/profileicon.png")+'" alt="Student Profile Image">'
+                                        +'<img class="media-object custom-media-object" src="'+(response.data[i].profile_picture != null?response.data[i].profile_picture:"assets/images/profileicon.png")+'" alt="Student Profile Image">'
                                     +'</div>'
                                     +'<div class="media-body">'
                                         +'<h4 class="media-heading">'+response.data[i].first_name+'</h4>'

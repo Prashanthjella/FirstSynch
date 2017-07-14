@@ -13,24 +13,24 @@
 					<span  class="dropdown">
 						<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_stu_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All cities</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_stuents_city">
-							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">All cities</a></li>
-							<li ng-click="student_filters($event)"  ng-repeat="stucities in student_city_list | unique:'city'| orderBy : 'city'" datavalue="{{stucities.city}}"><a href="" title="cities">{{stucities.city}}</a></li>
+							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="All cities">All cities</a></li>
+							<li ng-click="student_filters($event)"  ng-repeat="stucities in student_city_list | unique:'city'| orderBy : 'city'" datavalue="{{stucities.city}}"><a href="" title="{{stucities.city}}">{{stucities.city}}</a></li>
 						</ul>
 					</span>
 					, studying in
 					<span class="dropdown">
 						<span ng-bind="univValue" class="highlighted dropdown-toggle"  id="all_stu_univ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All universities</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" univ-menu="univValue" aria-labelledby="all_student_university">
-							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">All universities</a></li>
-							<li ng-click="student_filters($event)" ng-repeat="university in student_univ_list | unique:'school_name'| orderBy : 'school_name' " datavalue="{{university.school_name}}"><a href="" title="upcoming">{{university.school_name}}</a></li>
+							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="All universities">All universities</a></li>
+							<li ng-click="student_filters($event)" ng-repeat="university in student_univ_list | unique:'school_name'| orderBy : 'school_name' " datavalue="{{university.school_name}}"><a href="" title="{{university.school_name}}">{{university.school_name}}</a></li>
 						</ul>
 					</span>,
 					 specializing in
 					<span class="dropdown">
 						<span ng-bind="majorValue" class="highlighted dropdown-toggle"  id="all_stu_major" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All industries</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" major-menu="majorValue" aria-labelledby="all_student_category">
-							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">All industries</a></li>
-							<li ng-click="student_filters($event)" ng-repeat="stud_indus in student_indus_list | unique:'major'| orderBy : 'major' " datavalue="{{stud_indus.major}}"><a href="" title="upcoming">{{stud_indus.major}}</a></li>
+							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="All industries">All industries</a></li>
+							<li ng-click="student_filters($event)" ng-repeat="stud_indus in student_indus_list | unique:'major'| orderBy : 'major' " datavalue="{{stud_indus.major}}"><a href="" title="{{stud_indus.major}}">{{stud_indus.major}}</a></li>
 						</ul>
 					</span>
 				</h2>
