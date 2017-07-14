@@ -106,7 +106,9 @@ $('[data-toggle="tooltip"]').tooltip();
     });
     $(document).on('hide.bs.modal','#logIn', function () {
         $('form#reset_forms').trigger("reset");
-        jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+        $('#reset_forms label, #reset_forms input').removeClass('has-success');
+        $('#reset_forms input').removeClass('ng-touched');
+        $('#reset_forms input').removeClass('has-error');
     });
 
     $(document).on('hide.bs.modal','#VideoPopup1', function () {
