@@ -203,6 +203,8 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
                 }
                 jQuery(".modal-backdrop.in").hide();
                 jQuery('#logIn').modal('hide');
+                jQuery('form#reset_forms').trigger("reset");
+                jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
                 if(companyusertype == response.data.usertype){
                     $('#logIn').modal('hide');
                     $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
@@ -293,6 +295,8 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                         .then(function successCallback(data, status, headers, config) {
                             jQuery("#signUp").modal('hide');
                             jQuery("#signUpSuccess").modal('show');
+                            jQuery('form#reset_forms').trigger("reset");
+                            jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
                             $scope.name = '';
                             $scope.password = '';
                             $scope.gpa = '';
@@ -366,6 +370,8 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
         .then(function successCallback(data, status, headers, config) {
             jQuery("#companyregistration").modal('hide');
             jQuery("#companysignUpSuccess").modal('show');
+            jQuery('form#reset_forms').trigger("reset");
+            jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
         },
         function errorCallback(data, status, headers, config) {
             $scope.status = data.data.status;

@@ -105,7 +105,8 @@ $('[data-toggle="tooltip"]').tooltip();
         $('.common_js_remove_clas').hide();
     });
     $(document).on('hide.bs.modal','#logIn', function () {
-        $('#reset_forms').trigger("reset");
+        $('form#reset_forms').trigger("reset");
+        jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
     });
 
     $(document).on('hide.bs.modal','#VideoPopup1', function () {
