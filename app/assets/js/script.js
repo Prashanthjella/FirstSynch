@@ -102,7 +102,10 @@ $('[data-toggle="tooltip"]').tooltip();
 
 
     $(document).on('hide.bs.modal','#registration, #logIn', function () {
-        $('.common_js_remove_clas').html('');
+        $('.common_js_remove_clas').hide();
+    });
+    $(document).on('hide.bs.modal','#logIn', function () {
+        $('#reset_forms').trigger("reset");
     });
 
     $(document).on('hide.bs.modal','#VideoPopup1', function () {

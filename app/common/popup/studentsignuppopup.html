@@ -35,15 +35,15 @@
                 <div class="modal-body custom-modal-body-login peoplesearch_remove">
                     <span style="color: green; font-weight: bold;">{{message}}</span>
                     <div class="form-group">
-                        <label class="text-uppercase">First Name</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required/>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.name.$valid}">First Name</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required ng-class="{'has-error': studentregistration.name.$touched && studentregistration.name.$error.required, 'has-success': studentregistration.name.$valid}"/>
                         <input type="hidden" id="e_mail" name="e_mail" ng-model="e_mail" />
                         <input type="hidden" id="allow_pipl" value="1">
                         <input type="hidden" name="iaccept" value="true" ng-model="iaccept" />
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase">Last Name</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" id="your-lname" name="lname" ng-model="lname"  required/>
+                        <label class="text-uppercase"  ng-class="{'has-success': studentregistration.lname.$valid}">Last Name</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" id="your-lname" name="lname" ng-model="lname" required ng-class="{'has-error': studentregistration.lname.$touched && studentregistration.lname.$error.required, 'has-success': studentregistration.lname.$valid}"/>
                     </div>
                     <style>
                         #universities_dropdown{
@@ -68,12 +68,12 @@
                         <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="school_name"/>
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase">Your Gpa</label>
-                        <input type="number" class="form-control custom-form-control-br-bottom" id="gpa" name="gpa" ng-model="gpa" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" min="0.0" max="4.0"/>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.gpa.$valid}">Your Gpa</label>
+                        <input type="number" class="form-control custom-form-control-br-bottom" id="gpa" name="gpa" ng-model="gpa" ng-pattern="/^[0-9]+(\.[0-9]{1,1})?$/" required ng-class="{'has-error': studentregistration.gpa.$touched && studentregistration.gpa.$error.required && studentregistration.gpa.$invalid, 'has-success': studentregistration.gpa.$valid}" />
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase">Create Password</label>
-                        <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter."/>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.password.$valid}">Create Password</label>
+                        <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': studentregistration.password.$touched && studentregistration.password.$error.required && studentregistration.password.$invalid, 'has-success': studentregistration.password.$valid}"/>
                     </div>
                     <div class="form-group form-group-allow-control">
                         <div class="pull-left">

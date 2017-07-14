@@ -50,15 +50,6 @@ FirstSynch.controller("searchtutorial" , function ($timeout,$window,$scope, $htt
   $http.get(apiUrl+"api/v1/support/tutorials/")
       .then(function successCallback(response){
           $scope.search_tutorial_video = response.data;
-          jQuery.each(response.data, function(i) {
-              var playerInstance = jwplayer("help_video"+i);
-              playerInstance.setup({
-               playlist: [{
-                   file: response.data.video_file,
-                   image: response.data.thumbnail
-               }]
-             });
-          });
       }, function errorCallback(response){
           console.log("Unable to perform get search_tutorial");
   });

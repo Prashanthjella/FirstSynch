@@ -4068,3 +4068,17 @@ h3.school-name {
 	width: 280px;
 	height: 280px;
 }
+.form-control-feedback {
+	z-index: 100;
+	pointer-events: all;
+}
+.has-error, input.ng-dirty.ng-invalid {
+	border-bottom: 2px solid red !important;
+}
+input.ng-dirty.ng-success, .has-success{
+	border-bottom: 2px solid #00b58e !important;
+}
+label.has-success {
+	color: #00b58e !important;
+	border-bottom: none !important;
+}

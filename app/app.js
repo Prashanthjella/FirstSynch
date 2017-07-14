@@ -617,6 +617,8 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
     {
     $scope.search_field_clean = function(){
         $scope.keywords = '';
+        $('.search-result-container').hide();
+        $('.search_result_remove_act').show();
     }
     $scope.SearchsubmitFunc = function ()
         {
@@ -631,7 +633,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                 })
                 .then(function successCallback(response)
                     {
-                        jQuery('.search_result_remove_act').remove();
+                        jQuery('.search_result_remove_act').hide();
                         jQuery('.search_result_show_act').show();
                         jQuery('.search_results_career_page_act').empty();
                         jQuery('.search_results_companies_act').empty();
