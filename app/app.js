@@ -46,7 +46,7 @@ FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
 FirstSynch.constant('Software','FDDA');
 FirstSynch.constant('Professional','RYRD');
-FirstSynch.constant('guest_token', '8ce17dfd673572c3925f26043f9d378a44bdf942');
+FirstSynch.constant('guest_token', 'e0cf3be98372f8b716c651e41a313a7751a36763');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
