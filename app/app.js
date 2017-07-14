@@ -866,7 +866,6 @@ FirstSynch.directive('navMenu', function($location) {
 
 			if (url.substring(0,1) === '#') {
 				urlMap[url.substring(1)] = link;
-        alert(link);
 			} else {
 				urlMap[url] = link;
 			}
