@@ -741,7 +741,7 @@ bottom: 90px;
 	width: 100%;
 	float: left;
 }
-.customn-thumbs-color-1 .overlay, .customn-thumbs-color-1 .overlay:before {
+.customn-thumbs-color-1 .overlay, .customn-thumbs-color-1 .overlay:before, .customn-thumbs-color-10 .overlay, .customn-thumbs-color-10 .overlay:before{
 	background: #dcbcdc;
 	background: -moz-linear-gradient(left, #dcbcdc 0%, #6fb2e6 100%);
 	background: -webkit-linear-gradient(left, #dcbcdc 0%, #6fb2e6 100%);
