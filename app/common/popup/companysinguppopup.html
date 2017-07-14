@@ -1,5 +1,5 @@
 <!-- Modal Company Registration content Start-->
-<div class="modal fade custom-model custom-model-registration" id="companyregistration" tabindex="-1" role="dialog" ng-controller="IdentifyUser">
+<div class="modal fade custom-model custom-model-registration" id="companyregistration" role="dialog" ng-controller="IdentifyUser">
   <form name="companyregistrations">
     <div class="modal-dialog custom-modal-880">
       <div class="modal-content custom-modal-video-content">
@@ -7,7 +7,7 @@
           <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
            <div class="login-top-step-prev">
           <div class="pull-left">
-              <a href="careerfairs.html" title="Step" class="page-prev"><span class="glyphicon glyphicon-chevron-left"></span>Step 1</a>
+              <!--<a href="careerfairs.html" title="Step" class="page-prev"><span class="glyphicon glyphicon-chevron-left"></span>Step 1</a>-->
             </div>
             </div>
           <div class="page-step-container">
@@ -34,7 +34,7 @@
           </div>
           <div class="form-group">
             <label class="text-uppercase">Create Password</label>
-            <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" />
+            <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." />
           </div>
         </div>
 

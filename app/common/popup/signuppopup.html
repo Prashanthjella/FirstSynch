@@ -1,5 +1,5 @@
 <!-- Modal Registration content Start-->
-<div class="modal fade custom-model custom-model-registration" id="registration" tabindex="-1" role="dialog" ng-controller="IdentifyUser">
+<div class="modal fade custom-model custom-model-registration" id="registration" ng-controller="IdentifyUser">
   <form name="findusertype">
     <div class="modal-dialog custom-modal-880">
       <div class="modal-content custom-modal-video-content">
@@ -12,7 +12,7 @@
         </div>
 
         <div class="modal-body custom-modal-body-login">
-          <div style="color: red; font-weight: bold;">{{error}}</div>
+          <div style="color: red; font-weight: bold;" class="common_js_remove_clas">{{error}}</div>
           <div class="form-group">
             <label for="Your Emai" class="text-uppercase">Your Email</label>
             <input type="email" name="e_mail" ng-model="e_mail" class="form-control custom-form-control-br-bottom" id="your-email" placeholder="Use your corporate email to sign up as a company" required=""/>

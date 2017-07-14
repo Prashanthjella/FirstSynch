@@ -17,8 +17,7 @@
 <section class="page-section page-section-intership" ng-if="company_profile_details.internships_to_jobs && company_profile_details.internships_job_description">
     <div class="row">
         <div class="col-sm-6 pull-left">
-            <img src="assets/images/skills-img.png" class="img-responsive" alt="">
-            <div class="text-intership">{{company_profile_details.internships_to_jobs}}</div>
+            <div class="progress-circle progress-{{company_profile_details.internships_to_jobs }}"><span>{{company_profile_details.internships_to_jobs}}</span></div>
         </div>
 
         <div class="col-sm-6">

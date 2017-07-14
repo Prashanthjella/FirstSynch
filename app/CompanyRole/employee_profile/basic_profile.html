@@ -15,12 +15,12 @@
           <div class="social-network-container">
             <div class="pull-left">
               <ul class="social-network">
-                <li><a ng-if="employee_profile_details.facebook_url" href="{{employee_profile_details.facebook_url}}" class="fa fa-facebook"></a></li>
-                <li><a ng-if="employee_profile_details.linkedin_url" href="{{employee_profile_details.linkedin_url}}" class="fa fa-linkedin"></a></li>
-                <li><a ng-if="employee_profile_details.twitter_url" href="{{employee_profile_details.twitter_url}}" class="fa fa-twitter"></a></li>
-                <li><a ng-if="employee_profile_details.stackoverflow_url" href="{{employee_profile_details.stackoverflow_url}}" class="fa fa-stack-overflow"></a></li>
-                <li><a ng-if="employee_profile_details.github_url" href="{{employee_profile_details.github_url}}" class="fa fa-github"></a></li>
-                <li><a ng-if="employee_profile_details.website" href="{{employee_profile_details.website}}" class="fa fa-globe"></a></li>
+                <li><a ng-if="employee_profile_details.facebook_url" href="{{employee_profile_details.facebook_url}}" target="_blank" class="fa fa-facebook"></a></li>
+                <li><a ng-if="employee_profile_details.linkedin_url" href="{{employee_profile_details.linkedin_url}}" target="_blank" class="fa fa-linkedin"></a></li>
+                <li><a ng-if="employee_profile_details.twitter_url" href="{{employee_profile_details.twitter_url}}" target="_blank" class="fa fa-twitter"></a></li>
+                <li><a ng-if="employee_profile_details.stackoverflow_url" href="{{employee_profile_details.stackoverflow_url}}" target="_blank" class="fa fa-stack-overflow"></a></li>
+                <li><a ng-if="employee_profile_details.github_url" href="{{employee_profile_details.github_url}}" target="_blank" class="fa fa-github"></a></li>
+                <li><a ng-if="employee_profile_details.website" href="{{employee_profile_details.website}}" target="_blank" class="fa fa-globe"></a></li>
               </ul>
             </div>
             <div class="pull-right"><span class="total-followers">{{employee_profile_details.followers.length}}</span> followers</div>

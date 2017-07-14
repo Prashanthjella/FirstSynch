@@ -20,13 +20,13 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
       .then(function successCallback(response){
           $scope.student_indus_list = response.data;
       }, function errorCallback(response){
-          console.log("Unable to perform get student_city_list");
+          console.log("Unable to perform get student Major list");
   });
   $http.get(apiUrl+"api/v1/student/api/v1/student_univeristy_list/")
       .then(function successCallback(response){
           $scope.student_univ_list = response.data;
       }, function errorCallback(response){
-          console.log("Unable to perform get student_city_list");
+          console.log("Unable to perform get student university list");
   });
   $http.get(apiUrl+"api/v1/student/api/v1/student_city_list/")
       .then(function successCallback(response){
@@ -37,7 +37,7 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
   $scope.student_filters = function(obj){
     obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datastudentval.value = obj.currentTarget.attributes.datavalue.value;
 	var city_data = $('#all_stu_city').attr('datastudentval');
-    var univ_data = $('#all_stu_univ').attr('datastudentval');
+  var univ_data = $('#all_stu_univ').attr('datastudentval');
 	var major_data = $('#all_stu_major').attr('datastudentval');
 	var query_string = '';
 	if(city_data != ''){
@@ -59,6 +59,7 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
     .then(function successCallback(response){
         if(!response.data.length){
             $('.video_filter_search_result_empty').removeClass('hide');
+            $('#stud_count').text(response.data.length);
         }
        jQuery.each(response.data, function(i) {
         var search_result = '<a href="/student/'+response.data[i].id+'">'
@@ -66,11 +67,11 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
                                     +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="'+response.data[i].profile_picture+'" alt="forester-logo.jpg">'
+                                        +'<img class="media-object custom-media-object" src="'+(typeof response.data[i].profile_picture != null?response.data[i].profile_picture:"assets/images/profileicon.png")+'" alt="Student Profile Image">'
                                     +'</div>'
                                     +'<div class="media-body">'
                                         +'<h4 class="media-heading">'+response.data[i].first_name+'</h4>'
-                                        +'<h5 class="media-eading-h5">'+response.data[i].city+', '+response.data[i].state+'</h5>'
+                                        +'<h5 class="media-eading-h5">'+(typeof response.data[i].city != "undefined"?response.data[i].city:"")+', '+(typeof response.data[i].state != "undefined"?response.data[i].state:"")+'</h5>'
                                     +'</div>'
                                     +'<div> </div>'
                                 +'</div>'
@@ -79,6 +80,7 @@ FirstSynch.controller("top_three_students" ,function ($timeout,$window,$scope,$c
                                 +'</div>'
                             +'</div></a>';
         angular.element(jQuery('.student_search_result')).append($compile(search_result)($scope));
+        $('#stud_count').text(response.data.length);
        });
     }, function errorCallback(response){
         console.log("Unable to perform get upcoming career fair");

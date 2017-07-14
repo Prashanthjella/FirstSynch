@@ -4,7 +4,7 @@
 	   		<div class="page-header custom-page-header" ng-controller="all_studentss">
 	      		<div class="pull-left">
 	        		<h1 class="h1 custom-h1-01">Students</h1>
-    				<div>{{all_student.length}} students</div>
+    				<div id="stud_count">{{all_student.length}} students</div>
 	      		</div>
     		</div>
 			<div class="page-header custom-page-header" ng-controller="top_three_students">
@@ -29,7 +29,7 @@
 	                    <span class="dropdown">
 	        				<span ng-bind="majorValue" class="highlighted dropdown-toggle"  id="all_stu_major" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All industries</span>
 			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" major-menu="majorValue" aria-labelledby="all_student_category">
-			    				<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">All industries</a></li>
+			    				<li ng-click="student_filters($event)"  datavalue=""><a href="" title="upcoming">All streams</a></li>
 			    				<li ng-click="student_filters($event)" ng-repeat="stud_indus in student_indus_list | unique:'major'| orderBy : 'major' " datavalue="{{stud_indus.major}}"><a href="" title="upcoming">{{stud_indus.major}}</a></li>
 							</ul>
 	    				</span>
@@ -50,7 +50,7 @@
 									<img ng-src="{{ stud.student.profile_picture }}" class="logo-companies-box"> </div>
 		        		<div class="company-heading-group">
 		          			<h4 class="h4 custom-h4">{{ stud.student.first_name }} </h4>
-		          			<h5>Rank : {{ stud.rank }}</h5>
+		          			<h5 class="media-eading-h5">{{ stud.student.city }}, {{ stud.student.state }}</h5>
 		        		</div>
 							</a>
 	      		</div>

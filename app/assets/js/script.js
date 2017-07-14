@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
 
+$('[data-toggle="tooltip"]').tooltip();
 
   (function( $, undefined ) {
 
@@ -98,6 +99,11 @@ $(document).ready(function() {
   })(jQuery);
 
 
+
+
+    $(document).on('hide.bs.modal','#registration, #logIn', function () {
+        $('.common_js_remove_clas').html('');
+    });
 
     $(document).on('hide.bs.modal','#VideoPopup1', function () {
         jwplayer('jwplayer').stop();

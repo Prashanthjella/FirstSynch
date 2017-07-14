@@ -984,7 +984,7 @@ bottom: 90px;
 }
 .total-followers {
 	color: #00b58e;
-	font-weight: 500;
+	font-weight: 700;
 }
 .complete-profile {
 	width: 100%;
@@ -4042,11 +4042,29 @@ h3.school-name {
 	left:20px;
 	right:20px;
 	top:20px;
-	}	
+	}
 .login-top-step-prev .circle-icon{
 	line-height:20px;
-	}	
+	}
 .page-section-grey-new{
 	background-color:#f6f6f6;
 	padding-top:40px;
-	}	
+	}
+/*****Tool Tip Design Manikandan******/
+.tooltip-inner {
+  background-color:#00b58e !important;
+	color: #fff !important;
+	font-size: 14px;
+}
+.tooltip-arrow {
+    border-bottom-color: #00b58e !important;
+		color: #00b58e !important;
+}
+.ng-binding {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.page-section-intership .progress-circle {
+	width: 280px;
+	height: 280px;
+}
