@@ -50,7 +50,7 @@ FirstSynch.constant('guest_token', 'e0cf3be98372f8b716c651e41a313a7751a36763');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
-FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
+FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
     // condition based header show
 
     if(companyusertype == window.sessionStorage.getItem("usertype")){
@@ -83,6 +83,7 @@ FirstSynch.run(function($rootScope, $http, guest_token, apiUrl,companyusertype,s
             jQuery('#logIn').modal('show');
         }
     }
+    $anchorScroll.yOffset = 100;
     $rootScope.videoPopup = function (value) {
         jQuery("#VideoPopup1").modal('show');
         $('.video_loader_bk').fadeIn();
@@ -881,4 +882,20 @@ FirstSynch.directive('navMenu', function($location) {
 			}
 		});
 	};
+});
+FirstSynch.directive('scrollTo', function ($location, $anchorScroll) {
+  return function(scope, element, attrs) {
+
+    element.bind('click', function(event) {
+        event.stopPropagation();
+        var off = scope.$on('$locationChangeStart', function(ev) {
+            off();
+            ev.preventDefault();
+        });
+        var location = attrs.scrollTo;
+        $location.hash(location);
+        $anchorScroll();
+    });
+
+  };
 });

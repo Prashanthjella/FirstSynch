@@ -3,11 +3,11 @@
         <aside class="col-sm-2 sidebar-navi-default">
             <nav  class="sidebar-navigation">
                 <ul class="custom-sidebar-nav">
-                    <li><a href="#" title="Videos">Videos</a></li>
-                    <li><a href="#" title="We are hiring">We are hiring</a></li>
-                    <li><a href="#" title="Company">Company</a></li>
-                    <li><a href="#" title="Career fairs">Career fairs</a></li>
-                    <li><a href="#" title="Employees">Employees</a></li>
+                    <li ng-if=" company_profile_details.video.length > 0"><a href="" scroll-to="student_company_profile_videos" title="Videos">Videos</a></li>
+                    <li ng-if="company_profile_details.hiring[0].benefits || company_profile_details.hiring[0].perks || company_profile_details.hiring[0].culture "><a href="" scroll-to="student_company_profile_wearehiring" title="We are hiring">We are hiring</a></li>
+                    <li ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date"><a href="" scroll-to="student_company_profile_companies" title="Company">Company</a></li>
+                    <li ng-if="company_profile_details.careerfairs.length > 0"><a href="" scroll-to="student_company_profile_careerfair" title="Career fairs">Career fairs</a></li>
+                    <li ng-if="company_profile_details.topemployee.length > 0"><a href="" scroll-to="student_company_profile_employees" title="Employees">Employees</a></li>
                 </ul>
             </nav>
         </aside>

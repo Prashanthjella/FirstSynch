@@ -1,7 +1,7 @@
 <div id="maininfo" class="tab-pane tabe-pane-lidarship company_edit_profile_main_content_child" ng-controller="companybasicprofileupload">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="basicinfomessage">{{basicinfomessage}}</div>
-      
+
 <h1 class="custom-h1-01 custom-h1-btm-space-55">Company Information</h1>
         <form ng-submit="basicinfosubmit()">
             <div class="row">
@@ -11,9 +11,12 @@
                         <input type="hidden" name="id" ng-model="basicinfoform.id">
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" >
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-grou" ng-controller="company_category">
                         <label class="text-uppercase">Industry</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Industry name"  name="category"  ng-model="basicinfoform.category" >
+                        <!-- <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Industry name"  name="category"  ng-model="basicinfoform.category" > -->
+                        <select ng-model="basicinfoform.category">
+                            <option value="{{compa_cate.category}}" ng-repeat="compa_cate in company_cate | unique:'category'| orderBy : 'category'">{{compa_cate.category}}</option>
+                        </select>
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Product Category</label>

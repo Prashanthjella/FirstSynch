@@ -69,11 +69,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         est_date_description : ""
     };
     $scope.establishment_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.establishmentform.id = response.data[0].id;
-                $scope.establishmentform.establishment_date = response.data[0].establishment_date;
-                $scope.establishmentform.est_date_description = response.data[0].est_date_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.establishmentform.id = response.data.id;
+                $scope.establishmentform.establishment_date = response.data.establishment_date;
+                $scope.establishmentform.est_date_description = response.data.est_date_description;
             }, function errorCallback(response){
                 console.log("Unable to perform get company basic profile details");
         });
@@ -98,11 +99,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         internships_job_description : ""
     };
     $scope.internship_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.internshipform.id = response.data[0].id;
-                $scope.internshipform.internships_to_jobs = response.data[0].internships_to_jobs;
-                $scope.internshipform.internships_job_description = response.data[0].internships_job_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.internshipform.id = response.data.id;
+                $scope.internshipform.internships_to_jobs = response.data.internships_to_jobs;
+                $scope.internshipform.internships_job_description = response.data.internships_job_description;
             }, function errorCallback(response){
                 console.log("Unable to perform get company basic profile details");
         });
@@ -127,11 +129,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         average_entry_level_sal_description : ""
     };
     $scope.salary_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.salaryform.id = response.data[0].id;
-                $scope.salaryform.average_entry_level_sal = response.data[0].average_entry_level_sal;
-                $scope.salaryform.average_entry_level_sal_description = response.data[0].average_entry_level_sal_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.salaryform.id = response.data.id;
+                $scope.salaryform.average_entry_level_sal = response.data.average_entry_level_sal;
+                $scope.salaryform.average_entry_level_sal_description = response.data.average_entry_level_sal_description;
             }, function errorCallback(response){
                 console.log("Unable to perform get company basic profile details");
         });
@@ -157,11 +160,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         company_size_description : ""
     };
     $scope.companysize_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.companysizeform.id = response.data[0].id;
-                $scope.companysizeform.company_size = response.data[0].company_size;
-                $scope.companysizeform.company_size_description = response.data[0].company_size_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.companysizeform.id = response.data.id;
+                $scope.companysizeform.company_size = response.data.company_size;
+                $scope.companysizeform.company_size_description = response.data.company_size_description;
             }, function errorCallback(response){
                 console.log("Unable to perform get company basic profile details");
         });
@@ -188,13 +192,14 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         departure_rate_description : ""
     };
     $scope.hirerate_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.hirerateform.id = response.data[0].id;
-                $scope.hirerateform.hire_rates = response.data[0].hire_rates;
-                $scope.hirerateform.hire_rates_description = response.data[0].hire_rates_description;
-                $scope.hirerateform.departure_rate = response.data[0].departure_rate;
-                $scope.hirerateform.departure_rate_description = response.data[0].departure_rate_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.hirerateform.id = response.data.id;
+                $scope.hirerateform.hire_rates = response.data.hire_rates;
+                $scope.hirerateform.hire_rates_description = response.data.hire_rates_description;
+                $scope.hirerateform.departure_rate = response.data.departure_rate;
+                $scope.hirerateform.departure_rate_description = response.data.departure_rate_description;
             }, function errorCallback(response){
                 console.log("Unable to perform get departure_rate details");
         });
@@ -221,11 +226,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         funding_size_description : ""
     };
     $scope.funding_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.fundingform.id = response.data[0].id;
-                $scope.fundingform.funding_size = response.data[0].funding_size;
-                $scope.fundingform.funding_size_description = response.data[0].funding_size_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.fundingform.id = response.data.id;
+                $scope.fundingform.funding_size = response.data.funding_size;
+                $scope.fundingform.funding_size_description = response.data.funding_size_description;
             }, function errorCallback(response){
                 console.log("Unable to perform getfunding details");
         });
@@ -250,11 +256,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         growth_rate_description : ""
     };
     $scope.growthrate_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.growthrateform.id = response.data[0].id;
-                $scope.growthrateform.growth_rate = response.data[0].growth_rate;
-                $scope.growthrateform.growth_rate_description = response.data[0].growth_rate_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.growthrateform.id = response.data.id;
+                $scope.growthrateform.growth_rate = response.data.growth_rate;
+                $scope.growthrateform.growth_rate_description = response.data.growth_rate_description;
             }, function errorCallback(response){
                 console.log("Unable to perform growthrate_edit details");
         });
@@ -280,12 +287,13 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         culture : ""
     };
     $scope.workforus_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.workforusform.id = response.data[0].hiring[0].id;
-                $scope.workforusform.benefits = response.data[0].hiring[0].benefits;
-                $scope.workforusform.perks = response.data[0].hiring[0].perks;
-                $scope.workforusform.culture = response.data[0].hiring[0].culture;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.workforusform.id = response.data.hiring[0].id;
+                $scope.workforusform.benefits = response.data.hiring[0].benefits;
+                $scope.workforusform.perks = response.data.hiring[0].perks;
+                $scope.workforusform.culture = response.data.hiring[0].culture;
             }, function errorCallback(response){
                 console.log("Unable to perform growthrate_edit details");
         });
@@ -326,11 +334,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         investor_conf_description : ""
     };
     $scope.investor_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.investorform.id = response.data[0].id;
-                $scope.investorform.investor_confidence = response.data[0].investor_confidence;
-                $scope.investorform.investor_conf_description = response.data[0].investor_conf_description;
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.investorform.id = response.data.id;
+                $scope.investorform.investor_confidence = response.data.investor_confidence;
+                $scope.investorform.investor_conf_description = response.data.investor_conf_description;
             }, function errorCallback(response){
                 console.log("Unable to perform growthrate_edit details");
         });
@@ -375,18 +384,19 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         fax_no : ""
     };
     $scope.location_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/get_location_details/"+$rootScope.user_id+"/")
-            .then(function successCallback(response){
-                $scope.locationform.id = response.data[0].id;
-                $scope.locationform.address_1 = response.data[0].address_1;
-                $scope.locationform.address_2 = response.data[0].address_2;
-                $scope.locationform.city = response.data[0].city;
-                $scope.locationform.state = response.data[0].state;
-                $scope.locationform.country = response.data[0].country;
-                $scope.locationform.zip_code = response.data[0].zip_code;
-                $scope.locationform.contact_no = response.data[0].contact_no;
-                $scope.locationform.e_mail = response.data[0].e_mail;
-                $scope.locationform.fax_no = response.data[0].fax_no;
+        $http.get(apiUrl+"api/v1/setups/api/v1/get_location_details/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.locationform.id = response.data.id;
+                $scope.locationform.address_1 = response.data.address_1;
+                $scope.locationform.address_2 = response.data.address_2;
+                $scope.locationform.city = response.data.city;
+                $scope.locationform.state = response.data.state;
+                $scope.locationform.country = response.data.country;
+                $scope.locationform.zip_code = response.data.zip_code;
+                $scope.locationform.contact_no = response.data.contact_no;
+                $scope.locationform.e_mail = response.data.e_mail;
+                $scope.locationform.fax_no = response.data.fax_no;
             }, function errorCallback(response){
                 console.log("Unable to perform get departure_rate details");
         });
@@ -445,17 +455,18 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
         twitter_url : "",
     };
     // student basic profile get information
-    $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/")
-        .then(function successCallback(response){
-            $rootScope.comp_id = response.data[0].id;
-            $scope.basicinfoform.id = response.data[0].id;
-            $scope.basicinfoform.name = response.data[0].name;
-            $scope.basicinfoform.category = response.data[0].category;
-            $scope.basicinfoform.product_category = response.data[0].product_category;
-            $scope.basicinfoform.website = response.data[0].website;
-            $scope.basicinfoform.linkedin_url = response.data[0].linkedin_url;
-            $scope.basicinfoform.twitter_url = response.data[0].twitter_url;
-            $scope.basicinfoform.facebook_url = response.data[0].facebook_url;
+    $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+      headers: {'Authorization' : 'Token '+$rootScope.token_id}
+    }).then(function successCallback(response){
+            $rootScope.comp_id = response.data.id;
+            $scope.basicinfoform.id = response.data.id;
+            $scope.basicinfoform.name = response.data.name;
+            $scope.basicinfoform.category = response.data.category;
+            $scope.basicinfoform.product_category = response.data.product_category;
+            $scope.basicinfoform.website = response.data.website;
+            $scope.basicinfoform.linkedin_url = response.data.linkedin_url;
+            $scope.basicinfoform.twitter_url = response.data.twitter_url;
+            $scope.basicinfoform.facebook_url = response.data.facebook_url;
         }, function errorCallback(response){
             console.log("Unable to perform get company basic profile details");
     });

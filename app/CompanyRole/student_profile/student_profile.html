@@ -6,12 +6,12 @@
             <aside class="col-sm-2 sidebar-navi-default">
                 <nav  class="sidebar-navigation">
                     <ul class="custom-sidebar-nav">
-                        <li><a href="#" title="Videos">Videos</a></li>
-                        <li><a href="#" title="About me">About me</a></li>
-                        <li><a href="#" title="Education">Education</a></li>
-                        <li><a href="#" title="Experience">Experience</a></li>
-                        <li><a href="#" title="Skills">Skills</a></li>
-                        <li><a href="#" title="Reviews">Reviews</a></li>
+                        <li ng-if="student_profile_details.video.length > 0"><a href="" scroll-to="company_student_profile_videos" title="Videos">Videos</a></li>
+                        <li ng-if="student_profile_details.hobby.length > 0 || student_profile_details.student_characteristic.length > 0 ||"><a href="" scroll-to="company_student_profile_aboutme" title="About me">About me</a></li>
+                        <li ng-if="student_profile_details.education.length > 0"><a href="" scroll-to="company_student_profile_education" title="Education">Education</a></li>
+                        <li ng-if="student_profile_details.experience.length > 0 || student_profile_details.project.length > 0"><a href="" scroll-to="company_student_profile_experience" title="Experience">Experience</a></li>
+                        <li ng-if="student_profile_details.skill.length > 0"><a href="" scroll-to="company_student_profile_skills" title="Skills">Skills</a></li>
+                        <!-- <li><a href="" scroll-to="company_student_profile_skills" title="Reviews">Reviews</a></li> -->
                     </ul>
                 </nav>
             </aside>
