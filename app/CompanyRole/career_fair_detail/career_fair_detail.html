@@ -9,13 +9,13 @@
 
 <div class="col-sm-6 col-md-5">
 <h3 class="h3 custom-h3">{{ careerfair_details.title }}</h3>
-<p class="details-content">{{ careerfair_details.description }}</p>
+<p class="details-content" style="height:160px;overflow-y:scroll;">{{ careerfair_details.description }}</p>
 
 <div class="slider-btn-group" ng-if="availability_followup">
   <a class="btn custom-btn-following followed_btn"><span class="glyphicon  custom-glyphicon-plus"></span>Followed</a></div>
 <div class="slider-btn-group" ng-if="!availability_followup">
   <a ng-click="company_career_follow(careerfair_details.id)" class="btn  custom-btn-following"><span class="glyphicon  custom-glyphicon-plus"></span>Follow</a></div>
-  
+
   <div class="slider-btn-group" ng-if="availability_requested">
   <a class="btn custom-btn-following followed_btn"><span class="glyphicon  custom-glyphicon-plus"></span>Requested</a></div>
 <div class="slider-btn-group" ng-if="!availability_requested">
@@ -51,7 +51,7 @@
   </div>
   </div>
 
-  
+
   </div>
 </section>
 <!--[Career fair Details Slider End]-->
