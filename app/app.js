@@ -46,7 +46,7 @@ FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
 FirstSynch.constant('Software','FDDA');
 FirstSynch.constant('Professional','RYRD');
-FirstSynch.constant('guest_token', 'e0cf3be98372f8b716c651e41a313a7751a36763');
+FirstSynch.constant('guest_token', 'e4318eb2e222cd4f52427e272e0d1d670c2ce56e');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
@@ -249,17 +249,20 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                 jQuery("#signUp").modal('show');
                 setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
                 $rootScope.e_mail = $scope.e_mail;
+                $scope.e_mail = '';
             }else{
                 jQuery("#registration").modal('hide');
                 jQuery("#companyregistration").modal('show');
                 setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
                 $rootScope.e_mail = $scope.e_mail;
+                $scope.e_mail = '';
             }
         },
         function errorCallback(data, status, headers, config) {
             $scope.error = data.data.data;
             $timeout( function(){
                 $scope.error = '';
+                $scope.e_mail = '';
            }, 3000 );
         });
 
@@ -270,7 +273,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
         var workhistroy_arry = [];
         var data = {
             education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
-            student : {first_name : $scope.name},
+            student : {first_name : $scope.name,last_name:$scope.lname},
             user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
         }
         if($scope.piplsearch == 'allow'){
@@ -298,7 +301,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                             jQuery("#signUpSuccess").modal('show');
                             jQuery('form#reset_forms').trigger("reset");
                             jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                            $('#universities_value').val('');
                             $scope.name = '';
+                            $scope.lname = '';
                             $scope.password = '';
                             $scope.gpa = '';
                         },
@@ -321,6 +326,11 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
             .then(function successCallback(data, status, headers, config) {
                 jQuery("#signUp").modal('hide');
                 jQuery("#signUpSuccess").modal('show');
+                $('#universities_value').val('');
+                $scope.name = '';
+                $scope.lname = '';
+                $scope.password = '';
+                $scope.gpa = '';
             },
             function errorCallback(data, status, headers, config) {
                 $scope.status = data.data.status;
