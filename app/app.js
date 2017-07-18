@@ -37,7 +37,7 @@ var FirstSynch = angular.module("firstSync", [
     "CCompanySetting",
     "EmployeeEditProfile",
     "Search",
-    "ui.bootstrap"
+    "ui.bootstrap",
 ]);
 
 FirstSynch.constant('apiUrl', 'https://api.firstsynch.com/');
@@ -688,6 +688,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
                                                                 +'<div class="searech-folow pull-left">'
                                                                     +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].employees != "undefined"?response.data.company[i].employees:"0")+'</span> Employees</span>'
                                                                     +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].followers != "undefined"?response.data.company[i].followers:"0")+'</span> followers</span>'
+                                                                    +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].careerfair_company != "undefined"?response.data.company[i].careerfair_company:"0")+'</span> Career fairs</span>'
                                                                 +'</div>'
                                                             +'</div>'
                                                         +'</a>'
@@ -871,7 +872,6 @@ FirstSynch.directive('navMenu', function($location) {
 				urlMap[url] = link;
 			}
 		}
-
 		scope.$on('$routeChangeStart', function() {
 			var path = urlMap[$location.path()];
 
@@ -883,6 +883,8 @@ FirstSynch.directive('navMenu', function($location) {
 		});
 	};
 });
+
+/////////Tab Navigation/////////////////////////////
 FirstSynch.directive('scrollTo', function ($location, $anchorScroll) {
   return function(scope, element, attrs) {
 
@@ -898,4 +900,25 @@ FirstSynch.directive('scrollTo', function ($location, $anchorScroll) {
     });
 
   };
+});
+//////////////Date Picker/////////////////////
+FirstSynch.directive("datepicker", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, elem, attrs, ngModelCtrl) {
+      var updateModel = function (dateText) {
+        scope.$apply(function () {
+          ngModelCtrl.$setViewValue(dateText);
+        });
+      };
+      var options = {
+        dateFormat: "yy-mm-dd",
+        onSelect: function (dateText) {
+          updateModel(dateText);
+        }
+      };
+      elem.datepicker(options);
+    }
+  }
 });
