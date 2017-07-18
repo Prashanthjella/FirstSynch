@@ -455,7 +455,7 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
         twitter_url : "",
     };
     // student basic profile get information
-    $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+    $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
       headers: {'Authorization' : 'Token '+$rootScope.token_id}
     }).then(function successCallback(response){
             $rootScope.comp_id = response.data.id;
