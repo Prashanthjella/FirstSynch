@@ -1386,7 +1386,7 @@ bottom: 90px;
 	font-size: 5px;
 	line-height: 5px;
 	position: relative;
-	top: -2px;
+	/*top: -2px;*/
 }
 .custom-panel-heading {
 	padding: 10px;
@@ -2383,8 +2383,8 @@ textarea.custom-text-area {
 	font-weight: 700;
 }
 .custom-form-control-search-box:focus{
-	border-color:#e7e7e7
-	}
+	border-color:#000;
+}
 .input-custom-search {
 	background-color: transparent;
 	border-radius: 0;
@@ -3829,7 +3829,8 @@ body {
 	width: 100%;
 	float: left;
 }
-.overflow-slider {/*overflow:hidden;*/
+/*
+.overflow-slider {
 	padding: 0 23px 0 25px
 }
 .trim-slider {
@@ -3856,10 +3857,11 @@ body {
 	z-index: 1000 !important
 }
 .gen-back {
-	/*height:50px !important;*/
+	height:50px !important;
 	top: 0;
 	position: relative;
 }
+*/
 .custom-make-video-modal-footer {
 	background-color: #f7f7f7;
 	border-top: 0;

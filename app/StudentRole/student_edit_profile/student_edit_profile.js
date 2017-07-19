@@ -25,8 +25,9 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             headers: {'Authorization' : 'Token '+$rootScope.token_id}
           })
           .then(function successCallback(response){
-              $("#page-editvideo-edit").modal('show');
               $scope.editvid = response.data;
+              $('#hidden_source').val(response.data.video.mp4_video);
+              $("#page-editvideo-edit").modal('show');
               //var Videofile = response.data.video.video_file;
               //alert(Videofile);
               //$('#video_wrapper video source').attr('src', Videofile);
@@ -106,6 +107,9 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $('.second_video_data').hide();
             $('.none').show();
             $('#btn-upload').hide();
+            $("#inoutbar").removeAttr("style");
+            $('#inoutbar').empty();
+            $('#chapterss ul').empty();            
             $scope.$apply(function(){
               $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
                   .then(function successCallback(response){

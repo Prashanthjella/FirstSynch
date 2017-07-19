@@ -116,6 +116,9 @@ $('[data-toggle="tooltip"]').tooltip();
     });
 
     $(document).on('hide.bs.modal','#page-video-edit', function () {
+      $("#inoutbar").removeAttr("style");
+      $('#inoutbar').empty();
+      $('#chapterss ul').empty();
       $("#student_video video").src = '';
       $("#student_video video").children('source').prop('src', '');
       $("#student_video video").remove().length = 0;

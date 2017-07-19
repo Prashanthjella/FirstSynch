@@ -45,7 +45,7 @@ $(document).ready(function (){
     b.addEventListener('click',seek,false);
 
     var barwidth = 605 //b.offsetWidth;
-    var barheight = 50 //b.offsetHeight;
+    var barheight = 60 //b.offsetHeight;
 
     var ctx = canvas_bar.getContext('2d');
 
@@ -65,7 +65,6 @@ $(document).ready(function (){
     v.addEventListener('loadeddata', function() {
       //Get Video Length and Dimensions.
       video_length = v.duration;
-      alert(video_length);
       max_time = video_length;
 
       //Get Width of video thumb items.
@@ -247,35 +246,34 @@ $(document).ready(function (){
     /*-------------------------Step 4. Sliding Event End -------------------------- ----------------------------*/
 
     /*-------------------------Step 5. Cursor Event Start -------------------------- ----------------------------*/
-    // var parentwidth = $("#parent").width();
-    // function play() {
-    //   if(v.paused) { v.play(); } else { v.pause(); }
-    // }
-    //
-    // function update() {
-    //   if(thumbnailing == 0) {
-    //
-    //     if(v.currentTime >= max_time){
-    //       v.currentTime = min_time;
-    //     }
-    //
-    //     if(v.currentTime < min_time){
-    //       v.currentTime = min_time;
-    //     }
-    //
-    //     if(cursormoving == 0){
-    //       p = v.currentTime/v.duration;
-    //       pos = parentwidth * p;
-    //       $(".videocursor").css("left",pos);
-    //     }
-    //   }
-    // }
+    var parentwidth = $("#parent").width();
+    function play() {
+      if(v.paused) { v.play(); } else { v.pause(); }
+    }
 
-    // function seek(e) {
-    //   v.currentTime = (e.pageX-b.offsetLeft)*v.duration/barwidth;
-    // }
-    //
-    //
+    function update() {
+      if(thumbnailing == 0) {
+
+         if(v.currentTime >= max_time){
+           v.currentTime = min_time;
+         }
+
+         if(v.currentTime < min_time){
+           v.currentTime = min_time;
+         }
+
+         if(cursormoving == 0){
+           p = v.currentTime/v.duration;
+           pos = parentwidth * p;
+           $(".videocursor").css("left",pos);
+         }
+       }
+     }
+
+     function seek(e) {
+       v.currentTime = (e.pageX-b.offsetLeft)*v.duration/barwidth;
+     }
+
     // (function( $, undefined ) {
     //
     //   $.widget("ui.dragslider", $.ui.slider, {

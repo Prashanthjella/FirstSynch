@@ -38,6 +38,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
     .then(function successCallback(response){
         if(!response.data.length){
             $('.video_filter_search_result_empty').removeClass('hide');
+            $('#company_count').text(response.data.length+" Companies");
         }
        jQuery.each(response.data, function(i) {
         var video_result ='';
@@ -90,6 +91,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
                                 +'</div>'
                             +'</div></a>';
         angular.element(jQuery('.company_search_result')).append($compile(search_result)($scope));
+        $('#company_count').text(response.data.length+" Companies");
        });
     }, function errorCallback(response){
         console.log("Unable to perform get upcoming career fair");

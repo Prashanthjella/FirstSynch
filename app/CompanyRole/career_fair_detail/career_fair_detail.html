@@ -33,20 +33,20 @@
    <div class="row custom-row-15">
   <div class="col-sm-12 slider-bottom-solical">
   	<div class="pull-left">
-    <p class="date-location">{{ careerfair_details.start_date | date:"MMMM d, y" }}<span> <i class="fa fa-circle small-list" ></i> {{ careerfair_details.start_date | date:"h:mma"  }} </span></p>
+      <p class="date-location">{{ careerfair_details.start_time | date:"MMMM d, y"  }}<span> <i class="fa fa-circle small-list" ></i> {{ careerfair_details.start_time | date:"h:mma"  }} - {{ careerfair_details.stop_time | date:"h:mma"  }} </span></p>
     <p class="company-location">{{ careerfair_details.country }} <span> <i class="fa fa-circle small-list" ></i> {{ careerfair_details.where }}</span></p>
     </div>
-    <div class="pull-right">
-    <div class="pull-left social-total-list">
-    <span class="total-followers"></span> Posts
-    </div>
-    <div class="pull-left social-total-list">
-    <span class="total-followers"></span> Companies
-    </div>
-    <div class="pull-left social-total-list">
-    <span class="total-followers"></span> Followers
-    </div>
-    </div>
+      <div class="pull-right">
+          <div class="pull-left social-total-list">
+              <span class="total-followers">{{ careerfair_details.requested.length }}</span> Posts
+          </div>
+          <div class="pull-left social-total-list">
+              <span class="total-followers">{{ careerfair_details.requested.length }}</span> Companies
+          </div>
+          <div class="pull-left social-total-list">
+              <span class="total-followers">{{ careerfair_details.followed.length }}</span> Followers
+          </div>
+      </div>
     </div>
   </div>
   </div>

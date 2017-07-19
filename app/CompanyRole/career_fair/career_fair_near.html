@@ -11,12 +11,12 @@
       <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:1, infiniteLoop: false, hideControlOnEnd: true">
         <div class="slide" data-ng-repeat="career_fair_near in career_fair_near_current_user"  style="margin-right: 40px;" data-notify-when-repeat-finished >
           <div class="slider-inside-large">
-            <a href="/student/careerfair/{{career_fair_near.id}}">
+            <a href="/com/careerfair/{{career_fair_near.id}}">
             <div class="slider-recent-fairs">
               <img class="img-responsive custom-img-responsive" style="height:460px;" ng-src="{{career_fair_near.image_large}}" alt="img1.png">
               <div class="box-inside-content">
                 <p class="date-location">
-                  <span class="caption-date">{{career_fair_near.start_date | date:"MMM d, y"}}</span> &bull;
+                  <span class="caption-date">{{career_fair_near.start_time | date:"MMM d, y"}}</span> &bull;
                   <span class="caption-state">{{ career_fair_near.city }}, {{ career_fair_near.state }}</span>
                 </p>
                 <h1 class="custom-gallery-h1">{{career_fair_near.title}}</h1>

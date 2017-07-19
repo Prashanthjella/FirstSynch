@@ -5,7 +5,7 @@
       <div class="pull-left">
         <h3 class="h3 custom-h3">Students</h3>
       </div>
-      <div class="pull-right"> <a href="javascript:void(0)" class="link-all home_students_all_link" title="Show All" ng-click="showall_studentsvideo()">Show All</a> </div>
+      <div class="pull-right"> <a href="javascript:void(0)" ng-show="cfdstudents.length > 9" class="link-all home_students_all_link" title="Show All" ng-click="showall_studentsvideo()">Show All</a> </div>
     </div>
     <div class="row custom-row-10 for_home_stu_less_all">
       	<div class="col-sm-4" ng-repeat="student in cfdstudents | limitTo:9">

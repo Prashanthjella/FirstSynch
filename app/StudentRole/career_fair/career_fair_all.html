@@ -3,10 +3,11 @@
     <div class="row custom-row-10">
       <div class="col-sm-4" ng-repeat="all_career_fair in all_career_fair_near_current_user">
         <a href="/stu/careerfair/{{all_career_fair.id}}">
-          <div class="thumbnail custom-thumbnail-image-gallery custom-thumbnail-image-gallery-05 customn-thumbs-career-fairs"> <img class="img-responsive custom-img-responsive" ng-src="{{all_career_fair.image}}">
+          <div class="thumbnail custom-thumbnail-image-gallery custom-thumbnail-image-gallery-05 customn-thumbs-career-fairs">
+            <img class="img-responsive custom-img-responsive" ng-src="{{all_career_fair.image}}">
             <div class="overlay"></div>
             <div class="box-inside-content">
-              <p class="date-location">{{all_career_fair.start_date | date:"MMM d, y"}}<span> &bull;</span>{{all_career_fair.city}},{{all_career_fair.state}}</p>
+              <p class="date-location">{{all_career_fair.start_time | date:"MMM d, y"}}<span> &bull;</span>{{all_career_fair.city}},{{all_career_fair.state}}</p>
               <h1 class="custom-gallery-h1">{{all_career_fair.title}}</h1>
             </div>
           </div>

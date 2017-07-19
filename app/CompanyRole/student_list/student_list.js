@@ -59,7 +59,7 @@ FirstSynch.controller("company_top_three_students" ,function ($timeout,$window,$
     .then(function successCallback(response){
         if(!response.data.length){
             $('.video_filter_search_result_empty').removeClass('hide');
-            $('#stud_count').text(response.data.length);
+            $('#stud_count').text(response.data.length+" Students");
         }
        jQuery.each(response.data, function(i) {
         var search_result = '<a href="/student/'+response.data[i].id+'">'
@@ -80,7 +80,7 @@ FirstSynch.controller("company_top_three_students" ,function ($timeout,$window,$
                                 +'</div>'
                             +'</div></a>';
         angular.element(jQuery('.student_search_result')).append($compile(search_result)($scope));
-        $('#stud_count').text(response.data.length);
+        $('#stud_count').text(response.data.length+" Students");
        });
     }, function errorCallback(response){
         console.log("Unable to perform get upcoming career fair");

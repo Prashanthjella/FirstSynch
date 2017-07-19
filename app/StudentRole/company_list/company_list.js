@@ -37,6 +37,7 @@ FirstSynch.controller("student_top_three" ,function ($timeout,$window,$scope, $h
       .then(function successCallback(response){
           if(!response.data.length){
               $('.video_filter_search_result_empty').removeClass('hide');
+              $('#company_count').text(response.data.length+" Companies");
           }
          jQuery.each(response.data, function(i) {
           var video_result ='';
@@ -89,6 +90,7 @@ FirstSynch.controller("student_top_three" ,function ($timeout,$window,$scope, $h
                                   +'</div>'
                               +'</div></a>';
                               angular.element($('.student_company_search_result')).append($compile(search_result)($scope));
+                              $('#company_count').text(response.data.length+" Companies");
          });
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming career fair");
