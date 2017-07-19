@@ -181,6 +181,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
         var employee_type ='';
         var skiills = '';
         var companyd = '';
+
         $('.filtered_kw_industry').empty();
         $('.all_industry_type .checkbox-input:checked').each(function(){
             keywords += ','+$(this).next().text();
@@ -193,12 +194,27 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
             $('.filtered_kw_industry').text(keywords.substring(1));
             industries = keywords.substring(1);
         }
+        document.querySelectorAll(".all_salary_range .salary_range").forEach(function(rd){
+            rd.addEventListener("mousedown",function(){
+    		    if (this.checked) {
+                    this.onclick =  function(){
+                                        this.checked=false;
+                                        $('.filtered_kw_salary').text('Not specified');
+                                        salary ='';
+                                        jQuery('.video_filter_search_result').empty();
+                                    }
+                }
+                else{
+                    this.onclick=null
+                }
+    	    })
+        });
         if($('.all_salary_range .salary_range:checked').val() === undefined){
             $('.filtered_kw_salary').text('Not specified');
             salary ='';
         }
         else{
-            $('.filtered_kw_salary').text('$'+$('.all_salary_range .salary_range:checked').val());
+            $('.filtered_kw_salary').text($('.all_salary_range .salary_range:checked').attr('data-value'));
             salary = $('.all_salary_range .salary_range:checked').val();
         }
         if($('.all_employeement_type .employement:checked').val() === undefined){
