@@ -20,7 +20,7 @@
     				<li ng-click="careerfair_filters($event)"  ng-repeat="allcities in all_career_fair_near_current_user_city | unique:'city'| orderBy : 'city'" datavalue="{{allcities.city}}"><a href="" title="{{allcities.city}}">{{allcities.city}}</a></li>
 				</ul>
 			</span>
-            with all
+            with
             <span class="dropdown" ng-controller="all_companies">
 				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_cer_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">All companies</span>
         		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
