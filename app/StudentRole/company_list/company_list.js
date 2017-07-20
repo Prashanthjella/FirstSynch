@@ -5,7 +5,16 @@ var FirstSynch = angular.module("StudentCompanyList", ["ngRoute"]);
 
 
 /////////////////////////////////// Controllors ////////////////////////////////////
+FirstSynch.controller("student_categoryc" ,function ($scope, $http,$routeParams,apiUrl) {
 
+  $http.get(apiUrl+"api/v1/student/api/v1/student_categories/")
+      .then(function successCallback(response){
+          $scope.student_cate = response.data;
+      }, function errorCallback(response){
+          console.log("Unable to perform get student details as category wise");
+  });
+
+});
 //company page - top 3 details
 FirstSynch.controller("student_top_three" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl,$compile,$templateCache) {
 
