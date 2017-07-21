@@ -2,20 +2,20 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="establishmentmessage">{{establishmentmessage}}</div>
       <h1 class="custom-h1-01 custom-h1-btm-space-55">DATE OF ESTABLISHMENT</h1>
-        <form ng-submit="establishmentsubmit()">
+        <form name="cpestablishmentform" ng-submit="establishmentsubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">ESTABLISHMENT DATE</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cpestablishmentform.establishment_date.$valid}" >ESTABLISHMENT DATE</label>
                         <input type="hidden" name="id" ng-model="establishmentform.id">
-                        <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date">
+                        <input type="text"  class="form-control custom-form-control-br-bottom" datepicker placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpestablishmentform.establishment_date.$touched, 'has-success': cpestablishmentform.establishment_date.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase">Description</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a establishment description" name="est_date_description" ng-model="establishmentform.est_date_description">
                     </div>
                     <div class="form-group custom-lider-form-grou">
-                        <input type="submit" class="btn btn-default custom-btn btn-lg" value="Save"/>
+                        <input type="submit" ng-disabled="cpestablishmentform.establishment_date.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>
                 <hr class="hr-line-lidership">
