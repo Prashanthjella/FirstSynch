@@ -112,6 +112,7 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
             $scope.student_profile_details.website = response.data.website;
         });
     };
+
     $scope.hobbiessubmit = function(hobbiesimage){
 
         var hobbyupload = Upload.upload({
@@ -128,6 +129,27 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
         }, function(evt) {
           // progress notify
         });
+    };
+    $scope.characterbtndisable =  false;
+    $scope.shouldDisable = function(key) {
+       if(!$scope.pselectedCharacter[key]) {
+          var count = 0;
+          Object.keys($scope.pselectedCharacter).forEach(function(key) {
+             if($scope.pselectedCharacter[key]) {
+                ++count;
+             }
+          });
+          if(count > 0){
+              $scope.characterbtndisable = true;
+          }
+          else{
+              $scope.characterbtndisable = false;
+          }
+          if(count >= 5) {
+             return true;
+          }
+       }
+       return false;
     };
     $scope.pselectedCharacter = {};
 
@@ -146,6 +168,27 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
             $('#student_profile_characteristics').fadeOut();
             $scope.student_profile_details.student_characteristic=$scope.student_profile_details.student_characteristic.concat(response.data);
         });
+    };
+    $scope.pwhatiamlookingbtndisable =  false;
+    $scope.shouldDisablew = function(key) {
+       if(!$scope.pwhatiamlooking[key]) {
+          var count = 0;
+          Object.keys($scope.pwhatiamlooking).forEach(function(key) {
+             if($scope.pwhatiamlooking[key]) {
+                ++count;
+             }
+          });
+          if(count > 0){
+              $scope.pwhatiamlookingbtndisable = true;
+          }
+          else{
+              $scope.pwhatiamlookingbtndisable = false;
+          }
+          if(count >= 5) {
+             return true;
+          }
+       }
+       return false;
     };
     $scope.pwhatiamlooking = {};
 
