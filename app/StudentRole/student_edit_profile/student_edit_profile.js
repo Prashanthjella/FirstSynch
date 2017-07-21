@@ -109,7 +109,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $('#btn-upload').hide();
             $("#inoutbar").removeAttr("style");
             $('#inoutbar').empty();
-            $('#chapterss ul').empty();            
+            $('#chapterss ul').empty();
             $scope.$apply(function(){
               $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
                   .then(function successCallback(response){
@@ -557,7 +557,6 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
             $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
             $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
             $scope.basicprofileform.about_me = response.data[0].about_me;
-            $scope.basicprofileform.about_me = response.data[0].profile_picture;
         }, function errorCallback(response){
             console.log("Unable to perform get student basic profile details");
     });

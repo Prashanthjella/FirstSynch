@@ -2,7 +2,7 @@
   <div class="contanier-inside">
     <div class="text-center alert alert-success" ng-if="basicprofilemessage">{{basicprofilemessage}}</div>
     <h1 class="custom-h1-01 custom-h1-btm-space-55">Basic Profile</h1>
-    <form name="basicprofile" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
+    <form name="basicprofile_form" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
       <div class="row">
         <div class="col-sm-1 col-md-1 col-lidership-md-1"> </div>
         <div class="col-sm-11 col-md-11">
@@ -11,22 +11,22 @@
             <input type="hidden" name="id" ng-model="basicprofileform.id">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">First Name</label>
-            <input id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name"  ng-model="basicprofileform.first_name" >
+            <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.first_name.$valid}">First Name</label>
+            <input id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name"  ng-model="basicprofileform.first_name" ng-class="{'has-error': basicprofile_form.first_name.$touched, 'has-success': basicprofile_form.first_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Last Name</label>
-            <input type="text" class="form-control custom-form-control-br-bottom" name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" >
+            <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.last_name.$valid}">Last Name</label>
+            <input type="text" class="form-control custom-form-control-br-bottom" name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': basicprofile_form.last_name.$touched, 'has-success': basicprofile_form.last_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Date of Birth</label>
-            <input type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" >
+            <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.dob.$valid}">Date of Birth</label>
+            <input type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" ng-class="{'has-error': basicprofile_form.dob.$touched, 'has-success': basicprofile_form.dob.$valid}" required>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
               <div class="form-group custom-lider-form-group">
-                <label class="text-uppercase">Gender</label>
-                <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom">
+                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.gender.$valid}">Gender</label>
+                <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom"  ng-class="{'has-error': basicprofile_form.gender.$touched, 'has-success': basicprofile_form.gender.$valid}" required>
                   <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
                   <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
                 </select>
@@ -35,8 +35,8 @@
 
             <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
               <div class="form-group custom-lider-form-group">
-                <label class="text-uppercase">Category</label>
-                <select name="category" ng-model="basicprofileform.category" class="form-control custom-form-control-br-bottom">
+                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.category.$valid}">Category</label>
+                <select name="category" ng-model="basicprofileform.category" class="form-control custom-form-control-br-bottom" ng-class="{'has-error': basicprofile_form.category.$touched, 'has-success': basicprofile_form.category.$valid}" required>
                   <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
                   <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
                   <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
@@ -75,6 +75,7 @@
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Profile Picture</label>
             <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" >
+            <img height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">About me</label>
@@ -89,7 +90,7 @@
       </div>
       <!-- <hr class="hr-line-lidership"> -->
     </div>
-    <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+    <input type="submit" ng-disabled="basicprofile_form.first_name.$invalid || basicprofile_form.last_name.$invalid || basicprofile_form.dob.$invalid || basicprofile_form.gender.$invalid " value="Submit" class="btn btn-default custom-btn btn-lg"/>
     <!-- <div class="row">
     <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
     <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
