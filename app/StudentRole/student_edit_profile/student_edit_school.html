@@ -27,26 +27,26 @@
 
         </table>
         <!-- <hr class="hr-line-lidership"> -->
-        <form ng-submit="educationsubmit()">
+        <form name="seeducationform" ng-submit="educationsubmit()">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">School</label>
+                        <label class="text-uppercase" ng-class="{'has-success': seeducationform.school_name.$valid}">School</label>
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="educationform.user" name="user">
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.school_name" placeholder="Company Name">
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.school_name" placeholder="School Name" name="school_name" ng-class="{'has-error': educationform.school_name.$touched, 'has-success': educationform.school_name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Major</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.major" placeholder="Start Date">
+                        <label class="text-uppercase" ng-class="{'has-success': seeducationform.major.$valid}">Major</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.major" placeholder="Major"  name="major" ng-class="{'has-error': educationform.major.$touched, 'has-success': educationform.major.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Year Started</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.year_started" placeholder="Start Date">
+                        <label class="text-uppercase" ng-class="{'has-success': seeducationform.year_started.$valid}">Year Started</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.year_started" datepicker placeholder="Start Date"  name="year_started" ng-class="{'has-error': educationform.year_started.$touched, 'has-success': educationform.year_started.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Graduated Year</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.year_graduated" placeholder="Graduated Year">
+                        <label class="text-uppercase" ng-class="{'has-success': seeducationform.year_graduated.$valid}">Graduated Year</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.year_graduated" datepicker  placeholder="Graduated Year" name="year_graduated" ng-class="{'has-error': educationform.year_graduated.$touched, 'has-success': educationform.year_graduated.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">GPA</label>
@@ -57,7 +57,7 @@
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
                     </div>
                 </div>
-                <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                <input type="submit" value="Submit" ng-disabled="seeducationform.school_name.$invalid || seeducationform.major.$invalid || seeducationform.year_started.$invalid || seeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg" />
             </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

@@ -6,7 +6,7 @@
             <input id="personnalskill" class="checkbox-input" checked="" type="checkbox">
             <label for="personnalskill" class="checkbox-label"> {{personnalskill.name}} - {{personnalskill.rating}}</label>
         </div>
-        <form ng-submit="personnalskillsubmit()">
+        <form name="sepersonnalskillform" ng-submit="personnalskillsubmit()">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1">
                     <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span>
@@ -17,15 +17,15 @@
                         <input type="hidden" class="form-control custom-form-control-br-bottom" name="skill_type" ng-model="skillsetpersonnalform.skill_type">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Name</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" name="name" ng-model="skillsetpersonnalform.name" placeholder="Skill Name">
+                        <label class="text-uppercase" ng-class="{'has-success': sepersonnalskillform.name.$valid}">Name</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" name="name" ng-model="skillsetpersonnalform.name" placeholder="Skill Name" ng-class="{'has-error': skillsetpersonnalform.name.$touched, 'has-success': skillsetpersonnalform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Rating</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating">
+                        <label class="text-uppercase" ng-class="{'has-success': sepersonnalskillform.rating.$valid}">Rating</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating" ng-class="{'has-error': sepersonnalskillform.rating.$touched, 'has-success': sepersonnalskillform.rating.$valid}" required>
                     </div>
                 </div>
-                <input type="submit" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
+                <input type="submit" ng-disabled="sepersonnalskillform.name.$invalid || sepersonnalskillform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
             <!-- <div class="row">
