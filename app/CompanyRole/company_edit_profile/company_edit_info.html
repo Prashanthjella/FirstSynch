@@ -11,7 +11,7 @@
                         <input type="hidden" name="id" ng-model="basicinfoform.id">
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" ng-class="{'has-error': cpbasicinfoform.name.$touched, 'has-success': cpbasicinfoform.name.$valid}" required >
                     </div>
-                    <div class="form-group custom-lider-form-grou" ng-controller="company_category">
+                    <div class="form-group custom-lider-form-grou">
                         <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.category.$valid}">Industry</label>
                         <!-- <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Industry name"  name="category"  ng-model="basicinfoform.category" > -->
                         <select ng-model="basicinfoform.category"  name="category"  ng-class="{'has-error': cpbasicinfoform.category.$touched, 'has-success': cpbasicinfoform.category.$valid}" required>
