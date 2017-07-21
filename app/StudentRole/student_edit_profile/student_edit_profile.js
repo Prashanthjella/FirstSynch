@@ -178,7 +178,27 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
           // progress notify
         });
     };
-
+    $scope.secharacterbtndisable =  false;
+    $scope.seshouldDisable = function(key) {
+       if(!$scope.selectedCharacter[key]) {
+          var count = 0;
+          Object.keys($scope.selectedCharacter).forEach(function(key) {
+             if($scope.selectedCharacter[key]) {
+                ++count;
+             }
+          });
+          if(count > 0){
+              $scope.secharacterbtndisable = true;
+          }
+          else{
+              $scope.secharacterbtndisable = false;
+          }
+          if(count >= 5) {
+             return true;
+          }
+       }
+       return false;
+    };
     $scope.selectedCharacter = {};
 
     $scope.charactersubmit = function(){
@@ -196,7 +216,27 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $scope.charactermessage = 'Successfully updated';
         });
     };
-
+    $scope.sewhatiamlookingbtndisable =  false;
+    $scope.sewshouldDisable = function(key) {
+       if(!$scope.whatiamlooking[key]) {
+          var count = 0;
+          Object.keys($scope.whatiamlooking).forEach(function(key) {
+             if($scope.whatiamlooking[key]) {
+                ++count;
+             }
+          });
+          if(count > 0){
+              $scope.sewhatiamlookingbtndisable = true;
+          }
+          else{
+              $scope.sewhatiamlookingbtndisable = false;
+          }
+          if(count >= 5) {
+             return true;
+          }
+       }
+       return false;
+    };
     $scope.whatiamlooking = {};
 
     $scope.whatiamlookingsubmit = function(){

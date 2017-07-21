@@ -24,14 +24,14 @@
                 </div>
             </div>
         </div>
-        <form ng-submit="hobbysubmit(hobbiesform.image)">
+        <form name="sehobbyform" ng-submit="hobbysubmit(hobbiesform.image)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
                     <div class="form-group custom-lider-form-grou">
-                        <label class="text-uppercase">Hobby</label>
+                        <label class="text-uppercase" ng-class="{'has-success': sehobbyform.name.$valid}">Hobby</label>
                         <input type="hidden" name="stud_id" ng-model="hobbyform.stud_id">
-                        <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyform.name">
+                        <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyform.name" ng-class="{'has-error': sehobbyform.name.$touched, 'has-success': sehobbyform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
@@ -44,7 +44,7 @@
                 </div>
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
-            <input type="submit" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
+            <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
