@@ -52,7 +52,6 @@ FirstSynch.constant('guest_token', 'e4318eb2e222cd4f52427e272e0d1d670c2ce56e');
 //Video Popup Functionality
 FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
     // condition based header show
-    $rootScope.apiurl = apiUrl;
     if(companyusertype == window.sessionStorage.getItem("usertype")){
         $rootScope.token_id = window.sessionStorage.getItem("token");
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
@@ -83,6 +82,10 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
             jQuery('#logIn').modal('show');
         }
     }
+    $http.get("https://ipinfo.io").then(function successCallback(response) {
+        $rootScope.current_city = response.data.city;
+        $rootScope.current_state = response.data.region;
+    });
     $anchorScroll.yOffset = 100;
     $rootScope.videoPopup = function (value) {
         jQuery("#VideoPopup1").modal('show');
@@ -269,12 +272,18 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
     };//find user - function end
 
     $scope.StudentRegistratoin = function () {
+
         var allow_pipl_check = parseInt($('#allow_pipl').val());
         var workhistroy_arry = [];
         var data = {
             education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
-            student : {first_name : $scope.name,last_name:$scope.lname},
             user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
+        }
+        if($rootScope.current_city != '' && $rootScope.current_state != '' ){
+            data.student = {first_name : $scope.name,last_name:$scope.lname,city:$scope.current_city,state : $scope.current_state}
+        }
+        else{
+            data.student = {first_name : $scope.name,last_name:$scope.lname}
         }
         if($scope.piplsearch == 'allow'){
             $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
