@@ -81,20 +81,41 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
             }
 
         }
+        var city = ''
+        if(response.data[i].city  == null || response.data[i].city == '' || typeof response.data[i].city == "undefined"){
+            city = '';
+        }
+        else{
+            city = response.data[i].city;
+        }
+        var state = ''
+        if(response.data[i].state  == null || response.data[i].state == '' || typeof response.data[i].state == "undefined"){
+            state = '';
+        }
+        else{
+            state = ','+response.data[i].state;
+        }
+        var description = ''
+        if(response.data[i].description  == null || response.data[i].description == '' || typeof response.data[i].description == "undefined"){
+            description = '';
+        }
+        else{
+            description = response.data[i].description;
+        }
         var search_result = '<a href="/company/'+response.data[i].id+'">'
         					+'<div class="grid-item col-sm-4">'
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
                                     +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="'+response.data[i].logo+'" alt="forester-logo.jpg">'
+                                        +'<img class="media-object custom-media-object" src="'+(response.data[i].logo != null?response.data[i].logo:"assets/images/profileicon.png")+'" alt="forester-logo.jpg">'
                                     +'</div>'
                                     +'<div class="media-body">'
                                         +'<h4 class="media-heading">'+response.data[i].name+'</h4>'
-                                        +'<h5 class="media-eading-h5">'+response.data[i].city+', '+response.data[i].state+'</h5>'
+                                        +'<h5 class="media-eading-h5">'+city+''+state+'</h5>'
                                     +'</div>'
                                     +'<div> </div>'
                                 +'</div>'
-                                +'<p class="para-company">'+response.data[i].description+'</p>'
+                                +'<p class="para-company">'+description+'</p>'
                                 +'<div class="row custom-row-5">'
                                 +video_result
                                 +'</div>'
