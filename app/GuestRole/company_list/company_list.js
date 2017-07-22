@@ -8,7 +8,7 @@ var FirstSynch = angular.module("CompanyList", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 FirstSynch.controller("student_categorys" ,function ($scope, $http,$routeParams,apiUrl) {
 
-  $http.get(apiUrl+"api/v1/student/api/v1/student_categories/")
+  $http.get(apiUrl+"api/v1/employee/employees_category/")
       .then(function successCallback(response){
           $scope.student_cate = response.data;
       }, function errorCallback(response){

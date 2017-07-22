@@ -62,20 +62,41 @@ FirstSynch.controller("company_top_three_students" ,function ($timeout,$window,$
             $('#stud_count').text(response.data.length+" Students");
         }
        jQuery.each(response.data, function(i) {
+           var city = ''
+           if(response.data[i].city  == null || response.data[i].city == '' || typeof response.data[i].city == "undefined"){
+               city = '';
+           }
+           else{
+               city = response.data[i].city;
+           }
+           var state = ''
+           if(response.data[i].state  == null || response.data[i].state == '' || typeof response.data[i].state == "undefined"){
+               state = '';
+           }
+           else{
+               state = ','+response.data[i].state;
+           }
+           var aboutme = ''
+           if(response.data[i].about_me  == null || response.data[i].about_me == '' || typeof response.data[i].about_me == "undefined"){
+               aboutme = '';
+           }
+           else{
+               aboutme = response.data[i].state;
+           }
         var search_result = '<a href="/student/'+response.data[i].id+'">'
-        					+'<div class="grid-item col-sm-4">'
+                            +'<div class="grid-item col-sm-4">'
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
                                     +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="'+(response.data[i].profile_picture != null?response.data[i].profile_picture:"assets/images/profileicon.png")+'" alt="forester-logo.jpg">'
+                                        +'<img class="media-object custom-media-object" src="'+(response.data[i].profile_picture != null?response.data[i].profile_picture:"assets/images/profileicon.png")+'" alt="Student Profile Image">'
                                     +'</div>'
                                     +'<div class="media-body">'
                                         +'<h4 class="media-heading">'+response.data[i].first_name+'</h4>'
-                                        +'<h5 class="media-eading-h5">'+(typeof response.data[i].city != "undefined"?response.data[i].city:"")+', '+(typeof response.data[i].state != "undefined"?response.data[i].state:"")+'</h5>'
+                                        +'<h5 class="media-eading-h5">'+city+''+state+'</h5>'
                                     +'</div>'
                                     +'<div> </div>'
                                 +'</div>'
-                                +'<p class="para-company">'+response.data[i].about_me+'</p>'
+                                +'<p class="para-company">'+aboutme+'</p>'
                                 +'<div class="row custom-row-5">'
                                 +'</div>'
                             +'</div></a>';
