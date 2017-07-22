@@ -6,47 +6,47 @@
         <form  ng-submit="whatiamlookingsubmit()">
             <input type="hidden" name="lookingid" ng-model="looking.id">
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="a-role-in-a-large-company" class="checkbox-input" ng-model="pwhatiamlooking['A role in a large company']" type="checkbox">
+                <input id="a-role-in-a-large-company" class="checkbox-input" ng-disabled="epewshouldDisable('A role in a large company')" ng-model="pwhatiamlooking['A role in a large company']" type="checkbox">
                 <label for="a-role-in-a-large-company" class="checkbox-label"> A role in a large company</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="build-a-career" class="checkbox-input" ng-model="whatiamlooking['Build a career']" type="checkbox">
+                <input id="build-a-career" class="checkbox-input" ng-disabled="epewshouldDisable('Build a career')" ng-model="whatiamlooking['Build a career']" type="checkbox">
                 <label for="build-a-career" class="checkbox-label"> Build a career</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="career-growth" class="checkbox-input" ng-model="whatiamlooking['Career growth']" type="checkbox">
+                <input id="career-growth" class="checkbox-input" ng-disabled="epewshouldDisable('Career growth')" ng-model="whatiamlooking['Career growth']" type="checkbox">
                 <label for="career-growth" class="checkbox-label"> Career growth</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="explain-your-motivation" class="checkbox-input" ng-model="whatiamlooking['Explain your motivation']" type="checkbox">
+                <input id="explain-your-motivation" class="checkbox-input" ng-disabled="epewshouldDisable('Explain your motivation')" ng-model="whatiamlooking['Explain your motivation']" type="checkbox">
                 <label for="explain-your-motivation" class="checkbox-label"> Explain your motivation</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="extremely-productive-and-creative" class="checkbox-input" ng-model="whatiamlooking['Extremely productive and creative']" type="checkbox">
+                <input id="extremely-productive-and-creative" class="checkbox-input" ng-disabled="epewshouldDisable('Extremely productive and creative')" ng-model="whatiamlooking['Extremely productive and creative']" type="checkbox">
                 <label for="extremely-productive-and-creative" class="checkbox-label"> Extremely productive and creative</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="friendly-staff" class="checkbox-input" ng-model="whatiamlooking['Friendly staff']" type="checkbox">
+                <input id="friendly-staff" class="checkbox-input" ng-disabled="epewshouldDisable('Friendly staff')" ng-model="whatiamlooking['Friendly staff']" type="checkbox">
                 <label for="friendly-staff" class="checkbox-label"> Friendly staff</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="high-earnings" class="checkbox-input" ng-model="whatiamlooking['High earnings']" type="checkbox">
+                <input id="high-earnings" class="checkbox-input" ng-disabled="epewshouldDisable('High earnings')" ng-model="whatiamlooking['High earnings']" type="checkbox">
                 <label for="high-earnings" class="checkbox-label"> High earnings</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="interesting-projects" class="checkbox-input" ng-model="whatiamlooking['Interesting projects']" type="checkbox">
+                <input id="interesting-projects" class="checkbox-input" ng-disabled="epewshouldDisable('Interesting projects')" ng-model="whatiamlooking['Interesting projects']" type="checkbox">
                 <label for="interesting-projects" class="checkbox-label"> Interesting projects</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="learn-new-things" class="checkbox-input" ng-model="whatiamlooking['Learn new things']" type="checkbox">
+                <input id="learn-new-things" class="checkbox-input" ng-disabled="epewshouldDisable('Learn new things')" ng-model="whatiamlooking['Learn new things']" type="checkbox">
                 <label for="learn-new-things" class="checkbox-label"> Learn new things</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="official-employment" class="checkbox-input" ng-model="whatiamlooking['Official employment']" type="checkbox">
+                <input id="official-employment" class="checkbox-input" ng-disabled="epewshouldDisable('Official employment')" ng-model="whatiamlooking['Official employment']" type="checkbox">
                 <label for="official-employment" class="checkbox-label"> Official employment</label>
             </div>
             <p>
-                <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                <input type="submit" ng-disabled="!epewhatiamlookingbtndisable" value="Submit" class="btn btn-default custom-btn btn-lg" />
             </p>
         </form>
     </div>

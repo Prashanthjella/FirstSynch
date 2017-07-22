@@ -6,7 +6,7 @@
             <input id="softwareskill" class="checkbox-input" checked="" type="checkbox">
             <label for="softwareskill" class="checkbox-label"> {{softwareskill.name}} - {{softwareskill.rating}}</label>
         </div>
-        <form  ng-submit="softwareskillsubmit()">
+        <form name="epeskillsetsoftwareform" ng-submit="softwareskillsubmit()">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
@@ -15,15 +15,15 @@
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.skilltype" name="skill_type">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Name</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name">
+                        <label class="text-uppercase" ng-class="{'has-success': epeskillsetsoftwareform.name.$valid}">Name</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': epeskillsetsoftwareform.name.$touched, 'has-success': epeskillsetsoftwareform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Rating</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating">
+                        <label class="text-uppercase" ng-class="{'has-success': epeskillsetsoftwareform.rating.$valid}">Rating</label>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': epeskillsetsoftwareform.rating.$touched, 'has-success': epeskillsetsoftwareform.rating.$valid}" required>
                     </div>
                 </div>
-                <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                <input type="submit" ng-disabled="epeskillsetsoftwareform.name.$invalid || epeskillsetsoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
             <!-- <div class="row">

@@ -133,7 +133,27 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
           // progress notify
         });
     };
-
+    $scope.epecharacterbtndisable =  false;
+    $scope.epeshouldDisable = function(key) {
+       if(!$scope.selectedCharacter[key]) {
+          var count = 0;
+          Object.keys($scope.selectedCharacter).forEach(function(key) {
+             if($scope.selectedCharacter[key]) {
+                ++count;
+             }
+          });
+          if(count > 0){
+              $scope.epecharacterbtndisable = true;
+          }
+          else{
+              $scope.epecharacterbtndisable = false;
+          }
+          if(count >= 5) {
+             return true;
+          }
+       }
+       return false;
+    };
     $scope.selectedCharacter = {};
 
     $scope.charactersubmit = function(){
@@ -152,6 +172,44 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         });
     };
 
+    $scope.epewhatiamlookingbtndisable =  false;
+    $scope.epewshouldDisable = function(key) {
+       if(!$scope.whatiamlooking[key]) {
+          var count = 0;
+          Object.keys($scope.whatiamlooking).forEach(function(key) {
+             if($scope.whatiamlooking[key]) {
+                ++count;
+             }
+          });
+          if(count > 0){
+              $scope.epewhatiamlookingbtndisable = true;
+          }
+          else{
+              $scope.epewhatiamlookingbtndisable = false;
+          }
+          if(count >= 5) {
+             return true;
+          }
+       }
+       return false;
+    };
+    $scope.whatiamlooking = {};
+
+    $scope.whatiamlookingsubmit = function(){
+        $scope.selectlook = [];
+        angular.forEach($scope.whatiamlooking, function (selected, lookgin) {
+            if (selected) {
+                $scope.selectlook.push({student:$rootScope.stud_id,whatimlooking:lookgin});
+
+            }
+        });
+        // alert(JSON.stringify($scope.selectlook));
+
+        $http.post(apiUrl+"api/v1/student/api/v1/whatiamlooking/",JSON.stringify($scope.selectlook))
+        .then(function (response) {
+            $scope.whatiammessage = 'Successfully updated';
+        });
+    };
 
     //student edit profile - personal skill set
     $scope.skillsetpersonnalform = [{

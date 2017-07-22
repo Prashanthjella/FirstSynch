@@ -9,55 +9,55 @@
                 <label for="{{characters.character}}" class="checkbox-label"> {{characters.character}}</label>
             </div> -->
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Realistic" class="checkbox-input" ng-model="selectedCharacter['Realistic']" type="checkbox">
+                <input id="Realistic" class="checkbox-input" ng-disabled="epeshouldDisable('Realistic')"  ng-model="selectedCharacter['Realistic']" type="checkbox">
                 <label for="Realistic" class="checkbox-label"> Realistic</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Investigative"  class="checkbox-input" ng-model="selectedCharacter['Investigative']" type="checkbox">
+                <input id="Investigative"  class="checkbox-input" ng-disabled="epeshouldDisable('Investigative')" ng-model="selectedCharacter['Investigative']" type="checkbox">
                 <label for="Investigative" class="checkbox-label"> Investigative</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Artistic" class="checkbox-input" ng-model="selectedCharacter['Artistic']" type="checkbox">
+                <input id="Artistic" class="checkbox-input" ng-disabled="epeshouldDisable('Artistic')" ng-model="selectedCharacter['Artistic']" type="checkbox">
                 <label for="Artistic" class="checkbox-label"> Artistic</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Social" class="checkbox-input" ng-model="selectedCharacter['Social']" type="checkbox">
+                <input id="Social" class="checkbox-input" ng-disabled="epeshouldDisable('Social')" ng-model="selectedCharacter['Social']" type="checkbox">
                 <label for="Social" class="checkbox-label"> Social</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Enterprising" class="checkbox-input" ng-model="selectedCharacter['Enterprising']" type="checkbox">
+                <input id="Enterprising" class="checkbox-input" ng-disabled="epeshouldDisable('Enterprising')" ng-model="selectedCharacter['Enterprising']" type="checkbox">
                 <label for="Enterprising" class="checkbox-label"> Enterprising</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Conventional" class="checkbox-input" ng-model="selectedCharacter['Conventional']" type="checkbox">
+                <input id="Conventional" class="checkbox-input" ng-disabled="epeshouldDisable('Conventional')" ng-model="selectedCharacter['Conventional']" type="checkbox">
                 <label for="Conventional" class="checkbox-label"> Conventional</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Rule_Follower" class="checkbox-input" ng-model="selectedCharacter['Rule Follower']" type="checkbox">
+                <input id="Rule_Follower" class="checkbox-input" ng-disabled="epeshouldDisable('Rule Follower')" ng-model="selectedCharacter['Rule Follower']" type="checkbox">
                 <label for="Rule_Follower" class="checkbox-label"> Rule Follower</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Self-Motivated" class="checkbox-input" ng-model="selectedCharacter['Self-Motivated']" type="checkbox">
+                <input id="Self-Motivated" class="checkbox-input" ng-disabled="epeshouldDisable('Self-Motivated')" ng-model="selectedCharacter['Self-Motivated']" type="checkbox">
                 <label for="Self-Motivated" class="checkbox-label"> Self-Motivated</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Responsibility" class="checkbox-input" ng-model="selectedCharacter['Responsibility']" type="checkbox">
+                <input id="Responsibility" class="checkbox-input" ng-disabled="epeshouldDisable('Responsibility')" ng-model="selectedCharacter['Responsibility']" type="checkbox">
                 <label for="Responsibility" class="checkbox-label"> Responsibility</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Accustomed" class="checkbox-input" ng-model="selectedCharacter['Accustomed to Routine']" type="checkbox">
+                <input id="Accustomed" class="checkbox-input" ng-disabled="epeshouldDisable('Accustomed to Routine')" ng-model="selectedCharacter['Accustomed to Routine']" type="checkbox">
                 <label for="Accustomed" class="checkbox-label"> Accustomed to Routine</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Study_Skills" class="checkbox-input" ng-model="selectedCharacter['Learned Study Skills']" type="checkbox">
+                <input id="Study_Skills" class="checkbox-input" ng-disabled="epeshouldDisable('Learned Study Skills')" ng-model="selectedCharacter['Learned Study Skills']" type="checkbox">
                 <label for="Study_Skills" class="checkbox-label"> Learned Study Skills</label>
             </div>
             <div class="checkbox custom-checkbox checkbox-circle">
-                <input id="Reading" class="checkbox-input" ng-model="selectedCharacter['Love of Reading']" type="checkbox">
+                <input id="Reading" class="checkbox-input" ng-disabled="epeshouldDisable('Love of Reading')" ng-model="selectedCharacter['Love of Reading']" type="checkbox">
                 <label for="Reading" class="checkbox-label"> Love of Reading</label>
             </div>
             <p>
-                <input type="submit"  class="btn btn-default custom-btn btn-lg" name="submit" value="Save" ng-click="charactersubmit()"/>
+                <input type="submit"  class="btn btn-default custom-btn btn-lg" ng-disabled="!epecharacterbtndisable" name="submit" value="Save" ng-click="charactersubmit()"/>
                 <button type="button" class="btn btn-primary custom-btn btn-cancel btn-lg">Cancel</button>
             </p>
         </form>
