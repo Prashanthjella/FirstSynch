@@ -18,9 +18,9 @@
                     </h4>
                 </div>
                 <div id="sbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="basicprofile" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
+                    <form name="epbasicprofile" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
                         <div class="row">
-                            
+
                             <div class="col-sm-12 col-md-12">
                             <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-group">
@@ -29,24 +29,24 @@
                                     <input type="hidden" name="id" ng-model="basicprofileform.id">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">First Name</label>
-                                    <input id="first_name" type="text" class="form-control custom-textbox" name="first_name"  ng-model="basicprofileform.first_name" >
+                                    <label class="text-uppercase" ng-class="{'has-success': epbasicprofile.first_name.$valid}">First Name</label>
+                                    <input id="first_name" type="text" class="form-control custom-textbox" name="first_name"  ng-model="basicprofileform.first_name" ng-class="{'has-error': epbasicprofile.first_name.$touched, 'has-success': epbasicprofile.first_name.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Last Name</label>
-                                    <input type="text" class="form-control custom-textbox" name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" >
+                                    <label class="text-uppercase" ng-class="{'has-success': epbasicprofile.last_name.$valid}">Last Name</label>
+                                    <input type="text" class="form-control custom-textbox" name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': epbasicprofile.last_name.$touched, 'has-success': epbasicprofile.last_name.$valid}" required>
                                 </div>
-                             
-                               
+
+
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Date of Birth</label>
-                                    <input type="text" class="form-control custom-textbox" name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" >
+                                    <label class="text-uppercase" ng-class="{'has-success': epbasicprofile.dob.$valid}">Date of Birth</label>
+                                    <input type="text" class="form-control custom-textbox" datepicker name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" ng-class="{'has-error': epbasicprofile.dob.$touched, 'has-success': epbasicprofile.dob.$valid}" required>
                                 </div>
                                   <div class="row">
                                  <div class="col-xs-12 col-md-6 col-md-6 col-lg-6">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Gender</label>
-                                    <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-textbox">
+                                    <label class="text-uppercase" ng-class="{'has-success': epbasicprofile.gender.$valid}">Gender</label>
+                                    <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-textbox" ng-class="{'has-error': epbasicprofile.gender.$touched, 'has-success': epbasicprofile.gender.$valid}" required>
                                         <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
                                         <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
                                     </select>
@@ -54,8 +54,8 @@
                                 </div>
                                  <div class="col-xs-12 col-md-6 col-md-6 col-lg-6">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Category</label>
-                                    <select name="category" ng-model="basicprofileform.category" class="form-control custom-textbox">
+                                    <label class="text-uppercase" ng-class="{'has-success': epbasicprofile.category.$valid}"> Category</label>
+                                    <select name="category" ng-model="basicprofileform.category" class="form-control custom-textbox" ng-class="{'has-error': epbasicprofile.category.$touched, 'has-success': epbasicprofile.category.$valid}" required>
                                         <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
                                         <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
                                         <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
@@ -87,7 +87,7 @@
                                     <input type="text" class="form-control custom-textbox"  ng-model="basicprofileform.stackoverflow_url" name="twitter_url" placeholder="Please provide your Stackoverflow URL">
                                      </div>
 
-                               
+
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Website</label>
                                     <input type="text" class="form-control custom-textbox"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your Facebook URL">
@@ -100,20 +100,20 @@
                                     <label class="text-uppercase">About me</label>
                                     <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
                                 </div>
-                                
-                                
+
+
                                 <!--<div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Profile Image</label>
                                     <input type="file" class="file_multi_video" id="file" accept="image/*" name="file" multiple
                                         onchange="angular.element(this).scope().getFileDetails(this)" />
                                     <img src="basicprofileform.profile_picture"/>
                                 </div>-->
-                                <p class="btn-panel-group"><input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/></p>
+                                <p class="btn-panel-group"><input type="submit" ng-disabled="epbasicprofile.first_name.$invalid || epbasicprofile.last_name.$invalid || epbasicprofile.dob.$invalid || epbasicprofile.gender.$invalid || epbasicprofile.category.$invalid " value="Submit" class="btn btn-default custom-btn btn-lg"/></p>
                                 </div>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
-                       
+
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
@@ -128,15 +128,15 @@
                     </h4>
                 </div>
                 <div id="shobbies" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="hobbiessubmit(hobbiesform.image)">
+                    <form name="ephobbyform" ng-submit="hobbiessubmit(hobbiesform.image)">
                         <div class="row">
                              <div class="form-group-edit-profile">
 
                             <div class="col-sm-12 col-md-12">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Hobby</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': ephobbyform.name.$valid}">Hobby</label>
                                     <input type="hidden" name="id" ng-model="hobbiesform.id">
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name">
+                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name" ng-class="{'has-error': ephobbyform.name.$touched, 'has-success': ephobbyform.name.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Description</label>
@@ -147,12 +147,12 @@
                                     <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
                                 </div><p class="btn-panel-group">
 
-                        <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                        <input type="submit" ng-disabled="ephobbyform.name.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
                         </p>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
-                        
+
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
@@ -172,54 +172,54 @@
                      <div class="form-group-edit-profile">
                         <input type="hidden" name="charid" ng-model="characteristic.id">
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Realistic" class="checkbox-input" ng-model="pselectedCharacter['Realistic']" type="checkbox">
+                            <input id="Realistic" class="checkbox-input" ng-disabled="epshouldDisable('Realistic')" ng-model="pselectedCharacter['Realistic']" type="checkbox">
                             <label for="Realistic" class="checkbox-label"> Realistic</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Investigative"  class="checkbox-input" ng-model="pselectedCharacter['Investigative']" type="checkbox">
+                            <input id="Investigative"  class="checkbox-input" ng-disabled="epshouldDisable('Investigative')" ng-model="pselectedCharacter['Investigative']" type="checkbox">
                             <label for="Investigative" class="checkbox-label"> Investigative</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Artistic" class="checkbox-input" ng-model="pselectedCharacter['Artistic']" type="checkbox">
+                            <input id="Artistic" class="checkbox-input" ng-disabled="epshouldDisable('Artistic')" ng-model="pselectedCharacter['Artistic']" type="checkbox">
                             <label for="Artistic" class="checkbox-label"> Artistic</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Social" class="checkbox-input" ng-model="pselectedCharacter['Social']" type="checkbox">
+                            <input id="Social" class="checkbox-input" ng-disabled="epshouldDisable('Social')" ng-model="pselectedCharacter['Social']" type="checkbox">
                             <label for="Social" class="checkbox-label"> Social</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Enterprising" class="checkbox-input" ng-model="pselectedCharacter['Enterprising']" type="checkbox">
+                            <input id="Enterprising" class="checkbox-input" ng-disabled="epshouldDisable('Enterprising')" ng-model="pselectedCharacter['Enterprising']" type="checkbox">
                             <label for="Enterprising" class="checkbox-label"> Enterprising</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Conventional" class="checkbox-input" ng-model="pselectedCharacter['Conventional']" type="checkbox">
+                            <input id="Conventional" class="checkbox-input" ng-disabled="epshouldDisable('Conventional')" ng-model="pselectedCharacter['Conventional']" type="checkbox">
                             <label for="Conventional" class="checkbox-label"> Conventional</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Rule_Follower" class="checkbox-input" ng-model="pselectedCharacter['Rule Follower']" type="checkbox">
+                            <input id="Rule_Follower" class="checkbox-input" ng-disabled="epshouldDisable('Rule Follower')" ng-model="pselectedCharacter['Rule Follower']" type="checkbox">
                             <label for="Rule_Follower" class="checkbox-label"> Rule Follower</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Self-Motivated" class="checkbox-input" ng-model="pselectedCharacter['Self-Motivated']" type="checkbox">
+                            <input id="Self-Motivated" class="checkbox-input" ng-disabled="epshouldDisable('Self-Motivated')" ng-model="pselectedCharacter['Self-Motivated']" type="checkbox">
                             <label for="Self-Motivated" class="checkbox-label"> Self-Motivated</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Responsibility" class="checkbox-input" ng-model="pselectedCharacter['Responsibility']" type="checkbox">
+                            <input id="Responsibility" class="checkbox-input" ng-disabled="epshouldDisable('Responsibility')" ng-model="pselectedCharacter['Responsibility']" type="checkbox">
                             <label for="Responsibility" class="checkbox-label"> Responsibility</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Accustomed" class="checkbox-input" ng-model="pselectedCharacter['Accustomed to Routine']" type="checkbox">
+                            <input id="Accustomed" class="checkbox-input" ng-disabled="epshouldDisable('Accustomed to Routine')" ng-model="pselectedCharacter['Accustomed to Routine']" type="checkbox">
                             <label for="Accustomed" class="checkbox-label"> Accustomed to Routine</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Study_Skills" class="checkbox-input" ng-model="pselectedCharacter['Learned Study Skills']" type="checkbox">
+                            <input id="Study_Skills" class="checkbox-input" ng-disabled="epshouldDisable('Learned Study Skills')" ng-model="pselectedCharacter['Learned Study Skills']" type="checkbox">
                             <label for="Study_Skills" class="checkbox-label"> Learned Study Skills</label>
                         </div>
                         <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Reading" class="checkbox-input" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
+                            <input id="Reading" class="checkbox-input" ng-disabled="epshouldDisable('Love of Reading')" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
                             <label for="Reading" class="checkbox-label"> Love of Reading</label>
                         </div>
-                        
+
   <p class="btn-panel-group">
                             <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
                         </p>
@@ -297,24 +297,24 @@
                     </h4>
                 </div>
                 <div id="sleadership" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="leadershipsubmit()" >
+                    <form name='epleadershipform' ng-submit="leadershipsubmit()" >
                         <div class="row">
                              <div class="form-group-edit-profile">
                             <div class="col-sm-12 col-md-12">
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Lidership role</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': epleadershipform.leadership_role.$valid}">Lidership role</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.id" name="student">
-                                    <input type="text" class="form-control custom-textbox" ng-model="leadershipform.leadership_role" placeholder="Give it a name">
+                                    <input type="text" class="form-control custom-textbox" ng-model="leadershipform.leadership_role" name="leadership_role" placeholder="Give it a name" ng-class="{'has-error': epleadershipform.leadership_role.$touched, 'has-success': epleadershipform.leadership_role.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Description</label>
                                     <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
                                 </div>
                                 <p class="btn-panel-group">
-                            <input type="submit" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
+                            <input type="submit" value="Submit" ng-disabled="epleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg"/>
                             </p>
                             </div>
-                              
+
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
@@ -336,39 +336,39 @@
                     </h4>
                 </div>
                 <div id="smyschools" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="educationsubmit()">
+                    <form name="cpeducationform"  ng-submit="educationsubmit()">
                         <div class="row">
-                            
+
                             <div class="col-sm-12 col-md-12">
                              <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">School</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': cpeducationform.school_name.$valid}">School</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
                                     <div angucomplete-alt id="universities"
                                         placeholder="Search universities"
                                         maxlength="50"
                                         pause="100"
                                         selected-object="selecteduniversity"
-                                        remote-url="http://developer.firstsynch.com/api/v1/auto/school_list/?q="
+                                        remote-url="{{apiurl}}api/v1/auto/school_list/?q="
                                         remote-url-data-field="results"
                                         title-field="Institution_Name"
                                         minlength="1"
                                         input-class="form-control custom-form-control-br-bottom"
                                         field-required="true"
-                                        match-class="highlight"></div>
+                                        match-class="highlight" ng-class="{'has-error': cpeducationform.school_name.$touched, 'has-success': cpeducationform.school_name.$valid}"></div>
                                     <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="educationform.school_name"/>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Major</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.major" placeholder="Start Date">
+                                    <label class="text-uppercase" ng-class="{'has-success': cpeducationform.major.$valid}">Major</label>
+                                    <input type="text" class="form-control custom-textbox" name="major" ng-model="educationform.major" placeholder="Major" ng-class="{'has-error': cpeducationform.major.$touched, 'has-success': cpeducationform.major.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Year Started</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.year_started" placeholder="Start Date">
+                                    <label class="text-uppercase" ng-class="{'has-success': cpeducationform.year_started.$valid}">Year Started</label>
+                                    <input type="text" class="form-control custom-textbox" datepicker name="year_started" ng-model="educationform.year_started" placeholder="Start Date" ng-class="{'has-error': cpeducationform.year_started.$touched, 'has-success': cpeducationform.year_started.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Graduated Year</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.year_graduated" placeholder="Graduated Year">
+                                    <label class="text-uppercase" ng-class="{'has-success': cpeducationform.year_graduated.$valid}">Graduated Year</label>
+                                    <input type="text" class="form-control custom-textbox" datepicker name="year_graduated" ng-model="educationform.year_graduated" placeholder="Graduated Year" ng-class="{'has-error': cpeducationform.year_graduated.$touched, 'has-success': cpeducationform.year_graduated.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">GPA</label>
@@ -378,11 +378,11 @@
                                     <label class="text-uppercase">GPA Rating</label>
                                     <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
                                 </div>  <p class="btn-panel-group">
-                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+                            <input type="submit" value="Submit" ng-disabled="cpeducationform.school_name.$invalid || cpeducationform.major.$invalid || cpeducationform.year_started.$invalid || cpeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg"/>
                             </p>
                             </div>
                             </div>
-                            
+
                         </div>
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
@@ -401,23 +401,23 @@
                     </h4>
                 </div>
                 <div id="sworkhistroy" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="workhistroyformsubmit()">
+                    <form  name="epworkhistroy" ng-submit="workhistroyformsubmit()">
                         <div class="row">
-                            
+
                             <div class="col-sm-12 col-md-12">
                              <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Work</label>
+                                    <label class="text-uppercase"  ng-class="{'has-success': epworkhistroy.company.$valid}">Work</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.id" name="user">
-                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.company" placeholder="Company Name">
+                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.company" name="company" placeholder="Company Name" ng-class="{'has-error': epworkhistroy.company.$touched, 'has-success': epworkhistroy.company.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Start Date</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.start_date" placeholder="Start Date">
+                                    <label class="text-uppercase" ng-class="{'has-success': epworkhistroy.start_date.$valid}">Start Date</label>
+                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.start_date" datepicker name="start_date" placeholder="Start Date" ng-class="{'has-error': epworkhistroy.start_date.$touched, 'has-success': epworkhistroy.start_date.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Leave Date</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.leave_date" placeholder="Graduated Year">
+                                    <label class="text-uppercase" ng-class="{'has-success': epworkhistroy.leave_date.$valid}"> Leave Date</label>
+                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.leave_date" datepicker name="leave_date" placeholder="Graduated Year" ng-class="{'has-error': epworkhistroy.leave_date.$touched, 'has-success': epworkhistroy.leave_date.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Job Title</label>
@@ -427,9 +427,9 @@
                                     <label class="text-uppercase">Job Description</label>
                                     <textarea class="form-control custom-text-area" rows="4" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
                                 </div>
-                              
+
                               <p class="btn-panel-group">
-                            <input type="submit" value="Submit" class="
+                            <input type="submit" ng-disabled="epworkhistroy.start_date.$invalid || epworkhistroy.company.$invalid || epworkhistroy.leave_date.$invalid" value="Submit" class="
 btn btn-default custom-btn btn-lg" />
 </p>  </div>
                             </div>
@@ -451,23 +451,23 @@ btn btn-default custom-btn btn-lg" />
                     </h4>
                 </div>
                 <div id="sproject" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="projectsubmit(projectsform.image)">
+                    <form name="epprojecteditform" ng-submit="projectsubmit(projectsform.image)">
                         <div class="row">
-                           
+
                             <div class="col-sm-12 col-md-12">
                              <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Projects</label>
+                                    <label class="text-uppercase"  ng-class="{'has-success': epprojecteditform.title.$valid}">Projects</label>
                                     <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
-                                    <input type="text" class="form-control custom-textbox" ng-model="projectsform.title" placeholder="Company Name">
+                                    <input type="text" class="form-control custom-textbox" name="title" ng-model="projectsform.title" placeholder="Project title" ng-class="{'has-error': epprojecteditform.title.$touched, 'has-success': epprojecteditform.title.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Start Date</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="projectsform.start_date" placeholder="Start Date">
+                                    <label class="text-uppercase" ng-class="{'has-success': epprojecteditform.start_date.$valid}">Start Date</label>
+                                    <input type="text" class="form-control custom-textbox" datepicker name="start_date" ng-model="projectsform.start_date" datepicker placeholder="Start Date" ng-class="{'has-error': epprojecteditform.start_date.$touched, 'has-success': epprojecteditform.start_date.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">End Date</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="projectsform.completation_date" placeholder="Graduated Year">
+                                    <label class="text-uppercase" ng-class="{'has-success': epprojecteditform.completation_date.$valid}">End Date</label>
+                                    <input type="text" class="form-control custom-textbox" datepicker name="completation_date" ng-model="projectsform.completation_date" datepicker placeholder="Graduated Year" ng-class="{'has-error': epprojecteditform.completation_date.$touched, 'has-success': epprojecteditform.completation_date.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Description</label>
@@ -477,11 +477,11 @@ btn btn-default custom-btn btn-lg" />
                                     <label class="text-uppercase">Profile Picture</label>
                                     <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" >
                                 </div>   <p class="btn-panel-group">
-                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                            <input type="submit" value="Submit" ng-disabled="epprojecteditform.title.$invalid || epprojecteditform.start_date.$invalid || epprojecteditform.completation_date.$invalid" class="btn btn-default custom-btn btn-lg" />
                             </p>
                             </div>
                             </div>
-                           
+
                         </div>
                         <!-- <div class="row">
                             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
@@ -500,25 +500,25 @@ btn btn-default custom-btn btn-lg" />
                     </h4>
                 </div>
                 <div id="spersonal" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="personnalskillsubmit()">
+                    <form name="eppersonnalskillform" ng-submit="personnalskillsubmit()">
                         <div class="row">
-                            
+
                             <div class="col-sm-12 col-md-12">
                              <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-grou">
                                     <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Name</label>
-                                    <input type="text" class="form-control custom-textbox" name="name" ng-model="skillsetpersonnalform.name" placeholder="Skill Name">
+                                    <label class="text-uppercase" ng-class="{'has-success': eppersonnalskillform.name.$valid}">Name</label>
+                                    <input type="text" class="form-control custom-textbox" name="name" ng-model="skillsetpersonnalform.name" placeholder="Skill Name"  ng-class="{'has-error': skillsetpersonnalform.name.$touched, 'has-success': skillsetpersonnalform.name.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Rating</label>
-                                    <input type="text" class="form-control custom-textbox" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating">
+                                    <label class="text-uppercase" ng-class="{'has-success': eppersonnalskillform.rating.$valid}">Rating</label>
+                                    <input type="text" class="form-control custom-textbox" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating" ng-class="{'has-error': eppersonnalskillform.rating.$touched, 'has-success': eppersonnalskillform.rating.$valid}" required>
                                 </div>
-                            
+
                              <p class="btn-panel-group">
-                            <input type="submit" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
+                            <input type="submit" name="submit" ng-disabled="eppersonnalskillform.name.$invalid || eppersonnalskillform.rating.$invalid" value="Save" class="btn btn-default custom-btn btn-lg">
                             </p></div>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->
@@ -540,7 +540,7 @@ btn btn-default custom-btn btn-lg" />
                     </h4>
                 </div>
                 <div id="sprofessional" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form  ng-submit="professionalskillsubmit()">
+                    <form  name="epskillsetprofessionalform" ng-submit="professionalskillsubmit()">
                         <div class="row">
                              <div class="form-group-edit-profile">
                             <div class="col-sm-12 col-md-12">
@@ -548,18 +548,18 @@ btn btn-default custom-btn btn-lg" />
                                     <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Name</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.name" name="name" placeholder="Skill Name">
+                                    <label class="text-uppercase" ng-class="{'has-success': epskillsetprofessionalform.name.$valid}">Name</label>
+                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': epskillsetprofessionalform.name.$touched, 'has-success': epskillsetprofessionalform.name.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Rating</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating">
+                                    <label class="text-uppercase" ng-class="{'has-success': epskillsetprofessionalform.rating.$valid}">Rating</label>
+                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': epskillsetprofessionalform.rating.$touched, 'has-success': epskillsetprofessionalform.rating.$valid}" required>
                                 </div><p class="btn-panel-group">
-                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+                            <input type="submit" ng-disabled="epskillsetprofessionalform.name.$invalid || epskillsetprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg"/>
                             </p>
                             </div>
                             </div>
-                            
+
                             <!-- <hr class="hr-line-lidership"> -->
                         </div>
                         <!-- <div class="row">
@@ -579,25 +579,25 @@ btn btn-default custom-btn btn-lg" />
                     </h4>
                 </div>
                 <div id="ssoftware" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form  ng-submit="softwareskillsubmit()">
+                    <form name="epskillsetsoftwareform" ng-submit="softwareskillsubmit()">
                         <div class="row">
-                            
+
                             <div class="col-sm-12 col-md-12">
                              <div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-group">
                                     <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.user" name="user">
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Name</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name">
+                                    <label class="text-uppercase" ng-class="{'has-success': epskillsetsoftwareform.name.$valid}">Name</label>
+                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': epskillsetsoftwareform.name.$touched, 'has-success': epskillsetsoftwareform.name.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Rating</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating">
+                                    <label class="text-uppercase" ng-class="{'has-success': epskillsetsoftwareform.rating.$valid}">Rating</label>
+                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': epskillsetsoftwareform.rating.$touched, 'has-success': epskillsetsoftwareform.rating.$valid}" required>
                                 </div>
-                            
+
                             <p class="btn-panel-group">
-                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                            <input type="submit" ng-disabled="epskillsetsoftwareform.name.$invalid || epskillsetsoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
                             </p></div>
                             </div>
                             <!-- <hr class="hr-line-lidership"> -->

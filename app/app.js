@@ -52,7 +52,7 @@ FirstSynch.constant('guest_token', 'e4318eb2e222cd4f52427e272e0d1d670c2ce56e');
 //Video Popup Functionality
 FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
     // condition based header show
-
+    $rootScope.apiurl = apiUrl;
     if(companyusertype == window.sessionStorage.getItem("usertype")){
         $rootScope.token_id = window.sessionStorage.getItem("token");
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
