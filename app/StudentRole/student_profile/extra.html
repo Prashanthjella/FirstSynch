@@ -16,7 +16,7 @@ aria-valuemin="0" aria-valuemax="100" style="width:74%"> </div>
           <h4 class="panel-title custom-accordion-title"> <a data-target="#work-history"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Work History</a> <!--span class="total-profile-complete-accordion">+<span>12</span>%</span--> </h4>
         </div>
         <div id="work-history" class="panel-collapse custom-panel-accordion-collapse collapse">
-          <div class="panel-body custom-accordion-body" ng-repeat="experience in student_profile_details.experience">{{experience.company}}/{{experience.start_date}} to {{experience.leave_date}} / {{experience.job_title}}/ {{experience.job_description}}</div>
+          <div class="panel-body custom-accordion-body" ng-repeat="experience in student_profile_details.experience">{{experience.company}}/{{experience.start_date}} to {{experience.leave_date}} / {{experience.job_title|truncate:50}}/ {{experience.job_description}}</div>
         </div>
       </div>
       <div class="panel panel-default custom-accordion-panel-default" ng-if="student_profile_details.hobby.length > 0">

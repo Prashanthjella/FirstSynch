@@ -63,7 +63,7 @@
               <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
               <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)">
                 <div class="box-inside-content">
-                  <h5 class="h5 custom-h5-01 ng-binding">{{vid.title}}</h5>
+                  <h5 class="h5 custom-h5-01 ng-binding">{{vid.title|truncate:50}}</h5>
                 </div>
               </a>
             </div>
