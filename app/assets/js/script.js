@@ -199,5 +199,10 @@ $('[data-toggle="tooltip"]').tooltip();
             $('#videoid').val(parseInt($(this).attr('videoid')));
         }
     });
+    $(document).keydown(function(event) {
+        if (event.keyCode == 27) {
+            $('#logIn,#dashboard-filter').modal('hide');
+        }
+    });
 
 });
