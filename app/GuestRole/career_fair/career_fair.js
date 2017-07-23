@@ -8,7 +8,7 @@ var FirstSynch = angular.module("careerFair", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair page - near by career fair
-FirstSynch.controller("guest_career_fair_near_user" ,function ($rootScope,$scope, $http,$routeParams,apiUrl,$rootScope) {
+FirstSynch.controller("guest_career_fair_near_user" ,function ($scope, $http,$routeParams,apiUrl,$rootScope) {
     $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
     .then(function successCallback(response){
         $scope.career_fair_near_current_user = response.data;
