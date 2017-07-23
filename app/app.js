@@ -895,7 +895,15 @@ FirstSynch.directive('navMenu', function($location) {
 			var path = urlMap[$location.path()];
 
 			links.parent('li').removeClass(activeClass);
-
+            if($location.path().indexOf("company") > -1){
+                $('.company_nav').addClass(activeClass);
+            }
+            if($location.path().indexOf("careerfair") > -1){
+                $('.carrer_nav').addClass(activeClass);
+            }
+            if($location.path().indexOf("student") > -1){
+                $('.student_nav').addClass(activeClass);
+            }
 			if (path) {
 				path.parent('li').addClass(activeClass);
 			}
