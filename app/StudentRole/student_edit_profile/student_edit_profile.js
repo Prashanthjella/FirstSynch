@@ -17,7 +17,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
               angular.element(event.target).parent().parent().parent().remove();
           });
           $('.student_uploaded_video'+index).fadeOut();
-      };//CEdit Video Popup - function end
+      };//Delete Video Popup - function end
 
       $scope.videoEditPopup = function (value) {
           var id = value;
@@ -28,15 +28,10 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
               $scope.editvid = response.data;
               $('#hidden_source').val(response.data.video.mp4_video);
               $("#page-editvideo-edit").modal('show');
-              //var Videofile = response.data.video.video_file;
-              //alert(Videofile);
-              //$('#video_wrapper video source').attr('src', Videofile);
-              //$("#video_wrapper video").html('<source src="'+Videofile+'" type="video/mp4"></source>' );
-
           }, function errorCallback(response){
               console.log("Unable to perform get Video Details");
           });
-      };//CEdit Video Popup - function end
+      };//Edit Video Popup - function end
 
       $scope.uploadvideolist = function(){
           $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
@@ -49,7 +44,6 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
 
     //Upload New Video Here
         $scope.getFileDetails = function (e) {
-
             $scope.files = [];
             $scope.$apply(function () {
 
@@ -60,6 +54,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 $scope.progressVisible = false
             });
         };
+
         $scope.uploadFile = function() {
           $('#video_end').modal('show');
           $('#page-video-edit').css({'z-index':'999'});
@@ -74,13 +69,16 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             fd.append("description", angular.element('#description')[0].value);
             fd.append("student_video", 'True');
             fd.append("active", 'True');
-            fd.append("published", angular.element('#published')[0].value);
+            fd.append("created_by", $rootScope.stud_id);
+            if(angular.element('#published-allow')[0].value == 'allow'){
+              fd.append("published", 'True');
+            }else{
+              fd.append("published", 'False');
+            }
 
             var xhr = new XMLHttpRequest()
             xhr.upload.addEventListener("progress", uploadProgress, false)
             xhr.addEventListener("load", uploadComplete, false)
-            //xhr.addEventListener("error", uploadFailed, false)
-            //xhr.addEventListener("abort", uploadCanceled, false)
             xhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/")
             $scope.progressVisible = true
             xhr.send(fd)
@@ -130,7 +128,6 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             })
             console("The upload has been canceled by the user or the browser dropped the connection.")
         }
-
     //Upload Video End
 
 
