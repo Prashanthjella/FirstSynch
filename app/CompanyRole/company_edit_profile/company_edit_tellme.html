@@ -1,3 +1,68 @@
 <div id="proudest-achievementc" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child">
-    videos
-</div>
+  <div class="contanier-inside">
+    <!--[Career fair Details Slider Start]-->
+    <section class="page-section page-section-career-details">
+      <div class="row custom-row-15">
+        <div class="col-sm-6 col-md-5">
+          <h1 class="custom-h1-01">Making a video</h1>
+          <h5 class="h5-video">About 1 minute</h5>
+          <p class="details-content">Break the video into small pieces no longer
+            than 10-20 seconds with a story about yourself. Idally, the video shout not last more than a minute, so try to make
+            a story about yourself in one minue</p>
+          </div>
+
+          <div class="col-sm-6 col-md-6 col-lg-6 pull-right">
+            <div class="maker-video-content">
+              <div id="help_video">
+                <video width="100%" height="100%" controls="">
+                  <source src="https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/FS_How_To_Make_a_Video.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--[Career fair Details Slider End]-->
+
+        <!--[Jobs Scetion Start]-->
+        <section class="page-section page-section-templates">
+          <div class="page-header custom-page-header">
+            <div class="pull-left">
+              <h2 class="custom-h2-04">Templates</h2>
+            </div>
+          </div>
+
+          <div class="row row-10px">
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+              <div class="thumbnail thumbnail-templates create-template text-center fileContainer">
+                <span class="glyphicon glyphicon-plus"></span>
+                <h5 class="h5 custom-h5-01">
+                  Upload New Video
+                </h5>
+                <input type="file" class="company_file_multi_video fileinput" accept="video/*" id="file" name="file" multiple onchange="angular.element(this).scope().getFileDetails(this)">
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 student_uploaded_video{{$index}}" ng-repeat="vid in video_list">
+              <div class="thumbnail thumbnail-templates">
+                <div class="icon-template-action" style="z-index: 9;">
+                  <span class="glyphicon glyphicon-pencil circle-icon" ng-click="videoEditPopup(vid.id)"></span>
+                  <button style="background:none; border:none;" type="button" ng-confirm-click="Are you sure to delete this video ?" confirmed-click="deleteVideo(vid.id,$index)">
+                    <span class="glyphicon glyphicon-trash circle-icon"></span>
+                  </button>
+                </div>
+                <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
+                <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)">
+                  <div class="box-inside-content">
+                    <h5 class="h5 custom-h5-01 ng-binding">{{vid.title}}</h5>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+        <!--[Jobs Scetion End]-->
+      </div>
+    </div><!--proudest-achievement-->
