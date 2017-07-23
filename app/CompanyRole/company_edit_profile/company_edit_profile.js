@@ -9,9 +9,39 @@ var FirstSynch = angular.module("CompanyEditProfile", ["ngRoute","firstSync","ng
 // Student edit profile - studenteditprofiles
 FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout) {
 
-    // GET THE FILE INFORMATION.
-    $scope.getFileDetails = function (e) {
+  $scope.deleteVideo = function (value,index) {
+      $http.delete(apiUrl+"api/v1/career_fairs/api/v1/video/"+value+"/",JSON.stringify({'id':value}))
+      .then(function (response) {
+          angular.element(event.target).parent().parent().parent().remove();
+      });
+      $('.student_uploaded_video'+index).fadeOut();
+  };//Delete Video Popup - function end
 
+  $scope.videoEditPopup = function (value) {
+      var id = value;
+      $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
+        headers: {'Authorization' : 'Token '+$rootScope.token_id}
+      })
+      .then(function successCallback(response){
+          $scope.editvid = response.data;
+          $('#hidden_source').val(response.data.video.mp4_video);
+          $("#page-editvideo-edit").modal('show');
+      }, function errorCallback(response){
+          console.log("Unable to perform get Video Details");
+      });
+  };//Edit Video Popup - function end
+
+  $scope.uploadvideolist = function(){
+      $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
+          .then(function successCallback(response){
+              $scope.video_list = response.data;
+          }, function errorCallback(response){
+              console.log("Unable to perform get Company videos details");
+      });
+  };
+
+  //Upload New Video Here
+    $scope.getFileDetails = function (e) {
         $scope.files = [];
         $scope.$apply(function () {
 
@@ -19,48 +49,84 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
             for (var i = 0; i < e.files.length; i++) {
                 $scope.files.push(e.files[i])
             }
-
+            $scope.progressVisible = false
         });
     };
 
-    // NOW UPLOAD THE FILES.
-    $scope.uploadFiles = function () {
-
-        //FILL FormData WITH FILE DETAILS.
-        var data = new FormData();
+    $scope.companyuploadFile = function() {
+      $('#company_video_end').modal('show');
+      $('#comapny-video-add').css({'z-index':'999'});
+        var fd = new FormData()
         for (var i in $scope.files) {
-            data.append("video_file", $scope.files[i]);
+            fd.append("video_file", $scope.files[i])
         }
-        //alert(angular.element('#result')[0].value);
-        data.append("title", angular.element('#title')[0].value);
-        data.append("company", $rootScope.user_id);
-        data.append("skill_text", angular.element('#skill_text')[0].value);
-        data.append("video_chapters", angular.element('#result')[0].value);
-        data.append("company_video", 'True');
-        data.append("active", 'True');
-        data.append("published", 'True');
-        // ADD LISTENERS.
-        var objXhr = new XMLHttpRequest();
-        objXhr.addEventListener("progress", updateProgress, false);
-        objXhr.addEventListener("load", transferComplete, false);
-
-        // SEND FILE DETAILS TO THE API.
-        objXhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/");
-        objXhr.send(data);
-    }
-
-    // UPDATE PROGRESS BAR.
-    function updateProgress(e) {
-        if (e.lengthComputable) {
-            document.getElementById('pro').setAttribute('value', e.loaded);
-            document.getElementById('pro').setAttribute('max', e.total);
+        fd.append("title", angular.element('#company_title')[0].value);
+        fd.append("company", $rootScope.user_id);
+        fd.append("skill_text", angular.element('#company_skill_text')[0].value);
+        fd.append("video_chapters", angular.element('#company_result')[0].value);
+        fd.append("description", angular.element('#company_description')[0].value);
+        fd.append("company_video", 'True');
+        fd.append("active", 'True');
+        fd.append("created_by", $rootScope.user_id);
+        if(angular.element('#company_published_allow')[0].value == 'allow'){
+          fd.append("published", 'True');
+        }else{
+          fd.append("published", 'False');
         }
+
+        var xhr = new XMLHttpRequest()
+        xhr.upload.addEventListener("progress", uploadProgress, false)
+        xhr.addEventListener("load", uploadComplete, false)
+        xhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/")
+        $scope.progressVisible = true
+        xhr.send(fd)
     }
 
-    // CONFIRMATION.
-    function transferComplete(e) {
-        //alert("Files uploaded successfully.");
+    function uploadProgress(evt) {
+        $scope.$apply(function(){
+            if (evt.lengthComputable) {
+                $scope.progress = Math.round(evt.loaded * 100 / evt.total)
+            } else {
+                $scope.progress = 'unable to compute'
+            }
+        })
     }
+
+    function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+        $('#company_video_end').modal('hide');
+        $('#comapny-video-add').modal('hide');
+        $('#comapny-video-add').css({'z-index':'1050'});
+        $('#company_chapterss ul').empty();
+        $("#company_chapter_maker_thumb").show();
+        $("#company_question").show();
+        $('.second_video_data').hide();
+        $('.none').show();
+        $('#company-btn-upload').hide();
+        $("#company_inoutbar").removeAttr("style");
+        $('#company_inoutbar').empty();
+        $('#company_chapterss ul').empty();
+        $scope.$apply(function(){
+          $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
+              .then(function successCallback(response){
+                  $scope.video_list = response.data;
+              }, function errorCallback(response){
+                  console.log("Unable to perform get student videos details");
+          });
+        });
+    }
+
+    function uploadFailed(evt) {
+        console("There was an error attempting to upload the file.")
+    }
+
+    function uploadCanceled(evt) {
+        $scope.$apply(function(){
+            $scope.progressVisible = false
+        })
+        console("The upload has been canceled by the user or the browser dropped the connection.")
+    }
+    //Upload Video End
 
     // company profile date of establishmentform edit
     $scope.establishmentform = {
@@ -286,18 +352,18 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         perks : "",
         culture : ""
     };
-    $scope.workforus_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-                $scope.workforusform.id = response.data.hiring[0].id;
-                $scope.workforusform.benefits = response.data.hiring[0].benefits;
-                $scope.workforusform.perks = response.data.hiring[0].perks;
-                $scope.workforusform.culture = response.data.hiring[0].culture;
-            }, function errorCallback(response){
-                console.log("Unable to perform growthrate_edit details");
-        });
-    };
+    // $scope.workforus_edit = function(){
+    //     $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+    //       headers: {'Authorization' : 'Token '+$rootScope.token_id}
+    //     }).then(function successCallback(response){
+    //             $scope.workforusform.id = response.data.hiring[0].id;
+    //             $scope.workforusform.benefits = response.data.hiring[0].benefits;
+    //             $scope.workforusform.perks = response.data.hiring[0].perks;
+    //             $scope.workforusform.culture = response.data.hiring[0].culture;
+    //         }, function errorCallback(response){
+    //             console.log("Unable to perform growthrate_edit details");
+    //     });
+    // };
 
     $scope.workforussubmit = function(){
         if(!$scope.workforusform.id){
