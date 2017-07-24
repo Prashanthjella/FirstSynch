@@ -34,7 +34,7 @@
           </div>
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': companyregistrations.password.$valid}">Create Password</label>
-            <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': companyregistrations.password.$touched && companyregistrations.password.$error.required && companyregistrations.password.$invalid, 'has-success': companyregistrations.password.$valid}"/>
+            <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[-_$@$!%*#?&])[A-Za-z\d-_$@$!%*#?&]{8,}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': companyregistrations.password.$touched && companyregistrations.password.$error.required && companyregistrations.password.$invalid, 'has-success': companyregistrations.password.$valid}"/>
           </div>
         </div>
 
