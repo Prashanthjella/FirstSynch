@@ -2047,8 +2047,8 @@ textarea.custom-text-area {
 	margin-bottom: 20px;
 }
 .custom-thumbnail-company-logo {
-	line-height: 353px;
-	height: 353px;
+	line-height: 290px;
+	height: 290px;
 	text-align: center;
 	display: inline-block;
 	width: 100%;
@@ -2064,7 +2064,7 @@ textarea.custom-text-area {
 	height: 100% !important;
 }
 .page-section-All-companies .custom-thumbnail-company-logo {
-	height: 160px;
+	height: 140px;
 	line-height: 148px;
 	margin-bottom: 10px
 }
