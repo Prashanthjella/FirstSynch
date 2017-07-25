@@ -4089,10 +4089,13 @@ h3.school-name {
 .has-error, input.ng-dirty.ng-invalid {
 	border-bottom: 2px solid red !important;
 }
-input.ng-dirty.ng-success, .has-success {
+input.ng-dirty.ng-success, .has-success{
 	border-bottom: 2px solid #00b58e !important;
 }
 label.has-success {
 	color: #00b58e !important;
 	border-bottom: none !important;
+}
+.page-section-onboard .custom-form-control-br-bottom {
+	border: none! important;
 }
