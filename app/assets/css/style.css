@@ -51,6 +51,7 @@ h1, h2, h3 {
 	text-transform: uppercase;
 	font-weight: 800 !important;
 	letter-spacing: -0.8px;
+	color:#303030
 }
 .custom-form-control-br-bottom.text-box-video {
 	font-size: 30px;
@@ -70,6 +71,9 @@ h1, h2, h3 {
 	text-transform: uppercase;
 	margin-bottom: 40px;
 }
+.custom-h1-03{
+	margin-bottom:24px;
+	}
 .custom-h3 {
 	text-transform: uppercase;
 }
@@ -82,6 +86,14 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 .custom-h4 {
 	font-weight: 600;
 }
+.company-heading-group .custom-h4{
+	  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: -0.6px;
+  margin:0;
+  color: #303030;
+	}
 .custom-h4-02 {
 	color: #303030;
 	font-weight: 600;
@@ -104,7 +116,9 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	text-transform: uppercase;
 	color: #b2b2b2;
 	font-size: 14px;
-	font-weight: 600
+	font-weight: 600;
+	word-break: normal !important;
+     word-wrap: normal !important; 
 }
 .custom-h5-01 {
 	text-transform: uppercase;
@@ -337,10 +351,12 @@ h2.custom-h2-04 {
 	margin-bottom: 15px;
 }
 .custom-h3, .h3, h3 {
-	font: 800 20px 'Open Sans', sans-serif;
-	letter-spacing: -0.4px;
 	text-transform: uppercase;
-	color: #303030;
+	font-size: 20px;
+ 	 font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+  color: #303030;
 }
 .custom-sub-h2 {
 	text-transform: none
@@ -512,19 +528,25 @@ a.thumbnail, a.custom-large-image-gallery {
 bottom: 90px;
 }*/
 .logo-companies {
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 	background-color: #fff;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
 	display: inline-block;
-	box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 	overflow: hidden;/*position: absolute;
 	top: -90px;*/
 }
+.custom-thumbnail-image-gallery .logo-companies {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;}
 .logo-companies .img-responsive {
 	display: inline !important
 }
@@ -544,6 +566,7 @@ bottom: 90px;
 	margin-bottom: 14px;
 	word-break:normal !important;
 	word-wrap:normal !important;
+	
 }
 .page-section-recent-fairs {
 	background-color: #f7f7f7;
@@ -1863,12 +1886,14 @@ textarea.custom-text-area {
 	z-index: 0
 }
 .form-group label {
-	font-weight: normal;
-	opacity: 0.3;
-	font-size: 11px;
-	font-weight: bold;
-	letter-spacing: -0.2px;
-	color: #0d0d0d;
+	
+	  opacity: 0.3;
+ 
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: -0.2px;
+  color: #0d0d0d;
 }
 .tabe-pane-lidarship .contanier-inside {
 	width: 670px;
@@ -2052,8 +2077,24 @@ textarea.custom-text-area {
 	text-align: center;
 	display: inline-block;
 	width: 100%;
+	margin-bottom:10px;
+	-webkit-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
 	box-shadow: 0px 0 15px rgba(0,0,0,0.2);
 }
+.company-list-box{float:left; width:100%;}
+.company-list-box .company-heading-group h5{
+	 font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #b2b2b2;
+  margin-top:5px 
+	}
+.company-list-box:hover,.company-list-box:focus{
+	text-decoration:none;
+	}	
 .custom-thumbnail-company-logo img.logo-companies-box {
 	display: inherit;
 	max-width: 85%;
@@ -2327,6 +2368,7 @@ textarea.custom-text-area {
 	color: #303030;
 }
 .custom-form-control-br-bottom {
+	
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -2352,11 +2394,11 @@ textarea.custom-text-area {
 	margin-top: 1px;
 	float: left;
 	width: 100%;
-	font-size: 12px;
-	font-weight: 600;
-	line-height: 1.83;
-	letter-spacing: -0.3px;
-	color: #000000;
+font-size: 12px;
+  font-weight: 600;
+  line-height: 1.83;
+  letter-spacing: -0.3px;
+  color: #000000;
 }
 .link-green-popup {
 	font-size: 12px;
@@ -3058,6 +3100,9 @@ textarea.custom-text-area {
 	float: left;
 	height: 240px;
 }
+.custom-company-list:hover{
+	text-decoration:none
+	}
 .custom-company-list h4, .custom-company-list .custom-h4 {
 	color: #303030
 }
@@ -3096,6 +3141,20 @@ textarea.custom-text-area {
 .custom-model-registration .cusom-model-dashboard-header {
 	padding: 25px 20px
 }
+.total-company-numbers{
+	  opacity: 0.3;
+  
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+ 
+  color: #0d0d0d;
+	}
+.top-3-companies{
+	float:left;
+	width:100%;
+	margin-top:24px;
+	}	
 @media (min-width: 1200px){
 	.container{
 		width:970px;
@@ -4091,10 +4150,12 @@ h3.school-name {
 }
 input.ng-dirty.ng-success, .has-success{
 	border-bottom: 2px solid #00b58e !important;
+	
 }
 label.has-success {
 	color: #00b58e !important;
 	border-bottom: none !important;
+	opacity:1;
 }
 .page-section-onboard .custom-form-control-br-bottom {
 	border: none! important;

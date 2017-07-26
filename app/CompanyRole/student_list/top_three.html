@@ -3,8 +3,8 @@
 	<div class="container">
 		<div class="page-header custom-page-header" ng-controller="company_all_studentss">
 			<div class="pull-left">
-				<h1 class="h1 custom-h1-01">Students</h1>
-				<div id="stud_count">{{all_student.length}} students</div>
+				<h1 class="h1 custom-h1-01 custom-h1-03">Students</h1>
+				<div id="stud_count" class="total-company-numbers">{{all_student.length}} students</div>
 			</div>
 		</div>
 		<div class="page-header custom-page-header" ng-controller="company_top_three_students">
@@ -36,6 +36,7 @@
 				</h2>
 			</div>
 		</div>
+        <div class="top-3-companies">
 		<div class="row custom-row-35 top_three_student_act" ng-controller="company_top_three_students">
 			<div class="col-sm-12">
 				<div class="page-header custom-page-header">
@@ -45,7 +46,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4" ng-repeat="stud in top_three_student">
-						<a href="/com/student/{{ stud.student.id }}">
+						<a href="/com/student/{{ stud.student.id }}" class="company-list-box">
 					<div class="thumbnail custom-thumbnail-company-logo">
 								<img ng-src="{{ stud.student.profile_picture }}" class="logo-companies-box"> </div>
 					<div class="company-heading-group">
@@ -56,6 +57,7 @@
 			</div>
 
 		</div>
+        </div>
 		<div class="student_search_result grid"></div>
 		<div class="text-center video_filter_search_result_empty hide"><h1>Sorry! No results found!</h1></div>
 	</div>
