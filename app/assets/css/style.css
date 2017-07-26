@@ -51,6 +51,7 @@ h1, h2, h3 {
 	text-transform: uppercase;
 	font-weight: 800 !important;
 	letter-spacing: -0.8px;
+	color:#303030
 }
 .custom-form-control-br-bottom.text-box-video {
 	font-size: 30px;
@@ -70,6 +71,9 @@ h1, h2, h3 {
 	text-transform: uppercase;
 	margin-bottom: 40px;
 }
+.custom-h1-03{
+	margin-bottom:24px;
+	}
 .custom-h3 {
 	text-transform: uppercase;
 }
@@ -82,6 +86,14 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 .custom-h4 {
 	font-weight: 600;
 }
+.company-heading-group .custom-h4{
+	  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: -0.6px;
+  margin:0;
+  color: #303030;
+	}
 .custom-h4-02 {
 	color: #303030;
 	font-weight: 600;
@@ -104,7 +116,9 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	text-transform: uppercase;
 	color: #b2b2b2;
 	font-size: 14px;
-	font-weight: 600
+	font-weight: 600;
+	word-break: normal !important;
+     word-wrap: normal !important; 
 }
 .custom-h5-01 {
 	text-transform: uppercase;
@@ -126,10 +140,14 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	color: #303030;
 }
 .custom-h6 {
-	font-size: 12px;
-	margin-bottom: 0px;
-	font-weight: 700;
-	text-transform: uppercase
+	 opacity: 0.5;
+margin:0;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 2.18;
+  letter-spacing: 0px;
+  color: #0d0d0d;
+  text-transform:uppercase;
 }
 .custom-h5-04 {
 	font-size: 15px;
@@ -232,10 +250,9 @@ h2.custom-h2-04 {
 	letter-spacing: -0.4px;
 	color: #0d0d0d;
 }
-.custom-navbar-default .navbar-nav > li.user-profile-dropdown a{
-	opacity:1;
-
-	}
+.custom-navbar-default .navbar-nav > li.user-profile-dropdown a {
+	opacity: 1;
+}
 .custom-navbar-default .navbar-nav>li>a:hover {
 	color: #303030;
 	opacity: 1;
@@ -334,10 +351,12 @@ h2.custom-h2-04 {
 	margin-bottom: 15px;
 }
 .custom-h3, .h3, h3 {
-	font: 800 20px 'Open Sans', sans-serif;
-	letter-spacing: -0.4px;
 	text-transform: uppercase;
-	color: #303030;
+	font-size: 20px;
+ 	 font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+  color: #303030;
 }
 .custom-sub-h2 {
 	text-transform: none
@@ -420,17 +439,20 @@ a.thumbnail, a.custom-large-image-gallery {
 	height: 165px;
 }
 .custom-large-image-gallery {
-	height: 316px;
+	height: 260px;
 	padding: 0;
 	position: relative;
 	overflow: hidden;
 }
 .custom-thumbnail-image-gallery {
-	height: 207px;
+	height: 170px;
 	padding: 0;
 	position: relative;
 	overflow: hidden;
 }
+.custom-thumbnail-image-gallery .box-inside-content{
+	padding:0 15px 0 15px
+	}
 .custom-thumbnail-image-gallery-05 {
 	height: 222px;
 }
@@ -506,19 +528,25 @@ a.thumbnail, a.custom-large-image-gallery {
 bottom: 90px;
 }*/
 .logo-companies {
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 	background-color: #fff;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
 	display: inline-block;
-	box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 	overflow: hidden;/*position: absolute;
 	top: -90px;*/
 }
+.custom-thumbnail-image-gallery .logo-companies {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;}
 .logo-companies .img-responsive {
 	display: inline !important
 }
@@ -536,6 +564,9 @@ bottom: 90px;
 	font-weight: 800;
 	color: #303030;
 	margin-bottom: 14px;
+	word-break:normal !important;
+	word-wrap:normal !important;
+	
 }
 .page-section-recent-fairs {
 	background-color: #f7f7f7;
@@ -741,7 +772,7 @@ bottom: 90px;
 	width: 100%;
 	float: left;
 }
-.customn-thumbs-color-1 .overlay, .customn-thumbs-color-1 .overlay:before, .customn-thumbs-color-10 .overlay, .customn-thumbs-color-10 .overlay:before{
+.customn-thumbs-color-1 .overlay, .customn-thumbs-color-1 .overlay:before, .customn-thumbs-color-10 .overlay, .customn-thumbs-color-10 .overlay:before {
 	background: #dcbcdc;
 	background: -moz-linear-gradient(left, #dcbcdc 0%, #6fb2e6 100%);
 	background: -webkit-linear-gradient(left, #dcbcdc 0%, #6fb2e6 100%);
@@ -1385,8 +1416,7 @@ bottom: 90px;
 .small-list {
 	font-size: 5px;
 	line-height: 5px;
-	position: relative;
-	/*top: -2px;*/
+	position: relative;/*top: -2px;*/
 }
 .custom-panel-heading {
 	padding: 10px;
@@ -1856,12 +1886,14 @@ textarea.custom-text-area {
 	z-index: 0
 }
 .form-group label {
-	font-weight: normal;
-	opacity: 0.3;
-	font-size: 11px;
-	font-weight: bold;
-	letter-spacing: -0.2px;
-	color: #0d0d0d;
+	
+	  opacity: 0.3;
+ 
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: -0.2px;
+  color: #0d0d0d;
 }
 .tabe-pane-lidarship .contanier-inside {
 	width: 670px;
@@ -2040,13 +2072,29 @@ textarea.custom-text-area {
 	margin-bottom: 20px;
 }
 .custom-thumbnail-company-logo {
-	line-height: 353px;
-	height: 353px;
+	line-height: 290px;
+	height: 290px;
 	text-align: center;
 	display: inline-block;
 	width: 100%;
+	margin-bottom:10px;
+	-webkit-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
 	box-shadow: 0px 0 15px rgba(0,0,0,0.2);
 }
+.company-list-box{float:left; width:100%;}
+.company-list-box .company-heading-group h5{
+	 font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #b2b2b2;
+  margin-top:5px 
+	}
+.company-list-box:hover,.company-list-box:focus{
+	text-decoration:none;
+	}	
 .custom-thumbnail-company-logo img.logo-companies-box {
 	display: inherit;
 	max-width: 85%;
@@ -2057,7 +2105,7 @@ textarea.custom-text-area {
 	height: 100% !important;
 }
 .page-section-All-companies .custom-thumbnail-company-logo {
-	height: 160px;
+	height: 140px;
 	line-height: 148px;
 	margin-bottom: 10px
 }
@@ -2320,6 +2368,7 @@ textarea.custom-text-area {
 	color: #303030;
 }
 .custom-form-control-br-bottom {
+	
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -2345,11 +2394,11 @@ textarea.custom-text-area {
 	margin-top: 1px;
 	float: left;
 	width: 100%;
-	font-size: 12px;
-	font-weight: 600;
-	line-height: 1.83;
-	letter-spacing: -0.3px;
-	color: #000000;
+font-size: 12px;
+  font-weight: 600;
+  line-height: 1.83;
+  letter-spacing: -0.3px;
+  color: #000000;
 }
 .link-green-popup {
 	font-size: 12px;
@@ -2382,8 +2431,8 @@ textarea.custom-text-area {
 	font-size: 18px;
 	font-weight: 700;
 }
-.custom-form-control-search-box:focus{
-	border-color:#000;
+.custom-form-control-search-box:focus {
+	border-color: #000;
 }
 .input-custom-search {
 	background-color: transparent;
@@ -3051,6 +3100,9 @@ textarea.custom-text-area {
 	float: left;
 	height: 240px;
 }
+.custom-company-list:hover{
+	text-decoration:none
+	}
 .custom-company-list h4, .custom-company-list .custom-h4 {
 	color: #303030
 }
@@ -3086,9 +3138,28 @@ textarea.custom-text-area {
 	-moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
 	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
 }
-.custom-model-registration .cusom-model-dashboard-header{
-	padding:25px 20px
+.custom-model-registration .cusom-model-dashboard-header {
+	padding: 25px 20px
 }
+.total-company-numbers{
+	  opacity: 0.3;
+  
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+ 
+  color: #0d0d0d;
+	}
+.top-3-companies{
+	float:left;
+	width:100%;
+	margin-top:24px;
+	}	
+@media (min-width: 1200px){
+	.container{
+		width:970px;
+		}
+	}
 @media (min-width:992px) and (max-width:1199px) {
 body {
 	padding-top: 80px;
@@ -4035,32 +4106,32 @@ h3.school-name {
 	-moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }
-.btn-block{
-	width:auto;
-	display:inherit;
-	}
-.login-top-step-prev{
-	position:absolute;
-	left:20px;
-	right:20px;
-	top:20px;
-	}
-.login-top-step-prev .circle-icon{
-	line-height:20px;
-	}
-.page-section-grey-new{
-	background-color:#f6f6f6;
-	padding-top:40px;
-	}
+.btn-block {
+	width: auto;
+	display: inherit;
+}
+.login-top-step-prev {
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	top: 20px;
+}
+.login-top-step-prev .circle-icon {
+	line-height: 20px;
+}
+.page-section-grey-new {
+	background-color: #f6f6f6;
+	padding-top: 40px;
+}
 /*****Tool Tip Design Manikandan******/
 .tooltip-inner {
-  background-color:#00b58e !important;
+	background-color: #00b58e !important;
 	color: #fff !important;
 	font-size: 14px;
 }
 .tooltip-arrow {
-    border-bottom-color: #00b58e !important;
-		color: #00b58e !important;
+	border-bottom-color: #00b58e !important;
+	color: #00b58e !important;
 }
 .ng-binding {
 	word-break: break-all;
@@ -4079,8 +4150,13 @@ h3.school-name {
 }
 input.ng-dirty.ng-success, .has-success{
 	border-bottom: 2px solid #00b58e !important;
+	
 }
 label.has-success {
 	color: #00b58e !important;
 	border-bottom: none !important;
+	opacity:1;
+}
+.page-section-onboard .custom-form-control-br-bottom {
+	border: none! important;
 }

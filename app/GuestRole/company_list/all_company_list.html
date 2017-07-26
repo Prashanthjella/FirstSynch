@@ -1,7 +1,7 @@
 <!--[All Comapnies Section Start]-->
 <section class="page-section  page-section-All-companies allcompanies_act" ng-controller="all_companies">
     <div class="container">
-        <div class="row">
+         <div class="row custom-row-10">
             <div class="col-sm-12">
                 <div class="page-header custom-page-header">
                     <div class="pull-left">
@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-sm-2" ng-repeat-start="all_comp in all_company">
-                <a href="/company/{{all_comp.id}}">
+                <a href="/company/{{all_comp.id}}" class="custom-company-list">
                     <div class="thumbnail custom-thumbnail-company-logo">
                       <img ng-src="{{all_comp.logo}}" class="logo-companies-box"> </div>
                     <div class="company-heading-group">

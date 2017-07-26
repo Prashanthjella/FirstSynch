@@ -3,13 +3,13 @@
 	  	<div class="container">
 	   		<div class="page-header custom-page-header" ng-controller="all_companies">
 	      		<div class="pull-left">
-	        		<h1 class="h1 custom-h1-01">Companies</h1>
-    				<div id="company_count">{{all_company.length }} Companies</div>
+	        		<h1 class="h1 custom-h1-01 custom-h1-03">Companies</h1>
+    				<div id="company_count" class="total-company-numbers">{{all_company.length }} Companies</div>
 	      		</div>
     		</div>
 	    	<div class="page-header custom-page-header" ng-controller="top_three_companies">
 	      		<div class="pull-left">
-	        		<h2 class="h2 custom-title custom-h2-04"> Show companies from
+	        		<h2 class="h2 custom-title custom-h2-04">Show companies from
 	                    <span  class="dropdown" ng-controller="all_cities_list">
 	        				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_com_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">All cities</span>
 			        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
@@ -28,6 +28,7 @@
 	        		</h2>
 	      		</div>
 	    	</div>
+             <div class="top-3-companies">
 	    	<div class="row custom-row-35 top_three_company_act" ng-controller="top_three_companies">
 	      		<div class="col-sm-12">
 	        		<div class="page-header custom-page-header">
@@ -37,7 +38,7 @@
 	        		</div>
 	      		</div>
 	      		<div class="col-sm-4" ng-repeat="comp in top_three_company">
-					<a href="/company/{{ comp.company.id }}">
+					<a href="/company/{{ comp.company.id }}" class="company-list-box">
 		        		<div class="thumbnail custom-thumbnail-company-logo"> <img ng-src="{{ comp.company.logo }}" class="logo-companies-box"> </div>
 		        		<div class="company-heading-group">
 		          			<h4 class="h4 custom-h4">{{ comp.company.name }} </h4>
@@ -47,6 +48,7 @@
 	      		</div>
 
 	    	</div>
+            </div>
 	    	<div class="company_search_result grid"></div>
 			<div class="text-center video_filter_search_result_empty hide"><h1>Sorry! No results found!</h1></div>
 		</div>
