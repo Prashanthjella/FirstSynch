@@ -369,33 +369,136 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                 $scope.status = data.data.status;
             });
         }
-        //alert(JSON.stringify(data));
+        //alert(JSON.stringify(data));allow_pipl
 
     };//userStudentRegistratoin - function end
 
 
     $scope.CompanyRegistratoin = function () {
-        var data = {
-            company_name:$scope.cname,
-            user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-            employee : {}
-        };
+        var allow_domainsearch = parseInt($('#domain_search').val());
+            var data = {
+                company_name:$scope.cname,
+                user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
+                employee : {}
+            };
+        if($scope.domainsearch == 'allow'){
+            var str = $rootScope.e_mail;
+            var res = str.split("@");
+            $http.get(apiUrl+"api/v1/fullcontact/?domain="+res[1])
+                .then(function successCallback(response){
+                    $scope.domainimage = response.data.logo ? response.data.logo : "" ;
+                    $scope.domaincmpy_name= response.data.name ? response.data.name : "" ;
+                    $scope.domainwebsite= response.data.website ? response.data.website :"";
+                    $scope.domain_est_date= response.data.establishment_date ?response.data.establishment_date :"";
+                    $scope.domainfburl= response.data.facebook_url ? response.data.facebook_url : "" ;
+                    $scope.domainliurl= response.data.linkedin_url ? response.data.linkedin_url : "" ;
+                    $scope.domaintotal_emp= response.data.employees ? response.data.employees : "" ;
+                    $scope.domaindescription= response.data.description ? response.data.description : "" ;
+                    $scope.domainaddress1= response.data.address.address_1 ? response.data.address.address_1 : "" ;
+                    $scope.domaincity= response.data.address.city ? response.data.address.city : "" ;
+                    $scope.domainstate= response.data.address.state ? response.data.address.state : "" ;
+                    $scope.domaincountry= response.data.address.country ? response.data.address.country : "" ;
+                    $scope.domainzip_code= response.data.address.zip_code ? response.data.address.zip_code : "" ;
+                    $scope.domaine_mail= response.data.address.e_mail ? response.data.address.e_mail : "" ;
+                    $scope.domaincontact_no= response.data.address.contact_no ? response.data.address.contact_no : "" ;
+                    if($scope.piplimage || $scope.domaincmpy_name || $scope.domainwebsite || $scope.domain_est_date || $scope.domainfburl||$scope.domainliurl||$scope.domaintotal_emp||$scope.domaindescription){
+                        $('#domain_search').val('0');
+                        $('.domainsearch_remove').hide();
+                        $('.domainsearch_show').show();
+                    }
+                    else{
+                        $http({
+                            url: apiUrl+'api/v1/employee/api/employee_signup/',
+                            method: "POST",
+                            data: data,
+                            headers: {'Content-Type': 'application/json'}
+                        })
+                        .then(function successCallback(data, status, headers, config) {
+                            jQuery("#companyregistration").modal('hide');
+                            jQuery("#companysignUpSuccess").modal('show');
+                            jQuery('form#reset_forms').trigger("reset");
+                            jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                            $scope.name = '';
+                            $scope.lname = '';
+                            $scope.cname = '';
+                            $scope.password = '';
+                        },
+                        function errorCallback(data, status, headers, config) {
+                            $scope.status = data.data.status;
 
-        $http({
-            url: apiUrl+'api/v1/employee/api/employee_signup/',
-            method: "POST",
-            data: data,
-            headers: {'Content-Type': 'application/json'}
-        })
-        .then(function successCallback(data, status, headers, config) {
-            jQuery("#companyregistration").modal('hide');
-            jQuery("#companysignUpSuccess").modal('show');
-            jQuery('form#reset_forms').trigger("reset");
-            jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
-        },
-        function errorCallback(data, status, headers, config) {
-            $scope.status = data.data.status;
-        });
+                        });
+                    }
+
+                }, function errorCallback(response){
+                    console.log("Unable to perform get company basic profile details");
+            });
+        }
+        else if($scope.piplsearch == 'deny') {
+            $http({
+                url: apiUrl+'api/v1/employee/api/employee_signup/',
+                method: "POST",
+                data: data,
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then(function successCallback(data, status, headers, config) {
+                jQuery("#companyregistration").modal('hide');
+                jQuery("#companysignUpSuccess").modal('show');
+                jQuery('form#reset_forms').trigger("reset");
+                jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                $scope.name = '';
+                $scope.lname = '';
+                $scope.cname = '';
+                $scope.password = '';
+            },
+            function errorCallback(data, status, headers, config) {
+                $scope.status = data.data.status;
+            });
+        }
+        if(allow_domainsearch == 0){
+            var datae = {
+                company_info : {
+                    address:{
+                        address_1:$('#domainaddress1').val(),
+                        city: $('#domaincity').val(),
+                        contact_no: $('#domaincontact_no').val(),
+                        country: $('#domaincountry').val(),
+                        e_mail: $('#domaine_mail').val(),
+                        state: $('#domainstate').val(),
+                        zip_code: $('#domainzip_code').val(),
+                    },
+                    domainzip_code:$('#domain_description').val(),
+                    employees : $('#domain_total_emp').val(),
+                    establishment_date : $('#domain_est_date').val(),
+                    linkedin_url : $('#domain_li_url').val(),
+                    facebook_url : $('#domain_fb_url').val(),
+                    logo : $('#domainimage').val(),
+                    name : $('#domain_company_name').val(),
+                    website : $('#domain_website').val(),
+                    company_name:$scope.cname,
+                    user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
+                    employee : {}
+                }
+            }
+            $http({
+                url: apiUrl+'api/v1/employee/api/employee_signup/',
+                method: "POST",
+                data: datae,
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then(function successCallback(data, status, headers, config) {
+                jQuery("#companyregistration").modal('hide');
+                jQuery("#companysignUpSuccess").modal('show');
+                jQuery('form#reset_forms').trigger("reset");
+                jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                $scope.name = '';
+                $scope.lname = '';
+                $scope.cname = '';
+                $scope.password = '';
+            },
+            function errorCallback(data, status, headers, config) {
+                $scope.status = data.data.status;
+            });
+        }
     };//company Registratoin - function end
 
 });

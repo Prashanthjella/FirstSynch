@@ -1,9 +1,9 @@
 <!-- Modal Company Registration content Start-->
 <div class="modal fade custom-model custom-model-registration" id="companyregistration" role="dialog" ng-controller="IdentifyUser">
-  <form name="companyregistrations" id="reset_forms">
+  <form name="companyregistrations" id="reset_formss" >
     <div class="modal-dialog custom-modal-880">
       <div class="modal-content custom-modal-video-content">
-        <div class="modal-header cusom-model-dashboard-header">
+        <div class="modal-header cusom-model-dashboard-header domainsearch_remove">
           <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
            <div class="login-top-step-prev">
           <div class="pull-left">
@@ -17,11 +17,13 @@
           <h1 class="custom-h1-01 text-center">Company Registration</h1>
         </div>
 
-        <div class="modal-body custom-modal-body-login">
+        <div class="modal-body custom-modal-body-login domainsearch_remove">
+            <span style="color: green; font-weight: bold;">{{error}}</span>
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': companyregistrations.name.$valid}">First Name</label>
             <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name" required ng-class="{'has-error': companyregistrations.name.$touched && companyregistrations.name.$error.required, 'has-success': companyregistrations.name.$valid}"/>
             <input type="hidden" id="email" name="e_mail" ng-model="e_mail" />
+            <input type="hidden" id="domain_search" value="1">
             <input type="hidden" name="iaccept" value="true" name="iaccept" ng-model="iaccept" />
           </div>
           <div class="form-group">
@@ -36,9 +38,23 @@
             <label class="text-uppercase" ng-class="{'has-success': companyregistrations.password.$valid}">Create Password</label>
             <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': companyregistrations.password.$touched && companyregistrations.password.$error.required && companyregistrations.password.$invalid, 'has-success': companyregistrations.password.$valid}"/>
           </div>
+          <div class="form-group form-group-allow-control">
+            <div class="pull-left">
+              <label class="text-uppercase">Request to use information Password</label>
+              <p class="content-allow">Allow us to pull your info from open sources</p>
+            </div>
+            <div class="pull-right checkbox-register" ng-init="domainsearch='allow'">
+              <div class="checkbox custom-checkbox checkbox-circle">
+                <input type="radio" name="domainsearch" ng-model="domainsearch" ng-value="'allow'"class="checkbox-input"  id="student-allow"><label for="student-allow" class="checkbox-label-01">Allow</label>
+              </div>
+              <div class="checkbox custom-checkbox checkbox-circle">
+                <input type="radio" name="domainsearch" ng-model="domainsearch" ng-value="'deny'"class="checkbox-input" id="student-Forbid">
+                <label for="student-Forbid" class="checkbox-label-01">Forbid</label>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="modal-footer custom-login-modal-footer">
+        <div class="modal-footer custom-login-modal-footer domainsearch_remove">
           <button type="submit" ng-click="CompanyRegistratoin()" ng-disabled="companyregistrations.$invalid" class="btn btn-default custom-btn-login">Sign up</button>
           <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
 
@@ -46,7 +62,157 @@
 
       </div>
 
-
+      <div class="modal-dialog">
+          <div class="modal-content custom-modal-video-content">
+              <div class="modal-header page-bg-gray cusom-model-onboard-header domainsearch_show" style="display:none;">
+                  <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+                  <div class="page-header custom-page-header">
+                      <div class="pull-left">
+                          <h1 class="h1 custom-h1">Onboarding</h1>
+                      </div>
+                      <div class="pull-right"> <button ng-click="CompanyRegistratoin()" type="submit" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
+                  </div>
+              </div>
+              <div class="modal-body custom-video-modal-body domainsearch_show" style="display:none;">
+                  <section class="page-section page-section-onboard">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <section class="page-section-education">
+                                  <div class="page-header custom-page-header">
+                                      <div class="pull-left">
+                                          <h2 class="h2 custom-h2">Company details</h2>
+                                      </div>
+                                  </div>
+                                  <div class="panel-group custom-panel-onboarding-group">
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Name
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_company_name" value="{{domaincmpy_name}}" id="domain_company_name" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Name</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Website
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_website" value="{{domainwebsite}}" id="domain_website" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit website</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Establishment Date
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_est_date" value="{{domain_est_date}}" id="domain_est_date" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Establishment date</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Facebook URL
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_fb_url" value="{{domainfburl}}" id="domain_fb_url" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Facebook URL</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Linkedin URL
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_li_url" value="{{domainliurl}}" id="domain_li_url" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Facebook URL</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      LOGO
+                                                  </h5>
+                                                  <img src="{{domainimage}}" height="100" width="100"/>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domainimage" value="{{domainimage}}" id="domainimage" readonly>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Total employees
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_total_emp" value="{{domaintotal_emp}}" id="domain_total_emp" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Total employees</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      About Compnay
+                                                  </h5>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_description" value="{{domaindescription}}" id="domain_description" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit About company</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <h5 class="h4 custom-h5">
+                                                      Address
+                                                  </h5>
+                                                  Street<input type="text" class=" custom-form-control-br-bottom" name="domainaddress1" value="{{domainaddress1}}" id="domainaddress1" readonly>
+                                                  City<input type="text" class=" custom-form-control-br-bottom" name="domaincity" value="{{domaincity}}" id="domaincity" readonly>
+                                                  State<input type="text" class=" custom-form-control-br-bottom" name="domainstate" value="{{domainstate}}" id="domainstate" readonly>
+                                                  Country<input type="text" class=" custom-form-control-br-bottom" name="domaincountry" value="{{domaincountry}}" id="domaincountry" readonly>
+                                                  Zipcode<input type="text" class=" custom-form-control-br-bottom" name="domainzip_code" value="{{domainzip_code}}" id="domainzip_code" readonly>
+                                                  E-Mail<input type="text" class=" custom-form-control-br-bottom" name="domaine_mail" value="{{domaine_mail}}" id="domaine_mail" readonly>
+                                                  Contact no<input type="text" class=" custom-form-control-br-bottom" name="domaincontact_no" value="{{domaincontact_no}}" id="domaincontact_no" readonly>
+                                              </div>
+                                              <div class="col-sm-4 text-right">
+                                                  <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Address</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </section>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+          </div>
+      </div>
     </div>
   </form>
 </div>
