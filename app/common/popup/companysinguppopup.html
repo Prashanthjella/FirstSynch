@@ -74,23 +74,28 @@
                   </div>
               </div>
               <div class="modal-body custom-video-modal-body domainsearch_show" style="display:none;">
-                  <section class="page-section page-section-onboard">
+                  <section class="page-section page-section-onboard page-section-onboard-popup">
+                   <p class="text-onboard">
+            	We want to simplify the process of filling out your company profile and complete it for you. We found information about your company using your corporate email address, but some information may be not true. Please check the information below and edit if something was not true.
+            </p>
                       <div class="row">
                           <div class="col-md-12">
                               <section class="page-section-education">
                                   <div class="page-header custom-page-header">
                                       <div class="pull-left">
-                                          <h2 class="h2 custom-h2">Company details</h2>
+                                          <h3 class="h3 custom-h3">Company details</h3>
                                       </div>
                                   </div>
                                   <div class="panel-group custom-panel-onboarding-group">
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                 <div class="form-group">
+                            <label class="text-uppercase">
                                                       Name
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_company_name" value="{{domaincmpy_name}}" id="domain_company_name" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Name</a>
@@ -100,10 +105,12 @@
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                  <div class="form-group">
+                            <label class="text-uppercase">
                                                       Website
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_website" value="{{domainwebsite}}" id="domain_website" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit website</a>
@@ -113,10 +120,12 @@
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                <div class="form-group">
+                            <label class="text-uppercase">
                                                       Establishment Date
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_est_date" value="{{domain_est_date}}" id="domain_est_date" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Establishment date</a>
@@ -126,10 +135,12 @@
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                 <div class="form-group">
+                            <label class="text-uppercase">
                                                       Facebook URL
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_fb_url" value="{{domainfburl}}" id="domain_fb_url" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Facebook URL</a>
@@ -139,10 +150,12 @@
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                 <div class="form-group">
+                            <label class="text-uppercase">
                                                       Linkedin URL
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_li_url" value="{{domainliurl}}" id="domain_li_url" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Facebook URL</a>
@@ -152,21 +165,25 @@
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                 <div class="form-group">
+                            <label class="text-uppercase">
                                                       LOGO
-                                                  </h5>
+                                                  </label>
                                                   <img src="{{domainimage}}" height="100" width="100"/>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domainimage" value="{{domainimage}}" id="domainimage" readonly>
+                                                  </div>
                                               </div>
                                           </div>
                                       </div>
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                 <div class="form-group">
+                            <label class="text-uppercase">
                                                       Total employees
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_total_emp" value="{{domaintotal_emp}}" id="domain_total_emp" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Total employees</a>
@@ -176,29 +193,55 @@
                                       <div class="panel panel-default custom-panel-onboarding-default ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                                  <div class="form-group">
+                            <label class="text-uppercase">
                                                       About Compnay
-                                                  </h5>
+                                                  </label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domain_description" value="{{domaindescription}}" id="domain_description" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit About company</a>
                                               </div>
                                           </div>
                                       </div>
-                                      <div class="panel panel-default custom-panel-onboarding-default ">
+                                      <div class="panel panel-default custom-panel-address-default  ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                                  <h5 class="h4 custom-h5">
+                                               
+                            <h4 class="h4 custom-h4-02">
                                                       Address
-                                                  </h5>
-                                                  Street<input type="text" class=" custom-form-control-br-bottom" name="domainaddress1" value="{{domainaddress1}}" id="domainaddress1" readonly>
-                                                  City<input type="text" class=" custom-form-control-br-bottom" name="domaincity" value="{{domaincity}}" id="domaincity" readonly>
-                                                  State<input type="text" class=" custom-form-control-br-bottom" name="domainstate" value="{{domainstate}}" id="domainstate" readonly>
-                                                  Country<input type="text" class=" custom-form-control-br-bottom" name="domaincountry" value="{{domaincountry}}" id="domaincountry" readonly>
-                                                  Zipcode<input type="text" class=" custom-form-control-br-bottom" name="domainzip_code" value="{{domainzip_code}}" id="domainzip_code" readonly>
-                                                  E-Mail<input type="text" class=" custom-form-control-br-bottom" name="domaine_mail" value="{{domaine_mail}}" id="domaine_mail" readonly>
-                                                  Contact no<input type="text" class=" custom-form-control-br-bottom" name="domaincontact_no" value="{{domaincontact_no}}" id="domaincontact_no" readonly>
+                                                  </h4>
+                                                 
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                  <label class="text-uppercase">Street</label>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domainaddress1" value="{{domainaddress1}}" id="domainaddress1" readonly>
+                                                  </div>
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                  <label class="text-uppercase">City
+                                                  </label>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domaincity" value="{{domaincity}}" id="domaincity" readonly>
+                                                  </div>
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                  <label class="text-uppercase">State</label>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domainstate" value="{{domainstate}}" id="domainstate" readonly>
+                                                  </div>
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                  <label class="text-uppercase">Country</label>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domaincountry" value="{{domaincountry}}" id="domaincountry" readonly>
+                                                  </div>
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                  <label class="text-uppercase">Zipcode</label>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domainzip_code" value="{{domainzip_code}}" id="domainzip_code" readonly>
+                                                  </div>
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                 <label class="text-uppercase"> E-Mail</label>
+                                                 <input type="text" class=" custom-form-control-br-bottom" name="domaine_mail" value="{{domaine_mail}}" id="domaine_mail" readonly>
+                                                  </div>
+                                                  <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                                                  <label class="text-uppercase">Contact no</label>
+                                                  <input type="text" class=" custom-form-control-br-bottom" name="domaincontact_no" value="{{domaincontact_no}}" id="domaincontact_no" readonly>
+                                                  </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
                                                   <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Address</a>

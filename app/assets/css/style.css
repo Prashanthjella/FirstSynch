@@ -2746,6 +2746,15 @@ font-size: 12px;
 	-moz-border-radius: 0 !important;
 	border-radius: 0 !important;
 }
+.custom-panel-address-default{
+	border-width: 0 0 0 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	border-radius: 0 !important;
+	}
 .custom-panel-onboarding-group {
 	width: 100%;
 	float: left;
@@ -3183,6 +3192,67 @@ font-size: 12px;
 	}
 .slider-container-career .bx-wrapper{
 	margin-bottom:0
+	}
+.text-onboard{
+	  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #0d0d0d;
+	width:420px;
+	margin-top:100px;
+	margin-bottom:80px;
+	}	
+.page-section-onboard-popup{
+	float:none;
+	margin:0 auto;
+	width:600px;
+	}	
+.page-section-onboard-popup .custom-h3{
+	font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #0d0d0d;
+	}	
+.page-section-onboard-popup .custom-h4-02	{ font-size: 14px;
+  font-weight: 800;
+  line-height: 1.71;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #0d0d0d;
+		}
+.page-section-onboard-popup .custom-form-control-br-bottom{
+	 font-size: 14px;
+  font-weight: bold;
+  line-height: 1.57;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #303030;
+	}
+.page-section-onboard-popup .custom-page-header-brline{
+	padding-bottom:0
+	}		
+.page-section-onboard-popup .custom-panel-onboarding-group .custom-panel-onboarding-default{
+	padding:20px  0
+	}	
+.page-section-onboard-popup .form-group{margin-bottom:0}	
+.page-section-onboard-popup .custom-btn-default-02,.page-section-onboard-popup .custom-btn-default-08{
+	 font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #303030;
+  border-width:2px;
+  margin:12px 0;
+	}	
+	.page-section-onboard-popup  .custom-form-control-br-bottom:focus{
+		outline:none
+		}
+.custom-panel-onboarding-default.edit-border{
+	border-bottom-color:#00b58e 
 	}
 @media (min-width: 1200px){
 	.container{
@@ -3675,9 +3745,18 @@ body {
 }
 }
 .cusom-model-onboard-header {
-	padding: 10px 20px 10px 20px;
+	padding: 20px 42px 14px 42px;
 	border-bottom: 0;
 }
+.cusom-model-onboard-header .custom-h1{
+	 font-size: 36px;
+  font-weight: 800;
+  line-height: 1.33;
+  letter-spacing: -0.8px;
+  text-align: left;
+  color: #000000;
+	
+	}
 .circle-btn-03 {
 	position: static;
 	float: left;
@@ -3685,6 +3764,16 @@ body {
 }
 .cusom-model-onboard-header .custom-btn-approve-info {
 	margin: 11px 0;
+	font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #0d0d0d;
+  
+   -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border: solid 2px #303030;
 }
 .page-section-onboard {
 	background-color: #fff;
