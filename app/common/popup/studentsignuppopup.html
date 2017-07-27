@@ -109,17 +109,20 @@
             </div>
           </div>
           <div class="modal-body custom-video-modal-body peoplesearch_show" style="display:none;">
-            <section class="page-section page-section-onboard">
+            <section class="page-section page-section-onboard page-section-onboard-popup">
+            <p class="text-onboard">
+            	We want to simplify the process of filling out your profile and complete it for you. Please check the information below and edit if something was not true.
+            </p>
               <div class="row">
                 <div class="col-md-12">
                   <section class="page-section-education" ng-if="piplschool_name !=''">
                     <div class="page-header custom-page-header">
                       <div class="pull-left">
-                        <h2 class="h2 custom-h2">Education</h2>
+                        <h3 class="h3 custom-h3">Education</h3>
                       </div>
                     </div>
                     <div class="page-header custom-page-header-brline">
-                      <h4 class="h4 custom-h4-02">School</h4>
+                      <h4 class="h4 custom-h4-02">School#1</h4>
                     </div>
                     <div class="panel-group custom-panel-onboarding-group">
                       <div class="panel panel-default custom-panel-onboarding-default ">
@@ -128,10 +131,12 @@
                         <!-- </button> -->
                         <div class="row">
                           <div class="col-sm-8">
-                            <h5 class="h4 custom-h5">
+                          <div class="form-group">
+                            <label class="text-uppercase">
                               School
-                            </h5>
+                            </label>
                             <input type="text" class=" custom-form-control-br-bottom" name="stu_school_name" value="{{piplschool_name}}" id="pipl_school_name" readonly>
+                            </div>
                             <!-- <h5 class="h5 custom-h5-01"></h5> -->
                           </div>
                           <div class="col-sm-4 text-right">
@@ -150,10 +155,12 @@
                   </button> -->
                   <div class="row">
                     <div class="col-sm-8">
-                      <h5 class="h4 custom-h5">
+                       <div class="form-group">
+                            <label class="text-uppercase">
                         Dates Attended
-                      </h5>
+                      </label>
                       <input type="text" class=" custom-form-control-br-bottom" name="pipl_dateattended" value="{{pipldateattended}}" id="pipl_dateattended" readonly>
+                      </div>
                       <!-- <h5 class="h5 custom-h5-01"></h5> -->
                     </div>
                     <div class="col-sm-4 text-right">
@@ -172,11 +179,13 @@
             </button> -->
             <div class="row">
               <div class="col-sm-8">
-                <h5 class="h4 custom-h5">
+                <div class="form-group">
+                            <label class="text-uppercase">
                   Major
-                </h5>
+                </label>
                 <input type="hidden" id="workhistroy_count" value="{{workhistroy_count}}">
                 <input type="text" class=" custom-form-control-br-bottom" name="pipl_major" value="{{piplmajor}}" id="pipl_major" readonly>
+                </div>
                 <!-- <h5 class="h5 custom-h5-01"></h5> -->
               </div>
               <div class="col-sm-4 text-right">
@@ -194,7 +203,7 @@
   <section class=" page-section-education" ng-if="workhistroy_count > 0">
     <div class="page-header custom-page-header">
       <div class="pull-left">
-        <h2 class="h2 custom-h2">Work History</h2>
+        <h3 class="h3 custom-h3">Work History</h3>
       </div>
     </div>
     <div  ng-repeat="stu_jobs in pipljobs">
@@ -208,10 +217,12 @@
         </button> -->
         <div class="row">
           <div class="col-sm-8">
-            <h5 class="h4 custom-h5">
+             <div class="form-group">
+                            <label class="text-uppercase">
               Company Name
-            </h5>
+            </label>
             <input type="text" class=" custom-form-control-br-bottom" name="pipl_company_name{{$index}}" value="{{stu_jobs.company_name}}" id="pipl_company_name{{$index}}" readonly>
+            </div>
             <!-- <h5 class="h5 custom-h5-01"></h5> -->
           </div>
           <div class="col-sm-4 text-right">
@@ -230,11 +241,13 @@
   </button> -->
   <div class="row">
     <div class="col-sm-8">
-      <h5 class="h4 custom-h5">
+        <div class="form-group">
+                            <label class="text-uppercase">
         Dates Started
-      </h5>
+      </label>
       <!-- <h5 class="h5 custom-h5-01"></h5> -->
       <input type="text" class=" custom-form-control-br-bottom" name="pipl_datestarted{{$index}}" value="{{stu_jobs.datestarted}}" id="pipl_datestarted{{$index}}" readonly>
+      </div>
     </div>
     <div class="col-sm-4 text-right">
       <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
@@ -252,11 +265,13 @@
 </button> -->
 <div class="row">
   <div class="col-sm-8">
-    <h5 class="h4 custom-h5">
+     <div class="form-group">
+                            <label class="text-uppercase">
       Leave Date
-    </h5>
+    </label>
     <!-- <h5 class="h5 custom-h5-01">{{stu_jobs.leavedate}}</h5> -->
     <input type="text" class=" custom-form-control-br-bottom" name="pipl_leavedate{{$index}}" value="{{stu_jobs.leavedate}}" id="pipl_leavedate{{$index}}" readonly>
+    </div>
   </div>
   <div class="col-sm-4 text-right">
     <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
@@ -274,11 +289,13 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 </button> -->
 <div class="row">
   <div class="col-sm-8">
-    <h5 class="h4 custom-h5">
+     <div class="form-group">
+                            <label class="text-uppercase">
       Job title
-    </h5>
+    </label>
     <!-- <h5 class="h5 custom-h5-01">{{stu_jobs.jobtitle}}</h5> -->
     <input type="text" class=" custom-form-control-br-bottom" name="pipl_jobtitle{{$index}}" value="{{stu_jobs.jobtitle}}" id="pipl_jobtitle{{$index}}" readonly>
+    </div>
   </div>
   <div class="col-sm-4 text-right">
     <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Job title</a>
@@ -296,10 +313,12 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 </button> -->
 <div class="row">
   <div class="col-sm-8">
-    <h5 class="h4 custom-h5">
+    <div class="form-group">
+                            <label class="text-uppercase">
       Job description
-    </h5>
+    </label>
     <textarea class="piplsearch_ta" readonly id="pipl_jobdescription{{$index}}" name="pipl_jobdescription{{$index}}">{{stu_jobs.jobdescription}}</textarea>
+    </div>
   </div>
   <div class="col-sm-4 text-right">
     <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit description</a>
@@ -316,7 +335,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 <section class=" page-section-education">
   <div class="page-header custom-page-header-brline">
     <div class="pull-left">
-      <h2 class="h2 custom-h2">About me</h2>
+      <h3 class="h3 custom-h3">About me</h3>
     </div>
   </div>
   <div class="panel-group custom-panel-onboarding-group">
