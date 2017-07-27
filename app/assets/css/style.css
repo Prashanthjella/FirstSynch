@@ -302,7 +302,7 @@ h2.custom-h2-04 {
 	margin-top: 7px
 }
 .slider-container .custom-thumbs-box-views {
-	height: 106px;
+	height: 84px;
 }
 .slider-container-career .bx-controls-direction {
 	float: right;
@@ -311,7 +311,7 @@ h2.custom-h2-04 {
 	width: 100%;
 	float: left;
 	position: absolute;
-	top: 410px;
+	bottom: 120px;
 	padding: 0 40px;
 }
 .slider-container-career .bx-wrapper .bx-controls-direction a {
@@ -423,7 +423,9 @@ a.thumbnail, a.custom-large-image-gallery {
 .slider-container-career .custom-gallery-h1 {
 	color: #fff;
 	text-transform: capitalize;
-	padding-left: 0
+	padding-left: 0;
+	  letter-spacing: -1px;
+	  font-weight:bold !important
 }
 .slider-container-career .box-inside-content {
 	width: 76%;
@@ -454,7 +456,7 @@ a.thumbnail, a.custom-large-image-gallery {
 	padding:0 15px 0 15px
 	}
 .custom-thumbnail-image-gallery-05 {
-	height: 222px;
+	height: 180px;
 }
 .custom-thumbnail-image-gallery img.img-gallery-responsive {
 	width: 100%;
@@ -647,7 +649,7 @@ bottom: 90px;
 	margin-bottom: 52px;
 }
 .slider-caption {
-	height: 102px;
+	height: 70px;
 	width: 75%;
 	background-color: #f7f7f7;
 	position: absolute;
@@ -673,14 +675,32 @@ bottom: 90px;
 .caption-date-container {
 	width: 100%;
 	float: left;
+	
+	 opacity: 0.4;
+  
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.67;
+  letter-spacing: -0.6px;
+
+  color: #000000;
 }
+.slider-container-recent .slider-recent-fairs{margin-bottom:0}
+
 .caption-description {
-	font-size: 20px;
-	font-weight: 400;
+	
 	text-transform: capitalize;
 	width: 100%;
 	float: left;
-	margin-top: 15px;
+	margin-top: 8px;
+
+
+ font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: -0.6px;
+ 
+  color: #303030;
 }
 .fair-prev, .fair-next, .bx-prev, .bx-next {
 	background-color: #fff !important;
@@ -847,10 +867,15 @@ bottom: 90px;
 	position: absolute;
 }
 .date-location {
-	font-size: 12px;
-	font-weight: 600;
-	padding: 0 0;
-	margin: 0
+	
+	
+	
+	  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.71;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #ffffff;
 }
 .company-location {
 	font-size: 12px;
@@ -3154,7 +3179,10 @@ font-size: 12px;
 	float:left;
 	width:100%;
 	margin-top:24px;
-	}	
+	}
+.slider-container-career .bx-wrapper{
+	margin-bottom:0
+	}		
 @media (min-width: 1200px){
 	.container{
 		width:970px;
@@ -3788,6 +3816,7 @@ body {
 	/*font-weight:bold !important;*/
 	line-height: 1.67;
 	letter-spacing: -0.8px;
+	color:#fff
 }
 .customn-thumbs-career-fairs h3.custom-gallery-h3 {
 	font-size: 20px;
