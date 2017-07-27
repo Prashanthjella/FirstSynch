@@ -229,7 +229,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
 });
 
 
-FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, $rootScope) {
+FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, apiUrl, $rootScope) {
 
     // $http.get("school.json")
     //     .then(function successCallback(response){
@@ -256,6 +256,8 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
             }else{
                 jQuery("#registration").modal('hide');
                 jQuery("#companyregistration").modal('show');
+                $('.domainsearch_remove').show();
+                $('.domainsearch_show').hide();
                 setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
                 $rootScope.e_mail = $scope.e_mail;
                 $scope.e_mail = '';
@@ -381,7 +383,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                 user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
                 employee : {}
             };
-        if($scope.domainsearch == 'allow'){
+        if($scope.domainsearch == 'allow' && allow_domainsearch){
             var str = $rootScope.e_mail;
             var res = str.split("@");
             $http.get(apiUrl+"api/v1/fullcontact/?domain="+res[1])
@@ -433,7 +435,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                     console.log("Unable to perform get company basic profile details");
             });
         }
-        else if($scope.piplsearch == 'deny') {
+        else if($scope.domainsearch == 'deny' && allow_domainsearch) {
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
                 method: "POST",
@@ -466,7 +468,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                         state: $('#domainstate').val(),
                         zip_code: $('#domainzip_code').val(),
                     },
-                    domainzip_code:$('#domain_description').val(),
+                    description:$('#domain_description').val(),
                     employees : $('#domain_total_emp').val(),
                     establishment_date : $('#domain_est_date').val(),
                     linkedin_url : $('#domain_li_url').val(),
@@ -474,10 +476,10 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                     logo : $('#domainimage').val(),
                     name : $('#domain_company_name').val(),
                     website : $('#domain_website').val(),
-                    company_name:$scope.cname,
-                    user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
-                    employee : {}
-                }
+                },
+                company_name:$scope.cname,
+                user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
+                employee : {}
             }
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -494,6 +496,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$scope, $http, apiUrl, 
                 $scope.lname = '';
                 $scope.cname = '';
                 $scope.password = '';
+                $timeout( function(){
+                    $route.reload();
+               }, 5000 );
             },
             function errorCallback(data, status, headers, config) {
                 $scope.status = data.data.status;
