@@ -109,7 +109,7 @@
                             <label class="text-uppercase">
                                                       Website
                                                   </label>
-                                                  <input type="text" class=" custom-form-control-br-bottom" name="domain_website" value="{{domainwebsite}}" id="domain_website" readonly>
+                                                  <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" custom-form-control-br-bottom" name="domain_website" value="{{domainwebsite}}" id="domain_website" readonly>
                                                   </div>
                                               </div>
                                               <div class="col-sm-4 text-right">
@@ -208,11 +208,11 @@
                                       <div class="panel panel-default custom-panel-address-default  ">
                                           <div class="row">
                                               <div class="col-sm-8">
-                                               
+
                             <h4 class="h4 custom-h4-02">
                                                       Address
                                                   </h4>
-                                                 
+
                                                   <div class="form-group panel panel-default custom-panel-onboarding-default ">
                                                   <label class="text-uppercase">Street</label>
                                                   <input type="text" class=" custom-form-control-br-bottom" name="domainaddress1" value="{{domainaddress1}}" id="domainaddress1" readonly>
