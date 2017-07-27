@@ -250,6 +250,8 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
             if(data.data.user_type == '38OD2'){
                 jQuery("#registration").modal('hide');
                 jQuery("#signUp").modal('show');
+                $('.peoplesearch_remove').show();
+                $('.peoplesearch_show').hide();
                 setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
                 $rootScope.e_mail = $scope.e_mail;
                 $scope.e_mail = '';

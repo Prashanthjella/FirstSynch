@@ -82,11 +82,12 @@
             </div>
             <div class="pull-right checkbox-register" ng-init="piplsearch='allow'">
               <div class="checkbox custom-checkbox checkbox-circle">
-                <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'allow'"class="checkbox-input"  id="student-allow"><label for="student-allow" class="checkbox-label-01">Allow</label>
+                <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'allow'"class="checkbox-input"  id="student-allow">
+                <label for="student-allow1" class="checkbox-label-01">Allow</label>
               </div>
               <div class="checkbox custom-checkbox checkbox-circle">
                 <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'deny'"class="checkbox-input" id="student-Forbid">
-                <label for="student-Forbid" class="checkbox-label-01">Forbid</label>
+                <label for="student-Forbid1" class="checkbox-label-01">Forbid</label>
               </div>
             </div>
           </div>
@@ -317,7 +318,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
                             <label class="text-uppercase">
       Job description
     </label>
-    <textarea class="piplsearch_ta" readonly id="pipl_jobdescription{{$index}}" name="pipl_jobdescription{{$index}}">{{stu_jobs.jobdescription}}</textarea>
+    <textarea class="piplsearch_ta  custom-form-control-br-bottom" readonly id="pipl_jobdescription{{$index}}" name="pipl_jobdescription{{$index}}">{{stu_jobs.jobdescription}}</textarea>
     </div>
   </div>
   <div class="col-sm-4 text-right">
@@ -333,11 +334,11 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 </div>
 </section>
 <section class=" page-section-education">
-  <div class="page-header custom-page-header-brline">
+  <!--<div class="page-header custom-page-header-brline">
     <div class="pull-left">
       <h3 class="h3 custom-h3">About me</h3>
     </div>
-  </div>
+  </div>-->
   <div class="panel-group custom-panel-onboarding-group">
     <!-- <div class="panel panel-default custom-panel-onboarding-default ">
     <div class="row">
