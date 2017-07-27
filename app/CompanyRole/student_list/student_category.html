@@ -16,6 +16,7 @@
                                 <div class="media custom-media" ng-repeat="stu in student_det.students">
                                     <a href="/com/student/{{stu.user}}" >{{student_det.student}}
                                         <div class="media-left media-middle custom-media-left">
+                                            <img class="media-object custom-media-object" ng-if="!stu.profile_picture" ng-src="assets/images/profileicon.png" alt="Student Logo">
                                             <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">
                                         </div>
                                         <div class="media-body custom-media-body">

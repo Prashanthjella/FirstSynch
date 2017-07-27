@@ -16,10 +16,11 @@
                         <div class="media custom-media" ng-repeat="stu in student_det.employees">
                             <a href="/student/{{stu.user}}" >
                                 <div class="media-left media-middle custom-media-left">
+                                    <img class="media-object custom-media-object" ng-if="!stu.profile_picture" ng-src="assets/images/profileicon.png" alt="Student Logo">
                                   <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>
                                 <div class="media-body custom-media-body">
                                     <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
-                                    <h5 class="media-eading-h5">{{ stu.city }}, {{ stu.state }}</h5>
+                                    <h5 class="media-eading-h5" >{{ stu.city + ', ' }}{{ stu.state }}</h5>
                                     <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
                                     </span>
                                 </div>
