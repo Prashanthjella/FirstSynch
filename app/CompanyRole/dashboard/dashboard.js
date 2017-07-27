@@ -32,7 +32,7 @@ FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl, $
               +'<div class="box-inside-content">'
                   +'<span class="logo-companies"><img src="'+response.data[i].company.logo+'" class="img-responsive"></span>'
                   +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
-                +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
               +'</div>'
               +'</a>'
             +'</div>';
@@ -93,7 +93,7 @@ FirstSynch.controller("company_dbstudents" , function ($scope, $http, apiUrl, $c
                                         +'<span class="arrow-triangle"></span>'
                                         +'<span class="link-new">New</span>'
                                           +'<div class="box-inside-content">'
-                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                           +'</div>'
                                         +'</a> '
                                       +'</div>';
@@ -140,7 +140,7 @@ FirstSynch.controller("company_dbcompany" , function ($scope, $http, apiUrl,$com
                                               +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
                                             +'</span>'
                                               +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
-                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';

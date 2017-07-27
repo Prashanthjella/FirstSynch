@@ -73,7 +73,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
                                         +'<span class="arrow-triangle"></span>'
                                         +'<span class="link-new">New</span>'
                                           +'<div class="box-inside-content">'
-                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                           +'</div>'
                                         +'</a> '
                                       +'</div>';
@@ -120,7 +120,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
                                               +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
                                             +'</span>'
                                               +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
-                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';
@@ -162,7 +162,7 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($rootScope,$timeo
                                         +'<div class="overlay"></div>'
                                         +'<div class="box-inside-content">'
                                          +' <p class="date-location">'+response.data[i].start_date+'<span> •</span> '+response.data[i].where+', '+response.data[i].country+'</p>'
-                                          +'<h1 class="custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                          +'<h1 class="custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                         +'</div>'
                                       +'</div>'
                                       +'</a>'
