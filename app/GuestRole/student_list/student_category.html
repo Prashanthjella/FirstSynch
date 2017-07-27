@@ -16,7 +16,7 @@
                                 <div class="media custom-media" ng-repeat="stu in student_det.students">
                                     <a href="/student/{{stu.user}}" >{{student_det.student}}
                                         <div class="media-left media-middle custom-media-left">
-                                            <img class="media-object custom-media-object" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>
+                                            <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>
                                             <div class="media-body custom-media-body">
                                                 <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
                                                 <h5 class="media-eading-h5">{{ stu.city }}, {{ stu.state }}</h5>
