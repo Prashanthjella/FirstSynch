@@ -118,7 +118,7 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	font-size: 14px;
 	font-weight: 600;
 	word-break: normal !important;
-     word-wrap: normal !important; 
+     word-wrap: normal !important;
 }
 .custom-h5-01 {
 	text-transform: uppercase;
@@ -311,8 +311,8 @@ h2.custom-h2-04 {
 	width: 100%;
 	float: left;
 	position: absolute;
-	bottom: 120px;
-	padding: 0 40px;
+	bottom: 34px;
+  padding: 0 27px;
 }
 .slider-container-career .bx-wrapper .bx-controls-direction a {
 	position: static !important;
@@ -568,7 +568,7 @@ bottom: 90px;
 	margin-bottom: 14px;
 	word-break:normal !important;
 	word-wrap:normal !important;
-	
+
 }
 .page-section-recent-fairs {
 	background-color: #f7f7f7;
@@ -675,9 +675,9 @@ bottom: 90px;
 .caption-date-container {
 	width: 100%;
 	float: left;
-	
+
 	 opacity: 0.4;
-  
+
   font-size: 12px;
   font-weight: 600;
   line-height: 1.67;
@@ -688,7 +688,7 @@ bottom: 90px;
 .slider-container-recent .slider-recent-fairs{margin-bottom:0}
 
 .caption-description {
-	
+
 	text-transform: capitalize;
 	width: 100%;
 	float: left;
@@ -699,7 +699,7 @@ bottom: 90px;
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: -0.6px;
- 
+
   color: #303030;
 }
 .fair-prev, .fair-next, .bx-prev, .bx-next {
@@ -741,8 +741,8 @@ bottom: 90px;
 .slider-container-career .bx-wrapper .bx-pager-item {
 }
 .slider-container-career .bx-wrapper .bx-pager.bx-default-pager a {
-	background-color: #D6D6D6 !important;
-	border-coor: #D6D6D6 !important;
+	background-color: #fff !important;
+	border-coor: #fff !important;
 	border-width: 2px;
 }
 .slider-container-career .bx-wrapper .bx-pager.bx-default-pager a.bx-pager-link.active {
@@ -791,6 +791,7 @@ bottom: 90px;
 .slider-inside-thumbs {
 	width: 100%;
 	float: left;
+	margin: 20px 0px 0px 0px;
 }
 .customn-thumbs-color-1 .overlay, .customn-thumbs-color-1 .overlay:before, .customn-thumbs-color-10 .overlay, .customn-thumbs-color-10 .overlay:before {
 	background: #dcbcdc;
@@ -867,9 +868,9 @@ bottom: 90px;
 	position: absolute;
 }
 .date-location {
-	
-	
-	
+
+
+
 	  font-size: 14px;
   font-weight: bold;
   line-height: 1.71;
@@ -1911,9 +1912,9 @@ textarea.custom-text-area {
 	z-index: 0
 }
 .form-group label {
-	
+
 	  opacity: 0.3;
- 
+
   font-size: 11px;
   font-weight: bold;
   line-height: 2;
@@ -2115,11 +2116,11 @@ textarea.custom-text-area {
   letter-spacing: -0.3px;
   text-align: center;
   color: #b2b2b2;
-  margin-top:5px 
+  margin-top:5px
 	}
 .company-list-box:hover,.company-list-box:focus{
 	text-decoration:none;
-	}	
+	}
 .custom-thumbnail-company-logo img.logo-companies-box {
 	display: inherit;
 	max-width: 85%;
@@ -2393,7 +2394,7 @@ textarea.custom-text-area {
 	color: #303030;
 }
 .custom-form-control-br-bottom {
-	
+
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -3168,11 +3169,11 @@ font-size: 12px;
 }
 .total-company-numbers{
 	  opacity: 0.3;
-  
+
   font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.4px;
- 
+
   color: #0d0d0d;
 	}
 .top-3-companies{
@@ -3182,7 +3183,7 @@ font-size: 12px;
 	}
 .slider-container-career .bx-wrapper{
 	margin-bottom:0
-	}		
+	}
 @media (min-width: 1200px){
 	.container{
 		width:970px;
@@ -4179,7 +4180,7 @@ h3.school-name {
 }
 input.ng-dirty.ng-success, .has-success{
 	border-bottom: 2px solid #00b58e !important;
-	
+
 }
 label.has-success {
 	color: #00b58e !important;
@@ -4188,4 +4189,14 @@ label.has-success {
 }
 .page-section-onboard .custom-form-control-br-bottom {
 	border: none! important;
+}
+/**********Career fair near by slider properties*******/
+.page-secction-career-fair-near .slider-container-career .bx-controls {
+	padding: 22px 28px !important;
+}
+.page-secction-career-fair-near .slider-container-career  .bx-wrapper .bx-default-pager {
+	padding: 0px 0px 0px 9px !important;
+}
+.page-section-upcoming .slider-caption {
+	background: #fff !important;
 }

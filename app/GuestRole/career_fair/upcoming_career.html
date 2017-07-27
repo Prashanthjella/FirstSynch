@@ -12,7 +12,7 @@
                             <li ng-click="careerfair_filters($event)" datavalue="now"><a href="" title="Current">Current</a></li>
 						</ul>
     				</span>
-                    career fairs in
+                    Career Fairs in
                     <span  class="dropdown" ng-controller="all_career_fair_near_user_city">
         				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_cer_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Allcities</span>
 		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
@@ -31,13 +31,13 @@
                 </h2>
             </div>
         </div>
-        <div class="row custom-row-10">
+        <div class="">
             <div class="slider-container-recent" ng-if="visible">
-                <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 600, infiniteLoop: false, hideControlOnEnd: true">
+                <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 450, slideMargin:40, infiniteLoop: false, hideControlOnEnd: true">
                     <div class="slide" data-ng-repeat="upcome_career in upcoming_career" data-notify-when-repeat-finished>
                         <div class="slider-inside-large">
                             <a href="/careerfair/{{upcome_career.id}}" style="color:#000;">
-                                <div class="slider-recent-fairs"> <img  style="width:97%; height:315px;" ng-src="{{upcome_career.image_medium}}" alt="img1.png">
+                                <div class="slider-recent-fairs"> <img style="height:240px;" ng-src="{{upcome_career.image_medium}}" alt="img1.png">
                                     <div class="slider-caption">
                                         <div class="caption-date-container"><span class="caption-date">{{upcome_career.start_time | date:"MMM d, y"}}</span> &bull; <span class="caption-state">{{ upcome_career.city }}, {{ upcome_career.country }}</span></div>
                                         <h3 class="caption-description">{{upcome_career.title|truncate:50}}</h3>
