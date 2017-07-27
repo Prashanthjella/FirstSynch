@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.website.$valid}">Website</label>
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
+                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-grou">
                                     <label class="text-uppercase">Linkedin</label>
