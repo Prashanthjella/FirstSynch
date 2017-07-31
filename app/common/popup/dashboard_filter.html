@@ -1,10 +1,12 @@
 <div id="dashboard-filter" class="modal fade dashboard-filter" role="dialog" ng-controller="dashboard_filter_process">
     <form>
-        <div class="modal-dialog">
+        <div class="modal-dialog custom-modal-600">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn-close-filter" data-dismiss="modal">
+                    <i class="arrow-down-filter"></i>
+                    </button>
                     <h4 class="modal-title"><span class="icon-filter"></span>Filters <span class="jobs-total filter_job_count"></span></h4>
                 </div>
                 <div class="modal-body">
@@ -80,6 +82,7 @@
                         <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'industry'">
                             <div class="media-group-container all_industry_type">
                                 <h3 class="custom-h3">Industry</h3>
+                                <div class="scroll-filter">
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <input id="Accommodations" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
@@ -398,6 +401,7 @@
                                         <label for="WebServices" class="checkbox-label"> Web Services</label>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'salary'">
@@ -475,17 +479,21 @@
                         <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'skills'">
                             <div class="media-group-container all_skills_filter">
                                 <h3 class="custom-h3">Skills</h3>
-                                <input type="text" class="form-control custom-form-control-br-bottom skillname"  name="skillname" ng-model="skillname" required=""/>
+                                <div class="form-group">
+                                <input type="text" class="form-control form-control-transparent custom-form-control-br-bottom skillname"  name="skillname" ng-model="skillname" required=""/>
+                                </div>
                                 <button class="btn btn-default custom-btn-login" style="opacity:1;color:#303030;" ng-click="dashboard_filter_form()">+ Add</button>
                             </div>
                         </div>
                         <div class="col-sm-6 bg-grey custom-col-justify" ng-controller="all_companies_namess" ng-show="filter_option == 'companyf'">
                             <div class="media-group-container all_company_filter">
                                 <h3 class="custom-h3">Company</h3>
+                                <div class="scroll-filter">
                                 <div class="form-group" ng-repeat="cmpnyname in all_company_names">
                                     <div class="checkbox">
                                         <input id="{{cmpnyname.name|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
                                         <label for="{{cmpnyname.name|removeSpaces}}" class="checkbox-label"> {{cmpnyname.name}}</label>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

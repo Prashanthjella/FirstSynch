@@ -1892,6 +1892,9 @@ textarea.custom-text-area {
 .custom-modal-880 {
 	width: 880px;
 }
+.custom-modal-600{
+	width:600px;
+	}
 .thumbnail-img:hover .icon-circle-photos {
 	display: block;
 }
@@ -1921,6 +1924,7 @@ textarea.custom-text-area {
   letter-spacing: -0.2px;
   color: #0d0d0d;
 }
+
 .tabe-pane-lidarship .contanier-inside {
 	width: 670px;
 }
@@ -3085,6 +3089,45 @@ font-size: 12px;
 	border: none;
 	font-weight: 600;
 }
+.dashboard-filter .form-group .checkbox label.checkbox-label{
+	font-size: 14px !important;
+  font-weight: bold;
+  line-height: 1.71;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #303030 !important;
+    opacity: 0.6 !important;
+	text-transform:none !important;
+	padding-top:0;
+	padding-bottom:0
+	}
+	.dashboard-filter .media-eading-h5{
+		font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #0d0d0d;
+  margin:0
+		}
+	.dashboard-filter .media-heading{
+		opacity: 0.6;
+		
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #0d0d0d;
+		}	
+	.dashboard-filter .custom-media{
+		margin-bottom:12px;
+		margin-top:0;
+		padding-bottom:12px
+		}
+	.scroll-filter{
+		height:350px;
+		overflow:auto;
+		}		
 .dashboard-filter input[type="checkbox"].checkbox-input + label.checkbox-label:before {
 	background-color: transparent;
 	-webkit-border-radius: 0;
@@ -3095,6 +3138,25 @@ font-size: 12px;
 .dashboard-filter input[type="checkbox"].checkbox-input:checked + label.checkbox-label:before {
 	color: #303030;
 }
+.arrow-down-filter{border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px 3px;
+  
+   transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+	 -moz-transform: rotate(45deg);
+	 opacity:1 !important;
+	}
+	.btn-close-filter{opacity:1}
+	.all_employeement_type input[type=checkbox],.all_salary_range input[type=checkbox],
+	.all_employeement_type input[type=radio],.all_salary_range input[type=radio]{
+		display:inline-block;
+		vertical-align:middle;
+		margin-top:0
+		
+		}
+	.form-control-transparent{background-color:transparent;}
 .btn-reset {
 	background: none;
 	border: none;
@@ -3102,7 +3164,7 @@ font-size: 12px;
 	float: left;
 	font-weight: 600;
 	margin-left: 10px;
-	margin-top: 23px;
+	margin-top: 34px;
 }
 .reset-control {
 	float: left;
@@ -3115,7 +3177,8 @@ font-size: 12px;
 	clear: both;
 }
 .dashboard-filter h3.custom-h3 {
-	margin-bottom: 30px
+	margin-bottom: 20px;
+	margin-top:30px;
 }
 .link-user {
 	color: #b2b2b2
