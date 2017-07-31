@@ -1,5 +1,5 @@
 <!--[Student category Section Start]-->
-<section class="page-section  page-section-employees student_act_categ"  ng-controller="student_categorys">
+<section class="page-section  page-section-employees companies_act_categ"  ng-controller="student_categorys">
     <div class="container">
         <div class="row custom-row-35">
             <div id="slider-companies-designation" class=" slide-companies" data-uix-bxslider="shrinkItems: false, nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:3, slideWidth:324, infiniteLoop: false, hideControlOnEnd: true">
@@ -20,7 +20,7 @@
                                   <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>
                                 <div class="media-body custom-media-body">
                                     <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
-                                    <h5 class="media-eading-h5" >{{ stu.city + ', ' }}{{ stu.state }}</h5>
+                                    <h5 class="media-eading-h5" ng-if="stu.city && stu.state">{{ stu.city }},{{ stu.state }}</h5>
                                     <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
                                     </span>
                                 </div>
