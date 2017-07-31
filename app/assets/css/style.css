@@ -2411,6 +2411,7 @@ textarea.custom-text-area {
 	letter-spacing: -0.4px;
 	color: #000000;
 }
+.custom-modal-body-login .form-group{margin-bottom:28px;}
 .list-register-group {
 	float: left;
 	margin: 19px 0 0 0;
@@ -2487,7 +2488,7 @@ font-size: 12px;
 	box-shadow: none;
 }
 .custom-modal-body-login {
-	width: 662px;
+	width: 530px;
 	margin: 0 auto;
 }
 .custom-btn-login {
@@ -2511,8 +2512,9 @@ font-size: 12px;
 	cursor: pointer;
 }
 .custom-modal-880 .custom-h1-01.title-login {
-	margin-top: 75px;
-	margin-bottom: 60px;
+	margin-top: 92px;
+	margin-bottom: 53px;
+	  color: #0d0d0d;
 }
 .custom-login-modal-footer-02 {
 	margin-top: 70px;
