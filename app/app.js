@@ -380,64 +380,62 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
 
     $scope.CompanyRegistratoin = function () {
         var allow_domainsearch = parseInt($('#domain_search').val());
+
+        if($scope.domainsearch == 'allow' && allow_domainsearch){
+            var data = {
+                allow_company_info: 'True',
+                company_name:$scope.cname,
+                user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
+                employee : {}
+            };
+            $http({
+                url: apiUrl+'api/v1/employee/api/employee_signup/',
+                method: "POST",
+                data: data,
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then(function successCallback(data, status, headers, config) {
+                if(data.data.success){
+                    jQuery("#companyregistration").modal('hide');
+                    jQuery("#companysignUpSuccess").modal('show');
+                    jQuery('form#reset_forms').trigger("reset");
+                    jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                    $scope.name = '';
+                    $scope.lname = '';
+                    $scope.cname = '';
+                    $scope.password = '';
+                }
+                else{
+                    $scope.domainimage = data.data.company_info.logo ? data.data.company_info.logo : "" ;
+                    $scope.domaincmpy_name= data.data.company_info.name ? data.data.company_info.name : "" ;
+                    $scope.domainwebsite= data.data.company_info.website ? data.data.company_info.website :"";
+                    $scope.domain_est_date= data.data.company_info.establishment_date ?data.data.company_info.establishment_date :"";
+                    $scope.domainfburl= data.data.company_info.facebook_url ? data.data.company_info.facebook_url : "" ;
+                    $scope.domainliurl= data.data.company_info.linkedin_url ? data.data.company_info.linkedin_url : "" ;
+                    $scope.domaintotal_emp= data.data.company_info.employees ? data.data.company_info.employees : "" ;
+                    $scope.domaindescription= data.data.company_info.description ? data.data.company_info.description : "" ;
+                    $scope.domainaddress1= data.data.company_info.address.address_1 ? data.data.company_info.address.address_1 : "" ;
+                    $scope.domaincity= data.data.company_info.address.city ? data.data.company_info.address.city : "" ;
+                    $scope.domainstate= data.data.company_info.address.state ? data.data.company_info.address.state : "" ;
+                    $scope.domaincountry= data.data.company_info.address.country ? data.data.company_info.address.country : "" ;
+                    $scope.domainzip_code= data.data.company_info.address.zip_code ? data.data.company_info.address.zip_code : "" ;
+                    $scope.domaine_mail= data.data.company_info.address.e_mail ? data.data.company_info.address.e_mail : "" ;
+                    $scope.domaincontact_no= data.data.company_info.address.contact_no ? data.data.company_info.address.contact_no : "" ;
+                    $('#domain_search').val('0');
+                    $('.domainsearch_remove').hide();
+                    $('.domainsearch_show').show();
+                }
+            },
+            function errorCallback(data, status, headers, config) {
+                $scope.status = data.data.status;
+            });
+        }
+        else if($scope.domainsearch == 'deny' && allow_domainsearch) {
             var data = {
                 company_name:$scope.cname,
                 user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
                 employee : {}
             };
-        if($scope.domainsearch == 'allow' && allow_domainsearch){
-            var str = $rootScope.e_mail;
-            var res = str.split("@");
-            $http.get(apiUrl+"api/v1/fullcontact/?domain="+res[1])
-                .then(function successCallback(response){
-                    $scope.domainimage = response.data.logo ? response.data.logo : "" ;
-                    $scope.domaincmpy_name= response.data.name ? response.data.name : "" ;
-                    $scope.domainwebsite= response.data.website ? response.data.website :"";
-                    $scope.domain_est_date= response.data.establishment_date ?response.data.establishment_date :"";
-                    $scope.domainfburl= response.data.facebook_url ? response.data.facebook_url : "" ;
-                    $scope.domainliurl= response.data.linkedin_url ? response.data.linkedin_url : "" ;
-                    $scope.domaintotal_emp= response.data.employees ? response.data.employees : "" ;
-                    $scope.domaindescription= response.data.description ? response.data.description : "" ;
-                    $scope.domainaddress1= response.data.address.address_1 ? response.data.address.address_1 : "" ;
-                    $scope.domaincity= response.data.address.city ? response.data.address.city : "" ;
-                    $scope.domainstate= response.data.address.state ? response.data.address.state : "" ;
-                    $scope.domaincountry= response.data.address.country ? response.data.address.country : "" ;
-                    $scope.domainzip_code= response.data.address.zip_code ? response.data.address.zip_code : "" ;
-                    $scope.domaine_mail= response.data.address.e_mail ? response.data.address.e_mail : "" ;
-                    $scope.domaincontact_no= response.data.address.contact_no ? response.data.address.contact_no : "" ;
-                    if($scope.piplimage || $scope.domaincmpy_name || $scope.domainwebsite || $scope.domain_est_date || $scope.domainfburl||$scope.domainliurl||$scope.domaintotal_emp||$scope.domaindescription){
-                        $('#domain_search').val('0');
-                        $('.domainsearch_remove').hide();
-                        $('.domainsearch_show').show();
-                    }
-                    else{
-                        $http({
-                            url: apiUrl+'api/v1/employee/api/employee_signup/',
-                            method: "POST",
-                            data: data,
-                            headers: {'Content-Type': 'application/json'}
-                        })
-                        .then(function successCallback(data, status, headers, config) {
-                            jQuery("#companyregistration").modal('hide');
-                            jQuery("#companysignUpSuccess").modal('show');
-                            jQuery('form#reset_forms').trigger("reset");
-                            jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
-                            $scope.name = '';
-                            $scope.lname = '';
-                            $scope.cname = '';
-                            $scope.password = '';
-                        },
-                        function errorCallback(data, status, headers, config) {
-                            $scope.status = data.data.status;
-
-                        });
-                    }
-
-                }, function errorCallback(response){
-                    console.log("Unable to perform get company basic profile details");
-            });
-        }
-        else if($scope.domainsearch == 'deny' && allow_domainsearch) {
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
                 method: "POST",
@@ -494,6 +492,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
                 jQuery("#companysignUpSuccess").modal('show');
                 jQuery('form#reset_forms').trigger("reset");
                 jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                $('#domain_search').val('1');
                 $scope.name = '';
                 $scope.lname = '';
                 $scope.cname = '';
