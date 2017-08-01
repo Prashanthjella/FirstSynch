@@ -75,6 +75,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     }
     $rootScope.current_url = $location.path();
     $rootScope.today = new Date();
+    $rootScope.dashboard = true;
     $rootScope.apiurl = apiUrl;
     $rootScope.LoginPopupopen = function(){
         if($rootScope.guest_login){

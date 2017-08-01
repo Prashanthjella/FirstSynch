@@ -1,5 +1,5 @@
-<div ng-init="dashboard='normal'">
-    <div ng-show="dashboard=='normal'">
+<div>
+    <div ng-show="dashboard">
         <!-- featured video start-->
         <div ng-include ="'GuestRole/home/featuredvideo.html'"></div>
         <!-- featured video end -->
@@ -13,7 +13,7 @@
         <div ng-include ="'GuestRole/home/companies.html'"></div>
         <!-- companies end -->
     </div>
-    <div ng-show="dashboard=='fileter'" ng-controller="page_reload">
+    <div ng-show="!dashboard" ng-controller="page_reload">
         <section class="page-section page-section-featured-students">
             <div class="container">
                 <div class="page-control-container">
@@ -27,6 +27,6 @@
         </section>
     </div>
 </div>
-<a ng-click="dashboard = 'fileter'" data-toggle="modal" data-target="#dashboard-filter" class="btn btn-default btn-filter custom-btn-default-03">
+<a  data-toggle="modal" data-target="#dashboard-filter" class="btn btn-default btn-filter custom-btn-default-03">
     <span class="icon-filter"></span>Filters <span class="jobs-total filter_job_count"></span>
 </a>
