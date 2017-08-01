@@ -387,7 +387,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
                 allow_company_info: 'True',
                 company_name:$scope.cname,
                 user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-                employee : {}
+                employee : { first_name : $scope.name, last_name : $scope.lname}
             };
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -435,7 +435,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
             var data = {
                 company_name:$scope.cname,
                 user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-                employee : {}
+                employee : { first_name : $scope.name, last_name : $scope.lname}
             };
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -480,7 +480,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
                 },
                 company_name:$scope.cname,
                 user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
-                employee : {}
+                employee : { first_name : $scope.name, last_name : $scope.lname }
             }
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
