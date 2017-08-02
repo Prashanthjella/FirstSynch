@@ -406,7 +406,7 @@ after you connect to your Instagram accoubnt. We will never post to Instagram wi
           </div>
         </div>
         <div class="modal-body custom-video-modal-body " >
-          <section class="page-section page-section-onboard">
+          <section class="page-section page-section-onboard page-section-onboard-popup">
             <div class="row">
               <div class="col-md-12">
                 <section class=" page-section-education">
@@ -464,12 +464,194 @@ after you connect to your Instagram accoubnt. We will never post to Instagram wi
                             <!-- <h5 class="h5 custom-h5-01"></h5> -->
                           </div>
                         </div>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <h5 class="h4 custom-h5">
+                              Gender
+                            </h5>
+                            <select name="gender" ng-model="facebookform.fbgender" class="form-control custom-form-control-br-bottom" >
+                              <option value="male" ng-selected="{{ facebookform.fbgender == 'male' }}">Male</option>
+                              <option value="female" ng-selected="{{ facebookform.fbgender == 'female' }}">FeMale</option>
+                            </select>
+                            <!-- <h5 class="h5 custom-h5-01"></h5> -->
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <h5 class="h4 custom-h5">
+                              Date of Birth
+                            </h5>
+                            <input type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbdob">
+                            <input type="hidden" id="fbjob_count" value="{{facebookform.fbjobscount}}">
+                            <input type="hidden" id="fbeducation_count" value="{{facebookform.fbeducationcount}}">
+                          </div>
+                          <div class="col-sm-4 text-right">
+                            <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit DOB</a>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </section>
               </div>
             </div>
           </section>
+          <section class="page-section page-section-onboard page-section-onboard-popup" ng-if="facebookform.fbjobscount > 0">
+              <div class="row">
+                <div class="col-md-12">
+            <div class="page-header custom-page-header">
+              <div class="pull-left">
+                <h3 class="h3 custom-h3">Work History</h3>
+              </div>
+            </div>
+            <div  ng-repeat="fb_jobs in facebookform.fbjobs">
+                <div class="page-header custom-page-header-brline">
+                    <h4 class="h4 custom-h4-02">Job#{{$index+1}}</h4>
+                </div>
+                <div class="panel-group custom-panel-onboarding-group">
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Company Name
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_company_name{{$index}}" value="{{fb_jobs.company_name}}" id="fb_company_name{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Company Name</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Dates Started
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_datestarted{{$index}}" value="{{fb_jobs.datestarted}}" id="fb_datestarted{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Leave Date
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_leavedate{{$index}}" value="{{fb_jobs.leavedate}}" id="fb_leavedate{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Job title
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_jobtitle{{$index}}" value="{{fb_jobs.jobtitle}}" id="fb_jobtitle{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Job title</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Job description
+                                    </label>
+                                    <textarea class="piplsearch_ta  custom-form-control-br-bottom" readonly id="fb_jobdescription{{$index}}" name="fb_jobdescription{{$index}}">{{fb_jobs.jobdescription}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit description</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+        <section class="page-section page-section-onboard page-section-onboard-popup" ng-if="facebookform.fbeducationcount > 0">
+            <div class="row">
+              <div class="col-md-12">
+
+            <div class="page-header custom-page-header">
+                <div class="pull-left">
+                    <h3 class="h3 custom-h3">Education</h3>
+                </div>
+            </div>
+            <div ng-repeat="fb_education in facebookform.fbeducation">
+                <div class="page-header custom-page-header-brline">
+                    <h4 class="h4 custom-h4-02">School#{{$index+1}}</h4>
+                </div>
+                <div class="panel-group custom-panel-onboarding-group">
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        School
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_school_name" value="{{fb_education.school_name}}" id="fb_school_name{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit School</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Dates Attended
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_dateattended" value="{{fb_education.dateattended}}" id="fb_dateattended{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="text-uppercase">
+                                        Major
+                                    </label>
+                                    <input type="text" class=" custom-form-control-br-bottom" name="fb_major" value="{{fb_education.major}}" id="fb_major{{$index}}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Major</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
         </div>
       </div>
     </div>

@@ -173,8 +173,9 @@ FirstSynch.controller("all_companies_namess" ,function ($scope, $http,$routePara
   });
 
 });
-FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$routeParams,apiUrl,$timeout,$compile) {
+FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $http,$routeParams,apiUrl,$timeout,$compile) {
     $scope.dashboard_filter_form = function(){
+        $rootScope.dashboard = false;
         var keywords = '';
         var industries = '';
         var salary = '';
@@ -259,11 +260,13 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
             $('.filtered_kw_company').text('Not specified');
             companyd = '';
         }
-        else{query_params
+        else{
             $('.filtered_kw_company').text(companies.substring(1));
             companyd = companies.substring(1);
         }
-
+        if(industries == '' && salary == '' && employee_type == '' && skiills =='' && companyd ==''){
+            $rootScope.dashboard = true;
+        }
         var query_params = '?';
         if(industries != ''){
             query_params += 'industry='+industries;
@@ -309,6 +312,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($scope, $http,$route
         });
     };
     $scope.reset_filter_form = function(){
+        $rootScope.dashboard = true;
         angular.element(jQuery('.filtered_kw_industry,.filtered_kw_salary,.filtered_kw_employement,.filtered_kw_skills,.filtered_kw_company')).text('Not specified');
         angular.element(jQuery('.filter_job_count,.video_filter_search_result')).empty();
         angular.element(jQuery('.video_filter_search_result_empty')).show();

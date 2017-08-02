@@ -75,6 +75,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     }
     $rootScope.current_url = $location.path();
     $rootScope.today = new Date();
+    $rootScope.dashboard = true;
     $rootScope.apiurl = apiUrl;
     $rootScope.LoginPopupopen = function(){
         if($rootScope.guest_login){
@@ -386,7 +387,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
                 allow_company_info: 'True',
                 company_name:$scope.cname,
                 user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-                employee : {}
+                employee : { first_name : $scope.name, last_name : $scope.lname}
             };
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -434,7 +435,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
             var data = {
                 company_name:$scope.cname,
                 user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-                employee : {}
+                employee : { first_name : $scope.name, last_name : $scope.lname}
             };
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -479,7 +480,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
                 },
                 company_name:$scope.cname,
                 user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
-                employee : {}
+                employee : { first_name : $scope.name, last_name : $scope.lname }
             }
             $http({
                 url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -614,11 +615,17 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
         fbfirstname:"",
         fblastname : "",
         fbimage : "",
-        fbemail : ""
+        fbemail : "",
+        fbgender : "",
+        fbeducation : "",
+        fbjobs : "",
+        fbdob:"",
+
     };
 
 
     $scope.fbsignup = function(){
+        var fbworkhistroy_arry = [];
         $http({
             url: apiUrl+'api/v1/accounts/signupemail/',
             method: "POST",
@@ -628,11 +635,17 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
         .then(function successCallback(data, status, headers, config) {
             if(data.data.user_type == '38OD2'){
                 //student
+                for(var w=0;w<parseInt($('#fbjob_count').val());w++){
+                    fbworkhistroy_arry.push({"company_name":$('#fb_company_name'+w).val(),"datestarted":$('#fb_datestarted'+w).val(),"leavedate":$('#fb_leavedate'+w).val(),"jobtitle":$('#fb_jobtitle'+w).val(),"jobdescription":$('#fb_jobdescription'+w).val()});
+                }
+
                 var data = {
                     is_verified : true,
+                    education : {school_name : $('#fb_school_name0').val(),dateattended: $('#fb_dateattended0').val(),major:$('#fb_major0').val()},
                     image : $scope.facebookform.fbimage,
                     student : {first_name : $scope.facebookform.fbfirstname},
-                    user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname}
+                    user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname},
+                    jobs:fbworkhistroy_arry
                 };
                 $http({
                     url: apiUrl+'api/v1/student/student_signup/',
@@ -732,6 +745,12 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
                 $scope.facebookform.fblastname = response.data.last_name;
                 $scope.facebookform.fbimage = response.data.image;
                 $scope.facebookform.fbemail = response.data.email;
+                $scope.facebookform.fbgender = response.data.gender?response.data.gender:"";
+                $scope.facebookform.fbdob = response.data.dob?response.data.dob:"";
+                $scope.facebookform.fbeducation = response.data.education?response.data.education:"";
+                $scope.facebookform.fbeducationcount = response.data.education?response.data.education.length:0;
+                $scope.facebookform.fbjobs = response.data.jobs?response.data.jobs:"";
+                $scope.facebookform.fbjobscount = response.data.jobs?response.data.jobs.length:0;
                 $location.search('code', null);
                 $location.search('state', null);
                 jQuery("#fbsignUp").modal('show');
