@@ -18,7 +18,7 @@
                     </h4>
                 </div>
                 <div id="sbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="basicprofileform" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
+                    <form name="basicprofileforms" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-sm-12 col-md-12">
@@ -86,7 +86,7 @@
                                     <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
                                 </div>
                                    <p class="btn-panel-group">
-                        <input type="submit" value="Submit" ng-disabled="basicprofileform.$invalid" class="btn btn-default custom-btn btn-lg" />
+                        <input type="submit" value="Submit" ng-disabled="basicprofileforms.$invalid" class="btn btn-default custom-btn btn-lg" />
                         </p>
                                 <!--<div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase">Profile Image</label>

@@ -266,6 +266,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
         }
         if(industries == '' && salary == '' && employee_type == '' && skiills =='' && companyd ==''){
             $rootScope.dashboard = true;
+            return false;
         }
         var query_params = '?';
         if(industries != ''){
