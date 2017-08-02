@@ -1,8 +1,8 @@
-<section class="page-section page-section-about-me">
+<section class="page-section page-section-about-me"  id="student_student_profile_aboutme">
     <div class="container">
   <div class="row">
           <div class="col-sm-offset-2">
-<h1 class="h1 custom-page-h1">About me</h1>
+              <h1 class="h1 custom-page-h1" ng-if="student_profile_details.hobby.length > 0 || student_profile_details.student_characteristic.length > 0 || student_profile_details.whatimlooking.length > 0">About me</h1>
 
               <div class="row" ng-if="student_profile_details.hobby.length > 0">
                  <div class="col-sm-12">
@@ -38,7 +38,7 @@
                     </div>
               </div>
 <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="student_profile_details.whatimlooking.length > 0">What i'm looking for</h1>
-            
+
               <div class="row" ng-if="student_profile_details.whatimlooking.length > 0">
                 <div class="col-sm-12 col-md-12">
 <div class="row custom-row-10" >
