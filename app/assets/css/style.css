@@ -75,6 +75,7 @@ h1, h2, h3 {
 .custom-h1-03 {
 	margin-bottom: 24px;
 }
+.custom-h1-04{margin-bottom:15px}
 .custom-h3 {
 	text-transform: uppercase;
 }
@@ -904,6 +905,12 @@ bottom: 90px;
 	text-align: left;
 	color: #ffffff;
 }
+.slider-bottom-solical .date-location{  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.85;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #303030;}
 .company-location {
 	font-size: 12px;
 	font-weight: 600;
@@ -1066,8 +1073,8 @@ bottom: 90px;
 	color: #303030
 }
 .total-followers {
-	color: #00b58e;
-	font-weight: 700;
+font-weight: bold;
+  color: #00b58e;
 }
 .complete-profile {
 	width: 100%;
@@ -1446,27 +1453,33 @@ bottom: 90px;
 	font-weight: bold
 }
 .details-content {
-	line-height: 25px;
-	font-size: 13px;
-	font-weight: 600;
-	line-height: 1.69;
-	letter-spacing: -0.3px;
-	text-align: left;
-	color: #0d0d0d;
+	opacity: 0.4;
+  
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.85;
+  letter-spacing: -0.4px;
+ 
+  color: #0d0d0d;
 }
 .page-section-career-details, .page-section-companies, .page-section-seach, .page-section-onboarding {
-	margin-top: 0
+	margin: 0;
+	padding-top:40px
 }
 .page-section-companies, .page-section-seach {
 	padding-top: 25px;
 	padding-bottom: 70px;
 }
 .slider-bottom-solical {
-	margin: 75px 0 0 0
+	margin: 85px 0 0 0
 }
 .social-total-list {
 	margin-left: 10px;
-	margin-top: 32px
+	margin-top: 29px;
+	 font-size: 13px;
+  font-weight: 600;
+  line-height: 1.85;
+  letter-spacing: -0.4px;
 }
 .small-list {
 	font-size: 5px;
@@ -2111,9 +2124,17 @@ textarea.custom-text-area {
 	margin: 30px 0
 }
 .slider-bottom-solical .date-location, .slider-bottom-solical .company-location {
-	font-size: 14px;
-	margin-top: 5px
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.85;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #303030;
+  margin:0
 }
+.slider-bottom-solical .date-location .fa-circle.small-list,.slider-bottom-solical .company-location .fa-circle.small-list{
+	color: #0d0d0d;opacity: 0.4; font-size:6px; vertical-align:middle
+	}
 .custom-btn-following.active .custom-glyphicon-plus:before {
 	content: "\e013"
 }
@@ -2133,10 +2154,14 @@ textarea.custom-text-area {
 	text-align: center;
 	display: inline-block;
 	width: 100%;
+	border:none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 	margin-bottom: 10px;
-	-webkit-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 0 15px rgba(0,0,0,0.2);
-	box-shadow: 0px 0 15px rgba(0,0,0,0.2);
+	-webkit-box-shadow:0 5px 15px 0 rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05);
 }
 .company-list-box {
 	float: left;
@@ -3351,6 +3376,13 @@ textarea.custom-text-area {
 .custom-panel-onboarding-default.edit-border {
 	border-bottom-color: #00b58e
 }
+.img-380{
+	width:380px;
+	height:380px;
+	-moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+	}
 @media (min-width: 1200px) {
 .container {
 	width: 970px;
