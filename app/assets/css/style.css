@@ -2203,8 +2203,8 @@ textarea.custom-text-area {
 	margin: 0
 }
 .custom-media-object, .slide-companies img.custom-media-object {
-	width: 70px !important;
-	height: 70px !important;
+	width: 60px !important;
+	height: 60px !important;
 	max-width: inherit !important
 }
 .page-section-employees .fair-prev, .page-section-employees .bx-prev {
@@ -2229,6 +2229,7 @@ textarea.custom-text-area {
 }
 .custom-panel-heading-companies .custom-h3 {
 	padding-bottom: 3px;
+	margin-bottom:5px;
 }
 .media-group-container {
 	width: 100%;
@@ -3260,8 +3261,21 @@ textarea.custom-text-area {
 	text-decoration: none
 }
 .custom-company-list h4, .custom-company-list .custom-h4 {
-	color: #303030
+
+	  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #303030;
 }
+.custom-company-list h5, .custom-company-list .custom-h5{
+	  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #b2b2b2;
+	}
 .bx-wrapper img {
 	width: 100%;
 	height: 100%
@@ -3383,6 +3397,44 @@ textarea.custom-text-area {
 	-webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 	}
+.form-search-dropdown{
+	padding:3px 20px;
+	}	
+	
+.form-control-dropdown{
+	 font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #303030;
+	  border-radius: 4px;
+  background-color: #f7f7f7;
+  -webkit-border: solid 2px rgba(48, 48, 48, 0.1);
+  -moz-border: solid 2px rgba(48, 48, 48, 0.1);
+  border: solid 2px rgba(48, 48, 48, 0.1);
+	}
+.companies_act_categ .bx-wrapper{margin-bottom:25px;}
+.student-categories-list{display:inline-block; width:100%;}	
+.student-categories-list .custom-media-heading{
+	 font-size: 16px;
+  font-weight: bold;
+  line-height: 1.88;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #303030;
+  margin-bottom:4px;
+	}
+	.custom-media-student{
+		padding-bottom:12px;
+		}
+.student-categories-list .media-eading-h5{
+	 font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #b2b2b2;
+  margin:0
+	}	
 @media (min-width: 1200px) {
 .container {
 	width: 970px;

@@ -13,8 +13,8 @@
                                 </h3>
                             </div>
                             <div class="media-group-container">
-                                <div class="media custom-media" ng-repeat="stu in student_det.students">
-                                    <a href="/student/{{stu.user}}" >
+                                <div class="media custom-media custom-media-student" ng-repeat="stu in student_det.students">
+                                    <a href="/student/{{stu.user}}" class="student-categories-list">
                                         <div class="media-left media-middle custom-media-left">
                                             <img class="media-object custom-media-object" ng-if="!stu.profile_picture" ng-src="assets/images/profileicon.png" alt="Student Logo">
                                             <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>

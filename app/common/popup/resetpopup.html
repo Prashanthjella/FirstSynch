@@ -1,39 +1,37 @@
 <!--reset password-->
-<div class="modal fade" id="resetpassword" role="dialog" ng-controller="ResetPassword">
+<div class="modal fade custom-model custom-model-registration" id="resetpassword" role="dialog" ng-controller="ResetPassword">
   <form name="resetpassword" id="reset_forms">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true"><img class="img-responsive" src="assets/images/close.png" alt="" /></span>
+  <div class="modal-dialog custom-modal-880" role="document">
+    <div class="modal-content custom-modal-video-content">
+     <div class="modal-header cusom-model-dashboard-header">
+      <button type="button" class="close custom-modal-close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
       </button>
-      <div class="modal-body">
-        <h2 class="text-uppercase text-center bold-text">Reset Password</h2>
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2" style="color: green; font-weight: bold;">{{success}}</div>
-          <div ng-bind-html="Login"></div>
-          <div class="col-sm-8 col-sm-offset-2 hide1">
-              <div style="color: red; font-weight: bold;">{{failure}}</div>
-              <div class="form-group" id="success_msg">
-                <label for="email">Please Enter your new Password</label>
-                <input type="password" id="password" name="password" class="form-control" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{cpassword}}"/>
-                <label for="email">Please Enter confirm Password</label>
-                <input type="password" id="cpassword" name="cpassword" class="form-control" ng-model="cpassword" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{password}}"/>
-              </div>
-          </div>
-        </div>
+      <h1 class="custom-h1-01 text-center title-login">Reset Password</h1>
       </div>
-      <div class="modal-footer hide1">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <button type="submit" ng-disabled="resetpassword.$invalid" ng-click="ResetPassword()" class="btn btn-default btn-block">Reset Password</button>
-              </div>
+      <div class="modal-body custom-modal-body-login">
+<div class="col-sm-12" style="color: green; font-weight: bold;">{{success}}</div>
+        <div ng-bind-html="Login"></div>
+<div style="color: red; font-weight: bold;">{{failure}}</div>
+          <div  id="success_msg">
+            <div class="form-group">
+              <label for="email">Please Enter your new Password</label>
+              <input type="password" id="password" name="password" class="form-control custom-form-control-br-bottom" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{cpassword}}"/>
             </div>
-          </div>
+             <div class="form-group">	
+               <label for="email">Please Enter confirm Password</label>
+                
+               
+               <input type="password" id="cpassword" name="cpassword" class="form-control custom-form-control-br-bottom" ng-model="cpassword" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{password}}"/>
+            </div>
         </div>
+
+      
+    </div>
+    <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02 hide1">
+<button type="submit" ng-disabled="resetpassword.$invalid" ng-click="ResetPassword()" class="btn btn-default custom-btn-login">Reset Password</button>
       </div>
-    </div><!-- /.modal-content -->
+    <!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </form>
 </div><!-- /.modal -->
