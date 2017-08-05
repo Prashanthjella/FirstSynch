@@ -119,8 +119,8 @@ h3 .custom-small-h3, .h3 .custom-small-h3 {
 	color: #b2b2b2;
 	font-size: 14px;
 	font-weight: 600;
-	word-break: normal !important;
-	word-wrap: normal !important;
+	/*word-break: normal !important;
+	word-wrap: normal !important;*/
 }
 .custom-h5-01 {
 	text-transform: uppercase;
@@ -206,7 +206,7 @@ h2.custom-h2-04 {
 .sidebar-navigation {
 	float: left;
 	width: 100%;
-	margin-top: 180px;
+	margin-top: 154px;
 }
 .custom-sidebar {
 	width: 230px;
@@ -370,9 +370,9 @@ h2.custom-h2-04 {
 .custom-sub-h2 {
 	text-transform: none
 }
-.cont-experience {
+/*.cont-experience {
 	margin-bottom: 30px;
-}
+}*/
 .custom-row-10 {
 	margin: 0 -10px;
 	clear: both;
@@ -433,6 +433,7 @@ a.thumbnail, a.custom-large-image-gallery {
 .custom-thumbnail h5 {
 	font-weight: 700;
 }
+
 .slider-container-career .custom-gallery-h1 {
 	color: #fff;
 	text-transform: capitalize;
@@ -581,8 +582,8 @@ bottom: 90px;
 	font-weight: 800;
 	color: #303030;
 	margin-bottom: 14px;
-	word-break: normal !important;
-	word-wrap: normal !important;
+/*	word-break: normal !important;
+	word-wrap: normal !important;*/
 }
 .page-section-recent-fairs {
 	background-color: #f7f7f7;
@@ -956,7 +957,7 @@ bottom: 90px;
 }
 .slider-profile {
 	width: 100%;
-	height: 440px;
+	height: 360px;
 	padding: 0 60px 0 17px;
 }
 .slider-profile-container {
@@ -1067,10 +1068,12 @@ bottom: 90px;
 .social-network li {
 	float: left;
 	color: #303030;
-	margin: 0 26px 0 0;
+	margin: 0 28px 0 0;
 }
+
 .social-network li a {
-	color: #303030
+	color: #303030;
+	opacity: 0.6;
 }
 .total-followers {
 font-weight: bold;
@@ -1187,7 +1190,7 @@ font-weight: bold;
 	margin: 21px 15px
 }
 .page-section.video-profile .custom-large-image-gallery, .page-section.video-profile .custom-make-video-gallery, .page-career-fair .row-emp-pro-career-fair .custom-thumbnail-image-gallery {
-	height: 264px;
+	height: 214px;
 }
 .custom-make-video-gallery {
 	border: 2px solid #6f7070;
@@ -1225,7 +1228,7 @@ font-weight: bold;
 	font-size: 48px;
 	text-transform: uppercase;
 	margin: 0 0 25px 0;
-	font-weight: 800;
+	font-weight: 800 !important;
 	letter-spacing: -1px;
 }
 .page-section-about-me {
@@ -1246,7 +1249,7 @@ font-weight: bold;
 	padding: 65px 0;
 	height: 370px;
 	font-size: 14px;
-	margin-top: 60px;
+	margin-top: 50px;
 }
 .custom-thumbnail-education {
 	padding: 30px;
@@ -1296,6 +1299,21 @@ font-weight: bold;
 .custom-thumbnail-profile-views {
 	margin-bottom: 15px;
 }
+.custom-thumbnail-profile-20{
+	margin-top:40px;
+	}
+.content-chartecter{
+	 font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #0d0d0d;
+	}	
+.custom-thumbnail-profile-20 .custom-thumbnail-profile-views{
+	height:177px;
+	margin-bottom:20px;
+	}	
 .edu-details {
 	height: 185px;
 }
@@ -1934,6 +1952,7 @@ textarea.custom-text-area {
 .custom-modal-880 {
 	width: 880px;
 }
+.container-775{width:775px;}
 .custom-modal-600 {
 	width: 600px;
 }
@@ -3268,6 +3287,7 @@ textarea.custom-text-area {
   letter-spacing: -0.3px;
   text-align: center;
   color: #303030;
+  word-break:break-all;
 }
 .custom-company-list h5, .custom-company-list .custom-h5{
 	  font-size: 12px;
@@ -3423,6 +3443,7 @@ textarea.custom-text-area {
   text-align: left;
   color: #303030;
   margin-bottom:4px;
+  word-break:break-all;
 	}
 	.custom-media-student{
 		padding-bottom:12px;
@@ -3434,7 +3455,11 @@ textarea.custom-text-area {
   text-align: left;
   color: #b2b2b2;
   margin:0
-	}	
+	}
+.custom-btn-edit-profile .glyphicon{
+	margin-right:10px;
+	
+	}		
 @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4335,6 +4360,7 @@ h3.school-name {
 	line-height: 26px;
 	letter-spacing: -0.5px;
 	text-align: left;
+	margin-bottom:15px;
 	color: #303030;
 }
 .cont-experience {
@@ -4431,10 +4457,10 @@ h3.school-name {
 	border-bottom-color: #00b58e !important;
 	color: #00b58e !important;
 }
-/*.ng-binding {
+.ng-binding {
 	word-break: break-all;
-	word-wrap: break-word;
-}*/
+	/*word-wrap: break-word;*/
+}
 .page-section-intership .progress-circle {
 	width: 280px;
 	height: 280px;

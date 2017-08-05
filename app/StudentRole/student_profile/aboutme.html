@@ -2,20 +2,25 @@
     <div class="container">
   <div class="row">
           <div class="col-sm-offset-2">
+          <div class="container-775 pull-left">
               <h1 class="h1 custom-page-h1" ng-if="student_profile_details.hobby.length > 0 || student_profile_details.student_characteristic.length > 0 || student_profile_details.whatimlooking.length > 0">About me</h1>
 
               <div class="row" ng-if="student_profile_details.hobby.length > 0">
                  <div class="col-sm-12">
                     <h1 class="h1 custom-h1 custom-h1-05" ng-if="student_profile_details.hobby.length > 0">Hobbies</h1>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
+                <div class="row custom-row-10">
+                 <div class="col-sm-8">
                         <p class="cont-experience">Point of sale hardware, the till at a shop check out, has become very complex over
                             the past ten years, modern POS hardware inckudes the cash till, bar-code readers,
                             scales, belts, communications system and modern.
                         </p>
-                        <div class="row custom-row-10">
-                            <div class="col-sm-4" ng-repeat="studenthobby in student_profile_details.hobby">
-                                <div class="thumbnail custom-thumbnail-profile-views"> <img ng-src="{{studenthobby.image}}" class="img-responsive custom-img-responsive"> </div>
+                        </div>
+                        </div>
+                        <div class="row custom-row-10 custom-thumbnail-profile-20">
+                            <div class="col-sm-3" ng-repeat="studenthobby in student_profile_details.hobby">
+                                <div class="thumbnail custom-thumbnail-profile-views "> <img ng-src="{{studenthobby.image}}" class="img-responsive custom-img-responsive"> </div>
                             </div>
                         </div>
                 </div>
@@ -41,7 +46,7 @@
 
               <div class="row" ng-if="student_profile_details.whatimlooking.length > 0">
                 <div class="col-sm-12 col-md-12">
-<div class="row custom-row-10" >
+<div class="row custom-row-10 custom-thumbnail-profile-20" >
               <div class="col-sm-3" ng-repeat="whatiamlooking in student_profile_details.whatimlooking">
                   <div class="thumbnail custom-thumbnail-profile-views">
                       <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
@@ -52,7 +57,7 @@
               </div>
             </div>
                 </div>
-            </div>
+</div>            </div>
         </div>
     </div>
 </section>
