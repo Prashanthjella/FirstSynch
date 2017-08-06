@@ -99,16 +99,16 @@ $('[data-toggle="tooltip"]').tooltip();
   })(jQuery);
 
 
+  $(window).load(function (){
+    $('#reset_forms label, #reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+  });
 
-
-    $(document).on('hide.bs.modal','#registration, #logIn', function () {
-        $('.common_js_remove_clas').hide();
+    $(document).on('hide.bs.modal','#registration, #logIn, #ForgotPassword', function () {
+        $('.common_js_remove_clas').empty();
     });
     $(document).on('hide.bs.modal','#logIn', function () {
         $('form#reset_forms').trigger("reset");
-        $('#reset_forms label, #reset_forms input').removeClass('has-success');
-        $('#reset_forms input').removeClass('ng-touched');
-        $('#reset_forms input').removeClass('has-error');
+        $('#reset_forms label, #reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
     });
 
     $(document).on('hide.bs.modal','#VideoPopup1', function () {

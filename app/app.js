@@ -225,6 +225,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
       //$('#logIn').modal('show');
       $('.loader_icon').hide();
       $scope.status = data.data.non_field_errors[0];
+      $('.error_message').html($scope.status);
     });
   };// user login - function end
 });
@@ -524,15 +525,12 @@ FirstSynch.controller("ForgotPassword", function ($timeout,$scope, $http, apiUrl
     })
     .then(function successCallback(data, status, headers, config) {
       $scope.success = data.data.output;
-      $('.hide1').hide();
-      $timeout( function(){
-        $scope.success = '';
-        $('#ForgotPassword').modal('hide');
-        $('.hide1').show();
-      }, 3000 );
+      $('#ForgotPassword').modal('hide');
+      $('#forgot_success_msg').modal('show');
     },
     function errorCallback(data, status, headers, config) {
       $scope.failure = data.data.error;
+      $('.forgot_pass_msg_act').html($scope.failure);
     });
   };//Forgot Password - function end
 });
@@ -555,8 +553,8 @@ FirstSynch.controller("ResetPassword", function ($location,$scope, $http, apiUrl
     })
     .then(function successCallback(data, status, headers, config) {
       $scope.success = data.output;
-      $('.hide1').hide();
-      $scope.Login = $scope.Login + '<a data-toggle="modal" data-target="#logIn" href="#" data-dismiss="modal">Login</a>';
+      $('#resetpassword').modal('hide');
+      $('#reset_pass_success').modal('show');
     },
     function errorCallback(data, status, headers, config) {
       $scope.failure = data.output;
@@ -1023,7 +1021,7 @@ FirstSynch.directive('navMenu', function($location) {
       var path = urlMap[$location.path()];
       links.parent('li').removeClass(activeClass);
       $('body').removeClass('body-career-fair-detail');
-      
+
       if($location.path().indexOf("company/") > -1){
           $('.company_nav').addClass(activeClass);
           $('body').removeClass('body-career-fair-detail');

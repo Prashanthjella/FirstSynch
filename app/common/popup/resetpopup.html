@@ -1,38 +1,76 @@
 <!--reset password-->
 <div class="modal fade custom-model custom-model-registration" id="resetpassword" role="dialog" ng-controller="ResetPassword">
   <form name="resetpassword" id="reset_forms">
-  <div class="modal-dialog custom-modal-880" role="document">
-    <div class="modal-content custom-modal-video-content">
-     <div class="modal-header cusom-model-dashboard-header">
-      <button type="button" class="close custom-modal-close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h1 class="custom-h1-01 text-center title-login">Reset Password</h1>
-      </div>
-      <div class="modal-body custom-modal-body-login">
-<div class="col-sm-12" style="color: green; font-weight: bold;">{{success}}</div>
-        <div ng-bind-html="Login"></div>
-<div style="color: red; font-weight: bold;">{{failure}}</div>
+    <div class="modal-dialog custom-modal-880" role="document">
+      <div class="modal-content custom-modal-video-content">
+        <div class="modal-header cusom-model-dashboard-header">
+          <button type="button" class="close custom-modal-close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h1 class="custom-h1-01 text-center title-login">Reset Password</h1>
+        </div>
+        <div class="modal-body custom-modal-body-login">
+          <div class="col-sm-12" style="color: green; font-weight: bold;">{{success}}</div>
+          <div ng-bind-html="Login"></div>
+          <div style="color: red; font-weight: bold;">{{failure}}</div>
           <div  id="success_msg">
             <div class="form-group">
-              <label for="email">Please Enter your new Password</label>
-              <input type="password" id="password" name="password" class="form-control custom-form-control-br-bottom" ng-model="password" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{cpassword}}"/>
+              <label for="email" ng-class="{'has-success': resetpassword.password.$valid}">Please Enter your new Password</label>
+              <input type="password" id="password" name="password" class="form-control custom-form-control-br-bottom" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" password-verify="{{cpassword}}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': resetpassword.password.$touched && resetpassword.password.$error.required && resetpassword.password.$invalid, 'has-success': resetpassword.password.$valid}"/>
             </div>
-             <div class="form-group">	
-               <label for="email">Please Enter confirm Password</label>
-                
-               
-               <input type="password" id="cpassword" name="cpassword" class="form-control custom-form-control-br-bottom" ng-model="cpassword" required="" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" password-verify="{{password}}"/>
+            <div class="form-group">
+              <label for="email" ng-class="{'has-success': resetpassword.cpassword.$valid}">Please Enter confirm Password</label>
+              <input type="password" id="cpassword" name="cpassword" class="form-control custom-form-control-br-bottom" ng-model="cpassword" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" password-verify="{{password}}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': resetpassword.cpassword.$touched && resetpassword.cpassword.$error.required && resetpassword.cpassword.$invalid, 'has-success': resetpassword.cpassword.$valid}"/>
             </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02 hide1">
+          <button type="submit" ng-disabled="resetpassword.$invalid" ng-click="ResetPassword()" class="btn btn-default custom-btn-login">Reset Password</button>
+        </div>
+        <!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </form>
+  </div><!-- /.modal -->
+  <!-- reset password Modal Ends -->
+
+
+
+
+
+  <!-- Reset Password Modal Starts -->
+  <div class="modal fade custom-model  custom-model-registration" id="reset_pass_success" role="dialog">
+      <div class="modal-dialog custom-modal-880" role="document">
+        <div class="modal-content custom-modal-video-content">
+          <div class="modal-header cusom-model-dashboard-header"><!--peoplesearch_remove-->
+            <button type="button" class="close custom-modal-close" data-dismiss="modal" aria-label="Close">
+              &times;
+            </button>
+            <div class="login-top-step-prev">
+              <div class="pull-left">
+                <!--<a href="#" class="page-prev"><i class="fa fa-chevron-left"></i> Step 3</a>-->
+              </div>
+              <div class="pull-right"><a href="mailto:hello@firstsynch.com" title="Email Support" class="email-support"><span class="fa fa-question circle-icon"></span> Email Support</a></div>
+            </div>
+            <div class="page-step-container">
+              <!--<span class="text-uppercase text-center grey-text">Step 3 of 3</span>-->
+              <h2 class="text-uppercase text-center bold-text">Student registration</h2>
+            </div>
+          </div>
+          <div class="modal-body  custom-modal-body-login">
+
+            <div class="row">
+              <div class="col-sm-12"><!--col-sm-offset-2-->
+                <div class="form-group">
+                  <span style="color: green; font-weight: bold;">Congratulations! You have successfully created new password. </span>
+                  <a data-toggle="modal" data-target="#logIn" href="#" data-dismiss="modal">Login</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-      
-    </div>
-    <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02 hide1">
-<button type="submit" ng-disabled="resetpassword.$invalid" ng-click="ResetPassword()" class="btn btn-default custom-btn-login">Reset Password</button>
-      </div>
-    <!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</form>
-</div><!-- /.modal -->
-<!-- reset password Modal Ends -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  <!-- Reset Password Modal Starts -->

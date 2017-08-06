@@ -8,22 +8,22 @@
         </div>
 
         <div class="modal-body custom-modal-body-login">
-          <span style="color:red;" class="error_message common_js_remove_clas"> {{status}}{{non_field_errors}} </span>
+          <span style="color:red;" class="error_message common_js_remove_clas"> </span>
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.username.$valid}">Email Address</label>
-            <input type="email" name="username" class="form-control custom-form-control-br-bottom" id="username" ng-model="username" required ng-class="{'has-error': userloginform.username.$touched && userloginform.username.$error.email, 'has-success': userloginform.username.$valid}"/>
+            <input type="email" name="username" class="form-control custom-form-control-br-bottom" id="username" ng-model="username" required ng-class="{'has-error': userloginform.username.$invalid, 'has-success': userloginform.username.$valid}"/>
           </div>
 
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.password.$valid}">Password</label>
-            <input type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" required ng-class="{'has-error': userloginform.password.$touched && userloginform.password.$error.required, 'has-success': userloginform.password.$valid}"/>
+            <input type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': userloginform.password.$invalid, 'has-success': userloginform.password.$valid}"/>
             <input type="hidden" name="redirecturl" id="redirecturl" value="" ng-model="redirecturl"/>
             <input type="hidden" name="videoid" id="videoid" value="" ng-model="videoid"/>
           </div>
         </div>
 
         <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02">
-          <button ng-click="LoginUser()" ng-disabled="userloginform.password.$invalid && userloginform.username.$invalid" class="btn btn-default custom-btn-login custom-btn-login-enbled">Log in <img src="assets/images/loader.gif" class="loader_icon" style="width: 20px; margin-left: 10px; display:none;"></button>
+          <button ng-click="LoginUser()" ng-disabled="userloginform.$invalid" class="btn btn-default custom-btn-login custom-btn-login-enbled">Log in <img src="assets/images/loader.gif" class="loader_icon" style="width: 20px; margin-left: 10px; display:none;"></button>
           <a href="{{facebookloginurl}}" class="btn btn-default custom-btn-login bg-facebook">Signin with Facebook</a>
           <a data-toggle="modal" id="Forgotpswdlink" data-target="#ForgotPassword" data-dismiss="modal" href="#" class="link-forgot-password">Forgot Password?</a>
         </div>
