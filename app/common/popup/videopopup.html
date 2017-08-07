@@ -41,9 +41,12 @@
                             <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
                         </div>
                         <div class="pull-right">
-                            <div class="custom-right-icons"> <a href="#" class="icons-model">
-                                <i class="fa fa-heart-o" ng-if="guest_login" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
-                                <i class="fa fa-heart-o" ng-if="!guest_login" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i> <span id="video_like_wrapper">{{vid.video.liked.length}}</span> </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>--> </div>
+                            <div class="custom-right-icons">
+                              <a href="#" class="icons-model">
+                                <i class="fa fa-heart-o" ng-if="!companyuserInfo && !studentuserInfo" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
+                                <i class="fa fa-heart-o" ng-if="companyuserInfo || studentuserInfo" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i>
+                                <span id="video_like_wrapper">{{vid.video.liked.length}}</span>
+                              </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>--> </div>
                         </div>
                     </div>
                 </div>
@@ -70,13 +73,15 @@
                 <div class="row custom-row-10">
                     <div class="col-sm-8">
                         <div class="media-group-container">
-                            <h6 class="h6-label-black text-uppercase"><span>{{vid.video.comments.length}}</span> Comments</h6>
+                            <h6 class="h6-label-black text-uppercase"><span>{{vid.video.comments.length}}</span> Comments <span style="color: green; display: none;" id="comment_succ_msg"> - You have successfully added comments.</span></h6>
                             <div class="media custom-media">
-                                <div class="media-left media-top custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                                <div class="media-left media-top custom-media-left">
+                                  <img class="media-object-user img-circle" src="{{profileimage}}" alt="FirstSynch">
+                                </div>
                                 <div class="media-body custom-media-body" ng-controller="video_cmt_form_controller">
                                     <form name="video_comment_form" ng-submit="video_comment_form_submit(vid.video.id)">
                                         <div class="form-group custom-lider-form-group">
-                                            <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>
+                                            <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" id="videocomment" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>
                                         </div>
                                         <div class="form-group custom-lider-form-group">
                                             <input type="submit" value="Submit" ng-disabled="video_comment_form.videocomment.$invalid" class="btn btn-default custom-btn btn-lg">
@@ -86,7 +91,9 @@
                                 <div> </div>
                             </div>
                             <div class="media custom-media" ng-repeat="comment in vid.video.comments | orderBy: 'updated_at'">
-                                <div class="media-left media-middle custom-media-left"> <img class="media-object-user img-circle" src="assets/images/company-list-img.jpg" alt="company-list-img.jpg"> </div>
+                                <div class="media-left media-middle custom-media-left">
+                                  <img class="media-object-user img-circle" src="{{profileimage}}" alt="FirstSynch">
+                                </div>
                                 <div class="media-body custom-media-body">
                                     <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
                                     <h5 class="media-eading-h5">{{comment.comment}}</h5>

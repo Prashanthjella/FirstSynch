@@ -125,8 +125,9 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
       console.log("Unable to perform get Video Details");
     });
   };//Common Video Popup - function end
+
   $rootScope.videolikesubmit = function(videoid){
-    $http.get(apiUrl+"api/v1/career_fairs/video_like/"+videoid+"/",{
+    $http.post(apiUrl+"api/v1/career_fairs/video_like/"+videoid+"/",{
       headers: {'Authorization' : 'Token '+$rootScope.token_id}
     })
     .then(function successCallback(response){
@@ -170,6 +171,8 @@ FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,
       headers: {'Authorization' : 'Token '+token_id}
     })
     .then(function (response) {
+      $('#comment_succ_msg').show();
+      $('#videocomment').val('');
     });
   };
 });
@@ -342,6 +345,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
         jQuery("#signUp").modal('hide');
         jQuery("#signUpSuccess").modal('show');
         $('#universities_value').val('');
+        $('form#reset_forms').trigger("reset");
         $scope.name = '';
         $scope.lname = '';
         $scope.password = '';
@@ -370,6 +374,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
       .then(function successCallback(data, status, headers, config) {
         jQuery("#signUp").modal('hide');
         jQuery("#signUpSuccess").modal('show');
+        $('form#reset_forms').trigger("reset");
       },
       function errorCallback(data, status, headers, config) {
         $scope.status = data.data.status;

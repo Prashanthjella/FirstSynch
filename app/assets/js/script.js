@@ -105,6 +105,7 @@ $(document).ready(function() {
 
   $(document).on('hide.bs.modal','#registration, #logIn, #ForgotPassword', function () {
     $('.common_js_remove_clas').empty();
+    $('#reset_forms label, #reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
   $(document).on('hide.bs.modal','#logIn', function () {
     $('form#reset_forms').trigger("reset");
