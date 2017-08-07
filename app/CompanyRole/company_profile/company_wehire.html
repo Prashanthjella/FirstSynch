@@ -1,14 +1,15 @@
 <section id="company_company_profile_wearehiring" class="page-section page-section-we-hire" ng-if="company_profile_details.hiring[0].benefits || company_profile_details.hiring[0].perks || company_profile_details.hiring[0].culture">
     <div class="container">
-        <div class="row">
+        <div class="row ">
             <div class="col-sm-offset-2">
+            <div class="container-775 pull-left">
                 <h1 class="h1 custom-page-h1">We Are Hiring</h1>
-                <h1 class="h1 custom-h1-01 custom-h1-05">Why you should<br>
+                <h1 class="h1 custom-h1-01 custom-h1-06">Why you should<br>
                     work for us
                 </h1>
 
-                <div class="row">
-                    <div class="col-sm-8">
+                <div class="row custom-row-20">
+                    <div class="col-sm-12">
                         <div class="box bg-green box-tab-content">
                             <div class="tab-content">
 
@@ -26,14 +27,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <ul class="nav nav-tabs custom-tab-vertical" role="tablist">
+                        
+                        <ul class="nav nav-tabs custom-tab-vertical custom-tab-profile" role="tablist">
                             <li role="presentation" class="" ng-if="company_profile_details.hiring[0].benefits"><a href="" data-target="#benefits" aria-controls="benefits" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="false">Benefits</a></li>
                             <li role="presentation" class="" ng-if="company_profile_details.hiring[0].perks"><a href="" data-target="#perks" aria-controls="perks" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="false">Perks</a></li>
                             <li role="presentation" class="active" ng-if="company_profile_details.hiring[0].culture"><a href="" data-target="#culture" aria-controls="culture" role="tab" data-toggle="tab" class="bold-text text-uppercase" aria-expanded="true">Culture</a></li>
                         </ul>
                     </div>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

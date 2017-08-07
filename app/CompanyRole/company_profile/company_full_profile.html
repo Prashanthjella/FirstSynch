@@ -1,31 +1,26 @@
-<section class="page-section page-section-profile-container">
-  <div class="page-section-profile-company">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-offset-2">
-          <div class="col-sm-6">
-            <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
-          </div>
-          <div class="col-sm-6">
-            <ul class="list-company-profile">
-              <li ng-if="company_profile_details.category">
-                <h6 class="h6 custom-h6 custom-h6">Industry</h6>
-                <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.category}}</h1>
-              </li>
 
-              <li ng-if="company_profile_details.product_category">
-                <h6 class="h6 custom-h6">Product category</h6>
-                <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.product_category}}</h1>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row">
+<div class="col-sm-6">
+    <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
   </div>
-</section>
+  <div class="col-sm-6">
+    <ul class="list-company-profile">
+      <li ng-if="company_profile_details.category">
+        <h6 class="h6 custom-h6 custom-h6">Industry</h6>
+        <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.category}}</h1>
+      </li>
+
+      <li ng-if="company_profile_details.product_category">
+        <h6 class="h6 custom-h6">Product category</h6>
+        <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.product_category}}</h1>
+      </li>
+    </ul>
+  </div>
+</div>
+
 
 <section class="page-section page-section-date-establishment" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">
+ <div class="container-775 pull-left">
   <div class="row row-35">
     <div class="col-sm-5 text-center">
       <h1 class="custom-h1-02">
@@ -37,10 +32,12 @@
       <img src="assets/images/establishment-img.png" class="img-responsive" alt="">
       <div class="text-date-establishment">{{company_profile_details.establishment_date| date:"y"}}</div>
     </div>
+    </div>
 
   </div>
 </section>
 <section class="page-section page-section-intership" ng-if="company_profile_details.internships_to_jobs && company_profile_details.internships_job_description">
+ <div class="container-775 pull-left">
   <div class="row">
     <div class="col-sm-6 pull-left">
       <div class="progress-circle progress-{{company_profile_details.internships_to_jobs }}"><span>{{company_profile_details.internships_to_jobs}}</span></div>
@@ -54,6 +51,7 @@
       <p class="">{{company_profile_details.internships_job_description}}</p>
     </div>
 
+  </div>
   </div>
 </section>
 <section class="page-section page-section-company-size" ng-if="company_profile_details.company_size_description && company_profile_details.company_size">

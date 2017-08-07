@@ -387,6 +387,11 @@ a.thumbnail, a.custom-large-image-gallery {
 	color: #303030;
 	clear: both
 }
+.custom-row-28{margin-left:-7px; margin-right:-7px}
+.custom-row-28 .col-lg-1, .custom-row-28 .col-lg-10, .custom-row-28 .col-lg-11, .custom-row-28 .col-lg-12, .custom-row-28 .col-lg-2, .custom-row-28 .col-lg-3, .custom-row-28 .col-lg-4, .custom-row-28 .col-lg-5, .custom-row-28 .col-lg-6, .custom-row-28 .col-lg-7, .custom-row-28 .col-lg-8, .custom-row-28 .col-lg-9, .custom-row-28 .col-md-1, .custom-row-28 .col-md-10, .custom-row-28 .col-md-11, .custom-row-28 .col-md-12, .custom-row-28 .col-md-2, .custom-row-28 .col-md-3, .custom-row-28 .col-md-4, .custom-row-28 .col-md-5, .custom-row-28 .col-md-6, .custom-row-28 .col-md-7, .custom-row-28 .col-md-8, .custom-row-28 .col-md-9, .custom-row-28 .col-sm-1, .custom-row-28 .col-sm-10, .custom-row-28 .col-sm-11, .custom-row-28 .col-sm-12, .custom-row-28 .col-sm-2, .custom-row-28 .col-sm-3, .custom-row-28 .col-sm-4, .custom-row-28 .col-sm-5, .custom-row-28 .col-sm-6, .custom-row-28 .col-sm-7, .custom-row-28 .col-sm-8, .custom-row-28 .col-sm-9, .custom-row-28 .col-xs-1, .custom-row-28 .col-xs-10, .custom-row-28 .col-xs-11, .custom-row-28 .col-xs-12, .custom-row-28 .col-xs-2, .custom-row-28 .col-xs-3, .custom-row-28 .col-xs-4, .custom-row-28 .col-xs-5, .custom-row-28 .col-xs-6, .custom-row-28 .col-xs-7, .custom-row-28 .col-xs-8, .custom-row-28 .col-xs-9 {
+	padding-right: 7px;
+	padding-left: 7px
+}
 .custom-row-10 .col-lg-1, .custom-row-10 .col-lg-10, .custom-row-10 .col-lg-11, .custom-row-10 .col-lg-12, .custom-row-10 .col-lg-2, .custom-row-10 .col-lg-3, .custom-row-10 .col-lg-4, .custom-row-10 .col-lg-5, .custom-row-10 .col-lg-6, .custom-row-10 .col-lg-7, .custom-row-10 .col-lg-8, .custom-row-10 .col-lg-9, .custom-row-10 .col-md-1, .custom-row-10 .col-md-10, .custom-row-10 .col-md-11, .custom-row-10 .col-md-12, .custom-row-10 .col-md-2, .custom-row-10 .col-md-3, .custom-row-10 .col-md-4, .custom-row-10 .col-md-5, .custom-row-10 .col-md-6, .custom-row-10 .col-md-7, .custom-row-10 .col-md-8, .custom-row-10 .col-md-9, .custom-row-10 .col-sm-1, .custom-row-10 .col-sm-10, .custom-row-10 .col-sm-11, .custom-row-10 .col-sm-12, .custom-row-10 .col-sm-2, .custom-row-10 .col-sm-3, .custom-row-10 .col-sm-4, .custom-row-10 .col-sm-5, .custom-row-10 .col-sm-6, .custom-row-10 .col-sm-7, .custom-row-10 .col-sm-8, .custom-row-10 .col-sm-9, .custom-row-10 .col-xs-1, .custom-row-10 .col-xs-10, .custom-row-10 .col-xs-11, .custom-row-10 .col-xs-12, .custom-row-10 .col-xs-2, .custom-row-10 .col-xs-3, .custom-row-10 .col-xs-4, .custom-row-10 .col-xs-5, .custom-row-10 .col-xs-6, .custom-row-10 .col-xs-7, .custom-row-10 .col-xs-8, .custom-row-10 .col-xs-9 {
 	padding-right: 10px;
 	padding-left: 10px
@@ -2930,9 +2935,13 @@ textarea.custom-text-area {
 .custom-tab-vertical {
 	border-bottom: none;
 	float: left;
-	margin: 35px 0;
-	font-weight: 900;
-	font-size: 15px;
+	margin: 43px 0;
+	 font-size: 14px;
+  font-weight: 800;
+  line-height: 1.71;
+  letter-spacing: -0.3px;
+  
+  color: #303030;
 }
 .custom-tab-vertical li {
 	display: block;
@@ -3494,6 +3503,33 @@ textarea.custom-text-area {
 	margin: 0 0 30px 0;
 	line-height: 41px;
 }
+.slider-company-profile .video-content{
+	margin-top:140px;
+	 -webkit-border-radius: 6px;
+	  -moz-border-radius: 6px;
+	   border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+  }
+ .company-prfile-forms{
+	 margin-top:90px;
+	 } 
+	.page-section-we-hire{margin-top:90px;} 
+	.medium-text{
+		 font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #303030;
+		}
+	.custom-tab-profile{
+		margin-left:40px;
+		
+		
+		}	
 @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4413,6 +4449,10 @@ h3.school-name {
 	margin-top: 60px;
 	margin-bottom: 30px
 }
+.custom-h1-06{
+	margin-top: 95px;
+	margin-bottom: 50px
+	}
 .row-experience .medium-text {
 	opacity: 0.3;
 	font-size: 11px;
@@ -4458,6 +4498,10 @@ h3.school-name {
 }
 .box-tab-content {
 	min-height: 210px;
+	width:480px;
+	float:left;
+	padding:30px 40px;
+	
 }
 .img-career-fair {
 	-webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
