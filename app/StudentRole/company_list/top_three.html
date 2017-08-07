@@ -27,32 +27,33 @@
 				</h2>
 			</div>
 		</div>
-         <div class="top-3-companies">
-	    	<div class="row custom-row-35 top_three_company_act"  ng-controller="student_top_three">
-	      		<div class="col-sm-12">
-	        		<div class="page-header custom-page-header">
-	          			<div class="pull-left">
-	            			<h3 class="h3 custom-h3">Top 3 Companies</h3>
-	          			</div>
-	        		</div>
-	      		</div>
-	      		<div class="col-sm-4" ng-repeat="comp in top_three_company">
-					<a href="/stu/company/{{ comp.company.id }}" class="company-list-box">
-		        		<div class="thumbnail custom-thumbnail-company-logo">
-							<img ng-src="{{ comp.company.logo }}" class="logo-companies-box" ng-if="comp.company.logo">
-							<img ng-src="assets/images/profileicon.png" class="logo-companies-box" ng-if="!comp.company.logo" alt="">
+		<div class="top-3-companies">
+			<div class="row custom-row-35 top_three_company_act"  ng-controller="student_top_three">
+				<div class="col-sm-12">
+					<div class="page-header custom-page-header">
+						<div class="pull-left">
+							<h3 class="h3 custom-h3">Top 3 Companies</h3>
 						</div>
-		        		<div class="company-heading-group">
-		          			<h4 class="h4 custom-h4">{{ comp.company.name }} </h4>
-		          			<h5 ng-if="comp.company.city && comp.company.state">{{ comp.company.city }}, {{ comp.company.state }}</h5>
-		        		</div>
+					</div>
+				</div>
+				<div class="col-sm-4" ng-repeat="comp in top_three_company">
+					<a href="/stu/company/{{ comp.company.id }}" class="company-list-box">
+						<div class="thumbnail custom-thumbnail-company-logo">
+							<img ng-src="{{ comp.company.logo }}" class="logo-companies-box" ng-if="comp.company.logo">
+							<div ng-if="!comp.company.logo" class="grey_logo_icon logo-companies-box">
+								<ng-letter-avatar ng-if="!comp.company.logo" alphabetcolors="grey" charCount="2" data="{{ comp.company.name }}"></ng-letter-avatar>
+							</div>
+						</div>
+						<div class="company-heading-group">
+							<h4 class="h4 custom-h4">{{ comp.company.name }} </h4>
+							<h5 ng-if="comp.company.city && comp.company.state">{{ comp.company.city }}, {{ comp.company.state }}</h5>
+						</div>
 					</a>
-	      		</div>
-
-	    	</div>
-            </div>
-			<div class="student_company_search_result grid"></div>
-			<div class="text-center video_filter_search_result_empty hide"><h1>Sorry! No results found!</h1></div>
+				</div>
+			</div>
 		</div>
-	</section>
+		<div class="student_company_search_result grid"></div>
+		<div class="text-center video_filter_search_result_empty hide"><h1>Sorry! No results found!</h1></div>
+	</div>
+</section>
 <!--[Top 3 Company Sections End]-->

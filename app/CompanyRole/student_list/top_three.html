@@ -25,7 +25,7 @@
 							<li ng-click="student_filters($event)" ng-repeat="university in student_univ_list | unique:'school_name'| orderBy : 'school_name' " datavalue="{{university.school_name}}"><a href="" title="{{university.school_name}}">{{university.school_name}}</a></li>
 						</ul>
 					</span>,
-					 specializing in
+					specializing in
 					<span class="dropdown">
 						<span ng-bind="majorValue" class="highlighted dropdown-toggle"  id="all_stu_major" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All industries</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" major-menu="majorValue" aria-labelledby="all_student_category">
@@ -36,30 +36,32 @@
 				</h2>
 			</div>
 		</div>
-        <div class="top-3-companies">
-		<div class="row custom-row-35 top_three_student_act" ng-controller="company_top_three_students">
-			<div class="col-sm-12">
-				<div class="page-header custom-page-header">
-					<div class="pull-left">
-						<h3 class="h3 custom-h3">Top 3 Students</h3>
+		<div class="top-3-companies">
+			<div class="row custom-row-35 top_three_student_act" ng-controller="company_top_three_students">
+				<div class="col-sm-12">
+					<div class="page-header custom-page-header">
+						<div class="pull-left">
+							<h3 class="h3 custom-h3">Top 3 Students</h3>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-4" ng-repeat="stud in top_three_student">
-						<a href="/com/student/{{ stud.student.id }}" class="company-list-box">
-					<div class="thumbnail custom-thumbnail-company-logo">
-								<img ng-src="{{ stud.student.profile_picture }}" ng-if="stud.student.profile_picture" class="logo-companies-box">
-								<img class="logo-companies-box" ng-if="!stud.student.profile_picture" ng-src="assets/images/profileicon.png" alt="Student Logo">
+				<div class="col-sm-4" ng-repeat="stud in top_three_student">
+					<a href="/com/student/{{ stud.student.id }}" class="company-list-box">
+						<div class="thumbnail custom-thumbnail-company-logo">
+							<img ng-src="{{ stud.student.profile_picture }}" ng-if="stud.student.profile_picture" class="logo-companies-box">
+							<div ng-if="!stud.student.profile_picture" class="grey_logo_icon logo-companies-box">
+								<ng-letter-avatar ng-if="!stud.student.profile_picture" alphabetcolors="grey" charCount="2" data="{{ stud.student.first_name }}"></ng-letter-avatar>
 							</div>
-					<div class="company-heading-group">
-						<h4 class="h4 custom-h4">{{ stud.student.first_name }} </h4>
-						<h5 class="media-eading-h5" ng-if="stud.student.city && stud.student.state">{{ stud.student.city }}, {{ stud.student.state }}</h5>
-					</div>
-						</a>
-			</div>
+						</div>
+						<div class="company-heading-group">
+							<h4 class="h4 custom-h4">{{ stud.student.first_name }} </h4>
+							<h5 class="media-eading-h5" ng-if="stud.student.city && stud.student.state">{{ stud.student.city }}, {{ stud.student.state }}</h5>
+						</div>
+					</a>
+				</div>
 
+			</div>
 		</div>
-        </div>
 		<div class="student_search_result grid"></div>
 		<div class="text-center video_filter_search_result_empty hide"><h1>Sorry! No results found!</h1></div>
 	</div>

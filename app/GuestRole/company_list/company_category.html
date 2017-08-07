@@ -11,7 +11,7 @@
             </h3>
           </div>
           <div class="media-group-container">
-            <div class="media custom-media" ng-repeat="companise in compa_cate.company">
+            <div class="media custom-media" ng-repeat="companise in compa_cate.company | limitTo:3">
               <a href="/company/{{companise.id}}" >
                 <div class="media-left media-middle custom-media-left">
                   <img class="media-object custom-media-object" ng-src="{{companise.logo}}" alt="Comopany">
@@ -26,10 +26,10 @@
               </a>
             </div>
           </div>
-        </div>
-      </div>
+        </div><!--panel-->
+      </div><!--col-sm-4-->
 
-    </div>
-  </div>
+    </div><!--row-->
+  </div><!--container-->
 </section>
 <!--[Company category Section end]-->

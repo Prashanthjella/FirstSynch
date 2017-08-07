@@ -13,8 +13,8 @@
                 <a href="/company/{{all_comp.id}}" class="custom-company-list">
                     <div class="thumbnail custom-thumbnail-company-logo">
                       <img ng-src="{{all_comp.logo}}" class="logo-companies-box" ng-if="all_comp.logo">
-                      <div class="logo-companies-box">
-                        <ng-letter-avatar ng-if="!all_comp.logo" alphabetcolors="grey" charCount="2" data="{{all_comp.name}}" shape="round"></ng-letter-avatar>
+                      <div ng-if="!all_comp.logo" class="logo-companies-box grey_logo_icon">
+                        <ng-letter-avatar ng-if="!all_comp.logo" alphabetcolors="grey" charCount="2" data="{{all_comp.name}}"></ng-letter-avatar>
                       </div>
                     </div>
                     <div class="company-heading-group">
