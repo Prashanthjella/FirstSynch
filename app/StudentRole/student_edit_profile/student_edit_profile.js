@@ -9,7 +9,7 @@ var FirstSynch = angular.module("StudentEditProfile", ["ngRoute","firstSync","ng
 // Student edit profile - studenteditprofiles
 
 
-FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout) {
+FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout, $window) {
 
       $scope.deleteVideo = function (value,index) {
           $http.delete(apiUrl+"api/v1/career_fairs/api/v1/video/"+value+"/",JSON.stringify({'id':value}))

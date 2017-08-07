@@ -1,4 +1,30 @@
-<h1 class="h1 custom-page-h1" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">Company</h1>
+<section class="page-section page-section-profile-container">
+  <div class="page-section-profile-company">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2">
+          <div class="col-sm-6">
+            <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
+          </div>
+          <div class="col-sm-6">
+            <ul class="list-company-profile">
+              <li ng-if="company_profile_details.category">
+                <h6 class="h6 custom-h6 custom-h6">Industry</h6>
+                <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.category}}</h1>
+              </li>
+
+              <li ng-if="company_profile_details.product_category">
+                <h6 class="h6 custom-h6">Product category</h6>
+                <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.product_category}}</h1>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="guest_company_profile_companies" class="page-section page-section-date-establishment" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">
     <div class="row row-35">
         <div class="col-sm-5 text-center">

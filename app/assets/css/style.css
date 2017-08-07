@@ -1148,6 +1148,7 @@ bottom: 90px;
 .custom-accordion-title a {
 	display: inline-block;
 	padding: 13px 20px;
+	text-transform: uppercase;
 }
 .custom-panel-group .custom-accordion-body {
 	border: 1px solid #ddd;

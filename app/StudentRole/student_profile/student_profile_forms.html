@@ -1,622 +1,622 @@
 <section class="page-section complete-profile" ng-controller="studentprofileform">
-<div class="container-775">
+  <div class="container-775">
     <div class="thumbnail custom-thumbnail-pro-accordion">
-        <h5 class="custom-h5 h5-video">Complete your profile</h5>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="progress custom-progress">
-              <div class="progress-bar custom-progress-bar" role="progressbar" aria-valuenow="{{student_profile_details.score}}"
-    aria-valuemin="0" aria-valuemax="100" style="width:{{student_profile_details.score}}%"> </div>
+      <h5 class="custom-h5 h5-video">Complete your profile</h5>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="progress custom-progress">
+            <div class="progress-bar custom-progress-bar" role="progressbar" aria-valuenow="{{student_profile_details.score}}"
+            aria-valuemin="0" aria-valuemax="100" style="width:{{student_profile_details.score}}%"> </div>
+          </div>
+          <div class="toal-complete-container"> <span class="total-profile-complete">{{student_profile_details.score}}%</span> Complete </div>
+        </div>
+      </div>
+      <div class="panel-group custom-panel-group" id="accordion">
+        <div class="panel panel-default custom-accordion-panel-default" id="student_profile_basic_information" ng-if="!student_profile_details.profile_picture && !student_profile_details.first_name && !student_profile_details.last_name && !student_profile_details.about_me ">
+          <div class="panel-heading custom-accordion-heading">
+            <h4 class="panel-title custom-accordion-title">
+              <a href="#" data-target="#sbasicinformation" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Basic Profile</a>
+            </h4>
+          </div>
+          <div id="sbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
+            <form name="basicprofileforms" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
+              <div class="row">
+
+                <div class="col-sm-12 col-md-12">
+                  <div class="form-group-edit-profile">
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Basic Profile</label>
+                      <input type="hidden" name="user" ng-model="basicprofileform.user">
+                      <input type="hidden" name="id" ng-model="basicprofileform.id">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase" ng-class="{'has-success': basicprofileform.first_name.$valid}">First Name</label>
+                      <input id="first_name" type="text" required class="form-control custom-textbox" name="first_name"  ng-model="basicprofileform.first_name" ng-class="{'has-error': basicprofileform.first_name.$touched , 'has-success': basicprofileform.first_name.$valid}" >
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Last Name</label>
+                      <input type="text" class="form-control custom-textbox" required name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" >
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Date of Birth</label>
+                      <input type="text" class="form-control custom-textbox" required name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" >
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Gender</label>
+                      <select name="gender" ng-model="basicprofileform.gender" required>
+                        <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
+                        <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
+                      </select>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Category</label>
+                      <select name="category" ng-model="basicprofileform.category" required>
+                        <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
+                        <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
+                        <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
+                        <option value="Number Cruncher" ng-selected="{{ basicprofileform.category == 'Number Cruncher' }}">Number Cruncher</option>
+                        <option value="Builder" ng-selected="{{ basicprofileform.category == 'Builder' }}">Builder</option>
+                        <option value="Negotiator" ng-selected="{{ basicprofileform.category == 'Negotiator' }}">Negotiator</option>
+                        <option value="Entrepreneur" ng-selected="{{ basicprofileform.category == 'Entrepreneur' }}">Entrepreneur</option>
+                        <option value="Entertainer" ng-selected="{{ basicprofileform.category == 'Entertainer' }}">Entertainer</option>
+                        <option value="Organizer" ng-selected="{{ basicprofileform.category == 'Organizer' }}">Organizer</option>
+                        <option value="Social Butterfly" ng-selected="{{ basicprofileform.category == 'Social Butterfly' }}">Social Butterfly</option>
+                      </select>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Social Network Link</label>
+                      <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
+                      <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
+                      <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
+                      <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.github_url" name="twitter_url" placeholder="Please provide your Github URL">
+                      <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.stackoverflow_url" name="twitter_url" placeholder="Please provide your Stackoverflow URL">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">Website</label>
+                      <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your Facebook URL">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <div class="upload-container">
+                        <label class="text-uppercase">Profile Picture</label>
+                        <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" class="upload-button" id="upload-picture">
+                        <label class="btn btn-default custom-btn btn-lg" for="upload-picture">Choose File</label>
+                      </div>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase">About me</label>
+                      <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
+                    </div>
+                    <p class="btn-panel-group">
+                      <input type="submit" value="Submit" ng-disabled="basicprofileforms.$invalid" class="btn btn-default custom-btn btn-lg" />
+                    </p>
+                    <!--<div class="form-group custom-lider-form-group">
+                    <label class="text-uppercase">Profile Image</label>
+                    <input type="file" class="file_multi_video" id="file" accept="image/*" name="file" multiple
+                    onchange="angular.element(this).scope().getFileDetails(this)" />
+                    <img src="basicprofileform.profile_picture"/>
+                  </div>-->
+                </div>
+                <!-- <hr class="hr-line-lidership"> -->
+              </div>
+
             </div>
-            <div class="toal-complete-container"> <span class="total-profile-complete">{{student_profile_details.score}}%</span> Complete </div>
+            <!-- <div class="row">
+            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
+          </div> -->
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default custom-accordion-panel-default" id="student_profile_hobbies" ng-if="student_profile_details.hobby.length ==0">
+      <div class="panel-heading custom-accordion-heading">
+        <h4 class="panel-title custom-accordion-title">
+          <a href="#" data-target="#shobbies" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
+        </h4>
+      </div>
+      <div id="shobbies" class="panel-collapse custom-panel-accordion-collapse collapse">
+        <form name="hobbiesforms" ng-submit="hobbiessubmit(hobbiesform.image)">
+          <div class="row">
+
+            <div class="col-sm-12 col-md-12">
+              <div class="form-group-edit-profile">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': hobbiesforms.name.$valid}">Hobby</label>
+                  <input type="hidden" name="id" ng-model="hobbiesform.id">
+                  <input type="text" class="form-control custom-textbox" required placeholder="Give it a name" name="name"  ng-model="hobbiesform.name" ng-class="{'has-error': hobbiesforms.name.$touched, 'has-success': hobbiesforms.name.$valid}">
+                </div>
+                <div class="form-group custom-lider-form-group">
+                  <label class="text-uppercase">Description</label>
+                  <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150" ng-model="hobbiesform.description"></textarea>
+                </div>
+                <div class="form-group custom-lider-form-group">
+                  <div class="upload-container">
+                    <label class="text-uppercase">Profile Picture</label>
+                    <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" id="upload-picture-hobbies" class="upload-button">
+                    <label class="btn btn-default custom-btn btn-lg" for="upload-picture-hobbies">Choose File</label>
+                  </div>
+                </div>
+
+                <p class="btn-panel-group">
+                  <input type="submit" ng-disabled="hobbiesforms.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
+                </p>
+              </div>
+            </div>
+            <!-- <hr class="hr-line-lidership"> -->
+          </div>
+
+          <!-- <div class="row">
+          <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+          <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+  <div class="panel panel-default custom-accordion-panel-default" id="student_profile_characteristics" ng-if="student_profile_details.student_characteristic.length == 0">
+    <div class="panel-heading custom-accordion-heading">
+      <h4 class="panel-title custom-accordion-title">
+        <a href="#" data-target="#scharactertics" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
+      </h4>
+    </div>
+    <div id="scharactertics" class="panel-collapse custom-panel-accordion-collapse collapse">
+      <div class="form-group-edit-profile">
+        <form name="scharacterticsform" ng-submit="charactersubmit()">
+          <input type="hidden" name="charid" ng-model="characteristic.id">
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Realistic" class="checkbox-input" ng-disabled="shouldDisable('Realistic')" ng-model="pselectedCharacter['Realistic']" type="checkbox">
+            <label for="Realistic" class="checkbox-label"> Realistic</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Investigative"  class="checkbox-input" ng-disabled="shouldDisable('Investigative')" ng-model="pselectedCharacter['Investigative']" type="checkbox">
+            <label for="Investigative" class="checkbox-label"> Investigative</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Artistic" class="checkbox-input" ng-disabled="shouldDisable('Artistic')" ng-model="pselectedCharacter['Artistic']" type="checkbox">
+            <label for="Artistic" class="checkbox-label"> Artistic</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Social" class="checkbox-input" ng-disabled="shouldDisable('Social')" ng-model="pselectedCharacter['Social']" type="checkbox">
+            <label for="Social" class="checkbox-label"> Social</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Enterprising" class="checkbox-input" ng-disabled="shouldDisable('Enterprising')" ng-model="pselectedCharacter['Enterprising']" type="checkbox">
+            <label for="Enterprising" class="checkbox-label"> Enterprising</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Conventional" class="checkbox-input" ng-disabled="shouldDisable('Conventional')" ng-model="pselectedCharacter['Conventional']" type="checkbox">
+            <label for="Conventional" class="checkbox-label"> Conventional</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Rule_Follower" class="checkbox-input" ng-disabled="shouldDisable('Rule Follower')" ng-model="pselectedCharacter['Rule Follower']" type="checkbox">
+            <label for="Rule_Follower" class="checkbox-label"> Rule Follower</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Self-Motivated" class="checkbox-input" ng-disabled="shouldDisable('Self-Motivated')" ng-model="pselectedCharacter['Self-Motivated']" type="checkbox">
+            <label for="Self-Motivated" class="checkbox-label"> Self-Motivated</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Responsibility" class="checkbox-input" ng-disabled="shouldDisable('Responsibility')" ng-model="pselectedCharacter['Responsibility']" type="checkbox">
+            <label for="Responsibility" class="checkbox-label"> Responsibility</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Accustomed" class="checkbox-input" ng-disabled="shouldDisable('Accustomed to Routine')" ng-model="pselectedCharacter['Accustomed to Routine']" type="checkbox">
+            <label for="Accustomed" class="checkbox-label"> Accustomed to Routine</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Study_Skills" class="checkbox-input" ng-disabled="shouldDisable('Learned Study Skills')" ng-model="pselectedCharacter['Learned Study Skills']" type="checkbox">
+            <label for="Study_Skills" class="checkbox-label"> Learned Study Skills</label>
+          </div>
+          <div class="checkbox custom-checkbox checkbox-circle">
+            <input id="Reading" class="checkbox-input" ng-disabled="shouldDisable('Love of Reading')" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
+            <label for="Reading" class="checkbox-label"> Love of Reading</label>
+          </div>
+          <p>
+            <input ng-disabled="!characterbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default custom-accordion-panel-default" id="student_profile_whatiamlooking" ng-if="student_profile_details.whatimlooking.length==0">
+    <div class="panel-heading custom-accordion-heading">
+      <h4 class="panel-title custom-accordion-title">
+        <a href="#" data-target="#swhatiamlooking" class="collapsed" data-toggle="collapse" data-parent="#accordion">
+          <span class="glyphicon custom-glyphicon-accordion"></span>
+          What I'm looking for
+        </a>
+      </h4>
+    </div>
+    <div id="swhatiamlooking" class="panel-collapse custom-panel-accordion-collapse collapse">
+
+      <form  ng-submit="whatiamlooksubmit()"><div class="form-group-edit-profile">
+        <input type="hidden" name="lookingid" ng-model="looking.id">
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="a-role-in-a-large-company" class="checkbox-input" ng-disabled="shouldDisablew('A role in a large company')" ng-model="pwhatiamlooking['A role in a large company']" type="checkbox">
+          <label for="a-role-in-a-large-company" class="checkbox-label"> A role in a large company</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="build-a-career" class="checkbox-input" ng-disabled="shouldDisablew('Build a career')" ng-model="pwhatiamlooking['Build a career']" type="checkbox">
+          <label for="build-a-career" class="checkbox-label"> Build a career</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="career-growth" class="checkbox-input" ng-disabled="shouldDisablew('Career growth')" ng-model="pwhatiamlooking['Career growth']" type="checkbox">
+          <label for="career-growth" class="checkbox-label"> Career growth</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="explain-your-motivation" class="checkbox-input" ng-disabled="shouldDisablew('Explain your motivation')" ng-model="pwhatiamlooking['Explain your motivation']" type="checkbox">
+          <label for="explain-your-motivation" class="checkbox-label"> Explain your motivation</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="extremely-productive-and-creative" class="checkbox-input" ng-disabled="shouldDisablew('Extremely productive and creative')" ng-model="pwhatiamlooking['Extremely productive and creative']" type="checkbox">
+          <label for="extremely-productive-anng-class="{'has-success': sleadershipform.name.$valid}" d-creative" class="checkbox-label"> Extremely productive and creative</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="friendly-staff" class="checkbox-input" ng-disabled="shouldDisablew('Friendly staff')" ng-model="pwhatiamlooking['Friendly staff']" type="checkbox">
+          <label for="friendly-staff" class="checkbox-label"> Friendly staff</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="high-earnings" class="checkbox-input" ng-disabled="shouldDisablew('High earnings')" ng-model="pwhatiamlooking['High earnings']" type="checkbox">
+          <label for="high-earnings" class="checkbox-label"> High earnings</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="interesting-projects" class="checkbox-input" ng-disabled="shouldDisablew('Interesting projects')" ng-model="pwhatiamlooking['Interesting projects']" type="checkbox">
+          <label for="interesting-projects" class="checkbox-label"> Interesting projects</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="learn-new-things" class="checkbox-input" ng-disabled="shouldDisablew('Learn new things')" ng-model="pwhatiamlooking['Learn new things']" type="checkbox">
+          <label for="learn-new-things" class="checkbox-label"> Learn new things</label>
+        </div>
+        <div class="checkbox custom-checkbox checkbox-circle">
+          <input id="official-employment" class="checkbox-input" ng-disabled="shouldDisablew('Official employment')" ng-model="pwhatiamlooking['Official employment']" type="checkbox">
+          <label for="official-employment" class="checkbox-label"> Official employment</label>
+        </div>
+        <p class="btn-panel-group">
+          <input  ng-disabled="!pwhatiamlookingbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+        </p>
+      </div>
+    </form>
+
+  </div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_leadership" ng-if="student_profile_details.leadship_role.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#sleadership" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Leadership roles
+      </a>
+    </h4>
+  </div>
+  <div id="sleadership" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name="sleadershipform" ng-submit="leadershipsubmit()" >
+      <div class="row">
+
+        <div class="col-sm-12  col-md-12">
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': sleadershipform.leadership_role.$valid}">Leadership role</label>
+              <input type="hidden" class="form-control custom-textbox"  ng-model="leadershipform.id" name="student">
+              <input type="text" class="form-control custom-textbox" name="leadership_role"  ng-class="{'has-error': sleadershipform.leadership_role.$touched, 'has-success': sleadershipform.leadership_role.$valid}" required ng-model="leadershipform.leadership_role" placeholder="Give it a name">
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Description</label>
+              <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
+            </div>
+
+
+            <p class="btn-panel-group">
+              <input type="submit"  ng-disabled="sleadershipform.leadership_role.$invalid"  value="Submit" class="btn btn-default custom-btn btn-lg"/>
+            </p> </div>
+            <!-- <hr class="hr-line-lidership"> -->
           </div>
         </div>
-        <div class="panel-group custom-panel-group" id="accordion">
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_basic_information" ng-if="!student_profile_details.profile_picture && !student_profile_details.first_name && !student_profile_details.last_name && !student_profile_details.about_me ">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sbasicinformation" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Basic Profile</a>
-                    </h4>
-                </div>
-                <div id="sbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="basicprofileforms" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
-                        <div class="row">
+        <!-- <div class="row">
+        <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+        <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add role</a> </div>
+      </div> -->
+    </form>
+  </div>
+</div>
 
-                            <div class="col-sm-12 col-md-12">
-                             <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Basic Profile</label>
-                                    <input type="hidden" name="user" ng-model="basicprofileform.user">
-                                    <input type="hidden" name="id" ng-model="basicprofileform.id">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': basicprofileform.first_name.$valid}">First Name</label>
-                                    <input id="first_name" type="text" required class="form-control custom-textbox" name="first_name"  ng-model="basicprofileform.first_name" ng-class="{'has-error': basicprofileform.first_name.$touched , 'has-success': basicprofileform.first_name.$valid}" >
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Last Name</label>
-                                    <input type="text" class="form-control custom-textbox" required name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" >
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Date of Birth</label>
-                                    <input type="text" class="form-control custom-textbox" required name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" >
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Gender</label>
-                                    <select name="gender" ng-model="basicprofileform.gender" required>
-                                        <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
-                                        <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
-                                    </select>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Category</label>
-                                    <select name="category" ng-model="basicprofileform.category" required>
-                                        <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
-                                        <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
-                                        <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
-                                        <option value="Number Cruncher" ng-selected="{{ basicprofileform.category == 'Number Cruncher' }}">Number Cruncher</option>
-                                        <option value="Builder" ng-selected="{{ basicprofileform.category == 'Builder' }}">Builder</option>
-                                        <option value="Negotiator" ng-selected="{{ basicprofileform.category == 'Negotiator' }}">Negotiator</option>
-                                        <option value="Entrepreneur" ng-selected="{{ basicprofileform.category == 'Entrepreneur' }}">Entrepreneur</option>
-                                        <option value="Entertainer" ng-selected="{{ basicprofileform.category == 'Entertainer' }}">Entertainer</option>
-                                        <option value="Organizer" ng-selected="{{ basicprofileform.category == 'Organizer' }}">Organizer</option>
-                                        <option value="Social Butterfly" ng-selected="{{ basicprofileform.category == 'Social Butterfly' }}">Social Butterfly</option>
-                                    </select>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Social Network Link</label>
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.github_url" name="twitter_url" placeholder="Please provide your Github URL">
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"  ng-model="basicprofileform.stackoverflow_url" name="twitter_url" placeholder="Please provide your Stackoverflow URL">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Website</label>
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your Facebook URL">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                <div class="upload-container">
-                                    <label class="text-uppercase">Profile Picture</label>
-                                    <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" class="upload-button" id="upload-picture">
-                                    <label class="btn btn-default custom-btn btn-lg" for="upload-picture">Choose File</label>
-                                    </div>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">About me</label>
-                                    <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
-                                </div>
-                                   <p class="btn-panel-group">
-                        <input type="submit" value="Submit" ng-disabled="basicprofileforms.$invalid" class="btn btn-default custom-btn btn-lg" />
-                        </p>
-                                <!--<div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Profile Image</label>
-                                    <input type="file" class="file_multi_video" id="file" accept="image/*" name="file" multiple
-                                        onchange="angular.element(this).scope().getFileDetails(this)" />
-                                    <img src="basicprofileform.profile_picture"/>
-                                </div>-->
-                            </div>
-                            <!-- <hr class="hr-line-lidership"> -->
-                        </div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_myschool" ng-if="student_profile_details.education.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#smyschools" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        MY SCHOOLS
+      </a>
+    </h4>
+  </div>
+  <div id="smyschools" class="panel-collapse custom-panel-accordion-collapse collapse">
 
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
-                        </div> -->
-                    </form>
-                </div>
+    <form ng-submit="educationsubmit()">
+      <div class="row">
+
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">School</label>
+              <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
+              <div angucomplete-alt id="universities"
+              placeholder="Search universities"
+              maxlength="50"
+              pause="100"
+              selected-object="selecteduniversity"
+              remote-url="https://api.firstsynch.com/api/v1/auto/school_list/?q="
+              remote-url-data-field="results"
+              title-field="Institution_Name"
+              minlength="1"
+              input-class="form-control custom-form-control-br-bottom"
+              field-required="true"
+              match-class="highlight"></div>
+              <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="educationform.school_name"/>
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_hobbies" ng-if="student_profile_details.hobby.length ==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#shobbies" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
-                    </h4>
-                </div>
-                <div id="shobbies" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="hobbiesforms" ng-submit="hobbiessubmit(hobbiesform.image)">
-                        <div class="row">
-
-                            <div class="col-sm-12 col-md-12">
-                             <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': hobbiesforms.name.$valid}">Hobby</label>
-                                    <input type="hidden" name="id" ng-model="hobbiesform.id">
-                                    <input type="text" class="form-control custom-textbox" required placeholder="Give it a name" name="name"  ng-model="hobbiesform.name" ng-class="{'has-error': hobbiesforms.name.$touched, 'has-success': hobbiesforms.name.$valid}">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Description</label>
-                                    <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150" ng-model="hobbiesform.description"></textarea>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                 <div class="upload-container">
-<label class="text-uppercase">Profile Picture</label>
-                                   <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" id="upload-picture-hobbies" class="upload-button">
-                                   <label class="btn btn-default custom-btn btn-lg" for="upload-picture-hobbies">Choose File</label>
-                                    </div>
-                                </div>
-
-                                <p class="btn-panel-group">
-                        <input type="submit" ng-disabled="hobbiesforms.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
-                        </p>
-                                </div>
-                            </div>
-                            <!-- <hr class="hr-line-lidership"> -->
-                        </div>
-
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
-                        </div> -->
-                    </form>
-                </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Major</label>
+              <input type="text" class="form-control custom-textbox" ng-model="educationform.major" placeholder="Start Date">
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_characteristics" ng-if="student_profile_details.student_characteristic.length == 0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#scharactertics" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
-                    </h4>
-                </div>
-                <div id="scharactertics" class="panel-collapse custom-panel-accordion-collapse collapse">
-                <div class="form-group-edit-profile">
-                    <form name="scharacterticsform" ng-submit="charactersubmit()">
-                        <input type="hidden" name="charid" ng-model="characteristic.id">
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Realistic" class="checkbox-input" ng-disabled="shouldDisable('Realistic')" ng-model="pselectedCharacter['Realistic']" type="checkbox">
-                            <label for="Realistic" class="checkbox-label"> Realistic</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Investigative"  class="checkbox-input" ng-disabled="shouldDisable('Investigative')" ng-model="pselectedCharacter['Investigative']" type="checkbox">
-                            <label for="Investigative" class="checkbox-label"> Investigative</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Artistic" class="checkbox-input" ng-disabled="shouldDisable('Artistic')" ng-model="pselectedCharacter['Artistic']" type="checkbox">
-                            <label for="Artistic" class="checkbox-label"> Artistic</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Social" class="checkbox-input" ng-disabled="shouldDisable('Social')" ng-model="pselectedCharacter['Social']" type="checkbox">
-                            <label for="Social" class="checkbox-label"> Social</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Enterprising" class="checkbox-input" ng-disabled="shouldDisable('Enterprising')" ng-model="pselectedCharacter['Enterprising']" type="checkbox">
-                            <label for="Enterprising" class="checkbox-label"> Enterprising</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Conventional" class="checkbox-input" ng-disabled="shouldDisable('Conventional')" ng-model="pselectedCharacter['Conventional']" type="checkbox">
-                            <label for="Conventional" class="checkbox-label"> Conventional</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Rule_Follower" class="checkbox-input" ng-disabled="shouldDisable('Rule Follower')" ng-model="pselectedCharacter['Rule Follower']" type="checkbox">
-                            <label for="Rule_Follower" class="checkbox-label"> Rule Follower</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Self-Motivated" class="checkbox-input" ng-disabled="shouldDisable('Self-Motivated')" ng-model="pselectedCharacter['Self-Motivated']" type="checkbox">
-                            <label for="Self-Motivated" class="checkbox-label"> Self-Motivated</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Responsibility" class="checkbox-input" ng-disabled="shouldDisable('Responsibility')" ng-model="pselectedCharacter['Responsibility']" type="checkbox">
-                            <label for="Responsibility" class="checkbox-label"> Responsibility</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Accustomed" class="checkbox-input" ng-disabled="shouldDisable('Accustomed to Routine')" ng-model="pselectedCharacter['Accustomed to Routine']" type="checkbox">
-                            <label for="Accustomed" class="checkbox-label"> Accustomed to Routine</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Study_Skills" class="checkbox-input" ng-disabled="shouldDisable('Learned Study Skills')" ng-model="pselectedCharacter['Learned Study Skills']" type="checkbox">
-                            <label for="Study_Skills" class="checkbox-label"> Learned Study Skills</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="Reading" class="checkbox-input" ng-disabled="shouldDisable('Love of Reading')" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
-                            <label for="Reading" class="checkbox-label"> Love of Reading</label>
-                        </div>
-                        <p>
-                            <input ng-disabled="!characterbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
-                        </p>
-                    </form>
-                    </div>
-                </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Year Started</label>
+              <input type="text" class="form-control custom-textbox" ng-model="educationform.year_started" placeholder="Start Date">
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_whatiamlooking" ng-if="student_profile_details.whatimlooking.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#swhatiamlooking" class="collapsed" data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            What I'm looking for
-                        </a>
-                    </h4>
-                </div>
-                <div id="swhatiamlooking" class="panel-collapse custom-panel-accordion-collapse collapse">
-
-                    <form  ng-submit="whatiamlooksubmit()"><div class="form-group-edit-profile">
-                        <input type="hidden" name="lookingid" ng-model="looking.id">
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="a-role-in-a-large-company" class="checkbox-input" ng-disabled="shouldDisablew('A role in a large company')" ng-model="pwhatiamlooking['A role in a large company']" type="checkbox">
-                            <label for="a-role-in-a-large-company" class="checkbox-label"> A role in a large company</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="build-a-career" class="checkbox-input" ng-disabled="shouldDisablew('Build a career')" ng-model="pwhatiamlooking['Build a career']" type="checkbox">
-                            <label for="build-a-career" class="checkbox-label"> Build a career</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="career-growth" class="checkbox-input" ng-disabled="shouldDisablew('Career growth')" ng-model="pwhatiamlooking['Career growth']" type="checkbox">
-                            <label for="career-growth" class="checkbox-label"> Career growth</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="explain-your-motivation" class="checkbox-input" ng-disabled="shouldDisablew('Explain your motivation')" ng-model="pwhatiamlooking['Explain your motivation']" type="checkbox">
-                            <label for="explain-your-motivation" class="checkbox-label"> Explain your motivation</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="extremely-productive-and-creative" class="checkbox-input" ng-disabled="shouldDisablew('Extremely productive and creative')" ng-model="pwhatiamlooking['Extremely productive and creative']" type="checkbox">
-                            <label for="extremely-productive-anng-class="{'has-success': sleadershipform.name.$valid}" d-creative" class="checkbox-label"> Extremely productive and creative</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="friendly-staff" class="checkbox-input" ng-disabled="shouldDisablew('Friendly staff')" ng-model="pwhatiamlooking['Friendly staff']" type="checkbox">
-                            <label for="friendly-staff" class="checkbox-label"> Friendly staff</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="high-earnings" class="checkbox-input" ng-disabled="shouldDisablew('High earnings')" ng-model="pwhatiamlooking['High earnings']" type="checkbox">
-                            <label for="high-earnings" class="checkbox-label"> High earnings</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="interesting-projects" class="checkbox-input" ng-disabled="shouldDisablew('Interesting projects')" ng-model="pwhatiamlooking['Interesting projects']" type="checkbox">
-                            <label for="interesting-projects" class="checkbox-label"> Interesting projects</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="learn-new-things" class="checkbox-input" ng-disabled="shouldDisablew('Learn new things')" ng-model="pwhatiamlooking['Learn new things']" type="checkbox">
-                            <label for="learn-new-things" class="checkbox-label"> Learn new things</label>
-                        </div>
-                        <div class="checkbox custom-checkbox checkbox-circle">
-                            <input id="official-employment" class="checkbox-input" ng-disabled="shouldDisablew('Official employment')" ng-model="pwhatiamlooking['Official employment']" type="checkbox">
-                            <label for="official-employment" class="checkbox-label"> Official employment</label>
-                        </div>
-                      <p class="btn-panel-group">
-                            <input  ng-disabled="!pwhatiamlookingbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
-                        </p>
-                        </div>
-                    </form>
-
-                </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Graduated Year</label>
+              <input type="text" class="form-control custom-textbox" ng-model="educationform.year_graduated" placeholder="Graduated Year">
             </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_leadership" ng-if="student_profile_details.leadship_role.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sleadership" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Lidership roles
-                        </a>
-                    </h4>
-                </div>
-                <div id="sleadership" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="sleadershipform" ng-submit="leadershipsubmit()" >
-                        <div class="row">
-
-                            <div class="col-sm-12  col-md-12">
-                            <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sleadershipform.leadership_role.$valid}">Lidership role</label>
-                                    <input type="hidden" class="form-control custom-textbox"  ng-model="leadershipform.id" name="student">
-                                    <input type="text" class="form-control custom-textbox" name="leadership_role"  ng-class="{'has-error': sleadershipform.leadership_role.$touched, 'has-success': sleadershipform.leadership_role.$valid}" required ng-model="leadershipform.leadership_role" placeholder="Give it a name">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Description</label>
-                                    <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
-                                </div>
-
-
-  <p class="btn-panel-group">
-                            <input type="submit"  ng-disabled="sleadershipform.leadership_role.$invalid"  value="Submit" class="btn btn-default custom-btn btn-lg"/>
-                            </p> </div>
-                            <!-- <hr class="hr-line-lidership"> -->
-                        </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add role</a> </div>
-                        </div> -->
-                    </form>
-                </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">GPA</label>
+              <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa" placeholder="GPA">
             </div>
-
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_myschool" ng-if="student_profile_details.education.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#smyschools" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            MY SCHOOLS
-                        </a>
-                    </h4>
-                </div>
-                <div id="smyschools" class="panel-collapse custom-panel-accordion-collapse collapse">
-
-                    <form ng-submit="educationsubmit()">
-                        <div class="row">
-
-                            <div class="col-sm-12 col-md-12">
-                             <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">School</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
-                                    <div angucomplete-alt id="universities"
-                                        placeholder="Search universities"
-                                        maxlength="50"
-                                        pause="100"
-                                        selected-object="selecteduniversity"
-                                        remote-url="https://api.firstsynch.com/api/v1/auto/school_list/?q="
-                                        remote-url-data-field="results"
-                                        title-field="Institution_Name"
-                                        minlength="1"
-                                        input-class="form-control custom-form-control-br-bottom"
-                                        field-required="true"
-                                        match-class="highlight"></div>
-                                    <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="educationform.school_name"/>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Major</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.major" placeholder="Start Date">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Year Started</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.year_started" placeholder="Start Date">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Graduated Year</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.year_graduated" placeholder="Graduated Year">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">GPA</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa" placeholder="GPA">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">GPA Rating</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
-                                </div>
-
-
-  <p class="btn-panel-group">
-                            <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
-                            </p> </div>
-                        </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
-                        </div> -->
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_histroy" ng-if="student_profile_details.experience.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sworkhistroy" class="collapsed" data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Work History
-                        </a>
-                    </h4>
-                </div>
-                <div id="sworkhistroy" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="sworkhistroyform" ng-submit="workhistroyformsubmit()">
-                        <div class="row">
-
-                            <div class="col-sm-12  col-md-12">
-                             <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.company.$valid}">Work</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.id" name="user">
-                                    <input type="text" class="form-control custom-textbox" name="company" ng-model="workhistroyform.company" placeholder="Company Name" ng-class="{'has-error': sworkhistroyform.company.$touched, 'has-success': sworkhistroyform.company.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.start_date.$valid}">Start Date</label>
-                                    <input type="text" class="form-control custom-textbox" name="start_date" ng-model="workhistroyform.start_date" placeholder="Start Date" ng-class="{'has-error': sworkhistroyform.start_date.$touched, 'has-success': sworkhistroyform.start_date.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.leave_date.$valid}">Leave Date</label>
-                                    <input type="text" class="form-control custom-textbox" name="leave_date" ng-model="workhistroyform.leave_date" placeholder="Graduated Year" ng-class="{'has-error': sworkhistroyform.leave_date.$touched, 'has-success': sworkhistroyform.leave_date.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Job Title</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.job_title" placeholder="Job Title">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Job Description</label>
-                                    <textarea class="form-control custom-text-area" rows="4" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
-                                </div>
-
-
-  <p class="btn-panel-group">
-                            <input type="submit" ng-disabled="sworkhistroyform.leave_date.$invalid &&  sworkhistroyform.start_date.$invalid && sworkhistroyform.company.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
-                            </p> </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
-                        </div> -->
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_projects" ng-if="student_profile_details.project.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sproject" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Projects
-                        </a>
-                    </h4>
-                </div>
-                <div id="sproject" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name='sprojectform' ng-submit="projectsubmit(projectsform.image)">
-                        <div class="row">
-
-                            <div class="col-sm-12  col-md-12">
-                            <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.title.$valid}">Projects</label>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
-                                    <input type="text" class="form-control custom-textbox" name="title" ng-model="projectsform.title" placeholder="Project title" ng-class="{'has-error': sprojectform.title.$touched, 'has-success': sprojectform.title.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.start_date.$valid}">Start Date</label>
-                                    <input type="text" class="form-control custom-textbox" name="start_date" ng-model="projectsform.start_date" placeholder="Start Date" ng-class="{'has-error': sprojectform.start_date.$touched, 'has-success': sprojectform.start_date.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.completation_date.$valid}">End Date</label>
-                                    <input type="text" class="form-control custom-textbox" name="completation_date" ng-model="projectsform.completation_date" placeholder="Graduated Year" ng-class="{'has-error': sprojectform.completation_date.$touched, 'has-success': sprojectform.completation_date.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Description</label>
-                                    <textarea class="form-control custom-text-area" rows="4" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                  <div class="upload-container">
-                                    <label class="text-uppercase">Profile Picture</label>
-                                    <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" class="upload-button"  id="upload-picture-projects">
-                                     <label class="btn btn-default custom-btn btn-lg" for="upload-picture-projects">Choose File</label>
-                                    </div>
-                                </div>
-
-                              <p>
-                            <input type="submit" ng-disabled="sprojectform.completation_date.$invalid &&  sprojectform.start_date.$invalid && sprojectform.title.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg"/>
-                            </p>
-                            </div>
-                        </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
-                        </div> -->
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_personnal" ng-if="student_profile_details.skill.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#spersonal"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Personal
-                        </a>
-                    </h4>
-                </div>
-                <div id="spersonal" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="spersonalform" ng-submit="personnalskillsubmit()">
-                        <div class="row">
-
-                            <div class="col-sm-12  col-md-12">
-
-<div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': spersonalform.name.$valid}">Name</label>
-                                    <input type="text" class="form-control custom-textbox" name="name" ng-model="skillsetpersonnalform.name" placeholder="Skill Name" ng-class="{'has-error': spersonalform.name.$touched, 'has-success': spersonalform.name.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': spersonalform.rating.$valid}">Rating</label>
-                                    <input type="text" class="form-control custom-textbox" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating" ng-class="{'has-error': spersonalform.rating.$touched, 'has-success': spersonalform.rating.$valid}" required>
-                                </div>
-
-                              <p>
-                            <input type="submit" ng-disabled="spersonalform.name.$invalid &&  spersonalform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
-                            </p>
-                            </div>
-
-                             </div>
-
-
-                            <!-- <hr class="hr-line-lidership"> -->
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
-                        </div> -->
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_professional"  ng-if="student_profile_details.skill.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#sprofessional"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Professional
-                        </a>
-                    </h4>
-                </div>
-                <div id="sprofessional" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="sprofessionalform" ng-submit="professionalskillsubmit()">
-                        <div class="row">
-
-                            <div class="col-sm-12 col-md-12">
-                             <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprofessionalform.name.$valid}">Name</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': sprofessionalform.name.$touched, 'has-success': sprofessionalform.name.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprofessionalform.rating.$valid}">Rating</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': sprofessionalform.rating.$touched, 'has-success': sprofessionalform.rating.$valid}" required>
-                                </div>
-
-                              <p>
-                            <input type="submit" ng-disabled="sprofessionalform.name.$invalid &&  sprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
-                            </p></div>
-                            </div>
-                            <!-- <hr class="hr-line-lidership"> -->
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
-                        </div> -->
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="student_profile_software" ng-if="student_profile_details.skill.length==0">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#ssoftware"  class="collapsed"  data-toggle="collapse" data-parent="#accordion">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Software
-                        </a>
-                    </h4>
-                </div>
-                <div id="ssoftware" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="ssoftwareform"  ng-submit="softwareskillsubmit()">
-                        <div class="row">
-
-                            <div class="col-sm-12  col-md-12">
-                             <div class="form-group-edit-profile">
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.user" name="user">
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': ssoftwareform.name.$valid}">Name</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': ssoftwareform.name.$touched, 'has-success': ssoftwareform.name.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': ssoftwareform.rating.$valid}">Rating</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': ssoftwareform.rating.$touched, 'has-success': ssoftwareform.rating.$valid}" required>
-                                </div>
-
-                             <p class="btn-panel-group">
-                            <input type="submit" ng-disabled="ssoftwareform.name.$invalid &&  ssoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
-                            </p>  </div>
-                            </div>
-                            <!-- <hr class="hr-line-lidership"> -->
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                            <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
-                        </div> -->
-                    </form>
-                </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">GPA Rating</label>
+              <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
             </div>
 
 
+            <p class="btn-panel-group">
+              <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+            </p> </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+        <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+        <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
+      </div> -->
+    </form>
+  </div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_histroy" ng-if="student_profile_details.experience.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#sworkhistroy" class="collapsed" data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Work History
+      </a>
+    </h4>
+  </div>
+  <div id="sworkhistroy" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name="sworkhistroyform" ng-submit="workhistroyformsubmit()">
+      <div class="row">
 
+        <div class="col-sm-12  col-md-12">
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.company.$valid}">Work</label>
+              <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.id" name="user">
+              <input type="text" class="form-control custom-textbox" name="company" ng-model="workhistroyform.company" placeholder="Company Name" ng-class="{'has-error': sworkhistroyform.company.$touched, 'has-success': sworkhistroyform.company.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-grou">
+              <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.start_date.$valid}">Start Date</label>
+              <input type="text" class="form-control custom-textbox" name="start_date" ng-model="workhistroyform.start_date" placeholder="Start Date" ng-class="{'has-error': sworkhistroyform.start_date.$touched, 'has-success': sworkhistroyform.start_date.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.leave_date.$valid}">Leave Date</label>
+              <input type="text" class="form-control custom-textbox" name="leave_date" ng-model="workhistroyform.leave_date" placeholder="Graduated Year" ng-class="{'has-error': sworkhistroyform.leave_date.$touched, 'has-success': sworkhistroyform.leave_date.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Job Title</label>
+              <input type="text" class="form-control custom-textbox" ng-model="workhistroyform.job_title" placeholder="Job Title">
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Job Description</label>
+              <textarea class="form-control custom-text-area" rows="4" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+            </div>
+
+
+            <p class="btn-panel-group">
+              <input type="submit" ng-disabled="sworkhistroyform.leave_date.$invalid &&  sworkhistroyform.start_date.$invalid && sworkhistroyform.company.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+            </p> </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+        <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+        <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
+      </div> -->
+    </form>
+  </div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_projects" ng-if="student_profile_details.project.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#sproject" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Projects
+      </a>
+    </h4>
+  </div>
+  <div id="sproject" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name='sprojectform' ng-submit="projectsubmit(projectsform.image)">
+      <div class="row">
+
+        <div class="col-sm-12  col-md-12">
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-grou">
+              <label class="text-uppercase" ng-class="{'has-success': sprojectform.title.$valid}">Projects</label>
+              <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
+              <input type="text" class="form-control custom-textbox" name="title" ng-model="projectsform.title" placeholder="Project title" ng-class="{'has-error': sprojectform.title.$touched, 'has-success': sprojectform.title.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-grou">
+              <label class="text-uppercase" ng-class="{'has-success': sprojectform.start_date.$valid}">Start Date</label>
+              <input type="text" class="form-control custom-textbox" name="start_date" ng-model="projectsform.start_date" placeholder="Start Date" ng-class="{'has-error': sprojectform.start_date.$touched, 'has-success': sprojectform.start_date.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-grou">
+              <label class="text-uppercase" ng-class="{'has-success': sprojectform.completation_date.$valid}">End Date</label>
+              <input type="text" class="form-control custom-textbox" name="completation_date" ng-model="projectsform.completation_date" placeholder="Graduated Year" ng-class="{'has-error': sprojectform.completation_date.$touched, 'has-success': sprojectform.completation_date.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase">Description</label>
+              <textarea class="form-control custom-text-area" rows="4" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <div class="upload-container">
+                <label class="text-uppercase">Profile Picture</label>
+                <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" class="upload-button"  id="upload-picture-projects">
+                <label class="btn btn-default custom-btn btn-lg" for="upload-picture-projects">Choose File</label>
+              </div>
+            </div>
+
+            <p>
+              <input type="submit" ng-disabled="sprojectform.completation_date.$invalid &&  sprojectform.start_date.$invalid && sprojectform.title.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+      <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+      <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
+    </div> -->
+  </form>
+</div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_personnal" ng-if="student_profile_details.skill.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#spersonal"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Personal
+      </a>
+    </h4>
+  </div>
+  <div id="spersonal" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name="spersonalform" ng-submit="personnalskillsubmit()">
+      <div class="row">
+
+        <div class="col-sm-12  col-md-12">
+
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-grou">
+              <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': spersonalform.name.$valid}">Name</label>
+              <input type="text" class="form-control custom-textbox" name="name" ng-model="skillsetpersonnalform.name" placeholder="Skill Name" ng-class="{'has-error': spersonalform.name.$touched, 'has-success': spersonalform.name.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': spersonalform.rating.$valid}">Rating</label>
+              <input type="text" class="form-control custom-textbox" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating" ng-class="{'has-error': spersonalform.rating.$touched, 'has-success': spersonalform.rating.$valid}" required>
+            </div>
+
+            <p>
+              <input type="submit" ng-disabled="spersonalform.name.$invalid &&  spersonalform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
+            </p>
+          </div>
 
         </div>
-    </div>
-    </div>
+
+
+        <!-- <hr class="hr-line-lidership"> -->
+      </div>
+      <!-- <div class="row">
+      <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+      <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
+    </div> -->
+  </form>
+</div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_professional"  ng-if="student_profile_details.skill.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#sprofessional"  class="collapsed" data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Professional
+      </a>
+    </h4>
+  </div>
+  <div id="sprofessional" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name="sprofessionalform" ng-submit="professionalskillsubmit()">
+      <div class="row">
+
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-grou">
+              <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': sprofessionalform.name.$valid}">Name</label>
+              <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': sprofessionalform.name.$touched, 'has-success': sprofessionalform.name.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': sprofessionalform.rating.$valid}">Rating</label>
+              <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': sprofessionalform.rating.$touched, 'has-success': sprofessionalform.rating.$valid}" required>
+            </div>
+
+            <p>
+              <input type="submit" ng-disabled="sprofessionalform.name.$invalid &&  sprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+            </p></div>
+          </div>
+          <!-- <hr class="hr-line-lidership"> -->
+        </div>
+        <!-- <div class="row">
+        <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+        <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
+      </div> -->
+    </form>
+  </div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="student_profile_software" ng-if="student_profile_details.skill.length==0">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#ssoftware"  class="collapsed"  data-toggle="collapse" data-parent="#accordion">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Software
+      </a>
+    </h4>
+  </div>
+  <div id="ssoftware" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name="ssoftwareform"  ng-submit="softwareskillsubmit()">
+      <div class="row">
+
+        <div class="col-sm-12  col-md-12">
+          <div class="form-group-edit-profile">
+            <div class="form-group custom-lider-form-grou">
+              <input type="hidden" class="form-control custom-textbox" ng-model="skillsetsoftwareform.user" name="user">
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': ssoftwareform.name.$valid}">Name</label>
+              <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': ssoftwareform.name.$touched, 'has-success': ssoftwareform.name.$valid}" required>
+            </div>
+            <div class="form-group custom-lider-form-group">
+              <label class="text-uppercase" ng-class="{'has-success': ssoftwareform.rating.$valid}">Rating</label>
+              <input type="text" class="form-control custom-textbox" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': ssoftwareform.rating.$touched, 'has-success': ssoftwareform.rating.$valid}" required>
+            </div>
+
+            <p class="btn-panel-group">
+              <input type="submit" ng-disabled="ssoftwareform.name.$invalid &&  ssoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+            </p>  </div>
+          </div>
+          <!-- <hr class="hr-line-lidership"> -->
+        </div>
+        <!-- <div class="row">
+        <div class="col-sm-1 col-md-1 col-lidership-panel"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+        <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Skills</a> </div>
+      </div> -->
+    </form>
+  </div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
 </section>

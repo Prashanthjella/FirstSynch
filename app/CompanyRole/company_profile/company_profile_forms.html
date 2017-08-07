@@ -1,454 +1,454 @@
 <section class="page-section complete-profile" ng-controller="companyprofileform">
-    <div class="thumbnail custom-thumbnail-pro-accordion">
-        <h5 class="custom-h5 h5-video">Complete your profile</h5>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="progress custom-progress">
-              <div class="progress-bar custom-progress-bar" role="progressbar" aria-valuenow="{{company_profile_details.score}}"
-    aria-valuemin="0" aria-valuemax="100" style="width:{{company_profile_details.score}}%"> </div>
+  <div class="thumbnail custom-thumbnail-pro-accordion">
+    <h5 class="custom-h5 h5-video">Complete your profile</h5>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="progress custom-progress">
+          <div class="progress-bar custom-progress-bar" role="progressbar" aria-valuenow="{{company_profile_details.score}}"
+          aria-valuemin="0" aria-valuemax="100" style="width:{{company_profile_details.score}}%"> </div>
+        </div>
+        <div class="toal-complete-container"> <span class="total-profile-complete">{{company_profile_details.score}}%</span> Complete </div>
+      </div>
+    </div>
+    <div class="panel-group custom-panel-group" id="accordion">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_basic_information" ng-if="company_profile_details.logo =='' && company_profile_details.name =='' && company_profile_details.product_category =='' && company_profile_details.facebook_url=='' && company_profile_details.linkedin_url==''&& company_profile_details.twitter_url==''&& company_profile_details.website==''">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#cbasicinformation"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Company Information</a>
+          </h4>
+        </div>
+        <div id="cbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form name="cpobasicinfoform" ng-submit="basicinfosubmit(basicinfoform.logo)">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.name.$valid}">Company Name</label>
+                  <input type="hidden" name="id" ng-model="basicinfoform.id">
+                  <input type="text" class="form-control custom-textbox" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" ng-class="{'has-error': cpobasicinfoform.name.$touched, 'has-success': cpobasicinfoform.name.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.category.$valid}">Industry</label>
+                  <select name="category"  ng-model="basicinfoform.category"  ng-class="{'has-error': cpobasicinfoform.category.$touched, 'has-success': cpobasicinfoform.category.$valid}" required>
+                    <option value="Tech">Tech</option>
+                    <option value="Trades">Trades</option>
+                    <option value="Health">Health</option>
+                    <option value="Money">Money</option>
+                    <option value="Outdoor / Travel">Outdoor / Travel</option>
+                    <option value="Creative">Creative</option>
+                    <option value="Fortune 500">Fortune 500</option>
+                    <option value="Environmental">Environmental</option>
+                    <option value="Social Good">Social Good</option>
+                    <option value="Goods">Goods</option>
+                    <option value="Services">Services</option>
+                    <option value="Food and Beverage">Food and Beverage</option>
+                    <option value="Education">Education</option>
+                    <option value="Customer Service">Customer Service</option>
+                  </select>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.product_category.$valid}">Product Category</label>
+                  <input type="text" class="form-control custom-textbox" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpobasicinfoform.product_category.$touched, 'has-success': cpobasicinfoform.product_category.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.website.$valid}">Website</label>
+                  <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Linkedin</label>
+                  <input type="text" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Twitter</label>
+                  <input type="text" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Facebook</label>
+                  <input type="text" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Profile Picture</label>
+                  <input type="file" ngf-select ng-model="basicinfoform.logo" name="file" accept="image/*" >
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit" ng-disabled="cpobasicinfoform.website.$invalid || cpobasicinfoform.product_category.$invalid || cpobasicinfoform.category.$invalid || cpobasicinfoform.name.$invalid"  class="form-control" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
             </div>
-            <div class="toal-complete-container"> <span class="total-profile-complete">{{company_profile_details.score}}%</span> Complete </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_benefitperkscultrue" ng-if="company_profile_details.hiring[0].benefits =='' && company_profile_details.hiring[0].perks =='' &&company_profile_details.hiring[0].culture ==''">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#cbenefitperkscultrue" class="collapsed" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Why should you work for us</a>
+          </h4>
+        </div>
+        <div id="cbenefitperkscultrue" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form name="cpoworkforusform" ng-submit="benefitperkscultruesubmit()">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.benefits.$valid}">Benefits</label>
+                  <input type="text" name="benefits" ng-model="benefitperkscultrueform.benefits" class="form-control custom-textbox" placeholder="Give it a benefits" ng-class="{'has-error': cpoworkforusform.benefits.$touched, 'has-success': cpoworkforusform.benefits.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.perks.$valid}">Perks</label>
+                  <input type="text" name="perks" ng-model="benefitperkscultrueform.perks" class="form-control custom-textbox" placeholder="Give it a Perks" ng-class="{'has-error': cpoworkforusform.perks.$touched, 'has-success': cpoworkforusform.perks.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.culture.$valid}">Culture</label>
+                  <input type="text" name="culture" ng-model="benefitperkscultrueform.culture" class="form-control custom-textbox" placeholder="Give it a Culture" ng-class="{'has-error': cpoworkforusform.culture.$touched, 'has-success': cpoworkforusform.culture.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit" ng-disabled="cpoworkforusform.benefits.$invalid || cpoworkforusform.perks.$invalid || cpoworkforusform.culture.$invalid" class="form-control" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_dateofestablishment" ng-if="company_profile_details.est_date_description =='' && company_profile_details.establishment_date==''">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#cdateofestablishment" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>DATE OF ESTABLISHMENT</a>
+          </h4>
+        </div>
+        <div id="cdateofestablishment" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form name="cpoestablishmentform" ng-submit="establishmentsubmit()">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase"  ng-class="{'has-success': cpoestablishmentform.establishment_date.$valid}">ESTABLISHMENT DATE</label>
+                  <input type="text" class="form-control custom-textbox" datepicker placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Description</label>
+                  <input type="text" class="form-control custom-textbox" placeholder="Give it a establishment description" name="est_date_description" ng-model="establishmentform.est_date_description">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit"  ng-disabled="cpoestablishmentform.establishment_date.$invalid" class="form-control" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_internship" ng-if="company_profile_details.internships_to_jobs =='' && company_profile_details.internships_job_description==''">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#cinternship" class="collapsed" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>INTERNSHIPS</a>
+          </h4>
+        </div>
+        <div id="cinternship" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form name="cpinternshipform" ng-submit="internshipsubmit()">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">MIGRATION LABEL</label>
+                  <input type="hidden" name="id" ng-model="internshipform.id">
+                  <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-textbox" placeholder="Give it a empoyee migration percentage">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Description</label>
+                  <input type="text" name="internships_job_description" ng-model="internshipform.internships_job_description" class="form-control custom-textbox" placeholder="Give it a employee migration description">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit" class="form-control" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_companysize" ng-if="$scope.company_profile_details.company_size_description=='' &&  $scope.company_profile_details.company_size==''">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#ccompanysize"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="">
+              <span class="glyphicon custom-glyphicon-accordion"></span>
+              COMPANY SIZE
+            </a>
+          </h4>
+        </div>
+        <div id="ccompanysize" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form name="cpocompanysizeform"  ng-submit="companysizesubmit()">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase"  ng-class="{'has-success': cpocompanysizeform.company_size.$valid}">SIZE</label>
+                  <input type="hidden" name="id" ng-model="companysizeform.id">
+                  <input type="text" name="company_size" ng-model="companysizeform.company_size" class="form-control custom-textbox" placeholder="Give it a Company empoyee size"  ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Description</label>
+                  <input type="text" name="company_size_description" ng-model="companysizeform.company_size_description" class="form-control custom-textbox" placeholder="Give it a employee size description">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit" ng-disabled="cpocompanysizeform.company_size.$invalid"  class="form-control" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_hireanddeparture" ng-if="company_profile_details.hire_rates=='' && company_profile_details.hire_rates_description =='' && company_profile_details.departure_rate==''&& company_profile_details.departure_rate_description">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#chireanddeparture" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
+              <span class="glyphicon custom-glyphicon-accordion"></span>
+              HIRE &amp; DEPARTURE RATES
+            </a>
+          </h4>
+        </div>
+        <div id="chireanddeparture" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form name="cpohirerateform"  ng-submit="hireratesubmit()">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.hire_rates.$valid}">HIRE RATES</label>
+                  <input type="hidden" name="id" ng-model="hirerateform.id">
+                  <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="Give it a Hire rates size" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Description</label>
+                  <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.departure_rate.$valid}">Departure Rates</label>
+                  <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="Give it a Departure rates size" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Description</label>
+                  <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Give it a departure rates description">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit" class="form-control" ng-disabled="cpohirerateform.departure_rate.$invalid || cpohirerateform.hire_rates.$invalid" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_averagesalary" ng-if="company_profile_details.average_entry_level_sal==''">
+        <div class="panel-heading custom-accordion-heading">
+          <h4 class="panel-title custom-accordion-title">
+            <a href="#" data-target="#caveragesalary" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
+              <span class="glyphicon custom-glyphicon-accordion"></span>
+              Average Entry Level Salary
+            </a>
+          </h4>
+        </div>
+        <div id="caveragesalary" class="panel-collapse custom-panel-accordion-collapse collapse">
+          <form ng-submit="csalarysubmit()">
+            <div class="row">
+              <div class="col-sm-11 col-md-11">
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Salary Range</label>
+                  <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Give it a entry level salary range">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <label class="text-uppercase">Description</label>
+                  <input type="text"  ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
+                </div>
+                <div class="form-group custom-lider-form-grou">
+                  <input type="submit" class="form-control" value="Save"/>
+                </div>
+              </div>
+              <hr class="hr-line-lidership">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="panel panel-default custom-accordion-panel-default" id="company_profile_fundingsize">
+      <div class="panel-heading custom-accordion-heading">
+      <h4 class="panel-title custom-accordion-title">
+      <a data-target="#cfundingsize"  data-toggle="collapse" data-parent="#accordion" href="">
+      <span class="glyphicon custom-glyphicon-accordion"></span>
+      Total Funding Size
+    </a>
+  </h4>
+</div>
+<div id="cfundingsize" class="panel-collapse custom-panel-accordion-collapse collapse">
+<form ng-submit="fundingsubmit()">
+<div class="row">
+<div class="col-sm-11 col-md-11">
+<div class="form-group custom-lider-form-grou">
+<label class="text-uppercase">Funding Size</label>
+<input type="hidden" name="id" ng-model="fundingform.id">
+<input type="text" name="funding_size" ng-model="fundingform.funding_size" class="form-control custom-textbox" placeholder="Give it a funding size">
+</div>
+<div class="form-group custom-lider-form-grou">
+<label class="text-uppercase">Description</label>
+<input type="text" name="funding_size_description" ng-model="fundingform.funding_size_description" class="form-control custom-textbox" placeholder="Give it a funding size description">
+</div>
+<div class="form-group custom-lider-form-grou">
+<input type="submit" class="form-control" value="Save"/>
+</div>
+</div>
+<hr class="hr-line-lidership">
+</div>
+</form>
+</div>
+</div> -->
+<div class="panel panel-default custom-accordion-panel-default" id="company_profile_growthrate" ng-if="company_profile_details.growth_rate==''&& company_profile_details.growth_rate_description==''">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#cgrowthrate" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Company Growth Rate
+      </a>
+    </h4>
+  </div>
+  <div id="cgrowthrate" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form  name="cpogrowthrateform" ng-submit="growthratesubmit()">
+      <div class="row">
+        <div class="col-sm-11 col-md-11">
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase"  ng-class="{'has-success': cpogrowthrateform.growth_rate.$valid}">Growth Rate</label>
+            <input type="hidden" name="id" ng-model="growthrateform.id">
+            <input type="text"  name="growth_rate" ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase">Description</label>
+            <input type="text" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-textbox" placeholder="Give it a growth rate description">
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <input type="submit"  ng-disabled="cpogrowthrateform.growth_rate.$invalid" class="form-control" value="Save"/>
           </div>
         </div>
-        <div class="panel-group custom-panel-group" id="accordion">
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_basic_information" ng-if="company_profile_details.logo =='' && company_profile_details.name =='' && company_profile_details.product_category =='' && company_profile_details.facebook_url=='' && company_profile_details.linkedin_url==''&& company_profile_details.twitter_url==''&& company_profile_details.website==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cbasicinformation"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Company Information</a>
-                    </h4>
-                </div>
-                <div id="cbasicinformation" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpobasicinfoform" ng-submit="basicinfosubmit(basicinfoform.logo)">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.name.$valid}">Company Name</label>
-                                    <input type="hidden" name="id" ng-model="basicinfoform.id">
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" ng-class="{'has-error': cpobasicinfoform.name.$touched, 'has-success': cpobasicinfoform.name.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.category.$valid}">Industry</label>
-                                    <select name="category"  ng-model="basicinfoform.category"  ng-class="{'has-error': cpobasicinfoform.category.$touched, 'has-success': cpobasicinfoform.category.$valid}" required>
-                                        <option value="Tech">Tech</option>
-                                        <option value="Trades">Trades</option>
-                                        <option value="Health">Health</option>
-                                        <option value="Money">Money</option>
-                                        <option value="Outdoor / Travel">Outdoor / Travel</option>
-                                        <option value="Creative">Creative</option>
-                                        <option value="Fortune 500">Fortune 500</option>
-                                        <option value="Environmental">Environmental</option>
-                                        <option value="Social Good">Social Good</option>
-                                        <option value="Goods">Goods</option>
-                                        <option value="Services">Services</option>
-                                        <option value="Food and Beverage">Food and Beverage</option>
-                                        <option value="Education">Education</option>
-                                        <option value="Customer Service">Customer Service</option>
-                                    </select>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.product_category.$valid}">Product Category</label>
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpobasicinfoform.product_category.$touched, 'has-success': cpobasicinfoform.product_category.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.website.$valid}">Website</label>
-                                    <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Linkedin</label>
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Twitter</label>
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Facebook</label>
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Profile Picture</label>
-                                    <input type="file" ngf-select ng-model="basicinfoform.logo" name="file" accept="image/*" >
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" ng-disabled="cpobasicinfoform.website.$invalid || cpobasicinfoform.product_category.$invalid || cpobasicinfoform.category.$invalid || cpobasicinfoform.name.$invalid"  class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_benefitperkscultrue" ng-if="company_profile_details.hiring[0].benefits =='' && company_profile_details.hiring[0].perks =='' &&company_profile_details.hiring[0].culture ==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cbenefitperkscultrue" class="collapsed" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>Why should you work for us</a>
-                    </h4>
-                </div>
-                <div id="cbenefitperkscultrue" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpoworkforusform" ng-submit="benefitperkscultruesubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.benefits.$valid}">Benefits</label>
-                                    <input type="text" name="benefits" ng-model="benefitperkscultrueform.benefits" class="form-control custom-textbox" placeholder="Give it a benefits" ng-class="{'has-error': cpoworkforusform.benefits.$touched, 'has-success': cpoworkforusform.benefits.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.perks.$valid}">Perks</label>
-                                    <input type="text" name="perks" ng-model="benefitperkscultrueform.perks" class="form-control custom-textbox" placeholder="Give it a Perks" ng-class="{'has-error': cpoworkforusform.perks.$touched, 'has-success': cpoworkforusform.perks.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.culture.$valid}">Culture</label>
-                                    <input type="text" name="culture" ng-model="benefitperkscultrueform.culture" class="form-control custom-textbox" placeholder="Give it a Culture" ng-class="{'has-error': cpoworkforusform.culture.$touched, 'has-success': cpoworkforusform.culture.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" ng-disabled="cpoworkforusform.benefits.$invalid || cpoworkforusform.perks.$invalid || cpoworkforusform.culture.$invalid" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_dateofestablishment" ng-if="company_profile_details.est_date_description =='' && company_profile_details.establishment_date==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cdateofestablishment" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>DATE OF ESTABLISHMENT</a>
-                    </h4>
-                </div>
-                <div id="cdateofestablishment" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpoestablishmentform" ng-submit="establishmentsubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase"  ng-class="{'has-success': cpoestablishmentform.establishment_date.$valid}">ESTABLISHMENT DATE</label>
-                                    <input type="text" class="form-control custom-textbox" datepicker placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" class="form-control custom-textbox" placeholder="Give it a establishment description" name="est_date_description" ng-model="establishmentform.est_date_description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit"  ng-disabled="cpoestablishmentform.establishment_date.$invalid" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_internship" ng-if="company_profile_details.internships_to_jobs =='' && company_profile_details.internships_job_description==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cinternship" class="collapsed" data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon custom-glyphicon-accordion"></span>INTERNSHIPS</a>
-                    </h4>
-                </div>
-                <div id="cinternship" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpinternshipform" ng-submit="internshipsubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">MIGRATION LABEL</label>
-                                    <input type="hidden" name="id" ng-model="internshipform.id">
-                                    <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-textbox" placeholder="Give it a empoyee migration percentage">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="internships_job_description" ng-model="internshipform.internships_job_description" class="form-control custom-textbox" placeholder="Give it a employee migration description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_companysize" ng-if="$scope.company_profile_details.company_size_description=='' &&  $scope.company_profile_details.company_size==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#ccompanysize"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            COMPANY SIZE
-                        </a>
-                    </h4>
-                </div>
-                <div id="ccompanysize" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpocompanysizeform"  ng-submit="companysizesubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase"  ng-class="{'has-success': cpocompanysizeform.company_size.$valid}">SIZE</label>
-                                    <input type="hidden" name="id" ng-model="companysizeform.id">
-                                    <input type="text" name="company_size" ng-model="companysizeform.company_size" class="form-control custom-textbox" placeholder="Give it a Company empoyee size"  ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="company_size_description" ng-model="companysizeform.company_size_description" class="form-control custom-textbox" placeholder="Give it a employee size description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" ng-disabled="cpocompanysizeform.company_size.$invalid"  class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_hireanddeparture" ng-if="company_profile_details.hire_rates=='' && company_profile_details.hire_rates_description =='' && company_profile_details.departure_rate==''&& company_profile_details.departure_rate_description">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#chireanddeparture" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            HIRE &amp; DEPARTURE RATES
-                        </a>
-                    </h4>
-                </div>
-                <div id="chireanddeparture" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpohirerateform"  ng-submit="hireratesubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.hire_rates.$valid}">HIRE RATES</label>
-                                    <input type="hidden" name="id" ng-model="hirerateform.id">
-                                    <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="Give it a Hire rates size" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.departure_rate.$valid}">Departure Rates</label>
-                                    <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="Give it a Departure rates size" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Give it a departure rates description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" class="form-control" ng-disabled="cpohirerateform.departure_rate.$invalid || cpohirerateform.hire_rates.$invalid" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_averagesalary" ng-if="company_profile_details.average_entry_level_sal==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#caveragesalary" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Average Entry Level Salary
-                        </a>
-                    </h4>
-                </div>
-                <div id="caveragesalary" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="csalarysubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Salary Range</label>
-                                    <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Give it a entry level salary range">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text"  ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- <div class="panel panel-default custom-accordion-panel-default" id="company_profile_fundingsize">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cfundingsize"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Total Funding Size
-                        </a>
-                    </h4>
-                </div>
-                <div id="cfundingsize" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="fundingsubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Funding Size</label>
-                                    <input type="hidden" name="id" ng-model="fundingform.id">
-                                    <input type="text" name="funding_size" ng-model="fundingform.funding_size" class="form-control custom-textbox" placeholder="Give it a funding size">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="funding_size_description" ng-model="fundingform.funding_size_description" class="form-control custom-textbox" placeholder="Give it a funding size description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div> -->
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_growthrate" ng-if="company_profile_details.growth_rate==''&& company_profile_details.growth_rate_description==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cgrowthrate" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Company Growth Rate
-                        </a>
-                    </h4>
-                </div>
-                <div id="cgrowthrate" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form  name="cpogrowthrateform" ng-submit="growthratesubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase"  ng-class="{'has-success': cpogrowthrateform.growth_rate.$valid}">Growth Rate</label>
-                                    <input type="hidden" name="id" ng-model="growthrateform.id">
-                                    <input type="text"  name="growth_rate" ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-textbox" placeholder="Give it a growth rate description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit"  ng-disabled="cpogrowthrateform.growth_rate.$invalid" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_inverster" ng-if="company_profile_details.investor_confidence =='' && company_profile_details.investor_conf_description==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cinverster"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Invester Confidence
-                        </a>
-                    </h4>
-                </div>
-                <div id="cinverster" class="panel-collapse custom-panel-accordion-collapse collapse"  >
-                    <form  name="cpoinvestorform"  ng-submit="investorsubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpoinvestorform.investor_confidence.$valid}">Invester confidence</label>
-                                    <input type="hidden" name="id" ng-model="investorform.id">
-                                    <input type="text" name="investor_confidence" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-textbox" placeholder="Give it a invester confidence description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" ng-disabled="cpoinvestorform.investor_confidence.$invalid" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="panel panel-default custom-accordion-panel-default" id="company_profile_location" ng-if="company_profile_details.contacts[0].address_1==''&&company_profile_details.contacts[0].address_2==''&& company_profile_details.contacts[0].city==''&&company_profile_details.contacts[0].state==''&&company_profile_details.contacts[0].country==''&&company_profile_details.contacts[0].zip_code==''&&company_profile_details.contacts[0].contact_no==''&&company_profile_details.contacts[0].e_mail==''">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#clocation"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Location
-                        </a>
-                    </h4>
-                </div>
-                <div id="clocation" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form name="cpolocationform"  ng-submit="locationsubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.address_1.$valid}">Address #1</label>
-                                    <input type="text" class="form-control custom-textbox" name="address_1" ng-model="locationform.address_1" placeholder="Give it a Address #1" ng-class="{'has-error': cpolocationform.address_1.$touched, 'has-success': cpolocationform.address_1.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Address #2</label>
-                                    <input type="text" class="form-control custom-textbox" name="address_2" ng-model="locationform.address_2" placeholder="Give it a Address #2">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpolocationform.city.$valid}">City</label>
-                                    <input type="text" class="form-control custom-textbox" name="city" ng-model="locationform.city" placeholder="Give it a City" ng-class="{'has-error': cpolocationform.city.$touched, 'has-success': cpolocationform.city.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpolocationform.state.$valid}">State</label>
-                                    <input type="text" class="form-control custom-textbox" name="state" ng-model="locationform.state"  placeholder="Give it a State" ng-class="{'has-error': cpolocationform.state.$touched, 'has-success': cpolocationform.state.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpolocationform.country.$valid}">Country</label>
-                                    <input type="text" class="form-control custom-textbox" name="country" ng-model="locationform.country" placeholder="Give it a Country" ng-class="{'has-error': cpolocationform.country.$touched, 'has-success': cpolocationform.country.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Zip code</label>
-                                    <input type="text" class="form-control custom-textbox" name="zip_code" ng-model="locationform.zip_code" placeholder="Give it a Zipcode">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpolocationform.contact_no.$valid}">Contact no</label>
-                                    <input type="text" class="form-control custom-textbox" name="contact_no" ng-model="locationform.contact_no" placeholder="Give it a Contact no" ng-class="{'has-error': cpolocationform.contact_no.$touched, 'has-success': cpolocationform.contact_no.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase" ng-class="{'has-success': cpolocationform.e_mail.$valid}">Email</label>
-                                    <input type="text" class="form-control custom-textbox" name="e_mail" ng-model="locationform.e_mail" placeholder="Give it a Email" ng-class="{'has-error': cpolocationform.e_mail.$touched, 'has-success': cpolocationform.e_mail.$valid}" required>
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Fax no</label>
-                                    <input type="text" class="form-control custom-textbox" ng-model="locationform.fax_no" placeholder="Give it a Fax no">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" class="form-control" ng-disabled="cpolocationform.e_mail.$invalid || cpolocationform.contact_no.$invalid || cpolocationform.country.$invalid || cpolocationform.state.$invalid || cpolocationform.city.$invalid || cpolocationform.address_1.$invalid" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- <div class="panel panel-default custom-accordion-panel-default" id="company_profile_inverster">
-                <div class="panel-heading custom-accordion-heading">
-                    <h4 class="panel-title custom-accordion-title">
-                        <a data-target="#cinverster"  data-toggle="collapse" data-parent="#accordion" href="">
-                            <span class="glyphicon custom-glyphicon-accordion"></span>
-                            Company Characteristics
-                        </a>
-                    </h4>
-                </div>
-                <div id="cinverster" class="panel-collapse custom-panel-accordion-collapse collapse">
-                    <form ng-submit="investorsubmit()">
-                        <div class="row">
-                            <div class="col-sm-11 col-md-11">
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Invester confidence</label>
-                                    <input type="hidden" name="id" ng-model="investorform.id">
-                                    <input type="text" name="investor_confidence" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <label class="text-uppercase">Description</label>
-                                    <input type="text" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-textbox" placeholder="Give it a invester confidence description">
-                                </div>
-                                <div class="form-group custom-lider-form-grou">
-                                    <input type="submit" class="form-control" value="Save"/>
-                                </div>
-                            </div>
-                            <hr class="hr-line-lidership">
-                        </div>
-                    </form>
-                </div>
-            </div> -->
-
-
-
+        <hr class="hr-line-lidership">
+      </div>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="company_profile_inverster" ng-if="company_profile_details.investor_confidence =='' && company_profile_details.investor_conf_description==''">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#cinverster"  data-toggle="collapse" data-parent="#accordion" href="">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Invester Confidence
+      </a>
+    </h4>
+  </div>
+  <div id="cinverster" class="panel-collapse custom-panel-accordion-collapse collapse"  >
+    <form  name="cpoinvestorform"  ng-submit="investorsubmit()">
+      <div class="row">
+        <div class="col-sm-11 col-md-11">
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase" ng-class="{'has-success': cpoinvestorform.investor_confidence.$valid}">Invester confidence</label>
+            <input type="hidden" name="id" ng-model="investorform.id">
+            <input type="text" name="investor_confidence" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase">Description</label>
+            <input type="text" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-textbox" placeholder="Give it a invester confidence description">
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <input type="submit" ng-disabled="cpoinvestorform.investor_confidence.$invalid" class="form-control" value="Save"/>
+          </div>
         </div>
-    </div>
+        <hr class="hr-line-lidership">
+      </div>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default custom-accordion-panel-default" id="company_profile_location" ng-if="company_profile_details.contacts[0].address_1==''&&company_profile_details.contacts[0].address_2==''&& company_profile_details.contacts[0].city==''&&company_profile_details.contacts[0].state==''&&company_profile_details.contacts[0].country==''&&company_profile_details.contacts[0].zip_code==''&&company_profile_details.contacts[0].contact_no==''&&company_profile_details.contacts[0].e_mail==''">
+  <div class="panel-heading custom-accordion-heading">
+    <h4 class="panel-title custom-accordion-title">
+      <a href="#" data-target="#clocation"  data-toggle="collapse" data-parent="#accordion" href="">
+        <span class="glyphicon custom-glyphicon-accordion"></span>
+        Location
+      </a>
+    </h4>
+  </div>
+  <div id="clocation" class="panel-collapse custom-panel-accordion-collapse collapse">
+    <form name="cpolocationform"  ng-submit="locationsubmit()">
+      <div class="row">
+        <div class="col-sm-11 col-md-11">
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.address_1.$valid}">Address #1</label>
+            <input type="text" class="form-control custom-textbox" name="address_1" ng-model="locationform.address_1" placeholder="Give it a Address #1" ng-class="{'has-error': cpolocationform.address_1.$touched, 'has-success': cpolocationform.address_1.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase">Address #2</label>
+            <input type="text" class="form-control custom-textbox" name="address_2" ng-model="locationform.address_2" placeholder="Give it a Address #2">
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase" ng-class="{'has-success': cpolocationform.city.$valid}">City</label>
+            <input type="text" class="form-control custom-textbox" name="city" ng-model="locationform.city" placeholder="Give it a City" ng-class="{'has-error': cpolocationform.city.$touched, 'has-success': cpolocationform.city.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase" ng-class="{'has-success': cpolocationform.state.$valid}">State</label>
+            <input type="text" class="form-control custom-textbox" name="state" ng-model="locationform.state"  placeholder="Give it a State" ng-class="{'has-error': cpolocationform.state.$touched, 'has-success': cpolocationform.state.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase" ng-class="{'has-success': cpolocationform.country.$valid}">Country</label>
+            <input type="text" class="form-control custom-textbox" name="country" ng-model="locationform.country" placeholder="Give it a Country" ng-class="{'has-error': cpolocationform.country.$touched, 'has-success': cpolocationform.country.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase">Zip code</label>
+            <input type="text" class="form-control custom-textbox" name="zip_code" ng-model="locationform.zip_code" placeholder="Give it a Zipcode">
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase" ng-class="{'has-success': cpolocationform.contact_no.$valid}">Contact no</label>
+            <input type="text" class="form-control custom-textbox" name="contact_no" ng-model="locationform.contact_no" placeholder="Give it a Contact no" ng-class="{'has-error': cpolocationform.contact_no.$touched, 'has-success': cpolocationform.contact_no.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase" ng-class="{'has-success': cpolocationform.e_mail.$valid}">Email</label>
+            <input type="text" class="form-control custom-textbox" name="e_mail" ng-model="locationform.e_mail" placeholder="Give it a Email" ng-class="{'has-error': cpolocationform.e_mail.$touched, 'has-success': cpolocationform.e_mail.$valid}" required>
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <label class="text-uppercase">Fax no</label>
+            <input type="text" class="form-control custom-textbox" ng-model="locationform.fax_no" placeholder="Give it a Fax no">
+          </div>
+          <div class="form-group custom-lider-form-grou">
+            <input type="submit" class="form-control" ng-disabled="cpolocationform.e_mail.$invalid || cpolocationform.contact_no.$invalid || cpolocationform.country.$invalid || cpolocationform.state.$invalid || cpolocationform.city.$invalid || cpolocationform.address_1.$invalid" value="Save"/>
+          </div>
+        </div>
+        <hr class="hr-line-lidership">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <div class="panel panel-default custom-accordion-panel-default" id="company_profile_inverster">
+<div class="panel-heading custom-accordion-heading">
+<h4 class="panel-title custom-accordion-title">
+<a data-target="#cinverster"  data-toggle="collapse" data-parent="#accordion" href="">
+<span class="glyphicon custom-glyphicon-accordion"></span>
+Company Characteristics
+</a>
+</h4>
+</div>
+<div id="cinverster" class="panel-collapse custom-panel-accordion-collapse collapse">
+<form ng-submit="investorsubmit()">
+<div class="row">
+<div class="col-sm-11 col-md-11">
+<div class="form-group custom-lider-form-grou">
+<label class="text-uppercase">Invester confidence</label>
+<input type="hidden" name="id" ng-model="investorform.id">
+<input type="text" name="investor_confidence" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate">
+</div>
+<div class="form-group custom-lider-form-grou">
+<label class="text-uppercase">Description</label>
+<input type="text" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-textbox" placeholder="Give it a invester confidence description">
+</div>
+<div class="form-group custom-lider-form-grou">
+<input type="submit" class="form-control" value="Save"/>
+</div>
+</div>
+<hr class="hr-line-lidership">
+</div>
+</form>
+</div>
+</div> -->
+
+
+
+</div>
+</div>
 </section>

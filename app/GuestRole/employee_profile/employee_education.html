@@ -13,9 +13,12 @@
                                 <h5 class="department">{{emp_education.major}}</h5>
                             </div>
                             <div class="rating-container">
-                                <div class="pull-left">GPA : {{emp_education.gpa}}</div>
+                                <div class="pull-left">GPA : {{emp_education.gpa|number}}</div>
                                 <div class="pull-right">
-                                    <div class="rating-container"> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="total-star">{{emp_education.gpa_rating}}</span> </div>
+                                  <div class="rating-container">
+                                    <ng-rate-it ng-model="educations.gpa" read-only="1" resetable="false" star-width="20" star-height="20"></ng-rate-it>
+                                    <span class="total-star">{{emp_education.gpa|number}}</span>
+                                  </div>
                                 </div>
                             </div>
                         </div>
