@@ -38,6 +38,7 @@ var FirstSynch = angular.module("firstSync", [
   "EmployeeEditProfile",
   "Search",
   "ui.bootstrap",
+  "ngLetterAvatar",
 ]);
 
 FirstSynch.constant('apiUrl', 'https://api.firstsynch.com/');
