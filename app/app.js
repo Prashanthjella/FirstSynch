@@ -585,6 +585,13 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
     },
     function errorCallback(data, status, headers, config) {
       $scope.status = 'Please provide valid login credentials.';
+      $window.sessionStorage.removeItem('token');
+      $window.sessionStorage.removeItem('profileimage');
+      $window.sessionStorage.removeItem('usertype');
+      delete $rootScope.companyuserInfo
+      delete $rootScope.studentuserInfo
+      delete $rootScope.token_id
+      $location.path( "/" );
     });
   };// user logout - function end
 });
