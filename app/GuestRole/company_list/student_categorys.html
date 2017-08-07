@@ -1,39 +1,38 @@
-<!--[Student category Section Start]-->
+<!--[Employee Category]-->
 <section class="page-section  page-section-employees companies_act_categ"  ng-controller="student_categorys">
-    <div class="container">
-        <div class="row custom-row-35">
-            <div id="slider-companies-designation" class=" slide-companies" data-uix-bxslider="shrinkItems: false, nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:3, slideWidth:324, infiniteLoop: false, hideControlOnEnd: true">
-                <div class="slide"  ng-repeat="student_det in student_cate " data-notify-when-repeat-finished>
-                    <div class="col-sm-12">
-                <div class="panel panel-default custom-panne1-companies">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading custom-panel-heading-companies">
-                        <h3 class="h3 custom-h3">{{ student_det.category }}
-                          <span class="small custom-small-h3 pull-right">{{student_det.employees.length}}</span>
-                        </h3>
+  <div class="container">
+    <div class="row custom-row-35">
+      <div id="slider-companies-designation" class=" slide-companies" data-uix-bxslider="shrinkItems: false, nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:3, slideWidth:324, infiniteLoop: false, hideControlOnEnd: true">
+        <div class="slide"  ng-repeat="student_det in student_cate " data-notify-when-repeat-finished>
+          <div class="col-sm-12">
+            <div class="panel panel-default custom-panne1-companies">
+              <!-- Default panel contents -->
+              <div class="panel-heading custom-panel-heading-companies">
+                <h3 class="h3 custom-h3">{{ student_det.category }}
+                  <span class="small custom-small-h3 pull-right">{{student_det.employees.length}}</span>
+                </h3>
+              </div>
+              <div class="media-group-container">
+                <div class="media custom-media" ng-repeat="stu in student_det.employees">
+                  <a href="/student/{{stu.user}}" >
+                    <div class="media-left media-middle custom-media-left">
+                      <img class="media-object custom-media-object" ng-if="!stu.profile_picture" ng-src="assets/images/profileicon.png" alt="Student Logo">
+                      <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">
                     </div>
-                    <div class="media-group-container">
-                        <div class="media custom-media" ng-repeat="stu in student_det.employees">
-                            <a href="/student/{{stu.user}}" >
-                                <div class="media-left media-middle custom-media-left">
-                                    <img class="media-object custom-media-object" ng-if="!stu.profile_picture" ng-src="assets/images/profileicon.png" alt="Student Logo">
-                                  <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">  </div>
-                                <div class="media-body custom-media-body">
-                                    <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
-                                    <h5 class="media-eading-h5" ng-if="stu.city && stu.state">{{ stu.city }},{{ stu.state }}</h5>
-                                    <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
-                                    </span>
-                                </div>
-                            </a>
-                            <div>
-                            </div>
-                        </div>
+                    <div class="media-body custom-media-body">
+                      <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
+                      <h5 class="media-eading-h5">{{ stu.city }},{{ stu.state }}</h5>
+                      <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                      </span>
                     </div>
-                </div>
+                  </a>
+                </div><!--media-->
+              </div><!--media-group-container-->
             </div>
-        </div>
-        </div>
-        </div>
+          </div>
+        </div><!--slide-->
+      </div>
     </div>
+  </div>
 </section>
 <!--[Company category Section end]-->
