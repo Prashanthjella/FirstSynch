@@ -5,10 +5,10 @@
 			<div class="pull-left">
 				<h3 class="h3 custom-h3">Career Fairs Near You</h3>
 			</div>
-			<div class="pull-right"> <a href="#" class="link-all cfd_nc_all_link" title="Show All" ng-click="showall_near_by_career()">Show All</a> </div>
+			<div class="pull-right"> <a href="#" ng-show="near_by_career.length > 3" class="link-all cfd_nc_all_link" title="Show All" ng-click="showall_near_by_career()">Show All</a> </div>
 		</div>
 		<div class="row custom-row-15 for_cfd_nc_less_all" >
-			<div class="col-sm-4"  data-ng-repeat="near_career in near_by_career" >
+			<div class="col-sm-4"  data-ng-repeat="near_career in near_by_career | limitTo:3" >
 				<a href="/com/careerfair/{{near_career.id}}" style="color:#fff;">
 					<div class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery"> <img ng-src="{{near_career.image}}">
 						<div class="overlay"></div>

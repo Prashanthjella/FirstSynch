@@ -1106,11 +1106,15 @@ bottom: 90px;
 	margin-top: 7px;
 }
 .custom-progress-bar {
-	background-color: #00b58e;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	box-shadow: 0 0 3px #00b58e
+	box-shadow: 0 0 3px #00b58e;
+	background: #00b58e;
+	background: -moz-linear-gradient(left, #89E1CE 0%, #00b58e 100%);
+	background: -webkit-linear-gradient(left, #89E1CE 0%, #00b58e 100%);
+	background: linear-gradient(to right, #89E1CE 0%, #00b58e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#89E1CE', endColorstr='#00b58e', GradientType=1 );
 }
 .toal-complete-container {
 	float: left;
@@ -4489,6 +4493,10 @@ h3.school-name {
 }
 .ng-binding {
 	word-break: break-all;/*word-wrap: break-word;*/
+}
+h1.ng-binding {
+	word-wrap: break-word !important;
+	word-break: normal !important;
 }
 .page-section-intership .progress-circle {
 	width: 280px;

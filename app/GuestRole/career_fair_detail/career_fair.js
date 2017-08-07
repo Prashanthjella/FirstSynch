@@ -39,12 +39,12 @@ FirstSynch.controller("cfdstudents" , function ($scope, $http, apiUrl, $compile)
           jQuery.each(response.data, function(i) {
             var students_showall =   '<div class="col-sm-4">'
                                         +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
-                                          +'<img src="'+response.data[i].company.logo+'" class="img-responsive custom-img-responsive">'
+                                        +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
                                         +'<div class="overlay "></div>'
                                         +'<span class="arrow-triangle"></span>'
                                         +'<span class="link-new">New</span>'
                                           +'<div class="box-inside-content">'
-                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].titlesubstring(0, 10)+'...'+'</h1>'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                           +'</div>'
                                         +'</a> '
                                       +'</div>';
@@ -91,7 +91,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl, $compile) 
                                               +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
                                             +'</span>'
                                               +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
-                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].titlesubstring(0, 10)+'...'+'</h1>'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
                                         +'</div>'
                                       +'</a>'
                                     +'</div>';
