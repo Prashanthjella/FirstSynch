@@ -217,12 +217,20 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
       if(companyusertype == response.data.usertype){
         $('#logIn').modal('hide');
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
-        $location.path( "/com"+redirectulrs );
+        if(redirectulrs.indexOf("careerfair/") > -1){
+          $location.path( "/com"+redirectulrs );
+        }else{
+          $location.path( "/com/dashboard");
+        }
       }
       else if(studentusertype == response.data.usertype){
         $('#logIn').modal('hide');
         $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
-        $location.path( "/stu"+redirectulrs );
+        if(redirectulrs.indexOf("careerfair/") > -1){
+          $location.path( "/stu"+redirectulrs );
+        }else{
+          $location.path( "/stu/dashboard" );
+        }
       }
     },
     function errorCallback(data, status, headers, config) {
