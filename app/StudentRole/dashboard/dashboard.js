@@ -55,7 +55,7 @@ FirstSynch.controller("student_futuredvideo", function ($scope, $http, apiUrl, $
 // home page - mostrecented fairs
 FirstSynch.controller("student_mostrecentedfairvideo" , function ($scope,$timeout,$window, $http, apiUrl) {
 
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
+  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?when=next&now&count=10")
       .then(function successCallback(response){
           $scope.recent_fairs = response.data;
       }, function errorCallback(response){
