@@ -10,7 +10,7 @@
         <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: true, controls: true, minSlides: 1, maxSlides:2, slideWidth:450, slideMargin:40, infiniteLoop: false, hideControlOnEnd: true">
           <div class="slide" data-ng-repeat="fairs in recent_fairs" data-notify-when-repeat-finished>
             <div class="slider-inside-large">
-                <a href="/careerfair/{{fairs.id}}" style="color:#000;">
+                <a href="/careerfair/{{fairs.slug}}" style="color:#000;">
                   <div class="slider-recent-fairs">
                     <img ng-src="{{fairs.image_medium}}" alt="Career Fair Image" style="height:240px;">
                     <div class="slider-caption">
