@@ -2,7 +2,7 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="whatiammessage">{{whatiammessage}}</div>
           <h1 class="custom-h1-01 custom-h1-btm-space-55">What I'm looking for</h1>
-        <p>Select things that are important in a potential job <span class="text-description">(Select 4/5 characteristics)</span></p>
+        <p class="content-profile-description">Select things that are important in a potential job <span class="text-description">(Select 4/5 characteristics)</span></p>
         <form  ng-submit="whatiamlookingsubmit()">
             <input type="hidden" name="lookingid" ng-model="looking.id">
             <div class="checkbox custom-checkbox checkbox-circle">
@@ -45,8 +45,10 @@
                 <input id="official-employment" class="checkbox-input" ng-disabled="sewshouldDisable('Official employment')" ng-model="whatiamlooking['Official employment']" type="checkbox">
                 <label for="official-employment" class="checkbox-label"> Official employment</label>
             </div>
-            <p>
-                <input type="submit" ng-disabled="!sewhatiamlookingbtndisable" value="Submit" class="btn btn-default custom-btn btn-lg" />
+            <p class="edt-pro-btn-group">
+                <input type="submit" ng-disabled="!sewhatiamlookingbtndisable" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+                
+                <button type="button" class="btn btn-primary custom-btn btn-cancel btn-lg">Cancel</button>
             </p>
         </form>
     </div>

@@ -1784,7 +1784,7 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 }
 .custom-checkbox {
 	display: inline-block;
-	margin-right: 6px;
+	margin-right: 7px;
 	font-size: 11px;
 	margin-bottom: 15px;
 }
@@ -1792,7 +1792,7 @@ input[type="checkbox"].checkbox-input:checked + label.checkbox-label .glyphicon-
 	background-color: #303030
 }
 .custom-btn {
-	border-radius: 24px;
+	border-radius: 30px;
 	font-size: 11px;
 	text-transform: uppercase
 }
@@ -3530,6 +3530,31 @@ textarea.custom-text-area {
 
 
 		}
+	.page-section-profile-container{
+		margin-top:208px;
+		}
+.page-section-date-establishment{
+	margin-top:135px;
+	}
+.content-profile-description{
+	 font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #0d0d0d;
+  margin-bottom:20px;
+	}
+.btn-submit{
+	background-color: #ffffff;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  border: solid 2px #0d0d0d;
+   font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #303030;
+	}		
 @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4084,7 +4109,7 @@ body {
 	padding: 0;
 }
 .create-template {
-	padding: 50px 35px;
+	padding: 40px 35px;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
@@ -4242,7 +4267,7 @@ body {
 	margin-top: 25px;
 }
 .edt-pro-btn-group .btn-lg {
-	padding: 17px;
+	padding: 16px;
 	width: 100px;
 	font-size: 11px;
 	font-weight: bold;

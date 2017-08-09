@@ -91,14 +91,21 @@
           onchange="angular.element(this).scope().getFileDetails(this)" />
           <img src="basicprofileform.profile_picture"/>
         </div>-->
-      </div>
+   
       <!-- <hr class="hr-line-lidership"> -->
-    </div>
-    <input type="submit" ng-disabled="basicprofile_form.first_name.$invalid || basicprofile_form.last_name.$invalid || basicprofile_form.dob.$invalid || basicprofile_form.gender.$invalid " value="Submit" class="btn btn-default custom-btn btn-lg"/>
-    <!-- <div class="row">
+      
+      <p class="edt-pro-btn-group">
+    <input type="submit" ng-disabled="basicprofile_form.first_name.$invalid || basicprofile_form.last_name.$invalid || basicprofile_form.dob.$invalid || basicprofile_form.gender.$invalid " value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
+    </p>
+      
+        <!-- <div class="row">
     <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
     <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
   </div> -->
+   </div>
+    </div>
+     
+
 </form>
 </div>
 </div>

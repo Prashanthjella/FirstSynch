@@ -9,7 +9,7 @@
         <div class="row" ng-repeat="hobbies in hobbyform">
             <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
             <div class="col-sm-11 col-md-11">
-                <div class="form-group custom-lider-form-grou">
+                <div class="form-group custom-lider-form-group">
                     <label class="text-uppercase">Hobby</label>
                     <input type="hidden" name="stud_id" ng-model="hobbyform.stud_id">
                     <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name" value="{{hobbies.name}}">
@@ -44,7 +44,9 @@
                 </div>
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
-            <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
+             <p class="edt-pro-btn-group">
+            <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+            </p>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>

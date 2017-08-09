@@ -33,14 +33,17 @@
                         <label class="text-uppercase">Description</label>
                         <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
                     </div>
+                    <p class="edt-pro-btn-group">
+                <input type="submit" value="Submit" ng-disabled="seleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
+                </p>
                 </div>
-                <input type="submit" value="Submit" ng-disabled="seleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg" />
+                
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
-            <!-- <div class="row">
+             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add role</a> </div>
-            </div> -->
+            </div> 
         </form>
     </div>
 </div>

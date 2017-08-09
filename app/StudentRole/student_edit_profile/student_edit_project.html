@@ -48,8 +48,12 @@
                         <label class="text-uppercase">Picture</label>
                         <input type="file" ngf-select ng-model="projecteditform.images" name="files" accept="image/*" >
                     </div>
+                    
+                    <p class="edt-pro-btn-group">
+                <input type="submit" ng-disabled="seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+                </p>
                 </div>
-                <input type="submit" ng-disabled="seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                
             </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

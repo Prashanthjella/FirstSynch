@@ -24,8 +24,11 @@
                         <label class="text-uppercase" ng-class="{'has-success': sepersonnalskillform.rating.$valid}">Rating</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating" ng-class="{'has-error': sepersonnalskillform.rating.$touched, 'has-success': sepersonnalskillform.rating.$valid}" required>
                     </div>
+                      <p class="edt-pro-btn-group">
+                <input type="submit" ng-disabled="sepersonnalskillform.name.$invalid || sepersonnalskillform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg btn-submit">
+                </p>
                 </div>
-                <input type="submit" ng-disabled="sepersonnalskillform.name.$invalid || sepersonnalskillform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
+               
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
             <!-- <div class="row">
