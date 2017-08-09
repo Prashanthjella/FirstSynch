@@ -402,7 +402,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
       var data = {
         allow_company_info: 'True',
         company_name:$scope.cname,
-        company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
+        //company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
         user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
         employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city,state : $scope.current_state}
       };
@@ -461,7 +461,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
     else if($scope.domainsearch == 'deny' && allow_domainsearch) {
       var data = {
         company_name:$scope.cname,
-        company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
+        //company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
         user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
         employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city,state : $scope.current_state}
       };
