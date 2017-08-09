@@ -850,7 +850,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
         jQuery('.search_results_career_page_container_act').show();
         jQuery.each(response.data.careerfair, function(i) {
           var career_fair_result = '<div class="media custom-media">'
-          +'<a href="/careerfair/'+response.data.careerfair[i].id+'" class="search-link">'
+          +'<a href="/careerfair/'+response.data.careerfair[i].slug+'" class="search-link">'
           +'<div class="media-left media-middle custom-media-left"> <img style="height:117px;" class="media-object custom-media-object" src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.careerfair[i].image+'" alt="">  </div>'
           +'<div class="media-body custom-media-body">'
           +'<h4 class="media-heading custom-media-heading">'+response.data.careerfair[i].title+'</h4>'

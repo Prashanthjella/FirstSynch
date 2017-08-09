@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-sm-2" ng-repeat="all_stu in all_student">
-                <a href="/student/{{all_stu.user}}"  class="custom-company-list">
+                <a href="/student/{{all_stu.slug}}"  class="custom-company-list">
                     <div class="thumbnail custom-thumbnail-company-logo">
                       <div ng-if="!all_stu.profile_picture" class="grey_logo_icon logo-companies-box">
                         <ng-letter-avatar ng-if="!all_stu.profile_picture" alphabetcolors="grey" charCount="2" data="{{all_stu.first_name}}"></ng-letter-avatar>

@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4" ng-repeat="comp in top_three_company">
-					<a href="/stu/company/{{ comp.company.id }}" class="company-list-box">
+					<a href="/stu/company/{{ comp.company.slug }}" class="company-list-box">
 						<div class="thumbnail custom-thumbnail-company-logo">
 							<img ng-src="{{ comp.company.logo }}" class="logo-companies-box" ng-if="comp.company.logo">
 							<div ng-if="!comp.company.logo" class="grey_logo_icon logo-companies-box">

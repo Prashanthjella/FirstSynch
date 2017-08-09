@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4" ng-repeat="stud in top_three_student">
-					<a href="/student/{{ stud.student.id }}" class="company-list-box">
+					<a href="/student/{{ stud.student.slug }}" class="company-list-box">
 						<div class="thumbnail custom-thumbnail-company-logo">
 							<img ng-src="{{ stud.student.profile_picture }}" class="logo-companies-box" ng-if="stud.student.profile_picture">
 							<div ng-if="!stud.student.profile_picture" class="grey_logo_icon logo-companies-box">

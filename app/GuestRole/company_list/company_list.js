@@ -102,7 +102,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
         else{
             description = response.data[i].description;
         }
-        var search_result = '<a href="/company/'+response.data[i].id+'">'
+        var search_result = '<a href="/company/'+response.data[i].slug+'">'
         					+'<div class="grid-item col-sm-4">'
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'

@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-sm-2" ng-repeat-start="all_comp in all_company">
-                <a href="/company/{{all_comp.id}}" class="custom-company-list">
+                <a href="/company/{{all_comp.slug}}" class="custom-company-list">
                     <div class="thumbnail custom-thumbnail-company-logo">
                       <img ng-src="{{all_comp.logo}}" class="logo-companies-box" ng-if="all_comp.logo">
                       <div ng-if="!all_comp.logo" class="logo-companies-box grey_logo_icon">
