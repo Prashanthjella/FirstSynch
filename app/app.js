@@ -78,6 +78,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
   $rootScope.today = new Date();
   $rootScope.dashboard = true;
   $rootScope.apiurl = apiUrl;
+  $rootScope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
   $rootScope.LoginPopupopen = function(){
     if($rootScope.guest_login){
       jQuery("#VideoPopup1").modal('hide');
@@ -422,24 +423,34 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
           $scope.password = '';
         }
         else{
-          $scope.domainimage = data.data.company_info.logo ? data.data.company_info.logo : "" ;
-          $scope.domaincmpy_name= data.data.company_info.name ? data.data.company_info.name : "" ;
-          $scope.domainwebsite= data.data.company_info.website ? data.data.company_info.website :"";
-          $scope.domain_est_date= data.data.company_info.establishment_date ?data.data.company_info.establishment_date :"";
-          $scope.domainfburl= data.data.company_info.facebook_url ? data.data.company_info.facebook_url : "" ;
-          $scope.domainliurl= data.data.company_info.linkedin_url ? data.data.company_info.linkedin_url : "" ;
-          $scope.domaintotal_emp= data.data.company_info.employees ? data.data.company_info.employees : "" ;
-          $scope.domaindescription= data.data.company_info.description ? data.data.company_info.description : "" ;
-          $scope.domainaddress1= data.data.company_info.address.address_1 ? data.data.company_info.address.address_1 : "" ;
-          $scope.domaincity= data.data.company_info.address.city ? data.data.company_info.address.city : "" ;
-          $scope.domainstate= data.data.company_info.address.state ? data.data.company_info.address.state : "" ;
-          $scope.domaincountry= data.data.company_info.address.country ? data.data.company_info.address.country : "" ;
-          $scope.domainzip_code= data.data.company_info.address.zip_code ? data.data.company_info.address.zip_code : "" ;
-          $scope.domaine_mail= data.data.company_info.address.e_mail ? data.data.company_info.address.e_mail : "" ;
-          $scope.domaincontact_no= data.data.company_info.address.contact_no ? data.data.company_info.address.contact_no : "" ;
-          $('#domain_search').val('0');
-          $('.domainsearch_remove').hide();
-          $('.domainsearch_show').show();
+          if(!data.data.company_info.error){
+              $scope.domainimage = data.data.company_info.logo ? data.data.company_info.logo : "" ;
+              $scope.domaincmpy_name= data.data.company_info.name ? data.data.company_info.name : "" ;
+              $scope.domainwebsite= data.data.company_info.website ? data.data.company_info.website :"";
+              $scope.domain_est_date= data.data.company_info.establishment_date ?data.data.company_info.establishment_date :"";
+              $scope.domainfburl= data.data.company_info.facebook_url ? data.data.company_info.facebook_url : "" ;
+              $scope.domainliurl= data.data.company_info.linkedin_url ? data.data.company_info.linkedin_url : "" ;
+              $scope.domaintotal_emp= data.data.company_info.employees ? data.data.company_info.employees : "" ;
+              $scope.domaindescription= data.data.company_info.description ? data.data.company_info.description : "" ;
+              $scope.domainaddress1= data.data.company_info.address.address_1 ? data.data.company_info.address.address_1 : "" ;
+              $scope.domaincity= data.data.company_info.address.city ? data.data.company_info.address.city : "" ;
+              $scope.domainstate= data.data.company_info.address.state ? data.data.company_info.address.state : "" ;
+              $scope.domaincountry= data.data.company_info.address.country ? data.data.company_info.address.country : "" ;
+              $scope.domainzip_code= data.data.company_info.address.zip_code ? data.data.company_info.address.zip_code : "" ;
+              $scope.domaine_mail= data.data.company_info.address.e_mail ? data.data.company_info.address.e_mail : null ;
+              $scope.domaincontact_no= data.data.company_info.address.contact_no ? data.data.company_info.address.contact_no : "" ;
+              $('#domain_search').val('0');
+              $('.domainsearch_remove').hide();
+              $('.domainsearch_show').show();
+          }
+          else{
+              $('#domain_search').val('0');
+              $('.domainsearch_remove').hide();
+              $('.domainsearch_show .company_signup_onboard_logo').remove();
+            //   $('.domainsearch_show .edit_option').remove();
+            //   $('.domainsearch_show input').removeAttr('readonly');
+              $('.domainsearch_show').show();
+          }
         }
       },
       function errorCallback(data, status, headers, config) {
@@ -484,14 +495,14 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
             state: $('#domainstate').val(),
             zip_code: $('#domainzip_code').val(),
           },
-          description:$('#domain_description').val(),
-          employees : $('#domain_total_emp').val(),
+          description:$('#domaindescription').val(),
+          employees : $('#domaintotal_emp').val(),
           establishment_date : $('#domain_est_date').val(),
-          linkedin_url : $('#domain_li_url').val(),
-          facebook_url : $('#domain_fb_url').val(),
+          linkedin_url : $('#domainliurl').val(),
+          facebook_url : $('#domainfburl').val(),
           logo : $('#domainimage').val(),
-          name : $('#domain_company_name').val(),
-          website : $('#domain_website').val(),
+          name : $('#domaincmpy_name').val(),
+          website : $('#domainwebsite').val(),
         },
         company_name:$scope.cname,
         user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
@@ -509,10 +520,26 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
         jQuery('form#reset_forms').trigger("reset");
         jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
         $('#domain_search').val('1');
+        $scope.domainsearch = 'allow';
         $scope.name = '';
         $scope.lname = '';
         $scope.cname = '';
         $scope.password = '';
+        $scope.domainimage = '';
+        $scope.domaincmpy_name= '';
+        $scope.domainwebsite= '';
+        $scope.domain_est_date= '';
+        $scope.domainfburl= '';
+        $scope.domainliurl= '';
+        $scope.domaintotal_emp= '';
+        $scope.domaindescription = '';
+        $scope.domainaddress1= '';
+        $scope.domaincity= '';
+        $scope.domainstate= '';
+        $scope.domaincountry= '';
+        $scope.domainzip_code= '';
+        $scope.domaine_mail= '';
+        $scope.domaincontact_no= '';
         $timeout( function(){
           $route.reload();
         }, 5000 );
