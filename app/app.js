@@ -519,6 +519,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
         headers: {'Content-Type': 'application/json'}
       })
       .then(function successCallback(data, status, headers, config) {
+        $('.peoplesearch_remove').show();
         jQuery("#companyregistration").modal('hide');
         jQuery("#companysignUpSuccess").modal('show');
         jQuery('form#reset_forms').trigger("reset");
