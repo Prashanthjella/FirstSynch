@@ -5,24 +5,24 @@
         <form name="cphirerateform" ng-submit="hireratesubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cphirerateform.hire_rates.$valid}">HIRE RATES</label>
                         <input type="hidden" name="id" ng-model="hirerateform.id">
                         <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" class="form-control custom-form-control-br-bottom" placeholder="Give it a Hire rates size" ng-class="{'has-error': cphirerateform.hire_rates.$touched, 'has-success': cphirerateform.hire_rates.$valid}" required >
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
                         <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a hire rates description">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cphirerateform.departure_rate.$valid}">Departure Rates</label>
                         <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" class="form-control custom-form-control-br-bottom" placeholder="Give it a Departure rates size" ng-class="{'has-error': cphirerateform.departure_rate.$touched, 'has-success': cphirerateform.departure_rate.$valid}" required >
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
                         <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a departure rates description">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cphirerateform.departure_rate.$invalid || cphirerateform.hire_rates.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>

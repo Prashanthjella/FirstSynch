@@ -27,16 +27,16 @@
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects</label>
                         <input type="hidden" class="form-control custom-textbox" ng-model="projecteditform.user" name="user">
                         <input type="text" class="form-control custom-textbox" ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': seprojecteditform.title.$touched, 'has-success': seprojecteditform.title.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.start_date.$valid}">Start Date</label>
                         <input type="text" class="form-control custom-textbox" ng-model="projecteditform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': seprojecteditform.start_date.$touched, 'has-success': seprojecteditform.start_date.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.completation_date.$valid}">End Date</label>
                         <input type="text" class="form-control custom-textbox" ng-model="projecteditform.completation_date" datepicker placeholder="Graduated Year" name="completation_date" ng-class="{'has-error': seprojecteditform.completation_date.$touched, 'has-success': seprojecteditform.completation_date.$valid}" required>
                     </div>

@@ -5,16 +5,16 @@
         <form name="cpfundingform" ng-submit="fundingsubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpfundingform.funding_size.$valid}">Funding Size</label>
                         <input type="hidden" name="id" ng-model="fundingform.id">
                         <input type="text" name="funding_size" ng-model="fundingform.funding_size" class="form-control custom-form-control-br-bottom" placeholder="Give it a funding size" ng-class="{'has-error': cpfundingform.funding_size.$touched, 'has-success': cpfundingform.funding_size.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
                         <input type="text" name="funding_size_description" ng-model="fundingform.funding_size_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a funding size description">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cpfundingform.funding_size.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>

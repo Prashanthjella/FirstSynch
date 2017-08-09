@@ -229,7 +229,7 @@ h2.custom-h2-04 {
 	letter-spacing: -0.4px;
 }
 .custom-navbar-default .container-fluid, .custom-navbar-default .container {
-	padding: 27px 20px;
+	padding: 37px 20px 17px 20px;
 }
 .navbar-fixed-top.custom-navbar-default .container-fluid, .navbar-fixed-top.custom-navbar-default .container {
 	padding: 20px 20px;
@@ -1709,13 +1709,28 @@ bottom: 90px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 11px;
 	color: #303030;
 	margin: 5px 0;
-	font-weight: 600;
+	font-weight: bold;
 }
+.form-group-accounts{margin-bottom:25px;}
+.form-group-accounts .btn-group-account-setting  .custom-btn-default-08{margin:0}
+.custom-panel-setting-default .form-group-accounts .custom-form-control-br-bottom{
+	height:auto;
+	padding:0;
+	margin-top:15px;
+	border:none !important;
+	}
+.form-group-accounts.form-group label{margin-bottom:0}
+.form-group-accounts .btn-group-account-setting{margin-top:24px;}
+.custom-panel-setting-default{
+	margin-bottom:0;
+	padding-bottom:0 !important
+	}
 .custom-btn-default-08 {
-	padding: 8px 12px;
+	padding: 9px 12px;
+	border-width:2px;
 	margin-right: 10px;
 }
 .custom-btn-default-08:focus {
@@ -1871,6 +1886,9 @@ textarea.custom-text-area {
 	letter-spacing: -0.4px;
 	color: #000000;
 }
+.tabe-pane-lidarship textarea.custom-text-area{
+	height:94px;
+	}
 .custom-textbox {
 	border-width: 0 0 2px 0;
 	border-color: #e4e4e4;
@@ -1883,7 +1901,7 @@ textarea.custom-text-area {
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
-.custom-lider-form-grou {
+.custom-lider-form-group {
 	margin-bottom: 25px;
 }
 .btn-addrole {
@@ -3554,7 +3572,13 @@ textarea.custom-text-area {
   letter-spacing: -0.3px;
   text-align: center;
   color: #303030;
+	}	
+.page-section-account-setting{
+	margin-top:5px;
 	}		
+.page-section-account{
+	margin-top:10px;
+	}	
 @media (min-width: 1200px) {
 .container {
 	width: 970px;

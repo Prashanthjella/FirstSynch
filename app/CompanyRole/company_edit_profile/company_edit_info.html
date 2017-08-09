@@ -6,12 +6,12 @@
         <form name="cpbasicinfoform" ng-submit="basicinfosubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.name.$valid}">Company Name</label>
                         <input type="hidden" name="id" ng-model="basicinfoform.id">
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" ng-class="{'has-error': cpbasicinfoform.name.$touched, 'has-success': cpbasicinfoform.name.$valid}" required >
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.category.$valid}">Industry</label>
                         <!-- <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Industry name"  name="category"  ng-model="basicinfoform.category" > -->
                         <select ng-model="basicinfoform.category"  name="category"  ng-class="{'has-error': cpbasicinfoform.category.$touched, 'has-success': cpbasicinfoform.category.$valid}" required>
@@ -31,27 +31,27 @@
                             <option value="Customer Service">Customer Service</option>
                         </select>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.product_category.$valid}">Product Category</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpbasicinfoform.product_category.$touched, 'has-success': cpbasicinfoform.product_category.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.website.$valid}">Website</label>
                         <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpbasicinfoform.website.$touched, 'has-success': cpbasicinfoform.website.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Linkedin</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Twitter</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Facebook</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cpbasicinfoform.website.$invalid || cpbasicinfoform.product_category.$invalid || cpbasicinfoform.category.$invalid || cpbasicinfoform.name.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>

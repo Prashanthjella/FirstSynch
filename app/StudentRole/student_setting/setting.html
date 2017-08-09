@@ -2,7 +2,7 @@
     <div class="container">
         <div class="page-header custom-page-header">
             <div class="pull-left">
-                <h1 class="h1 custom-h1">Account setting</h1>
+                <h1 class="ustom-h1-01 text-uppercase">Account setting</h1>
             </div>
         </div>
     </div>
@@ -84,9 +84,9 @@
                         </div>
                     </div>
                 </section> -->
-                <section class=" page-section-education">
+                <section class=" page-section-education  page-section-account">
                     <div class="page-header custom-page-header-brline">
-                        <h2 class="h2 custom-h2">Account</h2>
+                        <h2 class="h2 custom-h2 text-uppercase">Account</h2>
                     </div>
                     <div class="panel-group custom-panel-onboarding-group">
                         <!-- <div class="panel panel-default custom-panel-onboarding-default ">
@@ -102,27 +102,48 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="panel panel-default custom-panel-onboarding-default  custom-panel-setting-default">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h5 class="h4 custom-h5"> Your Email </h5>
-                                    <div class="form-group">
+                                    
+                                    <div class="form-group form-group-accounts">
+                                    <label class="text-uppercase"> Your Email </label>
+                                    <div class="show">
                                         <h5 class="h5 h5 custom-h5-04"><a href="#" class="link-email">{{student_setting.e_mail}}</a></h5>
-                                        <input type="text" class="form-control" id="student_setting_email" ng-model="student_setting_email">
+                                        <div class="btn-group-account-setting"> <button ng-click="" class="btn btn-default  custom-btn-default-08">Edit Email</button> </div>
+                                        </div>
+                                        
+                                        <div class="hide">
+                                        <input type="text" class="form-control custom-form-control-br-bottom" id="student_setting_email" ng-model="student_setting_email">
+                                        
+                                        <div class="btn-group-account-setting"> <button ng-click="student_setting_email_update(student_setting_email)"  class="btn btn-default  custom-btn-default-08">Save</button> <button class="btn btn-default  custom-btn-default-03">Cancel</button> </div>
+                                        </div>
                                     </div>
-                                    <div class="btn-group-account-setting"> <button ng-click="student_setting_email_update(student_setting_email)"  class="btn btn-default  custom-btn-default-08">Save</button> <button class="btn btn-default  custom-btn-default-03">Cancel</button> </div>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default custom-panel-onboarding-default ">
+                        <div class="panel panel-default custom-panel-onboarding-default custom-panel-setting-default ">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h5 class="h4 custom-h5"> Your Password </h5>
-                                    <div class="form-group">
+                                   
+                                     <div class="form-group form-group-accounts">
+                                      <label class="text-uppercase"> Your Password </label>
+                                       <div class="show">
                                         <h5 class="h5 h5 custom-h5-04">.....</h5>
-                                        <input type="text" class="form-control" id="student_setting_password" ng-model="student_setting_password">
+                                       
+                                        <div class="btn-group-account-setting"> <button ng-click="student_setting_change_password(student_setting_password)" class="btn btn-default  custom-btn-default-08">Edit password</button> </div>
+                                        </div>
+                                        
+                                         <div class="hide">
+                                         <input type="text" class="form-control custom-form-control-br-bottom" id="student_setting_password" ng-model="student_setting_password">
+                                         <div class="btn-group-account-setting"> <button ng-click="student_setting_email_update(student_setting_email)"  class="btn btn-default  custom-btn-default-08">Save</button> <button class="btn btn-default  custom-btn-default-03">Cancel</button> </div>
+                                         </div>
+                                        
+                                        
+                                        
                                     </div>
-                                    <div class="btn-group-account-setting"> <button ng-click="student_setting_change_password(student_setting_password)" class="btn btn-default  custom-btn-default-08">Edit password</button> </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -152,14 +173,16 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="panel panel5-default custom-panel-onboarding-default ">
+                        <div class="panel panel5-default custom-panel-onboarding-default custom-panel-setting-default">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h5 class="h4 custom-h5"> Delete account </h5>
+                                <div class="form-group form-group-accounts">
+                                    <label class="h4 custom-h5"> Delete account </label>
                                     <h5 class="h5 custom-h5-04">If you want to delete your account, all
                                         your published content will be removed
                                     </h5>
                                     <div class="btn-group-account-setting"> <a href="#" ng-confirm-click="Are you sure to delete your account ?" confirmed-click="student_setting_delete_account()" class="btn btn-default  custom-btn-default-08">Delete account</a> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

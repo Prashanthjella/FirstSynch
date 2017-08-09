@@ -301,7 +301,7 @@
       <div class="row">
         <div class="form-group-edit-profile">
           <div class="col-sm-12 col-md-12">
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': epleadershipform.leadership_role.$valid}">Leadership role</label>
               <input type="hidden" class="form-control custom-textbox" ng-model="leadershipform.id" name="student">
               <input type="text" class="form-control custom-textbox" ng-model="leadershipform.leadership_role" name="leadership_role" placeholder="Give it a name" ng-class="{'has-error': epleadershipform.leadership_role.$touched, 'has-success': epleadershipform.leadership_role.$valid}" required>
@@ -341,7 +341,7 @@
 
         <div class="col-sm-12 col-md-12">
           <div class="form-group-edit-profile">
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': cpeducationform.school_name.$valid}">School</label>
               <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
               <div angucomplete-alt id="universities"
@@ -358,15 +358,15 @@
               match-class="highlight" ng-class="{'has-error': cpeducationform.school_name.$touched, 'has-success': cpeducationform.school_name.$valid}"></div>
               <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" ng-model="educationform.school_name"/>
             </div>
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': cpeducationform.major.$valid}">Major</label>
               <input type="text" class="form-control custom-textbox" name="major" ng-model="educationform.major" placeholder="Major" ng-class="{'has-error': cpeducationform.major.$touched, 'has-success': cpeducationform.major.$valid}" required>
             </div>
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': cpeducationform.year_started.$valid}">Year Started</label>
               <input type="text" class="form-control custom-textbox" datepicker name="year_started" ng-model="educationform.year_started" placeholder="Start Date" ng-class="{'has-error': cpeducationform.year_started.$touched, 'has-success': cpeducationform.year_started.$valid}" required>
             </div>
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': cpeducationform.year_graduated.$valid}">Graduated Year</label>
               <input type="text" class="form-control custom-textbox" datepicker name="year_graduated" ng-model="educationform.year_graduated" placeholder="Graduated Year" ng-class="{'has-error': cpeducationform.year_graduated.$touched, 'has-success': cpeducationform.year_graduated.$valid}" required>
             </div>
@@ -456,16 +456,16 @@
 
         <div class="col-sm-12 col-md-12">
           <div class="form-group-edit-profile">
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase"  ng-class="{'has-success': epprojecteditform.title.$valid}">Projects</label>
               <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
               <input type="text" class="form-control custom-textbox" name="title" ng-model="projectsform.title" placeholder="Project title" ng-class="{'has-error': epprojecteditform.title.$touched, 'has-success': epprojecteditform.title.$valid}" required>
             </div>
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': epprojecteditform.start_date.$valid}">Start Date</label>
               <input type="text" class="form-control custom-textbox" datepicker name="start_date" ng-model="projectsform.start_date" datepicker placeholder="Start Date" ng-class="{'has-error': epprojecteditform.start_date.$touched, 'has-success': epprojecteditform.start_date.$valid}" required>
             </div>
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': epprojecteditform.completation_date.$valid}">End Date</label>
               <input type="text" class="form-control custom-textbox" datepicker name="completation_date" ng-model="projectsform.completation_date" datepicker placeholder="Graduated Year" ng-class="{'has-error': epprojecteditform.completation_date.$touched, 'has-success': epprojecteditform.completation_date.$valid}" required>
             </div>
@@ -505,7 +505,7 @@
 
         <div class="col-sm-12 col-md-12">
           <div class="form-group-edit-profile">
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <input type="hidden" class="form-control custom-textbox" name="student" ng-model="skillsetpersonnalform.id">
             </div>
             <div class="form-group custom-lider-form-group">
@@ -544,7 +544,7 @@
       <div class="row">
         <div class="form-group-edit-profile">
           <div class="col-sm-12 col-md-12">
-            <div class="form-group custom-lider-form-grou">
+            <div class="form-group custom-lider-form-group">
               <input type="hidden" class="form-control custom-textbox" ng-model="skillsetprofessionalform.student" name="user">
             </div>
             <div class="form-group custom-lider-form-group">

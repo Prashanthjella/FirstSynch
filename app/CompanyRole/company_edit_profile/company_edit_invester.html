@@ -5,16 +5,16 @@
         <form name="cpinvestorform" ng-submit="investorsubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpinvestorform.investor_confidence.$valid}">Invester confidence</label>
                         <input type="hidden" name="id" ng-model="investorform.id">
                         <input type="text" name="investor_confidence" ng-model="investorform.investor_confidence" class="form-control custom-form-control-br-bottom" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpinvestorform.investor_confidence.$touched, 'has-success': cpinvestorform.investor_confidence.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
                         <input type="text" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a invester confidence description">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cpinvestorform.investor_confidence.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>

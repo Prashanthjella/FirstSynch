@@ -5,44 +5,44 @@
         <form name="cplocationform" ng-submit="locationsubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': cplocationform.address_1.$valid}">Address #1</label>
                         <input type="hidden" name="id" ng-model="locationform.id">
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.address_1" name="address_1" placeholder="Give it a Address #1" ng-class="{'has-error': cplocationform.address_1.$touched, 'has-success': cplocationform.address_1.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Address #2</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.address_2" name="address_1"  placeholder="Give it a Address #2">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': cplocationform.city.$valid}">City</label>
                         <input type="text" class="form-control custom-form-control-br-bottom"  ng-model="locationform.city" name="city"  placeholder="Give it a City" ng-class="{'has-error': cplocationform.city.$touched, 'has-success': cplocationform.city.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': cplocationform.state.$valid}">State</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.state" name="state"  placeholder="Give it a State" ng-class="{'has-error': cplocationform.state.$touched, 'has-success': cplocationform.state.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': cplocationform.country.$valid}">Country</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.country" name="country"  placeholder="Give it a Country" ng-class="{'has-error': cplocationform.country.$touched, 'has-success': cplocationform.country.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Zip code</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.zip_code" name="zip_code"  placeholder="Give it a Zipcode">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': cplocationform.contact_no.$valid}">Contact no</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.contact_no" name="contact_no"  placeholder="Give it a Contact no" ng-class="{'has-error': cplocationform.contact_no.$touched, 'has-success': cplocationform.contact_no.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': cplocationform.e_mail.$valid}">Email</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.e_mail" name="e_mail"  placeholder="Give it a Email" ng-class="{'has-error': cplocationform.e_mail.$touched, 'has-success': cplocationform.e_mail.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Fax no</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.fax_no" name="fax_no"  placeholder="Give it a Fax no">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cplocationform.e_mail.$invalid || cplocationform.contact_no.$invalid || cplocationform.country.$invalid || cplocationform.state.$invalid || cplocationform.city.$invalid || cplocationform.address_1.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>

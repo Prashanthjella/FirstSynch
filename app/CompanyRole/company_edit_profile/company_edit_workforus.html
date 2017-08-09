@@ -5,20 +5,20 @@
         <form name="cpworkforusform" ng-submit="workforussubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.benefits.$valid}">Benefits</label>
                         <input type="hidden" ng-model="workforusform.id">
                         <input type="text" name="benefits" ng-model="workforusform.benefits" class="form-control custom-form-control-br-bottom" placeholder="Give it a benefits" ng-class="{'has-error': cpworkforusform.benefits.$touched, 'has-success': cpworkforusform.benefits.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.perks.$valid}">Perks</label>
                         <input type="text" name="perks" ng-model="workforusform.perks" class="form-control custom-form-control-br-bottom" placeholder="Give it a Perks" ng-class="{'has-error': cpworkforusform.perks.$touched, 'has-success': cpworkforusform.perks.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.culture.$valid}">Culture</label>
                         <input type="text" name="culture" ng-model="workforusform.culture" class="form-control custom-form-control-br-bottom" placeholder="Give it a Culture" ng-class="{'has-error': cpworkforusform.culture.$touched, 'has-success': cpworkforusform.culture.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cpworkforusform.benefits.$invalid || cpworkforusform.perks.$invalid || cpworkforusform.culture.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>

@@ -5,16 +5,16 @@
         <form name="cpgrowthrateform" ng-submit="growthratesubmit()">
             <div class="row">
                 <div class="col-sm-11 col-md-11">
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpgrowthrateform.growth_rate.$valid}">Growth Rate</label>
                         <input type="hidden" name="id" ng-model="growthrateform.id">
                         <input type="text"  name="growth_rate" ng-model="growthrateform.growth_rate" class="form-control custom-form-control-br-bottom" placeholder="Give it a growth rate" ng-class="{'has-error': cpgrowthrateform.growth_rate.$touched, 'has-success': cpgrowthrateform.growth_rate.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
                         <input type="text" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a growth rate description">
                     </div>
-                    <div class="form-group custom-lider-form-grou">
+                    <div class="form-group custom-lider-form-group">
                         <input type="submit" ng-disabled="cpgrowthrateform.growth_rate.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
                     </div>
                 </div>
