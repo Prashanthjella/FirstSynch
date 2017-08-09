@@ -402,8 +402,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
       var data = {
         allow_company_info: 'True',
         company_name:$scope.cname,
+        company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
         user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-        employee : { first_name : $scope.name, last_name : $scope.lname}
+        employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city,state : $scope.current_state}
       };
       $http({
         url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -460,8 +461,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
     else if($scope.domainsearch == 'deny' && allow_domainsearch) {
       var data = {
         company_name:$scope.cname,
+        company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
         user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-        employee : { first_name : $scope.name, last_name : $scope.lname}
+        employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city,state : $scope.current_state}
       };
       $http({
         url: apiUrl+'api/v1/employee/api/employee_signup/',
@@ -503,10 +505,12 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
           logo : $('#domainimage').val(),
           name : $('#domaincmpy_name').val(),
           website : $('#domainwebsite').val(),
+          city:$scope.current_city,
+          state : $scope.current_state,
         },
         company_name:$scope.cname,
         user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
-        employee : { first_name : $scope.name, last_name : $scope.lname }
+        employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
       }
       $http({
         url: apiUrl+'api/v1/employee/api/employee_signup/',

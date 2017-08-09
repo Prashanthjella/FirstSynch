@@ -135,7 +135,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         est_date_description : ""
     };
     $scope.establishment_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.establishmentform.id = response.data.id;
@@ -151,10 +151,11 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
             establishment_date:$scope.establishmentform.establishment_date,
             est_date_description : $scope.establishmentform.est_date_description
         };
-        // alert(JSON.stringify(data));
+        // api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/"
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.establishmentmessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -165,7 +166,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         internships_job_description : ""
     };
     $scope.internship_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.internshipform.id = response.data.id;
@@ -185,6 +186,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.internshipmessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -195,7 +197,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         average_entry_level_sal_description : ""
     };
     $scope.salary_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.salaryform.id = response.data.id;
@@ -215,6 +217,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.salarymessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -226,7 +229,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         company_size_description : ""
     };
     $scope.companysize_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.companysizeform.id = response.data.id;
@@ -246,6 +249,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.companysizemessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -258,7 +262,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         departure_rate_description : ""
     };
     $scope.hirerate_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.hirerateform.id = response.data.id;
@@ -282,6 +286,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.hireratemessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -292,7 +297,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         funding_size_description : ""
     };
     $scope.funding_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.fundingform.id = response.data.id;
@@ -312,6 +317,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.fundingmessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -322,7 +328,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         growth_rate_description : ""
     };
     $scope.growthrate_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.growthrateform.id = response.data.id;
@@ -342,6 +348,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.growthratemessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -377,6 +384,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
             $http.post(apiUrl+"api/v1/setups/api/v1/hiring/",JSON.stringify(data))
             .then(function (response) {
                 $scope.workforusmessage = 'Successfully updated';
+                $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
             });
         }
         else{
@@ -389,6 +397,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
             $http.patch(apiUrl+"api/v1/setups/api/v1/hiring/"+$scope.workforusform.id+"/",JSON.stringify(data))
             .then(function (response) {
                 $scope.workforusmessage = 'Successfully updated';
+                $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
             });
         }
 
@@ -400,7 +409,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         investor_conf_description : ""
     };
     $scope.investor_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.investorform.id = response.data.id;
@@ -420,6 +429,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
             $scope.investormessage = 'Successfully updated';
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
         });
     };
 
@@ -432,6 +442,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                   method:'POST',
               }).then(function(response){
                   $scope.gallerymessage = 'Successfully updated';
+                  $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
               });
             }
         }
@@ -486,6 +497,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
             $http.post(apiUrl+"api/v1/setups/api/v1/contact/",JSON.stringify(data))
             .then(function (response) {
                 $scope.locationmessage = 'Successfully updated';
+                $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
             });
         }
         else{
@@ -503,6 +515,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
             $http.patch(apiUrl+"api/v1/setups/api/v1/contact/"+$scope.locationform.id+"/",JSON.stringify(data))
             .then(function (response) {
                 $scope.locationmessage = 'Successfully updated';
+                $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
             });
         }
 
@@ -520,7 +533,7 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
         linkedin_url : "",
         twitter_url : "",
     };
-    // student basic profile get information
+    // Company basic information
     $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
       headers: {'Authorization' : 'Token '+$rootScope.token_id}
     }).then(function successCallback(response){
@@ -550,6 +563,8 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
         // alert(JSON.stringify(data));
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {
+            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+            $window.scrollTo(0, angular.element(document.getElementById('edit_succ_msg')).offsetTop);
             $scope.basicinfomessage = 'Successfully updated';
         });
     };
