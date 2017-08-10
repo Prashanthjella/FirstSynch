@@ -874,7 +874,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
         jQuery('.search_results_companies_container_act').show();
         jQuery.each(response.data.company, function(i) {
           var companies_result ='<div class="media custom-media">'
-          +'<a href="/company/'+response.data.company[i].id+'" class="search-link">'
+          +'<a href="/company/'+response.data.company[i].slug+'" class="search-link">'
           +'<div class="media-left media-middle custom-media-left">'
           +'<div class="search-img-container">'
           +'<img src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.company[i].logo+'" class="logo-companies-box">'
@@ -903,7 +903,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
         jQuery('.search_results_student_container_act').show();
         jQuery.each(response.data.student, function(i) {
           var student_result ='<div class="media custom-media">'
-          +'<a href="/student/'+response.data.student[i].id+'" class="search-link">'
+          +'<a href="/student/'+response.data.student[i].slug+'" class="search-link">'
           +'<div class="media-left media-middle custom-media-left">'
           +'<div class="search-img-container">'
           +'<img src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.student[i].profile_picture+'" class="logo-companies-box">'
