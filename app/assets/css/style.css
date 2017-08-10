@@ -2301,12 +2301,12 @@ textarea.custom-text-area {
   text-align: left;
   color: #303030;
   margin-top:0;
-	
+
 }
 .form-group-search-page{margin-bottom:10px}
 .custom-search-page-header .custom-h3{
 	margin-top:10px;
-	
+
 	}
 .custom-media a h4{
 	font-size: 20px;
@@ -2772,12 +2772,12 @@ textarea.custom-text-area {
 	display: inline-block;
 	width: 80%;
 	vertical-align: middle;
-	
+
 	font-size: 16px;
   font-weight: 600;
   line-height: 1.63;
   letter-spacing: -0.8px;
-  
+
   color: #303030;
 }
 .help-container-link .circle-icon {
@@ -2840,7 +2840,7 @@ textarea.custom-text-area {
 .media-search-group-container .group-followers {
 	margin-left: 0;
 	margin-right: 15px;
-	
+
 	  font-size: 13px;
   font-weight: 600;
   line-height: 1.85;
@@ -3634,13 +3634,13 @@ textarea.custom-text-area {
   letter-spacing: -0.3px;
   text-align: center;
   color: #303030;
-	}	
+	}
 .page-section-account-setting{
 	margin-top:5px;
-	}		
+	}
 .page-section-account{
 	margin-top:10px;
-	}	
+	}
 @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4663,6 +4663,9 @@ h1.ng-binding {
 }
 .has-error, input.ng-dirty.ng-invalid {
 	border-bottom: 2px solid red !important;
+}
+.validation_class_act input.ng-dirty.ng-invalid {
+	border: none !important;
 }
 input.ng-dirty.ng-success, .has-success {
 	border-bottom: 2px solid #00b58e !important;
