@@ -64,12 +64,14 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     if(window.sessionStorage.getItem("companyedit_id")){
       $rootScope.companyedit_id = window.sessionStorage.getItem("companyedit_id");
     }
+    $rootScope.guest_login = false;
   }
   else if(studentusertype == window.sessionStorage.getItem("usertype")){
     $rootScope.token_id = window.sessionStorage.getItem("token");
     $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
     $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
     $rootScope.user_id = window.sessionStorage.getItem("user_id");
+    $rootScope.guest_login = false;
   }else{
     $rootScope.token_id = guest_token;
     $rootScope.guest_login = true;
@@ -104,9 +106,10 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     })
     .then(function successCallback(response){
       $rootScope.vid = response.data;
+      $rootScope.videolikedisable = false;
       $('#videolikebtn').css({'color':'#303030'});
       $.each(response.data.video.liked, function(i,obj) {
-        if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});}
+        if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});$rootScope.videolikedisable = true;}
       });
       jwplayer("jwplayer").setup({
         playlist: [{
@@ -129,7 +132,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
   };//Common Video Popup - function end
 
   $rootScope.videolikesubmit = function(videoid){
-    $http.post(apiUrl+"api/v1/career_fairs/video_like/"+videoid+"/",{
+    $http.get(apiUrl+"api/v1/career_fairs/video_like/"+videoid+"/",{
       headers: {'Authorization' : 'Token '+$rootScope.token_id}
     })
     .then(function successCallback(response){
@@ -207,6 +210,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
       $rootScope.profileimage = response.data.profile_image;
       $rootScope.user_id = response.data.user_id;
       $rootScope.token_id = response.data.token;
+      $rootScope.guest_login = false;
       if(response.data.company_id){
         $rootScope.company_userid = response.data.company_id;
         $window.sessionStorage.setItem('company_userid', response.data.company_id);
@@ -308,11 +312,11 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
       .then(function successCallback(response){
         $scope.piplimage = response.data.image ? response.data.image : "" ;
-        $scope.piplschool_name= response.data.school_name ? response.data.school_name : "" ;
-        $scope.pipldateattended= response.data.dateattended ? response.data.dateattended :"";
-        $scope.piplmajor= response.data.major ?response.data.major :"";
-        $scope.pipljobs= response.data.jobs ? response.data.jobs : "" ;
-        $scope.workhistroy_count= response.data.jobs ? response.data.jobs.length : 0 ;
+        $scope.piplschool_name = response.data.school_name ? response.data.school_name : "" ;
+        $scope.pipldateattended = response.data.dateattended ? response.data.dateattended :"";
+        $scope.piplmajor = response.data.major ?response.data.major :"";
+        $scope.pipljobs = response.data.jobs ? response.data.jobs : "" ;
+        $scope.workhistroy_count = response.data.jobs ? response.data.jobs.length : 0 ;
         if($scope.piplimage || $scope.piplschool_name || $scope.pipldateattended || $scope.piplmajor || $scope.pipljobs){
           $('#allow_pipl').val('0');
           $('.peoplesearch_remove').hide();
@@ -371,7 +375,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
       }
       var datap = {
-        education : {school_name : $('#pipl_school_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
+        education : {school_name : $scope.piplschool_name,gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
         student : {first_name : $scope.name},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry
@@ -414,6 +418,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       })
       .then(function successCallback(data, status, headers, config) {
         if(data.data.success){
+          $('.peoplesearch_remove').show();
           jQuery("#companyregistration").modal('hide');
           jQuery("#companysignUpSuccess").modal('show');
           jQuery('form#reset_forms').trigger("reset");
@@ -658,6 +663,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       $window.sessionStorage.removeItem('token');
       $window.sessionStorage.removeItem('profileimage');
       $window.sessionStorage.removeItem('usertype');
+      $rootScope.guest_login = true;
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id
