@@ -44,7 +44,8 @@
                             <div class="custom-right-icons">
                               <a href="#" class="icons-model">
                                 <i class="fa fa-heart-o" ng-if="!companyuserInfo && !studentuserInfo" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
-                                <i class="fa fa-heart-o" ng-if="companyuserInfo || studentuserInfo" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i>
+                                <i class="fa fa-heart-o" ng-if="companyuserInfo || studentuserInfo && !videolikedisable" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i>
+                                <i class="fa fa-heart-o" ng-if="companyuserInfo || studentuserInfo && videolikedisable" id="videolikebtn"></i>
                                 <span id="video_like_wrapper">{{vid.video.liked.length}}</span>
                               </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>--> </div>
                         </div>
