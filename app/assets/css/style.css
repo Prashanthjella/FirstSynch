@@ -362,7 +362,7 @@ h2.custom-h2-04 {
 .custom-h3, .h3, h3 {
 	text-transform: uppercase;
 	font-size: 20px;
-	font-weight: 800;
+	font-weight: 800 !important;
 	line-height: 1.5;
 	letter-spacing: -0.4px;
 	color: #303030;
@@ -1243,6 +1243,9 @@ bottom: 90px;
 .page-section-about-me {
 	margin-top: 120px;
 }
+.page-section-guest-about-me{
+	margin-top:100px;
+	}
 .page-section-about-me .custom-h1, .page-section-hire-me .custom-h1 {
 	margin-bottom: 30px;
 }
@@ -1311,6 +1314,9 @@ bottom: 90px;
 .custom-thumbnail-profile-20 {
 	margin-top: 40px;
 }
+.custom-thumbnail-profile-5{
+	margin-top:5px;
+	}
 .content-chartecter {
 	font-size: 13px;
 	font-weight: 600;
@@ -1323,6 +1329,12 @@ bottom: 90px;
 	height: 177px;
 	margin-bottom: 20px;
 }
+.row-experience-new{
+	margin-top:30px;
+	}
+.row-experience-new .custom-thumbnail-profile-views{
+	height:186px;
+	}
 .edu-details {
 	height: 185px;
 }
@@ -1344,6 +1356,9 @@ bottom: 90px;
 .page-section-skills {
 	padding: 60px 0 0
 }
+.page-section-skills-new{
+	margin-top:80px;
+	}
 .navi-skills {
 	list-style: none;
 	margin: 0;
@@ -2227,8 +2242,22 @@ textarea.custom-text-area {
 	letter-spacing: -0.3px;
 	text-align: center;
 	color: #b2b2b2;
-	margin-top: 5px
+	margin-top: 0
 }
+.page-section-top-companies{
+	padding-bottom:40px;
+	}
+.companies_act_categ  .media-eading-h5,.student_act_categ .media-eading-h5,.companies_act_categ  .media-eading-h5
+
+{
+	  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #b2b2b2;
+  margin-bottom:0;
+   line-height: 10px;
+}	
 .company-list-box:hover, .company-list-box:focus {
 	text-decoration: none;
 }
@@ -2243,7 +2272,7 @@ textarea.custom-text-area {
 }
 .page-section-All-companies .custom-thumbnail-company-logo {
 	height: 140px;
-	line-height: 148px;
+	line-height: 140px;
 	margin-bottom: 10px
 }
 .page-section-All-companies h4, .page-section-All-companies .custom-h4 {
@@ -2251,10 +2280,19 @@ textarea.custom-text-area {
 	margin-top: 0;
 	margin-bottom: 4px
 }
+.page-section-employees .custom-media a h4,.page-section-employees .custom-media a .custom-h4{
+	 font-size: 16px;
+  font-weight: bold;
+  line-height: 1.88;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #303030;
+	}
 .page-section-All-companies .custom-h5 {
 	text-transform: none;
 	margin: 0
 }
+.page-section-All-companies{margin-top:0}
 .custom-media-object, .slide-companies img.custom-media-object {
 	width: 60px !important;
 	height: 60px !important;
@@ -3432,6 +3470,7 @@ textarea.custom-text-area {
 	font-weight: 600;
 	letter-spacing: -0.4px;
 	color: #0d0d0d;
+	margin-bottom:7px;
 }
 .top-3-companies {
 	float: left;
@@ -3547,14 +3586,14 @@ textarea.custom-text-area {
 .custom-media-student {
 	padding-bottom: 12px;
 }
-.student-categories-list .media-eading-h5 {
+/*.student-categories-list .media-eading-h5 {
 	font-size: 12px;
 	font-weight: 600;
 	letter-spacing: -0.4px;
 	text-align: left;
 	color: #b2b2b2;
 	margin: 0
-}
+}*/
 .custom-btn-edit-profile .glyphicon {
 	margin-right: 10px;
 }
@@ -3640,7 +3679,33 @@ textarea.custom-text-area {
 	}
 .page-section-account{
 	margin-top:10px;
-	}
+	}	
+.page-section-about-charecter{
+	float:left;
+	width:100%;
+	margin-top:20px;
+	}	
+	.custom-h5-date{
+		  font-size: 11px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #0d0d0d;
+  opacity: 0.3;
+  text-transform:uppercase;
+   margin:0 0 10px 0
+		}
+	.custom-title-h3{
+		font-size: 24px;
+  font-weight: bold;
+  line-height: 1.33;
+  letter-spacing: -0.7px;
+  text-align: left;
+  color: #303030;
+ 
+		}	
+	
 @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4551,7 +4616,17 @@ h3.school-name {
 	line-height: 22px;
 	letter-spacing: -0.3px;
 	color: #0d0d0d;
+	
+	
+	
 }
+.group-experience-new{
+	margin-top:35px;
+	margin-bottom:10px;
+	}
+.cont-experience-new{
+	margin-top:20px;
+	}
 .row-experience {
 	margin-top: 50px;
 	margin-bottom: 70px;
