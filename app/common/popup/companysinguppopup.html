@@ -71,7 +71,7 @@
       </div>
 
       <div class="modal-dialog">
-        <div class="modal-content custom-modal-video-content">
+        <div class="modal-content custom-modal-video-content validation_class_act">
           <div class="modal-header page-bg-gray cusom-model-onboard-header domainsearch_show" style="display:none;">
             <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
             <div class="page-header custom-page-header">
@@ -97,12 +97,12 @@
                       </div>
                     </div>
                     <div class="panel-group custom-panel-onboarding-group">
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': companyregistrations.domaincmpy_name.$touched && companyregistrations.domaincmpy_name.$error.required, 'has-success': companyregistrations.domaincmpy_name.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaincmpy_name.$valid}">Company Name</label>
-                              <input type="text" class=" custom-form-control-br-bottom" name="domaincmpy_name" ng-model="domaincmpy_name" value="{{domaincmpy_name}}" id="domaincmpy_name" ng-class="{'has-error': companyregistrations.domaincmpy_name.$touched && companyregistrations.domaincmpy_name.$error.required, 'has-success': companyregistrations.domaincmpy_name.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" name="domaincmpy_name" ng-model="domaincmpy_name" value="{{domaincmpy_name}}" id="domaincmpy_name" >
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
@@ -110,12 +110,12 @@
                           </div> -->
                         </div>
                       </div>
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domainwebsite.$touched , 'has-success': companyregistrations.domainwebsite.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainwebsite.$valid}">Website</label>
-                              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" ng-model="domainwebsite" class=" custom-form-control-br-bottom" name="domainwebsite" value="{{domainwebsite}}" id="domainwebsite"  ng-class="{'has-error': companyregistrations.domainwebsite.$touched && companyregistrations.domainwebsite.$error.required, 'has-success': companyregistrations.domainwebsite.$valid}">
+                              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" ng-model="domainwebsite" class=" custom-form-control-br-bottom" name="domainwebsite" value="{{domainwebsite}}" id="domainwebsite" >
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
@@ -127,25 +127,25 @@
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
-                              <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domain_est_date.$valid}">
+                              <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domain_est_date.$valid}" ng-class="{'has-error': companyregistrations.domain_est_date.$touched, 'has-success': companyregistrations.domain_est_date.$valid}">
                                 Establishment Date
                               </label>
-                              <input type="text" datepicker class=" custom-form-control-br-bottom" ng-model="domain_est_date" name="domain_est_date" value="{{domain_est_date}}" id="domain_est_date"  ng-class="{'has-error': companyregistrations.domain_est_date.$touched && companyregistrations.domain_est_date.$error.required, 'has-success': companyregistrations.domain_est_date.$valid}">
+                              <input type="text" datepicker class=" custom-form-control-br-bottom" ng-model="domain_est_date" name="domain_est_date" value="{{domain_est_date}}" id="domain_est_date">
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
                             <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Establishment date</a>
                           </div> -->
-                        </div>
                       </div>
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      </div>
+                      <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domainfburl.$touched, 'has-success': companyregistrations.domainfburl.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainfburl.$valid}">
                                 Facebook URL
                               </label>
-                              <input type="text" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" custom-form-control-br-bottom" ng-model="domainfburl" name="domainfburl" value="{{domainfburl}}" id="domainfburl" ng-class="{'has-error': companyregistrations.domainfburl.$touched && companyregistrations.domainfburl.$error.required, 'has-success': companyregistrations.domainfburl.$valid}">
+                              <input type="text" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" custom-form-control-br-bottom" ng-model="domainfburl" name="domainfburl" value="{{domainfburl}}" id="domainfburl" >
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
@@ -153,14 +153,14 @@
                           </div> -->
                         </div>
                       </div>
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domainliurl.$touched , 'has-success': companyregistrations.domainliurl.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainliurl.$valid}">
                                 Linkedin URL
                               </label>
-                              <input ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" type="text" class=" custom-form-control-br-bottom" name="domainliurl" ng-model="domainliurl" value="{{domainliurl}}" id="domainliurl" ng-class="{'has-error': companyregistrations.domainliurl.$touched && companyregistrations.domainliurl.$error.required, 'has-success': companyregistrations.domainliurl.$valid}">
+                              <input ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" type="text" class=" custom-form-control-br-bottom" name="domainliurl" ng-model="domainliurl" value="{{domainliurl}}" id="domainliurl">
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
@@ -168,7 +168,7 @@
                           </div> -->
                         </div>
                       </div>
-                      <div class="panel panel-default custom-panel-onboarding-default company_signup_onboard_logo">
+                      <div class="panel panel-default custom-panel-onboarding-default company_signup_onboard_logo" ng-class="{'has-error': companyregistrations.domainimage.$touched && companyregistrations.domainimage.$error.required, 'has-success': companyregistrations.domainimage.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
@@ -176,19 +176,20 @@
                                 LOGO
                               </label>
                               <img src="{{domainimage}}" height="100" width="100"/>
-                              <input type="hidden" class=" custom-form-control-br-bottom" ng-model="domainimage" name="domainimage" value="{{domainimage}}" id="domainimage" ng-class="{'has-error': companyregistrations.domainimage.$touched && companyregistrations.domainimage.$error.required, 'has-success': companyregistrations.domainimage.$valid}">
+                              <input type="hidden" class=" custom-form-control-br-bottom" ng-model="domainimage" name="domainimage" value="{{domainimage}}" id="domainimage">
+                              <!-- <input type="file" ngf-select class=" custom-form-control-br-bottom" accept="image/*" ng-model="domainimageupload" name="domainimageupload" value="{{domainimageupload}}" id="domainimageupload"> -->
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domaintotal_emp.$touched, 'has-success': companyregistrations.domaintotal_emp.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaintotal_emp.$valid}">
                                 Total employees
                               </label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaintotal_emp" name="domaintotal_emp" value="{{domaintotal_emp}}" ng-pattern="/^[0-9]{1,10}$/" id="domaintotal_emp" ng-class="{'has-error': companyregistrations.domaintotal_emp.$touched && companyregistrations.domaintotal_emp.$error.required, 'has-success': companyregistrations.domaintotal_emp.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaintotal_emp" name="domaintotal_emp" value="{{domaintotal_emp}}" ng-pattern="/^[0-9]{1,10}$/" id="domaintotal_emp">
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
@@ -196,14 +197,14 @@
                           </div> -->
                         </div>
                       </div>
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domaindescription.$touched, 'has-success': companyregistrations.domaindescription.$valid}">
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaindescription.$valid}">
                                 About Compnay
                               </label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaindescription" name="domaindescription" value="{{domaindescription}}" id="domaindescription" ng-class="{'has-error': companyregistrations.domaindescription.$touched && companyregistrations.domaindescription.$error.required, 'has-success': companyregistrations.domaindescription.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaindescription" name="domaindescription" value="{{domaindescription}}" id="domaindescription">
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">
@@ -219,34 +220,34 @@
                               Address
                             </h4>
 
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domainaddress1.$touched, 'has-success': companyregistrations.domainaddress1.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainaddress1.$valid}">Street</label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domainaddress1" name="domainaddress1" value="{{domainaddress1}}" id="domainaddress1" ng-class="{'has-error': companyregistrations.domainaddress1.$touched && companyregistrations.domainaddress1.$error.required, 'has-success': companyregistrations.domainaddress1.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domainaddress1" name="domainaddress1" value="{{domainaddress1}}" id="domainaddress1">
                             </div>
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domaincity.$touched, 'has-success': companyregistrations.domaincity.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaincity.$valid}">City
                               </label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaincity" name="domaincity" ng-pattern ="/^[a-zA-Z\s]*$/" value="{{domaincity}}" id="domaincity"  ng-class="{'has-error': companyregistrations.domaincity.$touched && companyregistrations.domaincity.$error.required, 'has-success': companyregistrations.domaincity.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaincity" name="domaincity" ng-pattern ="/^[a-zA-Z\s]*$/" value="{{domaincity}}" id="domaincity">
                             </div>
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domainstate.$touched , 'has-success': companyregistrations.domainstate.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainstate.$valid}">State</label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domainstate" name="domainstate" ng-pattern ="/^[a-zA-Z\s]*$/" value="{{domainstate}}" id="domainstate"  ng-class="{'has-error': companyregistrations.domainstate.$touched && companyregistrations.domainstate.$error.required, 'has-success': companyregistrations.domainstate.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domainstate" name="domainstate" ng-pattern ="/^[a-zA-Z\s]*$/" value="{{domainstate}}" id="domainstate">
                             </div>
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domaincountry.$touched, 'has-success': companyregistrations.domaincountry.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaincountry.$valid}">Country</label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaincountry" name="domaincountry" ng-pattern ="/^[a-zA-Z\s]*$/" value="{{domaincountry}}" id="domaincountry"  ng-class="{'has-error': companyregistrations.domaincountry.$touched && companyregistrations.domaincountry.$error.required, 'has-success': companyregistrations.domaincountry.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaincountry" name="domaincountry" ng-pattern ="/^[a-zA-Z\s]*$/" value="{{domaincountry}}" id="domaincountry">
                             </div>
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domainzip_code.$touched, 'has-success': companyregistrations.domainzip_code.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainzip_code.$valid}">Zipcode</label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domainzip_code" name="domainzip_code" value="{{domainzip_code}}" id="domainzip_code" ng-pattern="/^[0-9]{1,10}$/"  ng-class="{'has-error': companyregistrations.domainzip_code.$touched && companyregistrations.domainzip_code.$error.required, 'has-success': companyregistrations.domainzip_code.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domainzip_code" name="domainzip_code" value="{{domainzip_code}}" id="domainzip_code" ng-pattern="/^[0-9]{1,10}$/">
                             </div>
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domaine_mail.$touched, 'has-success': companyregistrations.domaine_mail.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaine_mail.$valid}"> E-Mail</label>
-                              <input type="email" class=" custom-form-control-br-bottom" ng-model="domaine_mail" name="domaine_mail" value="{{domaine_mail}}" id="domaine_mail" ng-class="{'has-error': companyregistrations.domaine_mail.$touched && companyregistrations.domaine_mail.$error.required, 'has-success': companyregistrations.domaine_mail.$valid}">
+                              <input type="email" class=" custom-form-control-br-bottom" ng-model="domaine_mail" name="domaine_mail" value="{{domaine_mail}}" id="domaine_mail">
                             </div>
-                            <div class="form-group panel panel-default custom-panel-onboarding-default ">
+                            <div class="form-group panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': companyregistrations.domaincontact_no.$touched , 'has-success': companyregistrations.domaincontact_no.$valid}">
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domaincontact_no.$valid}">Contact no</label>
-                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaincontact_no" name="domaincontact_no" value="{{domaincontact_no}}" id="domaincontact_no" ng-class="{'has-error': companyregistrations.domaincontact_no.$touched && companyregistrations.domaincontact_no.$error.required, 'has-success': companyregistrations.domaincontact_no.$valid}">
+                              <input type="text" class=" custom-form-control-br-bottom" ng-model="domaincontact_no" name="domaincontact_no" value="{{domaincontact_no}}" id="domaincontact_no" >
                             </div>
                           </div>
                           <!-- <div class="col-sm-4 text-right">

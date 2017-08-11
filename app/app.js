@@ -244,7 +244,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
 });
 
 
-FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, apiUrl, $rootScope) {
+FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
 
   // $http.get("school.json")
   //     .then(function successCallback(response){
@@ -395,7 +395,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
   };//userStudentRegistratoin - function end
 
 
-  $scope.CompanyRegistratoin = function () {
+  $scope.CompanyRegistratoin = function (file) {
     var allow_domainsearch = parseInt($('#domain_search').val());
 
     if($scope.domainsearch == 'allow' && allow_domainsearch){
@@ -447,7 +447,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
           else{
               $('#domain_search').val('0');
               $('.domainsearch_remove').hide();
-              $('.domainsearch_show .company_signup_onboard_logo').remove();
             //   $('.domainsearch_show .edit_option').remove();
             //   $('.domainsearch_show input').removeAttr('readonly');
               $('.domainsearch_show').show();
@@ -486,32 +485,66 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
       });
     }
     if(allow_domainsearch == 0){
-      var datae = {
-        company_info : {
-          address:{
-            address_1:$('#domainaddress1').val(),
-            city: $('#domaincity').val(),
-            contact_no: $('#domaincontact_no').val(),
-            country: $('#domaincountry').val(),
-            e_mail: $('#domaine_mail').val(),
-            state: $('#domainstate').val(),
-            zip_code: $('#domainzip_code').val(),
-          },
-          description:$('#domaindescription').val(),
-          employees : $('#domaintotal_emp').val(),
-          establishment_date : $('#domain_est_date').val(),
-          linkedin_url : $('#domainliurl').val(),
-          facebook_url : $('#domainfburl').val(),
-          logo : $('#domainimage').val(),
-          name : $('#domaincmpy_name').val(),
-          website : $('#domainwebsite').val(),
-          city:$scope.current_city,
-          state : $scope.current_state,
-        },
-        company_name:$scope.cname,
-        user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
-        employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
-      }
+    //   if(file){
+    //       var datawf = {
+    //         company_info : {
+    //           address:{
+    //             address_1:$('#domainaddress1').val(),
+    //             city: $('#domaincity').val(),
+    //             contact_no: $('#domaincontact_no').val(),
+    //             country: $('#domaincountry').val(),
+    //             e_mail: $('#domaine_mail').val(),
+    //             state: $('#domainstate').val(),
+    //             zip_code: $('#domainzip_code').val(),
+    //           },
+    //           description:$('#domaindescription').val(),
+    //           employees : $('#domaintotal_emp').val(),
+    //           establishment_date : $('#domain_est_date').val(),
+    //           linkedin_url : $('#domainliurl').val(),
+    //           facebook_url : $('#domainfburl').val(),
+    //           logo :$scope.domainimageupload,
+    //           name : $('#domaincmpy_name').val(),
+    //           website : $('#domainwebsite').val(),
+    //           city:$scope.current_city,
+    //           state : $scope.current_state,
+    //         },
+    //         company_name:$scope.cname,
+    //         user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
+    //         employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
+    //       }
+    //       file.upload = Upload.upload({
+    //           url: apiUrl+'api/v1/employee/api/employee_signup/',
+    //           data: datawf ,
+    //           method:'POST',
+    //       });
+    //   }
+    //   else{
+          var datae = {
+            company_info : {
+              address:{
+                address_1:$('#domainaddress1').val(),
+                city: $('#domaincity').val(),
+                contact_no: $('#domaincontact_no').val(),
+                country: $('#domaincountry').val(),
+                e_mail: $('#domaine_mail').val(),
+                state: $('#domainstate').val(),
+                zip_code: $('#domainzip_code').val(),
+              },
+              description:$('#domaindescription').val(),
+              employees : $('#domaintotal_emp').val(),
+              establishment_date : $('#domain_est_date').val(),
+              linkedin_url : $('#domainliurl').val(),
+              facebook_url : $('#domainfburl').val(),
+              logo : $('#domainimage').val(),
+              name : $('#domaincmpy_name').val(),
+              website : $('#domainwebsite').val(),
+              city:$scope.current_city,
+              state : $scope.current_state,
+            },
+            company_name:$scope.cname,
+            user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
+            employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
+          }
       $http({
         url: apiUrl+'api/v1/employee/api/employee_signup/',
         method: "POST",
@@ -552,6 +585,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope, $http, a
       function errorCallback(data, status, headers, config) {
         $scope.status = data.data.status;
       });
+     //}
     }
   };//company Registratoin - function end
 
