@@ -308,11 +308,11 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
       .then(function successCallback(response){
         $scope.piplimage = response.data.image ? response.data.image : "" ;
-        $scope.piplschool_name= response.data.school_name ? response.data.school_name : "" ;
-        $scope.pipldateattended= response.data.dateattended ? response.data.dateattended :"";
-        $scope.piplmajor= response.data.major ?response.data.major :"";
-        $scope.pipljobs= response.data.jobs ? response.data.jobs : "" ;
-        $scope.workhistroy_count= response.data.jobs ? response.data.jobs.length : 0 ;
+        $scope.piplschool_name = response.data.school_name ? response.data.school_name : "" ;
+        $scope.pipldateattended = response.data.dateattended ? response.data.dateattended :"";
+        $scope.piplmajor = response.data.major ?response.data.major :"";
+        $scope.pipljobs = response.data.jobs ? response.data.jobs : "" ;
+        $scope.workhistroy_count = response.data.jobs ? response.data.jobs.length : 0 ;
         if($scope.piplimage || $scope.piplschool_name || $scope.pipldateattended || $scope.piplmajor || $scope.pipljobs){
           $('#allow_pipl').val('0');
           $('.peoplesearch_remove').hide();
@@ -371,7 +371,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
       }
       var datap = {
-        education : {school_name : $('#pipl_school_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
+        education : {school_name : $scope.piplschool_name,gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
         student : {first_name : $scope.name},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry
@@ -414,6 +414,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       })
       .then(function successCallback(data, status, headers, config) {
         if(data.data.success){
+          $('.peoplesearch_remove').show();
           jQuery("#companyregistration").modal('hide');
           jQuery("#companysignUpSuccess").modal('show');
           jQuery('form#reset_forms').trigger("reset");

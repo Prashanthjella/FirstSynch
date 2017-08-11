@@ -16,7 +16,7 @@
 </style>
 <!-- Modal Registration content Start-->
 <div class="modal fade custom-model  custom-model-registration" id="signUp" role="dialog"  ng-controller="IdentifyUser">
-  <form name="studentregistration" ng-submit="StudentRegistratoin()" id="reset_forms">
+  <form name="studentregistration" id="reset_forms">
     <div class="modal-dialog custom-modal-880">
       <div class="modal-content custom-modal-video-content">
         <div class="modal-header cusom-model-dashboard-header peoplesearch_remove">
@@ -99,7 +99,7 @@
         </div>
 
         <div class="modal-footer custom-login-modal-footer peoplesearch_remove">
-          <button type="submit" ng-disabled="studentregistration.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
+          <button type="submit" ng-click="StudentRegistratoin()"  ng-disabled="studentregistration.name.$invalid||studentregistration.lname.$invalid||studentregistration.school_name.$invalid||studentregistration.gpa.$invalid||studentregistration.password.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
           <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
         </div>
       </div>
@@ -111,7 +111,7 @@
               <div class="pull-left">
                 <h1 class="h1 custom-h1">Onboarding</h1>
               </div>
-              <div class="pull-right"> <button type="submit" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
+              <div class="pull-right"> <button type="submit" ng-click="StudentRegistratoin()" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
             </div>
           </div>
           <div class="modal-body custom-video-modal-body peoplesearch_show" style="display:none;">
@@ -131,23 +131,23 @@
                       <h4 class="h4 custom-h4-02">School#1</h4>
                     </div>
                     <div class="panel-group custom-panel-onboarding-group">
-                      <div class="panel panel-default custom-panel-onboarding-default ">
+                      <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': studentregistration.piplschool_name.$valid}">
                         <!-- <button data-toggle="collapse" href="#collapse1" class="btn btn-default circle-btn">
                         <span class="glyphicon glyphicon-minus"></span> -->
                         <!-- </button> -->
                         <div class="row">
                           <div class="col-sm-8">
                           <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplschool_name.$valid}">
                               School
                             </label>
-                            <input type="text" class=" custom-form-control-br-bottom" name="stu_school_name" value="{{piplschool_name}}" id="pipl_school_name" readonly>
+                            <input type="text" class=" custom-form-control-br-bottom" required value="{{piplschool_name}}" ng-model="piplschool_name" name="piplschool_name" id="piplschool_name">
                             </div>
                             <!-- <h5 class="h5 custom-h5-01"></h5> -->
                           </div>
-                          <div class="col-sm-4 text-right">
+                          <!-- <div class="col-sm-4 text-right">
                             <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit School</a>
-                          </div>
+                          </div> -->
                         </div>
                         <!-- <div id="collapse1" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -155,23 +155,23 @@
                       </div>
                     </div> -->
                   </div>
-                  <div class="panel panel-default custom-panel-onboarding-default ">
+                  <div class="panel panel-default custom-panel-onboarding-default "ng-class="{'has-error': studentregistration.pipldateattended.$touched , 'has-success': studentregistration.pipldateattended.$valid}">
                     <!-- <button data-toggle="collapse" href="#dates" class="btn btn-default circle-btn">
                     <span class="glyphicon glyphicon-minus"></span>
                   </button> -->
                   <div class="row">
                     <div class="col-sm-8">
                        <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipldateattended.$valid}">
                         Dates Attended
                       </label>
-                      <input type="text" class=" custom-form-control-br-bottom" name="pipl_dateattended" value="{{pipldateattended}}" id="pipl_dateattended" readonly>
+                      <input type="text" class=" custom-form-control-br-bottom" ng-model="pipldateattended" name="pipldateattended" value="{{pipldateattended}}" id="pipl_dateattended" required>
                       </div>
                       <!-- <h5 class="h5 custom-h5-01"></h5> -->
                     </div>
-                    <div class="col-sm-4 text-right">
+                    <!-- <div class="col-sm-4 text-right">
                       <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
-                    </div>
+                    </div> -->
                   </div>
                   <!-- <div id="dates" class="panel-collapse collapse">
                   <div class="panel-body">
@@ -179,24 +179,24 @@
                 </div>
               </div> -->
             </div>
-            <div class="panel panel-default custom-panel-onboarding-default ">
+            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplmajor.$touched , 'has-success': studentregistration.piplmajor.$valid}">
               <!-- <button data-toggle="collapse" href="#major" class="btn btn-default circle-btn">
               <span class="glyphicon glyphicon-minus"></span>
             </button> -->
             <div class="row">
               <div class="col-sm-8">
                 <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplmajor.$valid}">
                   Major
                 </label>
                 <input type="hidden" id="workhistroy_count" value="{{workhistroy_count}}">
-                <input type="text" class=" custom-form-control-br-bottom" name="pipl_major" value="{{piplmajor}}" id="pipl_major" readonly>
+                <input type="text" class=" custom-form-control-br-bottom" ng-model="piplmajor" name="piplmajor" value="{{piplmajor}}" id="pipl_major" required>
                 </div>
                 <!-- <h5 class="h5 custom-h5-01"></h5> -->
               </div>
-              <div class="col-sm-4 text-right">
+              <!-- <div class="col-sm-4 text-right">
                 <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Major</a>
-              </div>
+              </div> -->
             </div>
             <!-- <div id="major" class="panel-collapse collapse">
             <div class="panel-body">
@@ -217,23 +217,23 @@
         <h4 class="h4 custom-h4-02">Job#{{$index+1}}</h4>
       </div>
       <div class="panel-group custom-panel-onboarding-group">
-        <div class="panel panel-default custom-panel-onboarding-default ">
+        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_company_name'+$index].$touched , 'has-success': studentregistration['pipl_company_name'+$index].$valid}">
           <!-- <button data-toggle="collapse" href="#compnay-name" class="btn btn-default circle-btn">
           <span class="glyphicon glyphicon-minus"></span>
         </button> -->
         <div class="row">
           <div class="col-sm-8">
              <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_company_name'+$index].$valid}">
               Company Name
             </label>
-            <input type="text" class=" custom-form-control-br-bottom" name="pipl_company_name{{$index}}" value="{{stu_jobs.company_name}}" id="pipl_company_name{{$index}}" readonly>
+            <input type="text" class=" custom-form-control-br-bottom" ng-model="stu_jobs.company_name" name="pipl_company_name{{$index}}" value="{{stu_jobs.company_name}}" id="pipl_company_name{{$index}}" required>
             </div>
             <!-- <h5 class="h5 custom-h5-01"></h5> -->
           </div>
-          <div class="col-sm-4 text-right">
+          <!-- <div class="col-sm-4 text-right">
             <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Company Name</a>
-          </div>
+          </div> -->
         </div>
         <!-- <div id="compnay-name" class="panel-collapse collapse">
         <div class="panel-body">
@@ -241,23 +241,23 @@
       </div>
     </div> -->
   </div>
-  <div class="panel panel-default custom-panel-onboarding-default ">
+  <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_datestarted'+$index].$touched , 'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
     <!-- <button data-toggle="collapse" href="#dates-started" class="btn btn-default circle-btn">
     <span class="glyphicon glyphicon-minus"></span>
   </button> -->
   <div class="row">
     <div class="col-sm-8">
         <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
         Dates Started
       </label>
       <!-- <h5 class="h5 custom-h5-01"></h5> -->
-      <input type="text" class=" custom-form-control-br-bottom" name="pipl_datestarted{{$index}}" value="{{stu_jobs.datestarted}}" id="pipl_datestarted{{$index}}" readonly>
+      <input type="text" class=" custom-form-control-br-bottom" datepicker ng-model="stu_jobs.datestarted" name="pipl_datestarted{{$index}}" value="{{stu_jobs.datestarted}}" id="pipl_datestarted{{$index}}" required>
       </div>
     </div>
-    <div class="col-sm-4 text-right">
+    <!-- <div class="col-sm-4 text-right">
       <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
-    </div>
+    </div> -->
   </div>
   <!-- <div id="dates-started" class="panel-collapse collapse">
   <div class="panel-body">
@@ -265,23 +265,23 @@
 </div>
 </div> -->
 </div>
-<div class="panel panel-default custom-panel-onboarding-default ">
+<div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_leavedate'+$index].$touched , 'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
   <!-- <button data-toggle="collapse" href="#leave-date" class="btn btn-default circle-btn">
   <span class="glyphicon glyphicon-minus"></span>
 </button> -->
 <div class="row">
   <div class="col-sm-8">
      <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
       Leave Date
     </label>
     <!-- <h5 class="h5 custom-h5-01">{{stu_jobs.leavedate}}</h5> -->
-    <input type="text" class=" custom-form-control-br-bottom" name="pipl_leavedate{{$index}}" value="{{stu_jobs.leavedate}}" id="pipl_leavedate{{$index}}" readonly>
+    <input type="text" class=" custom-form-control-br-bottom" datepicker ng-model="stu_jobs.leavedate" name="pipl_leavedate{{$index}}" value="{{stu_jobs.leavedate}}" id="pipl_leavedate{{$index}}">
     </div>
   </div>
-  <div class="col-sm-4 text-right">
+  <!-- <div class="col-sm-4 text-right">
     <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Date</a>
-  </div>
+  </div> -->
 </div>
 <!-- <div id="leave-date" class="panel-collapse collapse">
 <div class="panel-body">
@@ -289,23 +289,23 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 </div>
 </div> -->
 </div>
-<div class="panel panel-default custom-panel-onboarding-default ">
+<div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobtitle'+$index].$touched , 'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
   <!-- <button data-toggle="collapse" href="#job-title" class="btn btn-default circle-btn">
   <span class="glyphicon glyphicon-minus"></span>
 </button> -->
 <div class="row">
   <div class="col-sm-8">
      <div class="form-group">
-                            <label class="text-uppercase">
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
       Job title
     </label>
     <!-- <h5 class="h5 custom-h5-01">{{stu_jobs.jobtitle}}</h5> -->
-    <input type="text" class=" custom-form-control-br-bottom" name="pipl_jobtitle{{$index}}" value="{{stu_jobs.jobtitle}}" id="pipl_jobtitle{{$index}}" readonly>
+    <input type="text" class=" custom-form-control-br-bottom" ng-model="stu_jobs.jobtitle" name="pipl_jobtitle{{$index}}" value="{{stu_jobs.jobtitle}}" id="pipl_jobtitle{{$index}}" required>
     </div>
   </div>
-  <div class="col-sm-4 text-right">
+  <!-- <div class="col-sm-4 text-right">
     <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit Job title</a>
-  </div>
+  </div> -->
 </div>
 <!-- <div id="job-title" class="panel-collapse collapse">
 <div class="panel-body">
@@ -313,22 +313,22 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 </div>
 </div> -->
 </div>
-<div class="panel panel-default custom-panel-onboarding-default ">
+<div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobdescription'+$index].$touched , 'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
   <!-- <button data-toggle="collapse" href="#job-description" class="btn btn-default circle-btn">
   <span class="glyphicon glyphicon-minus"></span>
 </button> -->
 <div class="row">
   <div class="col-sm-8">
     <div class="form-group">
-                            <label class="text-uppercase">
+                    <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
       Job description
     </label>
-    <textarea class="piplsearch_ta  custom-form-control-br-bottom" readonly id="pipl_jobdescription{{$index}}" name="pipl_jobdescription{{$index}}">{{stu_jobs.jobdescription}}</textarea>
+    <textarea class="piplsearch_ta  custom-form-control-br-bottom" id="pipl_jobdescription{{$index}}" ng-model="stu_jobs.jobdescription" name="pipl_jobdescription{{$index}}" >{{stu_jobs.jobdescription}}</textarea>
     </div>
   </div>
-  <div class="col-sm-4 text-right">
+  <!-- <div class="col-sm-4 text-right">
     <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit description</a>
-  </div>
+  </div> -->
 </div>
 <!-- <div id="job-description" class="panel-collapse collapse">
 <div class="panel-body">
