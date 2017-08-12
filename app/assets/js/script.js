@@ -1,9 +1,5 @@
 
 $(document).ready(function() {
-  $('#custom-row-compaines').masonry({
-   		 itemSelector: '.custom-box',
-  });
-
   $('[data-toggle="tooltip"]').tooltip();
 
   (function( $, undefined ) {

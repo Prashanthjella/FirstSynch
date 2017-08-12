@@ -36,6 +36,10 @@
             <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpbasicinfoform.product_category.$touched, 'has-success': cpbasicinfoform.product_category.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
+            <label class="text-uppercase">About Company</label>
+            <textarea class="form-control custom-form-control-br-bottom" placeholder="About your company" name="description"  ng-model="basicinfoform.description"></textarea>
+          </div>
+          <div class="form-group custom-lider-form-group">
             <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.website.$valid}">Website</label>
             <input type="url" class="form-control custom-form-control-br-bottom" placeholder="Give it a Website URL http://company.com" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpbasicinfoform.website.$touched, 'has-success': cpbasicinfoform.website.$valid}" required>
           </div>
