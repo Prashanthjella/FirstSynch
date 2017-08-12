@@ -161,6 +161,8 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         controller: 'studenteditprofiles'
     }).when('/stu/setting', {
         templateUrl: 'StudentRole/student_setting/setting.html',
+    }).when('/stu/mycareerfair', {
+        templateUrl: 'StudentRole/student_my_career_fair/student_my_career_fair.html',
     }).when('/com/dashboard', {
         templateUrl: 'CompanyRole/dashboard/dashboard.html'
     }).when('/com', {
@@ -192,6 +194,8 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         controller: 'companyeditprofiles'
     }).when('/com/setting', {
         templateUrl: 'CompanyRole/company_setting/setting.html'
+    }).when('/com/mycareerfair', {
+        templateUrl: 'CompanyRole/company_my_career_fair/company_my_career_fair.html',
     });
 
     // remove hash bang
