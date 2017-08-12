@@ -177,6 +177,18 @@ FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,
       headers: {'Authorization' : 'Token '+token_id}
     })
     .then(function (response) {
+        var comment = $scope.videocomment;
+        var profileimages = $(document).find('.user-profile-dropdown img').attr('src');
+        var append_data = '<div class="media custom-media">'
+                          +'<div class="media-left media-middle custom-media-left">'
+                          +'<img class="media-object-user img-circle" src="'+profileimages+'" alt="FirstSynch">'
+                          +'</div>'
+                          +'<div class="media-body custom-media-body">'
+                          +'<h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>'
+                          +'<h5 class="media-eading-h5">'+comment+'</h5>'
+                          +'</div><div></div></div>';
+        $(document).find('.video_cmt_append_act').append(append_data);
+      //angular.element(jQuery(document).find('.video_cmt_append_act')).append($compile(append_data)($scope));
       $('#comment_succ_msg').show();
       $('#videocomment').val('');
     });
