@@ -34,18 +34,15 @@ FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$rout
       });
   };
   $scope.company_career_request_member = function(careerid){
-      var request_member_data = {
-          requested :$rootScope.user_id
-      }
-      $http.get(apiUrl+"api/v1/career_fairs/"+careerid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+      $http.post(apiUrl+"api/v1/career_fairs/api/v1/requestedmember/",{'career_fair':careerid, 'request_member':$rootScope.companyedit_id},{
+            headers: {'Authorization' : 'Token '+$rootScope.token_id }
       }).then(function successCallback(response){
-              $scope.availability_requested = true;
-          }, function errorCallback(response){
-              console.log("Unable to perform get career fair details");
+            $scope.availability_requested = true;
+      }, function errorCallback(response){
+            console.log("Unable to perform post requested membership");
       });
-  };
 
+  };
 });
 
 // students

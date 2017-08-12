@@ -192,6 +192,8 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         controller: 'companyeditprofiles'
     }).when('/com/setting', {
         templateUrl: 'CompanyRole/company_setting/setting.html'
+    }).when('/com/mycareerfair', {
+        templateUrl: 'CompanyRole/company_my_career_fair/company_my_career_fair.html',
     });
 
     // remove hash bang
