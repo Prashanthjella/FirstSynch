@@ -1,0 +1,194 @@
+<div id="dashboard-filterc" class="modal fade dashboard-filter" role="dialog" ng-controller="dashboard_filter_process_company">
+    <form>
+        <div class="modal-dialog custom-modal-600">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn-close-filter" data-dismiss="modal">
+                    <i class="arrow-down-filter"></i>
+                    </button>
+                    <h4 class="modal-title"><span class="icon-filter"></span>Filters <span class="jobs-total filter_job_countc"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 custom-col-justify">
+                            <div class="media-group-container" ng-init="filter_optionc =  'industryc'">
+                                <div class="reset-control">
+                                    <h3 class="custom-h3">Filters</h3>
+                                    <button type="reset" class="btn-reset" ng-click="reset_filter_form_c()">Reset all</button>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_optionc = 'industryc'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">Major</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_industry_c">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_optionc = 'salaryc'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">Salary range</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_salary_c">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_optionc = 'employementc'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">Employement Type</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_employement_c">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_optionc = 'skillsc'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">By skills</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_skills_c">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="media custom-media">
+                                    <a href="#" ng-click="filter_optionc = 'companyfc'">
+                                        <div class="media-body custom-media-body">
+                                            <h5 class="media-heading custom-media-heading-01">By university</h5>
+                                            <h5 class="media-eading-h5 filtered_kw_company_c">Not specified</h5>
+                                            <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'industryc'">
+                            <div class="media-group-container all_industry_typec">
+                                <h3 class="custom-h3">Major</h3>
+                                <div class="scroll-filter">
+                                    <div class="form-group" ng-repeat="stud_indus_c in student_indus_list_c | unique:'major'| orderBy : 'major' ">
+                                        <div class="checkbox">
+                                            <input id="{{stud_indus_c.major|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
+                                            <label for="{{stud_indus_c.major|removeSpaces}}" class="checkbox-label"> {{stud_indus_c.major}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'salaryc'">
+                            <div class="media-group-container all_salary_rangec">
+                                <h3 class="custom-h3">Salary range</h3>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range" class="salary_range" type="radio" value="600" data-value='$300-$600' ng-click="dashboard_filter_form_c()">$300 - $600
+                                        <!-- <label data-val="600"> $300 - $600</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="900" data-value="$600-$900" ng-click="dashboard_filter_form_c()">$600 - $900
+                                        <!-- <input id="s900" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()" value="900"> -->
+                                        <!-- <label data-val="900" > $600 - $900</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="1200" data-value="$900-$1200" ng-click="dashboard_filter_form_c()">$900 - $1200
+                                        <!-- <input id="s1200" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()" value="1200"> -->
+                                        <!-- <label data-val="1200"> $900 - $1200</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="1500" data-value="$1200-$1500" ng-click="dashboard_filter_form_c()">$1200 - $1500
+                                        <!-- <input id="s1500" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()" value="1500"> -->
+                                        <!-- <label data-val="1500"> $1200 - $1500</label> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="negotiable" data-value="negotiable" ng-click="dashboard_filter_form_c()">Negotiable
+                                        <!-- <input id="Negotiable" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()" value="Negotiable"> -->
+                                        <!-- <label data-val="negotiable"> Negotiable</label> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'employementc'">
+                            <div class="media-group-container all_employeement_typec">
+                                <h3 class="custom-h3">Employement Type</h3>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="partime" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
+                                        <label for="partime" class="checkbox-label"> Part time</label> -->
+                                        <input name="employement" data-val = 'Part Time'  class="employement" type="radio" value="Part Time" ng-click="dashboard_filter_form_c()"> Part time
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="Fulltime" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
+                                        <label for="Fulltime" class="checkbox-label"> Full time</label> -->
+                                        <input name="employement" data-val = 'Full Time' class="employement" type="radio" value="Full Time" ng-click="dashboard_filter_form_c()"> Full time
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="internship" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
+                                        <label for="internship" class="checkbox-label"> Internship</label> -->
+                                        <input name="employement" data-val = 'Internship'  class="employement" type="radio" value="Internship" ng-click="dashboard_filter_form_c()"> Internship
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <!-- <input id="Consultant" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
+                                        <label for="Consultant" class="checkbox-label"> Consultant</label> -->
+                                        <input name="employement" data-val = 'Consultant'  class="employement" type="radio" value="Consultant" ng-click="dashboard_filter_form_c()"> Consultant
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'skillsc'">
+                            <div class="media-group-container all_skills_filterc">
+                                <h3 class="custom-h3">Skills</h3>
+                                <div class="form-group">
+                                <input type="text" class="form-control form-control-transparent custom-form-control-br-bottom skillname"  name="skillname" ng-model="skillname" required=""/>
+                                </div>
+                                <button class="btn btn-default custom-btn-login" style="opacity:1;color:#303030;" ng-click="dashboard_filter_form_c()">+ Add</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'companyfc'">
+                            <div class="media-group-container all_company_filterc">
+                                <h3 class="custom-h3">university</h3>
+                                <div class="scroll-filter">
+                                <div class="form-group" ng-repeat="universityc in student_univ_list_c | unique:'school_name'| orderBy : 'school_name' ">
+                                    <div class="checkbox">
+                                        <input id="{{universityc.school_name|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
+                                        <label for="{{universityc.school_name|removeSpaces}}" class="checkbox-label"> {{universityc.school_name}}</label>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

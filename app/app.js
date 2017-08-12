@@ -65,6 +65,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
       $rootScope.companyedit_id = window.sessionStorage.getItem("companyedit_id");
     }
     $rootScope.guest_login = false;
+    $rootScope.company_login = true;
   }
   else if(studentusertype == window.sessionStorage.getItem("usertype")){
     $rootScope.token_id = window.sessionStorage.getItem("token");
@@ -72,13 +73,17 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
     $rootScope.user_id = window.sessionStorage.getItem("user_id");
     $rootScope.guest_login = false;
+    $rootScope.student_login = true;
   }else{
     $rootScope.token_id = guest_token;
     $rootScope.guest_login = true;
+    $rootScope.student_login = false;
+    $rootScope.company_login = false;
   }
   $rootScope.current_url = $location.path();
   $rootScope.today = new Date();
   $rootScope.dashboard = true;
+  $rootScope.dashboardc = true;
   $rootScope.apiurl = apiUrl;
   $rootScope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
   $rootScope.LoginPopupopen = function(){
@@ -91,6 +96,20 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     $rootScope.current_city = response.data.city;
     $rootScope.current_state = response.data.region;
   });
+  $rootScope.reloadRoutec = function() {
+      $rootScope.dashboardc = true;
+      angular.element(jQuery('.filtered_kw_industryc,.filtered_kw_salary_c,.filtered_kw_employement_c,.filtered_kw_skills_c,.filtered_kw_company_c')).text('Not specified');
+      angular.element(jQuery('.filter_job_countc,.video_filter_search_resultc')).empty();
+      angular.element(jQuery('.video_filter_search_result_emptyc')).show();
+      $("#dashboard-filterc input[type=radio],#dashboard-filterc input[type=checkbox]").prop('checked', false);
+  }
+  $rootScope.reloadRoute = function() {
+      $rootScope.dashboard = true;
+      angular.element(jQuery('.filtered_kw_industry,.filtered_kw_salary,.filtered_kw_employement,.filtered_kw_skills,.filtered_kw_company')).text('Not specified');
+      angular.element(jQuery('.filter_job_count,.video_filter_search_result')).empty();
+      angular.element(jQuery('.video_filter_search_result_empty')).show();
+      $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
+  }
   $anchorScroll.yOffset = 100;
   $rootScope.videoPopup = function (value) {
     jQuery("#VideoPopup1").modal('show');
@@ -232,6 +251,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
       jQuery('form#reset_forms').trigger("reset");
       jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
       if(companyusertype == response.data.usertype){
+        $rootScope.company_login = true;
         $('#logIn').modal('hide');
         $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
         if(redirectulrs.indexOf("careerfair/") > -1){
@@ -241,6 +261,7 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
         }
       }
       else if(studentusertype == response.data.usertype){
+        $rootScope.student_login = true;
         $('#logIn').modal('hide');
         $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
         if(redirectulrs.indexOf("careerfair/") > -1){
@@ -676,6 +697,10 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       $window.sessionStorage.removeItem('profileimage');
       $window.sessionStorage.removeItem('usertype');
       $rootScope.guest_login = true;
+      $rootScope.dashboard = true;
+      $rootScope.dashboardc = true;
+      $rootScope.student_login = false;
+      $rootScope.company_login = false;
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id

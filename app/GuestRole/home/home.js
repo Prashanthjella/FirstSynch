@@ -284,7 +284,13 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
         if(companyd != ''){
             query_params += '&company='+companyd;
         }
-        $http.get(apiUrl+"api/v1/career_fairs/video_filter/"+query_params)
+        if($rootScope.student_login){
+            var api_access_url = "api/v1/career_fairs/video_filter_student/";
+        }
+        else{
+            var api_access_url = "api/v1/career_fairs/video_filter/";
+        }
+        $http.get(apiUrl+api_access_url+query_params)
             .then(function successCallback(response){
                 //$scope.video_filter_results = response.data;
                 var filter_job_count = 0;
@@ -319,15 +325,6 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
         angular.element(jQuery('.video_filter_search_result_empty')).show();
         $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
     };
-});
-FirstSynch.controller("page_reload" ,function ($scope,$route) {
-    $scope.reloadRoute = function() {
-        $route.reload();
-        angular.element(jQuery('.filtered_kw_industry,.filtered_kw_salary,.filtered_kw_employement,.filtered_kw_skills,.filtered_kw_company')).text('Not specified');
-        angular.element(jQuery('.filter_job_count,.video_filter_search_result')).empty();
-        angular.element(jQuery('.video_filter_search_result_empty')).show();
-        $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
-    }
 });
 /////////////////////////////////// filters ////////////////////////////////////
 

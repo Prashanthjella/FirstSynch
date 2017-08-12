@@ -1,5 +1,5 @@
 <div>
-    <div ng-show="dashboard">
+    <div ng-show="dashboardc">
 		<!-- featured video start-->
 		<div ng-include ="'CompanyRole/dashboard/featuredvideo.html'"></div>
 		<!-- featured video end -->
@@ -13,20 +13,20 @@
 		<div ng-include ="'CompanyRole/dashboard/companies.html'"></div>
 		<!-- companies end -->
 	</div>
-	<div ng-show="!dashboard" ng-controller="page_reload">
+	<div ng-show="!dashboardc" >
 		<section class="page-section page-section-featured-students">
 			<div class="container">
 				<div class="page-control-container">
-					<a ng-click="reloadRoute()" href="/" title="Career Fairs" class="page-prev"><span class="glyphicon glyphicon-chevron-left"></span>Dashboard</a>
+					<button type="reset" ng-click="reloadRoutec()" style="cursor:pointer" title="Career Fairs" class="btn-reset"><span class="glyphicon glyphicon-chevron-left"></span>Dashboard</button>
 				</div>
-				<div class="row custom-row-10 video_filter_search_result">
+				<div class="row custom-row-10 video_filter_search_resultc">
 
 				</div>
-                <div class="text-center video_filter_search_result_empty"><h1>Sorry! No results found!</h1></div>
+                <div class="text-center video_filter_search_result_emptyc"><h1>Sorry! No results found!</h1></div>
 			</div>
 		</section>
 	</div>
 	</div>
-	<a data-toggle="modal" data-target="#dashboard-filter" class="btn btn-default btn-filter custom-btn-default-03">
-	<span class="icon-filter"></span>Filters <span class="jobs-total filter_job_count"></span>
+	<a data-toggle="modal" data-target="#dashboard-filterc" class="btn btn-default btn-filter custom-btn-default-03">
+	<span class="icon-filter"></span>Filters <span class="jobs-total filter_job_countc"></span>
 	</a>
