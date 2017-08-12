@@ -35,6 +35,7 @@ var FirstSynch = angular.module("firstSync", [
   "CemployeeProfile",
   "CompanyEditProfile",
   "CCompanySetting",
+  "CCompanyRequest",
   "EmployeeEditProfile",
   "Search",
   "ui.bootstrap",
