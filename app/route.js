@@ -161,6 +161,8 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         controller: 'studenteditprofiles'
     }).when('/stu/setting', {
         templateUrl: 'StudentRole/student_setting/setting.html',
+    }).when('/stu/mycareerfair', {
+        templateUrl: 'StudentRole/student_my_career_fair/student_my_career_fair.html',
     }).when('/com/dashboard', {
         templateUrl: 'CompanyRole/dashboard/dashboard.html'
     }).when('/com', {

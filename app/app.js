@@ -40,6 +40,7 @@ var FirstSynch = angular.module("firstSync", [
   "Search",
   "ui.bootstrap",
   "ngLetterAvatar",
+  "StudentFollowCareerFair",
 ]);
 
 FirstSynch.constant('apiUrl', 'https://api.firstsynch.com/');

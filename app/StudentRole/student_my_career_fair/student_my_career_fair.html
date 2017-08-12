@@ -1,0 +1,66 @@
+<section class="page-section page-section-mycareer-fair" ng-controller="student_my_career_fair">
+  <div class="container">
+    <div class="page-header custom-page-header" >
+      <div class="pull-left">
+        <h1 class="h1 custom-h1-01 custom-h1-04">My career fairs</h1>
+      </div>
+    </div>
+    <div class="tab-default-mycareer">
+      <ul class="nav nav-tabs nav-tabs-mycareer">
+        <li class="active">
+          <a data-toggle="tab" href="#upcoming" title="upcoming">upcoming</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#previous" title="Previous">Previous</a>
+        </li>
+      </ul>
+
+      <div class="tab-content tab-content-mycareer">
+        <div id="upcoming" class="tab-pane fade in active">
+          <div class="row custom-row-10">
+
+            <!-- upcoming career fair-->
+            <div class="col-sm-4 ng-scope" ng-repeat="upcoming_fair in my_career_fair.upcoming">
+              <a href="stu/careerfair/{{upcoming_fair.slug}}" style="color:#000;">
+                <div class="thumbnail  custom-thumbnail-image-gallery custom-thumbnail-image-gallery-05 customn-thumbs-career-fairs">
+                  <img class="img-responsive custom-img-responsive" ng-src="{{upcoming_fair.image}}">
+                  <div class="overlay"></div>
+                  <div class="box-inside-content">
+                    <p class="date-location">{{upcoming_fair.start_time | date:"MMM d, y"}}<span> &bull;</span>{{upcoming_fair.city}},{{upcoming_fair.state}}</p>
+                    <h1 class="custom-gallery-h1">{{upcoming_fair.title|truncate:50}}</h1>
+                  </div>
+                </div>
+              </a>
+            </div><!-- upcoming career fair end -->
+
+          </div><!--row-->
+        </div><!--upcoming-->
+
+        <div id="previous" class="tab-pane fade">
+          <div class="row custom-row-10">
+
+            <!-- previous career fair-->
+            <div class="col-sm-4 ng-scope" ng-repeat="previous_fair in my_career_fair.previous">
+              <a href="stu/careerfair/{{previous_fair.slug}}" style="color:#000;">
+                <div class="thumbnail  custom-thumbnail-image-gallery custom-thumbnail-image-gallery-05 customn-thumbs-career-fairs">
+                  <img class="img-responsive custom-img-responsive" ng-src="{{previous_fair.image}}">
+                  <div class="overlay"></div>
+                  <div class="box-inside-content">
+                    <p class="date-location">{{previous_fair.start_time | date:"MMM d, y"}}<span> &bull;</span>{{previous_fair.city}},{{previous_fair.state}}</p>
+                    <h1 class="custom-gallery-h1">{{previous_fair.title|truncate:50}}</h1>
+                  </div>
+                </div>
+              </a>
+            </div><!-- previous career fair end -->
+
+          </div><!--row-->
+        </div><!--previous-->
+
+      </div><!--row-->
+    </div><!--pending-->
+
+  </div><!--tab-content-->
+
+</div><!--tab-default-->
+</div><!--container-->
+</section>
