@@ -180,6 +180,21 @@ $(document).ready(function() {
     $('.company_edit_profile_main_content_child').hide();
     $('#'+current_div).removeClass('hide').show();
   });
+
+  //Company My Career Fair Tab click an show
+  $(document).on('click','#company_my_carrer_fair_act li',function(){
+    var current_div = $(this).attr('data-id');
+    $('.hide_act').hide();
+    $('#'+current_div).show();
+  });
+
+  //Student My Career Fair Tab click an show
+  $(document).on('click','#student_my_carrer_fair_act li',function(){
+    var current_div = $(this).attr('data-id');
+    $('.hide_act').hide();
+    $('#'+current_div).show();
+  });
+
   $(document).on('click','.edit_option',function(){
     $(this).parent().parent('.row').find('input,textarea').removeAttr('readonly').css({"border-style":"none none solid"}).focus();
   });
