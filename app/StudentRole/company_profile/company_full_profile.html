@@ -28,10 +28,10 @@
 <section class="page-section page-section-date-establishment" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">
     <div class="row row-35">
         <div class="col-sm-5 text-center">
-            <h1 class="custom-h1-02">
+             <h1 class="custom-h1-01">
                 Date of Establishment
             </h1>
-            <p class="">{{company_profile_details.est_date_description}}</p>
+            <p class="content-profile-view">{{company_profile_details.est_date_description}}</p>
         </div>
         <div class="col-sm-6 col-sm-offset-1">
             <img src="assets/images/establishment-img.png" class="img-responsive" alt="">
@@ -40,29 +40,30 @@
 
     </div>
 </section>
-<section class="page-section page-section-intership" ng-if="company_profile_details.internships_to_jobs && company_profile_details.internships_job_description">
+<section class="page-section page-section-intership page-section-intership-new" ng-if="company_profile_details.internships_to_jobs && company_profile_details.internships_job_description">
     <div class="row">
         <div class="col-sm-6 pull-left">
-            <div class="progress-circle progress-{{company_profile_details.internships_to_jobs}}"><span>{{company_profile_details.internships_to_jobs}}</span></div>
+            <div class="progress-circle-new progress-circle progress-{{company_profile_details.internships_to_jobs}}"><span>{{company_profile_details.internships_to_jobs}}</span></div>
         </div>
 
         <div class="col-sm-6">
-            <h1 class="custom-h1-02">
+            <hgroup class="heading-group-profile-view">
+            <h1 class="h1 custom-h1-01">
                 Internships
             </h1>
-            <h3 style="text-transform: capitalize;">that turn into full-time jobs</h3>
-            <p class="">{{company_profile_details.internships_job_description}}</p>
+          <h3 class="h3 custom-h3">that turn into full-time jobs</h3>
+            <p class="content-profile-view">{{company_profile_details.internships_job_description}}</p>
         </div>
 
     </div>
 </section>
-<section class="page-section page-section-company-size" ng-if="company_profile_details.company_size_description && company_profile_details.company_size">
+<section class="page-section page-section-company-size page page-section-intership-new" ng-if="company_profile_details.company_size_description && company_profile_details.company_size">
     <div class="row">
         <div class="col-sm-6">
-            <h1 class="custom-h1-02">
+             <h1 class="h1 custom-h1-01">
                 Company Size
             </h1>
-            <p class="">{{company_profile_details.company_size_description}}</p>
+            <p class="content-profile-view">{{company_profile_details.company_size_description}}</p>
         </div>
         <div class="col-sm-5 col-sm-offset-1">
             <img src="assets/images/company-size-icon.png" class="img-responsive" alt="">
@@ -74,42 +75,42 @@
 
     </div>
 </section>
-<section class="page-section page-section-hire-departure">
+<section class="page-section page-section-hire-departure page-section-intership-new">
     <div class="row">
         <div class="col-sm-6 mt60 hire-section" ng-if="company_profile_details.hire_rates && company_profile_details.hire_rates_description">
-            <h1 class="custom-h1-02">
+             <h1 class="h1 custom-h1-01 bg-arrow-up">
                 Hire Rates
             </h1>
-            <p>
+             <p class="text-title-big">
                 <span class="large-text bold-text green-text">{{company_profile_details.hire_rates}}</span>
-                <span class="bold-text"> people per year</span>
+              <span class="text-people-title"> people per year</span>
             </p>
             <div class="row">
                 <div class="col-sm-8">
-                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.hire_rates_description}}</p>
+                   <p class="content-profile-view text-left">{{company_profile_details.hire_rates_description}}</p>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 mt60 hire-section departure-section" ng-if="company_profile_details.departure_rate && company_profile_details.departure_rate_description">
-            <h1 class="custom-h1-02">
+        <div class="col-sm-6 mt60 hire-section departure-section departure-section-new" ng-if="company_profile_details.departure_rate && company_profile_details.departure_rate_description">
+                <h1 class="custom-h1-01 bg-arrow-down">
                 Departure Rates
             </h1>
-            <p>
+            <p class="text-title-big">
                 <span class="large-text bold-text green-text">{{company_profile_details.departure_rate}}</span>
-                <span class="bold-text"> people per year</span>
+                <span class="text-people-title"> people per year</span>
             </p>
             <div class="row">
                 <div class="col-sm-8">
-                    <p class="medium-text dark-grey-text mt20">{{company_profile_details.departure_rate_description}}</p>
+                    <p class="content-profile-view text-left">{{company_profile_details.departure_rate_description}}</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="page-section page-section-avg-salary" ng-if="company_profile_details.average_entry_level_sal">
+<section class="page-section page-section-avg-salary page-section-intership-new" ng-if="company_profile_details.average_entry_level_sal">
     <div class="row">
         <div class="col-sm-4">
-            <h1 class="custom-h1-02">
+            <h1 class="h1 custom-h1-01">
                 Average Entry Level Salary
             </h1>
         </div>
@@ -122,10 +123,10 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-company-growth" ng-if="company_profile_details.growth_rate_description && company_profile_details.growth_rate">
+<section class="page-section page-section-company-growth page-section-intership-new" ng-if="company_profile_details.growth_rate_description && company_profile_details.growth_rate">
     <div class="row">
         <div class="col-sm-6  pull-right">
-            <h1 class="custom-h1-02">
+            <h1 class="h1 custom-h1-01">
                 Company Growth Rate
             </h1>
             <h3 class="">during the last 10 years</h3>
@@ -138,13 +139,13 @@
 
     </div>
 </section>
-<section class="page-section page-section-investor-confidence" ng-if="company_profile_details.investor_conf_description && company_profile_details.investor_confidence ">
+<section class="page-section page-section-investor-confidence page-section-intership-new" ng-if="company_profile_details.investor_conf_description && company_profile_details.investor_confidence ">
     <div class="row">
         <div class="col-sm-5">
-            <h1 class="custom-h1-02">
+          <h1 class="h1 custom-h1-01">
                 Investor Confidence
             </h1>
-            <p class="">{{company_profile_details.investor_conf_description}}</p>
+             <p class="content-profile-view">{{company_profile_details.investor_conf_description}}</p>
         </div>
         <div class="col-sm-7">
             <img src="assets/images/investor-bg.png" class="img-responsive" alt="">
@@ -155,7 +156,7 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-date-character"  ng-if="company_profile_details.characteristics.length > 0 ">
+<section class="page-section page-section-date-character page-section-intership-new"  ng-if="company_profile_details.characteristics.length > 0 ">
     <div class="row">
         <h1 class="h1 custom-h1">Characteristics</h1>
         <div class="row">
@@ -176,34 +177,38 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-office" ng-if="company_profile_details.gallery.length > 0">
+<section class="page-section page-section-office page-section-intership-new" ng-if="company_profile_details.gallery.length > 0">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
-            <h1 class="custom-h1-02">
+           <h1 class="h1 custom-h1-01 custom-h1-new">
                 Office
             </h1>
         </div>
     </div>
-    <div class="row row-10">
+    <div class="row custom-row-10 custom-thumbnail-profile-20">
         <div class="col-sm-3" ng-repeat="galleries in company_profile_details.gallery">
-            <img ng-src="{{galleries.photo}}" class="img-responsive" alt="Office">
+        <div class="thumbnail custom-thumbnail-profile-views">
+            <img ng-src="{{galleries.photo}}" class="img-responsive custom-img-responsive" alt="Office">
+            </div>
         </div>
     </div>
 </section>
-<section class="page-section page-section-locations"  ng-if="company_profile_details.contacts.length > 0">
+<section class="page-section page-section-locations page-section-intership-new"  ng-if="company_profile_details.contacts.length > 0">
     <div class="row">
         <div class="col-xs-12 col-sm-12 ">
             <div class="row">
                 <div class="col-sm-6">
-                    <h1 class="custom-h1-02">
+                    <h1 class="h1 custom-h1-01">
                         Locations
                     </h1>
-                    <p class="">{{company_profile_details.contacts[0].address_1}}, {{company_profile_details.contacts[0].address_2}}</p>
-                    <p class="">{{company_profile_details.contacts[0].city}}, {{company_profile_details.contacts[0].state}}</p>
-                    <p class="">{{company_profile_details.contacts[0].country}}</p>
-                    <p class="">{{company_profile_details.contacts[0].zip_code}}</p>
-                    <p class="">{{company_profile_details.contacts[0].contact_no}}</p>
-                    <p class="">{{company_profile_details.contacts[0].e_mail}}</p>
+                     <div class="location-profile-view">
+                    <div class="content-profile-view text-left">{{company_profile_details.contacts[0].address_1}}, {{company_profile_details.contacts[0].address_2}}</div>
+                    <div class="content-profile-view text-left">{{company_profile_details.contacts[0].city}}, {{company_profile_details.contacts[0].state}}</div>
+                    <div class="content-profile-view text-left">{{company_profile_details.contacts[0].country}}</div>
+                    <div class="content-profile-view text-left">{{company_profile_details.contacts[0].zip_code}}</div>
+                    <div class="content-profile-view text-left">{{company_profile_details.contacts[0].contact_no}}</div>
+                    <div class="content-profile-view text-left">{{company_profile_details.contacts[0].e_mail}}</div>
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <div id="map" class="map"></div>
@@ -212,7 +217,7 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-locations" ng-if="company_profile_details.founder.length > 0">
+<section class="page-section page-section-locations page-section-intership-new" ng-if="company_profile_details.founder.length > 0">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <h1 class="custom-h1-02">

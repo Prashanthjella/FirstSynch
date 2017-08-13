@@ -6,25 +6,32 @@
             <input id="hobbies" class="checkbox-input" checked="" type="checkbox">
             <label for="hobbies" class="checkbox-label"> {{hobbies.name}}</label>
         </div> -->
-        <div class="row" ng-repeat="hobbies in hobbyform">
-            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-            <div class="col-sm-11 col-md-11">
-                <div class="form-group custom-lider-form-group">
-                    <label class="text-uppercase">Hobby</label>
-                    <input type="hidden" name="stud_id" ng-model="hobbyform.stud_id">
-                    <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name" value="{{hobbies.name}}">
-                </div>
-                <div class="form-group custom-lider-form-group">
-                    <label class="text-uppercase">Description</label>
-                    <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150">{{hobbies.description}}</textarea>
-                </div>
-                <div class="form-group custom-lider-form-group">
-                    <label class="text-uppercase">Picture</label>
-                    <img src="{{hobbies.image}}" height="50">
+        <form name="sehobbyform" ng-repeat="hobbyupdateform in hobbyform" ng-submit="hobbyupdatesubmit(hobbyupdateform.id,hobbyupdateform.student,hobbyupdateform.name,hobbyupdateform.description,hobbyupdateform.updateimage)">
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-11 col-md-11">
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Hobby</label>
+                        <input type="hidden" name="hobby_id" ng-model="hobbyupdateform.id" value="{{hobbyupdateform.id}}">
+                        <input type="hidden" name="hobby_id" ng-model="hobbyupdateform.student" value="{{hobbyupdateform.student}}">
+                        <input type="text" class="form-control custom-form-control-br-bottom"ng-model="hobbyupdateform.name" placeholder="Give it a name" name="name" value="{{hobbyupdateform.name}}">
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Description</label>
+                        <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbyupdateform.description" maxlength="150">{{hobbyupdateform.description}}</textarea>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Picture</label>
+                        <img src="{{hobbyupdateform.image}}" height="50">
+                        <input type="file" ngf-select ng-model="hobbyupdateform.updateimage" name="file" accept="image/*" >
+                    </div>
                 </div>
             </div>
-        </div>
-        <form name="sehobbyform" ng-submit="hobbysubmit(hobbiesform.image)">
+            <p class="edt-pro-btn-group">
+           <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+           </p>
+        </form>
+        <form name="sehobbyform" ng-submit="hobbysubmit(hobbyform.image)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-11 col-md-11">

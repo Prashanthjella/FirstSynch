@@ -136,6 +136,10 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         user:"",
         name : ""
     };
+    $scope.hobbyupdateform = {
+        user:"",
+        name : ""
+    };
     $scope.hobbies_edit = function(){
 
         $http.get(apiUrl+"api/v1/student/api/v1/get_hobby_details/"+$rootScope.user_id+"/")
@@ -145,6 +149,28 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 //alert(JSON.stringify(response.data));
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
+        });
+    };
+    $scope.hobbyupdatesubmit = function(id,student,name,description,hobbiesimag){
+        if(hobbiesimag){
+            var data = {student:student,image: hobbiesimag,name:name,description:description};
+        }else{
+            var data = {student:student,name:name,description:description};
+        }
+        Upload.upload({
+            url: apiUrl+"api/v1/student/api/v1/hobbyinfo/"+id+"/",
+            data: data,
+            method:'PUT',
+        }).then(function(resp) {
+          // file is uploaded successfully
+          $scope.hobbiesmessage = 'Successfully updated';
+          $scope.hobbyform.splice(0, 0, response.data);
+          $scope.hobbyform.name = "";
+          $scope.hobbyform.description = "";
+        }, function(resp) {
+          // handle error
+        }, function(evt) {
+          // progress notify
         });
     };
     $scope.hobbysubmit = function(hobbiesimag){
