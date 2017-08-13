@@ -159,6 +159,8 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     .then(function successCallback(response){
       var video_coutn = parseInt($('#video_like_wrapper').text());
       $('#video_like_wrapper').text(video_coutn+1);
+      $('#videolikebtn').css({'color':'#00b58e'});
+      $rootScope.videolikedisable = true;
     }, function errorCallback(response){
       console.log("Unable to perform get career fair details");
     });

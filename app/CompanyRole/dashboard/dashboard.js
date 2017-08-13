@@ -292,7 +292,7 @@ FirstSynch.controller("dashboard_filter_process_company" ,function ($rootScope,$
                                                           +'<div class="overlay "></div>'
                                                           +'<span class="arrow-triangle"></span> <span class="link-new">New</span>'
                                                           +'<div class="box-inside-content">'
-                                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 19)+'...'+'</h1>'
                                                           +'</div>'
                                                       +'</a>'
                                                   +'</div>';

@@ -205,8 +205,10 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     $scope.seshouldDisable = function(key) {
        if(!$scope.selectedCharacter[key]) {
           var count = 0;
+          $scope.seshouldDisablecount = 0;
           Object.keys($scope.selectedCharacter).forEach(function(key) {
              if($scope.selectedCharacter[key]) {
+                 $scope.seshouldDisablecount++;
                 ++count;
              }
           });
@@ -243,9 +245,11 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     $scope.sewshouldDisable = function(key) {
        if(!$scope.whatiamlooking[key]) {
           var count = 0;
+          $scope.sewshouldDisablecount = 0;
           Object.keys($scope.whatiamlooking).forEach(function(key) {
              if($scope.whatiamlooking[key]) {
                 ++count;
+                $scope.sewshouldDisablecount++;
              }
           });
           if(count > 0){
