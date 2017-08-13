@@ -1462,8 +1462,19 @@ bottom: 90px;
 }
 .cols-skills {
 	text-align: center;
-	height: 300px;
+	/*height: 300px;*/
+	margin-bottom:50px;
 }
+.cols-skills .progress-circle span{
+	background-color:#d9f0f0;
+	
+	 font-size: 14px;
+  font-weight: 800;
+
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #000000;
+	}
 .page-bg-gray {
 	background-color: #f7f7f7;
 	padding: 30px 0 20px 0
@@ -3092,8 +3103,11 @@ textarea.custom-text-area {
 	display: inline-block;
 }
 .text-date-establishment {
-	font-weight: 900;
-	color: #00b58e;
+	 font-weight: bold;
+  letter-spacing: -4px;
+  text-align: center;
+  color: #00b58e;
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 	position: absolute;
 	right: 0;
 	top: 50%;
@@ -3112,36 +3126,56 @@ textarea.custom-text-area {
 	font-size: 36px;
 }
 .text-company-size {
-	font-weight: 900;
-	color: #303030;
+	
 	position: absolute;
 	left: 120px;
 	top: 47%;
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
+	
+	
 	font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #303030;
 }
 .text-company-size .medium-text {
-	font-size: 16px;
-	font-weight: normal;
+	
 	position: absolute;
 	top: 45px;
 	width: 100%;
 	left: 74%;
+	
+	
+	font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #303030;
 }
 .text-avg-salary {
-	font-weight: 900;
-	color: #303030;
+	
 	position: absolute;
-	right: 170px;
+	right: 97px;
 	top: 50%;
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
-	font-size: 36px;
+	font-size: 72px;
+  font-weight: bold;
+  letter-spacing: -1.3px;
+  text-align: center;
+  color: #303030;
 }
+.custom-h1-new{margin-bottom:20px;}
+.location-profile-view .content-profile-view{margin:0}
 .txt-permonth {
 	display: block;
-	font-size: 15px;
+	 font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: right;
+  color: #303030;
 }
 .txt-company-growth {
 	font-weight: 900;
@@ -3746,7 +3780,94 @@ textarea.custom-text-area {
 .tab-default-mycareer .nav-tabs-mycareer>li.active>a{
 	 border-color: #303030;
 	 opacity:1;
+	}
+.content-profile-view	{
+	margin-top:25px;
+		  opacity: 0.6;
+ 
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.69;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #0d0d0d;
+		}
+.page-section-intership-new{
+	margin-top:150px;
 	}		
+.progress-circle-new {
+	position:relative;
+	}	
+.page-section-intership-new .progress-circle-new span{
+		width:180px !important;
+		height:180px !important;
+		line-height:180px !important;
+		left:29% !important;
+		top:29% !important;
+		text-align:center !important;
+		font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #303030;
+		}	
+.page-section-intership-new .progress-circle-new span:after{
+	color: #303030 !important;
+	}	
+.heading-group-profile-view h1.h1,.heading-group-profile-view .custom-h1-01{
+	margin:0
+	}
+	.text-title-big .large-text{
+		color:#00b58e;
+		 font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  float:left;
+		}	
+	.text-people-title{
+		  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.38;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #0d0d0d;
+  float:left;
+  width:65px;
+  margin-top:35px;
+  margin-left:10px;
+		}	
+	.text-title-big{
+		width:100%; float:left;
+		}
+	.bg-arrow-up,.bg-arrow-down{
+		position:relative;
+		}	
+	.bg-arrow-up:before{
+		position:absolute;
+		left:0;
+		right:0;
+		top:-62px;
+		content:'';
+		width:60px;
+		height:120px;
+		z-index:-1;
+		background:url(../images/up_arrow.png) no-repeat center ;
+		
+		}
+	.bg-arrow-down:before{
+		position:absolute;
+		left:0;
+		right:0;
+		top:-62px;
+		content:'';
+		width:60px;
+		height:120px;
+		z-index:-1;
+		background:url(../images/down_arrow.png) no-repeat center ;
+		}
+	.departure-section-new{
+		margin-top:201px;
+		}					
  @media (min-width: 1200px) {
 .container {
 	width: 970px;
