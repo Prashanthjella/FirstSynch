@@ -31,7 +31,7 @@
         </h2>
       </div>
     </div>
-    <div class="">
+    <div class="" ng-if="careerfairdatas">
       <div class="slider-container-recent" ng-if="visible">
         <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 450, slideMargin:40, infiniteLoop: false, hideControlOnEnd: true">
           <div class="slide" data-ng-repeat="upcome_career in upcoming_career" style="margin-right: 40px;" data-notify-when-repeat-finished>
@@ -59,6 +59,9 @@
           </div>
       </div>
     </div>
+
   </div>
+  <div class="text-center" ng-if="!careerfairdatas"><h1>Sorry! No results found!</h1></div>
+   </div>
 </section>
 <!--[Upcoming career Fairs Nearby End]-->

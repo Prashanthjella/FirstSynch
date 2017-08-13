@@ -20,6 +20,7 @@ FirstSynch.controller("guest_career_fair_near_user" ,function ($scope, $http,$ro
 // career fair page - near by career fair
 FirstSynch.controller("guest_upcoming_career_fair" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl) {
 	$scope.visible = true;
+    $scope.careerfairdata = true;
     $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
     .then(function successCallback(response){
         $scope.upcoming_career = response.data;
@@ -55,6 +56,12 @@ FirstSynch.controller("guest_upcoming_career_fair" ,function ($timeout,$window,$
 	    .then(function successCallback(response){
 	    	$scope.visible = false;
 	        $scope.upcoming_career = response.data;
+            if(response.data.length <= 0){
+                $scope.careerfairdata = false;
+            }
+            else{
+                $scope.careerfairdata = true;
+            }
 	        $timeout(function() {
       			$scope.visible = true;
     		});
