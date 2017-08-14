@@ -18,7 +18,7 @@
       <div class="tab-content tab-content-mycareer">
         <div id="upcoming" class="tab-pane hide_act">
           <div class="row custom-row-10">
-
+            <div style="margin-left: 10px;" ng-show="my_career_fair.upcoming.length < 1"><h4>No data to display</h4></div>
             <!-- upcoming career fair-->
             <div class="col-sm-4 ng-scope" ng-repeat="upcoming_fair in my_career_fair.upcoming">
               <a href="stu/careerfair/{{upcoming_fair.slug}}" style="color:#000;">
@@ -38,7 +38,7 @@
 
         <div id="previous" class="tab-pane hide_act">
           <div class="row custom-row-10">
-
+            <div style="margin-left: 10px;" ng-show="my_career_fair.previous.length < 1"><h4>No data to display</h4></div>
             <!-- previous career fair-->
             <div class="col-sm-4 ng-scope" ng-repeat="previous_fair in my_career_fair.previous">
               <a href="stu/careerfair/{{previous_fair.slug}}" style="color:#000;">
