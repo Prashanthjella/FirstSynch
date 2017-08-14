@@ -128,6 +128,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     .then(function successCallback(response){
       $rootScope.vid = response.data;
       $rootScope.videolikedisable = false;
+      $('#video_like_wrapper').text(response.data.video.liked.length);
       $('#videolikebtn').css({'color':'#303030'});
       $.each(response.data.video.liked, function(i,obj) {
         if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});$rootScope.videolikedisable = true;}
