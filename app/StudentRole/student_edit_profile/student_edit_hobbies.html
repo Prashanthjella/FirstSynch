@@ -9,7 +9,7 @@
         <form name="sehobbyform" ng-repeat="hobbyupdateform in hobbyform" ng-submit="hobbyupdatesubmit(hobbyupdateform.id,hobbyupdateform.student,hobbyupdateform.name,hobbyupdateform.description,hobbyupdateform.updateimage)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-                <div class="col-sm-11 col-md-11">
+               <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Hobby</label>
                         <input type="hidden" name="hobby_id" ng-model="hobbyupdateform.id" value="{{hobbyupdateform.id}}">
@@ -34,7 +34,7 @@
         <form name="sehobbyform" ng-submit="hobbysubmit(hobbyform.image)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                <div class="col-sm-11 col-md-11">
+               <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': sehobbyform.name.$valid}">Hobby</label>
                         <input type="hidden" name="stud_id" ng-model="hobbyform.stud_id">

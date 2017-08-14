@@ -159,7 +159,10 @@ $(document).ready(function() {
 
   $(document).on('click','.student_edit_profile_side_child_title',function(){
     $('.student_edit_profile_side_child_collapsable').hide();
+		$('.accordion-toggle').removeClass('active');
+	
     $(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
+$(this).addClass('active');
     // if($(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').is(':visible')){
     //     $(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
     // }

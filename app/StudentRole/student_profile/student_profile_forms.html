@@ -87,7 +87,7 @@
                       <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
                     </div>
                     <p class="btn-panel-group">
-                      <input type="submit" value="Submit" ng-disabled="basicprofileforms.$invalid" class="btn btn-default custom-btn btn-lg" />
+                      <input type="submit" value="Submit" ng-disabled="basicprofileforms.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
                     </p>
                     <!--<div class="form-group custom-lider-form-group">
                     <label class="text-uppercase">Profile Image</label>
@@ -137,7 +137,7 @@
                 </div>
 
                 <p class="btn-panel-group">
-                  <input type="submit" ng-disabled="hobbiesforms.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg"/>
+                  <input type="submit" ng-disabled="hobbiesforms.name.$invalid" value="Submit"  class="btn btn-default custom-btn btn-lg btn-submit"/>
                 </p>
               </div>
             </div>
@@ -209,8 +209,8 @@
             <input id="Reading" class="checkbox-input" ng-disabled="shouldDisable('Love of Reading')" ng-model="pselectedCharacter['Love of Reading']" type="checkbox">
             <label for="Reading" class="checkbox-label"> Love of Reading</label>
           </div>
-          <p>
-            <input ng-disabled="!characterbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+          <p class="edt-pro-btn-group">
+            <input ng-disabled="!characterbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
           </p>
         </form>
       </div>
@@ -270,7 +270,7 @@
           <label for="official-employment" class="checkbox-label"> Official employment</label>
         </div>
         <p class="btn-panel-group">
-          <input  ng-disabled="!pwhatiamlookingbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+          <input  ng-disabled="!pwhatiamlookingbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
         </p>
       </div>
     </form>
@@ -304,7 +304,7 @@
 
 
             <p class="btn-panel-group">
-              <input type="submit"  ng-disabled="sleadershipform.leadership_role.$invalid"  value="Submit" class="btn btn-default custom-btn btn-lg"/>
+              <input type="submit"  ng-disabled="sleadershipform.leadership_role.$invalid"  value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
             </p> </div>
             <!-- <hr class="hr-line-lidership"> -->
           </div>
@@ -373,7 +373,7 @@
 
 
             <p class="btn-panel-group">
-              <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+              <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
             </p> </div>
           </div>
         </div>
@@ -423,7 +423,7 @@
 
 
             <p class="btn-panel-group">
-              <input type="submit" ng-disabled="sworkhistroyform.leave_date.$invalid &&  sworkhistroyform.start_date.$invalid && sworkhistroyform.company.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+              <input type="submit" ng-disabled="sworkhistroyform.leave_date.$invalid &&  sworkhistroyform.start_date.$invalid && sworkhistroyform.company.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
             </p> </div>
           </div>
         </div>
@@ -474,8 +474,8 @@
               </div>
             </div>
 
-            <p>
-              <input type="submit" ng-disabled="sprojectform.completation_date.$invalid &&  sprojectform.start_date.$invalid && sprojectform.title.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+         <p class="edt-pro-btn-group">
+              <input type="submit" ng-disabled="sprojectform.completation_date.$invalid &&  sprojectform.start_date.$invalid && sprojectform.title.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
             </p>
           </div>
         </div>
@@ -515,8 +515,8 @@
               <input type="text" class="form-control custom-textbox" name="rating" ng-model="skillsetpersonnalform.rating" placeholder="Skill Rating" ng-class="{'has-error': spersonalform.rating.$touched, 'has-success': spersonalform.rating.$valid}" required>
             </div>
 
-            <p>
-              <input type="submit" ng-disabled="spersonalform.name.$invalid &&  spersonalform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg">
+          <p class="edt-pro-btn-group">
+              <input type="submit" ng-disabled="spersonalform.name.$invalid &&  spersonalform.rating.$invalid" name="submit" value="Save" class="btn btn-default custom-btn btn-lg btn-submit">
             </p>
           </div>
 
@@ -559,8 +559,8 @@
               <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': sprofessionalform.rating.$touched, 'has-success': sprofessionalform.rating.$valid}" required>
             </div>
 
-            <p>
-              <input type="submit" ng-disabled="sprofessionalform.name.$invalid &&  sprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+            <p class="edt-pro-btn-group">
+              <input type="submit" ng-disabled="sprofessionalform.name.$invalid &&  sprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
             </p></div>
           </div>
           <!-- <hr class="hr-line-lidership"> -->
@@ -600,7 +600,8 @@
             </div>
 
             <p class="btn-panel-group">
-              <input type="submit" ng-disabled="ssoftwareform.name.$invalid &&  ssoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+              <input type="submit" ng-disabled="ssoftwareform.name.$invalid &&  ssoftwareform.rating.$invalid" value="Submit" class="
+btn btn-default custom-btn btn-lg btn-submit" />
             </p>  </div>
           </div>
           <!-- <hr class="hr-line-lidership"> -->

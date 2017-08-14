@@ -9,7 +9,7 @@
         <form name="epeskillsetsoftwareform" ng-submit="softwareskillsubmit()">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                <div class="col-sm-11 col-md-11">
+                <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.user" name="user">
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.skilltype" name="skill_type">
@@ -23,7 +23,10 @@
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetsoftwareform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': epeskillsetsoftwareform.rating.$touched, 'has-success': epeskillsetsoftwareform.rating.$valid}" required>
                     </div>
                 </div>
-                <input type="submit" ng-disabled="epeskillsetsoftwareform.name.$invalid || epeskillsetsoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                 <p class="edt-pro-btn-group">
+                <input type="submit" ng-disabled="epeskillsetsoftwareform.name.$invalid || epeskillsetsoftwareform.rating.$invalid" value="Submit" class="
+btn btn-default custom-btn btn-lg btn-submit" />
+                </p>
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
             <!-- <div class="row">

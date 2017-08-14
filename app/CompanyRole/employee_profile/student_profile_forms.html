@@ -147,7 +147,7 @@
                 <input type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
               </div><p class="btn-panel-group">
 
-                <input type="submit" ng-disabled="ephobbyform.name.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+                <input type="submit" ng-disabled="ephobbyform.name.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
               </p>
             </div>
             <!-- <hr class="hr-line-lidership"> -->
@@ -221,7 +221,7 @@
         </div>
 
         <p class="btn-panel-group">
-          <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+          <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
         </p>
       </div>
     </form>
@@ -281,7 +281,7 @@
           <label for="official-employment" class="checkbox-label"> Official employment</label>
         </div>
         <p class="btn-panel-group">
-          <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg" />
+          <input type="submit" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
         </p>
       </div>
     </form>
@@ -311,7 +311,7 @@
               <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="150"></textarea>
             </div>
             <p class="btn-panel-group">
-              <input type="submit" value="Submit" ng-disabled="epleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg"/>
+              <input type="submit" value="Submit" ng-disabled="epleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg btn-submit"/>
             </p>
           </div>
 
@@ -378,7 +378,7 @@
               <label class="text-uppercase">GPA Rating</label>
               <input type="text" class="form-control custom-textbox" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
             </div>  <p class="btn-panel-group">
-              <input type="submit" value="Submit" ng-disabled="cpeducationform.school_name.$invalid || cpeducationform.major.$invalid || cpeducationform.year_started.$invalid || cpeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg"/>
+              <input type="submit" value="Submit" ng-disabled="cpeducationform.school_name.$invalid || cpeducationform.major.$invalid || cpeducationform.year_started.$invalid || cpeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit"/>
             </p>
           </div>
         </div>
@@ -477,7 +477,7 @@
               <label class="text-uppercase">Profile Picture</label>
               <input type="file" ngf-select ng-model="projectsform.image" name="hobbiesimage" accept="image/*" >
             </div>   <p class="btn-panel-group">
-              <input type="submit" value="Submit" ng-disabled="epprojecteditform.title.$invalid || epprojecteditform.start_date.$invalid || epprojecteditform.completation_date.$invalid" class="btn btn-default custom-btn btn-lg" />
+              <input type="submit" value="Submit" ng-disabled="epprojecteditform.title.$invalid || epprojecteditform.start_date.$invalid || epprojecteditform.completation_date.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
             </p>
           </div>
         </div>
@@ -518,7 +518,7 @@
             </div>
 
             <p class="btn-panel-group">
-              <input type="submit" name="submit" ng-disabled="eppersonnalskillform.name.$invalid || eppersonnalskillform.rating.$invalid" value="Save" class="btn btn-default custom-btn btn-lg">
+              <input type="submit" name="submit" ng-disabled="eppersonnalskillform.name.$invalid || eppersonnalskillform.rating.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit">
             </p></div>
           </div>
           <!-- <hr class="hr-line-lidership"> -->
@@ -555,7 +555,7 @@
               <label class="text-uppercase" ng-class="{'has-success': epskillsetprofessionalform.rating.$valid}">Rating</label>
               <input type="text" class="form-control custom-textbox" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': epskillsetprofessionalform.rating.$touched, 'has-success': epskillsetprofessionalform.rating.$valid}" required>
             </div><p class="btn-panel-group">
-              <input type="submit" ng-disabled="epskillsetprofessionalform.name.$invalid || epskillsetprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg"/>
+              <input type="submit" ng-disabled="epskillsetprofessionalform.name.$invalid || epskillsetprofessionalform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
             </p>
           </div>
         </div>
@@ -597,7 +597,7 @@
             </div>
 
             <p class="btn-panel-group">
-              <input type="submit" ng-disabled="epskillsetsoftwareform.name.$invalid || epskillsetsoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg" />
+              <input type="submit" ng-disabled="epskillsetsoftwareform.name.$invalid || epskillsetsoftwareform.rating.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
             </p></div>
           </div>
           <!-- <hr class="hr-line-lidership"> -->

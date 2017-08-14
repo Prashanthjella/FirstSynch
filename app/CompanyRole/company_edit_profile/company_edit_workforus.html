@@ -18,9 +18,9 @@
                         <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.culture.$valid}">Culture</label>
                         <input type="text" name="culture" ng-model="workforusform.culture" class="form-control custom-form-control-br-bottom" placeholder="Give it a Culture" ng-class="{'has-error': cpworkforusform.culture.$touched, 'has-success': cpworkforusform.culture.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-group">
-                        <input type="submit" ng-disabled="cpworkforusform.benefits.$invalid || cpworkforusform.perks.$invalid || cpworkforusform.culture.$invalid" class="btn btn-default custom-btn btn-lg" value="Save"/>
-                    </div>
+                     <p class="edt-pro-btn-group">
+                        <input type="submit" ng-disabled="cpworkforusform.benefits.$invalid || cpworkforusform.perks.$invalid || cpworkforusform.culture.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
+                    </p>
                 </div>
                 <hr class="hr-line-lidership">
             </div>

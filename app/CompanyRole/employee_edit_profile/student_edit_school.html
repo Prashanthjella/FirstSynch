@@ -2,7 +2,7 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="educationmessage">{{educationmessage}}</div>
         <h1 class="custom-h1-01 custom-h1-btm-space-55">My Schools</h1>
-        <table>
+        <table class="table table-striped">
             <tr>
                 <th>S.no</th>
                 <th>School</th>
@@ -22,7 +22,7 @@
                 <td>{{ education.major }}</td>
                 <td>{{ education.gpa }}</td>
                 <td>{{ education.gpa_rating }}</td>
-                <td><a ng-click="editeducation( education )" class="button">Edit</a> | <a ng-click="removeeducation( education )" class="button">Remove</a></td>
+                <td><a ng-click="editeducation( education )" class="button btn-link"><span class="glyphicon glyphicon-pencil"></span></a> | <a ng-click="removeeducation( education )" class="button btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
 
         </table>
@@ -30,7 +30,7 @@
         <form name="epeeducationform" ng-submit="educationsubmit()">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                <div class="col-sm-11 col-md-11">
+                <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase"  ng-class="{'has-success': epeeducationform.school_name.$valid}">School</label>
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="educationform.user" name="user">
@@ -57,7 +57,9 @@
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
                     </div>
                 </div>
-                <input type="submit" value="Submit" ng-disabled="epeeducationform.school_name.$invalid || epeeducationform.major.$invalid || epeeducationform.year_started.$invalid || epeeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg" />
+                 <p class="edt-pro-btn-group">
+                <input type="submit" value="Submit" ng-disabled="epeeducationform.school_name.$invalid || epeeducationform.major.$invalid || epeeducationform.year_started.$invalid || epeeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
+                </p>
             </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
