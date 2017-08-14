@@ -1,196 +1,209 @@
 <section class="page-section  page-section-account-setting">
-    <div class="container">
-        <div class="page-header custom-page-header">
-            <div class="pull-left">
-                <h1 class="ustom-h1-01 text-uppercase">Account setting</h1>
-            </div>
-        </div>
+  <div class="container">
+    <div class="page-header custom-page-header">
+      <div class="pull-left">
+        <h1 class="ustom-h1-01 text-uppercase">Account setting</h1>
+      </div>
     </div>
+  </div>
 </section>
-<section class="page-section"  ng-controller="student_settings">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <!-- <section class="page-section-education">
-                    <div class="page-header custom-page-header-brline">
-                        <h2 class="h2 custom-h2">Notification</h2>
-                    </div>
-                    <div class="panel-group custom-panel-onboarding-group">
-                        <div class="panel panel-default custom-panel-onboarding-default ">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h5 class="h4 custom-h5"> Desktop Notifications </h5>
-                                    <h5 class="h5 custom-h5-04">Get a desktop notification when you are online.</h5>
-                                    <div class="btn-group-account-setting">
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="desktop-notification-on" class="checkbox-input" type="checkbox">
-                                            <label for="desktop-notification-on" class="checkbox-label-01"> on</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="desktop-notification-off" class="checkbox-input" type="checkbox" checked>
-                                            <label for="desktop-notification-off" class="checkbox-label-01"> off</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default custom-panel-onboarding-default ">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h5 class="h4 custom-h5"> Email Notifications </h5>
-                                    <h5 class="h5 custom-h5-04">Get an email, when other users comment or like your posts.</h5>
-                                    <div class="btn-group-account-setting">
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-notification-on" class="checkbox-input" type="checkbox">
-                                            <label for="email-notification-on" class="checkbox-label-01"> on</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-notification-offline" class="checkbox-input" type="checkbox" checked>
-                                            <label for="email-notification-offline" class="checkbox-label-01">When I'm offline</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-notification-always" class="checkbox-input" type="checkbox">
-                                            <label for="email-notification-always" class="checkbox-label-01">Always</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default custom-panel-onboarding-default ">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h5 class="h4 custom-h5"> Email activities </h5>
-                                    <h5 class="h5 custom-h5-04">Get an email, by every activity from other users you follow or work together in workspaces.</h5>
-                                    <div class="btn-group-account-setting">
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-activity-never" class="checkbox-input" type="checkbox">
-                                            <label for="email-activity-never" class="checkbox-label-01"> Never</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-activity-daily" class="checkbox-input" type="checkbox" checked>
-                                            <label for="email-activity-daily" class="checkbox-label-01"> Daily summery</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-activity-offline" class="checkbox-input" type="checkbox">
-                                            <label for="email-activity-offline" class="checkbox-label-01"> When I'm offline</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="email-activity-always" class="checkbox-input" type="checkbox">
-                                            <label for="email-activity-always" class="checkbox-label-01"> Always</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-                <section class=" page-section-education  page-section-account">
-                    <div class="page-header custom-page-header-brline">
-                        <h2 class="h2 custom-h2 text-uppercase">Account</h2>
-                    </div>
-                    <div class="panel-group custom-panel-onboarding-group">
-                        <!-- <div class="panel panel-default custom-panel-onboarding-default ">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h5 class="h4 custom-h5"> Your username </h5>
-                                    <div class="form-group">
-                                        <h5 class="h5 h5 custom-h5-04"><a href="#" class="link-user">http://www.firstsynch.com/@<span class="account-user-name">test-user</span></a></h5>
-                                        <input type="text" class="form-control" >
-                                    </div>
-                                    </h5>
-                                    <div class="btn-group-account-setting"> <button class="btn btn-default  custom-btn-default-08">Edit Username</button> </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="panel panel-default custom-panel-onboarding-default  custom-panel-setting-default">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    
-                                    <div class="form-group form-group-accounts">
-                                    <label class="text-uppercase"> Your Email </label>
-                                    <div class="show">
-                                        <h5 class="h5 h5 custom-h5-04"><a href="#" class="link-email">{{student_setting.e_mail}}</a></h5>
-                                        <div class="btn-group-account-setting"> <button ng-click="" class="btn btn-default  custom-btn-default-08">Edit Email</button> </div>
-                                        </div>
-                                        
-                                        <div class="hide">
-                                        <input type="text" class="form-control custom-form-control-br-bottom" id="student_setting_email" ng-model="student_setting_email">
-                                        
-                                        <div class="btn-group-account-setting"> <button ng-click="student_setting_email_update(student_setting_email)"  class="btn btn-default  custom-btn-default-08">Save</button> <button class="btn btn-default  custom-btn-default-03">Cancel</button> </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default custom-panel-onboarding-default custom-panel-setting-default ">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                   
-                                     <div class="form-group form-group-accounts">
-                                      <label class="text-uppercase"> Your Password </label>
-                                       <div class="show">
-                                        <h5 class="h5 h5 custom-h5-04">.....</h5>
-                                       
-                                        <div class="btn-group-account-setting"> <button ng-click="student_setting_change_password(student_setting_password)" class="btn btn-default  custom-btn-default-08">Edit password</button> </div>
-                                        </div>
-                                        
-                                         <div class="hide">
-                                         <input type="text" class="form-control custom-form-control-br-bottom" id="student_setting_password" ng-model="student_setting_password">
-                                         <div class="btn-group-account-setting"> <button ng-click="student_setting_email_update(student_setting_email)"  class="btn btn-default  custom-btn-default-08">Save</button> <button class="btn btn-default  custom-btn-default-03">Cancel</button> </div>
-                                         </div>
-                                        
-                                        
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="panel panel5-default custom-panel-onboarding-default ">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h5 class="h4 custom-h5"> Language </h5>
-                                    <select class="form-control">
-                                    </select>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="panel panel5-default custom-panel-onboarding-default ">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h5 class="h4 custom-h5"> Profile visibility </h5>
-                                    <div class="btn-group-account-setting">
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="profile-visibility-register" class="checkbox-input" type="checkbox">
-                                            <label for="profile-visibility-register" class="checkbox-label-01"> Registered users only</label>
-                                        </div>
-                                        <div class="checkbox custom-checkbox checkbox-circle">
-                                            <input id="profile-visibility-visible" class="checkbox-input" type="checkbox" checked>
-                                            <label for="profile-visibility-visible" class="checkbox-label-01"> Visible for all</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="panel panel5-default custom-panel-onboarding-default custom-panel-setting-default">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <div class="form-group form-group-accounts">
-                                    <label class="h4 custom-h5"> Delete account </label>
-                                    <h5 class="h5 custom-h5-04">If you want to delete your account, all
-                                        your published content will be removed
-                                    </h5>
-                                    <div class="btn-group-account-setting"> <a href="#" ng-confirm-click="Are you sure to delete your account ?" confirmed-click="student_setting_delete_account()" class="btn btn-default  custom-btn-default-08">Delete account</a> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- List Starts -->
-                <!-- List Ends -->
-            </div>
-        </div>
+<section class="page-section remove_class_act" ng-controller="student_settings">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <!-- <section class="page-section-education">
+        <div class="page-header custom-page-header-brline">
+        <h2 class="h2 custom-h2">Notification</h2>
+      </div>
+      <div class="panel-group custom-panel-onboarding-group">
+      <div class="panel panel-default custom-panel-onboarding-default ">
+      <div class="row">
+      <div class="col-sm-8">
+      <h5 class="h4 custom-h5"> Desktop Notifications </h5>
+      <h5 class="h5 custom-h5-04">Get a desktop notification when you are online.</h5>
+      <div class="btn-group-account-setting">
+      <div class="checkbox custom-checkbox checkbox-circle">
+      <input id="desktop-notification-on" class="checkbox-input" type="checkbox">
+      <label for="desktop-notification-on" class="checkbox-label-01"> on</label>
     </div>
+    <div class="checkbox custom-checkbox checkbox-circle">
+    <input id="desktop-notification-off" class="checkbox-input" type="checkbox" checked>
+    <label for="desktop-notification-off" class="checkbox-label-01"> off</label>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default custom-panel-onboarding-default ">
+<div class="row">
+<div class="col-sm-8">
+<h5 class="h4 custom-h5"> Email Notifications </h5>
+<h5 class="h5 custom-h5-04">Get an email, when other users comment or like your posts.</h5>
+<div class="btn-group-account-setting">
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-notification-on" class="checkbox-input" type="checkbox">
+<label for="email-notification-on" class="checkbox-label-01"> on</label>
+</div>
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-notification-offline" class="checkbox-input" type="checkbox" checked>
+<label for="email-notification-offline" class="checkbox-label-01">When I'm offline</label>
+</div>
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-notification-always" class="checkbox-input" type="checkbox">
+<label for="email-notification-always" class="checkbox-label-01">Always</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default custom-panel-onboarding-default ">
+<div class="row">
+<div class="col-sm-8">
+<h5 class="h4 custom-h5"> Email activities </h5>
+<h5 class="h5 custom-h5-04">Get an email, by every activity from other users you follow or work together in workspaces.</h5>
+<div class="btn-group-account-setting">
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-activity-never" class="checkbox-input" type="checkbox">
+<label for="email-activity-never" class="checkbox-label-01"> Never</label>
+</div>
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-activity-daily" class="checkbox-input" type="checkbox" checked>
+<label for="email-activity-daily" class="checkbox-label-01"> Daily summery</label>
+</div>
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-activity-offline" class="checkbox-input" type="checkbox">
+<label for="email-activity-offline" class="checkbox-label-01"> When I'm offline</label>
+</div>
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="email-activity-always" class="checkbox-input" type="checkbox">
+<label for="email-activity-always" class="checkbox-label-01"> Always</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section> -->
+<section class=" page-section-education page-section-account">
+  <div class="page-header custom-page-header-brline">
+    <h2 class="h2 custom-h2 text-uppercase">Account</h2>
+  </div>
+  <div class="panel-group custom-panel-onboarding-group">
+    <!-- <div class="panel panel-default custom-panel-onboarding-default ">
+    <div class="row">
+    <div class="col-sm-12">
+    <h5 class="h4 custom-h5"> Your username </h5>
+    <div class="form-group">
+    <h5 class="h5 h5 custom-h5-04"><a href="#" class="link-user">http://www.firstsynch.com/@<span class="account-user-name">test-user</span></a></h5>
+    <input type="text" class="form-control" >
+  </div>
+</h5>
+<div class="btn-group-account-setting"> <button class="btn btn-default  custom-btn-default-08">Edit Username</button> </div>
+</div>
+</div>
+</div> -->
+<div class="panel panel-default custom-panel-onboarding-default custom-panel-setting-default">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="form-group form-group-accounts edit_username_parent_act">
+        <label class="text-uppercase" ng-class="{'has-success': student_edit_username.student_setting_email.$valid}">Your Email </label>
+        <div class="show_act">
+          <h5 class="h5 h5 custom-h5-04">
+            <a href="#" class="link-email">{{student_setting.e_mail}}</a>
+          </h5>
+          <div class="btn-group-account-setting">
+            <button class="acc_show_act btn btn-default custom-btn-default-08">Edit Email</button>
+          </div>
+        </div>
+        <div class="hide_act">
+          <form name="student_edit_username">
+            <input type="email" class="form-control" id="student_edit_username" name="student_setting_email" ng-model="student_setting_email" required ng-class="{'has-error': student_edit_username.student_setting_email.$invalid, 'has-success': student_edit_username.student_setting_email.$valid}">
+            <div class="btn-group-account-setting">
+              <button ng-disabled="student_edit_username.student_setting_email.$invalid" ng-click="student_setting_email_update(student_setting_email)" class="btn btn-default custom-btn-default-08">Save</button>
+              <button class="btn btn-default custom-btn-default-03 cancel_act">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="panel panel-default custom-panel-onboarding-default custom-panel-setting-default">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="form-group edit_password_parent_act">
+        <label class="text-uppercase" ng-class="{'has-success': student_edit_password.student_setting_password.$valid}">Your Password</label>
+        <span style="color: red;" id="failure_msg"></span>
+        <div class="show_act">
+          <h5 class="h5 h5 custom-h5-04">*****</h5>
+          <div class="btn-group-account-setting">
+            <button class="pass_edit_show_act btn btn-default custom-btn-default-08">Edit password</button>
+          </div>
+        </div>
+
+        <div class="hide_act hide_password">
+          <form name="student_edit_password">
+            <input type="password" class="form-control" id="student_setting_password" ng-model="student_setting_password" name="student_setting_password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': student_edit_password.student_setting_password.$invalid, 'has-success': student_edit_password.student_setting_password.$valid}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter.">
+            <div class="btn-group-account-setting">
+              <button ng-disabled="student_edit_password.student_setting_password.$invalid" ng-click="student_setting_email_update(student_setting_password)" class="btn btn-default custom-btn-default-08">Save</button>
+              <button class="password_cancel_act btn btn-default custom-btn-default-03">Cancel</button>
+            </div>
+          </form>
+            </div>
+
+          </div><!--form-group-->
+
+        </div>
+      </div>
+    </div>
+    <!-- <div class="panel panel5-default custom-panel-onboarding-default ">
+    <div class="row">
+    <div class="col-sm-12">
+    <h5 class="h4 custom-h5"> Language </h5>
+    <select class="form-control">
+  </select>
+</div>
+</div>
+</div> -->
+<!-- <div class="panel panel5-default custom-panel-onboarding-default ">
+<div class="row">
+<div class="col-sm-12">
+<h5 class="h4 custom-h5"> Profile visibility </h5>
+<div class="btn-group-account-setting">
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="profile-visibility-register" class="checkbox-input" type="checkbox">
+<label for="profile-visibility-register" class="checkbox-label-01"> Registered users only</label>
+</div>
+<div class="checkbox custom-checkbox checkbox-circle">
+<input id="profile-visibility-visible" class="checkbox-input" type="checkbox" checked>
+<label for="profile-visibility-visible" class="checkbox-label-01"> Visible for all</label>
+</div>
+</div>
+</div>
+</div>
+</div> -->
+<div class="panel panel5-default custom-panel-onboarding-default custom-panel-setting-default">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group form-group-accounts">
+        <label class="h4 custom-h5"> Delete account </label>
+        <h5 class="h5 custom-h5-04">If you want to delete your account, all
+          your published content will be removed
+        </h5>
+        <div class="btn-group-account-setting"> <a href="#" ng-confirm-click="Are you sure to delete your account ?" confirmed-click="student_setting_delete_account()" class="btn btn-default  custom-btn-default-08">Delete account</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+<!-- List Starts -->
+<!-- List Ends -->
+</div>
+</div>
+</div>
 </section>

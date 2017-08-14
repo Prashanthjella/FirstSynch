@@ -20,6 +20,9 @@ FirstSynch.controller("student_settings" ,function ($location,$timeout,$window,$
             headers: {'Authorization' : 'Token '+$rootScope.token_id }
       }).then(function successCallback(response){
               $scope.student_setting.e_mail = email;
+              $('.edit_username_parent_act > .show_act').show();
+              $('.edit_username_parent_act > .hide_act').hide();
+              $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
           }, function errorCallback(response){
               console.log("Unable to perform get top 3 company details");
       });
@@ -29,8 +32,11 @@ FirstSynch.controller("student_settings" ,function ($location,$timeout,$window,$
             headers: {'Authorization' : 'Token '+$rootScope.token_id}
       }).then(function successCallback(response){
               $scope.student_setting.password = password;
+              $('.edit_password_parent_act > .show_act').show();
+              $('.edit_password_parent_act > .hide_password').hide();
+              $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
           }, function errorCallback(response){
-              console.log("Unable to perform get top 3 company details");
+              $('#failure_msg').text("Please enter different password.");
       });
   }
   $scope.student_setting_delete_account = function(){

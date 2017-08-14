@@ -4943,3 +4943,6 @@ label.has-success {
 	background-color: #00b58e;
 	color: #fff;
 }
+.hide_act {
+	display: none;
+}
