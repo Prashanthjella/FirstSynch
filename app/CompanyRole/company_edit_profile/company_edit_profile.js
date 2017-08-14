@@ -540,7 +540,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
     };
 
 });
-FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$rootScope, $scope, $http, apiUrl) {
+FirstSynch.controller("companybasicprofileupload" , function (Upload,$timeout,$window,$rootScope, $scope, $http, apiUrl) {
     $scope.basicinfoform = {
         id:"",
         name : "",
@@ -558,6 +558,7 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
     }).then(function successCallback(response){
             $rootScope.comp_id = response.data.id;
             $scope.basicinfoform.id = response.data.id;
+            $scope.basicinfoform.user = response.data.user.id;
             $scope.basicinfoform.name = response.data.name;
             $scope.basicinfoform.description = response.data.description;
             $scope.basicinfoform.category = response.data.category;
@@ -566,11 +567,12 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
             $scope.basicinfoform.linkedin_url = response.data.linkedin_url;
             $scope.basicinfoform.twitter_url = response.data.twitter_url;
             $scope.basicinfoform.facebook_url = response.data.facebook_url;
+            $scope.basicinfoform.logos = response.data.logo;
         }, function errorCallback(response){
             console.log("Unable to perform get company basic profile details");
     });
 
-    $scope.basicinfosubmit = function(){
+    $scope.basicinfosubmit = function(file){
         var data = {
             name:$scope.basicinfoform.name,
             description: $scope.basicinfoform.description,
@@ -581,6 +583,13 @@ FirstSynch.controller("companybasicprofileupload" , function ($timeout,$window,$
             linkedin_url : $scope.basicinfoform.linkedin_url,
             twitter_url : $scope.basicinfoform.twitter_url,
         };
+        if(file){
+            file.upload = Upload.upload({
+                url: apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",
+                data: {user:$scope.basicinfoform.user,logo: file},
+                method:'PUT',
+            });
+        }
         // alert(JSON.stringify(data));
         $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
         .then(function (response) {

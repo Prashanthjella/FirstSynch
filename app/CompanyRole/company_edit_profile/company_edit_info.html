@@ -3,12 +3,13 @@
     <div class="text-center alert alert-success" id="edit_succ_msg" ng-if="basicinfomessage">{{basicinfomessage}}</div>
 
     <h1 class="custom-h1-01 custom-h1-btm-space-55">Company Information</h1>
-    <form name="cpbasicinfoform" ng-submit="basicinfosubmit()" id="company_reset_forms">
+    <form name="cpbasicinfoform" ng-submit="basicinfosubmit(basicinfoform.logo)" id="company_reset_forms">
       <div class="row">
         <div class="col-sm-11 col-md-11">
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.name.$valid, 'error_lab_msg':cpbasicinfoform.name.$invalid}">Company Name <span ng-show="cpbasicinfoform.name.$error.required">Required!</span></label>
             <input type="hidden" name="id" ng-model="basicinfoform.id">
+            <input type="hidden" name="user" ng-model="basicinfoform.user">
             <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a company name" name="name" ng-model="basicinfoform.name" ng-class="{'has-error': cpbasicinfoform.name.$invalid, 'has-success': cpbasicinfoform.name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
@@ -54,6 +55,11 @@
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Facebook</label>
             <input type="url" class="form-control custom-form-control-br-bottom" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
+          </div>
+          <div class="form-group custom-lider-form-group">
+            <label class="text-uppercase">Company Logo</label>
+            <img src="{{basicinfoform.logos}}" height="50">
+            <input type="file" ngf-select ng-model="basicinfoform.logo" name="file" accept="image/*" >
           </div>
          <p class="edt-pro-btn-group">
             <input type="submit" ng-disabled="cpbasicinfoform.website.$invalid || cpbasicinfoform.product_category.$invalid || cpbasicinfoform.category.$invalid || cpbasicinfoform.name.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
