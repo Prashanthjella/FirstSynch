@@ -128,6 +128,7 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     .then(function successCallback(response){
       $rootScope.vid = response.data;
       $rootScope.videolikedisable = false;
+      $('#video_like_wrapper').text(response.data.video.liked.length);
       $('#videolikebtn').css({'color':'#303030'});
       $.each(response.data.video.liked, function(i,obj) {
         if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});$rootScope.videolikedisable = true;}
@@ -326,17 +327,17 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       $timeout( function(){
         $scope.error = '';
         $scope.e_mail = '';
-      }, 3000 );
+    }, 1000 );
     });
 
   };//find user - function end
 
   $scope.StudentRegistratoin = function () {
-
+    //alert($scope.piplsearch);
     var allow_pipl_check = parseInt($('#allow_pipl').val());
     var workhistroy_arry = [];
     var data = {
-      education : {school_name : $('#university-name').val(),gpa : $scope.gpa},
+      education : {school_name : $scope.selecteduniversity.originalObject.Institution_Name,gpa : $scope.gpa},
       user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
     }
     if($rootScope.current_city != '' && $rootScope.current_state != '' ){
@@ -348,39 +349,48 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     if($scope.piplsearch == 'allow'){
       $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
       .then(function successCallback(response){
-        $scope.piplimage = response.data.image ? response.data.image : "" ;
-        $scope.piplschool_name = response.data.school_name ? response.data.school_name : "" ;
-        $scope.pipldateattended = response.data.dateattended ? response.data.dateattended :"";
-        $scope.piplmajor = response.data.major ?response.data.major :"";
-        $scope.pipljobs = response.data.jobs ? response.data.jobs : "" ;
-        $scope.workhistroy_count = response.data.jobs ? response.data.jobs.length : 0 ;
-        if($scope.piplimage || $scope.piplschool_name || $scope.pipldateattended || $scope.piplmajor || $scope.pipljobs){
+
+        $scope.piplimage = response.data.image ? response.data.image : null ;
+        $scope.piplschool_name = response.data.school_name ? response.data.school_name : null ;
+        $scope.pipldateattended = response.data.dateattended ? response.data.dateattended : null;
+        $scope.piplmajor = response.data.major ?response.data.major :null;
+        $scope.pipljobs = response.data.jobs ? response.data.jobs : null ;
+        if(response.data.jobs){
+            $scope.workhistroy_count = response.data.jobs.length;
+        }
+        else {
+            $scope.workhistroy_count = 1;
+        }
+
+        //if($scope.piplimage || $scope.piplschool_name || $scope.pipldateattended || $scope.piplmajor || $scope.pipljobs){
           $('#allow_pipl').val('0');
           $('.peoplesearch_remove').hide();
           $('.peoplesearch_show').show();
-        }
-        else{
-          $http({
-            url: apiUrl+'api/v1/student/student_signup/',
-            method: "POST",
-            data: data
-          })
-          .then(function successCallback(data, status, headers, config) {
-            jQuery("#signUp").modal('hide');
-            jQuery("#signUpSuccess").modal('show');
-            jQuery('form#reset_forms').trigger("reset");
-            jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
-            $('#universities_value').val('');
-            $scope.name = '';
-            $scope.lname = '';
-            $scope.password = '';
-            $scope.gpa = '';
-          },
-          function errorCallback(data, status, headers, config) {
-            $scope.status = data.data.status;
-
-          });
-        }
+        //}
+        // else{
+        //   $http({
+        //     url: apiUrl+'api/v1/student/student_signup/',
+        //     method: "POST",
+        //     data: data
+        //   })
+        //   .then(function successCallback(data, status, headers, config) {
+        //     jQuery("#signUp").modal('hide');
+        //     jQuery("#signUpSuccess").modal('show');
+        //     jQuery('form#reset_forms').trigger("reset");
+        //     jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+        //     $('#universities_value').val('');
+        //     $scope.name = null;
+        //     $scope.lname = null;
+        //     $scope.selecteduniversity.originalObject.Institution_Name = null;
+        //     $scope.password = null;
+        //     $scope.gpa = null;
+        //     $scope.piplsearch = 'allow';
+        //   },
+        //   function errorCallback(data, status, headers, config) {
+        //     $scope.status = data.data.status;
+        //
+        //   });
+        // }
 
       }, function errorCallback(response){
         console.log("Unable to perform get company basic profile details");
@@ -397,10 +407,13 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         jQuery("#signUpSuccess").modal('show');
         $('#universities_value').val('');
         $('form#reset_forms').trigger("reset");
-        $scope.name = '';
-        $scope.lname = '';
-        $scope.password = '';
-        $scope.gpa = '';
+        $('#allow_pipl').val('1');
+        $scope.name = null;
+        $scope.lname = null;
+        $scope.selecteduniversity.originalObject.Institution_Name = null;
+        $scope.password = null;
+        $scope.gpa = null;
+        $scope.piplsearch = 'allow';
       },
       function errorCallback(data, status, headers, config) {
         $scope.status = data.data.status;
@@ -425,7 +438,14 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       .then(function successCallback(data, status, headers, config) {
         jQuery("#signUp").modal('hide');
         jQuery("#signUpSuccess").modal('show');
-        $('form#reset_forms').trigger("reset");
+        $scope.piplsearch = 'allow';
+        $('#allow_pipl').val('1');
+        $scope.name = null;
+        $scope.lname = null;
+        $scope.selecteduniversity.originalObject.Institution_Name = null;
+        $scope.password = null;
+        $scope.gpa = null;
+        $scope.piplsearch = 'allow';
       },
       function errorCallback(data, status, headers, config) {
         $scope.status = data.data.status;

@@ -1,30 +1,33 @@
-<!--E-mail activation model-->
-<div class="modal fade custom-model custom-model-registration" id="activate" role="dialog" ng-controller="UserActivation">
-  <form name="activate">
+<!-- user activate account-->
+<div class="modal fade custom-model  custom-model-registration" id="activate" role="dialog" ng-controller="UserActivation">
   <div class="modal-dialog custom-modal-880" role="document">
     <div class="modal-content custom-modal-video-content">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true"><img class="img-responsive" src="assets/images/close.png" alt="" /></span>
-      </button>
-      <div class="modal-body custom-modal-body-login">
-        <div class="pull-right">
-          <a href="mailto:hello@firstsynch.com" title="Email Support" class="email-support"><span class="fa fa-question circle-icon"></span> Email Support</a>
+      <div class="modal-header cusom-model-dashboard-header"><!--peoplesearch_remove-->
+        <button type="button" class="close custom-modal-close" data-dismiss="modal">
+          &times;
+        </button>
+        <div class="login-top-step-prev">
+          <div class="pull-left">
+            <!--<a href="#" class="page-prev"><i class="fa fa-chevron-left"></i> Step 3</a>-->
+          </div>
+          <div class="pull-right"><a href="mailto:hello@firstsynch.com" title="Email Support" class="email-support"><span class="fa fa-question circle-icon"></span> Email Support</a></div>
         </div>
-        <!--<p class="text-uppercase text-center grey-text">Step 4 of 4</p>-->
+      </div>
+      <div class="modal-body  custom-modal-body-login">
+
         <h2 class="text-uppercase text-center bold-text">Account Verification</h2>
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
-              <div class="form-group text-center">
-                <span id="activate_message" class="text-center" style="color: green; font-weight: bold;">{{ activate_msg }}</span>
-              </div>
-              </div>
+            <div class="form-group text-center">
+              <span id="activate_message" class="text-center" style="color: green; font-weight: bold;">{{ activate_msg }}</span>
+            </div>
           </div>
         </div>
-        <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02">
-<button data-toggle="modal" data-target="#logIn" href="#" data-dismiss="modal" class="btn btn-default custom-btn-login">Login</button>
-        </div>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- user activate account-->
+      <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02">
+        <button data-toggle="modal" data-target="#logIn" href="#" data-dismiss="modal" class="btn btn-default custom-btn-login">Login</button>
+      </div>
+    </div>
+
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

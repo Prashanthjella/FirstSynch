@@ -160,7 +160,7 @@ $(document).ready(function() {
   $(document).on('click','.student_edit_profile_side_child_title',function(){
     $('.student_edit_profile_side_child_collapsable').hide();
 		$('.accordion-toggle').removeClass('active');
-	
+
     $(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
 $(this).addClass('active');
     // if($(this).parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').is(':visible')){
@@ -220,10 +220,45 @@ $(this).addClass('active');
       $('#videoid').val(parseInt($(this).attr('videoid')));
     }
   });
+
   $(document).keydown(function(event) {
     if (event.keyCode == 27) {
       $('#logIn,#dashboard-filter').modal('hide');
     }
   });
+
+  //Compay Account Settings Function
+  //Edit Username
+  $(document).on('click','.acc_show_act',function(){
+    $('.edit_username_parent_act > .show_act').hide();
+    $('.edit_username_parent_act > .hide_act').show();
+    $('#student_setting_email').focus();
+    //hide edit password field
+    $('.edit_password_parent_act > .show_act').show();
+    $('.edit_password_parent_act > .hide_act').hide();
+  });
+
+  $(document).on('click','.cancel_act',function(){
+    $('.edit_username_parent_act > .show_act').show();
+    $('.edit_username_parent_act > .hide_act').hide();
+    $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+  });
+
+  //Edit Passsword
+  $(document).on('click','.pass_edit_show_act',function(){
+    $('.edit_password_parent_act > .show_act').hide();
+    $('.edit_password_parent_act > .hide_act').show();
+    $('#student_setting_password').focus();
+    //hide edit username field
+    $('.edit_username_parent_act > .show_act').show();
+    $('.edit_username_parent_act > .hide_act').hide();
+  });
+
+  $(document).on('click','.password_cancel_act',function(){
+    $('.edit_password_parent_act > .show_act').show();
+    $('.edit_password_parent_act > .hide_act').hide();
+    $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+  });
+  //Compay Account Settings Function End
 
 });
