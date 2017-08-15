@@ -4953,3 +4953,7 @@ label.has-success {
 .hide_act {
 	display: none;
 }
+div.tooltip-inner {
+    max-width: 350px;
+		word-break: keep-all;
+}

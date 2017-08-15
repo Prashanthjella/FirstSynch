@@ -955,7 +955,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
           +'<div class="media-left media-middle custom-media-left"> <img style="height:117px;" class="media-object custom-media-object" src="http://firstsynchvideos.s3.amazonaws.com/'+response.data.careerfair[i].image+'" alt="">  </div>'
           +'<div class="media-body custom-media-body">'
           +'<h4 class="media-heading custom-media-heading">'+response.data.careerfair[i].title+'</h4>'
-          +'<h5 class="media-eading-h5">'+response.data.careerfair[i].start_date+' &bull; '+(typeof response.data.careerfair[i].city != "undefined"?response.data.careerfair[i].city:"")+'</h5>'
+          +'<h5 class="media-eading-h5">'+moment(response.data.careerfair[i].start_time).format("MMMM d, YYYY")+' &bull; '+(typeof response.data.careerfair[i].city != "undefined"?response.data.careerfair[i].city:"")+', '+response.data.careerfair[i].state+'</h5>'
           +'<div class="searech-folow pull-left">'
           +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.careerfair[i].followers != "undefined"?response.data.careerfair[i].followers:"0")+'</span> followers</span>'
           +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.careerfair[i].followers != "undefined"?response.data.careerfair[i].followers:"0")+'</span> Companies</span>'
@@ -1000,7 +1000,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
       else{
         jQuery('.search_results_companies_container_act').hide();
       }
-      if(response.data.student){
+      if(response.data.student && !$rootScope.student_login){
         jQuery('.search_results_student_container_act').show();
         jQuery.each(response.data.student, function(i) {
           var student_result ='<div class="media custom-media">'
