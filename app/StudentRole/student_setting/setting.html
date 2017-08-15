@@ -108,6 +108,8 @@
 
       <div class="form-group form-group-accounts edit_username_parent_act">
         <label class="text-uppercase" ng-class="{'has-success': student_edit_username.student_setting_email.$valid}">Your Email </label>
+        <span ng-show="stu_email_failure_msg" style="color: red;" class="undo_data">{{stu_email_failure_msg}}</span>
+        <span ng-show="stu_email_success_msg" style="color: green;" class="undo_data">{{stu_email_success_msg}}</span>
         <div class="show_act">
           <h5 class="h5 h5 custom-h5-04">
             <a href="#" class="link-email">{{student_setting.e_mail}}</a>
@@ -136,7 +138,8 @@
 
       <div class="form-group edit_password_parent_act">
         <label class="text-uppercase" ng-class="{'has-success': student_edit_password.student_setting_password.$valid}">Your Password</label>
-        <span style="color: red;" id="failure_msg"></span>
+        <span ng-show="stu_pass_failure_msg" style="color: red;" class="undo_data">{{stu_pass_failure_msg}}</span>
+        <span ng-show="stu_pass_success_msg" style="color: green;" class="undo_data">{{stu_pass_success_msg}}</span>
         <div class="show_act">
           <h5 class="h5 h5 custom-h5-04">*****</h5>
           <div class="btn-group-account-setting">
@@ -148,7 +151,7 @@
           <form name="student_edit_password">
             <input type="password" class="form-control" id="student_setting_password" ng-model="student_setting_password" name="student_setting_password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': student_edit_password.student_setting_password.$invalid, 'has-success': student_edit_password.student_setting_password.$valid}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter.">
             <div class="btn-group-account-setting">
-              <button ng-disabled="student_edit_password.student_setting_password.$invalid" ng-click="student_setting_email_update(student_setting_password)" class="btn btn-default custom-btn-default-08">Save</button>
+              <button ng-disabled="student_edit_password.student_setting_password.$invalid" ng-click="student_setting_change_password(student_setting_password)" class="btn btn-default custom-btn-default-08">Save</button>
               <button class="password_cancel_act btn btn-default custom-btn-default-03">Cancel</button>
             </div>
           </form>

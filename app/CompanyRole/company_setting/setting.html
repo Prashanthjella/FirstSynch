@@ -108,6 +108,8 @@
 
       <div class="form-group form-group-accounts edit_username_parent_act">
         <label class="text-uppercase" ng-class="{'has-success': edit_username.company_setting_email.$valid}">Your Email </label>
+        <span ng-show="comp_email_failure_msg" style="color: red;" class="undo_data">{{comp_email_failure_msg}}</span>
+        <span ng-show="comp_email_success_msg" style="color: green;" class="undo_data">{{comp_email_success_msg}}</span>
         <div class="show_act">
           <h5 class="h5 h5 custom-h5-04">
             <a href="#" class="link-email">{{company_setting.e_mail}}</a>
@@ -136,6 +138,8 @@
 
       <div class="form-group edit_password_parent_act">
         <label class="text-uppercase" ng-class="{'has-success': edit_password.company_setting_password.$valid}">Your Password</label>
+        <span ng-show="comp_pass_failure_msg" style="color: red;" class="undo_data">{{comp_pass_failure_msg}}</span>
+        <span ng-show="comp_pass_success_msg" style="color: green;" class="undo_data">{{comp_pass_success_msg}}</span>
         <div class="show_act">
           <h5 class="h5 h5 custom-h5-04">*****</h5>
           <div class="btn-group-account-setting">

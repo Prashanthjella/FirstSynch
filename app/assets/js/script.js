@@ -233,6 +233,7 @@ $(this).addClass('active');
     $('.edit_username_parent_act > .show_act').hide();
     $('.edit_username_parent_act > .hide_act').show();
     $('#student_setting_email').focus();
+    $('#student_edit_username, #student_setting_password').val('');
     //hide edit password field
     $('.edit_password_parent_act > .show_act').show();
     $('.edit_password_parent_act > .hide_act').hide();
@@ -241,6 +242,7 @@ $(this).addClass('active');
   $(document).on('click','.cancel_act',function(){
     $('.edit_username_parent_act > .show_act').show();
     $('.edit_username_parent_act > .hide_act').hide();
+    $('#student_edit_username, #student_setting_password').val('');
     $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
 
@@ -249,6 +251,7 @@ $(this).addClass('active');
     $('.edit_password_parent_act > .show_act').hide();
     $('.edit_password_parent_act > .hide_act').show();
     $('#student_setting_password').focus();
+    $('#student_edit_username, #student_setting_password').val('');
     //hide edit username field
     $('.edit_username_parent_act > .show_act').show();
     $('.edit_username_parent_act > .hide_act').hide();
@@ -257,6 +260,7 @@ $(this).addClass('active');
   $(document).on('click','.password_cancel_act',function(){
     $('.edit_password_parent_act > .show_act').show();
     $('.edit_password_parent_act > .hide_act').hide();
+    $('#student_edit_username, #student_setting_password').val('');
     $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
   //Compay Account Settings Function End
