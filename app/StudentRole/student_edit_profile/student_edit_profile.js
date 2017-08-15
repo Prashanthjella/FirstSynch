@@ -201,45 +201,65 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
           // progress notify
         });
     };
-    $scope.secharacterbtndisable =  false;
-    $scope.seshouldDisable = function(key) {
-       if(!$scope.selectedCharacter[key]) {
-          var count = 0;
-          $scope.seshouldDisablecount = 0;
-          Object.keys($scope.selectedCharacter).forEach(function(key) {
-             if($scope.selectedCharacter[key]) {
-                 $scope.seshouldDisablecount++;
-                ++count;
-             }
-          });
-          if(count > 0){
-              $scope.secharacterbtndisable = true;
-          }
-          else{
-              $scope.secharacterbtndisable = false;
-          }
-          if(count >= 5) {
-             return true;
-          }
-       }
-       return false;
-    };
+    // $scope.secharacterbtndisable =  false;
+    // $scope.seshouldDisable = function(key) {
+    //    if(!$scope.selectedCharacter[key]) {
+    //       var count = 0;
+    //       $scope.seshouldDisablecount = 0;
+    //       Object.keys($scope.selectedCharacter).forEach(function(key) {
+    //          if($scope.selectedCharacter[key]) {
+    //              $scope.seshouldDisablecount++;
+    //             ++count;
+    //          }
+    //       });
+    //       if(count > 0){
+    //           $scope.secharacterbtndisable = true;
+    //       }
+    //       else{
+    //           $scope.secharacterbtndisable = false;
+    //       }
+    //       if(count >= 5) {
+    //          return true;
+    //       }
+    //    }
+    //    return false;
+    // };
     $scope.selectedCharacter = {};
-
+    $scope.selectedcharid = [];
+    $scope.character_edit = function(){
+        $http.get(apiUrl+"api/v1/student/get_studentcharacteristics_details/"+$rootScope.user_id+"/")
+            .then(function successCallback(response){
+                $scope.selection = [];
+                $scope.seshouldDisablecount = 0;
+                angular.forEach(response.data, function (characters) {
+                    $scope.selection.push(characters.character);
+                    $scope.selectedcharid.push({id:characters.id});
+                    $scope.seshouldDisablecount++;
+                });
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+    };
     $scope.charactersubmit = function(){
         $scope.selectchar = [];
         angular.forEach($scope.selectedCharacter, function (selected, characters) {
             if (selected) {
                 $scope.selectchar.push({student:$rootScope.stud_id,character:characters});
-
             }
         });
-        //alert(JSON.stringify($scope.selectchar));
 
-        $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
+        $http.delete(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectedcharid))
         .then(function (response) {
-            $scope.charactermessage = 'Successfully updated';
+            $scope.charactermessage = '';
+        }, function() {
+            return true; // return anything that's not undefined (and not a `throw()`) to force the chain down the success path at the following then().
+        }).then(function() {
+            $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
+            .then(function (response) {
+                $scope.charactermessage = 'Successfully updated';
+            });
         });
+        //alert(JSON.stringify($scope.selectedcharid));
     };
     $scope.sewhatiamlookingbtndisable =  false;
     $scope.sewshouldDisable = function(key) {

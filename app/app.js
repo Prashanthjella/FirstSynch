@@ -520,31 +520,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       });
     }
     else if($scope.domainsearch == 'deny' && allow_domainsearch) {
-      var data = {
-        company_name:$scope.cname,
-        //company_info: {name:$scope.cname, city:$scope.current_city,state : $scope.current_state},
-        user : {name :$scope.name,e_mail:$rootScope.e_mail,password:$scope.password },
-        employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city,state : $scope.current_state}
-      };
-      $http({
-        url: apiUrl+'api/v1/employee/api/employee_signup/',
-        method: "POST",
-        data: data,
-        headers: {'Content-Type': 'application/json'}
-      })
-      .then(function successCallback(data, status, headers, config) {
-        jQuery("#companyregistration").modal('hide');
-        jQuery("#companysignUpSuccess").modal('show');
-        jQuery('form#reset_forms').trigger("reset");
-        jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
-        $scope.name = '';
-        $scope.lname = '';
-        $scope.cname = '';
-        $scope.password = '';
-      },
-      function errorCallback(data, status, headers, config) {
-        $scope.status = data.data.status;
-      });
+        $('#domain_search').val('0');
+        $('.domainsearch_remove').hide();
+        $('.domainsearch_show').show();
     }
     if(allow_domainsearch == 0){
     //   if(file){
@@ -590,15 +568,15 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
                 country: $('#domaincountry').val(),
                 e_mail: $('#domaine_mail').val(),
                 state: $('#domainstate').val(),
-                zip_code: $('#domainzip_code').val(),
+                zip_code: $('#domainzip_code').val()?$('#domainzip_code').val():null,
               },
               description:$('#domaindescription').val(),
-              employees : $('#domaintotal_emp').val(),
-              establishment_date : $('#domain_est_date').val(),
+              employees : $('#domaintotal_emp').val()?$('#domaintotal_emp').val() : 0,
+              establishment_date : $('#domain_est_date').val()?$('#domain_est_date').val():null,
               linkedin_url : $('#domainliurl').val(),
               facebook_url : $('#domainfburl').val(),
               logo : $('#domainimage').val(),
-              name : $('#domaincmpy_name').val(),
+              name : $('#domaincmpy_name').val()?$('#domaincmpy_name').val():$scope.cname,
               website : $('#domainwebsite').val(),
               city:$scope.current_city,
               state : $scope.current_state,
@@ -900,9 +878,19 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
         $scope.facebookform.fbgender = response.data.gender?response.data.gender:"";
         $scope.facebookform.fbdob = response.data.dob?response.data.dob:"";
         $scope.facebookform.fbeducation = response.data.education?response.data.education:"";
-        $scope.facebookform.fbeducationcount = response.data.education?response.data.education.length:0;
+        if(response.data.education){
+            $scope.facebookform.fbeducationcount = response.data.education.length;
+        }
+        else {
+            $scope.facebookform.fbeducationcount = 1;
+        }
         $scope.facebookform.fbjobs = response.data.jobs?response.data.jobs:"";
-        $scope.facebookform.fbjobscount = response.data.jobs?response.data.jobs.length:0;
+        if(response.data.jobs){
+            $scope.facebookform.fbjobscount = response.data.jobs;
+        }
+        else {
+            $scope.facebookform.fbjobscount = 1;
+        }
         $location.search('code', null);
         $location.search('state', null);
         jQuery("#fbsignUp").modal('show');
