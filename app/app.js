@@ -1227,26 +1227,27 @@ FirstSynch.directive('scrollTo', function ($location, $anchorScroll) {
   };
 });
 //////////////Date Picker/////////////////////
-FirstSynch.directive("datepicker", function () {
-  return {
-    restrict: "A",
-    require: "ngModel",
-    link: function (scope, elem, attrs, ngModelCtrl) {
-      var updateModel = function (dateText) {
-        scope.$apply(function () {
-          ngModelCtrl.$setViewValue(dateText);
-        });
-      };
-      var options = {
-        dateFormat: "yy-mm-dd",
-        onSelect: function (dateText) {
-          updateModel(dateText);
+FirstSynch.directive('datepicker', function () {
+    return {
+        require : 'ngModel',
+        link : function (scope, element, attrs, ngModelCtrl) {
+            $(function(){
+                element.datepicker({
+                    changeYear:true,
+                    changeMonth:true,
+                    dateFormat:'yy-mm-dd',
+                    maxDate: new Date(),
+                    yearRange: '1900:2050',
+                    onSelect:function (dateText, inst) {
+                        ngModelCtrl.$setViewValue(dateText);
+                        scope.$apply();
+                    }
+                });
+            });
         }
-      };
-      elem.datepicker(options);
     }
-  }
 });
+
 //////////////Date Picker/////////////////////
 FirstSynch.filter('truncate', function () {
   return function (input, chars, breakOnWord) {
