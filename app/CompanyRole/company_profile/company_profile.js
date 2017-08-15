@@ -75,7 +75,9 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.benefitperkscultrueform = {};
   $scope.benefitperkscultruesubmit = function(){
+      alert($scope.benefitperkscultrueform.benefits);
     var data = {
       company : $rootScope.companyedit_id,
       benefits:$scope.benefitperkscultrueform.benefits,
@@ -96,6 +98,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.establishmentform = {};
   $scope.establishmentsubmit = function(){
     var data = {
       establishment_date:$scope.establishmentform.establishment_date,
@@ -116,6 +119,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.internshipform = {};
   $scope.internshipsubmit = function(){
     var data = {
       internships_to_jobs:$scope.internshipform.internships_to_jobs,
@@ -136,6 +140,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.companysizeform = {};
   $scope.companysizesubmit = function(){
     var data = {
       company_size:$scope.companysizeform.company_size,
@@ -156,6 +161,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.hirerateform = {};
   $scope.hireratesubmit = function(){
     var data = {
       hire_rates:$scope.hirerateform.hire_rates,
@@ -180,6 +186,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.fundingform = {};
   $scope.fundingsubmit = function(){
     var data = {
       funding_size:$scope.fundingform.funding_size,
@@ -200,6 +207,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.growthrateform = {};
   $scope.growthratesubmit = function(){
     var data = {
       growth_rate:$scope.growthrateform.growth_rate,
@@ -220,6 +228,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.investorform = {};
   $scope.investorsubmit = function(){
     var data = {
       investor_confidence:$scope.investorform.investor_confidence,
@@ -240,6 +249,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       });
     });
   };
+  $scope.salaryform = {};
   $scope.csalarysubmit = function(){
     var data = {
       average_entry_level_sal:$scope.salaryform.average_entry_level_sal,
@@ -260,6 +270,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
 
     });
   };
+  $scope.locationform = {};
   $scope.locationsubmit = function(){
     var data = {
       company : $rootScope.companyedit_id,

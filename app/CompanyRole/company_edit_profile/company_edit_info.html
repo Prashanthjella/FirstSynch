@@ -60,8 +60,9 @@
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Company Logo</label>
+            <span ng-if="cpbasicinfoform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc</span>
             <img src="{{basicinfoform.logos}}" height="50">
-            <input type="file" ngf-select ng-model="basicinfoform.logo" name="file" accept="image/*" >
+            <input type="file" ngf-select ngf-pattern="image/*" ng-model="basicinfoform.logo" name="file" accept="image/*" >
           </div>
          <p class="edt-pro-btn-group">
             <input type="submit" ng-disabled="cpbasicinfoform.website.$invalid || cpbasicinfoform.product_category.$invalid || cpbasicinfoform.category.$invalid || cpbasicinfoform.name.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>

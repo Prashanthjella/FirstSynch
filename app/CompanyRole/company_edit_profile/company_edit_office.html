@@ -2,15 +2,16 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="gallerymessage">{{gallerymessage}}</div>
        <h1 class="custom-h1-01 custom-h1-btm-space-55">Office</h1>
-        <form ng-submit="gallerysubmit(galleryform.photos)">
+        <form ng-submit="gallerysubmit(galleryform.photos)" name="cofficeimageform">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
                  <div class="form-group custom-lider-form-group">
         </div>
-                
+
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Office Images</label>
-                        <input type="file" ngf-multiple="true" ngf-select ng-model="galleryform.photos" name="file" accept="image/*" required>
+                        <span ng-if="cofficeimageform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc</span>
+                        <input type="file" ngf-multiple="true" ngf-select ngf-pattern="image/*" ng-model="galleryform.photos" name="file" accept="image/*" required>
                     </div>
                 <p class="edt-pro-btn-group">
                         <input type="submit" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>

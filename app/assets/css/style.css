@@ -4957,3 +4957,11 @@ div.tooltip-inner {
     max-width: 350px;
 		word-break: keep-all;
 }
+.validation_msg {
+    color: red;
+    padding: 0 0 0 30px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  line-height: 2;
+}

@@ -128,6 +128,7 @@ FirstSynch.controller("student_near_by_career_fair" ,function ($rootScope,$timeo
   $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
       .then(function successCallback(response){
           $scope.near_by_career = response.data;
+          window.scrollTo(0, 0);
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming near by career");
   });

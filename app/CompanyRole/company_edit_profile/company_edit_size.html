@@ -8,11 +8,12 @@
             <div class="col-sm-12 col-md-12">
              <div class="form-group custom-lider-form-group">
         </div>
-                
+
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cpcompanysizeform.company_size.$valid}">SIZE</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cpcompanysizeform.company_size.$valid}">SIZE </label>
+                        <span ng-if="cpcompanysizeform.company_size.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="hidden" name="id"  ng-model="companysizeform.id">
-                        <input type="text" name="company_size" ng-model="companysizeform.company_size" class="form-control custom-form-control-br-bottom" placeholder="Give it a Company empoyee size" ng-class="{'has-error': cpcompanysizeform.company_size.$touched, 'has-success': cpcompanysizeform.company_size.$valid}" required >
+                        <input type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Company empoyee size" ng-class="{'has-error': cpcompanysizeform.company_size.$touched, 'has-success': cpcompanysizeform.company_size.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>

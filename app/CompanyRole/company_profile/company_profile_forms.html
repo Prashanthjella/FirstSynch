@@ -68,7 +68,8 @@
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase">Profile Picture</label>
-                  <input type="file" ngf-select ng-model="basicinfoform.logo" name="file" accept="image/*" >
+                  <span ng-if="cpbasicinfoform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc</span>
+                  <input type="file" ngf-select ng-model="basicinfoform.logo" ngf-pattern="image/*" name="file" accept="image/*" >
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <input type="submit" ng-disabled="cpobasicinfoform.website.$invalid || cpobasicinfoform.product_category.$invalid || cpobasicinfoform.category.$invalid || cpobasicinfoform.name.$invalid"  class="form-control" value="Save"/>
@@ -79,7 +80,7 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_benefitperkscultrue" ng-if="company_profile_details.hiring[0].benefits =='' && company_profile_details.hiring[0].perks =='' &&company_profile_details.hiring[0].culture ==''">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_benefitperkscultrue" ng-if="company_profile_details.hiring.length == 0 ">
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#cbenefitperkscultrue" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Why should you work for us</a>
@@ -110,7 +111,7 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_dateofestablishment" ng-if="company_profile_details.est_date_description =='' && company_profile_details.establishment_date==''">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_dateofestablishment" ng-if="!company_profile_details.establishment_date">
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#cdateofestablishment" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>DATE OF ESTABLISHMENT</a>
@@ -122,7 +123,7 @@
               <div class="col-sm-11 col-md-11">
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase"  ng-class="{'has-success': cpoestablishmentform.establishment_date.$valid}">ESTABLISHMENT DATE</label>
-                  <input type="text" class="form-control custom-textbox" datepicker placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
+                  <input type="text" class="form-control custom-textbox" datepicker placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase">Description</label>
@@ -137,7 +138,7 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_internship" ng-if="company_profile_details.internships_to_jobs =='' && company_profile_details.internships_job_description==''">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_internship" ng-if="!company_profile_details.internships_to_jobs">
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#cinternship" class="collapsed" data-toggle="collapse" data-parent="#accordion" ><span class="glyphicon custom-glyphicon-accordion"></span>INTERNSHIPS</a>
@@ -165,7 +166,7 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_companysize" ng-if="$scope.company_profile_details.company_size_description=='' &&  $scope.company_profile_details.company_size==''">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_companysize" ng-if="!company_profile_details.company_size">
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#ccompanysize"  class="collapsed" data-toggle="collapse" data-parent="#accordion" >
@@ -180,8 +181,9 @@
               <div class="col-sm-11 col-md-11">
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase"  ng-class="{'has-success': cpocompanysizeform.company_size.$valid}">SIZE</label>
+                  <span ng-if="cpocompanysizeform.company_size.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
                   <input type="hidden" name="id" ng-model="companysizeform.id">
-                  <input type="text" name="company_size" ng-model="companysizeform.company_size" class="form-control custom-textbox" placeholder="Give it a Company empoyee size"  ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
+                  <input type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/"  class="form-control custom-textbox" placeholder="Give it a Company empoyee size"  ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase">Description</label>
@@ -196,7 +198,7 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_hireanddeparture" ng-if="company_profile_details.hire_rates=='' && company_profile_details.hire_rates_description =='' && company_profile_details.departure_rate==''&& company_profile_details.departure_rate_description">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_hireanddeparture" ng-if="!company_profile_details.hire_rates  && !company_profile_details.departure_rate">
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#chireanddeparture" class="collapsed"  data-toggle="collapse" data-parent="#accordion" >
@@ -211,8 +213,9 @@
               <div class="col-sm-11 col-md-11">
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.hire_rates.$valid}">HIRE RATES</label>
+                  <span ng-if="cpohirerateform.hire_rates.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
                   <input type="hidden" name="id" ng-model="hirerateform.id">
-                  <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="Give it a Hire rates size" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
+                  <input type="text"  name="hire_rates" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="Give it a Hire rates size" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase">Description</label>
@@ -220,7 +223,8 @@
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.departure_rate.$valid}">Departure Rates</label>
-                  <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="Give it a Departure rates size" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
+                  <span ng-if="cpohirerateform.departure_rate.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
+                  <input type="text" name="departure_rate" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="Give it a Departure rates size" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
                 </div>
                 <div class="form-group custom-lider-form-group">
                   <label class="text-uppercase">Description</label>
@@ -235,7 +239,7 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_averagesalary" ng-if="company_profile_details.average_entry_level_sal==''">
+      <div class="panel panel-default custom-accordion-panel-default" id="company_profile_averagesalary" ng-if="!company_profile_details.average_entry_level_sal">
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#caveragesalary" class="collapsed"  data-toggle="collapse" data-parent="#accordion" >
@@ -296,7 +300,7 @@
 </form>
 </div>
 </div> -->
-<div class="panel panel-default custom-accordion-panel-default" id="company_profile_growthrate" ng-if="company_profile_details.growth_rate==''&& company_profile_details.growth_rate_description==''">
+<div class="panel panel-default custom-accordion-panel-default" id="company_profile_growthrate" ng-if="!company_profile_details.growth_rate">
   <div class="panel-heading custom-accordion-heading">
     <h4 class="panel-title custom-accordion-title">
       <a href="#" data-target="#cgrowthrate" class="collapsed"  data-toggle="collapse" data-parent="#accordion" >
@@ -311,8 +315,9 @@
         <div class="col-sm-11 col-md-11">
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase"  ng-class="{'has-success': cpogrowthrateform.growth_rate.$valid}">Growth Rate</label>
+            <span ng-if="cpogrowthrateform.growth_rate.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
             <input type="hidden" name="id" ng-model="growthrateform.id">
-            <input type="text"  name="growth_rate" ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
+            <input type="text"  name="growth_rate" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/"  ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Description</label>
@@ -327,7 +332,7 @@
     </form>
   </div>
 </div>
-<div class="panel panel-default custom-accordion-panel-default" id="company_profile_inverster" ng-if="company_profile_details.investor_confidence =='' && company_profile_details.investor_conf_description==''">
+<div class="panel panel-default custom-accordion-panel-default" id="company_profile_inverster" ng-if="!company_profile_details.investor_confidence">
   <div class="panel-heading custom-accordion-heading">
     <h4 class="panel-title custom-accordion-title">
       <a href="#" data-target="#cinverster"  data-toggle="collapse" data-parent="#accordion" >
@@ -342,8 +347,9 @@
         <div class="col-sm-11 col-md-11">
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase" ng-class="{'has-success': cpoinvestorform.investor_confidence.$valid}">Invester confidence</label>
+            <span ng-if="cpoinvestorform.investor_confidence.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
             <input type="hidden" name="id" ng-model="investorform.id">
-            <input type="text" name="investor_confidence" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
+            <input type="text" name="investor_confidence" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Description</label>
@@ -358,7 +364,7 @@
     </form>
   </div>
 </div>
-<div class="panel panel-default custom-accordion-panel-default" id="company_profile_location" ng-if="company_profile_details.contacts[0].address_1==''&&company_profile_details.contacts[0].address_2==''&& company_profile_details.contacts[0].city==''&&company_profile_details.contacts[0].state==''&&company_profile_details.contacts[0].country==''&&company_profile_details.contacts[0].zip_code==''&&company_profile_details.contacts[0].contact_no==''&&company_profile_details.contacts[0].e_mail==''">
+<div class="panel panel-default custom-accordion-panel-default" id="company_profile_location" ng-if="company_profile_details.contacts.length == 0">
   <div class="panel-heading custom-accordion-heading">
     <h4 class="panel-title custom-accordion-title">
       <a href="#" data-target="#clocation"  data-toggle="collapse" data-parent="#accordion" >
