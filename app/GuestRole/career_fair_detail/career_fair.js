@@ -13,6 +13,7 @@ FirstSynch.controller("careerfair_detail" ,function ($scope, guest_token, $http,
       })
       .then(function successCallback(response){
           $scope.careerfair_details = response.data;
+          window.scrollTo(0, 0);
       }, function errorCallback(response){
           console.log("Unable to perform get career fair details");
   });

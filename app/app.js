@@ -520,9 +520,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       });
     }
     else if($scope.domainsearch == 'deny' && allow_domainsearch) {
-        $('#domain_search').val('0');
-        $('.domainsearch_remove').hide();
-        $('.domainsearch_show').show();
+         $('#domain_search').val('0');
+         $('.domainsearch_remove').hide();
+         $('.domainsearch_show').show();
     }
     if(allow_domainsearch == 0){
     //   if(file){
