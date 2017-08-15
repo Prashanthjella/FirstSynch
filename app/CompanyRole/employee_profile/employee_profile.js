@@ -269,7 +269,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
       data: { employee : $scope.projectsform.id,title : $scope.projectsform.title,start_date : $scope.projectsform.start_date,completation_date : $scope.projectsform.completation_date,project_description : $scope.projectsform.project_description,image:projectimage},
       method:'POST',
     });
-    projectupload.then(function(resp) {
+    projectupload.then(function(response) {
       // file is uploaded successfully
       $('#student_profile_projects').fadeOut();
       $scope.employee_profile_details.project=$scope.employee_profile_details.project.concat(response.data);
