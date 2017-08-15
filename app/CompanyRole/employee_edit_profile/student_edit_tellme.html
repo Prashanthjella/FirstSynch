@@ -5,8 +5,8 @@
     <div class="row custom-row-15">
 
       <div class="col-sm-6 col-md-5">
-        <h2 class="h2 custom-sub-heading-02">Making a video</h2>
-        <h5>About 1 minute</h5>
+        <h1 class="custom-h1-01">Making a video</h1>
+        <h5 class="h5-video">About 1 minute</h5>
         <p class="details-content">Break the video into small pieces no longer
           than 10-20 seconds with a story about yourself. Idally, the video shout not last more than a minute, so try to make
           a story about yourself in one minue</p>
@@ -37,12 +37,12 @@
       <section class="page-section page-section-templates">
         <div class="page-header custom-page-header">
           <div class="pull-left">
-            <h2 class="h2 custom-h2">Templates</h2>
+            <h3 class="h3 custom-h3">Templates</h3>
           </div>
         </div>
 
-        <div class="row row-10px">
-          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+        <div class="row custom-row-10">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="thumbnail thumbnail-templates create-template text-center fileContainer">
                 <span class="glyphicon glyphicon-plus"></span>
                 <h5 class="h5 custom-h5-01">
@@ -52,7 +52,7 @@
             </div>
           </div>
 
-          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 student_uploaded_video{{$index}}" ng-repeat="vid in video_list">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 student_uploaded_video{{$index}}" ng-repeat="vid in video_list">
             <div class="thumbnail thumbnail-templates">
               <div class="icon-template-action" style="z-index: 9;display:none;">
                 <span class="glyphicon glyphicon-pencil circle-icon" ng-click="videoEditPopup(vid.id)"></span>

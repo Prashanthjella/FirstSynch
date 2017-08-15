@@ -169,7 +169,9 @@ $(this).addClass('active');
   });
   $(document).on('click','.company_edit_profile_side_child_title',function(){
     $('.company_edit_profile_side_child_collapsable').hide();
+	$('.accordion-toggle').removeClass('active');
     $(this).parents('.company_edit_profile_side_parent').find('.company_edit_profile_side_child_collapsable').toggle();
+	$(this).addClass('active');
   });
 
   $(document).on('click','.student_edit_profile_inner_title',function(){

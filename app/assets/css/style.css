@@ -246,6 +246,13 @@ h2.custom-h2-04 {
 .sidebar-h6 {
 	margin-bottom: 0px;
 	margin-top: 0;
+	opacity: 0.3;
+  font-family: OpenSans;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #0d0d0d;
 }
 .custom-navbar-default .navbar-nav > li {
 	margin: 0 10px;
