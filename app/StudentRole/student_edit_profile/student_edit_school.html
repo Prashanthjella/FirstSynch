@@ -10,7 +10,6 @@
                 <th>Year Started</th>
                 <th>Graduated Year</th>
                 <th>GPA</th>
-                <th>GPA Rating</th>
                 <th>Action</th>
             </tr>
 
@@ -21,13 +20,16 @@
                 <td>{{ education.year_graduated }}</td>
                 <td>{{ education.major }}</td>
                 <td>{{ education.gpa }}</td>
-                <td>{{ education.gpa_rating }}</td>
-                <td><a ng-click="editeducation( education )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>  <a ng-click="removeeducation( education )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
+                <td>
+                  <a ng-click="editeducation( education )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                  <a href="#" ng-confirm-click="Are you sure to delete your education details?" confirmed-click="removeeducation(education.id)" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
             </tr>
 
         </table>
         <!-- <hr class="hr-line-lidership"> -->
         <form name="seeducationform" ng-submit="educationsubmit()">
+            <input type="hidden" ng-model="educationform.existing_id" name="existing_id">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-12">
@@ -51,10 +53,6 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">GPA</label>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.gpa" placeholder="GPA">
-                    </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">GPA Rating</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
                     </div>
                     <p class="edt-pro-btn-group">
                 <input type="submit" value="Submit" ng-disabled="seeducationform.school_name.$invalid || seeducationform.major.$invalid || seeducationform.year_started.$invalid || seeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />

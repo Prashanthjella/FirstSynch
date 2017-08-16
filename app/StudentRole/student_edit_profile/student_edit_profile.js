@@ -514,6 +514,21 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         gpa_rating : ""
 
     };
+
+    $scope.removeeducation = function(id){
+        $http.delete(apiUrl+"api/v1/student/api/v1/educationdetails/"+id+"/")
+            .then(function successCallback(response){
+              $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
+                  .then(function successCallback(response){
+                      $scope.educationform = response.data;
+                  }, function errorCallback(response){
+                      console.log("Unable to perform get student education details");
+              });
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+    };
+
     $scope.educationedit = function(){
         $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -531,24 +546,44 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             year_graduated : $scope.educationform.year_graduated,
             major : $scope.educationform.major,
             gpa : $scope.educationform.gpa,
-            gpa_rating : $scope.educationform.gpa_rating
         }
-        alert(JSON.stringify(education_data));
-        $http.post(apiUrl+"api/v1/student/api/v1/educationdetails/",JSON.stringify(education_data))
-        .then(function (response) {
-            $scope.educationmessage = 'Successfully updated';
-            $scope.educationform.splice(0, 0, response.data);
-            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-        });
+        if ($scope.educationform.existing_id){
+          $http.patch(apiUrl+"api/v1/student/api/v1/educationdetails/"+$scope.educationform.existing_id+"/",JSON.stringify(education_data))
+          .then(function (response) {
+              $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
+                  .then(function successCallback(response){
+                      $scope.educationform = response.data;
+                  }, function errorCallback(response){
+                      console.log("Unable to perform get student education details");
+              });
+              $scope.educationmessage = 'Successfully updated';
+              $scope.educationform.splice(0, 0, response.data);
+              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+          });
+        }else{
+          $http.post(apiUrl+"api/v1/student/api/v1/educationdetails/",JSON.stringify(education_data))
+          .then(function (response) {
+              $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
+                  .then(function successCallback(response){
+                      $scope.educationform = response.data;
+                  }, function errorCallback(response){
+                      console.log("Unable to perform get student education details");
+              });
+              $scope.educationmessage = 'Successfully updated';
+              $scope.educationform.splice(0, 0, response.data);
+              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+          });
+      }
     };
+
     $scope.editeducation = function(education){
         $scope.educationform.user = education.user;
+        $scope.educationform.existing_id = education.id;
         $scope.educationform.school_name = education.school_name;
         $scope.educationform.year_started = education.year_started;
         $scope.educationform.year_graduated= education.year_graduated
         $scope.educationform.major = education.major;
         $scope.educationform.gpa = education.gpa;
-        $scope.educationform.gpa_rating = education.gpa_rating;
     };
 
     //student edit profile - leadership role
