@@ -1,8 +1,8 @@
 <div id="basic_profile" class="tab-pane tabe-pane-lidarship  profile-edit-neg-20  student_edit_profile_main_content_child" ng-controller="studentbasicprofileupload">
   <div class="contanier-inside">
-    <div class="text-center alert alert-success" ng-if="basicprofilemessage">{{basicprofilemessage}}</div>
+    <div class="text-center alert alert-success success_top_act" ng-if="basicprofilemessage">{{basicprofilemessage}}</div>
     <h1 class="custom-h1-01 custom-h1-btm-space-55">Basic Profile</h1>
-    <form name="basicprofile_form" ng-submit="basicprofilesubmit(basicprofileform.profile_picture)" enctype="multipart/form-data">
+    <form name="basicprofile_form" ng-submit="basicprofilesubmit(basicprofileform.profile_picture_new)" enctype="multipart/form-data">
       <div class="row">
         <div class="col-sm-1 col-md-1 col-lidership-md-1"> </div>
         <div class="col-sm-12 col-md-12">
@@ -54,36 +54,42 @@
 
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Facebook</label>
-            <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
+            <span ng-if="basicprofileform.facebook_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+            <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Linkedin</label>
+            <span ng-if="basicprofileform.linkedin_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
             <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Twitter</label>
+            <span ng-if="basicprofileform.twitter_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
             <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Github</label>
+            <span ng-if="basicprofileform.github_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
             <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="twitter_url" placeholder="Please provide your Github URL">
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Stackoverflow</label>
+            <span ng-if="basicprofileform.stackoverflow_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
             <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="twitter_url" placeholder="Please provide your Stackoverflow URL">
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Website</label>
-            <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
+            <span ng-if="basicprofileform.website.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+            <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">Profile Picture</label>
-            <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" >
-            <img height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
+            <input type="file" ngf-select ng-model="basicprofileform.profile_picture_new" name="file" accept="image/*" >
+            <img ng-if="basicprofileform.profile_picture" height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
           </div>
           <div class="form-group custom-lider-form-group">
             <label class="text-uppercase">About me</label>
-            <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
+            <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="500"></textarea>
           </div>
           <!--<div class="form-group custom-lider-form-group">
           <label class="text-uppercase">Profile Image</label>
@@ -91,20 +97,20 @@
           onchange="angular.element(this).scope().getFileDetails(this)" />
           <img src="basicprofileform.profile_picture"/>
         </div>-->
-   
+
       <!-- <hr class="hr-line-lidership"> -->
-      
+
       <p class="edt-pro-btn-group">
     <input type="submit" ng-disabled="basicprofile_form.first_name.$invalid || basicprofile_form.last_name.$invalid || basicprofile_form.dob.$invalid || basicprofile_form.gender.$invalid " value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
     </p>
-      
+
         <!-- <div class="row">
     <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
     <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
   </div> -->
    </div>
     </div>
-     
+
 
 </form>
 </div>

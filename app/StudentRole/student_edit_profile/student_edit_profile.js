@@ -69,7 +69,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             fd.append("description", angular.element('#description')[0].value);
             fd.append("student_video", 'True');
             fd.append("active", 'True');
-            fd.append("created_by", $rootScope.stud_id);
+            fd.append("created_by", $rootScope.user_id);
             if(angular.element('#published-allow')[0].value == 'allow'){
               fd.append("published", 'True');
             }else{
@@ -525,7 +525,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     };
     $scope.educationsubmit = function(){
         var education_data = {
-            student : $scope.educationform.user,
+            student : $rootScope.stud_id,
             school_name : $scope.educationform.school_name,
             year_started : $scope.educationform.year_started,
             year_graduated : $scope.educationform.year_graduated,
@@ -533,12 +533,12 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             gpa : $scope.educationform.gpa,
             gpa_rating : $scope.educationform.gpa_rating
         }
-        //alert(JSON.stringify(education_data));
+        alert(JSON.stringify(education_data));
         $http.post(apiUrl+"api/v1/student/api/v1/educationdetails/",JSON.stringify(education_data))
         .then(function (response) {
             $scope.educationmessage = 'Successfully updated';
             $scope.educationform.splice(0, 0, response.data);
-
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
     $scope.editeducation = function(education){
@@ -667,7 +667,6 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
             github_url:$scope.basicprofileform.github_url,
             stackoverflow_url:$scope.basicprofileform.stackoverflow_url,
             about_me:$scope.basicprofileform.about_me
-
         };
         if(file){
             file.upload = Upload.upload({
@@ -679,7 +678,16 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
         // alert(JSON.stringify(data));
         $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
         .then(function (response) {
+            $http.get(apiUrl+"api/v1/student/get_student_details/"+$rootScope.user_id+"/")
+                .then(function successCallback(response){
+                    $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
+                    $rootScope.profileimage = response.data[0].profile_picture;
+                }, function errorCallback(response){
+                    console.log("Unable to perform get student basic profile details");
+            });
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             $scope.basicprofilemessage = 'Successfully updated';
+
         });
     };
     $scope.$watch('$viewContentLoaded', function(){
