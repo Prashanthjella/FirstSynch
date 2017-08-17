@@ -944,7 +944,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
       jQuery('.search_results_career_page_act').empty();
       jQuery('.search_results_companies_act').empty();
       jQuery('.search_results_student_act').empty();
-      if(!response.data.careerfair && !response.data.company && !response.data.student && !response.data.video){
+      if((response.data.student && $rootScope.student_login && !response.data.careerfair && !response.data.company && !response.data.video) || (response.data.company && $rootScope.company_login && !response.data.careerfair && !response.data.student && !response.data.video) || (!response.data.careerfair && !response.data.company && !response.data.student && !response.data.video)){
         $('.video_filter_search_result_empty').removeClass('hide');
       }
       if(response.data.careerfair){
@@ -971,7 +971,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
       else{
         jQuery('.search_results_career_page_container_act').hide();
       }
-      if(response.data.company){
+      if(response.data.company && !$rootScope.company_login){
         jQuery('.search_results_companies_container_act').show();
         jQuery.each(response.data.company, function(i) {
           var companies_result ='<div class="media custom-media">'
