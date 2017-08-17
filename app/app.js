@@ -63,6 +63,9 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
     if(window.sessionStorage.getItem("company_userid")){
       $rootScope.company_userid = window.sessionStorage.getItem("company_userid");
     }
+    if(window.sessionStorage.getItem("request_member_id")){
+      $rootScope.request_member_id = window.sessionStorage.getItem("request_member_id");
+    }
     if(window.sessionStorage.getItem("companyedit_id")){
       $rootScope.companyedit_id = window.sessionStorage.getItem("companyedit_id");
     }
@@ -250,6 +253,9 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
       if(response.data.company_id){
         $rootScope.company_userid = response.data.company_id;
         $window.sessionStorage.setItem('company_userid', response.data.company_id);
+      }else if(response.data.request_member_id){
+        $rootScope.request_member_id = response.data.request_member_id;
+        $window.sessionStorage.setItem('request_member_id', response.data.request_member_id);
       }
       jQuery(".modal-backdrop.in").hide();
       jQuery('#logIn').modal('hide');
@@ -698,6 +704,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       $window.sessionStorage.removeItem('token');
       $window.sessionStorage.removeItem('profileimage');
       $window.sessionStorage.removeItem('usertype');
+      $window.sessionStorage.removeItem('request_member_id');
       $rootScope.guest_login = true;
       $rootScope.dashboard = true;
       $rootScope.dashboardc = true;
@@ -706,6 +713,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id
+      delete $rootScope.request_member_id
       $location.path( "/" );
     },
     function errorCallback(data, status, headers, config) {
@@ -713,9 +721,11 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       $window.sessionStorage.removeItem('token');
       $window.sessionStorage.removeItem('profileimage');
       $window.sessionStorage.removeItem('usertype');
+      $window.sessionStorage.removeItem('request_member_id');
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id
+      delete $rootScope.request_member_id
       $location.path( "/" );
     });
   };// user logout - function end

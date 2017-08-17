@@ -6,27 +6,46 @@ var FirstSynch = angular.module("StudentcareerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("student_careerfair_detail" ,function ($scope, $http,$routeParams,apiUrl,$rootScope) {
+FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl,$rootScope) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
-        headers: {'Authorization' : 'Token '+$rootScope.token_id}
-      })
-      .then(function successCallback(response){
-          $scope.careerfair_details = response.data;
-          $scope.availability_followup = false;
-          $.each(response.data.followed, function(i,obj) {
-              if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_followup = true;}
-            });
-      }, function errorCallback(response){
-          console.log("Unable to perform get career fair details");
-  });
+  $scope.initCareerFairDetails=function(){
+      $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
+            headers: {'Authorization' : 'Token '+$rootScope.token_id}
+          })
+          .then(function successCallback(response){
+              $scope.careerfair_details = response.data;
+              $scope.availability_followup = false;
+              $scope.todaydate = $filter('date')(new Date(), 'MM/dd/yy');
+              $scope.careerfair_date = $filter('date')(response.data.start_time, 'MM/dd/yy');
+              if ($scope.todaydate <= $scope.careerfair_date){
+                $scope.request_follow_closed = true;
+              }
+              $.each(response.data.followed, function(i,obj) {
+                  if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_followup = true;}
+              });
+          }, function errorCallback(response){
+              console.log("Unable to perform get career fair details");
+      });
+   };
 
+  //Career Fair follow
   $scope.student_career_follow = function(careerid){
       $http.get(apiUrl+"api/v1/career_fairs/career_fair_follow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
           .then(function successCallback(response){
-              $scope.availability_followup = response.data;
+              $scope.initCareerFairDetails();
+              $scope.availability_requested = true;
           }, function errorCallback(response){
-              console.log("Unable to perform get career fair details");
+              console.log("Unable to perform follow action");
+      });
+  };
+
+  //Career Fair unfollow
+  $scope.student_career_unfollow = function(careerid){
+      $http.get(apiUrl+"api/v1/career_fairs/career_fair_unfollow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
+          .then(function successCallback(response){
+              $scope.initCareerFairDetails();
+          }, function errorCallback(response){
+              console.log("Unable to perform unfollow action");
       });
   };
 

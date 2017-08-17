@@ -7,39 +7,46 @@ var FirstSynch = angular.module("CompanycareerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("company_careerfair_detail" ,function ($scope, $http,$routeParams,apiUrl, $rootScope) {
+FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl, $rootScope) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
-    headers: {'Authorization' : 'Token '+$rootScope.token_id}
-  })
-  .then(function successCallback(response){
-    $scope.careerfair_details = response.data;
-    $scope.availability_followup = false;
-    $scope.availability_requested = false;
-    $.each(response.data.followed, function(i,obj) {
-      if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_followup = true;}
-    });
-    $.each(response.data.request_member, function(i,obj) {
-      if(parseInt(obj.request_member) == parseInt($rootScope.companyedit_id)){
-        $scope.availability_requested = true;
-      }
-    });
-  }, function errorCallback(response){
-    console.log("Unable to perform get career fair details");
-  });
-  $scope.company_career_follow = function(careerid){
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_follow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
+  $scope.initCareerFairDetails=function(){
+    $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
+      headers: {'Authorization' : 'Token '+$rootScope.token_id}
+    })
     .then(function successCallback(response){
-      $scope.availability_followup = true;
+      $scope.careerfair_details = response.data;
+      $scope.availability_followup = false;
+      $scope.availability_requested = false;
+      $scope.todaydate = $filter('date')(new Date(), 'MM/dd/yy');
+      $scope.careerfair_date = $filter('date')(response.data.start_time, 'MM/dd/yy');
+      if ($scope.todaydate <= $scope.careerfair_date){
+        $scope.request_membership_closed = true;
+      }
+      $.each(response.data.request_member, function(i,obj) {
+        if(parseInt(obj.request_member) == parseInt($rootScope.request_member_id)){
+          $scope.availability_requested = true;
+        }
+      });
     }, function errorCallback(response){
       console.log("Unable to perform get career fair details");
     });
   };
+
+
+  $scope.company_career_follow = function(careerid){
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_follow/"+careerid+"/",{headers: {'Authorization' : 'Token '+$rootScope.token_id}})
+    .then(function successCallback(response){
+      $scope.initCareerFairDetails();
+    }, function errorCallback(response){
+      console.log("Unable to perform get career fair details");
+    });
+  };
+
   $scope.company_career_request_member = function(careerid){
-    $http.post(apiUrl+"api/v1/career_fairs/api/v1/requestedmember/",{'career_fair':careerid, 'request_member':$rootScope.companyedit_id},{
+    $http.post(apiUrl+"api/v1/career_fairs/api/v1/add_requested_member/"+careerid+"/",{'career_fair':careerid},{
       headers: {'Authorization' : 'Token '+$rootScope.token_id }
     }).then(function successCallback(response){
-      $scope.availability_requested = true;
+      $scope.initCareerFairDetails();
     }, function errorCallback(response){
       console.log("Unable to perform post requested membership");
     });
