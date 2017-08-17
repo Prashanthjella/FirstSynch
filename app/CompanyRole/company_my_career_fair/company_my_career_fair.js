@@ -6,8 +6,14 @@ var FirstSynch = angular.module("CCompanyRequest", ["ngRoute"]);
 
 //Company My Career Fair page
 FirstSynch.controller("company_my_career_fair" ,function ($scope, $http, apiUrl, $rootScope) {
+    if ($rootScope.request_member_id){
+      $scope.companypk = $rootScope.request_member_id;
+    }
+    if($rootScope.company_userid){
+      $scope.companypk = $rootScope.company_userid;
+    }
 
-    $http.get(apiUrl+"api/v1/career_fairs/company_career_fair/"+$rootScope.company_userid+"/",{
+    $http.get(apiUrl+"api/v1/career_fairs/company_career_fair/"+$scope.companypk+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
     }).then(function successCallback(response){
             $scope.my_career_fair = response.data;

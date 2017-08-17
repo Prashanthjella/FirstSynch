@@ -22,11 +22,17 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
       if ($scope.todaydate <= $scope.careerfair_date){
         $scope.request_membership_closed = true;
       }
-      $.each(response.data.request_member, function(i,obj) {
-        if(parseInt(obj.request_member) == parseInt($rootScope.request_member_id)){
-          $scope.availability_requested = true;
-        }
-      });
+      if ($rootScope.request_member_id){
+        $scope.companypk = $rootScope.request_member_id;
+      }
+      if($rootScope.company_userid){
+        $scope.companypk = $rootScope.company_userid;
+      }
+        $.each(response.data.request_member, function(i,obj) {
+          if(parseInt(obj.request_member) == $scope.companypk){
+            $scope.availability_requested = true;
+          }
+        });
     }, function errorCallback(response){
       console.log("Unable to perform get career fair details");
     });

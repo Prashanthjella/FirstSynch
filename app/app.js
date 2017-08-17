@@ -705,6 +705,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       $window.sessionStorage.removeItem('profileimage');
       $window.sessionStorage.removeItem('usertype');
       $window.sessionStorage.removeItem('request_member_id');
+      $window.sessionStorage.removeItem('company_userid');
       $rootScope.guest_login = true;
       $rootScope.dashboard = true;
       $rootScope.dashboardc = true;
@@ -714,6 +715,7 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id
       delete $rootScope.request_member_id
+      delete $rootScope.company_userid
       $location.path( "/" );
     },
     function errorCallback(data, status, headers, config) {
