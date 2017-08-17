@@ -6,13 +6,18 @@ var FirstSynch = angular.module("careerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("careerfair_detail" ,function ($scope, guest_token, $http,$routeParams,apiUrl) {
+FirstSynch.controller("careerfair_detail" ,function ($filter, $scope, guest_token, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
         headers: {'Authorization' : 'Token '+guest_token}
       })
       .then(function successCallback(response){
           $scope.careerfair_details = response.data;
+          $scope.todaydate = $filter('date')(new Date(), 'MM/dd/yy');
+          $scope.careerfair_date = $filter('date')(response.data.start_time, 'MM/dd/yy');
+          if ($scope.todaydate <= $scope.careerfair_date){
+            $scope.request_follow_closed = true;
+          }
           window.scrollTo(0, 0);
       }, function errorCallback(response){
           console.log("Unable to perform get career fair details");
