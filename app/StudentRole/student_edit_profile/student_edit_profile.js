@@ -132,7 +132,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
 
 
     // student edit profile - hobbies
-    $scope.hobbyform = {
+    $scope.hobbyformadd = {
         user:"",
         name : ""
     };
@@ -145,12 +145,17 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         $http.get(apiUrl+"api/v1/student/api/v1/get_hobby_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.hobbyform = response.data;
-                $scope.hobbyform.stud_id = $rootScope.stud_id;
+                $scope.hobbyformadd.stud_id = $rootScope.stud_id;
                 //alert(JSON.stringify(response.data));
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
+    $scope.student_edit_profile_hobbies_reset = function(){
+        $scope.hobbyformadd.name = "";
+        $scope.hobbyformadd.description = "";
+        $scope.hobbyformadd.image = "";
+    }
     $scope.hobbyupdatesubmit = function(id,student,name,description,hobbiesimag){
         if(hobbiesimag){
             var data = {student:student,image: hobbiesimag,name:name,description:description};
@@ -164,7 +169,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         }).then(function(resp) {
           // file is uploaded successfully
           $scope.hobbiesmessage = 'Successfully updated';
-          $scope.hobbyform.splice(0, 0, response.data);
+          $scope.hobbies_edit();
           $scope.hobbyform.name = "";
           $scope.hobbyform.description = "";
         }, function(resp) {
@@ -187,14 +192,15 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         // });
         Upload.upload({
             url: apiUrl+"api/v1/student/api/v1/hobbyinfo/",
-            data: {student:$scope.hobbyform.stud_id,image: hobbiesimag,name:$scope.hobbyform.name,description:$scope.hobbyform.description},
+            data: {student:$scope.hobbyformadd.stud_id,image: hobbiesimag,name:$scope.hobbyformadd.name,description:$scope.hobbyformadd.description},
             method:'POST',
         }).then(function(resp) {
           // file is uploaded successfully
           $scope.hobbiesmessage = 'Successfully updated';
-          $scope.hobbyform.splice(0, 0, response.data);
-          $scope.hobbyform.name = "";
-          $scope.hobbyform.description = "";
+          $scope.hobbies_edit();
+          $scope.hobbyformadd.name = "";
+          $scope.hobbyformadd.description = "";
+          $scope.hobbyformadd.image = "";
         }, function(resp) {
           // handle error
         }, function(evt) {
@@ -240,6 +246,9 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get student profile details");
         });
     };
+    $scope.student_edit_profile_character_reset = function(){
+        $scope.character_edit();
+    }
     $scope.charactersubmit = function(){
         $scope.selectchar = [];
         angular.forEach($scope.selectedCharacter, function (selected, characters) {
@@ -247,17 +256,18 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 $scope.selectchar.push({student:$rootScope.stud_id,character:characters});
             }
         });
-
-        $http.delete(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectedcharid))
-        .then(function (response) {
-            $scope.charactermessage = '';
-        }, function() {
-            return true; // return anything that's not undefined (and not a `throw()`) to force the chain down the success path at the following then().
-        }).then(function() {
-            $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
+        angular.forEach($scope.selectedcharid, function (characterid) {
+            $http.delete(apiUrl+"api/v1/student/api/v1/studentcharacteristic/"+characterid.id+"/")
             .then(function (response) {
-                $scope.charactermessage = 'Successfully updated';
+                $scope.charactermessage = '';
             });
+        });
+
+
+        $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
+        .then(function (response) {
+            $scope.charactermessage = 'Successfully updated';
+            $scope.character_edit();
         });
         //alert(JSON.stringify($scope.selectedcharid));
     };
@@ -641,7 +651,7 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
 
         });
     };
-
+    //$scope.student_edit_profile_reset = fu
     $scope.basicprofileform = {
         id:"",
         user:"",
@@ -660,28 +670,34 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
         about_me:""
     };
     // student basic profile get information
-    $http.get(apiUrl+"api/v1/student/get_student_details/"+$rootScope.user_id+"/")
-        .then(function successCallback(response){
-            $rootScope.stud_id = response.data[0].id;
-            $scope.basicprofileform.id = response.data[0].id;
-            $scope.basicprofileform.user = response.data[0].user;
-            $scope.basicprofileform.first_name = response.data[0].first_name;
-            $scope.basicprofileform.last_name = response.data[0].last_name;
-            $scope.basicprofileform.dob = response.data[0].dob;
-            $scope.basicprofileform.gender = response.data[0].gender;
-            $scope.basicprofileform.category = response.data[0].category;
-            $scope.basicprofileform.facebook_url = response.data[0].facebook_url;
-            $scope.basicprofileform.linkedin_url = response.data[0].linkedin_url;
-            $scope.basicprofileform.twitter_url = response.data[0].twitter_url;
-            $scope.basicprofileform.website = response.data[0].website;
-            $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
-            $scope.basicprofileform.github_url = response.data[0].github_url;
-            $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
-            $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
-            $scope.basicprofileform.about_me = response.data[0].about_me;
-        }, function errorCallback(response){
-            console.log("Unable to perform get student basic profile details");
-    });
+    $scope.getStudentBasicProfileDetials = function(){
+        $http.get(apiUrl+"api/v1/student/get_student_details/"+$rootScope.user_id+"/")
+            .then(function successCallback(response){
+                $rootScope.stud_id = response.data[0].id;
+                $scope.basicprofileform.id = response.data[0].id;
+                $scope.basicprofileform.user = response.data[0].user;
+                $scope.basicprofileform.first_name = response.data[0].first_name;
+                $scope.basicprofileform.last_name = response.data[0].last_name;
+                $scope.basicprofileform.dob = response.data[0].dob;
+                $scope.basicprofileform.gender = response.data[0].gender;
+                $scope.basicprofileform.category = response.data[0].category;
+                $scope.basicprofileform.facebook_url = response.data[0].facebook_url;
+                $scope.basicprofileform.linkedin_url = response.data[0].linkedin_url;
+                $scope.basicprofileform.twitter_url = response.data[0].twitter_url;
+                $scope.basicprofileform.website = response.data[0].website;
+                $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
+                $scope.basicprofileform.github_url = response.data[0].github_url;
+                $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
+                $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
+                $scope.basicprofileform.about_me = response.data[0].about_me;
+            }, function errorCallback(response){
+                console.log("Unable to perform get student basic profile details");
+        });
+    };
+
+    $scope.student_edit_profile_reset = function(){
+        $scope.getStudentBasicProfileDetials();
+    };
 
     $scope.basicprofilesubmit = function(file){
       //var pro_image = new FormData();
