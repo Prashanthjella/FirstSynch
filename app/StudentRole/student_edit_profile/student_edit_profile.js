@@ -207,47 +207,62 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
           // progress notify
         });
     };
-    // $scope.secharacterbtndisable =  false;
-    // $scope.seshouldDisable = function(key) {
-    //    if(!$scope.selectedCharacter[key]) {
-    //       var count = 0;
-    //       $scope.seshouldDisablecount = 0;
-    //       Object.keys($scope.selectedCharacter).forEach(function(key) {
-    //          if($scope.selectedCharacter[key]) {
-    //              $scope.seshouldDisablecount++;
-    //             ++count;
-    //          }
-    //       });
-    //       if(count > 0){
-    //           $scope.secharacterbtndisable = true;
-    //       }
-    //       else{
-    //           $scope.secharacterbtndisable = false;
-    //       }
-    //       if(count >= 5) {
-    //          return true;
-    //       }
-    //    }
-    //    return false;
-    // };
+    $scope.secharacterbtndisable =  false;
     $scope.selectedCharacter = {};
-    $scope.selectedcharid = [];
+    //$scope.selectedcharid = [];
+    $scope.availablecharacter = [
+        {'charac':'Realistic'},
+        {'charac':'Investigative'},
+        {'charac':'Artistic'},
+        {'charac':'Social'},
+        {'charac':'Enterprising'},
+        {'charac':'Conventional'},
+        {'charac':'Rule Follower'},
+        {'charac':'Self-Motivated'},
+        {'charac':'Responsibility'},
+        {'charac':'Accustomed to Routine'},
+        {'charac':'Learned Study Skills'},
+        {'charac':'Love of Reading'}
+    ]
+
     $scope.character_edit = function(){
         $http.get(apiUrl+"api/v1/student/get_studentcharacteristics_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
-                $scope.selection = [];
+                //$scope.selection = [];
                 $scope.seshouldDisablecount = 0;
                 angular.forEach(response.data, function (characters) {
-                    $scope.selection.push(characters.character);
-                    $scope.selectedcharid.push({id:characters.id});
+                    //$scope.selection.push(characters.character);
+                    $scope.selectedCharacter[characters.character] = true;
+                    //$scope.selectedcharid.push({id:characters.id});
                     $scope.seshouldDisablecount++;
                 });
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
+        if($scope.seshouldDisablecount > 0){
+            $scope.secharacterbtndisable = true;
+        }
     };
     $scope.student_edit_profile_character_reset = function(){
         $scope.character_edit();
+    }
+    $scope.charactercheck = function(event,charackey){
+        if(event.target.checked){
+            $scope.seshouldDisablecount++;
+        }
+        else{
+            $scope.seshouldDisablecount--;
+        }
+        if($scope.seshouldDisablecount > 5){
+            $scope.selectedCharacter[charackey] = false;
+            $scope.seshouldDisablecount--;
+        }
+        if($scope.seshouldDisablecount > 0){
+            $scope.secharacterbtndisable = true;
+        }
+        else{
+            $scope.secharacterbtndisable = false;
+        }
     }
     $scope.charactersubmit = function(){
         $scope.selectchar = [];
@@ -256,46 +271,67 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 $scope.selectchar.push({student:$rootScope.stud_id,character:characters});
             }
         });
-        angular.forEach($scope.selectedcharid, function (characterid) {
-            $http.delete(apiUrl+"api/v1/student/api/v1/studentcharacteristic/"+characterid.id+"/")
-            .then(function (response) {
-                $scope.charactermessage = '';
-            });
-        });
-
 
         $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
         .then(function (response) {
             $scope.charactermessage = 'Successfully updated';
             $scope.character_edit();
         });
-        //alert(JSON.stringify($scope.selectedcharid));
+        //alert(JSON.stringify($scope.selectchar));
     };
     $scope.sewhatiamlookingbtndisable =  false;
-    $scope.sewshouldDisable = function(key) {
-       if(!$scope.whatiamlooking[key]) {
-          var count = 0;
-          $scope.sewshouldDisablecount = 0;
-          Object.keys($scope.whatiamlooking).forEach(function(key) {
-             if($scope.whatiamlooking[key]) {
-                ++count;
-                $scope.sewshouldDisablecount++;
-             }
-          });
-          if(count > 0){
-              $scope.sewhatiamlookingbtndisable = true;
-          }
-          else{
-              $scope.sewhatiamlookingbtndisable = false;
-          }
-          if(count >= 5) {
-             return true;
-          }
-       }
-       return false;
-    };
+    $scope.availablelooking = [
+        {'looking':'A role in a large company'},
+        {'looking':'Build a career'},
+        {'looking':'Career growth'},
+        {'looking':'Explain your motivation'},
+        {'looking':'Extremely productive and creative'},
+        {'looking':'Friendly staff'},
+        {'looking':'High earnings'},
+        {'looking':'Interesting projects'},
+        {'looking':'Learn new things'},
+        {'looking':'Official employment'}
+    ]
     $scope.whatiamlooking = {};
-
+    $scope.what_i_am_edit = function(){
+        $http.get(apiUrl+"api/v1/student/api/v1/get_whatiamlooking_details/"+$rootScope.stud_id+"/")
+            .then(function successCallback(response){
+                //$scope.selection = [];
+                $scope.sewlshouldDisablecount = 0;
+                angular.forEach(response.data, function (looking) {
+                    //$scope.selection.push(characters.character);
+                    $scope.whatiamlooking[looking.whatimlooking] = true;
+                    //$scope.selectedcharid.push({id:characters.id});
+                    $scope.sewlshouldDisablecount++;
+                });
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+        if($scope.sewlshouldDisablecount > 0){
+            $scope.sewhatiamlookingbtndisable = true;
+        }
+    };
+    $scope.student_edit_profile_looking_reset = function(){
+        $scope.what_i_am_edit();
+    }
+    $scope.lookingcheck = function(event,looking){
+        if(event.target.checked){
+            $scope.sewlshouldDisablecount++;
+        }
+        else{
+            $scope.sewlshouldDisablecount--;
+        }
+        if($scope.sewlshouldDisablecount > 5){
+            $scope.whatiamlooking[looking] = false;
+            $scope.sewlshouldDisablecount--;
+        }
+        if($scope.sewlshouldDisablecount > 0){
+            $scope.sewhatiamlookingbtndisable = true;
+        }
+        else{
+            $scope.sewhatiamlookingbtndisable = false;
+        }
+    }
     $scope.whatiamlookingsubmit = function(){
         $scope.selectlook = [];
         angular.forEach($scope.whatiamlooking, function (selected, lookgin) {
@@ -424,7 +460,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         start_date : "",
         leave_date : "",
         job_title : "",
-        job_description : ""
+        job_description : "",
+        editid : 0
     };
     $scope.workhistroyeedit = function(){
         $http.get(apiUrl+"api/v1/student/get_experience_details/"+$rootScope.user_id+"/")
@@ -445,19 +482,37 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             job_description : $scope.workhistroyform.job_description
         }
         // alert(JSON.stringify(workhistroy_data));
-        $http.post(apiUrl+"api/v1/student/api/v1/experiencedetails/",workhistroy_data)
-        .then(function (response) {
-            $scope.workhistroymessage = 'Successfully updated';
-            $scope.workhistroyform.splice(0, 0, response.data);
-        });
+        if($scope.workhistroyform.editid){
+            $http.patch(apiUrl+"api/v1/student/api/v1/experiencedetails/"+$scope.workhistroyform.editid+"/",workhistroy_data)
+            .then(function (response) {
+                $scope.workhistroymessage = 'Successfully updated';
+                $scope.workhistroyeedit();
+            });
+        }
+        else{
+            $http.post(apiUrl+"api/v1/student/api/v1/experiencedetails/",workhistroy_data)
+            .then(function (response) {
+                $scope.workhistroymessage = 'Successfully Added';
+                $scope.workhistroyeedit();
+            });
+        }
+
     };
     $scope.editworkinghistroy = function(workhistroy){
         $scope.workhistroyform.user = workhistroy.user;
+        $scope.workhistroyform.editid = workhistroy.id;
         $scope.workhistroyform.company = workhistroy.company;
         $scope.workhistroyform.start_date = workhistroy.start_date;
         $scope.workhistroyform.leave_date= workhistroy.leave_date;
         $scope.workhistroyform.job_title= workhistroy.job_title
         $scope.workhistroyform.job_description = workhistroy.job_description
+    };
+    $scope.removeWorkinghistrory = function(workhistroyid){
+        $http.delete(apiUrl+"api/v1/student/api/v1/experiencedetails/"+workhistroyid+"/")
+        .then(function (response) {
+            $scope.workhistroymessage = 'Successfully Deleted';
+            $scope.workhistroyeedit();
+        });
     };
 
 
@@ -467,7 +522,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         title : "",
         start_date : "",
         completation_date : "",
-        project_description : ""
+        project_description : "",
+        editid : 0
     };
     $scope.projectsedit = function(){
         $http.get(apiUrl+"api/v1/student/get_project_details/"+$rootScope.user_id+"/")
@@ -479,37 +535,56 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         });
     };
     $scope.projectssubmit = function(projectsimage){
-        // var projects_data = {
-        //     student : $scope.projectform.user,
-        //     title : $scope.projectform.title,
-        //     start_date : $scope.projectform.start_date,
-        //     completation_date : $scope.projectform.completation_date,
-        //     project_description : $scope.projectform.project_description
-        // }
-        // //alert(JSON.stringify(projects_data));
-        // $http.post(apiUrl+"api/v1/student/api/v1/projectdetails/",JSON.stringify(projects_data))
-        // .then(function (response) {
-        //     $scope.personnalskillmessage = 'Successfully updated';
-        //     $scope.projectform.splice(0, 0, response.data);
-        //
-        // });
-        Upload.upload({
-            url: apiUrl+"api/v1/student/api/v1/projectdetails/",
-            data: { student : $scope.projecteditform.user,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description,image:projectsimage},
-            method:'POST',
-        }).then(function(resp) {
-            $scope.projectmessage = 'Successfully updated';
-            //$scope.projecteditform.splice(0, 0, response.data);
-        }, function(resp) {
-        }, function(evt) {
-        });
+
+        if(projectsimage){
+            var projectdata = { student : $scope.projecteditform.user,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description,image:projectsimage}
+        }
+        else{
+            var projectdata = { student : $scope.projecteditform.user,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description}
+        }
+        if(!$scope.projecteditform.editid){
+            Upload.upload({
+                url: apiUrl+"api/v1/student/api/v1/projectdetails/",
+                data: projectdata,
+                method:'POST',
+            }).then(function(resp) {
+                $scope.projectmessage = 'Successfully Added';
+                $scope.projectsedit();
+                //$scope.projecteditform.splice(0, 0, response.data);
+            }, function(resp) {
+            }, function(evt) {
+            });
+        }
+        else{
+            Upload.upload({
+                url: apiUrl+"api/v1/student/api/v1/projectdetails/"+$scope.projecteditform.editid+"/",
+                data: projectdata,
+                method:'PUT',
+            }).then(function(resp) {
+                $scope.projectmessage = 'Successfully updated';
+                $scope.projectsedit();
+                //$scope.projecteditform.splice(0, 0, response.data);
+            }, function(resp) {
+            }, function(evt) {
+            });
+        }
+
     };
     $scope.editproject = function(projects){
+        $scope.projecteditform.editid = projects.id;
+        $scope.projecteditform.project_picture = projects.image;
         $scope.projecteditform.user = projects.user;
         $scope.projecteditform.title = projects.title;
         $scope.projecteditform.start_date = projects.start_date;
         $scope.projecteditform.completation_date= projects.completation_date;
         $scope.projecteditform.project_description = projects.project_description;
+    };
+    $scope.removeprojects = function(projectsid){
+        $http.delete(apiUrl+"api/v1/student/api/v1/projectdetails/"+projectsid+"/")
+        .then(function (response) {
+            $scope.projectmessage = 'Successfully Deleted';
+            $scope.projectsedit();
+        });
     };
 
 
@@ -521,7 +596,6 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         year_graduated : "",
         major : "",
         gpa : "",
-        gpa_rating : ""
 
     };
 
@@ -600,7 +674,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     $scope.leadershipform = {
         student:"",
         leadership_role : "",
-        description : ""
+        description : "",
+        editid : 0,
 
     };
     $scope.leadershipedit = function(){
@@ -618,19 +693,44 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             leadership_role : $scope.leadershipform.leadership_role,
             description : $scope.leadershipform.description
         }
-        //alert(JSON.stringify(education_data));
-        $http.post(apiUrl+"api/v1/student/api/v1/leadershipdetails/",JSON.stringify(leadership_data))
-        .then(function (response) {
-            $scope.leadershipmessage = 'Successfully updated';
-            $scope.leadershipform.splice(0, 0, response.data);
-            $scope.leadershipform.leadership_role = "";
-            $scope.leadershipform.description ="";
+        if($scope.leadershipform.editid){
+            // update leadershipform
+            $http.patch(apiUrl+"api/v1/student/api/v1/leadershipdetails/"+$scope.leadershipform.editid+"/",JSON.stringify(leadership_data))
+            .then(function (response) {
+                $scope.leadershipmessage = 'Successfully updated';
+                $scope.leadershipedit();
+                $scope.leadershipform.leadership_role = "";
+                $scope.leadershipform.description ="";
 
-        });
+            });
+        }
+        else if(!$scope.leadershipform.editid){
+            // create leadership role
+            $http.post(apiUrl+"api/v1/student/api/v1/leadershipdetails/",JSON.stringify(leadership_data))
+            .then(function (response) {
+                $scope.leadershipmessage = 'Successfully Added';
+                $scope.leadershipedit();
+                $scope.leadershipform.leadership_role = "";
+                $scope.leadershipform.description ="";
+
+            });
+        }
+        //alert(JSON.stringify(education_data));
     };
     $scope.editleadership = function(leadership){
         $scope.leadershipform.leadership_role = leadership.leadership_role;
         $scope.leadershipform.description = leadership.description;
+        $scope.leadershipform.editid = leadership.id;
+    };
+    $scope.removeleadership = function(leadershipid){
+        $http.delete(apiUrl+"api/v1/student/api/v1/leadershipdetails/"+leadershipid+"/")
+        .then(function (response) {
+            $scope.leadershipmessage = 'Successfully Deleted';
+            $scope.leadershipedit();
+            $scope.leadershipform.leadership_role = "";
+            $scope.leadershipform.description ="";
+
+        });
     };
 
 

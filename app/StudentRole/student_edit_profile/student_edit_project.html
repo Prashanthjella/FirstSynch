@@ -2,7 +2,7 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="projectmessage">{{projectmessage}}</div>
           <h1 class="custom-h1-01 custom-h1-btm-space-55">Projects</h1>
-         <table class="table table-striped">
+         <table class="table table-striped" ng-show="projecteditform.length > 0">
             <tr>
                 <th>S.no</th>
                 <th>Project</th>
@@ -18,7 +18,8 @@
                 <td>{{ projects.start_date }}</td>
                 <td>{{ projects.completation_date }}</td>
                 <td>{{ projects.project_description }}</td>
-                <td><a ng-click="editproject( projects )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>  <a ng-click="removeprojects( projects )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
+                <td><a ng-click="editproject( projects )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a ng-confirm-click="Are you sure to delete your work project details?" confirmed-click="removeprojects( projects.id )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
 
         </table>
@@ -29,31 +30,39 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects</label>
+                        <span ng-show="seprojecteditform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                         <input type="hidden" class="form-control custom-textbox" ng-model="projecteditform.user" name="user">
-                        <input type="text" class="form-control custom-textbox" ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': seprojecteditform.title.$touched, 'has-success': seprojecteditform.title.$valid}" required>
+                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projecteditform.editid" name="projecteditid">
+                        <input type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-textbox" ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': seprojecteditform.title.$touched, 'has-success': seprojecteditform.title.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.start_date.$valid}">Start Date</label>
-                        <input type="text" class="form-control custom-textbox" ng-model="projecteditform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': seprojecteditform.start_date.$touched, 'has-success': seprojecteditform.start_date.$valid}" required>
+                        <span ng-show="seprojecteditform.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                        <input type="text" class="form-control custom-textbox" ng-model="projecteditform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': seprojecteditform.start_date.$touched, 'has-success': seprojecteditform.start_date.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.completation_date.$valid}">End Date</label>
-                        <input type="text" class="form-control custom-textbox" ng-model="projecteditform.completation_date" datepicker placeholder="Graduated Year" name="completation_date" ng-class="{'has-error': seprojecteditform.completation_date.$touched, 'has-success': seprojecteditform.completation_date.$valid}" required>
+                        <span ng-show="seprojecteditform.completation_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                        <input type="text" class="form-control custom-textbox" ng-model="projecteditform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': seprojecteditform.completation_date.$touched, 'has-success': seprojecteditform.completation_date.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea class="form-control custom-text-area" rows="4" ng-model="projecteditform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
+                        <textarea ng-trim="false" class="form-control custom-text-area" maxlength="500" ng-model="projecteditform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                        <p>{{500 - projecteditform.project_description.length}} left</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Picture</label>
-                        <input type="file" ngf-select ng-model="projecteditform.images" name="files" accept="image/*" >
+                        <span ng-show="seprojecteditform.files.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+                        <img ng-if="projecteditform.project_picture && !projecteditform.images" height="100" width="100" src="{{projecteditform.project_picture}}"/>
+                        <img ngf-thumbnail="projecteditform.images" height="100" width="100">
+                        <input type="file" ngf-select ngf-max-size="2MB" ng-model="projecteditform.images" name="files" accept="image/*" >
                     </div>
-                    
+
                     <p class="edt-pro-btn-group">
                 <input type="submit" ng-disabled="seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
                 </p>
                 </div>
-                
+
             </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

@@ -1284,3 +1284,8 @@ FirstSynch.filter('truncate', function () {
     return input;
   };
 });
+FirstSynch.filter('nospace', function () {
+    return function (value) {
+        return (!value) ? '' : value.replace(/ /g, '');
+    };
+});
