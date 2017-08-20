@@ -5,29 +5,31 @@
         <form name="cphirerateform" ng-submit="hireratesubmit()">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
-                 <div class="form-group custom-lider-form-group">
-        </div>
+                    <div class="form-group custom-lider-form-group"></div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cphirerateform.hire_rates.$valid}">HIRE RATES</label>
-                        <span ng-if="cphirerateform.hire_rates.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
+                        <span ng-if="cphirerateform.hire_rates.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="hidden" name="id" ng-model="hirerateform.id">
                         <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Hire rates size" ng-class="{'has-error': cphirerateform.hire_rates.$touched, 'has-success': cphirerateform.hire_rates.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a hire rates description"></textarea>
+                        <textarea name="hire_rates_description" maxlength="500" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a hire rates description"></textarea>
+                        <p>{{500 - hirerateform.hire_rates_description.length}} left</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cphirerateform.departure_rate.$valid}">Departure Rates</label>
-                        <span ng-if="cphirerateform.departure_rate.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
+                        <span ng-if="cphirerateform.departure_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Departure rates size" ng-class="{'has-error': cphirerateform.departure_rate.$touched, 'has-success': cphirerateform.departure_rate.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a departure rates description"></textarea>
+                        <textarea name="departure_rate_description" maxlength="500" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a departure rates description"></textarea>
+                        <p>{{500 - hirerateform.departure_rate_description.length}} left</p>
                     </div>
                      <p class="edt-pro-btn-group">
                         <input type="submit" ng-disabled="cphirerateform.departure_rate.$invalid || cphirerateform.hire_rates.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
+                        <button type="button" ng-click="company_edit_hire_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>
                 <hr class="hr-line-lidership">

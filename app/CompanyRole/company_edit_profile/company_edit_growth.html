@@ -10,16 +10,18 @@
 
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpgrowthrateform.growth_rate.$valid}">Growth Rate</label>
-                        <span ng-if="cpgrowthrateform.growth_rate.$invalid" class="validation_msg">Enter only numerals between 0 to 9</span>
+                        <span ng-if="cpgrowthrateform.growth_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="hidden" name="id" ng-model="growthrateform.id">
                         <input type="text"  name="growth_rate" ng-model="growthrateform.growth_rate" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a growth rate" ng-class="{'has-error': cpgrowthrateform.growth_rate.$touched, 'has-success': cpgrowthrateform.growth_rate.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a growth rate description"></textarea>
+                        <textarea maxlength="500" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a growth rate description"></textarea>
+                        <p>{{500 - growthrateform.growth_rate_description.length}} left</p>
                     </div>
                      <p class="edt-pro-btn-group">
-                        <input type="submit" ng-disabled="cpgrowthrateform.growth_rate.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
+                        <input type="submit" ng-disabled="cpgrowthrateform.growth_rate.$invalid||cpgrowthrateform.growth_rate.$error.pattern" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
+                        <button type="button" ng-click="company_edit_growth_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>
                 <hr class="hr-line-lidership">
