@@ -249,9 +249,11 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     $scope.charactercheck = function(event,charackey){
         if(event.target.checked){
             $scope.seshouldDisablecount++;
+            $scope.selectedCharacter[charackey] = true;
         }
         else{
             $scope.seshouldDisablecount--;
+            $scope.selectedCharacter[charackey] = false;
         }
         if($scope.seshouldDisablecount > 5){
             $scope.selectedCharacter[charackey] = false;
@@ -463,6 +465,16 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         job_description : "",
         editid : 0
     };
+    $scope.student_edit_workhistroy_reset = function(){
+        $scope.workhistroyform.student="";
+        $scope.workhistroyform.company = "";
+        $scope.workhistroyform.start_date = "";
+        $scope.workhistroyform.leave_date = "";
+        $scope.workhistroyform.job_title = "";
+        $scope.workhistroyform.job_description = "";
+        $scope.workhistroyform.editid = 0;
+        $rootScope.dateerrMessage = false;
+    }
     $scope.workhistroyeedit = function(){
         $http.get(apiUrl+"api/v1/student/get_experience_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -525,6 +537,16 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         project_description : "",
         editid : 0
     };
+    $scope.student_edit_project_reset = function(){
+        $scope.projecteditform.student="";
+        $scope.projecteditform.title = "";
+        $scope.projecteditform.start_date = "";
+        $scope.projecteditform.completation_date = "";
+        $scope.projecteditform.project_description = "";
+        $scope.projecteditform.editid = 0;
+        $scope.projecteditform.images = '';
+        $rootScope.dateerrMessage = false;
+    }
     $scope.projectsedit = function(){
         $http.get(apiUrl+"api/v1/student/get_project_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -612,7 +634,14 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get student profile details");
         });
     };
-
+    $scope.student_edit_school_reset = function(){
+        $scope.educationform.student="";
+        $scope.educationform.school_name = ""
+        $scope.educationform.year_started = ""
+        $scope.educationform.year_graduated = "";
+        $scope.educationform.major  = "";
+        $scope.educationform.gpa = "";
+    }
     $scope.educationedit = function(){
         $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -687,6 +716,12 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get student profile details");
         });
     };
+    $scope.student_edit_leadership_reset = function(){
+        $scope.leadershipform.student = "";
+        $scope.leadershipform.leadership_role = "";
+        $scope.leadershipform.description = "";
+        $scope.leadershipform.editid = 0;
+    }
     $scope.leadershipsubmit = function(){
         var leadership_data = {
             student : $scope.leadershipform.student,

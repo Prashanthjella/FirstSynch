@@ -40,12 +40,13 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seworkhistroy.start_date.$valid}">Start Date</label>
                         <span ng-show="seworkhistroy.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                        <input type="text" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': seworkhistroy.start_date.$touched, 'has-success': seworkhistroy.start_date.$valid}" required>
+                        <input type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': seworkhistroy.start_date.$touched, 'has-success': seworkhistroy.start_date.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seworkhistroy.leave_date.$valid}">Leave Date</label>
                         <span ng-show="seworkhistroy.leave_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                        <input type="text" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': seworkhistroy.leave_date.$touched, 'has-success': seworkhistroy.leave_date.$valid}" required>
+                        <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
+                        <input type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': seworkhistroy.leave_date.$touched, 'has-success': seworkhistroy.leave_date.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Job Title</label>
@@ -58,7 +59,8 @@
                         <p>{{500 - workhistroyform.job_description.length}} left</p>
                     </div>
                      <p class="edt-pro-btn-group">
-                    <input type="submit" ng-disabled="seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+                         <input type="submit" ng-disabled="!dateerrcondition||seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+                         <button type="button" ng-click="student_edit_workhistroy_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>
 

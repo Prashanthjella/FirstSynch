@@ -47,12 +47,13 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seeducationform.year_started.$valid}">Year Started</label>
                         <span ng-show="seeducationform.year_started.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_started" datepicker placeholder="Start Date"  name="year_started" ng-class="{'has-error': educationform.year_started.$touched, 'has-success': seeducationform.year_started.$valid}" required>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-change="datecheckErr(educationform.year_started,educationform.year_graduated)" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_started" datepicker placeholder="Start Date"  name="year_started" ng-class="{'has-error': educationform.year_started.$touched, 'has-success': seeducationform.year_started.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seeducationform.year_graduated.$valid}">Graduated Year</label>
                         <span ng-show="seeducationform.year_graduated.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_graduated" datepicker  placeholder="Graduated Year" name="year_graduated" ng-class="{'has-error': educationform.year_graduated.$touched, 'has-success': seeducationform.year_graduated.$valid}" required>
+                        <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-change="datecheckErr(educationform.year_started,educationform.year_graduated)" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_graduated" datepicker  placeholder="Graduated Year" name="year_graduated" ng-class="{'has-error': educationform.year_graduated.$touched, 'has-success': seeducationform.year_graduated.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seeducationform.gpa.$valid}">GPA</label>
@@ -60,8 +61,9 @@
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': educationform.gpa.$touched, 'has-success': seeducationform.gpa.$valid}" required>
                     </div>
                     <p class="edt-pro-btn-group">
-                <input type="submit" value="Submit" ng-disabled="seeducationform.gpa.$invalid||seeducationform.school_name.$invalid || seeducationform.major.$invalid || seeducationform.year_started.$invalid || seeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
-                </p>
+                        <input type="submit" value="Submit" ng-disabled="!dateerrcondition||seeducationform.gpa.$invalid||seeducationform.school_name.$invalid || seeducationform.major.$invalid || seeducationform.year_started.$invalid || seeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
+                        <button type="button" ng-click="student_edit_school_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                    </p>
                 </div>
 
             </div>
