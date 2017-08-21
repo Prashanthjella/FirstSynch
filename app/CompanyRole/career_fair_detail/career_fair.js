@@ -33,10 +33,8 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
             $scope.availability_requested = true;
             if(obj.approval == true){
               $scope.request_status = 'Approved';
-              alert(obj.approval);
             }else{
               $scope.request_status = 'Pending';
-              alert(obj.approval);
             }
           }
         });

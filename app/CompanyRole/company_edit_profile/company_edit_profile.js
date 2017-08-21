@@ -31,14 +31,12 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
       });
   };//Edit Video Popup - function end
 
-  $scope.uploadvideolist = function(){
       $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
           .then(function successCallback(response){
               $scope.video_list = response.data;
           }, function errorCallback(response){
               console.log("Unable to perform get Company videos details");
       });
-  };
 
   //Upload New Video Here
     $scope.getFileDetails = function (e) {
