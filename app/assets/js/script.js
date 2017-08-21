@@ -264,12 +264,4 @@ $(this).addClass('active');
     $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
   //Compay Account Settings Function End
-    var limit = 6;
-    $(document).on('change','.student_edit_profile_main_content_child form .checkbox-input',function(){
-        $('.student_edit_profile_main_content_child .characteristic_count').text($('.student_edit_profile_main_content_child form .checkbox-input:checked').length);
-       if($('.student_edit_profile_main_content_child form .checkbox-input:checked').length >= limit) {
-           $('.student_edit_profile_main_content_child .characteristic_count').text($('.student_edit_profile_main_content_child form .checkbox-input:checked').length-1);
-           this.checked = false;
-       }
-    });
 });

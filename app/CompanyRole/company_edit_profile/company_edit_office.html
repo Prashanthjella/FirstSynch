@@ -12,6 +12,7 @@
                         <label class="text-uppercase">Office Images</label>
                         <span ng-if="cofficeimageform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc</span>
                         <input type="file" ngf-multiple="true" ngf-select ngf-pattern="image/*" ng-model="galleryform.photos" name="file" accept="image/*" required>
+                        <img ngf-thumbnail="galleryform.photos" height="100" width="100">
                     </div>
                 <p class="edt-pro-btn-group">
                         <input type="submit" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>

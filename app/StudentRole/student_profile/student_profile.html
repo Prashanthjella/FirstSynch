@@ -1,7 +1,6 @@
 
-<div  ng-controller="student_student_profile">
+<div  ng-controller="student_student_profile" ng-init="student_student_profile_data()">
     <div class="container">
-
         <div class="row">
             <aside class="col-sm-2 sidebar-navi-default">
                 <nav  class="sidebar-navigation">
@@ -10,12 +9,11 @@
                         <li ng-if="student_profile_details.hobby.length > 0 || student_profile_details.student_characteristic.length > 0"><a scroll-to="student_student_profile_aboutme" href="" title="About me">About me</a></li>
                         <li ng-if="student_profile_details.education.length > 0"><a scroll-to="student_student_profile_education" href="" title="Education">Education</a></li>
                         <li ng-if="student_profile_details.experience.length > 0 || student_profile_details.project.length > 0"><a scroll-to="student_student_profile_experience" href="" title="Experience">Experience</a></li>
-                        <li ng-if="student_profile_details.skill.length > 0"><a scroll-to="student_student_profile_skills" href="" title="Skills">Skills</a></li>
+                        <!-- <li ng-if="student_profile_details.skill.length > 0"><a scroll-to="student_student_profile_skills" href="" title="Skills">Skills</a></li> -->
                         <!-- <li><a href="#" title="Reviews">Reviews</a></li> -->
                     </ul>
                 </nav>
             </aside>
-
             <div class="col-sm-offset-2">
 
                 <section class="page-section page-section-edit-profile">
@@ -47,5 +45,5 @@
 
     <div ng-include ="'StudentRole/student_profile/experience.html'"></div>
 
-    <div ng-include ="'StudentRole/student_profile/skills.html'"></div>
+    <!-- <div ng-include ="'StudentRole/student_profile/skills.html'"></div> -->
 </div>

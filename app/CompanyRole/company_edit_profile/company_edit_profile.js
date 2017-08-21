@@ -145,7 +145,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get company basic profile details");
         });
     };
-
+    $scope.company_edit_doe_reset = function(){
+        $scope.establishment_edit();
+    }
     $scope.establishmentsubmit = function(){
         var data = {
             establishment_date:$scope.establishmentform.establishment_date,
@@ -156,6 +158,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         .then(function (response) {
             $scope.establishmentmessage = 'Successfully updated';
             $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+            $scope.establishment_edit();
         });
     };
 
@@ -176,7 +179,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get company basic profile details");
         });
     };
-
+    $scope.company_edit_intern_reset = function(){
+        $scope.internship_edit();
+    }
     $scope.internshipsubmit = function(){
         var data = {
             internships_to_jobs:$scope.internshipform.internships_to_jobs,
@@ -207,6 +212,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get company basic profile details");
         });
     };
+    $scope.company_edit_salary_reset = function(){
+        $scope.salary_edit();
+    }
 
     $scope.salarysubmit = function(){
         var data = {
@@ -239,7 +247,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get company basic profile details");
         });
     };
-
+    $scope.company_edit_size_reset = function(){
+        $scope.companysize_edit();
+    }
     $scope.companysizesubmit = function(){
         var data = {
             company_size:$scope.companysizeform.company_size,
@@ -250,6 +260,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         .then(function (response) {
             $scope.companysizemessage = 'Successfully updated';
             $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+            $scope.companysize_edit();
         });
     };
 
@@ -274,7 +285,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get departure_rate details");
         });
     };
-
+    $scope.company_edit_hire_reset = function(){
+        $scope.hirerate_edit();
+    }
     $scope.hireratesubmit = function(){
         var data = {
             hire_rates:$scope.hirerateform.hire_rates,
@@ -307,7 +320,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform getfunding details");
         });
     };
-
+    $scope.company_edit_funding_reset = function(){
+        $scope.funding_edit();
+    }
     $scope.fundingsubmit = function(){
         var data = {
             funding_size:$scope.fundingform.funding_size,
@@ -338,7 +353,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform growthrate_edit details");
         });
     };
-
+    $scope.company_edit_growth_reset = function(){
+        $scope.growthrate_edit();
+    }
     $scope.growthratesubmit = function(){
         var data = {
             growth_rate:$scope.growthrateform.growth_rate,
@@ -359,18 +376,22 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         perks : "",
         culture : ""
     };
-    // $scope.workforus_edit = function(){
-    //     $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
-    //       headers: {'Authorization' : 'Token '+$rootScope.token_id}
-    //     }).then(function successCallback(response){
-    //             $scope.workforusform.id = response.data.hiring[0].id;
-    //             $scope.workforusform.benefits = response.data.hiring[0].benefits;
-    //             $scope.workforusform.perks = response.data.hiring[0].perks;
-    //             $scope.workforusform.culture = response.data.hiring[0].culture;
-    //         }, function errorCallback(response){
-    //             console.log("Unable to perform growthrate_edit details");
-    //     });
-    // };
+    $scope.workforus_edit = function(){
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.workforusform.id = response.data.hiring[0].id;
+                $scope.workforusform.benefits = response.data.hiring[0].benefits;
+                $scope.workforusform.perks = response.data.hiring[0].perks;
+                $scope.workforusform.culture = response.data.hiring[0].culture;
+            }, function errorCallback(response){
+                console.log("Unable to perform growthrate_edit details");
+        });
+    };
+
+    $scope.company_edit_workforus_reset = function(){
+        $scope.workforus_edit();
+    }
 
     $scope.workforussubmit = function(){
         if(!$scope.workforusform.id){
@@ -419,7 +440,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform growthrate_edit details");
         });
     };
-
+    $scope.company_edit_invester_reset = function(){
+        $scope.investor_edit();
+    }
     $scope.investorsubmit = function(){
         var data = {
             investor_confidence:$scope.investorform.investor_confidence,
@@ -496,7 +519,9 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
                 console.log("Unable to perform get departure_rate details");
         });
     };
-
+    $scope.company_edit_location_reset = function(){
+        $scope.location_edit();
+    }
     $scope.locationsubmit = function(){
         // alert(JSON.stringify(data));
         if(!$scope.locationform.id){
@@ -541,63 +566,67 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
 
 });
 FirstSynch.controller("companybasicprofileupload" , function (Upload,$timeout,$window,$rootScope, $scope, $http, apiUrl) {
-    $scope.basicinfoform = {
-        id:"",
-        name : "",
-        description : "",
-        category : "",
-        product_category : "",
-        website : "",
-        facebook_url : "",
-        linkedin_url : "",
-        twitter_url : "",
-    };
-    // Company basic information
-    $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-      headers: {'Authorization' : 'Token '+$rootScope.token_id}
-    }).then(function successCallback(response){
-            $rootScope.comp_id = response.data.id;
-            $scope.basicinfoform.id = response.data.id;
-            $scope.basicinfoform.user = response.data.user.id;
-            $scope.basicinfoform.name = response.data.name;
-            $scope.basicinfoform.description = response.data.description;
-            $scope.basicinfoform.category = response.data.category;
-            $scope.basicinfoform.product_category = response.data.product_category;
-            $scope.basicinfoform.website = response.data.website;
-            $scope.basicinfoform.linkedin_url = response.data.linkedin_url;
-            $scope.basicinfoform.twitter_url = response.data.twitter_url;
-            $scope.basicinfoform.facebook_url = response.data.facebook_url;
-            $scope.basicinfoform.logos = response.data.logo;
-        }, function errorCallback(response){
-            console.log("Unable to perform get company basic profile details");
-    });
-
-    $scope.basicinfosubmit = function(file){
-        var data = {
-            name:$scope.basicinfoform.name,
-            description: $scope.basicinfoform.description,
-            category : $scope.basicinfoform.category,
-            product_category : $scope.basicinfoform.product_category,
-            website : $scope.basicinfoform.website,
-            facebook_url : $scope.basicinfoform.facebook_url,
-            linkedin_url : $scope.basicinfoform.linkedin_url,
-            twitter_url : $scope.basicinfoform.twitter_url,
+    $scope.company_edit_profile_basic_data = function(){
+        $scope.basicinfoform = {
+            id:"",
+            name : "",
+            description : "",
+            category : "",
+            product_category : "",
+            website : "",
+            facebook_url : "",
+            linkedin_url : "",
+            twitter_url : "",
         };
-        if(file){
-            file.upload = Upload.upload({
-                url: apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",
-                data: {user:$scope.basicinfoform.user,logo: file},
-                method:'PUT',
-            });
-        }
-        // alert(JSON.stringify(data));
-        $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
-        .then(function (response) {
-            $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
-            $window.scrollTo(0, angular.element(document.getElementById('edit_succ_msg')).offsetTop);
-            $scope.basicinfomessage = 'Successfully updated';
+        // Company basic information
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $rootScope.comp_id = response.data.id;
+                $scope.basicinfoform.id = response.data.id;
+                $scope.basicinfoform.user = response.data.user.id;
+                $scope.basicinfoform.name = response.data.name;
+                $scope.basicinfoform.description = response.data.description;
+                $scope.basicinfoform.category = response.data.category;
+                $scope.basicinfoform.product_category = response.data.product_category;
+                $scope.basicinfoform.website = response.data.website;
+                $scope.basicinfoform.linkedin_url = response.data.linkedin_url;
+                $scope.basicinfoform.twitter_url = response.data.twitter_url;
+                $scope.basicinfoform.facebook_url = response.data.facebook_url;
+                $scope.basicinfoform.logos = response.data.logo;
+            }, function errorCallback(response){
+                console.log("Unable to perform get company basic profile details");
         });
-    };
+        $scope.company_edit_basic_reset = function(){
+            $scope.company_edit_profile_basic_data();
+        }
+        $scope.basicinfosubmit = function(file){
+            var data = {
+                name:$scope.basicinfoform.name,
+                description: $scope.basicinfoform.description,
+                category : $scope.basicinfoform.category,
+                product_category : $scope.basicinfoform.product_category,
+                website : $scope.basicinfoform.website,
+                facebook_url : $scope.basicinfoform.facebook_url,
+                linkedin_url : $scope.basicinfoform.linkedin_url,
+                twitter_url : $scope.basicinfoform.twitter_url,
+            };
+            if(file){
+                file.upload = Upload.upload({
+                    url: apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",
+                    data: {user:$scope.basicinfoform.user,logo: file},
+                    method:'PUT',
+                });
+            }
+            // alert(JSON.stringify(data));
+            $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.companyedit_id+"/",JSON.stringify(data))
+            .then(function (response) {
+                $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+                $window.scrollTo(0, angular.element(document.getElementById('edit_succ_msg')).offsetTop);
+                $scope.basicinfomessage = 'Successfully updated';
+            });
+        };
+        };
     $scope.$watch('$viewContentLoaded', function(){
         $timeout( function(){
             $window.loading_screen.finish();

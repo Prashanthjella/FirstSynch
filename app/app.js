@@ -177,6 +177,23 @@ FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,com
   }, function errorCallback(response){
     console.log("Unable to perform get career fair near for current user");
   });
+
+  $rootScope.datecheckErr = function (startDate, endDate) {
+        $rootScope.dateerrcondition = true;
+        $rootScope.dateerrMessage = '';
+        $rootScope.curDate = new Date();
+        if (new Date(startDate) > new Date(endDate)) {
+            $rootScope.dateerrMessage = 'End Date should be greate than start date';
+            $rootScope.dateerrcondition = false;
+            return false;
+        }
+
+        if (new Date(startDate) > $rootScope.curDate) {
+            $rootScope.dateerrMessage = 'Start date should not be before today.';
+            $rootScope.dateerrcondition = false;
+            return false;
+        }
+    };
 });
 
 // FirstSynch.config(['$httpProvider', function($httpProvider) {
@@ -1292,4 +1309,9 @@ FirstSynch.filter('truncate', function () {
     }
     return input;
   };
+});
+FirstSynch.filter('nospace', function () {
+    return function (value) {
+        return (!value) ? '' : value.replace(/ /g, '');
+    };
 });

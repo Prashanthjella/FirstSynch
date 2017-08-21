@@ -1,24 +1,25 @@
 <div id="company_internships" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="internshipmessage">{{internshipmessage}}</div>
-
-<h1 class="custom-h1-01 custom-h1-btm-space-55">INTERNSHIPS</h1>
+        <h1 class="custom-h1-01 custom-h1-btm-space-55">INTERNSHIPS</h1>
         <form name="cpinternshipform" ng-submit="internshipsubmit()">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
-                 <div class="form-group custom-lider-form-group">
-        </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">MIGRATION LABEL</label>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">MIGRATION LABEL</label> {{internshipform.internships_to_jobs}}
                         <input type="hidden" name="id" ng-model="internshipform.id">
                         <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-form-control-br-bottom" placeholder="Give it a empoyee migration percentage" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea name="internships_job_description" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a employee migration description"></textarea>
+                        <textarea name="internships_job_description" maxlength="500" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a employee migration description"></textarea>
+                        <p>{{500 - internshipform.internships_job_description.length}} left</p>
                     </div>
                     <p class="edt-pro-btn-group">
                         <input type="submit" ng-disabled="cpinternshipform.internships_to_jobs.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
+                        <button type="button" ng-click="company_edit_intern_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>
                 <hr class="hr-line-lidership">

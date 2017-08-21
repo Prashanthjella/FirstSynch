@@ -7,61 +7,62 @@ var FirstSynch = angular.module("SstudentProfile", ["ngRoute","ngFileUpload"]);
 
 // student details
 FirstSynch.controller("student_student_profile" ,function ($rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
-  $scope.basicprofileform = {
-    id:"",
-    user:""
-  };
-  $scope.hobbiesform = {
-    id:""
-  };
-  $scope.characteristic = {
-    id:""
-  };
-  $scope.looking = {
-    id:""
-  };
-  $scope.leadershipform = {
-    id:""
-  };
-  $scope.educationform = {
-    id:""
-  };
-  $scope.workhistroyform = {
-    id:""
-  };
-  $scope.projectsform = {
-    id:""
-  };
-  $scope.skillsetpersonnalform = {
-    id:""
-  };
-  $scope.skillsetsoftwareform = {
-    id:""
-  };
-  $scope.skillsetprofessionalform = {
-    id:""
-  };
+    $scope.basicprofileform = {
+        id:"",
+        user:""
+    };
+    $scope.hobbiesform = {
+        id:""
+    };
+    $scope.characteristic = {
+        id:""
+    };
+    $scope.looking = {
+        id:""
+    };
+    $scope.leadershipform = {
+        id:""
+    };
+    $scope.educationform = {
+        id:""
+    };
+    $scope.workhistroyform = {
+        id:""
+    };
+    $scope.projectsform = {
+        id:""
+    };
+    $scope.skillsetpersonnalform = {
+        id:""
+    };
+    $scope.skillsetsoftwareform = {
+        id:""
+    };
+    $scope.skillsetprofessionalform = {
+        id:""
+    };
+    $scope.student_student_profile_data = function(){
+        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+            $scope.student_profile_details = response.data;
+            $scope.basicprofileform.id = response.data.id;
+            $scope.hobbiesform.id = response.data.id;
+            $scope.characteristic.id = response.data.id;
+            $scope.looking.id = response.data.id;
+            $scope.leadershipform.id = response.data.id;
+            $scope.educationform.id = response.data.id;
+            $scope.workhistroyform.id = response.data.id;
+            $scope.projectsform.id = response.data.id;
+            $scope.skillsetpersonnalform.id = response.data.id;
+            $scope.skillsetsoftwareform.id = response.data.id;
+            $scope.skillsetprofessionalform.id = response.data.id;
+            $scope.basicprofileform.user = response.data.user;
+        }, function errorCallback(response){
+          console.log("Unable to perform get student profile details");
+        });
+    };
 
-
-  $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-    headers: {'Authorization' : 'Token '+$rootScope.token_id}
-  }).then(function successCallback(response){
-    $scope.student_profile_details = response.data;
-    $scope.basicprofileform.id = response.data.id;
-    $scope.hobbiesform.id = response.data.id;
-    $scope.characteristic.id = response.data.id;
-    $scope.looking.id = response.data.id;
-    $scope.leadershipform.id = response.data.id;
-    $scope.educationform.id = response.data.id;
-    $scope.workhistroyform.id = response.data.id;
-    $scope.projectsform.id = response.data.id;
-    $scope.skillsetpersonnalform.id = response.data.id;
-    $scope.skillsetsoftwareform.id = response.data.id;
-    $scope.skillsetprofessionalform.id = response.data.id;
-    $scope.basicprofileform.user = response.data.user;
-  }, function errorCallback(response){
-    console.log("Unable to perform get student profile details");
-  });
   $scope.$watch('$viewContentLoaded', function(){
     $timeout( function(){
       $window.loading_screen.finish();
@@ -70,65 +71,54 @@ FirstSynch.controller("student_student_profile" ,function ($rootScope,$timeout,$
 
 });
 FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
-  $scope.basicprofilesubmit = function(file){
-    //var pro_image = new FormData();
-    //for (var i in $scope.files) {
-    //    pro_image.append("profile_picture", $scope.files[i]);
-    //}
-    var data = {
-      user:$scope.basicprofileform.user,
-      first_name : $scope.basicprofileform.first_name,
-      last_name: $scope.basicprofileform.last_name,
-      dob: $scope.basicprofileform.dob,
-      gender: $scope.basicprofileform.gender,
-      category: $scope.basicprofileform.category,
-      facebook_url: $scope.basicprofileform.facebook_url,
-      linkedin_url: $scope.basicprofileform.linkedin_url,
-      twitter_url: $scope.basicprofileform.twitter_url,
-      website: $scope.basicprofileform.website,
-      github_url:$scope.basicprofileform.github_url,
-      stackoverflow_url:$scope.basicprofileform.stackoverflow_url,
-      about_me:$scope.basicprofileform.about_me
-
-    };
-    file.upload = Upload.upload({
-      url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",
-      data: {user:$scope.basicprofileform.user,profile_picture: file},
-      method:'PUT',
-    });
-    //alert(JSON.stringify(data));
-    $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
-    .then(function (response) {
-      $('#student_profile_basic_information').fadeOut();
-      $scope.student_profile_details.profile_picture = response.data.profile_picture;
-      $scope.student_profile_details.first_name = response.data.first_name;
-      $scope.student_profile_details.last_name = response.data.last_name;
-      $scope.student_profile_details.about_me = response.data.about_me;
-      $scope.student_profile_details.facebook_url = response.data.facebook_url;
-      $scope.student_profile_details.linkedin_url = response.data.linkedin_url;
-      $scope.student_profile_details.twitter_url = response.data.twitter_url;
-      $scope.student_profile_details.stackoverflow_url = response.data.stackoverflow_url;
-      $scope.student_profile_details.github_url = response.data.github_url;
-      $scope.student_profile_details.website = response.data.website;
-    });
+    $scope.basicprofilesubmit = function(file){
+        var data = {
+            user:$scope.basicprofileform.user,
+            first_name : $scope.basicprofileform.first_name,
+            last_name: $scope.basicprofileform.last_name,
+            dob: $scope.basicprofileform.dob,
+            gender: $scope.basicprofileform.gender,
+            category: $scope.basicprofileform.category,
+            facebook_url: $scope.basicprofileform.facebook_url,
+            linkedin_url: $scope.basicprofileform.linkedin_url,
+            twitter_url: $scope.basicprofileform.twitter_url,
+            website: $scope.basicprofileform.website,
+            github_url:$scope.basicprofileform.github_url,
+            stackoverflow_url:$scope.basicprofileform.stackoverflow_url,
+            about_me:$scope.basicprofileform.about_me
+        };
+        if(file){
+            file.upload = Upload.upload({
+                url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",
+                data: {user:$scope.basicprofileform.user,profile_picture: file},
+                method:'PUT',
+            });
+        }
+        $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
+        .then(function (response) {
+            $('#student_profile_basic_information').fadeOut();
+            $window.scrollTo(0, 0);
+            $scope.student_student_profile_data();
+        });
   };
 
   $scope.hobbiessubmit = function(hobbiesimage){
-
+    if(hobbiesimage){
+        var hobbies_data = {student:$scope.hobbiesform.id,image: hobbiesimage,name:$scope.hobbiesform.name,description:$scope.hobbiesform.description}
+    }
+    else{
+        var hobbies_data = {student:$scope.hobbiesform.id,name:$scope.hobbiesform.name,description:$scope.hobbiesform.description}
+    }
     var hobbyupload = Upload.upload({
       url: apiUrl+"api/v1/student/api/v1/hobbyinfo/",
-      data: {student:$scope.hobbiesform.id,image: hobbiesimage,name:$scope.hobbiesform.name,description:$scope.hobbiesform.description},
+      data: hobbies_data,
       method:'POST',
     });
     hobbyupload.then(function(resp) {
       // file is uploaded successfully
       $('#student_profile_hobbies').fadeOut();
-      //   $scope.student_profile_details.hobby = resp.data;
-        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.student_profile_details = response.data;
-        });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     }, function(resp) {
       // handle error
     }, function(evt) {
@@ -136,28 +126,43 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
     });
   };
   $scope.characterbtndisable =  false;
-  $scope.shouldDisable = function(key) {
-    if(!$scope.pselectedCharacter[key]) {
-      var count = 0;
-      Object.keys($scope.pselectedCharacter).forEach(function(key) {
-        if($scope.pselectedCharacter[key]) {
-          ++count;
-        }
-      });
-      if(count > 0){
-        $scope.characterbtndisable = true;
+  $scope.pavailablecharacter = [
+      {'charac':'Realistic'},
+      {'charac':'Investigative'},
+      {'charac':'Artistic'},
+      {'charac':'Social'},
+      {'charac':'Enterprising'},
+      {'charac':'Conventional'},
+      {'charac':'Rule Follower'},
+      {'charac':'Self-Motivated'},
+      {'charac':'Responsibility'},
+      {'charac':'Accustomed to Routine'},
+      {'charac':'Learned Study Skills'},
+      {'charac':'Love of Reading'}
+  ]
+
+  $scope.pselectedCharacter = {};
+  $scope.sepshouldDisablecount = 0;
+  $scope.pcharactercheck = function(event,charackey){
+      if(event.target.checked){
+          $scope.sepshouldDisablecount++;
+          $scope.pselectedCharacter[charackey] = true;
       }
       else{
-        $scope.characterbtndisable = false;
+          $scope.sepshouldDisablecount--;
+          $scope.pselectedCharacter[charackey] = false;
       }
-      if(count >= 5) {
-        return true;
+      if($scope.sepshouldDisablecount > 5){
+          $scope.pselectedCharacter[charackey] = false;
+          $scope.sepshouldDisablecount--;
       }
-    }
-    return false;
-  };
-  $scope.pselectedCharacter = {};
-
+      if($scope.sepshouldDisablecount > 0){
+          $scope.characterbtndisable = true;
+      }
+      else{
+          $scope.characterbtndisable = false;
+      }
+  }
   $scope.charactersubmit = function(){
     $scope.selectchar = [];
     angular.forEach($scope.pselectedCharacter, function (selected, characters) {
@@ -166,42 +171,36 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
 
       }
     });
-    //alert(JSON.stringify($scope.selectchar));
-
     $http.post(apiUrl+"api/v1/student/api/v1/studentcharacteristic/",JSON.stringify($scope.selectchar))
     .then(function (response) {
       $('#student_profile_characteristics').fadeOut();
-      $scope.student_profile_details.student_characteristic=$scope.student_profile_details.student_characteristic.concat(response.data);
-        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.student_profile_details = response.data;
-        });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     });
   };
   $scope.pwhatiamlookingbtndisable =  false;
-  $scope.shouldDisablew = function(key) {
-    if(!$scope.pwhatiamlooking[key]) {
-      var count = 0;
-      Object.keys($scope.pwhatiamlooking).forEach(function(key) {
-        if($scope.pwhatiamlooking[key]) {
-          ++count;
-        }
-      });
-      if(count > 0){
-        $scope.pwhatiamlookingbtndisable = true;
+  $scope.sewlpshouldDisablecount = 0;
+  $scope.pwhatiamlooking = {};
+  $scope.plookingcheck = function(event,charackey){
+      if(event.target.checked){
+          $scope.sewlpshouldDisablecount++;
+          $scope.pwhatiamlooking[charackey] = true;
       }
       else{
-        $scope.pwhatiamlookingbtndisable = false;
+          $scope.sewlpshouldDisablecount--;
+          $scope.pwhatiamlooking[charackey] = false;
       }
-      if(count >= 5) {
-        return true;
+      if($scope.sewlpshouldDisablecount > 5){
+          $scope.pwhatiamlooking[charackey] = false;
+          $scope.sewlpshouldDisablecount--;
       }
-    }
-    return false;
-  };
-  $scope.pwhatiamlooking = {};
-
+      if($scope.sewlpshouldDisablecount > 0){
+          $scope.pwhatiamlookingbtndisable = true;
+      }
+      else{
+          $scope.pwhatiamlookingbtndisable = false;
+      }
+  }
   $scope.whatiamlooksubmit = function(){
     $scope.selectlook = [];
     angular.forEach($scope.pwhatiamlooking, function (selected, lookgin) {
@@ -210,17 +209,11 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
 
       }
     });
-    // alert(JSON.stringify($scope.selectlook));
-
     $http.post(apiUrl+"api/v1/student/api/v1/whatiamlooking/",JSON.stringify($scope.selectlook))
     .then(function (response) {
       $('#student_profile_whatiamlooking').fadeOut();
-      $scope.student_profile_details.whatimlooking=$scope.student_profile_details.whatimlooking.concat(response.data);
-        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.student_profile_details = response.data;
-        });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     });
   };
   $scope.personnalskillsubmit = function(){
@@ -293,33 +286,27 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
     $http.post(apiUrl+"api/v1/student/api/v1/experiencedetails/",workhistroy_data)
     .then(function (response) {
       $('#student_profile_histroy').fadeOut();
-      $scope.student_profile_details.experience=$scope.student_profile_details.experience.concat(response.data);
-    }).then(function (){
-      $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-        headers: {'Authorization' : 'Token '+$rootScope.token_id}
-      }).then(function successCallback(response){
-        $scope.student_profile_details = response.data;
-      }, function errorCallback(response){
-        console.log("Unable to perform get student profile details");
-      });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     });
   };
   $scope.projectsubmit = function(projectimage){
-
+    if(projectimage){
+        var project_data = { student : $scope.projectsform.id,title : $scope.projectsform.title,start_date : $scope.projectsform.start_date,completation_date : $scope.projectsform.completation_date,project_description : $scope.projectsform.project_description,image:projectimage}
+    }
+    else{
+        var project_data = { student : $scope.projectsform.id,title : $scope.projectsform.title,start_date : $scope.projectsform.start_date,completation_date : $scope.projectsform.completation_date,project_description : $scope.projectsform.project_description}
+    }
     var projectupload = Upload.upload({
       url: apiUrl+"api/v1/student/api/v1/projectdetails/",
-      data: { student : $scope.projectsform.id,title : $scope.projectsform.title,start_date : $scope.projectsform.start_date,completation_date : $scope.projectsform.completation_date,project_description : $scope.projectsform.project_description,image:projectimage},
+      data: project_data,
       method:'POST',
     });
     projectupload.then(function(resp) {
       // file is uploaded successfully
       $('#student_profile_projects').fadeOut();
-      $scope.student_profile_details.project=$scope.student_profile_details.project.concat(response.data);
-        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.student_profile_details = response.data;
-        });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     }, function(resp) {
     }, function(evt) {
     });
@@ -327,7 +314,7 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
   $scope.educationsubmit = function(){
     var education_data = {
       student : $scope.educationform.id,
-      school_name : $('#university-name').val(),
+      school_name : $scope.studentprofileuniversity.originalObject.Institution_Name,
       year_started : $scope.educationform.year_started,
       year_graduated : $scope.educationform.year_graduated,
       major : $scope.educationform.major,
@@ -338,12 +325,8 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
     $http.post(apiUrl+"api/v1/student/api/v1/educationdetails/",JSON.stringify(education_data))
     .then(function (response) {
       $('#student_profile_myschool').fadeOut();
-      $scope.student_profile_details.education=$scope.student_profile_details.education.concat(response.data);
-        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.student_profile_details = response.data;
-        });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     });
   };
   $scope.leadershipsubmit = function(){
@@ -352,16 +335,11 @@ FirstSynch.controller("studentprofileform" ,function (Upload,$rootScope,$timeout
       leadership_role : $scope.leadershipform.leadership_role,
       description : $scope.leadershipform.description
     }
-    //alert(JSON.stringify(education_data));
     $http.post(apiUrl+"api/v1/student/api/v1/leadershipdetails/",JSON.stringify(leadership_data))
     .then(function (response) {
       $('#student_profile_leadership').fadeOut();
-      $scope.student_profile_details.leadship_role=$scope.student_profile_details.leadship_role.concat(response.data);
-        $http.get(apiUrl+"api/v1/student/api/v1/student_profile/"+$routeParams.studentid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.student_profile_details = response.data;
-        });
+      $window.scrollTo(0, 0);
+      $scope.student_student_profile_data();
     });
   };
 });

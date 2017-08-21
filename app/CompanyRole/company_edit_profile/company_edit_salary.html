@@ -5,18 +5,19 @@
         <form ng-submit="salarysubmit()">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
-                 <div class="form-group custom-lider-form-group">
-        </div>
+                 <div class="form-group custom-lider-form-group"></div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Salary Range</label>
+                        <label class="text-uppercase">Salary Range</label>{{salaryform.average_entry_level_sal}}
                         <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Give it a entry level salary range">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a entry level salary description"></textarea>
+                        <textarea maxlength="500" ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a entry level salary description"></textarea>
+                        <p>{{500 - salaryform.average_entry_level_sal_description.length}} left</p>
                     </div>
                     <p class="edt-pro-btn-group">
                         <input type="submit" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>
+                        <button type="button" ng-click="company_edit_salary_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>
                 <hr class="hr-line-lidership">
