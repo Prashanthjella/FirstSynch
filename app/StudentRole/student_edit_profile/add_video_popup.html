@@ -1,19 +1,7 @@
 
     <!---popup area for create Video--->
     <!--[Page Seach Section Content Start]-->
-    <div class="modal fade custom-model" id="page-video-edit">
-      <div class="modal-dialog">
-        <div class="modal-content custom-modal-video-content">
-          <div class="modal-header cusom-making-video-header">
-            <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-            <div class="page-header custom-page-header">
-              <div class="pull-left">
-                <h1 class="h3 custom-h3">
-                  Adding video
-                </h1>
-              </div>
-            </div>
-          </div>
+
 
           <div class="modal-body custom-make-video-modal-body">
             <section id="main-slider">
@@ -76,11 +64,11 @@
 
                           <div class="pull-right">
                             <div class="checkbox custom-checkbox checkbox-circle">
-                              <input type="radio" name="published" ng-model="published" ng-value="'allow'"class="checkbox-input"  id="published-allow">
+                              <input type="radio" name="published" ng-model="published" value="'allow'"class="checkbox-input"  id="published-allow">
                               <label for="published-allow" class="checkbox-label-01">Allow</label>
                             </div>
                             <div class="checkbox custom-checkbox checkbox-circle">
-                              <input type="radio" name="published" ng-model="published" ng-value="'deny'"class="checkbox-input" id="published-Forbid">
+                              <input type="radio" name="published" ng-model="published" value="'deny'"class="checkbox-input" id="published-Forbid">
                               <label for="published-Forbid" class="checkbox-label-01">Forbid</label>
                             </div>
                           </div>
@@ -126,30 +114,7 @@
               </section>
             </div>
 
-            <div class="modal-footer custom-make-video-modal-footer">
-              <div class="mode">
-                <div class="gen-back">
 
-                  <div class="col-sm-1 col-md-12 ">
-                    <button type="submit" ng-disabled="video_create_form.skill_text.$invalid && video_create_form.skill_text.$invalid" ng-click="uploadFile()" class="btn btn-default custom-btn btn-lg" id="btn-upload" style="display: none;">
-                      <span class="glyphicon glyphicon-arrow-up"></span>
-                      Upload this video
-                    </button>
-
-                    <a href="#" title="Add new question" class="btn-addrole btn btn-default custom-btn btn-lg none" style="float:none"  onclick="addnewquestion()">
-                      <span class="glyphicon glyphicon-plus"></span>Add new question
-                    </a>
-                    <button id="trim_finish" class="btn-addrole btn btn-default custom-btn btn-lg none" style="float:none"  onclick="trimchaptermaking()">
-                      Trim & Finish
-                    </button>
-                  </div>
-                  <textarea style="display:none;" id="result" ng-model="video_chapters" required class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="150" rows="4"></textarea>
-                  <input type="hidden" id="video_duration">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <script type="text/javascript">
         var playButton = document.getElementById("play-pause");
         var muteButton = document.getElementById("mute");
@@ -564,7 +529,6 @@
 
             /* append leftside - chapter heading*/
             $('#chapterss ul').append('<li class="custom-list-group-item active"><a href="#"><div class="custom-list-group-item-title">'+question+'</div><div class="custom-list-group-right"><span class="badge custom-badge active"></span><span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span></div></a></li>');
-
             if ($('#result').val().trim().length > 0){
               $('#trim_finish').prop("disabled", false);
             }else{
@@ -592,6 +556,7 @@
             $('#inoutbar').dragslider('values',0,last_val);
             $('#inoutbar').dragslider('values',1,100);
             $('#inoutbar').trigger('slidestop');
+
           }
 
         }
@@ -607,43 +572,4 @@
         }
 
         </script>
-      </div>
       <!--[Page Seach Section Content End]-->
-
-      <!--[Page Seach Section Content Start]-->
-      <div class="modal fade custom-model" id="error_msg_model">
-        <div class="modal-dialog">
-          <div class="modal-content custom-modal-video-content">
-            <div class="modal-header cusom-model-onboard-header">
-              <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-              <div class="page-header custom-page-header">
-                <div class="pull-left">
-                </div>
-              </div>
-            </div>
-            <div class="modal-body custom-video-modal-body">
-              <h1 class="h3 custom-h3">
-                Please upload 1 minute video.
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--[Page Seach Section Content End]-->
-
-      <!--Video End Popup-->
-      <div class="modal fade custom-model" id="video_end">
-        <div class="video_end">
-          <div class="inners">
-            <h1 class="h3 custom-h3" style="color:#fff !important;">Your Video is currently being processed.</h1>
-            <img src="assets/images/loader.gif" class="loader_icon" style="width: 40px; margin-left: 10px;">
-            <!--<p><progress id="pro" value="0"></progress></p>-->
-            <div ng-show="progressVisible">
-              <div class="percent">{{progress}}%</div>
-              <div class="progress1-bar">
-                <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
-              </div>
-            </div>
-          </div><!--inners-->
-        </div><!--video_end class-->
-      </div><!--popup closed video_end-->

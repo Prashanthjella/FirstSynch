@@ -54,24 +54,24 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
     };
 
     $scope.companyuploadFile = function() {
-      $('#company_video_end').modal('show');
-      $('#comapny-video-add').css({'z-index':'999'});
+      $('#video_end').modal('show');
+      $('#page-video-edit').css({'z-index':'999'});
         var fd = new FormData()
         for (var i in $scope.files) {
             fd.append("video_file", $scope.files[i])
         }
-        fd.append("title", angular.element('#company_title')[0].value);
-        fd.append("company", $rootScope.user_id);
-        fd.append("skill_text", angular.element('#company_skill_text')[0].value);
-        fd.append("video_chapters", angular.element('#company_result')[0].value);
-        fd.append("description", angular.element('#company_description')[0].value);
+        fd.append("title", angular.element('#title')[0].value);
+        fd.append("company", $rootScope.companyedit_id);
+        fd.append("skill_text", angular.element('#skill_text')[0].value);
+        fd.append("video_chapters", angular.element('#result')[0].value);
+        fd.append("description", angular.element('#description')[0].value);
         fd.append("company_video", 'True');
         fd.append("active", 'True');
         fd.append("created_by", $rootScope.user_id);
-        if(angular.element('#company_published_allow')[0].value == 'allow'){
+        if(angular.element('#published-allow')[0].value == 'allow'){
           fd.append("published", 'True');
         }else{
-          fd.append("published", 'False');
+          fd.append("published", 'True');
         }
 
         var xhr = new XMLHttpRequest()
@@ -94,18 +94,18 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
 
     function uploadComplete(evt) {
         /* This event is raised when the server send back a response */
-        $('#company_video_end').modal('hide');
-        $('#comapny-video-add').modal('hide');
-        $('#comapny-video-add').css({'z-index':'1050'});
-        $('#company_chapterss ul').empty();
-        $("#company_chapter_maker_thumb").show();
-        $("#company_question").show();
+        $('#page-video-edit').modal('hide');
+        $('#video_end').modal('hide');
+        $('#page-video-edit').css({'z-index':'1050'});
+        $('#chapterss ul').empty();
+        $("#chapter_maker_thumb").show();
+        $("#question").show();
         $('.second_video_data').hide();
         $('.none').show();
-        $('#company-btn-upload').hide();
-        $("#company_inoutbar").removeAttr("style");
-        $('#company_inoutbar').empty();
-        $('#company_chapterss ul').empty();
+        $('#btn-upload').hide();
+        $("#inoutbar").removeAttr("style");
+        $('#inoutbar').empty();
+        $('#chapterss ul').empty();
         $scope.$apply(function(){
           $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
               .then(function successCallback(response){

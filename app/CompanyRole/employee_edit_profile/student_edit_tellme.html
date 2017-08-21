@@ -1,1119 +1,158 @@
 <div id="proudest-achievement" class="tab-pane tab-pane-yourgoals hide student_edit_profile_main_content_child">
-  <div class="contanier-inside">
-  <!--[Career fair Details Slider Start]-->
-  <section class="page-section page-section-career-details">
-    <div class="row custom-row-15">
-
-      <div class="col-sm-6 col-md-5">
-        <h1 class="custom-h1-01">Making a video</h1>
-        <h5 class="h5-video">About 1 minute</h5>
-        <p class="details-content">Break the video into small pieces no longer
-          than 10-20 seconds with a story about yourself. Idally, the video shout not last more than a minute, so try to make
-          a story about yourself in one minue</p>
-        </div>
-
-        <div class="col-sm-6 col-md-6 col-lg-6 pull-right">
-          <div class="maker-video-content">
-              <div id="help_video"></div>
-              <script type="text/javaScript">
-              var playerInstance = jwplayer("help_video");
-              playerInstance.setup({
-                playlist: [{
-                    file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/FS_How_To_Make_a_Video.mp4",
-                    tracks: [{
-                        file: "https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/makding_video_step.vtt",
-                        kind: "chapters",
-                    }]
-                }]
-              });
-              </script>
+    <div class="contanier-inside">
+      <!--[Career fair Details Slider Start]-->
+      <section class="page-section page-section-career-details">
+        <div class="row custom-row-15">
+          <div class="col-sm-6 col-md-5">
+            <h1 class="custom-h1-01">Making a video</h1>
+            <h5 class="h5-video">About 1 minute</h5>
+            <p class="details-content">Break the video into small pieces no longer
+              than 10-20 seconds with a story about yourself. Idally, the video shout not last more than a minute, so try to make
+              a story about yourself in one minue</p>
             </div>
-          </div>
-        </div>
-      </section>
-      <!--[Career fair Details Slider End]-->
 
-      <!--[Jobs Scetion Start]-->
-      <section class="page-section page-section-templates">
-        <div class="page-header custom-page-header">
-          <div class="pull-left">
-            <h3 class="h3 custom-h3">Templates</h3>
-          </div>
-        </div>
-
-        <div class="row custom-row-10">
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail thumbnail-templates create-template text-center fileContainer">
-                <span class="glyphicon glyphicon-plus"></span>
-                <h5 class="h5 custom-h5-01">
-                  Upload New Video
-                </h5>
-                <input type="file" class="file_multi_video fileinput" accept="video/*" id="file" name="file" multiple onchange="angular.element(this).scope().getFileDetails(this)">
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 student_uploaded_video{{$index}}" ng-repeat="vid in video_list">
-            <div class="thumbnail thumbnail-templates">
-              <div class="icon-template-action" style="z-index: 9;display:none;">
-                <span class="glyphicon glyphicon-pencil circle-icon" ng-click="videoEditPopup(vid.id)"></span>
-                <button style="background:none; border:none;" type="button" ng-confirm-click="Are you sure to delete this video ?" confirmed-click="deleteVideo(vid.id,$index)">
-                  <span class="glyphicon glyphicon-trash circle-icon"></span>
-                </button>
+            <div class="col-sm-6 col-md-6 col-lg-6 pull-right">
+              <div class="maker-video-content">
+                <div id="help_video">
+                  <video width="100%" height="100%" controls="">
+                    <source src="https://s3-us-west-2.amazonaws.com/firstsynchvideosoutput/firstsynch_static_videos/FS_How_To_Make_a_Video.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
               </div>
-              <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
-              <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)">
-                <div class="box-inside-content">
-                  <h5 class="h5 custom-h5-01 ng-binding">{{vid.title|truncate:50}}</h5>
-                </div>
-              </a>
             </div>
-          </div>
-
-        </div>
-
-      </section>
-      <!--[Jobs Scetion End]-->
-</div>
-    </div><!--proudest-achievement-->
-
-
-<!---popup area for create Video--->
-<!--[Page Seach Section Content Start]-->
-<div class="modal fade custom-model" id="page-video-edit">
-  <div class="modal-dialog">
-    <div class="modal-content custom-modal-video-content">
-      <div class="modal-header cusom-model-onboard-header">
-        <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-        <div class="page-header custom-page-header">
-          <div class="pull-left">
-            <h1 class="h3 custom-h3">
-              Adding video
-            </h1>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-body custom-video-modal-body">
-        <section id="main-slider">
-          <h3 class="page-title text-center second_video_data" id="vid_title">Your video is ready</h3>
-          <input type="text" id="question" class="form-control custom-form-control-br-bottom" placeholder="UNTITLED">
-
-          <div class="video-player-container">
-            <div class="row">
-              <div class="col-sm-3" id="chapterss">
-                <ul class="nav nav-tabs custom-nav-tabs">
-
-                </ul>
-              </div><!--col-sm-3-->
-
-              <div class="col-sm-9">
-                  <video id="myvideo" width="100%" height="100%">
-                    <source src="" type="video/mp4" id="student_video">
-                  </video>
-              </div><!--col-sm-9-->
-            </div><!--row-->
-          </div><!--video-player-container-->
-
-            <div class="model-content-video">
-              <form name="video_create_form" class="ng-pristine ng-valid">
-
-                <div class="row" id="chapter_maker_thumb">
-                    <div class="col-sm-12">
-                      <div class="gen-back" style="margin-top:0;"><div id="bar"><canvas id="canvas_bar"></canvas></div></div>
-
-                      <div class="gen-back trim-slider">
-
-                        <div id="inoutbar" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="background: linear-gradient(to right, rgba(225, 225, 225, 0.8) -1px, rgba(225, 225, 225, 0) 0px, rgba(225, 225, 225, 0) 558px, rgba(225, 225, 225, 0.8) 559px, rgba(255, 255, 255, 0.8) 100%);"><div class="ui-slider-range ui-widget-header ui-corner-all" style="width: 100%; left: 0%;"></div>
-                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
-                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span></div>
-                        <div id="thumb1" class="thumbs-time hidden">00:00</div>
-                        <div id="thumb2" class="thumbs-time hidden">00:00</div>
-                      </div>
-
-                      <input type="hidden" id="inpoint" value="0" autocomplete="off">
-                      <input type="hidden" id="outpoint" value="1000" autocomplete="off">
-
-                      <div class="gen-back cursorarea">
-                        <div id="parent" class="parentcursor" style="position: relative;">
-                          <div class="videocursor" style="user-select: none; margin: 0px; position: absolute; top: 0px; left: 4px;"></div>
-                        </div>
-                      </div>
-                      <div class="gen-back">
-
-                        <div class="col-sm-1 col-md-12 ">
-                          <a href="#" title="Add new question" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="addnewquestion()">
-                            <span class="glyphicon glyphicon-plus"></span>Add new question
-                          </a>
-                          <button id="trim_finish" class="btn-addrole btn btn-default custom-btn btn-lg" style="float:none"  onclick="trimchaptermaking()">
-                            Trim & Finish
-                          </button>
-                        </div>
-                        <textarea style="display:none;" id="result" ng-model="video_chapters" required class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="150" rows="4"></textarea>
-                        <input type="hidden" id="video_duration">
-                      </div>
-                    </div>
-
-                </div><!--row-->
-
-                <div class="row second_video_data">
-                  <div class="col-sm-12">
-                    <div class="pull-left">
-                      <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Privacy video</label>
-                        <p>Allow other users to see this video?</p>
-                      </div>
-                    </div>
-
-                    <div class="pull-right">
-                      <div class="checkbox custom-checkbox checkbox-circle">
-                        <input ng-model="video.published" name="published" class="checkbox-input ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" type="radio" value="true" checked>
-                        <label for="published-allow" class="checkbox-label-01"> Allow</label>
-                      </div>
-                      <div class="checkbox custom-checkbox checkbox-circle">
-                        <input ng-model="video.published" name="published" class="checkbox-input" value="false" type="radio">
-                        <label for="published-forbid" class="checkbox-label-01"> Forbid</label>
-                        <input type="hidden" id="published" ng-value="{{video.published}}"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row second_video_data">
-                  <div class="col-sm-12">
-                    <div class="form-group custom-lider-form-group">
-                      <label class="text-uppercase">Title</label>
-                      <textarea id="title" name="title" ng-model="title" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4" required></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="row second_video_data">
-                  <div class="col-sm-12">
-                    <div class="form-group custom-lider-form-group">
-                      <label class="text-uppercase">Description</label>
-                      <textarea id="description" name="description" ng-model="description" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4"></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="row second_video_data">
-                  <div class="col-sm-12">
-                    <div class="form-group custom-lider-form-group">
-                      <label class="text-uppercase">Skills thst we are seeking [seperate with commas]</label>
-                      <textarea id="skill_text" name="skill_text" ng-model="skill_text" class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="250" rows="4" required></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="row second_video_data">
-                  <div class="col-sm-12">
-                    <p class="btn btn-default custom-btn btn-lg btn-submit">
-                      <button type="submit" ng-disabled="video_create_form.skill_text.$invalid && video_create_form.skill_text.$invalid" ng-click="uploadFiles()" class="btn btn-default custom-btn btn-lg" id="btn-upload">
-                        <span class="glyphicon glyphicon-arrow-up"></span>
-                        Upload this video
-                      </button>
-                      <!--<a href="#" class="btn btn-primary custom-btn btn-cancel btn-lg" id="btn-edit">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                        Edit
-                      </a>-->
-                    </p>
-                  </div>
-                </div>
-              </form>
-            </div><!--model-content-video-->
           </section>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--[Page Seach Section Content End]-->
+          <!--[Career fair Details Slider End]-->
 
-  <!--[Page Seach Section Content Start]-->
-  <div class="modal fade custom-model" id="error_msg_model">
-    <div class="modal-dialog">
-      <div class="modal-content custom-modal-video-content">
-        <div class="modal-header cusom-model-onboard-header">
-          <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-          <div class="page-header custom-page-header">
-            <div class="pull-left">
+          <!--[Jobs Scetion Start]-->
+          <section class="page-section page-section-templates">
+            <div class="page-header custom-page-header">
+              <div class="pull-left">
+                <h3 class="h3 custom-h3">Templates</h3>
+              </div>
+            </div>
+
+            <div class="row custom-row-10">
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="thumbnail thumbnail-templates create-template text-center fileContainer">
+                  <span class="glyphicon glyphicon-plus"></span>
+                  <h5 class="h5 custom-h5-01">
+                    Upload New Video
+                  </h5>
+                  <input type="file" class="file_multi_video fileinput" accept="video/*" id="file" name="file" multiple onchange="angular.element(this).scope().getFileDetails(this)">
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 student_uploaded_video{{$index}}" ng-repeat="vid in video_list">
+                <div class="thumbnail thumbnail-templates">
+                  <div class="icon-template-action" style="z-index: 9;">
+                    <span class="glyphicon glyphicon-pencil circle-icon" ng-click="videoEditPopup(vid.id)"></span>
+                    <button style="background:none; border:none;" type="button" ng-confirm-click="Are you sure to delete this video ?" confirmed-click="deleteVideo(vid.id,$index)">
+                      <span class="glyphicon glyphicon-trash circle-icon"></span>
+                    </button>
+                  </div>
+                  <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
+                  <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)">
+                    <div class="box-inside-content">
+                      <h5 class="h5 custom-h5-01 ng-binding">{{vid.title|truncate:50}}</h5>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+          <!--[Jobs Scetion End]-->
+        </div>
+      </div><!--proudest-achievement-->
+
+
+      <!---popup area for create Video--->
+      <!--[Page Seach Section Content Start]-->
+
+      <div class="modal fade custom-model" id="page-video-edit">
+        <div class="modal-dialog">
+          <div class="modal-content custom-modal-video-content">
+            <div class="modal-header cusom-making-video-header">
+              <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+              <div class="page-header custom-page-header">
+                <div class="pull-left">
+                  <h1 class="h3 custom-h3">
+                    Adding video
+                  </h1>
+                </div>
+              </div>
+            </div>
+
+            <div id="video_popup_loader">
+
+
+            </div><!--video_popup_loader-->
+
+
+            <div class="modal-footer custom-make-video-modal-footer">
+              <div class="mode">
+                <div class="gen-back">
+
+                  <div class="col-sm-1 col-md-12 ">
+                    <button type="submit" ng-disabled="video_create_form.skill_text.$invalid && video_create_form.skill_text.$invalid" ng-click="uploadFile()" class="btn btn-default custom-btn btn-lg" id="btn-upload" style="display: none;">
+                      <span class="glyphicon glyphicon-arrow-up"></span>
+                      Upload this video
+                    </button>
+
+                    <a href="#" title="Add new question" class="btn-addrole btn btn-default custom-btn btn-lg none" style="float:none"  onclick="addnewquestion()">
+                      <span class="glyphicon glyphicon-plus"></span>Add new question
+                    </a>
+                    <button id="trim_finish" class="btn-addrole btn btn-default custom-btn btn-lg none" style="float:none"  onclick="trimchaptermaking()">
+                      Trim & Finish
+                    </button>
+                  </div>
+                  <textarea style="display:none;" id="result" ng-model="video_chapters" required class="form-control custom-text-area ng-pristine ng-valid ng-empty ng-touched" maxlength="150" rows="4"></textarea>
+                  <input type="hidden" id="video_duration">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-          <div class="modal-body custom-video-modal-body">
+      </div>
+
+
+
+      <!--[Page Seach Section Content Start]-->
+      <div class="modal fade custom-model" id="error_msg_model">
+        <div class="modal-dialog">
+          <div class="modal-content custom-modal-video-content">
+            <div class="modal-header cusom-model-onboard-header">
+              <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+              <div class="page-header custom-page-header">
+                <div class="pull-left">
+                </div>
+              </div>
+            </div>
+            <div class="modal-body custom-video-modal-body">
               <h1 class="h3 custom-h3">
                 Please upload 1 minute video.
               </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--[Page Seach Section Content End]-->
-
-    <!--Video End Popup-->
-    <div class="modal fade custom-model" id="video_end">
-      <div class="modal-dialog">
-        <div class="modal-content custom-modal-video-content" style="background:#000 !important;">
-          <div class="modal-header cusom-model-onboard-header">
-            <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-            <div class="page-header custom-page-header">
-              <div class="pull-left">
-              </div>
             </div>
           </div>
-          <div class="modal-body custom-video-modal-body">
-            <h1 class="h3 custom-h3" style="color:#fff !important;">
-              <img src="assets/images/loader.gif" class="loader_icon" style="width: 40px; margin-left: 10px;">
-              <p><progress id="pro" value="0"></progress></p>
-              Your Video is currently being processed.
-            </h1>
-
-          </div>
-
-          </div>
         </div>
       </div>
-      <!--[Video End Popup]-->
-
-  <script type="text/javascript">
-  $(document).on("change", ".file_multi_video", function(evt) {
-    var $source = $('#student_video');
-    $source[0].src = URL.createObjectURL(this.files[0]);
-    $source.parent()[0].load();
-
-    var myVideoPlayer = document.getElementById('myvideo');
-    myVideoPlayer.addEventListener('loadedmetadata', function () {
-        var video_duration = myVideoPlayer.duration;
-        if (video_duration <= 60 ){
-          $('#page-video-edit').modal('show');
-          $('#video_duration').val(video_duration);
-        }else{
-          $('#error_msg_model').modal('show');
-        }
-    });
-
-    var playButton = document.getElementById("play-pause");
-    var muteButton = document.getElementById("mute");
-    var fullScreenButton = document.getElementById("full-screen");
-    var currentMode = document.getElementById("current-mode");
-
-    var v =  document.querySelector("#myvideo");
-    var b =  document.querySelector("#bar");
-    var t =  document.querySelector("#thumb");
-    var canvas_bar =  document.querySelector("#canvas_bar");
-
-
-    var timeLabel = document.getElementById("current-time");
-    //var setinSet = document.querySelector("#setin-set");
-    //var setoutSet = document.querySelector("#setout-set");
-    var inpoint = document.querySelector("#inpoint");
-    var outpoint = document.querySelector("#outpoint");
-    var previewbtn = document.querySelector("#previewbtn");
-
-    var previewMode = false;
-
-    v.addEventListener('click',play,false);
-    v.addEventListener('timeupdate',update,false);
-    v.addEventListener('seeked',seeked,false);
-    //b.addEventListener('mouseover',show,false);
-    //b.addEventListener('mouseout',hide,false);
-    //b.addEventListener('mousemove',render,false);
-    b.addEventListener('click',seek,false);
-
-    var barwidth = 760//b.offsetWidth;
-    var barheight = 60 //b.offsetHeight;
-
-    var ctx = canvas_bar.getContext('2d');
-
-    //	setinSet.addEventListener('click',setin,false);
-    //	setoutSet.addEventListener('click',setout,false);
-    //	previewbtn.addEventListener('click',onPreview,false);
-
-
-
-    /*-------------------------Step 3. Capture images and put them in time line. Start ----------------------------*/
-    var video_length = 0;
-    var thumbnailing = 0;
-
-    var intId = 0;
-    var temp = 0;
-
-    v.addEventListener('loadeddata', function() {
-      //Get Video Length and Dimensions.
-      video_length = v.duration;
-
-      max_time = video_length;
-
-      //Get Width of video thumb items.
-      thumb_width =  parseInt(barheight * v.videoWidth / v.videoHeight);
-      thumb_height = barheight;
-
-      canvas_bar.width = barwidth;
-      canvas_bar.height = barheight;
-
-      thumbnailing = 1;
-
-      makeTimeBackground(thumb_width);
-      //show "Loading" when adding snaps
-
-    }, false);
-
-
-    function makeTimeBackground(thumb_width){
-      moveSeek(thumb_width);
-    }
-
-    function moveSeek(thumb_width) {
-      if(thumbnailing == 1) {
-
-        if( (temp * parseInt(thumb_width) ) < parseInt(barwidth) + parseInt(thumb_width) ) {
-          v.currentTime = parseInt(video_length) * temp * parseInt(thumb_width) / parseInt(barwidth);
-          setTimeout(function(){ makeTimeBackground(thumb_width); },300);
-        } else {
-          thumbnailing = 0;
-          v.currentTime = 0;
-        }
-      }
-    }
-
-    function seeked(){
-      ctx.drawImage(v,temp*thumb_width,0,thumb_width,thumb_height);
-      temp++;
-    }
-
-    /*-------------------------Step 3. Capture images and put them in time line. End ----------------------------*/
-
-    /*-------------------------Step 4. Sliding Event Start -------------------------- ----------------------------*/
-
-    // var current_video_position = 0;
-    // var min_time = 0;
-    // var max_time = 0;
-    // var min_val = 0;
-    // var max_val = 0;
-    //
-    // var cursormoving = 0;
-    // $(function(){
-    //   // Slider
-    //   $('#inoutbar').dragslider({
-    //     animate: false,
-    //     range: true,
-    //     rangeDrag: true,
-    //     start: function ( event, ui ){
-    //       $("#thumb1").removeClass("hidden");
-    //       $("#thumb2").removeClass("hidden");
-    //     },
-    //     slide: function ( event, ui ){
-    //       trackwidth = $("#inoutbar").width();
-    //
-    //       min_val = ui.values[0];
-    //       if(min_val < last_val){
-    //         min_val = last_val;
-    //         $('#inoutbar').dragslider('values',0,last_val);
-    //       }
-    //       max_val = ui.values[1];
-    //       p1 = trackwidth * min_val / 100;
-    //       p2 = trackwidth * max_val / 100;
-    //
-    //       $("#inoutbar").css({"background": "linear-gradient(to right, rgba(225,225,225,0.8)"+(p1-1)+"px,rgba(225,225,225,0) "+p1+"px, rgba(225,225,225,0)"+p2+"px, rgba(225,225,225,0.8) "+(p2+1)+"px, rgba(255,255,255,0.8) 100%)"});
-    //
-    //       min_time = video_length * min_val / 100;
-    //       max_time = video_length * max_val / 100;
-    //
-    //       $("#thumb1").html(getTimeFormat(min_time));
-    //       left = parseInt(p1) + 15;
-    //       $("#thumb1").css("left",left+"px");
-    //       $("#thumb2").html(getTimeFormat(max_time));
-    //       left = parseInt(p2) + 15;
-    //       $("#thumb2").css("left",left+"px");
-    //
-    //       if(current_video_position < min_time){
-    //         current_video_position = min_time;
-    //         v.currentTime = min_time;
-    //       }
-    //     },
-    //     change:function( event, ui ) {
-    //
-    //       $("#thumb1").addClass("hidden");
-    //       $("#thumb2").addClass("hidden");
-    //
-    //       trackwidth = $("#inoutbar").width();
-    //
-    //       p1 = trackwidth * ui.values[0] / 100;
-    //       p2 = trackwidth * ui.values[1] / 100;
-    //
-    //       $("#inoutbar").css({"background": "linear-gradient(to right, rgba(225,225,225,0.8)"+(p1-1)+"px,rgba(225,225,225,0) "+p1+"px, rgba(225,225,225,0)"+p2+"px, rgba(225,225,225,0.8) "+(p2+1)+"px, rgba(255,255,255,0.8) 100%)"});
-    //
-    //       min_val = ui.values[0];
-    //       if(min_val < last_val){
-    //         min_val = last_val;
-    //         $('#inoutbar').dragslider('values',0,last_val);
-    //       }
-    //       max_val = ui.values[1];
-    //       min_time = video_length * min_val / 100;
-    //       max_time = video_length * max_val / 100;
-    //
-    //       if(current_video_position < min_time){
-    //         current_video_position = min_time;
-    //         v.currentTime = min_time;
-    //       }
-    //
-    //     },
-    //     stop: function( event, ui ) {
-    //
-    //       $("#thumb1").addClass("hidden");
-    //       $("#thumb2").addClass("hidden");
-    //
-    //       trackwidth = $("#inoutbar").width();
-    //
-    //       p1 = trackwidth * ui.values[0] / 100;
-    //       p2 = trackwidth * ui.values[1] / 100;
-    //
-    //       $("#inoutbar").css({"background": "linear-gradient(to right, rgba(225,225,225,0.8)"+(p1-1)+"px,rgba(225,225,225,0) "+p1+"px, rgba(225,225,225,0)"+p2+"px, rgba(225,225,225,0.8) "+(p2+1)+"px, rgba(255,255,255,0.8) 100%)"});
-    //
-    //       min_val = ui.values[0];
-    //       if(min_val < last_val){
-    //         min_val = last_val;
-    //         $('#inoutbar').dragslider('values',0,last_val);
-    //       }
-    //       max_val = ui.values[1];
-    //       min_time = video_length * min_val / 100;
-    //       max_time = video_length * max_val / 100;
-    //
-    //       if(current_video_position < min_time){
-    //         current_video_position = min_time;
-    //         v.currentTime = min_time;
-    //       }
-    //
-    //     },
-    //     values: [0, 100]
-    //   });
-    //
-    //   $('.videocursor').pep({
-    //     axis: 'x',
-    //     debug: false,
-    //     useCSSTranslation: false,
-    //     shouldEase: false,
-    //     constrainTo: 'parent',
-    //     start: function(){
-    //       v.pause();
-    //       $("#thumb1").removeClass("hidden");
-    //       cursormoving = 1;
-    //     },
-    //     drag: function(){
-    //
-    //
-    //       pos = parseFloat($(".videocursor").css("left"));
-    //       movetime = pos * video_length / parentwidth;
-    //
-    //       $("#thumb1").html(getTimeFormat(movetime));
-    //       left = parseInt(pos) + 15;
-    //       $("#thumb1").css("left",left+"px");
-    //
-    //       v.currentTime = movetime;
-    //     },
-    //     stop: function(){
-    //       $("#thumb2").addClass("hidden");
-    //       pos = parseFloat($(".videocursor").css("left"));
-    //       v.currentTime = pos * video_length / parentwidth;
-    //       cursormoving = 0;
-    //     }
-    //   });
-    // });
-
-    /*-------------------------Step 4. Sliding Event End -------------------------- ----------------------------*/
-
-    /*-------------------------Step 5. Cursor Event Start -------------------------- ----------------------------*/
-    // var parentwidth = $("#parent").width();
-    // function play() {
-    //   if(v.paused) { v.play(); } else { v.pause(); }
-    // }
-    //
-    // function update() {
-    //   if(thumbnailing == 0) {
-    //
-    //     if(v.currentTime >= max_time){
-    //       v.currentTime = min_time;
-    //     }
-    //
-    //     if(v.currentTime < min_time){
-    //       v.currentTime = min_time;
-    //     }
-    //
-    //     if(cursormoving == 0){
-    //       p = v.currentTime/v.duration;
-    //       pos = parentwidth * p;
-    //       $(".videocursor").css("left",pos);
-    //     }
-    //   }
-    // }
-
-    // function seek(e) {
-    //   v.currentTime = (e.pageX-b.offsetLeft)*v.duration/barwidth;
-    // }
-    //
-    //
-    // (function( $, undefined ) {
-    //
-    //   $.widget("ui.dragslider", $.ui.slider, {
-    //
-    //     options: $.extend({},$.ui.slider.prototype.options,{rangeDrag:false}),
-    //
-    //     _create: function() {
-    //       $.ui.slider.prototype._create.apply(this,arguments);
-    //       this._rangeCapture = false;
-    //     },
-    //
-    //     _mouseCapture: function( event ) {
-    //       var o = this.options;
-    //
-    //       if ( o.disabled ) return false;
-    //
-    //       if(event.target == this.range.get(0) && o.rangeDrag == true && o.range == true) {
-    //         this._rangeCapture = true;
-    //         this._rangeStart = null;
-    //       }
-    //       else {
-    //         this._rangeCapture = false;
-    //       }
-    //
-    //       $.ui.slider.prototype._mouseCapture.apply(this,arguments);
-    //
-    //       if(this._rangeCapture == true) {
-    //         this.handles.removeClass("ui-state-active").blur();
-    //       }
-    //
-    //       return true;
-    //     },
-    //
-    //     _mouseStop: function( event ) {
-    //       this._rangeStart = null;
-    //       return $.ui.slider.prototype._mouseStop.apply(this,arguments);
-    //     },
-    //
-    //     _slide: function( event, index, newVal ) {
-    //       if(!this._rangeCapture) {
-    //         return $.ui.slider.prototype._slide.apply(this,arguments);
-    //       }
-    //
-    //       if(this._rangeStart == null) {
-    //         this._rangeStart = newVal;
-    //       }
-    //
-    //       var oldValLeft = this.options.values[0],
-    //       oldValRight = this.options.values[1],
-    //       slideDist = newVal - this._rangeStart,
-    //       newValueLeft = oldValLeft + slideDist,
-    //       newValueRight = oldValRight + slideDist,
-    //       allowed;
-    //
-    //       if ( this.options.values && this.options.values.length ) {
-    //         if(newValueRight > this._valueMax() && slideDist > 0) {
-    //           slideDist -= (newValueRight-this._valueMax());
-    //           newValueLeft = oldValLeft + slideDist;
-    //           newValueRight = oldValRight + slideDist;
-    //         }
-    //
-    //         if(newValueLeft < this._valueMin()) {
-    //           slideDist += (this._valueMin()-newValueLeft);
-    //           newValueLeft = oldValLeft + slideDist;
-    //           newValueRight = oldValRight + slideDist;
-    //         }
-    //
-    //         if ( slideDist != 0 ) {
-    //           newValues = this.values();
-    //           newValues[ 0 ] = newValueLeft;
-    //           newValues[ 1 ] = newValueRight;
-    //
-    //           // A slide can be canceled by returning false from the slide callback
-    //           allowed = this._trigger( "slide", event, {
-    //             handle: this.handles[ index ],
-    //             value: slideDist,
-    //             values: newValues
-    //           } );
-    //
-    //           if ( allowed !== false ) {
-    //             this.values( 0, newValueLeft, true );
-    //             this.values( 1, newValueRight, true );
-    //           }
-    //           this._rangeStart = newVal;
-    //         }
-    //       }
-    //
-    //
-    //
-    //     },
-    //
-    //   });
-    //
-    // })(jQuery);
-
-    //utilites
-
-    function getTimeFormat(nowtime)
-    {
-      var sec_num = parseInt(nowtime, 10);
-      var hours   = Math.floor(sec_num / 3600);
-      var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-      var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-      var str = "";
-
-      if(hours > 0) {
-        if (hours   < 10) {str = str + "0"+hours;}
-        //str = str + ":";
-      }
-
-      if (minutes < 10) {minutes = "0"+minutes;}
-      if (seconds < 10) {seconds = "0"+seconds;}
-      str = minutes + ":" +seconds;
-      return str;
-    }
-
-  });
-
-  var playButton = document.getElementById("play-pause");
-  var muteButton = document.getElementById("mute");
-  var fullScreenButton = document.getElementById("full-screen");
-  var currentMode = document.getElementById("current-mode");
-
-  var v =  document.querySelector("#myvideo");
-  var b =  document.querySelector("#bar");
-  var t =  document.querySelector("#thumb");
-  var canvas_bar =  document.querySelector("#canvas_bar");
-
-
-  var timeLabel = document.getElementById("current-time");
-  //var setinSet = document.querySelector("#setin-set");
-  //var setoutSet = document.querySelector("#setout-set");
-  var inpoint = document.querySelector("#inpoint");
-  var outpoint = document.querySelector("#outpoint");
-  var previewbtn = document.querySelector("#previewbtn");
-
-  var previewMode = false;
-
-  v.addEventListener('click',play,false);
-  v.addEventListener('timeupdate',update,false);
-  v.addEventListener('seeked',seeked,false);
-  //b.addEventListener('mouseover',show,false);
-  //b.addEventListener('mouseout',hide,false);
-  //b.addEventListener('mousemove',render,false);
-  b.addEventListener('click',seek,false);
-
-  var barwidth = 760//b.offsetWidth;
-  var barheight = 60 //b.offsetHeight;
-
-  var ctx = canvas_bar.getContext('2d');
-
-  //	setinSet.addEventListener('click',setin,false);
-  //	setoutSet.addEventListener('click',setout,false);
-  //	previewbtn.addEventListener('click',onPreview,false);
-
-
-
-  /*-------------------------Step 3. Capture images and put them in time line. Start ----------------------------*/
-  var video_length = 0;
-  var thumbnailing = 0;
-
-  var intId = 0;
-  var temp = 0;
-
-  v.addEventListener('loadeddata', function() {
-    //Get Video Length and Dimensions.
-    video_length = v.duration;
-
-    max_time = video_length;
-
-    //Get Width of video thumb items.
-    thumb_width =  parseInt(barheight * v.videoWidth / v.videoHeight);
-    thumb_height = barheight;
-
-    canvas_bar.width = barwidth;
-    canvas_bar.height = barheight;
-
-    thumbnailing = 1;
-
-    makeTimeBackground(thumb_width);
-    //show "Loading" when adding snaps
-
-  }, false);
-
-
-  function makeTimeBackground(thumb_width){
-    moveSeek(thumb_width);
-  }
-
-  function moveSeek(thumb_width) {
-    if(thumbnailing == 1) {
-
-      if( (temp * parseInt(thumb_width) ) < parseInt(barwidth) + parseInt(thumb_width) ) {
-        v.currentTime = parseInt(video_length) * temp * parseInt(thumb_width) / parseInt(barwidth);
-        setTimeout(function(){ makeTimeBackground(thumb_width); },300);
-      } else {
-        thumbnailing = 0;
-        v.currentTime = 0;
-      }
-    }
-  }
-
-  function seeked(){
-    ctx.drawImage(v,temp*thumb_width,0,thumb_width,thumb_height);
-    temp++;
-  }
-
-  /*-------------------------Step 3. Capture images and put them in time line. End ----------------------------*/
-
-  /*-------------------------Step 4. Sliding Event Start -------------------------- ----------------------------*/
-
-  var current_video_position = 0;
-  var min_time = 0;
-  var max_time = 0;
-  var min_val = 0;
-  var max_val = 0;
-
-  var cursormoving = 0;
-  $(function(){
-    // Slider
-    $('#inoutbar').dragslider({
-      animate: false,
-      range: true,
-      rangeDrag: true,
-      start: function ( event, ui ){
-        $("#thumb1").removeClass("hidden");
-        $("#thumb2").removeClass("hidden");
-      },
-      slide: function ( event, ui ){
-        trackwidth = $("#inoutbar").width();
-
-        min_val = ui.values[0];
-        if(min_val < last_val){
-          min_val = last_val;
-          $('#inoutbar').dragslider('values',0,last_val);
-        }
-        max_val = ui.values[1];
-        p1 = trackwidth * min_val / 100;
-        p2 = trackwidth * max_val / 100;
-
-        $("#inoutbar").css({"background": "linear-gradient(to right, rgba(225,225,225,0.8)"+(p1-1)+"px,rgba(225,225,225,0) "+p1+"px, rgba(225,225,225,0)"+p2+"px, rgba(225,225,225,0.8) "+(p2+1)+"px, rgba(255,255,255,0.8) 100%)"});
-
-        min_time = video_length * min_val / 100;
-        max_time = video_length * max_val / 100;
-
-        $("#thumb1").html(getTimeFormat(min_time));
-        left = parseInt(p1) + 15;
-        $("#thumb1").css("left",left+"px");
-        $("#thumb2").html(getTimeFormat(max_time));
-        left = parseInt(p2) + 15;
-        $("#thumb2").css("left",left+"px");
-
-        if(current_video_position < min_time){
-          current_video_position = min_time;
-          v.currentTime = min_time;
-        }
-      },
-      change:function( event, ui ) {
-
-        $("#thumb1").addClass("hidden");
-        $("#thumb2").addClass("hidden");
-
-        trackwidth = $("#inoutbar").width();
-
-        p1 = trackwidth * ui.values[0] / 100;
-        p2 = trackwidth * ui.values[1] / 100;
-
-        $("#inoutbar").css({"background": "linear-gradient(to right, rgba(225,225,225,0.8)"+(p1-1)+"px,rgba(225,225,225,0) "+p1+"px, rgba(225,225,225,0)"+p2+"px, rgba(225,225,225,0.8) "+(p2+1)+"px, rgba(255,255,255,0.8) 100%)"});
-
-        min_val = ui.values[0];
-        if(min_val < last_val){
-          min_val = last_val;
-          $('#inoutbar').dragslider('values',0,last_val);
-        }
-        max_val = ui.values[1];
-        min_time = video_length * min_val / 100;
-        max_time = video_length * max_val / 100;
-
-        if(current_video_position < min_time){
-          current_video_position = min_time;
-          v.currentTime = min_time;
-        }
-
-      },
-      stop: function( event, ui ) {
-
-        $("#thumb1").addClass("hidden");
-        $("#thumb2").addClass("hidden");
-
-        trackwidth = $("#inoutbar").width();
-
-        p1 = trackwidth * ui.values[0] / 100;
-        p2 = trackwidth * ui.values[1] / 100;
-
-        $("#inoutbar").css({"background": "linear-gradient(to right, rgba(225,225,225,0.8)"+(p1-1)+"px,rgba(225,225,225,0) "+p1+"px, rgba(225,225,225,0)"+p2+"px, rgba(225,225,225,0.8) "+(p2+1)+"px, rgba(255,255,255,0.8) 100%)"});
-
-        min_val = ui.values[0];
-        if(min_val < last_val){
-          min_val = last_val;
-          $('#inoutbar').dragslider('values',0,last_val);
-        }
-        max_val = ui.values[1];
-        min_time = video_length * min_val / 100;
-        max_time = video_length * max_val / 100;
-
-        if(current_video_position < min_time){
-          current_video_position = min_time;
-          v.currentTime = min_time;
-        }
-
-      },
-      values: [0, 100]
-    });
-
-    $('.videocursor').pep({
-      axis: 'x',
-      debug: false,
-      useCSSTranslation: false,
-      shouldEase: false,
-      constrainTo: 'parent',
-      start: function(){
-        v.pause();
-        $("#thumb1").removeClass("hidden");
-        cursormoving = 1;
-      },
-      drag: function(){
-
-
-        pos = parseFloat($(".videocursor").css("left"));
-        movetime = pos * video_length / parentwidth;
-
-        $("#thumb1").html(getTimeFormat(movetime));
-        left = parseInt(pos) + 15;
-        $("#thumb1").css("left",left+"px");
-
-        v.currentTime = movetime;
-      },
-      stop: function(){
-        $("#thumb2").addClass("hidden");
-        pos = parseFloat($(".videocursor").css("left"));
-        v.currentTime = pos * video_length / parentwidth;
-        cursormoving = 0;
-      }
-    });
-  });
-
-  /*-------------------------Step 4. Sliding Event End -------------------------- ----------------------------*/
-
-  /*-------------------------Step 5. Cursor Event Start -------------------------- ----------------------------*/
-  var parentwidth = $("#parent").width();
-  function play() {
-    if(v.paused) { v.play(); } else { v.pause(); }
-  }
-
-  function update() {
-    if(thumbnailing == 0) {
-
-      if(v.currentTime >= max_time){
-        v.currentTime = min_time;
-      }
-
-      if(v.currentTime < min_time){
-        v.currentTime = min_time;
-      }
-
-      if(cursormoving == 0){
-        p = v.currentTime/v.duration;
-        pos = parentwidth * p;
-        $(".videocursor").css("left",pos);
-      }
-    }
-  }
-
-  function seek(e) {
-    v.currentTime = (e.pageX-b.offsetLeft)*v.duration/barwidth;
-  }
-
-
-  (function( $, undefined ) {
-
-    $.widget("ui.dragslider", $.ui.slider, {
-
-      options: $.extend({},$.ui.slider.prototype.options,{rangeDrag:false}),
-
-      _create: function() {
-        $.ui.slider.prototype._create.apply(this,arguments);
-        this._rangeCapture = false;
-      },
-
-      _mouseCapture: function( event ) {
-        var o = this.options;
-
-        if ( o.disabled ) return false;
-
-        if(event.target == this.range.get(0) && o.rangeDrag == true && o.range == true) {
-          this._rangeCapture = true;
-          this._rangeStart = null;
-        }
-        else {
-          this._rangeCapture = false;
-        }
-
-        $.ui.slider.prototype._mouseCapture.apply(this,arguments);
-
-        if(this._rangeCapture == true) {
-          this.handles.removeClass("ui-state-active").blur();
-        }
-
-        return true;
-      },
-
-      _mouseStop: function( event ) {
-        this._rangeStart = null;
-        return $.ui.slider.prototype._mouseStop.apply(this,arguments);
-      },
-
-      _slide: function( event, index, newVal ) {
-        if(!this._rangeCapture) {
-          return $.ui.slider.prototype._slide.apply(this,arguments);
-        }
-
-        if(this._rangeStart == null) {
-          this._rangeStart = newVal;
-        }
-
-        var oldValLeft = this.options.values[0],
-        oldValRight = this.options.values[1],
-        slideDist = newVal - this._rangeStart,
-        newValueLeft = oldValLeft + slideDist,
-        newValueRight = oldValRight + slideDist,
-        allowed;
-
-        if ( this.options.values && this.options.values.length ) {
-          if(newValueRight > this._valueMax() && slideDist > 0) {
-            slideDist -= (newValueRight-this._valueMax());
-            newValueLeft = oldValLeft + slideDist;
-            newValueRight = oldValRight + slideDist;
-          }
-
-          if(newValueLeft < this._valueMin()) {
-            slideDist += (this._valueMin()-newValueLeft);
-            newValueLeft = oldValLeft + slideDist;
-            newValueRight = oldValRight + slideDist;
-          }
-
-          if ( slideDist != 0 ) {
-            newValues = this.values();
-            newValues[ 0 ] = newValueLeft;
-            newValues[ 1 ] = newValueRight;
-
-            // A slide can be canceled by returning false from the slide callback
-            allowed = this._trigger( "slide", event, {
-              handle: this.handles[ index ],
-              value: slideDist,
-              values: newValues
-            } );
-
-            if ( allowed !== false ) {
-              this.values( 0, newValueLeft, true );
-              this.values( 1, newValueRight, true );
-            }
-            this._rangeStart = newVal;
-          }
-        }
-
-
-
-      },
-
-    });
-
-  })(jQuery);
-
-  //utilites
-
-  function getTimeFormat(nowtime)
-  {
-    var sec_num = parseInt(nowtime, 10);
-    var hours   = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-    var str = "";
-
-    if(hours > 0) {
-      if (hours   < 10) {str = str + "0"+hours;}
-      //str = str + ":";
-    }
-
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    str = minutes + ":" +seconds;
-    return str;
-  }
-
-  if ($('#result').val().trim().length > 0){
-    $('#trim_finish').prop("disabled", false);
-  }else{
-    $('#trim_finish').prop("disabled", true);
-  }
-
-
-  /* adding new questions */
-  var last_time = 0;
-  var last_val = 0;
-  var questions = [];
-  function addnewquestion() {
-    var video_max_duration = $('#video_duration').val();
-    question = $("#question").val();
-
-    if (question < 1){
-      $('#question').focus();
-    }else{
-      if (video_length == max_time){
-        $("#chapter_maker_thumb").hide();
-        $("#question").hide();
-        $("#vid_title").show();
-        $('.second_video_data').show();
-      }
-      $("#question").val("");
-      questions.push({min:min_time,max:max_time,question:question});
-      $("#result").html(JSON.stringify(questions));
-
-      /* append leftside - chapter heading*/
-      $('#chapterss ul').append('<li class="custom-list-group-item active"><a href="#"><div class="custom-list-group-item-title">'+question+'</div><div class="custom-list-group-right"><span class="badge custom-badge active"></span><span class="glyphicon glyphicon-th custom-list-group-glyphicon"></span></div></a></li>');
-
-      if ($('#result').val().trim().length > 0){
-        $('#trim_finish').prop("disabled", false);
-      }else{
-        $('#trim_finish').prop("disabled", true);
-      }
-
-      x = barwidth * min_val / 100;
-      y = 0;
-      width = barwidth * (max_val-min_val) / 100;
-      height = barheight;
-      ctx.fillStyle = "green";
-      ctx.fillRect(x, y, width, height);
-      ctx.strokeStyle = "black";
-      ctx.strokeRect(x,y,width,height);
-
-      ctx.fillStyle = "white";
-      ctx.font = "20pt sans-serif";
-      ctx.fillText(questions.length, x+(width / 2) , (height/2)+10);
-
-      last_time = max_time;
-      last_val = max_val;
-
-      min_val = last_val;
-      max_val = 100;
-      $('#inoutbar').dragslider('values',0,last_val);
-      $('#inoutbar').dragslider('values',1,100);
-      $('#inoutbar').trigger('slidestop');
-    }
-
-  }
-
-      function trimchaptermaking() {
-        $("#chapter_maker_thumb").hide();
-        $("#question").hide();
-        $("#vid_title").show();
-        $('.second_video_data').show();
-        $('#trim_finish').hide();
-      }
-
-  </script>
-<!--popup end for create Video--->
-<div ng-include ="'StudentRole/student_edit_profile/video_edit_popup.html'"></div>
+      <!--[Page Seach Section Content End]-->
+
+      <!--Video End Popup-->
+      <div class="modal fade custom-model" id="video_end">
+        <div class="video_end">
+          <div class="inners">
+            <h1 class="h3 custom-h3" style="color:#fff !important;">Your Video is currently being processed.</h1>
+            <img src="assets/images/loader.gif" class="loader_icon" style="width: 40px; margin-left: 10px;">
+            <!--<p><progress id="pro" value="0"></progress></p>-->
+            <div ng-show="progressVisible">
+              <div class="percent">{{progress}}%</div>
+              <div class="progress1-bar">
+                <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+              </div>
+            </div>
+          </div><!--inners-->
+        </div><!--video_end class-->
+      </div><!--popup closed video_end-->

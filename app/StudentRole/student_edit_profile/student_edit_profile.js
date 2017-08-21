@@ -73,7 +73,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             if(angular.element('#published-allow')[0].value == 'allow'){
               fd.append("published", 'True');
             }else{
-              fd.append("published", 'False');
+              fd.append("published", 'True');
             }
 
             var xhr = new XMLHttpRequest()
@@ -96,9 +96,9 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
 
         function uploadComplete(evt) {
             /* This event is raised when the server send back a response */
-            $('#video_end').modal('hide');
             $('#page-video-edit').modal('hide');
-            $('page-video-edit').css({'z-index':'1050'});
+            $('#video_end').modal('hide');
+            $('#page-video-edit').css({'z-index':'1050'});
             $('#chapterss ul').empty();
             $("#chapter_maker_thumb").show();
             $("#question").show();
