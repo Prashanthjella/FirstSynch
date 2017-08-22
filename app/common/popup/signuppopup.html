@@ -15,33 +15,33 @@
           <div style="color: red; font-weight: bold;" class="common_js_remove_clas">{{error}}{{data}}</div>
           <div class="form-group">
             <label for="Your Emai" class="text-uppercase" ng-class="{'has-success': findusertype.e_mail.$valid}">Your Email</label>
-            <input type="email" name="e_mail" ng-model="e_mail" class="form-control custom-form-control-br-bottom" id="your-email" placeholder="Use your corporate email to sign up as a company" required ng-class="{'has-error': findusertype.e_mail.$touched && findusertype.e_mail.$error, 'has-success': findusertype.e_mail.$valid}"/>
+            <input type="email" name="e_mail" ng-model="e_mail" class="form-control custom-form-control-br-bottom" id="your-email" placeholder="Sign up to FirstSynch with your email address" required ng-class="{'has-error': findusertype.e_mail.$touched && findusertype.e_mail.$error, 'has-success': findusertype.e_mail.$valid}"/>
           </div>
           <div class="row custom-row-20">
             <div class="col-sm-6">
             <div class="list-register-group">
-              <h5 class="custom-h5-01">Company</h5>
+              <h5 class="custom-h5-01">RECRUITER</h5>
               <ul class="list-unstyled">
                 <!--<li data-icon="—" class="icon-list">Create your custom webpage</li>-->
-                <li data-icon="—" class="icon-list">Follow students</li>
-                <li data-icon="—" class="icon-list">Like and reply your favorite videos</li>
-                <li data-icon="—" class="icon-list">Search for students</li>
-                <li data-icon="—" class="icon-list">Search and participate in career fairs</li>
+                <li data-icon="—" class="icon-list">Sign up using your corporate email</li>
+                <li data-icon="—" class="icon-list">Update your company profile</li>
+                <li data-icon="—" class="icon-list">Follow Seekers</li>
+                <li data-icon="—" class="icon-list">Post Jobs</li>
               </ul>
               </div>
               <!-- <a href="#" class="link-all link-green link-green-popup">I've made a video on a recent Careeer Fair</a> -->
             </div>
             <div class="col-sm-6">
              <div class="list-register-group">
-              <h5  class="custom-h5-01">Student</h4>
+              <h5  class="custom-h5-01">SEEKER</h4>
 
                 <ul class="list-unstyled">
                   <!--<li data-icon="—" class="icon-list">Create your custom webpage</li>-->
+                  <li data-icon="—" class="icon-list">Sign up using your personal email</li>
                   <li data-icon="—" class="icon-list">Follow employees and companies</li>
-                  <li data-icon="—" class="icon-list">Like and reply your favorite videos</li>
                   <!--<li data-icon="—" class="icon-list">Search for jobs</li>-->
-                  <li data-icon="—" class="icon-list">Search for the companies</li>
-                  <li data-icon="—" class="icon-list">Search for careeer fairs</li>
+                  <li data-icon="—" class="icon-list">Search for jobs</li>
+                  <li data-icon="—" class="icon-list">Browse Fairs</li>
                 </ul>
                 </div>
               </div>
@@ -50,7 +50,7 @@
           </div>
 
           <div class="modal-footer custom-login-modal-footer">
-            <a href="{{facebookloginurl}}" class="btn btn-default custom-btn-login bg-facebook">SignUp with Facebook</a>
+            <a href="{{facebookloginurl}}" class="btn btn-default custom-btn-login bg-facebook">Sign up with Facebook</a>
             <button ng-click="SendData()" ng-disabled="findusertype.$invalid" class="btn btn-default custom-btn-login">Next</button>
           </div>
 

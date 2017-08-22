@@ -32,7 +32,7 @@
                     <div class="page-step-container">
                         <!--<span>Step 2 of 2</span>-->
                     </div>
-                    <h1 class="custom-h1-01 text-center">Student Registration</h1>
+                    <h1 class="custom-h1-01 text-center">Seeker Registration</h1>
                 </div>
                 <div class="modal-body custom-modal-body-login peoplesearch_remove">
                     <span style="color: green; font-weight: bold;">{{message}}</span>
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': studentregistration.school_name.$valid}">University Name</label>
                         <div angucomplete-alt id="universities"
-                            placeholder="Search University"
+                            placeholder=""
                             maxlength="200"
                             pause="100"
                             selected-object="selecteduniversity"
@@ -76,13 +76,13 @@
                         <input type="number" class="form-control custom-form-control-br-bottom" id="gpa" name="gpa" ng-model="gpa" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" required ng-class="{'has-error': studentregistration.gpa.$touched && studentregistration.gpa.$error.required && studentregistration.gpa.$invalid, 'has-success': studentregistration.gpa.$valid}" />
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.password.$valid}">Create Password</label>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.password.$valid}">Password</label>
                         <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." ng-class="{'has-error':   studentregistration.password.$touched && studentregistration.password.$error.required && studentregistration.password.$invalid, 'has-success': studentregistration.password.$valid}"/>
                     </div>
                     <div class="form-group form-group-allow-control clearfix">
                         <div class="pull-left">
-                            <label class="text-uppercase">Request to use information Password</label>
-                            <p class="content-allow">Allow us to pull your info from open sources</p>
+                            <label class="text-uppercase">PERSONAL INFORMATION</label>
+                            <p class="content-allow">Do you give us permission to bring in personal<br> information from Facebook, Linkedin and Google+<br> to improve your Seeker profile?</p>
                         </div>
                         <div class="pull-right checkbox-register" ng-init="piplsearch='allow'">
                             <div class="checkbox custom-checkbox checkbox-circle">
@@ -91,14 +91,14 @@
                             </div>
                             <div class="checkbox custom-checkbox checkbox-circle">
                                 <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'deny'"class="checkbox-input" id="student-Forbid">
-                                <label for="student-Forbid1" class="checkbox-label-01">Forbid</label>
+                                <label for="student-Forbid1" class="checkbox-label-01">Deny</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer custom-login-modal-footer peoplesearch_remove">
                     <button type="submit" ng-click="StudentRegistratoin()"  ng-disabled="studentregistration.name.$invalid||studentregistration.lname.$invalid||studentregistration.school_name.$invalid||studentregistration.gpa.$invalid||studentregistration.password.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
-                    <p class="link-signup-student">By clicking "Sign Up" I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
+                    <p class="link-signup-student">By clicking "Sign Up", I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
                 </div>
             </div>
             <div class="modal-dialog">
@@ -107,15 +107,15 @@
                         <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
                         <div class="page-header custom-page-header">
                             <div class="pull-left">
-                                <h1 class="h1 custom-h1">Onboarding</h1>
+                                <h1 class="h1 custom-h1">GETTING STARTED</h1>
                             </div>
-                            <div class="pull-right"> <button type="submit" ng-click="StudentRegistratoin()" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
+                            <div class="pull-right"> <button type="submit" ng-click="StudentRegistratoin()" class="btn btn-default btn-large custom-btn-approve-info">SUBMIT INFORMATION</button> </div>
                         </div>
                     </div>
                     <div class="modal-body custom-video-modal-body peoplesearch_show" style="display:none;">
                         <section class="page-section page-section-onboard page-section-onboard-popup">
                             <p class="text-onboard">
-                	               We want to simplify the process of filling out your profile and complete it for you. Please check the information below and edit if something was not true.
+                	               To make things easier, we've automatically populated some of your profile. Please check the information and let us know what we got right and what needs editing.
                             </p>
                             <div class="row">
                                 <div class="col-md-12">
@@ -146,7 +146,7 @@
                                                     <div class="col-sm-8">
                                                         <div class="form-group">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipldateattended.$valid}">
-                                                                Dates Attended
+                                                                Years Attended
                                                             </label>
                                                             <input type="text" class=" custom-form-control-br-bottom" ng-model="pipldateattended" name="pipldateattended" value="{{pipldateattended}}" id="pipl_dateattended" required>
                                                         </div>
@@ -379,9 +379,9 @@
                     <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
                     <div class="page-header custom-page-header">
                         <div class="pull-left">
-                            <h1 class="h1 custom-h1">Onboarding</h1>
+                            <h1 class="h1 custom-h1">GETTING STARTED</h1>
                         </div>
-                        <div class="pull-right"> <button type="submit" class="btn btn-default btn-large custom-btn-approve-info">Approve Information</button> </div>
+                        <div class="pull-right"> <button type="submit" class="btn btn-default btn-large custom-btn-approve-info">SUBMIT INFORMATION</button> </div>
                     </div>
                 </div>
                 <div class="modal-body custom-video-modal-body " >
