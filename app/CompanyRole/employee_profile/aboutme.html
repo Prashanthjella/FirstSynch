@@ -19,14 +19,14 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.student_characteristic.length > 0">Characteristics</h1>
-                <div class="row" ng-if="employee_profile_details.student_characteristic.length > 0">
+                <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.characteristic.length > 0">Characteristics</h1>
+                <div class="row" ng-if="employee_profile_details.characteristic.length > 0">
                     <div class="col-sm-2">
                         <p>My friends would describe me as</p>
                     </div>
                     <div class="col-sm-10">
                         <div class="row">
-                            <div class="col-sm-4 col-sm-character" ng-repeat="studentcharacter in employee_profile_details.student_characteristic">
+                            <div class="col-sm-4 col-sm-character" ng-repeat="studentcharacter in employee_profile_details.characteristic">
                                 <div class="cont-character">
                                     <h2 class="counter-number">{{$index+1}} </h2>
                                     <h5 class="custom-h5-02">{{studentcharacter.character}}</h5>
