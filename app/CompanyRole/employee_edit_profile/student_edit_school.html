@@ -1,67 +1,71 @@
 <div id="my-schools" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
-        <div class="text-center alert alert-success" ng-if="educationmessage">{{educationmessage}}</div>
+        <div class="text-center alert alert-success success_top_act" ng-if="educationmessage">{{educationmessage}}</div>
         <h1 class="custom-h1-01 custom-h1-btm-space-55">My Schools</h1>
-        <table class="table table-striped">
-            <tr>
-                <th>S.no</th>
-                <th>School</th>
-                <th>Major</th>
-                <th>Year Started</th>
-                <th>Graduated Year</th>
-                <th>GPA</th>
-                <th>GPA Rating</th>
-                <th>Action</th>
-            </tr>
+        <table class="table table-striped" ng-if="educationform.length > 0">
+           <tr>
+               <th>S.no</th>
+               <th>School</th>
+               <th>Major</th>
+               <th>Year Started</th>
+               <th>Graduated Year</th>
+               <th>GPA</th>
+               <th>Action</th>
+           </tr>
 
-            <tr ng-repeat="education in educationform">
-                <td>{{ $index+1 }}</td>
-                <td>{{ education.school_name }}</td>
-                <td>{{ education.year_started }}</td>
-                <td>{{ education.year_graduated }}</td>
-                <td>{{ education.major }}</td>
-                <td>{{ education.gpa }}</td>
-                <td>{{ education.gpa_rating }}</td>
-                <td><a ng-click="editeducation( education )" class="button btn-link"><span class="glyphicon glyphicon-pencil"></span></a> | <a ng-click="removeeducation( education )" class="button btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
-            </tr>
+           <tr ng-repeat="education in educationform">
+               <td>{{ $index+1 }}</td>
+               <td>{{ education.school_name }}</td>
+               <td>{{ education.year_started }}</td>
+               <td>{{ education.year_graduated }}</td>
+               <td>{{ education.major }}</td>
+               <td>{{ education.gpa }}</td>
+               <td>
+                 <a ng-click="editeducation( education )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                 <a href="#" ng-confirm-click="Are you sure to delete your education details?" confirmed-click="removeeducation(education.id)" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a>
+               </td>
+           </tr>
 
-        </table>
+       </table>
         <!-- <hr class="hr-line-lidership"> -->
         <form name="epeeducationform" ng-submit="educationsubmit()">
+            <input type="hidden" ng-model="educationform.existing_id" name="existing_id">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase"  ng-class="{'has-success': epeeducationform.school_name.$valid}">School</label>
+                        <label class="text-uppercase" ng-class="{'has-success': epeeducationform.school_name.$valid}">School</label>
+                        <span ng-show="epeeducationform.school_name.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="educationform.user" name="user">
-                        <input type="text" name="school_name" class="form-control custom-form-control-br-bottom" ng-model="educationform.school_name" placeholder="School" ng-class="{'has-error': educationform.school_name.$touched, 'has-success': educationform.school_name.$valid}" required>
+                        <input type="text" max-length="150" ng-pattern="/^[a-zA-Z0-9\s]*$/"  class="form-control custom-form-control-br-bottom" ng-model="educationform.school_name" placeholder="School Name" name="school_name" ng-class="{'has-error': educationform.school_name.$touched, 'has-success': epeeducationform.school_name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epeeducationform.major.$valid}">Major</label>
-                        <input type="text" name="major" class="form-control custom-form-control-br-bottom" ng-model="educationform.major" placeholder="Major" ng-class="{'has-error': educationform.major.$touched, 'has-success': educationform.major.$valid}" required>
+                        <span ng-show="epeeducationform.major.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
+                        <input type="text" max-length="150" ng-pattern="/^[a-zA-Z0-9\s]*$/" class="form-control custom-form-control-br-bottom" ng-model="educationform.major" placeholder="Major"  name="major" ng-class="{'has-error': educationform.major.$touched, 'has-success': epeeducationform.major.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epeeducationform.year_started.$valid}">Year Started</label>
-                        <input type="text" datepicker name="year_started" class="form-control custom-form-control-br-bottom" ng-model="educationform.year_started" placeholder="Start Date" ng-class="{'has-error': educationform.year_started.$touched, 'has-success': educationform.year_started.$valid}" required>
+                        <span ng-show="epeeducationform.year_started.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-change="datecheckErr(educationform.year_started,educationform.year_graduated)" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_started" datepicker placeholder="Start Date"  name="year_started" ng-class="{'has-error': educationform.year_started.$touched, 'has-success': epeeducationform.year_started.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epeeducationform.year_graduated.$valid}">Graduated Year</label>
-                        <input type="text" datepicker name="year_graduated" class="form-control custom-form-control-br-bottom" ng-model="educationform.year_graduated" placeholder="Graduated Year" ng-class="{'has-error': educationform.year_graduated.$touched, 'has-success': educationform.year_graduated.$valid}" required>
+                        <span ng-show="epeeducationform.year_graduated.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                        <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-change="datecheckErr(educationform.year_started,educationform.year_graduated)" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_graduated" datepicker  placeholder="Graduated Year" name="year_graduated" ng-class="{'has-error': educationform.year_graduated.$touched, 'has-success': epeeducationform.year_graduated.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">GPA</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.gpa" placeholder="GPA">
+                        <label class="text-uppercase" ng-class="{'has-success': epeeducationform.gpa.$valid}">GPA</label>
+                        <span ng-show="epeeducationform.gpa.$error.pattern" class="validation_msg">Enter the value 0 to 4 only with two decimals</span>
+                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': educationform.gpa.$touched, 'has-success': epeeducationform.gpa.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">GPA Rating</label>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="educationform.gpa_rating" placeholder="GPA Rating">
-                    </div>
-                    
                     <p class="edt-pro-btn-group">
-                <input type="submit" value="Submit" ng-disabled="epeeducationform.school_name.$invalid || epeeducationform.major.$invalid || epeeducationform.year_started.$invalid || epeeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
-                </p>
+                        <input type="submit" value="Submit" ng-disabled="!dateerrcondition||epeeducationform.gpa.$invalid||epeeducationform.school_name.$invalid || epeeducationform.major.$invalid || epeeducationform.year_started.$invalid || epeeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
+                        <button type="button" ng-click="employee_edit_school_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                    </p>
                 </div>
-                 
+
             </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

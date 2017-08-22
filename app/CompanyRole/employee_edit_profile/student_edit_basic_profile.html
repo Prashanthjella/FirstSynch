@@ -1,4 +1,4 @@
-<div id="basic_profile" class="tab-pane tabe-pane-lidarship student_edit_profile_main_content_child" ng-controller="employeebasicprofileupload">
+<div id="basic_profile" class="tab-pane tabe-pane-lidarship student_edit_profile_main_content_child" ng-controller="employeebasicprofileupload" ng-init="getEmployeeBasicProfileDetials()">
   <div class="contanier-inside">
     <div class="text-center alert alert-success" ng-if="basicprofilemessage">{{basicprofilemessage}}</div>
     <h1 class="custom-h1-01 custom-h1-btm-space-55">Basic Profile</h1>
@@ -11,95 +11,101 @@
             <input type="hidden" name="id" ng-model="basicprofileform.id">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.first_name.$valid}">First Name</label>
-            <input id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name"  ng-model="basicprofileform.first_name" ng-class="{'has-error': epebasicprofile_form.first_name.$touched, 'has-success': epebasicprofile_form.first_name.$valid}" required>
+              <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.first_name.$valid}">First Name</label><span ng-show="epebasicprofile_form.first_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+              <input id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="basicprofileform.first_name" ng-class="{'has-error': epebasicprofile_form.first_name.$touched, 'has-success': epebasicprofile_form.first_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.last_name.$valid}">Last Name</label>
-            <input type="text" class="form-control custom-form-control-br-bottom" name="last_name" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': epebasicprofile_form.last_name.$touched, 'has-success': epebasicprofile_form.last_name.$valid}" required>
+              <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.last_name.$valid}">Last Name</label><span ng-show="epebasicprofile_form.last_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+              <input type="text" class="form-control custom-form-control-br-bottom" name="last_name" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': epebasicprofile_form.last_name.$touched, 'has-success': epebasicprofile_form.last_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.dob.$valid}">Date of Birth</label>
-            <input type="text" class="form-control custom-form-control-br-bottom" datepicker name="dob" placeholder="Please provide your Date of Birth" ng-model="basicprofileform.dob" ng-class="{'has-error': epebasicprofile_form.dob.$touched, 'has-success': epebasicprofile_form.dob.$valid}" required>
+              <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.dob.$valid}">Date of Birth</label><span ng-show="epebasicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+              <input type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': epebasicprofile_form.dob.$touched, 'has-success': epebasicprofile_form.dob.$valid}" required>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <div class="form-group custom-lider-form-group">
-                <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.gender.$valid}">Gender</label>
-                <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom" ng-class="{'has-error': epebasicprofile_form.gender.$touched, 'has-success': epebasicprofile_form.gender.$valid}" required>
-                  <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
-                  <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
-                </select>
+              <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
+                  <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.gender.$valid}">Gender</label>
+                      <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom"  ng-class="{'has-error': epebasicprofile_form.gender.$touched, 'has-success': epebasicprofile_form.gender.$valid}" required>
+                          <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
+                          <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
+                      </select>
+                  </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <div class="form-group custom-lider-form-group">
-                <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.category.$valid}">Category</label>
-                <select name="category" ng-model="basicprofileform.category" class="form-control custom-form-control-br-bottom" ng-class="{'has-error': epebasicprofile_form.category.$touched, 'has-success': epebasicprofile_form.category.$valid}" required>
-                  <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
-                  <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
-                  <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
-                  <option value="Number Cruncher" ng-selected="{{ basicprofileform.category == 'Number Cruncher' }}">Number Cruncher</option>
-                  <option value="Builder" ng-selected="{{ basicprofileform.category == 'Builder' }}">Builder</option>
-                  <option value="Negotiator" ng-selected="{{ basicprofileform.category == 'Negotiator' }}">Negotiator</option>
-                  <option value="Entrepreneur" ng-selected="{{ basicprofileform.category == 'Entrepreneur' }}">Entrepreneur</option>
-                  <option value="Entertainer" ng-selected="{{ basicprofileform.category == 'Entertainer' }}">Entertainer</option>
-                  <option value="Organizer" ng-selected="{{ basicprofileform.category == 'Organizer' }}">Organizer</option>
-                  <option value="Social Butterfly" ng-selected="{{ basicprofileform.category == 'Social Butterfly' }}">Social Butterfly</option>
-                </select>
+              <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
+                  <div class="form-group custom-lider-form-group">
+                      <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.category.$valid}">Category</label>
+                      <select name="category" ng-model="basicprofileform.category" class="form-control custom-form-control-br-bottom" ng-class="{'has-error': epebasicprofile_form.category.$touched, 'has-success': epebasicprofile_form.category.$valid}" required>
+                          <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
+                          <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
+                          <option value="Computer Genius" ng-selected="{{ basicprofileform.category == 'Computer Genius' }}">Computer Genius</option>
+                          <option value="Number Cruncher" ng-selected="{{ basicprofileform.category == 'Number Cruncher' }}">Number Cruncher</option>
+                          <option value="Builder" ng-selected="{{ basicprofileform.category == 'Builder' }}">Builder</option>
+                          <option value="Negotiator" ng-selected="{{ basicprofileform.category == 'Negotiator' }}">Negotiator</option>
+                          <option value="Entrepreneur" ng-selected="{{ basicprofileform.category == 'Entrepreneur' }}">Entrepreneur</option>
+                          <option value="Entertainer" ng-selected="{{ basicprofileform.category == 'Entertainer' }}">Entertainer</option>
+                          <option value="Organizer" ng-selected="{{ basicprofileform.category == 'Organizer' }}">Organizer</option>
+                          <option value="Social Butterfly" ng-selected="{{ basicprofileform.category == 'Social Butterfly' }}">Social Butterfly</option>
+                      </select>
+                  </div>
               </div>
-            </div>
-          </div>
-
-          <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Facebook</label>
-            <input type="text" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Linkedin</label>
-            <input type="text" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
+              <label class="text-uppercase">Facebook</label>
+              <span ng-if="epebasicprofile_form.facebook_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Twitter</label>
-            <input type="text" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
+              <label class="text-uppercase">Linkedin</label>
+              <span ng-if="epebasicprofile_form.linkedin_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Github</label>
-            <input type="text" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="twitter_url" placeholder="Please provide your Github URL">
+              <label class="text-uppercase">Twitter</label>
+              <span ng-if="epebasicprofile_form.twitter_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Stackoverflow</label>
-            <input type="text" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="twitter_url" placeholder="Please provide your Stackoverflow URL">
+              <label class="text-uppercase">Github</label>
+              <span ng-if="epebasicprofile_form.github_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="github_url" placeholder="Please provide your Github URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Website</label>
-            <input type="text" class="form-control custom-form-control-br-bottom"   ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
+              <label class="text-uppercase">Stackoverflow</label>
+              <span ng-if="epebasicprofile_form.stackoverflow_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="stackoverflow_url" placeholder="Please provide your Stackoverflow URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">Profile Picture</label>
-            <input type="file" ngf-select ng-model="basicprofileform.profile_picture" name="file" accept="image/*" >
+              <label class="text-uppercase">Website</label>
+              <span ng-if="epebasicprofile_form.website.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
+              <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
           </div>
           <div class="form-group custom-lider-form-group">
-            <label class="text-uppercase">About me</label>
-            <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="150"></textarea>
+              <label class="text-uppercase">Profile Picture</label>
+              <span ng-show="epebasicprofile_form.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+              <input type="file" ngf-select ngf-max-size="2MB" ng-model="basicprofileform.profile_picture_new" name="file" accept="image/*" >
+              <img ng-if="basicprofileform.profile_picture && !basicprofileform.profile_picture_new" height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
+              <img ngf-thumbnail="basicprofileform.profile_picture_new " height="100" width="100">
+              <div class="form-group custom-lider-form-group">
+                  <label class="text-uppercase">About me</label>
+                  <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="500"></textarea>
+                  <p>{{500 - basicprofileform.about_me.length}} left</p>
+              </div>
+              <p class="edt-pro-btn-group">
+                  <input type="submit"
+                          ng-disabled="epebasicprofile_form.first_name.$invalid
+                                      || epebasicprofile_form.last_name.$invalid
+                                      || epebasicprofile_form.dob.$invalid
+                                      || epebasicprofile_form.gender.$invalid
+                                      || epebasicprofile_form.facebook_url.$invalid
+                                      || epebasicprofile_form.linkedin_url.$invalid
+                                      || epebasicprofile_form.github_url.$invalid
+                                      || epebasicprofile_form.stackoverflow_url.$invalid
+                                      || epebasicprofile_form.website.$invalid
+                                      || epebasicprofile_form.file.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
+                  <button type="button" ng-click="employee_edit_profile_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+              </p>
           </div>
-          <!--<div class="form-group custom-lider-form-group">
-          <label class="text-uppercase">Profile Image</label>
-          <input type="file" class="file_multi_video" id="file" accept="image/*" name="file" multiple
-          onchange="angular.element(this).scope().getFileDetails(this)" />
-          <img src="basicprofileform.profile_picture"/>
-        </div>-->
-      
-      <!-- <hr class="hr-line-lidership"> -->
-   
-    <p class="edt-pro-btn-group">
-    <input type="submit" value="Submit" ng-disabled="epebasicprofile_form.first_name.$invalid || epebasicprofile_form.last_name.$invalid || epebasicprofile_form.dob.$invalid || epebasicprofile_form.gender.$invalid " class="btn btn-default custom-btn btn-lg btn-submit" />
-    </p>
-    </div>
-    <!-- <div class="row">
-    <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-    <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
-  </div> -->
    </div>
 </form>
 </div>

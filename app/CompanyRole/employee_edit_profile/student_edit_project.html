@@ -2,56 +2,67 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success" ng-if="projectmessage">{{projectmessage}}</div>
        <h1 class="custom-h1-01 custom-h1-btm-space-55">Projects</h1>
-         <table class="table table-striped">
-            <tr>
-                <th>S.no</th>
-                <th>Project</th>
-                <th>Start Date</th>
-                <th>Leave Date</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
+       <table class="table table-striped" ng-show="projecteditform.length > 0">
+          <tr>
+              <th>S.no</th>
+              <th>Project</th>
+              <th>Start Date</th>
+              <th>Leave Date</th>
+              <th>Description</th>
+              <th>Action</th>
+          </tr>
 
-            <tr ng-repeat="projects in projecteditform">
-                <td>{{ $index+1 }}</td>
-                <td>{{ projects.title }}</td>
-                <td>{{ projects.start_date }}</td>
-                <td>{{ projects.completation_date }}</td>
-                <td>{{ projects.project_description }}</td>
-                <td><a ng-click="editproject( projects )" class="button btn-link"><span class="glyphicon glyphicon-pencil"></span></a> | <a ng-click="removeprojects( projects )" class="button btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
-            </tr>
+          <tr ng-repeat="projects in projecteditform">
+              <td>{{ $index+1 }}</td>
+              <td>{{ projects.title }}</td>
+              <td>{{ projects.start_date }}</td>
+              <td>{{ projects.completation_date }}</td>
+              <td>{{ projects.project_description }}</td>
+              <td><a ng-click="editproject( projects )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                  <a ng-confirm-click="Are you sure to delete your work project details?" confirmed-click="removeprojects( projects.id )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
 
-        </table>
+      </table>
         <!-- <hr class="hr-line-lidership"> -->
         <form name="epeprojecteditform" ng-submit="projectssubmit(projecteditform.images)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                  <div class="col-sm-12 col-md-12">
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.title.$valid}">Projects</label>
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projecteditform.user" name="user">
-                        <input type="text" name="title" class="form-control custom-form-control-br-bottom" ng-model="projecteditform.title" placeholder="Company Name" ng-class="{'has-error': epeprojecteditform.title.$touched, 'has-success': epeprojecteditform.title.$valid}" required>
-                    </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.start_date.$valid}">Start Date</label>
-                        <input type="text" name="start_date" datepicker class="form-control custom-form-control-br-bottom" ng-model="projecteditform.start_date" placeholder="Start Date" ng-class="{'has-error': epeprojecteditform.start_date.$touched, 'has-success': epeprojecteditform.start_date.$valid}" required>
-                    </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.completation_date.$valid}">End Date</label>
-                        <input type="text" name="completation_date" datepicker class="form-control custom-form-control-br-bottom" ng-model="projecteditform.completation_date" placeholder="Graduated Year" ng-class="{'has-error': epeprojecteditform.completation_date.$touched, 'has-success': epeprojecteditform.completation_date.$valid}" required>
-                    </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Description</label>
-                        <textarea class="form-control custom-text-area" rows="4" ng-model="projecteditform.project_description" placeholder="Write a description  about your roles and responsibility" maxlength="150"></textarea>
-                    </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Picture</label>
-                        <input type="file" ngf-select ng-model="projecteditform.images" name="files" accept="image/*" >
-                    </div>
-               
-                <p class="edt-pro-btn-group">
-                <input type="submit" value="Submit" ng-disabled="epeprojecteditform.title.$invalid || epeprojecteditform.start_date.$invalid || epeprojecteditform.completation_date.$invalid" class="btn btn-default custom-btn btn-lg btn-submit"/>
-                </p>
+                     <div class="form-group custom-lider-form-group">
+                         <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.title.$valid}">Projects</label>
+                         <span ng-show="epeprojecteditform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
+                         <input type="hidden" class="form-control custom-textbox" ng-model="projecteditform.user" name="user">
+                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projecteditform.editid" name="projecteditid">
+                         <input type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-textbox" ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': epeprojecteditform.title.$touched, 'has-success': epeprojecteditform.title.$valid}" required>
+                     </div>
+                     <div class="form-group custom-lider-form-group">
+                         <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.start_date.$valid}">Start Date</label>
+                         <span ng-show="epeprojecteditform.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                         <input type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': epeprojecteditform.start_date.$touched, 'has-success': epeprojecteditform.start_date.$valid}" required>
+                     </div>
+                     <div class="form-group custom-lider-form-group">
+                         <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.completation_date.$valid}">End Date</label>
+                         <span ng-show="epeprojecteditform.completation_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                         <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
+                         <input type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': epeprojecteditform.completation_date.$touched, 'has-success': epeprojecteditform.completation_date.$valid}" required>
+                     </div>
+                     <div class="form-group custom-lider-form-group">
+                         <label class="text-uppercase">Description</label>
+                         <textarea ng-trim="false" class="form-control custom-text-area" maxlength="500" ng-model="projecteditform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                         <p>{{500 - projecteditform.project_description.length}} left</p>
+                     </div>
+                     <div class="form-group custom-lider-form-group">
+                         <label class="text-uppercase">Picture</label>
+                         <span ng-show="epeprojecteditform.files.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+                         <img ng-if="projecteditform.project_picture && !projecteditform.images" height="100" width="100" src="{{projecteditform.project_picture}}"/>
+                         <img ngf-thumbnail="projecteditform.images" height="100" width="100">
+                         <input type="file" ngf-select ngf-max-size="2MB" ng-model="projecteditform.images" name="files" accept="image/*" >
+                     </div>
+
+                     <p class="edt-pro-btn-group">
+                         <input type="submit" ng-disabled="!dateerrcondition||epeprojecteditform.title.$invalid || epeprojecteditform.start_date.$invalid || epeprojecteditform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+                         <button type="button" ng-click="employee_edit_project_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                     </p>
             </div> </div>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

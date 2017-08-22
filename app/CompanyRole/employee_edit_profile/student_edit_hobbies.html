@@ -1,51 +1,64 @@
 <div id="aboutme-hobbies" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
     <div class="contanier-inside">
-        <div class="text-center alert alert-success" ng-if="hobbiesmessage">{{hobbiesmessage}}</div>
+        <div class="text-center alert alert-success" ng-if="epehobbiesmessage">{{hobbiesmessage}}</div>
         <h1 class="custom-h1-01 custom-h1-btm-space-55">Hobbies</h1>
         <!-- <div class="checkbox custom-checkbox checkbox-circle" ng-repeat="hobbies in hobbyform">
             <input id="hobbies" class="checkbox-input" checked="" type="checkbox">
             <label for="hobbies" class="checkbox-label"> {{hobbies.name}}</label>
         </div> -->
-        <div class="row" ng-repeat="hobbies in hobbyform">
-            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="form-group custom-lider-form-group">
-                    <label class="text-uppercase">Hobby</label>
-                    <input type="hidden" name="stud_id" ng-model="hobbyform.stud_id">
-                    <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name" value="{{hobbies.name}}">
-                </div>
-                <div class="form-group custom-lider-form-group">
-                    <label class="text-uppercase">Description</label>
-                    <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" maxlength="150">{{hobbies.description}}</textarea>
-                </div>
-                <div class="form-group custom-lider-form-group">
-                    <label class="text-uppercase">Picture</label>
-                    <img src="{{hobbies.image}}" height="50">
-                </div>
-            </div>
-        </div>
-        <form name="epehobbyform" ng-submit="hobbysubmit(hobbiesform.image)">
+        <form name="epehobbyform" ng-repeat="epehobbyupdateform in epehobbyform" ng-submit="epehobbyupdatesubmit(epehobbyupdateform.id,epehobbyupdateform.employee,epehobbyupdateform.name,epehobbyupdateform.description,epehobbyupdateform.updateimage)">
             <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
-                <div class="col-sm-12 col-md-12">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
+               <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase"  ng-class="{'has-success': epehobbyform.name.$valid}">Hobby</label>
-                        <input type="hidden" name="stud_id" ng-model="hobbyform.stud_id">
-                        <input type="text" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyform.name" ng-class="{'has-error': epehobbyform.name.$touched, 'has-success': epehobbyform.name.$valid}" required>
+                        <label class="text-uppercase">Hobby</label> <span ng-show="epehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                        <input type="hidden" name="hobby_id" ng-model="epehobbyupdateform.id" value="{{hobbyupdateform.id}}">
+                        <input type="hidden" name="stud_id" ng-model="epehobbyupdateform.employee" value="{{hobbyupdateform.employee}}">
+                        <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom"ng-model="epehobbyupdateform.name" placeholder="Give it a name" name="name" value="{{epehobbyupdateform.name}}">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbyform.description" maxlength="150"></textarea>
+                        <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="epehobbyupdateform.description" maxlength="150">{{epehobbyupdateform.description}}</textarea>
+                        <p>{{500 - epehobbyupdateform.description.length}} left</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Picture</label>
-                        <input type="file" ngf-select ng-model="hobbyform.image" name="file" accept="image/*" >
+                        <input type="file" ngf-select ng-model="epehobbyupdateform.updateimage" name="file" accept="image/*" >
+                        <img ng-if="epehobbyupdateform.image && !epehobbyupdateform.updateimage" src="{{epehobbyupdateform.image}}" height="50">
+                        <img ngf-thumbnail="epehobbyupdateform.updateimage" height="100" width="100">
+                    </div>
+                </div>
+            </div>
+            <p class="edt-pro-btn-group">
+           <input type="submit" ng-disabled="epehobbyform.name.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+           </p>
+        </form>
+        <form name="epeahobbyform" ng-submit="epehobbysubmit(epehobbyformadd.image)">
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+               <div class="col-sm-12 col-md-12">
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase" ng-class="{'has-success': epeahobbyform.name.$valid}">Hobby</label> <span ng-show="epeahobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                        <input type="hidden" name="stud_id" ng-model="epehobbyformadd.stud_id">
+                        <input type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="epehobbyformadd.name" ng-class="{'has-error': epeahobbyform.name.$touched, 'has-success': epeahobbyform.name.$valid}" required>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Description</label>
+                        <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="epehobbyformadd.description" maxlength="500"></textarea>
+                        <p>{{500 - epehobbyformadd.description.length}} left</p>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase">Picture</label>
+                        <span ng-show="epeahobbyform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+                        <input ngf-max-size="2MB" type="file" ngf-select ng-model="epehobbyformadd.image" name="file" accept="image/*" >
+                        <img ngf-thumbnail="epehobbyformadd.image" height="100" width="100">
                     </div>
                 </div>
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
              <p class="edt-pro-btn-group">
-            <input type="submit" value="Submit" ng-disabled="epehobbyform.name.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
+            <input type="submit" ng-disabled="epeahobbyform.name.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit"/>
+            <button type="button" ng-click="employee_edit_profile_hobbies_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
             </p>
             <!-- <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

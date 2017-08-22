@@ -516,8 +516,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         $scope.workhistroyform.company = workhistroy.company;
         $scope.workhistroyform.start_date = workhistroy.start_date;
         $scope.workhistroyform.leave_date= workhistroy.leave_date;
-        $scope.workhistroyform.job_title= workhistroy.job_title
-        $scope.workhistroyform.job_description = workhistroy.job_description
+        $scope.workhistroyform.job_title= workhistroy.job_title;
+        $scope.workhistroyform.job_description = workhistroy.job_description;
     };
     $scope.removeWorkinghistrory = function(workhistroyid){
         $http.delete(apiUrl+"api/v1/student/api/v1/experiencedetails/"+workhistroyid+"/")
@@ -663,25 +663,14 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         if ($scope.educationform.existing_id){
           $http.patch(apiUrl+"api/v1/student/api/v1/educationdetails/"+$scope.educationform.existing_id+"/",JSON.stringify(education_data))
           .then(function (response) {
-              $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
-                  .then(function successCallback(response){
-                      $scope.educationform = response.data;
-                  }, function errorCallback(response){
-                      console.log("Unable to perform get student education details");
-              });
+              $scope.educationedit();
               $scope.educationmessage = 'Successfully updated';
-              $scope.educationform.splice(0, 0, response.data);
               $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
           });
         }else{
           $http.post(apiUrl+"api/v1/student/api/v1/educationdetails/",JSON.stringify(education_data))
           .then(function (response) {
-              $http.get(apiUrl+"api/v1/student/api/v1/get_education_details/"+$rootScope.user_id+"/")
-                  .then(function successCallback(response){
-                      $scope.educationform = response.data;
-                  }, function errorCallback(response){
-                      console.log("Unable to perform get student education details");
-              });
+              $scope.educationedit();
               $scope.educationmessage = 'Successfully updated';
               $scope.educationform.splice(0, 0, response.data);
               $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
