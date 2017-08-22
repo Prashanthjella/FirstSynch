@@ -1,59 +1,60 @@
 
-
-<div class="container" ng-controller="company_company_profile">
-    <div class="row">
-        <aside class="col-sm-2 sidebar-navi-default">
-            <nav  class="sidebar-navigation">
-                <ul class="custom-sidebar-nav">
-                    <li ng-if="company_profile_details.video.length > 0"><a href="" scroll-to="company_company_profile_videos" title="Videos">Videos</a></li>
-                    <li ng-if="company_profile_details.hiring[0].benefits || company_profile_details.hiring[0].perks || company_profile_details.hiring[0].culture"><a href="" scroll-to="company_company_profile_wearehiring" title="We are hiring">We are hiring</a></li>
-                    <li ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date "><a href="" scroll-to="company_company_profile_companies" title="Company">Company</a></li>
-                    <li ng-if="company_profile_details.careerfairs.length > 0"><a href="" scroll-to="company_company_profile_careerfiar" title="Career fairs">Career fairs</a></li>
-                    <li ng-if="company_profile_details.topemployee.length > 0"><a href="" scroll-to="company_company_profile_employees" title="Employees">Employees</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <div class="col-sm-offset-2" >
-            <section class="page-section page-section-videos">
-                <div ng-include ="'CompanyRole/company_profile/company_basic_profile.html'"></div>
-                <div ng-include ="'CompanyRole/company_profile/company_profile_forms.html'"></div>
-                <div ng-include ="'CompanyRole/company_profile/company_videos.html'"></div>
-            </section>
+<div ng-controller="company_company_profile" ng-init="company_profile_form()" >
+    <div class="container" >
+        <div class="row">
+            <aside class="col-sm-2 sidebar-navi-default">
+                <nav  class="sidebar-navigation">
+                    <ul class="custom-sidebar-nav">
+                        <li ng-if="company_profile_details.video.length > 0"><a href="" scroll-to="company_company_profile_videos" title="Videos">Videos</a></li>
+                        <li ng-if="company_profile_details.hiring[0].benefits || company_profile_details.hiring[0].perks || company_profile_details.hiring[0].culture"><a href="" scroll-to="company_company_profile_wearehiring" title="We are hiring">We are hiring</a></li>
+                        <li ng-if="company_profile_details.est_date_description || company_profile_details.establishment_date "><a href="" scroll-to="company_company_profile_companies" title="Company">Company</a></li>
+                        <li ng-if="company_profile_details.careerfairs.length > 0"><a href="" scroll-to="company_company_profile_careerfiar" title="Career fairs">Career fairs</a></li>
+                        <li ng-if="company_profile_details.topemployee.length > 0"><a href="" scroll-to="company_company_profile_employees" title="Employees">Employees</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <div class="col-sm-offset-2" >
+                <section class="page-section page-section-videos">
+                    <div ng-include ="'CompanyRole/company_profile/company_basic_profile.html'"></div>
+                    <div ng-include ="'CompanyRole/company_profile/company_profile_forms.html'"></div>
+                    <div ng-include ="'CompanyRole/company_profile/company_videos.html'"></div>
+                </section>
+            </div>
         </div>
     </div>
-</div>
-<div class="page-about-we-hiresection">
-    <div ng-include ="'CompanyRole/company_profile/company_wehire.html'"></div>
-</div>
-<div class="page-section page-section-profile-container">
-  <section class="page-section-profile-company">
+    <div class="page-about-we-hiresection">
+        <div ng-include ="'CompanyRole/company_profile/company_wehire.html'"></div>
+    </div>
+    <div class="page-section page-section-profile-container">
+      <section class="page-section-profile-company">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-offset-2">
+                      <div class="container-775 pull-left">
+                        <div ng-include ="'CompanyRole/company_profile/company_full_profile.html'"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="page-section page-section-career-fair" id="career-fairs">
         <div class="container">
-      
             <div class="row">
                 <div class="col-sm-offset-2">
-                  <div class="container-775 pull-left">
-                    <div ng-include ="'CompanyRole/company_profile/company_full_profile.html'"></div>
+                    <div ng-include ="'CompanyRole/company_profile/company_careerfair.html'"></div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section id="employees">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-2">
+                    <div ng-include ="'CompanyRole/company_profile/company_employee.html'"></div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-<section class="page-section page-section-career-fair" id="career-fairs">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-offset-2">
-                <div ng-include ="'CompanyRole/company_profile/company_careerfair.html'"></div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="employees">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-offset-2">
-                <div ng-include ="'CompanyRole/company_profile/company_employee.html'"></div>
-            </div>
-        </div>
-    </div>
-</section>

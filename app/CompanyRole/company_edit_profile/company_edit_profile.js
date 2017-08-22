@@ -375,7 +375,7 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         culture : ""
     };
     $scope.workforus_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.user_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.companyedit_id+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.workforusform.id = response.data.hiring[0].id;
@@ -503,16 +503,16 @@ FirstSynch.controller("companyeditprofiles" , function (Upload,$rootScope,$scope
         $http.get(apiUrl+"api/v1/setups/api/v1/get_location_details/"+$rootScope.user_id+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
-                $scope.locationform.id = response.data.id;
-                $scope.locationform.address_1 = response.data.address_1;
-                $scope.locationform.address_2 = response.data.address_2;
-                $scope.locationform.city = response.data.city;
-                $scope.locationform.state = response.data.state;
-                $scope.locationform.country = response.data.country;
-                $scope.locationform.zip_code = response.data.zip_code;
-                $scope.locationform.contact_no = response.data.contact_no;
-                $scope.locationform.e_mail = response.data.e_mail;
-                $scope.locationform.fax_no = response.data.fax_no;
+                $scope.locationform.id = response.data[0][0].id;
+                $scope.locationform.address_1 = response.data[0][0].address_1;
+                $scope.locationform.address_2 = response.data[0][0].address_2;
+                $scope.locationform.city = response.data[0][0].city;
+                $scope.locationform.state = response.data[0][0].state;
+                $scope.locationform.country = response.data[0][0].country;
+                $scope.locationform.zip_code = response.data[0][0].zip_code;
+                $scope.locationform.contact_no = response.data[0][0].contact_no;
+                $scope.locationform.e_mail = response.data[0][0].e_mail;
+                $scope.locationform.fax_no = response.data[0][0].fax_no;
             }, function errorCallback(response){
                 console.log("Unable to perform get departure_rate details");
         });
