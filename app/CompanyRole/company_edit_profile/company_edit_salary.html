@@ -8,11 +8,11 @@
                  <div class="form-group custom-lider-form-group"></div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Salary Range</label>{{salaryform.average_entry_level_sal}}
-                        <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Give it a entry level salary range">
+                        <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Starting Salary Range">
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea maxlength="500" ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a entry level salary description"></textarea>
+                        <textarea maxlength="500" ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about the salaries and other benefits you offer."></textarea>
                         <p>{{500 - salaryform.average_entry_level_sal_description.length}} left</p>
                     </div>
                     <p class="edt-pro-btn-group">

@@ -7,24 +7,24 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group"></div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.hire_rates.$valid}">HIRE RATES</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.hire_rates.$valid}">HIRE RATE</label>
                         <span ng-if="cphirerateform.hire_rates.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="hidden" name="id" ng-model="hirerateform.id">
-                        <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Hire rates size" ng-class="{'has-error': cphirerateform.hire_rates.$touched, 'has-success': cphirerateform.hire_rates.$valid}" required >
+                        <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cphirerateform.hire_rates.$touched, 'has-success': cphirerateform.hire_rates.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea name="hire_rates_description" maxlength="500" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a hire rates description"></textarea>
+                        <textarea name="hire_rates_description" maxlength="500" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about your hiring rates and growth."></textarea>
                         <p>{{500 - hirerateform.hire_rates_description.length}} left</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.departure_rate.$valid}">Departure Rates</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.departure_rate.$valid}">Departure Rate</label>
                         <span ng-if="cphirerateform.departure_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
-                        <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Departure rates size" ng-class="{'has-error': cphirerateform.departure_rate.$touched, 'has-success': cphirerateform.departure_rate.$valid}" required >
+                        <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cphirerateform.departure_rate.$touched, 'has-success': cphirerateform.departure_rate.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase">Description</label>
-                        <textarea name="departure_rate_description" maxlength="500" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a departure rates description"></textarea>
+                        <textarea name="departure_rate_description" maxlength="500" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about why these people leave."></textarea>
                         <p>{{500 - hirerateform.departure_rate_description.length}} left</p>
                     </div>
                      <p class="edt-pro-btn-group">

@@ -124,13 +124,13 @@
                             <div class="row">
                                 <div class="col-sm-11 col-md-11">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': cpoestablishmentform.establishment_date.$valid}">ESTABLISHMENT DATE</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': cpoestablishmentform.establishment_date.$valid}">Date of Establishment</label>
                                         <span ng-show="cpoestablishmentform.establishment_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                                        <input type="text" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class="form-control custom-textbox" datepicker placeholder="Give it a company establishment date" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
+                                        <input type="text" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class="form-control custom-textbox" datepicker placeholder="When was the company established?" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <input type="text" maxlength="500" class="form-control custom-textbox" placeholder="Give it a establishment description" name="est_date_description" ng-model="establishmentform.est_date_description">
+                                        <input type="text" maxlength="500" class="form-control custom-textbox" placeholder="Share some stories about the founding of the company." name="est_date_description" ng-model="establishmentform.est_date_description">
                                         <p>{{500 - establishmentform.est_date_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -153,13 +153,13 @@
                             <div class="row">
                                 <div class="col-sm-11 col-md-11">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">MIGRATION LABEL</label> {{internshipform.internships_to_jobs}}
+                                        <label class="text-uppercase">Intern to Employee Migration Rate</label> {{internshipform.internships_to_jobs}}
                                         <input type="hidden" name="id" ng-model="internshipform.id">
-                                        <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-textbox" placeholder="Give it a empoyee migration percentage" required>
+                                        <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-textbox" placeholder="Intern to Employee Migration Rate" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <textarea name="internships_job_description" maxlength="500" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a employee migration description"></textarea>
+                                        <textarea name="internships_job_description" maxlength="500" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Share some stories about interns that have become employees at your company."></textarea>
                                         <p>{{500 - internshipform.internships_job_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -188,11 +188,11 @@
                                         <label class="text-uppercase"  ng-class="{'has-success': cpocompanysizeform.company_size.$valid}">SIZE</label>
                                         <span ng-if="cpocompanysizeform.company_size.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                                         <input type="hidden" name="id" ng-model="companysizeform.id">
-                                        <input type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/"  class="form-control custom-textbox" placeholder="Give it a Company empoyee size"  ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
+                                        <input type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/"  class="form-control custom-textbox" placeholder="How big is your company?" ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <input type="text" name="company_size_description" ng-model="companysizeform.company_size_description" class="form-control custom-textbox" placeholder="Give it a employee size description">
+                                        <input type="text" name="company_size_description" ng-model="companysizeform.company_size_description" class="form-control custom-textbox" placeholder="Share some stories about the companies size.">
                                         <p>{{500 - companysizeform.company_size_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -218,24 +218,24 @@
                             <div class="row">
                                 <div class="col-sm-11 col-md-11">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.hire_rates.$valid}">HIRE RATES</label>
+                                        <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.hire_rates.$valid}">HIRE RATE</label>
                                         <span ng-if="cpohirerateform.hire_rates.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                                         <input type="hidden" name="id" ng-model="hirerateform.id">
-                                        <input type="text"  name="hire_rates" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="Give it a Hire rates size" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
+                                        <input type="text"  name="hire_rates" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
+                                        <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Share some information about your hiring rates and growth.">
                                         <p>{{500 - hirerateform.hire_rates_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.departure_rate.$valid}">Departure Rates</label>
+                                        <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.departure_rate.$valid}">Departure Rate</label>
                                         <span ng-if="cpohirerateform.departure_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
-                                        <input type="text" name="departure_rate" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="Give it a Departure rates size" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
+                                        <input type="text" name="departure_rate" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Give it a departure rates description">
+                                        <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Share some information about why these people leave.">
                                         <p>{{500 - hirerateform.departure_rate_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -262,11 +262,11 @@
                                 <div class="col-sm-11 col-md-11">
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Salary Range</label> {{salaryform.average_entry_level_sal}}
-                                        <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Give it a entry level salary range">
+                                        <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Starting Salary Range">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <input type="text"  ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-textbox" placeholder="Give it a hire rates description">
+                                        <input type="text"  ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-textbox" placeholder="Share some information about the salaries and other benefits you offer.">
                                         <p>{{500 - salaryform.average_entry_level_sal_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -330,7 +330,7 @@
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase">Description</label>
-                                        <textarea maxlength="500" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Give it a growth rate description"></textarea>
+                                        <textarea maxlength="500" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about your current growth rate and ambitions."></textarea>
                                         <p>{{500 - growthrateform.growth_rate_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
