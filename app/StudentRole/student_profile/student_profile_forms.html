@@ -67,39 +67,39 @@
                                         </div>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Facebook</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofileform.facebook_url}">Facebook</label>
                                         <span ng-if="basicprofile_form.facebook_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
+                                        <input type="url" ng-class="{'has-success': basicprofileform.facebook_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Linkedin</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofileform.linkedin_url}">Linkedin</label>
                                         <span ng-if="basicprofile_form.linkedin_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
+                                        <input type="url" ng-class="{'has-success': basicprofileform.linkedin_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Twitter</label>
+                                        <label class="text-uppercase" ng-class="{'has-success':basicprofileform.twitter_url}">Twitter</label>
                                         <span ng-if="basicprofile_form.twitter_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
+                                        <input type="url" ng-class="{'has-success': basicprofileform.twitter_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Github</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofileform.github_url}">Github</label>
                                         <span ng-if="basicprofile_form.github_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="github_url" placeholder="Please provide your Github URL">
+                                        <input type="url" ng-class="{'has-success': basicprofileform.github_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="github_url" placeholder="Please provide your Github URL">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Stackoverflow</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofileform.stackoverflow_url}">Stackoverflow</label>
                                         <span ng-if="basicprofile_form.stackoverflow_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="stackoverflow_url" placeholder="Please provide your Stackoverflow URL">
+                                        <input type="url" ng-class="{'has-success': basicprofileform.stackoverflow_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="stackoverflow_url" placeholder="Please provide your Stackoverflow URL">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Website</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofileform.website}">Website</label>
                                         <span ng-if="basicprofile_form.website.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
+                                        <input type="url" ng-class="{'has-success': basicprofileform.website}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Profile Picture</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofileform.profile_picture || !basicprofileform.profile_picture_new}">Profile Picture</label>
                                         <span ng-show="basicprofile_form.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                                        <input type="file" ngf-select ngf-max-size="2MB" ng-model="basicprofileform.profile_picture_new" name="file" accept="image/*" >
+                                        <input type="file" ng-class="{'has-success': basicprofileform.profile_picture || !basicprofileform.profile_picture_new}" ngf-select ngf-max-size="2MB" ng-model="basicprofileform.profile_picture_new" name="file" accept="image/*" >
                                         <img ng-if="basicprofileform.profile_picture && !basicprofileform.profile_picture_new" height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
                                         <img ngf-thumbnail="basicprofileform.profile_picture_new " height="100" width="100">
                                         <div class="form-group custom-lider-form-group">
@@ -143,8 +143,8 @@
                                             <input type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name" ng-class="{'has-error': hobbiesforms.name.$touched, 'has-success': hobbiesforms.name.$valid}" required>
                                         </div>
                                         <div class="form-group custom-lider-form-group">
-                                            <label class="text-uppercase">Description</label>
-                                            <textarea class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbiesform.description" maxlength="500"></textarea>
+                                            <label class="text-uppercase" ng-class="{'has-success': hobbiesform.description}">Description</label>
+                                            <textarea ng-class="{'has-success': hobbiesform.description}" class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbiesform.description" maxlength="500"></textarea>
                                             <p>{{500 - hobbiesform.description.length}} left</p>
                                         </div>
                                         <div class="form-group custom-lider-form-group">
@@ -266,8 +266,8 @@
                                         <input type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': spleadershipform.leadership_role.$touched, 'has-success': spleadershipform.leadership_role.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <textarea class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
+                                        <label class="text-uppercase" ng-class="{'has-success': leadershipform.description}">Description</label>
+                                        <textarea ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
                                         <p>{{500 - leadershipform.description.length}} left</p>
                                     </div>
                                     <p class="btn-panel-group">
@@ -373,13 +373,13 @@
                                         <input type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': sworkhistroyform.leave_date.$touched, 'has-success': sworkhistroyform.leave_date.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Job Title</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_title}">Job Title</label>
                                         <span ng-show="sworkhistroyform.job_title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
+                                        <input type="text" ng-class="{'has-success': workhistroyform.job_title}" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Job Description</label>
-                                        <textarea class="form-control custom-text-area" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                                        <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_description}">Job Description</label>
+                                        <textarea class="form-control custom-text-area" ng-class="{'has-success': workhistroyform.job_description}" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
                                         <p>{{500 - workhistroyform.job_description.length}} left</p>
                                     </div>
                                     <p class="btn-panel-group">
@@ -423,15 +423,15 @@
                                     <input type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-textbox" ng-model="projectsform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': sprojectform.completation_date.$touched, 'has-success': sprojectform.completation_date.$valid}" required>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Description</label>
-                                    <textarea ng-trim="false" class="form-control custom-text-area" maxlength="500" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                                    <label class="text-uppercase" ng-class="{'has-success': projectsform.project_description}">Description</label>
+                                    <textarea ng-trim="false" ng-class="{'has-success': projectsform.project_description}" class="form-control custom-text-area" maxlength="500" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
                                     <p>{{500 - projectsform.project_description.length}} left</p>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase">Picture</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': projectsform.image}">Picture</label>
                                     <span ng-show="sprojectform.files.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
                                     <img ngf-thumbnail="projectsform.image" height="100" width="100">
-                                    <input type="file" ngf-select ngf-max-size="2MB" ng-model="projectsform.image" name="files" accept="image/*" >
+                                    <input type="file" ngf-select ngf-max-size="2MB" ng-class="{'has-success': projectsform.image}" ng-model="projectsform.image" name="files" accept="image/*" >
                                 </div>
                                 <p class="edt-pro-btn-group">
                                     <input type="submit" ng-disabled="!dateerrcondition||sprojectform.title.$invalid || sprojectform.start_date.$invalid || sprojectform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />

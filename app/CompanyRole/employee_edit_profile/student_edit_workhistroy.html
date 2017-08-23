@@ -49,13 +49,13 @@
                        <input type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': epeworkhistroy.leave_date.$touched, 'has-success': epeworkhistroy.leave_date.$valid}" required>
                    </div>
                    <div class="form-group custom-lider-form-group">
-                       <label class="text-uppercase">Job Title</label>
+                       <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_title}">Job Title</label>
                        <span ng-show="epeworkhistroy.job_title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
-                       <input type="text" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
+                       <input type="text" ng-class="{'has-success': workhistroyform.job_title}" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
                    </div>
                    <div class="form-group custom-lider-form-group">
-                       <label class="text-uppercase">Job Description</label>
-                       <textarea class="form-control custom-text-area" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                       <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_description}">Job Description</label>
+                       <textarea class="form-control custom-text-area" ng-class="{'has-success': workhistroyform.job_description}" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
                        <p>{{500 - workhistroyform.job_description.length}} left</p>
                    </div>
                     <p class="edt-pro-btn-group">

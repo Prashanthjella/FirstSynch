@@ -47,14 +47,14 @@
                          <input type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': epeprojecteditform.completation_date.$touched, 'has-success': epeprojecteditform.completation_date.$valid}" required>
                      </div>
                      <div class="form-group custom-lider-form-group">
-                         <label class="text-uppercase">Description</label>
-                         <textarea ng-trim="false" class="form-control custom-text-area" maxlength="500" ng-model="projecteditform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                         <label class="text-uppercase" ng-class="{'has-success': projecteditform.project_description}">Description</label>
+                         <textarea ng-trim="false" ng-class="{'has-success': projecteditform.project_description}" class="form-control custom-text-area" maxlength="500" ng-model="projecteditform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
                          <p>{{500 - projecteditform.project_description.length}} left</p>
                      </div>
                      <div class="form-group custom-lider-form-group">
-                         <label class="text-uppercase">Picture</label>
+                         <label class="text-uppercase" ng-class="{'has-success': projecteditform.images}">Picture</label>
                          <span ng-show="epeprojecteditform.files.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                         <img ng-if="projecteditform.project_picture && !projecteditform.images" height="100" width="100" src="{{projecteditform.project_picture}}"/>
+                         <img ng-if="projecteditform.project_picture && !projecteditform.images" ng-class="{'has-success': projecteditform.images ||projecteditform.project_picture }" height="100" width="100" src="{{projecteditform.project_picture}}"/>
                          <img ngf-thumbnail="projecteditform.images" height="100" width="100">
                          <input type="file" ngf-select ngf-max-size="2MB" ng-model="projecteditform.images" name="files" accept="image/*" >
                      </div>

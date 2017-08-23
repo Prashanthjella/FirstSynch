@@ -40,8 +40,8 @@
                         <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpbasicinfoform.product_category.$touched, 'has-success': cpbasicinfoform.product_category.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">About Company</label>
-                        <textarea class="form-control custom-form-control-br-bottom" placeholder="About your company" name="description"  ng-model="basicinfoform.description" maxlength="500"></textarea>
+                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.description}">About Company</label>
+                        <textarea ng-class="{'has-success': basicinfoform.description}" class="form-control custom-form-control-br-bottom" placeholder="About your company" name="description"  ng-model="basicinfoform.description" maxlength="500"></textarea>
                         <p>{{500 - basicinfoform.description.length}} left</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
@@ -50,22 +50,22 @@
                         <input ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" type="url" class="form-control custom-form-control-br-bottom" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpbasicinfoform.website.$touched, 'has-success': cpbasicinfoform.website.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Linkedin</label>
+                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.linkedin_url}">Linkedin</label>
                         <span ng-if="cpbasicinfoform.linkedin_url.$invalid" class="validation_msg">The linkedin address is not valid. Use like http://......</span>
-                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
+                        <input type="url" ng-class="{'has-success': basicinfoform.linkedin_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Twitter</label>
+                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.twitter_url}">Twitter</label>
                         <span ng-if="cpbasicinfoform.twitter_url.$invalid" class="validation_msg">The twitter address is not valid. Use like http://......</span>
-                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
+                        <input type="url" ng-class="{'has-success': basicinfoform.twitter_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Facebook</label>
+                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.facebook_url}">Facebook</label>
                         <span ng-if="cpbasicinfoform.facebook_url.$invalid" class="validation_msg">The facebook address is not valid. Use like http://......</span>
-                        <input type="url"  ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
+                        <input type="url" ng-class="{'has-success': basicinfoform.facebook_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Company Logo</label>
+                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.logo || basicinfoform.logos }">Company Logo</label>
                         <span ng-if="cpbasicinfoform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc(Max 2 MB)</span>
                         <img ng-if="basicinfoform.logos && !basicinfoform.logo" height="100" width="100" src="{{basicinfoform.logos}}"/>
                         <img ngf-thumbnail="basicinfoform.logo"  height="100" width="100">

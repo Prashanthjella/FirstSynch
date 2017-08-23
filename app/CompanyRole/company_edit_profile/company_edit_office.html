@@ -9,7 +9,7 @@
         </div>
 
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Office Images</label>
+                        <label class="text-uppercase" ng-class="{'has-success': galleryform.photos}">Office Images</label>
                         <span ng-if="cofficeimageform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc</span>
                         <input type="file" ngf-multiple="true" ngf-select ngf-pattern="image/*" ng-model="galleryform.photos" name="file" accept="image/*" required>
                         <img ngf-thumbnail="galleryform.photos" height="100" width="100">

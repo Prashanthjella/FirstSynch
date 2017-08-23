@@ -54,21 +54,21 @@
                                         <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Linkedin</label>
-                                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
+                                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.linkedin_url}">Linkedin</label>
+                                        <input type="text" ng-class="{'has-success': basicinfoform.linkedin_url}" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Twitter</label>
-                                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
+                                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.twitter_url}">Twitter</label>
+                                        <input type="text" ng-class="{'has-success': basicinfoform.twitter_url}" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Facebook</label>
-                                        <input type="text" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
+                                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.facebook_url}">Facebook</label>
+                                        <input type="text" ng-class="{'has-success': basicinfoform.facebook_url}" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Profile Picture</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicinfoform.logo}">Profile Picture</label>
                                         <span ng-if="cpbasicinfoform.file.$invalid" class="validation_msg">Upload only Images with file type .jpeg,.png etc</span>
-                                        <input type="file" ngf-select ng-model="basicinfoform.logo" ngf-pattern="image/*" name="file" accept="image/*" >
+                                        <input type="file" ng-class="{'has-success': basicinfoform.logo}" ngf-select ng-model="basicinfoform.logo" ngf-pattern="image/*" name="file" accept="image/*" >
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <input type="submit" ng-disabled="cpobasicinfoform.website.$invalid || cpobasicinfoform.product_category.$invalid || cpobasicinfoform.category.$invalid || cpobasicinfoform.name.$invalid"  class="form-control" value="Save"/>
@@ -129,8 +129,8 @@
                                         <input type="text" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class="form-control custom-textbox" datepicker placeholder="When was the company established?" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <input type="text" maxlength="500" class="form-control custom-textbox" placeholder="Share some stories about the founding of the company." name="est_date_description" ng-model="establishmentform.est_date_description">
+                                        <label class="text-uppercase" ng-class="{'has-success': establishmentform.est_date_description}">Description</label>
+                                        <input type="text" maxlength="500" ng-class="{'has-success': establishmentform.est_date_description}" class="form-control custom-textbox" placeholder="Share some stories about the founding of the company." name="est_date_description" ng-model="establishmentform.est_date_description">
                                         <p>{{500 - establishmentform.est_date_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -158,8 +158,8 @@
                                         <input type="range" name="internships_to_jobs" ng-model="internshipform.internships_to_jobs" min="0" max="100" class="form-control custom-textbox" placeholder="Intern to Employee Migration Rate" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <textarea name="internships_job_description" maxlength="500" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Share some stories about interns that have become employees at your company."></textarea>
+                                        <label class="text-uppercase" ng-class="{'has-success': internshipform.internships_job_description}">Description</label>
+                                        <textarea name="internships_job_description" ng-class="{'has-success': internshipform.internships_job_description}" maxlength="500" ng-model="internshipform.internships_job_description" class="form-control custom-form-control-br-bottom" placeholder="Share some stories about interns that have become employees at your company."></textarea>
                                         <p>{{500 - internshipform.internships_job_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -191,8 +191,8 @@
                                         <input type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/"  class="form-control custom-textbox" placeholder="How big is your company?" ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <input type="text" name="company_size_description" ng-model="companysizeform.company_size_description" class="form-control custom-textbox" placeholder="Share some stories about the companies size.">
+                                        <label class="text-uppercase" ng-class="{'has-success': companysizeform.company_size_description}">Description</label>
+                                        <input type="text" name="company_size_description" ng-class="{'has-success': companysizeform.company_size_description}" ng-model="companysizeform.company_size_description" class="form-control custom-textbox" placeholder="Share some stories about the companies size.">
                                         <p>{{500 - companysizeform.company_size_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -224,8 +224,8 @@
                                         <input type="text"  name="hire_rates" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <input type="text" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Share some information about your hiring rates and growth.">
+                                        <label class="text-uppercase" ng-class="{'has-success': hirerateform.hire_rates_description}">Description</label>
+                                        <input type="text" ng-class="{'has-success': hirerateform.hire_rates_description}" name="hire_rates_description" ng-model="hirerateform.hire_rates_description" class="form-control custom-textbox" placeholder="Share some information about your hiring rates and growth.">
                                         <p>{{500 - hirerateform.hire_rates_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -234,8 +234,8 @@
                                         <input type="text" name="departure_rate" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <input type="text" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Share some information about why these people leave.">
+                                        <label class="text-uppercase" ng-class="{'has-success': hirerateform.departure_rate_description}">Description</label>
+                                        <input type="text" ng-class="{'has-success': hirerateform.departure_rate_description}" name="departure_rate_description" ng-model="hirerateform.departure_rate_description" class="form-control custom-textbox" placeholder="Share some information about why these people leave.">
                                         <p>{{500 - hirerateform.departure_rate_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -261,12 +261,12 @@
                             <div class="row">
                                 <div class="col-sm-11 col-md-11">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Salary Range</label> {{salaryform.average_entry_level_sal}}
-                                        <input type="range" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Starting Salary Range">
+                                        <label class="text-uppercase" ng-class="{'has-success': salaryform.average_entry_level_sal}">Salary Range</label> {{salaryform.average_entry_level_sal}}
+                                        <input type="range" ng-class="{'has-success': salaryform.average_entry_level_sal}" ng-model="salaryform.average_entry_level_sal" min="0" max="100" class="form-control" placeholder="Starting Salary Range">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <input type="text"  ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-textbox" placeholder="Share some information about the salaries and other benefits you offer.">
+                                        <label class="text-uppercase" ng-class="{'has-success': salaryform.average_entry_level_sal_description}">Description</label>
+                                        <input type="text" ng-class="{'has-success': salaryform.average_entry_level_sal_description}" ng-model="salaryform.average_entry_level_sal_description" class="form-control custom-textbox" placeholder="Share some information about the salaries and other benefits you offer.">
                                         <p>{{500 - salaryform.average_entry_level_sal_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -329,8 +329,8 @@
                                         <input type="text"  name="growth_rate" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/"  ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <textarea maxlength="500" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about your current growth rate and ambitions."></textarea>
+                                        <label class="text-uppercase" ng-class="{'has-success': growthrateform.growth_rate_description}">Description</label>
+                                        <textarea maxlength="500" ng-class="{'has-success': growthrateform.growth_rate_description}" name="growth_rate_description" ng-model="growthrateform.growth_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about your current growth rate and ambitions."></textarea>
                                         <p>{{500 - growthrateform.growth_rate_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -362,8 +362,8 @@
                                         <input type="text" name="investor_confidence" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Description</label>
-                                        <input type="text" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-textbox" placeholder="Give it a invester confidence description">
+                                        <label class="text-uppercase" ng-class="{'has-success': investorform.investor_conf_description}">Description</label>
+                                        <input type="text" ng-class="{'has-success': investorform.investor_conf_description}" name="investor_conf_description" ng-model="investorform.investor_conf_description" class="form-control custom-textbox" placeholder="Give it a invester confidence description">
                                         <p>{{500 - investorform.investor_conf_description.length}} left</p>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
@@ -394,9 +394,9 @@
                                         <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_1" name="address1" placeholder="Give it a Address #1" ng-class="{'has-error': cpolocationform.address1.$touched, 'has-success': cpolocationform.address1.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Address #2</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': locationform.address_2}">Address #2</label>
                                         <span ng-show="cpolocationform.address2.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_2" name="address2"  placeholder="Give it a Address #2">
+                                        <input type="text" ng-class="{'has-success': locationform.address_2}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_2" name="address2"  placeholder="Give it a Address #2">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.city.$valid}">City</label>
@@ -414,9 +414,9 @@
                                         <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="locationform.country" name="country"  placeholder="Give it a Country" ng-class="{'has-error': cpolocationform.country.$touched, 'has-success': cpolocationform.country.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Zip code</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': locationform.zip_code}">Zip code</label>
                                         <span ng-show="cpolocationform.zip_code.$error.pattern" class="validation_msg">Enter only numeral</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.zip_code" name="zip_code"  placeholder="Give it a Zipcode">
+                                        <input type="text" ng-class="{'has-success': locationform.zip_code}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.zip_code" name="zip_code"  placeholder="Give it a Zipcode">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.contactno.$valid}">Contact no</label>
@@ -428,9 +428,9 @@
                                         <input type="email" class="form-control custom-form-control-br-bottom" ng-model="locationform.e_mail" name="email"  placeholder="Give it a Email" ng-class="{'has-error': cpolocationform.e_mail.$touched, 'has-success': cpolocationform.e_mail.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase">Fax no</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': locationform.fax_no}">Fax no</label>
                                         <span ng-show="cpolocationform.fax_no.$error.pattern" class="validation_msg">Enter only numeral</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.fax_no" name="fax_no"  placeholder="Give it a Fax no">
+                                        <input type="text" ng-class="{'has-success': locationform.fax_no}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.fax_no" name="fax_no"  placeholder="Give it a Fax no">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <input type="submit" class="form-control" ng-disabled="cpolocationform.email.$invalid || cpolocationform.contactno.$invalid || cpolocationform.country.$invalid || cpolocationform.state.$invalid || cpolocationform.city.$invalid || cpolocationform.address_1.$invalid" value="Save"/>

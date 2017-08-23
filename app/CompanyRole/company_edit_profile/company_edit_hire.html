@@ -13,8 +13,8 @@
                         <input type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cphirerateform.hire_rates.$touched, 'has-success': cphirerateform.hire_rates.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Description</label>
-                        <textarea name="hire_rates_description" maxlength="500" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about your hiring rates and growth."></textarea>
+                        <label class="text-uppercase" ng-class="{'has-success': hirerateform.hire_rates_description}">Description</label>
+                        <textarea ng-class="{'has-success': hirerateform.hire_rates_description}" name="hire_rates_description" maxlength="500" ng-model="hirerateform.hire_rates_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about your hiring rates and growth."></textarea>
                         <p>{{500 - hirerateform.hire_rates_description.length}} left</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
@@ -23,8 +23,8 @@
                         <input type="text" name="departure_rate" ng-model="hirerateform.departure_rate" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cphirerateform.departure_rate.$touched, 'has-success': cphirerateform.departure_rate.$valid}" required >
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase">Description</label>
-                        <textarea name="departure_rate_description" maxlength="500" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about why these people leave."></textarea>
+                        <label class="text-uppercase" ng-class="{'has-success': hirerateform.departure_rate_description}">Description</label>
+                        <textarea ng-class="{'has-success': hirerateform.departure_rate_description}" name="departure_rate_description" maxlength="500" ng-model="hirerateform.departure_rate_description" class="form-control custom-form-control-br-bottom" placeholder="Share some information about why these people leave."></textarea>
                         <p>{{500 - hirerateform.departure_rate_description.length}} left</p>
                     </div>
                      <p class="edt-pro-btn-group">
