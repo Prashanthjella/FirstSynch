@@ -793,10 +793,19 @@ FirstSynch.controller("employeebasicprofileupload" , function ($timeout,$window,
 
         };
         if(file){
-            file.upload = Upload.upload({
+            Upload.upload({
                 url: apiUrl+"api/v1/employee/api/v1/employeeprofile/"+$scope.basicprofileform.id+"/",
                 data: {user:$scope.basicprofileform.user,profile_picture: file},
                 method:'PUT',
+            }).then(function (resp) {
+                $scope.basicprofileform.profile_picture = resp.data.profile_picture;
+                $rootScope.profileimage = resp.data.profile_picture;
+                $window.sessionStorage.setItem('profileimage', resp.data.profile_picture);
+                //console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function (resp) {
+                //console.log('Error status: ' + resp.status);
+            }, function (evt) {
+                //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         }
         // alert(JSON.stringify(data));

@@ -858,22 +858,24 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
             about_me:$scope.basicprofileform.about_me
         };
         if(file){
-            file.upload = Upload.upload({
+            Upload.upload({
                 url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",
                 data: {user:$scope.basicprofileform.user,profile_picture: file},
                 method:'PUT',
+            }).then(function (resp) {
+                $scope.basicprofileform.profile_picture = resp.data.profile_picture;
+                $rootScope.profileimage = resp.data.profile_picture;
+                $window.sessionStorage.setItem('profileimage', resp.data.profile_picture);
+                //console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function (resp) {
+                //console.log('Error status: ' + resp.status);
+            }, function (evt) {
+                //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         }
         // alert(JSON.stringify(data));
         $http.patch(apiUrl+"api/v1/student/api/v1/studentprofile/"+$scope.basicprofileform.id+"/",data)
         .then(function (response) {
-            $http.get(apiUrl+"api/v1/student/get_student_details/"+$rootScope.user_id+"/")
-                .then(function successCallback(response){
-                    $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
-                    $rootScope.profileimage = response.data[0].profile_picture;
-                }, function errorCallback(response){
-                    console.log("Unable to perform get student basic profile details");
-            });
             $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             $scope.basicprofilemessage = 'Successfully updated';
 
