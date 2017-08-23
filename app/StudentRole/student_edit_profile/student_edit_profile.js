@@ -172,6 +172,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
           $scope.hobbies_edit();
           $scope.hobbyform.name = "";
           $scope.hobbyform.description = "";
+          $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         }, function(resp) {
           // handle error
         }, function(evt) {
@@ -201,6 +202,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
           $scope.hobbyformadd.name = "";
           $scope.hobbyformadd.description = "";
           $scope.hobbyformadd.image = "";
+          $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         }, function(resp) {
           // handle error
         }, function(evt) {
@@ -278,6 +280,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         .then(function (response) {
             $scope.charactermessage = 'Successfully updated';
             $scope.character_edit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
         //alert(JSON.stringify($scope.selectchar));
     };
@@ -347,6 +350,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         $http.post(apiUrl+"api/v1/student/api/v1/whatiamlooking/",JSON.stringify($scope.selectlook))
         .then(function (response) {
             $scope.whatiammessage = 'Successfully updated';
+            $scope.what_i_am_edit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
 
@@ -499,6 +504,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             .then(function (response) {
                 $scope.workhistroymessage = 'Successfully updated';
                 $scope.workhistroyeedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             });
         }
         else{
@@ -506,6 +512,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             .then(function (response) {
                 $scope.workhistroymessage = 'Successfully Added';
                 $scope.workhistroyeedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             });
         }
 
@@ -524,6 +531,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         .then(function (response) {
             $scope.workhistroymessage = 'Successfully Deleted';
             $scope.workhistroyeedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
 
@@ -572,6 +580,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             }).then(function(resp) {
                 $scope.projectmessage = 'Successfully Added';
                 $scope.projectsedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 //$scope.projecteditform.splice(0, 0, response.data);
             }, function(resp) {
             }, function(evt) {
@@ -585,6 +594,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             }).then(function(resp) {
                 $scope.projectmessage = 'Successfully updated';
                 $scope.projectsedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 //$scope.projecteditform.splice(0, 0, response.data);
             }, function(resp) {
             }, function(evt) {
@@ -606,6 +616,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         .then(function (response) {
             $scope.projectmessage = 'Successfully Deleted';
             $scope.projectsedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
 
@@ -722,6 +733,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $http.patch(apiUrl+"api/v1/student/api/v1/leadershipdetails/"+$scope.leadershipform.editid+"/",JSON.stringify(leadership_data))
             .then(function (response) {
                 $scope.leadershipmessage = 'Successfully updated';
+                $window.scrollTo(0, 0);
                 $scope.leadershipedit();
                 $scope.leadershipform.leadership_role = "";
                 $scope.leadershipform.description ="";
@@ -733,6 +745,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $http.post(apiUrl+"api/v1/student/api/v1/leadershipdetails/",JSON.stringify(leadership_data))
             .then(function (response) {
                 $scope.leadershipmessage = 'Successfully Added';
+                $window.scrollTo(0, 0);
                 $scope.leadershipedit();
                 $scope.leadershipform.leadership_role = "";
                 $scope.leadershipform.description ="";
@@ -751,6 +764,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         .then(function (response) {
             $scope.leadershipmessage = 'Successfully Deleted';
             $scope.leadershipedit();
+            $window.scrollTo(0, 0);
             $scope.leadershipform.leadership_role = "";
             $scope.leadershipform.description ="";
 

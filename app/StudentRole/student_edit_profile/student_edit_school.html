@@ -58,7 +58,7 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seeducationform.gpa.$valid}">GPA</label>
                         <span ng-show="seeducationform.gpa.$error.pattern" class="validation_msg">Enter the value 0 to 4 only with two decimals</span>
-                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': educationform.gpa.$touched, 'has-success': seeducationform.gpa.$valid}" required>
+                        <input type="number" min="1" max="4" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': educationform.gpa.$touched, 'has-success': seeducationform.gpa.$valid}" required>
                     </div>
                     <p class="edt-pro-btn-group">
                         <input type="submit" value="Submit" ng-disabled="!dateerrcondition||seeducationform.gpa.$invalid||seeducationform.school_name.$invalid || seeducationform.major.$invalid || seeducationform.year_started.$invalid || seeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">

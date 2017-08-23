@@ -330,7 +330,7 @@
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.gpa.$valid}">GPA</label>
                                         <span ng-show="student_profile_education_form.gpa.$error.pattern" class="validation_msg">Enter the value 0 to 4 only with two decimals</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': student_profile_education_form.gpa.$touched, 'has-success': student_profile_education_form.gpa.$valid}" required>
+                                        <input type="number" min="1" max="4" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': student_profile_education_form.gpa.$touched, 'has-success': student_profile_education_form.gpa.$valid}" required>
                                     </div>
                                     <p class="btn-panel-group">
                                         <input type="submit" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" ng-disabled="student_profile_education_form.$invalid||student_profile_education_form.school_name.$invalid" />

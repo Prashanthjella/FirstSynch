@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': studentregistration.gpa.$valid}">Your Gpa</label>
-                        <input type="number" class="form-control custom-form-control-br-bottom" id="gpa" name="gpa" ng-model="gpa" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" required ng-class="{'has-error': studentregistration.gpa.$touched && studentregistration.gpa.$error.required && studentregistration.gpa.$invalid, 'has-success': studentregistration.gpa.$valid}" />
+                        <input type="number" min="1" max="4" class="form-control custom-form-control-br-bottom" id="gpa" name="gpa" ng-model="gpa" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" required ng-class="{'has-error': studentregistration.gpa.$touched && studentregistration.gpa.$error.required && studentregistration.gpa.$invalid, 'has-success': studentregistration.gpa.$valid}" />
                     </div>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': studentregistration.password.$valid}">Password</label>

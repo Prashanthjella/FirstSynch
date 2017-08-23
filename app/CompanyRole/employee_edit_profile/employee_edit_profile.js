@@ -7,7 +7,7 @@ var FirstSynch = angular.module("EmployeeEditProfile", ["ngRoute","firstSync","n
 /////////////////////////////////// Module ////////////////////////////////////
 
 // Student edit profile - studenteditprofiles
-FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scope, $http, apiUrl,$timeout) {
+FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootScope,$scope, $http, apiUrl,$timeout) {
       $scope.videoEditPopup = function (value) {
           $("#edit_video_popup").modal('show');
           var id = value;
@@ -125,7 +125,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
           // file is uploaded successfully
           $scope.epehobbiesmessage = 'Successfully updated';
           $scope.epehobbies_edit();
-
+          $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         }, function(resp) {
           // handle error
         }, function(evt) {
@@ -146,6 +146,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
           // file is uploaded successfully
           $scope.epehobbiesmessage = 'Successfully updated';
           $scope.epehobbies_edit();
+          $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
           $scope.epehobbyformadd.name = "";
           $scope.epehobbyformadd.description = "";
           $scope.epehobbyformadd.image = "";
@@ -218,7 +219,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         $scope.selectchar = [];
         angular.forEach($scope.selectedCharacter, function (selected, characters) {
             if (selected) {
-                $scope.selectchar.push({student:$rootScope.stud_id,character:characters});
+                $scope.selectchar.push({employee:$rootScope.stud_id,character:characters});
             }
         });
 
@@ -226,6 +227,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         .then(function (response) {
             $scope.charactermessage = 'Successfully updated';
             $scope.character_edit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
         //alert(JSON.stringify($scope.selectchar));
     };
@@ -295,6 +297,8 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         $http.post(apiUrl+"api/v1/employee/api/v1/whatiamlooking/",JSON.stringify($scope.selectlook))
         .then(function (response) {
             $scope.whatiammessage = 'Successfully updated';
+            $scope.what_i_am_edit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
     //student edit profile - personal skill set
@@ -445,6 +449,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
             .then(function (response) {
                 $scope.workhistroymessage = 'Successfully updated';
                 $scope.workhistroyeedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             });
         }
         else{
@@ -452,6 +457,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
             .then(function (response) {
                 $scope.workhistroymessage = 'Successfully Added';
                 $scope.workhistroyeedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             });
         }
     };
@@ -469,6 +475,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         .then(function (response) {
             $scope.workhistroymessage = 'Successfully Deleted';
             $scope.workhistroyeedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
 
@@ -516,6 +523,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
             }).then(function(resp) {
                 $scope.projectmessage = 'Successfully Added';
                 $scope.projectsedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 //$scope.projecteditform.splice(0, 0, response.data);
             }, function(resp) {
             }, function(evt) {
@@ -529,6 +537,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
             }).then(function(resp) {
                 $scope.projectmessage = 'Successfully updated';
                 $scope.projectsedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 //$scope.projecteditform.splice(0, 0, response.data);
             }, function(resp) {
             }, function(evt) {
@@ -549,6 +558,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         .then(function (response) {
             $scope.projectmessage = 'Successfully Deleted';
             $scope.projectsedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
 
@@ -660,6 +670,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
             .then(function (response) {
                 $scope.leadershipmessage = 'Successfully updated';
                 $scope.leadershipedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 $scope.leadershipform.leadership_role = "";
                 $scope.leadershipform.description ="";
 
@@ -671,6 +682,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
             .then(function (response) {
                 $scope.leadershipmessage = 'Successfully Added';
                 $scope.leadershipedit();
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 $scope.leadershipform.leadership_role = "";
                 $scope.leadershipform.description ="";
 
@@ -687,6 +699,7 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$rootScope,$scop
         .then(function (response) {
             $scope.leadershipmessage = 'Successfully Deleted';
             $scope.leadershipedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             $scope.leadershipform.leadership_role = "";
             $scope.leadershipform.description ="";
 
@@ -790,6 +803,7 @@ FirstSynch.controller("employeebasicprofileupload" , function ($timeout,$window,
         $http.patch(apiUrl+"api/v1/employee/api/v1/employeeprofile/"+$scope.basicprofileform.id+"/",data)
         .then(function (response) {
             $scope.basicprofilemessage = 'Successfully updated';
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
     $scope.$watch('$viewContentLoaded', function(){
