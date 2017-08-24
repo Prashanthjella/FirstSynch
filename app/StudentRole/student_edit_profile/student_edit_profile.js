@@ -97,6 +97,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         function uploadComplete(evt) {
             /* This event is raised when the server send back a response */
             $('#page-video-edit').modal('hide');
+            $('.after_video_process').hide();
+            $('.before_video_process').show();
             $('#video_end').modal('hide');
             $('#page-video-edit').css({'z-index':'1050'});
             $('#chapterss ul').empty();

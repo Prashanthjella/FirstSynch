@@ -120,9 +120,6 @@ $(document).ready(function() {
     $("#inoutbar").removeAttr("style");
     $('#inoutbar').empty();
     $('#chapterss ul').empty();
-    $("#student_video video").src = '';
-    $("#student_video video").children('source').prop('src', '');
-    $("#student_video video").remove().length = 0;
   });
 
   $(document).on('hide.bs.modal','#error_msg_model', function () {

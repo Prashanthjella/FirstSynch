@@ -38,8 +38,7 @@
 #bar, #company_bar {
   position: relative;
   cursor: pointer;
-  background: #eee;
-  color: #CCC;
+	color: #CCC;
   height:60px;
 }
 
@@ -220,7 +219,6 @@
 
 .ui-slider-range.ui-corner-all.ui-widget-header{
 	background:rgba(255,255,255,0);
-	border: 2px solid #00a65a;
 }
 
 .ui-slider-range:hover{
@@ -229,7 +227,7 @@
 
 .ui-slider-handle.ui-corner-all.ui-state-default {
 	top:0px;
-	background-color:#00a65a;
+	background-color:#00B58E;
 	border-radius: 0px;
 	border: 0px;
 	height: 60px;
