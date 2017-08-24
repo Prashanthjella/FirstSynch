@@ -41,6 +41,7 @@ var FirstSynch = angular.module("firstSync", [
   "ui.bootstrap",
   "ngLetterAvatar",
   "StudentFollowCareerFair",
+  "ngCookies",
 ]);
 
 FirstSynch.constant('apiUrl', 'https://api.firstsynch.com/');
@@ -53,31 +54,32 @@ FirstSynch.constant('guest_token', 'e4318eb2e222cd4f52427e272e0d1d670c2ce56e');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
-FirstSynch.run(function($anchorScroll,$rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
+FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
   // condition based header show
-  if(companyusertype == window.sessionStorage.getItem("usertype")){
-    $rootScope.token_id = window.sessionStorage.getItem("token");
-    $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
-    $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
-    $rootScope.user_id = window.sessionStorage.getItem("user_id");
+  var getcompanyusertype = window.sessionStorage.getItem("usertype")?window.sessionStorage.getItem("usertype"):$cookies.get('usertype');
+  if(companyusertype == getcompanyusertype){
+    $rootScope.token_id = window.sessionStorage.getItem("token")?window.sessionStorage.getItem("token"):$cookies.get('token');
+    $rootScope.companyuserInfo = window.sessionStorage.getItem("token")?window.sessionStorage.getItem("token"):$cookies.get('token');
+    $rootScope.profileimage = window.sessionStorage.getItem("profileimage")?window.sessionStorage.getItem("profileimage"):$cookies.get('profileimage');
+    $rootScope.user_id = window.sessionStorage.getItem("user_id")?window.sessionStorage.getItem("user_id"):$cookies.get('user_id');
     if(window.sessionStorage.getItem("company_userid")){
-      $rootScope.company_userid = window.sessionStorage.getItem("company_userid");
+      $rootScope.company_userid = window.sessionStorage.getItem("company_userid")?window.sessionStorage.getItem("company_userid"):$cookies.get('company_userid');
     }
     if(window.sessionStorage.getItem("request_member_id")){
-      $rootScope.request_member_id = window.sessionStorage.getItem("request_member_id");
+      $rootScope.request_member_id = window.sessionStorage.getItem("request_member_id")?window.sessionStorage.getItem("request_member_id"):$cookies.get('request_member_id');
     }
     if(window.sessionStorage.getItem("companyedit_id")){
-      $rootScope.companyedit_id = window.sessionStorage.getItem("companyedit_id");
+      $rootScope.companyedit_id = window.sessionStorage.getItem("companyedit_id")?window.sessionStorage.getItem("companyedit_id"):$cookies.get('companyedit_id');
     }
     $rootScope.guest_login = false;
     $rootScope.company_login = true;
   }
-  else if(studentusertype == window.sessionStorage.getItem("usertype")){
-    $rootScope.token_id = window.sessionStorage.getItem("token");
-    $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
-    $rootScope.profileimage = window.sessionStorage.getItem("profileimage");
-    $rootScope.user_id = window.sessionStorage.getItem("user_id");
-    $rootScope.student_id = window.sessionStorage.getItem('student_id');
+  else if(studentusertype == getcompanyusertype){
+    $rootScope.token_id = window.sessionStorage.getItem("token")?window.sessionStorage.getItem("token"):$cookies.get('token');
+    $rootScope.studentuserInfo = window.sessionStorage.getItem("token")?window.sessionStorage.getItem("token"):$cookies.get('token');
+    $rootScope.profileimage = window.sessionStorage.getItem("profileimage")?window.sessionStorage.getItem("profileimage"):$cookies.get('profileimage');
+    $rootScope.user_id = window.sessionStorage.getItem("user_id")?window.sessionStorage.getItem("user_id"):$cookies.get('user_id');
+    $rootScope.student_id = window.sessionStorage.getItem('student_id')?window.sessionStorage.getItem('student_id'):$cookies.get('student_id');
     $rootScope.guest_login = false;
     $rootScope.student_login = true;
   }else{
@@ -238,7 +240,7 @@ FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,
     });
   };
 });
-FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
+FirstSynch.controller("Login", function ($cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
   var url = window.location.href;
   var idexvalue = url.indexOf("/login");
   if(idexvalue != -1) {
@@ -261,9 +263,13 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
     .then(function successCallback(response, status, headers, config) {
       $('.loader_icon').hide();
       $window.sessionStorage.setItem('token', response.data.token);
+      $cookies.put('token', response.data.token);
       $window.sessionStorage.setItem('usertype', response.data.usertype);
+      $cookies.put('usertype', response.data.usertype);
       $window.sessionStorage.setItem('profileimage', response.data.profile_image);
+      $cookies.put('profileimage', response.data.profile_image);
       $window.sessionStorage.setItem('user_id', response.data.user_id);
+      $cookies.put('user_id', response.data.user_id);
       $rootScope.profileimage = response.data.profile_image;
       $rootScope.user_id = response.data.user_id;
       $rootScope.token_id = response.data.token;
@@ -271,12 +277,15 @@ FirstSynch.controller("Login", function ($scope ,$http, apiUrl, $location, $wind
       if(response.data.company_id){
         $rootScope.company_userid = response.data.company_id;
         $window.sessionStorage.setItem('company_userid', response.data.company_id);
+        $cookies.put('company_userid', response.data.company_id);
       }else if(response.data.request_member_id){
         $rootScope.request_member_id = response.data.request_member_id;
         $window.sessionStorage.setItem('request_member_id', response.data.request_member_id);
+        $cookies.put('request_member_id', response.data.request_member_id);
       } else if(response.data.student_id){
         $rootScope.student_id = response.data.student_id;
         $window.sessionStorage.setItem('student_id', response.data.student_id);
+        $cookies.put('student_id', response.data.student_id);
       }
       jQuery(".modal-backdrop.in").hide();
       jQuery('#logIn').modal('hide');
@@ -710,7 +719,7 @@ FirstSynch.controller("ResetPassword", function ($location,$scope, $http, apiUrl
 });
 
 
-FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, $window, $rootScope) {
+FirstSynch.controller("LogoutUser", function ($cookies,$scope, $http, $location, apiUrl, $window, $rootScope) {
   $scope.LogoutUser = function () {
     var data = $.param({
       token: $window.sessionStorage.getItem('token'),
@@ -723,11 +732,18 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
     })
     .then(function successCallback(data, status, headers, config) {
       $window.sessionStorage.removeItem('token');
+      $cookies.remove('token');
       $window.sessionStorage.removeItem('profileimage');
+      $cookies.remove('profileimage');
       $window.sessionStorage.removeItem('usertype');
+      $cookies.remove('usertype');
       $window.sessionStorage.removeItem('request_member_id');
+      $cookies.remove('request_member_id');
       $window.sessionStorage.removeItem('company_userid');
+      $cookies.remove('company_userid');
+       $cookies.remove('user_id');
       $window.sessionStorage.removeItem('student_id');
+      $cookies.remove('student_id');
 
       $rootScope.guest_login = true;
       $rootScope.dashboard = true;
@@ -749,6 +765,12 @@ FirstSynch.controller("LogoutUser", function ($scope, $http, $location, apiUrl, 
       $window.sessionStorage.removeItem('usertype');
       $window.sessionStorage.removeItem('request_member_id');
       $window.sessionStorage.removeItem('student_id');
+      $cookies.remove('token');
+      $cookies.remove('profileimage');
+      $cookies.remove('usertype');
+      $cookies.remove('request_member_id');
+      $cookies.remove('company_userid');
+      $cookies.remove('student_id');
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id

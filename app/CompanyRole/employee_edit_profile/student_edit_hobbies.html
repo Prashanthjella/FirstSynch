@@ -8,8 +8,8 @@
         </div> -->
         <form name="epehobbyform" ng-repeat="epehobbyupdateform in epehobbyform" ng-submit="epehobbyupdatesubmit(epehobbyupdateform.id,epehobbyupdateform.employee,epehobbyupdateform.name,epehobbyupdateform.description,epehobbyupdateform.updateimage)">
             <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-               <div class="col-sm-12 col-md-12">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1 student_edit_hobbies_toggle" style="width:200px"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span><div class="hobbies_hide hide">Hobby#{{$index+1}}</div></div>
+                <div class="col-sm-12 col-md-12 student_edit_hobbies_toggle_collapsable">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epehobbyform.name.$valid}">Hobby</label> <span ng-show="epehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" name="hobby_id" ng-model="epehobbyupdateform.id" value="{{hobbyupdateform.id}}">
@@ -27,11 +27,12 @@
                         <img ng-if="epehobbyupdateform.image && !epehobbyupdateform.updateimage" src="{{epehobbyupdateform.image}}" height="50">
                         <img ngf-thumbnail="epehobbyupdateform.updateimage" height="100" width="100">
                     </div>
+                    <p class="edt-pro-btn-group">
+                        <input type="submit" ng-disabled="epehobbyform.name.$invalid" value="Add hobby"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+                    </p>
                 </div>
             </div>
-            <p class="edt-pro-btn-group">
-           <input type="submit" ng-disabled="epehobbyform.name.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
-           </p>
+
         </form>
         <form name="epeahobbyform" ng-submit="epehobbysubmit(epehobbyformadd.image)">
             <div class="row">

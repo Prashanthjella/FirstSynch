@@ -8,9 +8,9 @@
         </div> -->
         <form name="sehobbyform" ng-repeat="hobbyupdateform in hobbyform" ng-submit="hobbyupdatesubmit(hobbyupdateform.id,hobbyupdateform.student,hobbyupdateform.name,hobbyupdateform.description,hobbyupdateform.updateimage)">
             <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span> </div>
-               <div class="col-sm-12 col-md-12">
-                    <div class="form-group custom-lider-form-group">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1 student_edit_hobbies_toggle" style="width:200px"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span><div class="hobbies_hide hide">Hobby#{{$index+1}}</div> </div>
+                <div class="col-sm-12 col-md-12 student_edit_hobbies_toggle_collapsable">
+                    <div class="form-group custom-lider-form-group ">
                         <label class="text-uppercase" ng-class="{'has-success': sehobbyform.name.$valid}">Hobby</label> <span ng-show="sehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" name="hobby_id" ng-model="hobbyupdateform.id" value="{{hobbyupdateform.id}}">
                         <input type="hidden" name="stud_id" ng-model="hobbyupdateform.student" value="{{hobbyupdateform.student}}">
@@ -27,11 +27,11 @@
                         <img ng-if="hobbyupdateform.image && !hobbyupdateform.updateimage" src="{{hobbyupdateform.image}}" height="50">
                         <img ngf-thumbnail="hobbyupdateform.updateimage" height="100" width="100">
                     </div>
+                    <p class="edt-pro-btn-group">
+                        <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+                    </p>
                 </div>
             </div>
-            <p class="edt-pro-btn-group">
-           <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
-           </p>
         </form>
         <form name="sehobbyform" ng-submit="hobbysubmit(hobbyformadd.image)">
             <div class="row">
@@ -57,7 +57,7 @@
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
              <p class="edt-pro-btn-group">
-            <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+            <input type="submit" ng-disabled="sehobbyform.name.$invalid" value="Add hobby"  class="btn btn-default custom-btn btn-lg btn-submit"/>
             <button type="button" ng-click="student_edit_profile_hobbies_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
             </p>
             <!-- <div class="row">

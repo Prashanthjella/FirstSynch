@@ -260,5 +260,21 @@ $(this).addClass('active');
     $('#student_edit_username, #student_setting_password').val('');
     $('.remove_class_act label, .remove_class_act input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
+
+  $(document).on('click','.student_edit_hobbies_toggle',function(){
+      $(this).siblings('.student_edit_hobbies_toggle_collapsable').toggle();
+      if($(this).find('span').hasClass('glyphicon-minus')){
+          $(this).find('span').addClass('glyphicon-plus');
+          $(this).find('span').removeClass('glyphicon-minus');
+          $(this).find('.hobbies_hide').removeClass('hide');
+
+      }
+      else if($(this).find('span').hasClass('glyphicon-plus')){
+          $(this).find('span').addClass('glyphicon-minus');
+          $(this).find('span').removeClass('glyphicon-plus');
+          $(this).find('.hobbies_hide').addClass('hide');
+      }
+  });
+
   //Compay Account Settings Function End
 });
