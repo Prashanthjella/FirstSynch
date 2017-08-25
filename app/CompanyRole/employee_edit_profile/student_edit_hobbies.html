@@ -14,7 +14,7 @@
                         <label class="text-uppercase" ng-class="{'has-success': epehobbyform.name.$valid}">Hobby</label> <span ng-show="epehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" name="hobby_id" ng-model="epehobbyupdateform.id" value="{{hobbyupdateform.id}}">
                         <input type="hidden" name="stud_id" ng-model="epehobbyupdateform.employee" value="{{hobbyupdateform.employee}}">
-                        <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom"ng-model="epehobbyupdateform.name" placeholder="Give it a name" name="name" value="{{epehobbyupdateform.name}}" ng-class="{'has-error': epehobbyform.name.$touched, 'has-success': epehobbyform.name.$valid}" required>
+                        <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom"ng-model="epehobbyupdateform.name" placeholder="Give it a name" name="name" value="{{epehobbyupdateform.name}}" ng-class="{'has-error': epehobbyform.name.$touched, 'has-success': epehobbyform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epehobbyupdateform.description}">Description</label>
@@ -41,7 +41,7 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epeahobbyform.name.$valid}">Hobby</label> <span ng-show="epeahobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" name="stud_id" ng-model="epehobbyformadd.stud_id">
-                        <input type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="epehobbyformadd.name" ng-class="{'has-error': epeahobbyform.name.$touched, 'has-success': epeahobbyform.name.$valid}" required>
+                        <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="epehobbyformadd.name" ng-class="{'has-error': epeahobbyform.name.$touched, 'has-success': epeahobbyform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epehobbyformadd.description}">Description</label>

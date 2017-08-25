@@ -12,15 +12,15 @@
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.first_name.$valid}">First Name</label><span ng-show="epebasicprofile_form.first_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-              <input id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="basicprofileform.first_name" ng-class="{'has-error': epebasicprofile_form.first_name.$touched, 'has-success': epebasicprofile_form.first_name.$valid}" required>
+              <input maxlength="100" id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="basicprofileform.first_name" ng-class="{'has-error': epebasicprofile_form.first_name.$touched, 'has-success': epebasicprofile_form.first_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.last_name.$valid}">Last Name</label><span ng-show="epebasicprofile_form.last_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-              <input type="text" class="form-control custom-form-control-br-bottom" name="last_name" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': epebasicprofile_form.last_name.$touched, 'has-success': epebasicprofile_form.last_name.$valid}" required>
+              <input maxlength="100" type="text" class="form-control custom-form-control-br-bottom" name="last_name" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': epebasicprofile_form.last_name.$touched, 'has-success': epebasicprofile_form.last_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.dob.$valid}">Date of Birth</label><span ng-show="epebasicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-              <input type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': epebasicprofile_form.dob.$touched, 'has-success': epebasicprofile_form.dob.$valid}" required>
+              <input maxlength="12" type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': epebasicprofile_form.dob.$touched, 'has-success': epebasicprofile_form.dob.$valid}" required>
           </div>
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
@@ -53,32 +53,32 @@
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.facebook_url}">Facebook</label>
               <span ng-if="epebasicprofile_form.facebook_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-              <input type="url" ng-class="{'has-success': basicprofileform.facebook_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
+              <input maxlength="200" type="url" ng-class="{'has-success': basicprofileform.facebook_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom"  ng-model="basicprofileform.facebook_url" name="facebook_url" placeholder="Please provide your Facebook URL">
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.linkedin_url}">Linkedin</label>
               <span ng-if="epebasicprofile_form.linkedin_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-              <input type="url" ng-class="{'has-success': basicprofileform.linkedin_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
+              <input maxlength="200" type="url" ng-class="{'has-success': basicprofileform.linkedin_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom" ng-model="basicprofileform.linkedin_url" name="linkedin_url" placeholder="Please provide your Linkedin URL">
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.twitter_url}">Twitter</label>
               <span ng-if="epebasicprofile_form.twitter_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-              <input type="url" ng-class="{'has-success': basicprofileform.twitter_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
+              <input maxlength="200" type="url" ng-class="{'has-success': basicprofileform.twitter_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.twitter_url" name="twitter_url" placeholder="Please provide your Twitter URL">
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.github_url}">Github</label>
               <span ng-if="epebasicprofile_form.github_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-              <input type="url" ng-class="{'has-success': basicprofileform.github_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="github_url" placeholder="Please provide your Github URL">
+              <input maxlength="200" type="url" ng-class="{'has-success': basicprofileform.github_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.github_url" name="github_url" placeholder="Please provide your Github URL">
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.stackoverflow_url}">Stackoverflow</label>
               <span ng-if="epebasicprofile_form.stackoverflow_url.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-              <input type="url" ng-class="{'has-success': basicprofileform.stackoverflow_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="stackoverflow_url" placeholder="Please provide your Stackoverflow URL">
+              <input maxlength="200" type="url" ng-class="{'has-success': basicprofileform.stackoverflow_url}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class=" form-control custom-form-control-br-bottom"  ng-model="basicprofileform.stackoverflow_url" name="stackoverflow_url" placeholder="Please provide your Stackoverflow URL">
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.website}">Website</label>
               <span ng-if="epebasicprofile_form.website.$invalid" class="validation_msg">The website address is not valid. Use like http://......</span>
-              <input type="url" ng-class="{'has-success': basicprofileform.website}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
+              <input maxlength="200" type="url" ng-class="{'has-success': basicprofileform.website}" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-form-control-br-bottom" ng-model="basicprofileform.website" name="website" placeholder="Please provide your website URL">
           </div>
           <div class="form-group custom-lider-form-group">
               <label class="text-uppercase" ng-class="{'has-success': basicprofileform.profile_picture_new || basicprofileform.profile_picture}">Profile Picture</label>

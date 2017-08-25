@@ -12,7 +12,7 @@
                         <label class="text-uppercase" ng-class="{'has-success': cpfundingform.funding_size.$valid}">Funding Size</label>
                         <span ng-if="cpfundingform.funding_size.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="hidden" name="id" ng-model="fundingform.id">
-                        <input type="text" name="funding_size" ng-model="fundingform.funding_size" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" class="form-control custom-form-control-br-bottom" placeholder="Funding size" ng-class="{'has-error': cpfundingform.funding_size.$touched, 'has-success': cpfundingform.funding_size.$valid}" required>
+                        <input maxlength="20" type="text" name="funding_size" ng-model="fundingform.funding_size" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" class="form-control custom-form-control-br-bottom" placeholder="Funding size" ng-class="{'has-error': cpfundingform.funding_size.$touched, 'has-success': cpfundingform.funding_size.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': fundingform.funding_size_description}">Description</label>

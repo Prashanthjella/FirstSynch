@@ -800,7 +800,7 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
     });
   }
 });
-FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, apiUrl,$location,companyusertype,studentusertype) {
+FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $http, apiUrl,$location,companyusertype,studentusertype) {
   $scope.facebookform = {
     fbfirstname:"",
     fblastname : "",
@@ -852,6 +852,10 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
           $rootScope.e_mail = $scope.facebookform.fbemail;
           $location.search('code', null);
           $location.search('state', null);
+          $cookies.put('token', data.data.token);
+          $cookies.put('usertype', data.data.usertype);
+          $cookies.put('user_id', data.data.user_id);
+          $cookies.put('student_id', data.data.student_id);
           jQuery("#fbsignUp").modal('hide');
           $location.path("/stu");
         },
@@ -881,6 +885,10 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
           $rootScope.user_id = data.data.user_id;
           $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
           $rootScope.e_mail = $scope.facebookform.fbemail;
+          $cookies.put('token', data.data.token);
+          $cookies.put('usertype', data.data.usertype);
+          $cookies.put('user_id', data.data.user_id);
+          $cookies.put('company_userid', data.data.company_id);
           $location.search('code', null);
           $location.search('state', null);
           jQuery("#fbsignUp").modal('hide');
@@ -910,12 +918,17 @@ FirstSynch.controller("FbLogin", function ($window,$rootScope,$scope, $http, api
         $window.sessionStorage.setItem('usertype', response.data.usertype);
         $window.sessionStorage.setItem('profileimage', response.data.profile_image);
         $window.sessionStorage.setItem('user_id', response.data.user_id);
+        $cookies.put('token', response.data.token);
+        $cookies.put('usertype', response.data.usertype);
+        $cookies.put('profileimage', response.data.profile_image);
+        $cookies.put('user_id', response.data.user_id);
         $rootScope.profileimage = response.data.profile_image;
         $rootScope.user_id = response.data.user_id;
         $rootScope.token_id = response.data.token;
         if(response.data.company_id){
           $rootScope.company_userid = response.data.company_id;
           $window.sessionStorage.setItem('company_userid', response.data.company_id);
+          $cookies.put('company_userid', data.data.company_id);
         }
         if(companyusertype == response.data.usertype){
           $rootScope.companyuserInfo = window.sessionStorage.getItem("token");

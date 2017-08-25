@@ -24,7 +24,7 @@
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.name.$valid}">Company Name</label>
                                         <input type="hidden" name="id" ng-model="basicinfoform.id">
-                                        <input type="text" class="form-control custom-textbox" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" ng-class="{'has-error': cpobasicinfoform.name.$touched, 'has-success': cpobasicinfoform.name.$valid}" required>
+                                        <input maxlength="200" type="text" class="form-control custom-textbox" placeholder="Give it a company name" name="name"  ng-model="basicinfoform.name" ng-class="{'has-error': cpobasicinfoform.name.$touched, 'has-success': cpobasicinfoform.name.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.category.$valid}">Industry</label>
@@ -47,23 +47,23 @@
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.product_category.$valid}">Product Category</label>
-                                        <input type="text" class="form-control custom-textbox" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpobasicinfoform.product_category.$touched, 'has-success': cpobasicinfoform.product_category.$valid}" required>
+                                        <input maxlength="200" type="text" class="form-control custom-textbox" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpobasicinfoform.product_category.$touched, 'has-success': cpobasicinfoform.product_category.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpobasicinfoform.website.$valid}">Website</label>
-                                        <input type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
+                                        <input maxlength="200" type="url" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" class="form-control custom-textbox" placeholder="Give it a Website URL" name="website"  ng-model="basicinfoform.website" ng-class="{'has-error': cpobasicinfoform.website.$touched, 'has-success': cpobasicinfoform.website.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': basicinfoform.linkedin_url}">Linkedin</label>
-                                        <input type="text" ng-class="{'has-success': basicinfoform.linkedin_url}" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
+                                        <input maxlength="200" type="text" ng-class="{'has-success': basicinfoform.linkedin_url}" class="form-control custom-textbox" placeholder="Give it a Linkedin URL" name="linkedin_url"  ng-model="basicinfoform.linkedin_url">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': basicinfoform.twitter_url}">Twitter</label>
-                                        <input type="text" ng-class="{'has-success': basicinfoform.twitter_url}" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
+                                        <input maxlength="200" type="text" ng-class="{'has-success': basicinfoform.twitter_url}" class="form-control custom-textbox" placeholder="Give it a Twitter URL" name="twitter_url"  ng-model="basicinfoform.twitter_url">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': basicinfoform.facebook_url}">Facebook</label>
-                                        <input type="text" ng-class="{'has-success': basicinfoform.facebook_url}" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
+                                        <input maxlength="200" type="text" ng-class="{'has-success': basicinfoform.facebook_url}" class="form-control custom-textbox" placeholder="Give it a Facebook URL" name="facebook_url"  ng-model="basicinfoform.facebook_url">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': basicinfoform.logo}">Profile Picture</label>
@@ -92,17 +92,17 @@
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.benefits.$valid}">Benefits</label>
                                         <span ng-show="cpoworkforusform.benefits.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                                        <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" name="benefits" ng-model="benefitperkscultrueform.benefits" class="form-control custom-textbox" placeholder="Give it a benefits" ng-class="{'has-error': cpoworkforusform.benefits.$touched, 'has-success': cpoworkforusform.benefits.$valid}" required>
+                                        <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z\s]*$/" name="benefits" ng-model="benefitperkscultrueform.benefits" class="form-control custom-textbox" placeholder="Give it a benefits" ng-class="{'has-error': cpoworkforusform.benefits.$touched, 'has-success': cpoworkforusform.benefits.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.perks.$valid}">Perks</label>
                                         <span ng-show="cpoworkforusform.perks.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                                        <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" name="perks" ng-model="benefitperkscultrueform.perks" class="form-control custom-textbox" placeholder="Give it a Perks" ng-class="{'has-error': cpoworkforusform.perks.$touched, 'has-success': cpoworkforusform.perks.$valid}" required>
+                                        <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z\s]*$/" name="perks" ng-model="benefitperkscultrueform.perks" class="form-control custom-textbox" placeholder="Give it a Perks" ng-class="{'has-error': cpoworkforusform.perks.$touched, 'has-success': cpoworkforusform.perks.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpoworkforusform.culture.$valid}">Culture</label>
                                         <span ng-show="cpoworkforusform.culture.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                                        <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" name="culture" ng-model="benefitperkscultrueform.culture" class="form-control custom-textbox" placeholder="Give it a Culture" ng-class="{'has-error': cpoworkforusform.culture.$touched, 'has-success': cpoworkforusform.culture.$valid}" required>
+                                        <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z\s]*$/" name="culture" ng-model="benefitperkscultrueform.culture" class="form-control custom-textbox" placeholder="Give it a Culture" ng-class="{'has-error': cpoworkforusform.culture.$touched, 'has-success': cpoworkforusform.culture.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <input type="submit" ng-disabled="cpoworkforusform.benefits.$invalid || cpoworkforusform.perks.$invalid || cpoworkforusform.culture.$invalid" class="form-control" value="Save"/>
@@ -126,7 +126,7 @@
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': cpoestablishmentform.establishment_date.$valid}">Date of Establishment</label>
                                         <span ng-show="cpoestablishmentform.establishment_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                                        <input type="text" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class="form-control custom-textbox" datepicker placeholder="When was the company established?" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
+                                        <input maxlength="12" type="text" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class="form-control custom-textbox" datepicker placeholder="When was the company established?" name="establishment_date" ng-model="establishmentform.establishment_date" ng-class="{'has-error': cpoestablishmentform.establishment_date.$touched, 'has-success': cpoestablishmentform.establishment_date.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': establishmentform.est_date_description}">Description</label>
@@ -188,7 +188,7 @@
                                         <label class="text-uppercase"  ng-class="{'has-success': cpocompanysizeform.company_size.$valid}">SIZE</label>
                                         <span ng-if="cpocompanysizeform.company_size.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                                         <input type="hidden" name="id" ng-model="companysizeform.id">
-                                        <input type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/"  class="form-control custom-textbox" placeholder="How big is your company?" ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
+                                        <input maxlength="20" type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/"  class="form-control custom-textbox" placeholder="How big is your company?" ng-class="{'has-error': cpocompanysizeform.company_size.$touched, 'has-success': cpocompanysizeform.company_size.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': companysizeform.company_size_description}">Description</label>
@@ -221,7 +221,7 @@
                                         <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.hire_rates.$valid}">HIRE RATE</label>
                                         <span ng-if="cpohirerateform.hire_rates.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                                         <input type="hidden" name="id" ng-model="hirerateform.id">
-                                        <input type="text"  name="hire_rates" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
+                                        <input maxlength="20" type="text"  name="hire_rates" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.hire_rates" class="form-control custom-textbox" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cpohirerateform.hire_rates.$touched, 'has-success': cpohirerateform.hire_rates.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': hirerateform.hire_rates_description}">Description</label>
@@ -231,7 +231,7 @@
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpohirerateform.departure_rate.$valid}">Departure Rate</label>
                                         <span ng-if="cpohirerateform.departure_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
-                                        <input type="text" name="departure_rate" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
+                                        <input maxlength="20" type="text" name="departure_rate" ng-pattern="/^[0-9]{1,10}$/" ng-model="hirerateform.departure_rate" class="form-control custom-textbox" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cpohirerateform.departure_rate.$touched, 'has-success': cpohirerateform.departure_rate.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': hirerateform.departure_rate_description}">Description</label>
@@ -326,7 +326,7 @@
                                         <label class="text-uppercase"  ng-class="{'has-success': cpogrowthrateform.growth_rate.$valid}">Growth Rate</label>
                                         <span ng-if="cpogrowthrateform.growth_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                                         <input type="hidden" name="id" ng-model="growthrateform.id">
-                                        <input type="text"  name="growth_rate" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/"  ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
+                                        <input maxlength="20" type="text"  name="growth_rate" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/"  ng-model="growthrateform.growth_rate" class="form-control custom-textbox" placeholder="Give it a growth rate" ng-class="{'has-error': cpogrowthrateform.growth_rate.$touched, 'has-success': cpogrowthrateform.growth_rate.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': growthrateform.growth_rate_description}">Description</label>
@@ -359,7 +359,7 @@
                                         <label class="text-uppercase" ng-class="{'has-success': cpoinvestorform.investor_confidence.$valid}">Invester confidence</label>
                                         <span ng-if="cpoinvestorform.investor_confidence.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                                         <input type="hidden" name="id" ng-model="investorform.id">
-                                        <input type="text" name="investor_confidence" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
+                                        <input maxlength="20" type="text" name="investor_confidence" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" ng-model="investorform.investor_confidence" class="form-control custom-textbox" placeholder="Give it a invester confidence rate" ng-class="{'has-error': cpoinvestorform.investor_confidence.$touched, 'has-success': cpoinvestorform.investor_confidence.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': investorform.investor_conf_description}">Description</label>
@@ -391,46 +391,46 @@
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.address1.$valid}">Address #1</label>
                                         <span ng-show="cpolocationform.address1.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_1" name="address1" placeholder="Give it a Address #1" ng-class="{'has-error': cpolocationform.address1.$touched, 'has-success': cpolocationform.address1.$valid}" required>
+                                        <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_1" name="address1" placeholder="Give it a Address #1" ng-class="{'has-error': cpolocationform.address1.$touched, 'has-success': cpolocationform.address1.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': locationform.address_2}">Address #2</label>
                                         <span ng-show="cpolocationform.address2.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
-                                        <input type="text" ng-class="{'has-success': locationform.address_2}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_2" name="address2"  placeholder="Give it a Address #2">
+                                        <input maxlength="200" type="text" ng-class="{'has-success': locationform.address_2}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.address_2" name="address2"  placeholder="Give it a Address #2">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.city.$valid}">City</label>
                                         <span ng-show="cpolocationform.city.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/"  ng-model="locationform.city" name="city"  placeholder="Give it a City" ng-class="{'has-error': cpolocationform.city.$touched, 'has-success': cpolocationform.city.$valid}" required>
+                                        <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/"  ng-model="locationform.city" name="city"  placeholder="Give it a City" ng-class="{'has-error': cpolocationform.city.$touched, 'has-success': cpolocationform.city.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.state.$valid}">State</label>
                                         <span ng-show="cpolocationform.state.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.state" name="state"  placeholder="Give it a State" ng-class="{'has-error': cpolocationform.state.$touched, 'has-success': cpolocationform.state.$valid}" required>
+                                        <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="locationform.state" name="state"  placeholder="Give it a State" ng-class="{'has-error': cpolocationform.state.$touched, 'has-success': cpolocationform.state.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.country.$valid}">Country</label>
                                         <span ng-show="cpolocationform.country.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="locationform.country" name="country"  placeholder="Give it a Country" ng-class="{'has-error': cpolocationform.country.$touched, 'has-success': cpolocationform.country.$valid}" required>
+                                        <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="locationform.country" name="country"  placeholder="Give it a Country" ng-class="{'has-error': cpolocationform.country.$touched, 'has-success': cpolocationform.country.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': locationform.zip_code}">Zip code</label>
                                         <span ng-show="cpolocationform.zip_code.$error.pattern" class="validation_msg">Enter only numeral</span>
-                                        <input type="text" ng-class="{'has-success': locationform.zip_code}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.zip_code" name="zip_code"  placeholder="Give it a Zipcode">
+                                        <input maxlength="20" type="text" ng-class="{'has-success': locationform.zip_code}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.zip_code" name="zip_code"  placeholder="Give it a Zipcode">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.contactno.$valid}">Contact no</label>
-                                        <input type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.contact_no" name="contactno"  placeholder="Give it a Contact no" ng-class="{'has-error': cpolocationform.contact_no.$touched, 'has-success': cpolocationform.contact_no.$valid}" required>
+                                        <input maxlength="20" type="text" class="form-control custom-form-control-br-bottom" ng-model="locationform.contact_no" name="contactno"  placeholder="Give it a Contact no" ng-class="{'has-error': cpolocationform.contact_no.$touched, 'has-success': cpolocationform.contact_no.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase"  ng-class="{'has-success': cpolocationform.email.$valid}">Email</label>
                                         <span ng-show="cpolocationform.e_mail.$invalid" class="validation_msg">Enter valid mail id</span>
-                                        <input type="email" class="form-control custom-form-control-br-bottom" ng-model="locationform.e_mail" name="email"  placeholder="Give it a Email" ng-class="{'has-error': cpolocationform.e_mail.$touched, 'has-success': cpolocationform.e_mail.$valid}" required>
+                                        <input maxlength="200" type="email" class="form-control custom-form-control-br-bottom" ng-model="locationform.e_mail" name="email"  placeholder="Give it a Email" ng-class="{'has-error': cpolocationform.e_mail.$touched, 'has-success': cpolocationform.e_mail.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <label class="text-uppercase" ng-class="{'has-success': locationform.fax_no}">Fax no</label>
                                         <span ng-show="cpolocationform.fax_no.$error.pattern" class="validation_msg">Enter only numeral</span>
-                                        <input type="text" ng-class="{'has-success': locationform.fax_no}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.fax_no" name="fax_no"  placeholder="Give it a Fax no">
+                                        <input maxlength="20" type="text" ng-class="{'has-success': locationform.fax_no}" class="form-control custom-form-control-br-bottom" ng-pattern="/^[0-9]{1,10}$/" ng-model="locationform.fax_no" name="fax_no"  placeholder="Give it a Fax no">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
                                         <input type="submit" class="form-control" ng-disabled="cpolocationform.email.$invalid || cpolocationform.contactno.$invalid || cpolocationform.country.$invalid || cpolocationform.state.$invalid || cpolocationform.city.$invalid || cpolocationform.address_1.$invalid" value="Save"/>

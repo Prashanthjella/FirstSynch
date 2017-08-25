@@ -33,18 +33,18 @@
                          <span ng-show="epeprojecteditform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                          <input type="hidden" class="form-control custom-textbox" ng-model="projecteditform.user" name="user">
                          <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projecteditform.editid" name="projecteditid">
-                         <input type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-textbox" ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': epeprojecteditform.title.$touched, 'has-success': epeprojecteditform.title.$valid}" required>
+                         <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-textbox" ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': epeprojecteditform.title.$touched, 'has-success': epeprojecteditform.title.$valid}" required>
                      </div>
                      <div class="form-group custom-lider-form-group">
                          <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.start_date.$valid}">Start Date</label>
                          <span ng-show="epeprojecteditform.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                         <input type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': epeprojecteditform.start_date.$touched, 'has-success': epeprojecteditform.start_date.$valid}" required>
+                         <input maxlength="12" type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': epeprojecteditform.start_date.$touched, 'has-success': epeprojecteditform.start_date.$valid}" required>
                      </div>
                      <div class="form-group custom-lider-form-group">
                          <label class="text-uppercase" ng-class="{'has-success': epeprojecteditform.completation_date.$valid}">End Date</label>
                          <span ng-show="epeprojecteditform.completation_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                          <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
-                         <input type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': epeprojecteditform.completation_date.$touched, 'has-success': epeprojecteditform.completation_date.$valid}" required>
+                         <input maxlength="12" type="text" ng-change="datecheckErr(projecteditform.start_date,projecteditform.completation_date)" class="form-control custom-textbox" ng-model="projecteditform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': epeprojecteditform.completation_date.$touched, 'has-success': epeprojecteditform.completation_date.$valid}" required>
                      </div>
                      <div class="form-group custom-lider-form-group">
                          <label class="text-uppercase" ng-class="{'has-success': projecteditform.project_description}">Description</label>
