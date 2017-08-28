@@ -16,10 +16,10 @@
                         <input type="hidden" name="stud_id" ng-model="hobbyupdateform.student" value="{{hobbyupdateform.student}}">
                         <input maxlength="200" type="text" ng-class="{'has-success': sehobbyform.name.$valid}" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom"ng-model="hobbyupdateform.name" placeholder="Give it a name" name="name" value="{{hobbyupdateform.name}}">
                     </div>
-                    <div class="form-group custom-lider-form-group">
+                    <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': hobbyupdateform.description}">Description</label>
                         <textarea ng-class="{'has-success': hobbyupdateform.description}" class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbyupdateform.description" maxlength="150">{{hobbyupdateform.description}}</textarea>
-                        <p>{{500 - hobbyupdateform.description.length}} left</p>
+                        <p class="text-overlay-textarea">{{500 - hobbyupdateform.description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': hobbyupdateform.image || !hobbyupdateform.updateimage}">Picture</label>
@@ -42,10 +42,10 @@
                         <input type="hidden" name="stud_id" ng-model="hobbyformadd.stud_id">
                         <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyformadd.name" ng-class="{'has-error': sehobbyform.name.$touched, 'has-success': sehobbyform.name.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-group">
+                    <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': hobbyformadd.description}">Description</label>
                         <textarea ng-class="{'has-success': hobbyformadd.description}" class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbyformadd.description" maxlength="500"></textarea>
-                        <p>{{500 - hobbyformadd.description.length}} left</p>
+                        <p class="text-overlay-textarea">{{500 - hobbyformadd.description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': hobbyformadd.image}">Picture</label>

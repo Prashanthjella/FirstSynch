@@ -53,10 +53,10 @@
                         <span ng-show="seworkhistroy.job_title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                         <input maxlength="200" type="text" ng-class="{'has-success': workhistroyform.job_title}" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
                     </div>
-                    <div class="form-group custom-lider-form-group">
+                    <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_description}">Job Description</label>
                         <textarea ng-class="{'has-success': workhistroyform.job_description}" class="form-control custom-text-area" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
-                        <p>{{500 - workhistroyform.job_description.length}} left</p>
+                        <p class="text-overlay-textarea">{{500 - workhistroyform.job_description.length}}</p>
                     </div>
                      <p class="edt-pro-btn-group">
                          <input type="submit" ng-disabled="!dateerrcondition||seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />

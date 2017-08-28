@@ -102,10 +102,10 @@
                                         <input type="file" ng-class="{'has-success': basicprofileform.profile_picture || !basicprofileform.profile_picture_new}" ngf-select ngf-max-size="2MB" ng-model="basicprofileform.profile_picture_new" name="file" accept="image/*" >
                                         <img ng-if="basicprofileform.profile_picture && !basicprofileform.profile_picture_new" height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
                                         <img ngf-thumbnail="basicprofileform.profile_picture_new " height="100" width="100">
-                                        <div class="form-group custom-lider-form-group">
+                                        <div class="form-group custom-lider-form-group custom-form-group-new">
                                             <label class="text-uppercase">About me</label>
                                             <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="500"></textarea>
-                                            <p>{{500 - basicprofileform.about_me.length}} left</p>
+                                            <p class="text-overlay-textarea">{{500 - basicprofileform.about_me.length}}</p>
                                         </div>
                                         <p class="edt-pro-btn-group">
                                             <input type="submit"
@@ -130,6 +130,7 @@
                     <div class="panel-heading custom-accordion-heading">
                         <h4 class="panel-title custom-accordion-title">
                             <a href="#" data-target="#shobbies" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
+                            <span class="pull-right accordion-total-value">+3%</span>
                         </h4>
                     </div>
                     <div id="shobbies" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -142,10 +143,10 @@
                                             <input type="hidden" name="id" ng-model="hobbiesform.id">
                                             <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name" ng-class="{'has-error': hobbiesforms.name.$touched, 'has-success': hobbiesforms.name.$valid}" required>
                                         </div>
-                                        <div class="form-group custom-lider-form-group">
+                                        <div class="form-group custom-lider-form-group custom-form-group-new">
                                             <label class="text-uppercase" ng-class="{'has-success': hobbiesform.description}">Description</label>
                                             <textarea ng-class="{'has-success': hobbiesform.description}" class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbiesform.description" maxlength="500"></textarea>
-                                            <p>{{500 - hobbiesform.description.length}} left</p>
+                                            <p class="text-overlay-textarea">{{500 - hobbiesform.description.length}}</p>
                                         </div>
                                         <div class="form-group custom-lider-form-group">
                                             <div class="upload-container">
@@ -167,6 +168,7 @@
                     <div class="panel-heading custom-accordion-heading">
                         <h4 class="panel-title custom-accordion-title">
                             <a href="#" data-target="#scharactertics" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
+                            <span class="pull-right accordion-total-value">+4%</span>
                         </h4>
                     </div>
                     <div id="scharactertics" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -193,6 +195,7 @@
                                 <span class="glyphicon custom-glyphicon-accordion"></span>
                                 What I'm looking for
                             </a>
+                            <span class="pull-right accordion-total-value">+4%</span>
                         </h4>
                     </div>
                     <div id="swhatiamlooking" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -253,6 +256,7 @@
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Leadership roles
                         </a>
+                        <span class="pull-right accordion-total-value">+3%</span>
                     </h4>
                 </div>
                 <div id="sleadership" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -265,10 +269,10 @@
                                         <input type="hidden" class="form-control custom-textbox"  ng-model="leadershipform.id" name="student">
                                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': spleadershipform.leadership_role.$touched, 'has-success': spleadershipform.leadership_role.$valid}" required>
                                     </div>
-                                    <div class="form-group custom-lider-form-group">
+                                    <div class="form-group custom-lider-form-group custom-form-group-new">
                                         <label class="text-uppercase" ng-class="{'has-success': leadershipform.description}">Description</label>
                                         <textarea ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
-                                        <p>{{500 - leadershipform.description.length}} left</p>
+                                        <p class="text-overlay-textarea">{{500 - leadershipform.description.length}}</p>
                                     </div>
                                     <p class="btn-panel-group">
                                         <input type="submit"  ng-disabled="spleadershipform.leadership_role.$invalid"  value="Save" class="btn btn-default custom-btn btn-lg btn-submit"/>
@@ -285,6 +289,7 @@
                         <a href="#" data-target="#smyschools" class="collapsed"  data-toggle="collapse" data-parent="#accordion">
                             <span class="glyphicon custom-glyphicon-accordion"></span>MY SCHOOLS
                         </a>
+                        <span class="pull-right accordion-total-value">+15%</span>
                     </h4>
                 </div>
                 <div id="smyschools" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -348,6 +353,7 @@
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Work History
                         </a>
+                        <span class="pull-right accordion-total-value">+15%</span>
                     </h4>
                 </div>
                 <div id="sworkhistroy" class="panel-collapse custom-panel-accordion-collapse collapse">
@@ -377,10 +383,10 @@
                                         <span ng-show="sworkhistroyform.job_title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                                         <input maxlength="200" type="text" ng-class="{'has-success': workhistroyform.job_title}" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
                                     </div>
-                                    <div class="form-group custom-lider-form-group">
+                                    <div class="form-group custom-lider-form-group custom-form-group-new">
                                         <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_description}">Job Description</label>
                                         <textarea class="form-control custom-text-area" ng-class="{'has-success': workhistroyform.job_description}" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
-                                        <p>{{500 - workhistroyform.job_description.length}} left</p>
+                                        <p class="text-overlay-textarea">{{500 - workhistroyform.job_description.length}}</p>
                                     </div>
                                     <p class="btn-panel-group">
                                         <input type="submit" ng-disabled="sworkhistroyform.leave_date.$invalid ||  sworkhistroyform.start_date.$invalid || sworkhistroyform.company.$invalid || sworkhistroyform.job_title.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
@@ -398,34 +404,41 @@
                             <span class="glyphicon custom-glyphicon-accordion"></span>
                             Projects
                         </a>
+                        <span class="pull-right accordion-total-value">+15%</span>
                     </h4>
                 </div>
                 <div id="sproject" class="panel-collapse custom-panel-accordion-collapse collapse">
                     <form name='sprojectform' ng-submit="projectsubmit(projectsform.image)">
                         <div class="row">
-                            <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                             <div class="col-sm-12 col-md-12">
+                            	<div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase" ng-class="{'has-success': sprojectform.title.$valid}">Projects</label>
                                     <span ng-show="sprojectform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
-                                    <input type="hidden" class="form-control custom-textbox" ng-model="projectsform.id" name="user">
-                                    <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-textbox" ng-model="projectsform.title" placeholder="Project title" name="title" ng-class="{'has-error': sprojectform.title.$touched, 'has-success': sprojectform.title.$valid}" required>
+                                    <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projectsform.id" name="user">
+                                    <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-form-control-br-bottom" ng-model="projectsform.title" placeholder="Project title" name="title" ng-class="{'has-error': sprojectform.title.$touched, 'has-success': sprojectform.title.$valid}" required>
                                 </div>
+                                <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase" ng-class="{'has-success': sprojectform.start_date.$valid}">Start Date</label>
                                     <span ng-show="sprojectform.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-                                    <input maxlength="12" type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-textbox" ng-model="projectsform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': sprojectform.start_date.$touched, 'has-success': sprojectform.start_date.$valid}" required>
+                                    <input maxlength="12" type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-form-control-br-bottom" ng-model="projectsform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': sprojectform.start_date.$touched, 'has-success': sprojectform.start_date.$valid}" required>
                                 </div>
+                                </div>
+                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase" ng-class="{'has-success': sprojectform.completation_date.$valid}">End Date</label>
                                     <span ng-show="sprojectform.completation_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                     <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
-                                    <input maxlength="12" type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-textbox" ng-model="projectsform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': sprojectform.completation_date.$touched, 'has-success': sprojectform.completation_date.$valid}" required>
+                                    <input maxlength="12" type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-form-control-br-bottom" ng-model="projectsform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': sprojectform.completation_date.$touched, 'has-success': sprojectform.completation_date.$valid}" required>
                                 </div>
-                                <div class="form-group custom-lider-form-group">
+                                </div>
+                                </div>
+                                <div class="form-group custom-lider-form-group custom-form-group-new">
                                     <label class="text-uppercase" ng-class="{'has-success': projectsform.project_description}">Description</label>
                                     <textarea ng-trim="false" ng-class="{'has-success': projectsform.project_description}" class="form-control custom-text-area" maxlength="500" ng-model="projectsform.project_description" placeholder="Write a description  about your roles and responsibility"></textarea>
-                                    <p>{{500 - projectsform.project_description.length}} left</p>
+                                   <p class="text-overlay-textarea">{{500 - projectsform.project_description.length}}</p>
                                 </div>
                                 <div class="form-group custom-lider-form-group">
                                     <label class="text-uppercase" ng-class="{'has-success': projectsform.image}">Picture</label>
@@ -436,6 +449,7 @@
                                 <p class="edt-pro-btn-group">
                                     <input type="submit" ng-disabled="!dateerrcondition||sprojectform.title.$invalid || sprojectform.start_date.$invalid || sprojectform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
                                 </p>
+                                </div>
                             </div>
                         </div>
                     </form>

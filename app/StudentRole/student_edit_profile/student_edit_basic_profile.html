@@ -86,10 +86,10 @@
                         <input type="file" ng-class="{'has-success': basicprofileform.profile_picture || !basicprofileform.profile_picture_new}" ngf-select ngf-max-size="2MB" ng-model="basicprofileform.profile_picture_new" name="file" accept="image/*" >
                         <img ng-if="basicprofileform.profile_picture && !basicprofileform.profile_picture_new" height="100" width="100" src="{{basicprofileform.profile_picture}}"/>
                         <img ngf-thumbnail="basicprofileform.profile_picture_new " height="100" width="100">
-                        <div class="form-group custom-lider-form-group">
+                        <div class="form-group custom-lider-form-group custom-form-group-new">
                             <label class="text-uppercase">About me</label>
                             <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Write a description  about you" ng-model="basicprofileform.about_me" name="about_me" maxlength="500"></textarea>
-                            <p>{{500 - basicprofileform.about_me.length}} left</p>
+                            <p class="text-overlay-textarea">{{500 - basicprofileform.about_me.length}}</p>
                         </div>
                         <p class="edt-pro-btn-group">
                             <input type="submit"

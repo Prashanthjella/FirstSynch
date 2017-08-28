@@ -13,10 +13,10 @@
                         <input type="hidden" name="id"  ng-model="companysizeform.id">
                         <input maxlength="200" type="text" name="company_size" ng-model="companysizeform.company_size" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="How big is your company?" ng-class="{'has-error': cpcompanysizeform.company_size.$touched, 'has-success': cpcompanysizeform.company_size.$valid}" required >
                     </div>
-                    <div class="form-group custom-lider-form-group">
+                    <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': companysizeform.company_size_description}">Description</label>
                         <textarea ng-class="{'has-success': companysizeform.company_size_description}" name="company_size_description" ng-model="companysizeform.company_size_description" class="form-control custom-form-control-br-bottom" placeholder="Share some stories about the companies size."></textarea>
-                        <p>{{500 - companysizeform.company_size_description.length}} left</p>
+                        <p class="text-overlay-textarea">{{500 - companysizeform.company_size_description.length}}</p>
                     </div>
                    <p class="edt-pro-btn-group">
                         <input type="submit" ng-disabled="cpcompanysizeform.company_size.$invalid||cpcompanysizeform.company_size.$error.pattern" class="btn btn-default custom-btn btn-lg btn-submit" value="Save"/>

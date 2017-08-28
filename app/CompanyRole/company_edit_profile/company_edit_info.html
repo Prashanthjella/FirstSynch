@@ -39,10 +39,10 @@
                         <span ng-show="cpbasicinfoform.product_category.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Give it a product category name" name="product_category"  ng-model="basicinfoform.product_category" ng-class="{'has-error': cpbasicinfoform.product_category.$touched, 'has-success': cpbasicinfoform.product_category.$valid}" required>
                     </div>
-                    <div class="form-group custom-lider-form-group">
+                    <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': basicinfoform.description}">About Company</label>
                         <textarea ng-class="{'has-success': basicinfoform.description}" class="form-control custom-form-control-br-bottom" placeholder="About your company" name="description"  ng-model="basicinfoform.description" maxlength="500"></textarea>
-                        <p>{{500 - basicinfoform.description.length}} left</p>
+                        <p class="text-overlay-textarea">{{500 - basicinfoform.description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': cpbasicinfoform.website.$valid}">Website</label>

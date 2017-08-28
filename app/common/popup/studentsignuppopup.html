@@ -67,7 +67,7 @@
                             input-class="form-control custom-form-control-br-bottom"
                             field-required="true"
                             match-class="highlight"
-                            ng-class="{'has-error':   studentregistration.school_name.$touched && studentregistration.school_name.$error.required && studentregistration.school_name.$invalid, 'has-success': studentregistration.school_name.$valid}">
+                            ng-class="{'has-error': studentregistration.school_name.$touched && studentregistration.school_name.$error.required && studentregistration.school_name.$invalid, 'has-success': studentregistration.school_name.$valid}">
                         </div>
                         <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" required ng-model="selecteduniversity.originalObject.Institution_Name"/>
                     </div>
@@ -115,7 +115,7 @@
                     <div class="modal-body custom-video-modal-body peoplesearch_show" style="display:none;">
                         <section class="page-section page-section-onboard page-section-onboard-popup">
                             <p class="text-onboard">
-                	               To make things easier, we've automatically populated some of your profile. Please check the information and let us know what we got right and what needs editing.
+                	               To make things easier, we've automatically populated some of your profile using information from Facebook, Linkedin and Google+. Please review this information before continuing.
                             </p>
                             <div class="row">
                                 <div class="col-md-12">
@@ -123,7 +123,10 @@
                                         <div class="page-header custom-page-header">
                                             <div class="pull-left">
                                                 <h3 class="h3 custom-h3">Education</h3>
+                                                <p class="text-onboard text-onboard-0-space"> 
+                                            Sharing your education history gives recruiter and future employer a taste of the skills and competencies you have acquired.</p>
                                             </div>
+                                             
                                         </div>
                                         <div class="page-header custom-page-header-brline">
                                             <h4 class="h4 custom-h4-02">School#1</h4>
@@ -132,7 +135,7 @@
                                             <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': studentregistration.piplschool_name.$valid}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
-                                                        <div class="form-group">
+                                                        <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplschool_name.$valid}">
                                                                 School
                                                             </label>
@@ -144,7 +147,7 @@
                                             <div class="panel panel-default custom-panel-onboarding-default "ng-class="{'has-error': studentregistration.pipldateattended.$touched , 'has-success': studentregistration.pipldateattended.$valid}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
-                                                        <div class="form-group">
+                                                        <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipldateattended.$valid}">
                                                                 Years Attended
                                                             </label>
@@ -156,7 +159,7 @@
                                             <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplmajor.$touched , 'has-success': studentregistration.piplmajor.$valid}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
-                                                        <div class="form-group">
+                                                        <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplmajor.$valid}">
                                                                 Major
                                                             </label>
@@ -182,7 +185,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_company_name'+$index].$touched , 'has-success': studentregistration['pipl_company_name'+$index].$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_company_name'+$index].$valid}">
                                                                     Company Name
                                                                 </label>
@@ -194,7 +197,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_datestarted'+$index].$touched , 'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
                                                                     Dates Started
                                                                 </label>
@@ -206,7 +209,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_leavedate'+$index].$touched , 'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
                                                                     Leave Date
                                                                 </label>
@@ -218,7 +221,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobtitle'+$index].$touched , 'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
                                                                     Job title
                                                                 </label>
@@ -230,7 +233,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobdescription'+$index].$touched , 'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
                                                                     Job description
                                                                 </label>
@@ -257,7 +260,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_company_name0.$touched , 'has-success': studentregistration.pipl_company_name0.$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_company_name0.$valid}">
                                                                     Company Name
                                                                 </label>
@@ -269,7 +272,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_datestarted0.$touched , 'has-success': studentregistration.pipl_datestarted0.$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_datestarted0.$valid}">
                                                                     Dates Started
                                                                 </label>
@@ -281,7 +284,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_leavedate0.$touched , 'has-success': studentregistration.pipl_leavedate0.$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_leavedate0.$valid}">
                                                                     Leave Date
                                                                 </label>
@@ -293,7 +296,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobtitle0.$touched , 'has-success': studentregistration.pipl_jobtitle0.$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_jobtitle0.$valid}">
                                                                     Job title
                                                                 </label>
@@ -305,7 +308,7 @@
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobdescription0.$touched , 'has-success': studentregistration.pipl_jobdescription0.$valid}">
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <div class="form-group">
+                                                            <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_jobdescription0.$valid}">
                                                                     Job description
                                                                 </label>
@@ -489,7 +492,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Company Name
                                                         </label>
@@ -504,7 +507,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Dates Started
                                                         </label>
@@ -519,7 +522,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Leave Date
                                                         </label>
@@ -534,7 +537,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Job title
                                                         </label>
@@ -549,7 +552,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Job description
                                                         </label>
@@ -583,7 +586,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Company Name
                                                         </label>
@@ -598,7 +601,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Dates Started
                                                         </label>
@@ -613,7 +616,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Leave Date
                                                         </label>
@@ -628,7 +631,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Job title
                                                         </label>
@@ -643,7 +646,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Job description
                                                         </label>
@@ -676,7 +679,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             School
                                                         </label>
@@ -691,7 +694,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Dates Attended
                                                         </label>
@@ -706,7 +709,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Major
                                                         </label>
@@ -740,7 +743,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             School
                                                         </label>
@@ -755,7 +758,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Dates Attended
                                                         </label>
@@ -770,7 +773,7 @@
                                         <div class="panel panel-default custom-panel-onboarding-default ">
                                             <div class="row">
                                                 <div class="col-sm-8">
-                                                    <div class="form-group">
+                                                    <div class="form-group form-group-educations">
                                                         <label class="text-uppercase">
                                                             Major
                                                         </label>

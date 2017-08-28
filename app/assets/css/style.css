@@ -1938,9 +1938,22 @@ textarea.custom-text-area {
 	font-weight: 600;
 	letter-spacing: -0.4px;
 	color: #000000;
+	 resize: none;
+}
+textarea.custom-text-area-new {
+	height: 80px;
+	background-color: #f7f7f7;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: -0.4px;
+	color: #000000;
+	border: none;
+    overflow: auto;
+	 resize: none;
 }
 .tabe-pane-lidarship textarea.custom-text-area {
 	height: 94px;
+	 resize: none;
 }
 .custom-textbox {
 	border-width: 0 0 2px 0;
@@ -1957,6 +1970,7 @@ textarea.custom-text-area {
 .custom-lider-form-group {
 	margin-bottom: 25px;
 }
+.custom-form-group-new{position:relative;}
 .btn-addrole {
 	margin-top: 23px;
 	float: left;
@@ -3541,8 +3555,12 @@ textarea.custom-text-area {
 	color: #0d0d0d;
 	width: 420px;
 	margin-top: 100px;
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 }
+.page-section-education .text-onboard{
+	margin-top:60px;
+	margin-bottom:0
+	}
 .page-section-onboard-popup {
 	float: none;
 	margin: 0 auto;
@@ -3876,6 +3894,36 @@ margin: 0
 .departure-section-new {
 	margin-top: 201px;
 }
+.form-group-educations input.has-error, 
+.form-group-educations input.ng-dirty.ng-invalid{
+	border-bottom:none !important;
+	}
+.has-success .angucomplete-holder input.custom-form-control-br-bottom{
+	border-bottom-color:transparent !important; 
+	}
+.text-onboard-0-space{margin-top:15px !important}	
+.text-overlay-textarea{
+	  opacity: 0.2;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  text-align: right;
+  color: #0d0d0d;
+ 
+      position: absolute;
+    bottom: -6px;
+    right: 10px;
+	}
+.accordion-total-value{
+	opacity: 0.2;
+  margin:18px 20px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.71;
+  letter-spacing: -0.4px;
+  text-align: right;
+  color: #303030;
+	}	
 @media (min-width: 1200px) {
 	.container {
 		width: 970px;
@@ -4479,6 +4527,9 @@ margin: 0
 	border-color: #303030;
 	border-width: 2px;
 }
+.custom-btn-login[disabled="disabled"], .btn-submit[disabled="disabled"]{
+	opacity:0.3
+	}
 .custom-navbar-nav .user-profile-dropdown .dropdown-menu {
 	text-transform: uppercase;
 	border: none;
@@ -5104,6 +5155,7 @@ div.tooltip-inner {
 }
 textarea.custom-text-area-100 {
 	height: 100px;
+	 resize: none;
 }
 .add-video-btn-group .btn-lg {
 	padding: 16px;
