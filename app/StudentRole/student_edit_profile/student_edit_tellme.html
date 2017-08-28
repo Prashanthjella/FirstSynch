@@ -109,3 +109,39 @@
         </div><!--moal-content-->
       </div><!--modal-dialog-->
     </div><!--page-edit-popup-->
+
+    <!--[Page Seach Section Content Start]-->
+    <div class="modal fade custom-model" id="error_msg_model">
+      <div class="modal-dialog">
+        <div class="modal-content custom-modal-video-content">
+          <div class="modal-header cusom-model-onboard-header">
+            <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+            <div class="page-header custom-page-header">
+              <div class="pull-left">
+              </div>
+            </div>
+          </div>
+          <div class="modal-body custom-video-modal-body">
+            <h1 class="h3 custom-h3">
+              Please upload 1 minute video.
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--[Page Seach Section Content End]-->
+
+    <!--Video End Popup-->
+    <div class="company-verify" id="video_end">
+      <div class="loader">
+      </div>
+      <div class="cont-verify-profile">Your Video is currently being processed.</div>
+      <div class="cont-verify-profile">
+        <div ng-show="progressVisible">
+          <div class="percent">{{progress}}%</div>
+          <div class="progress1-bar">
+            <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
