@@ -94,10 +94,10 @@
           </form>
           <div class="modal-footer modal-footer-add-video before_video_process">
             <div class="add-video-btn-group add-video-btn-group-right">
-              <button type="button" class="btn btn-default custom-btn btn-lg btn-submit" onclick="addnewquestion()">
+              <button type="button" id="add_new_question" class="btn btn-default custom-btn btn-lg btn-submit" onclick="addnewquestion()">
                 <i class="icon-action icon-question"></i> Add a new question
               </button>
-              <button type="button"  class="btn btn-primary custom-btn btn-lg btn-cancel" onclick="trimchaptermaking()">
+              <button type="button" id="trim_finish" class="btn btn-primary custom-btn btn-lg btn-cancel" onclick="trimchaptermaking()">
                 <i class="icon-action icon-trim"></i> Trim &amp; finish
               </button>
 
@@ -109,43 +109,3 @@
         </div><!--moal-content-->
       </div><!--modal-dialog-->
     </div><!--page-edit-popup-->
-
-
-
-    <!--[Page Seach Section Content Start]-->
-    <div class="modal fade custom-model" id="error_msg_model">
-      <div class="modal-dialog">
-        <div class="modal-content custom-modal-video-content">
-          <div class="modal-header cusom-model-onboard-header">
-            <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-            <div class="page-header custom-page-header">
-              <div class="pull-left">
-              </div>
-            </div>
-          </div>
-          <div class="modal-body custom-video-modal-body">
-            <h1 class="h3 custom-h3">
-              Please upload 1 minute video.
-            </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--[Page Seach Section Content End]-->
-
-    <!--Video End Popup-->
-    <div class="modal fade custom-model" id="video_end">
-      <div class="video_end">
-        <div class="inners">
-          <h1 class="h3 custom-h3" style="color:#fff !important;">Your Video is currently being processed.</h1>
-          <img src="assets/images/loader.gif" class="loader_icon" style="width: 40px; margin-left: 10px;">
-          <!--<p><progress id="pro" value="0"></progress></p>-->
-          <div ng-show="progressVisible">
-            <div class="percent">{{progress}}%</div>
-            <div class="progress1-bar">
-              <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
-            </div>
-          </div>
-        </div><!--inners-->
-      </div><!--video_end class-->
-    </div><!--popup closed video_end-->

@@ -6,9 +6,8 @@
 		</a> </div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right custom-navbar-nav" nav-menu="active">
-				<li class="carrer_nav"><a href="/com/careerfair" title="Career fairs ">Fairs </a></li>
-				<!-- <li><a href="/com/companies" title="Companies">Companies</a></li> -->
-				<li class="student_nav"><a href="/com/students" title="Companies">Seekers</a></li>
+				<li class="carrer_nav"><a href="/com/careerfair" title="Fairs">Fairs</a></li>
+				<li class="student_nav"><a href="/com/students" title="Seekers">Seekers</a></li>
 				<li><a href="/search" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
 				<li class="user-profile-dropdown">
 					<a href="#" title="User Name"  data-toggle="dropdown" class="user-avator-img">
@@ -16,10 +15,10 @@
 						<img ng-src="{{profileimage}}" ng-if="profileimage" alt="">
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="/com/employee/profile/{{user_id}}">My Profile</a></li>
-						<li><a href="/com/mycareerfair">My Fairs</a></li>
-						<li ng-if="company_userid"><a href="/com/company/{{user_id}}">Company Profile</a></li>
-						<li><a href="/com/setting">Setting</a></li>
+						<li><a href="/com/employee/profile/{{user_id}}" title="My Profile">My Profile</a></li>
+						<li><a href="/com/mycareerfair" title="My Fairs">My Fairs</a></li>
+						<li ng-if="company_userid"><a href="/com/company/{{user_id}}" title="ompany Profile">Company Profile</a></li>
+						<li><a href="/com/setting" title="Account Settings">Account Settings</a></li>
 						<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
 					</ul>
 

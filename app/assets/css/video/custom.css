@@ -304,7 +304,7 @@
 
 /****Progress Bar****/
 .percent {
-    position: absolute; width: 300px; height: 14px; z-index: 1; text-align: center; font-size: 0.8em; color: white;
+    position: absolute; width: 500px; height: 14px; z-index: 1; text-align: center; font-size: 12px; color: white;
 }
 .progress1-bar {
     width: 300px; height: 14px;
@@ -312,6 +312,7 @@
     border: 1px solid #CCC;
     background: #ccc;
     border-image: initial;
+		margin-left: 100px;
 }
 .uploaded {
     padding: 0;

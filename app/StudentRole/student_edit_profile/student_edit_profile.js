@@ -56,8 +56,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         };
 
         $scope.uploadFile = function() {
-          $('#video_end').modal('show');
-          $('#page-video-edit').css({'z-index':'999'});
+          $('.custom_fade').show();
+          $('#video_end').show();
             var fd = new FormData()
             for (var i in $scope.files) {
                 fd.append("video_file", $scope.files[i])
@@ -99,8 +99,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $('#page-video-edit').modal('hide');
             $('.after_video_process').hide();
             $('.before_video_process').show();
-            $('#video_end').modal('hide');
-            $('#page-video-edit').css({'z-index':'1050'});
+            $('.custom_fade').hide();
+            $('#video_end').hide();
             $('#chapterss ul').empty();
             $("#chapter_maker_thumb").show();
             $("#question").show();
