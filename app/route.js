@@ -93,9 +93,9 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
         resolve:{
           "check":function($location,$route){
               if(window.sessionStorage.getItem("usertype") == '48KL3'){
-                  $location.path('/com/student/'+$route.current.params.companyid);
+                  $location.path('/com/student/'+$route.current.params.studentid);
               }else if(window.sessionStorage.getItem("usertype") == '38OD2'){
-                  $location.path('/stu/student/'+$route.current.params.companyid);
+                  $location.path('/stu/student/'+$route.current.params.studentid);
               }
           }
         }
