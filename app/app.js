@@ -120,6 +120,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
   }
   $anchorScroll.yOffset = 100;
   $rootScope.videoPopup = function (value) {
+      $('#comment_succ_msg').hide();
     jQuery("#VideoPopup1").modal('show');
     $('.video_loader_bk').fadeIn();
     var id = value;
@@ -223,17 +224,16 @@ FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,
       headers: {'Authorization' : 'Token '+token_id}
     })
     .then(function (response) {
-        var comment = $scope.videocomment;
-        var profileimages = $(document).find('.user-profile-dropdown img').attr('src');
-        var append_data = '<div class="media custom-media">'
-                          +'<div class="media-left media-middle custom-media-left">'
-                          +'<img class="media-object-user img-circle" src="'+profileimages+'" alt="FirstSynch">'
-                          +'</div>'
-                          +'<div class="media-body custom-media-body">'
-                          +'<h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>'
-                          +'<h5 class="media-eading-h5">'+comment+'</h5>'
-                          +'</div><div></div></div>';
-        $(document).find('.video_cmt_append_act').append(append_data);
+
+        $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+videoid, {
+          headers: {'Authorization' : 'Token '+token_id}
+        })
+        .then(function successCallback(response){
+          $rootScope.vid.video.comments = response.data.video.comments;
+        }, function errorCallback(response){
+          console.log("Unable to perform get Video Details");
+        });
+
       //angular.element(jQuery(document).find('.video_cmt_append_act')).append($compile(append_data)($scope));
       $('#comment_succ_msg').show();
       $('#videocomment').val('');
@@ -857,6 +857,8 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
           $cookies.put('user_id', data.data.user_id);
           $cookies.put('student_id', data.data.student_id);
           jQuery("#fbsignUp").modal('hide');
+          $rootScope.guest_login = false;
+          $rootScope.student_login = true;
           $location.path("/stu");
         },
         function errorCallback(data, status, headers, config) {
@@ -892,6 +894,8 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
           $location.search('code', null);
           $location.search('state', null);
           jQuery("#fbsignUp").modal('hide');
+          $rootScope.guest_login = false;
+          $rootScope.company_login = true;
           $location.path("/com");
         },
         function errorCallback(data, status, headers, config) {
@@ -934,12 +938,16 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
           $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
           $location.search('code', null);
           $location.search('state', null);
+          $rootScope.guest_login = false;
+          $rootScope.company_login = true;
           $location.path( "/com");
         }
         else if(studentusertype == response.data.usertype){
           $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
           $location.search('code', null);
           $location.search('state', null);
+          $rootScope.guest_login = false;
+          $rootScope.student_login = true;
           $location.path( "/stu" );
         }
       }

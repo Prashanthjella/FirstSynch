@@ -93,10 +93,10 @@
                             </div>
                             <div class="media custom-media" ng-repeat="comment in vid.video.comments | orderBy: 'updated_at'">
                                 <div class="media-left media-middle custom-media-left">
-                                  <img class="media-object-user img-circle" src="{{profileimage}}" alt="FirstSynch">
+                                  <img class="media-object-user img-circle" src="{{comment.image}}" alt="FirstSynch">
                                 </div>
                                 <div class="media-body custom-media-body">
-                                    <h5 class="media-heading highlighted-green custom-media-heading">Jayden Burton</h5>
+                                    <h5 class="media-heading highlighted-green custom-media-heading">{{comment.username}}</h5>
                                     <h5 class="media-eading-h5">{{comment.comment}}</h5>
                                     <h6 class="custom-h6-model">{{ today | amDifference:  comment.comment : 'days'}}</h6>
                                 </div>
