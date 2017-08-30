@@ -1,92 +1,60 @@
 <!--[Student category Section Start]-->
 <section class="page-section  page-section-employees student_act_categ"  ng-controller="student_category">
-  <div class="container">
-    <div class="row custom-row-35">
-      <div id="slider-companies-designation" class="slide-companies" data-uix-bxslider="shrinkItems: false, nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:3, slideWidth:324, infiniteLoop: false, hideControlOnEnd: true">
-        <div class="slide"  ng-repeat="student_det in student_cate " data-notify-when-repeat-finished>
-          <div class="col-sm-12">
-            <div class="panel panel-default custom-panne1-companies">
-              <!-- Default panel contents -->
-              <div class="panel-heading custom-panel-heading-companies">
-                <h3 class="h3 custom-h3">{{ student_det.category }}
-                  <span class="small custom-small-h3 pull-right">{{student_det.students.length}}
-                  
-                  
-                  <div class="company-list-tooltip">
- 
-  <div class="media-group-container">
-                <!-- ngRepeat: stu in student_det.students | limitTo:3 --><div class="media custom-media custom-media-student ng-scope" ng-repeat="stu in student_det.students | limitTo:3">
-                  <a href="/student/karina-yancy-c1dadea1" class="student-categories-list">
-                    <div class="media-left media-middle custom-media-left">
-                      <!-- ngIf: !stu.profile_picture -->
-                      <!-- ngIf: stu.profile_picture --><img class="media-object custom-media-object ng-scope" ng-if="stu.profile_picture" ng-src="https://firstsynchvideos.s3.amazonaws.com/user_profile/basic_profile/profile_picture/2017/08/21/images_15.jpeg" alt="Student Logo" src="https://firstsynchvideos.s3.amazonaws.com/user_profile/basic_profile/profile_picture/2017/08/21/images_15.jpeg"><!-- end ngIf: stu.profile_picture -->
-                    </div>
-                      <div class="media-body custom-media-body">
-                        <h4 class="media-heading custom-media-heading ng-binding">Karina</h4>
-                        <!-- ngIf: stu.city && stu.state --><h5 class="media-eading-h5 ng-binding ng-scope" ng-if="stu.city &amp;&amp; stu.state">Denver, Colorado</h5><!-- end ngIf: stu.city && stu.state -->
-                        <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
-                        </span>
-                      </div>
-                    </a>
-                  </div><!-- end ngRepeat: stu in student_det.students | limitTo:3 --><div class="media custom-media custom-media-student ng-scope" ng-repeat="stu in student_det.students | limitTo:3">
-                  <a href="/student/cameron-nikolas-c695545d" class="student-categories-list">
-                    <div class="media-left media-middle custom-media-left">
-                      <!-- ngIf: !stu.profile_picture -->
-                      <!-- ngIf: stu.profile_picture --><img class="media-object custom-media-object ng-scope" ng-if="stu.profile_picture" ng-src="https://firstsynchvideos.s3.amazonaws.com/user_profile/basic_profile/profile_picture/2017/08/21/images_11.jpeg" alt="Student Logo" src="https://firstsynchvideos.s3.amazonaws.com/user_profile/basic_profile/profile_picture/2017/08/21/images_11.jpeg"><!-- end ngIf: stu.profile_picture -->
-                    </div>
-                      <div class="media-body custom-media-body">
-                        <h4 class="media-heading custom-media-heading ng-binding">Cameron</h4>
-                        <!-- ngIf: stu.city && stu.state --><h5 class="media-eading-h5 ng-binding ng-scope" ng-if="stu.city &amp;&amp; stu.state">Denver, Colorado</h5><!-- end ngIf: stu.city && stu.state -->
-                        <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
-                        </span>
-                      </div>
-                    </a>
-                  </div><!-- end ngRepeat: stu in student_det.students | limitTo:3 --><div class="media custom-media custom-media-student ng-scope" ng-repeat="stu in student_det.students | limitTo:3">
-                  <a href="/student/muthukaruppan-none-09fa0957" class="student-categories-list">
-                    <div class="media-left media-middle custom-media-left">
-                      <!-- ngIf: !stu.profile_picture -->
-                      <!-- ngIf: stu.profile_picture --><img class="media-object custom-media-object ng-scope" ng-if="stu.profile_picture" ng-src="https://firstsynchvideos.s3.amazonaws.com/user_profile/basic_profile/profile_picture/2017/08/23/Screenshot_from_2017-06-17_18-04-00.png" alt="Student Logo" src="https://firstsynchvideos.s3.amazonaws.com/user_profile/basic_profile/profile_picture/2017/08/23/Screenshot_from_2017-06-17_18-04-00.png"><!-- end ngIf: stu.profile_picture -->
-                    </div>
-                      <div class="media-body custom-media-body">
-                        <h4 class="media-heading custom-media-heading ng-binding">Muthukaruppan</h4>
-                        <!-- ngIf: stu.city && stu.state -->
-
-                        <span class="media-right-arrow"><i class="fa fa-angle-right"></i>
-                        </span>
-                      </div>
-                    </a>
-                  </div><!-- end ngRepeat: stu in student_det.students | limitTo:3 --><!--media-->
-                </div>
-</div>
-                  </span>
-                  
-                  
-                </h3>
-                
-              </div>
-              <div class="media-group-container">
-                <div class="media custom-media custom-media-student" ng-repeat="stu in student_det.students | limitTo:3">
-                  <a href="/student/{{stu.slug}}" class="student-categories-list">
-                    <div class="media-left media-middle custom-media-left">
-                      <div ng-if="!stu.profile_picture" class="grey_logo_icon media-object custom-media-object">
-                        <ng-letter-avatar ng-if="!stu.profile_picture" alphabetcolors="grey" charCount="2" data="{{stu.first_name}}"></ng-letter-avatar>
-                      </div>
-                      <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">
-                    </div>
-                      <div class="media-body custom-media-body">
-                        <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
-                        <h5 class="media-eading-h5" ng-if="stu.city && stu.state">{{ stu.city }}, {{ stu.state }}</h5>
-                        <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
-                        </span>
-                      </div>
-                    </a>
-                  </div><!--media-->
-                </div><!--media-group-container-->
-              </div><!--panel-->
-            </div><!--col-sm-12-->
-          </div><!--slide-->
-        </div><!--slider-companies-designation-->
-      </div><!--row-->
+    <div class="container">
+        <div class="row custom-row-35">
+            <div id="slider-companies-designation" class="slide-companies" data-uix-bxslider="shrinkItems: false, nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:3, slideWidth:324, infiniteLoop: false, hideControlOnEnd: true">
+                <div class="slide"  ng-repeat="student_det in student_cate " data-notify-when-repeat-finished>
+                    <div class="col-sm-12">
+                        <div class="panel panel-default custom-panne1-companies">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading custom-panel-heading-companies">
+                                <h3 class="h3 custom-h3">{{ student_det.category }}
+                                    <span class="small pull-right" ng-class="{'custom-small-h3': student_det.students.length > 3}">{{student_det.students.length}}
+                                        <div class="company-list-tooltip">
+                                            <div class="media-group-container">
+                                                <!-- ngRepeat: stu in student_det.students | limitTo:3 -->
+                                                <div class="media custom-media custom-media-student ng-scope" ng-repeat="stu in student_det.students | startFrom : 3" ng-if="student_det.students.length > 3">
+                                                    <a href="/student/karina-yancy-c1dadea1" class="student-categories-list">
+                                                        <div class="media-left media-middle custom-media-left">
+                                                            <div ng-if="!stu.profile_picture" class="grey_logo_icon media-object custom-media-object">
+                                                                <ng-letter-avatar ng-if="!stu.profile_picture" alphabetcolors="grey" charCount="2" data="{{stu.first_name}}"></ng-letter-avatar>
+                                                            </div>
+                                                            <img class="media-object custom-media-object ng-scope" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">
+                                                        </div>
+                                                        <div class="media-body custom-media-body">
+                                                            <h4 class="media-heading custom-media-heading ng-binding">{{stu.first_name}}</h4>
+                                                            <h5 class="media-eading-h5 ng-binding ng-scope" ng-if="stu.city && stu.state">{{ stu.city }}, {{ stu.state }}</h5><!-- end ngIf: stu.city && stu.state -->
+                                                        </div>
+                                                    </a>
+                                                </div><!-- end ngRepeat: stu in student_det.students | limitTo:3 -->
+                                            </div>
+                                        </div>
+                                    </span>
+                                </h3>
+                            </div>
+                            <div class="media-group-container">
+                                <div class="media custom-media custom-media-student" ng-repeat="stu in student_det.students | limitTo:3">
+                                    <a href="/student/{{stu.slug}}" class="student-categories-list">
+                                        <div class="media-left media-middle custom-media-left">
+                                            <div ng-if="!stu.profile_picture" class="grey_logo_icon media-object custom-media-object">
+                                                <ng-letter-avatar ng-if="!stu.profile_picture" alphabetcolors="grey" charCount="2" data="{{stu.first_name}}"></ng-letter-avatar>
+                                            </div>
+                                            <img class="media-object custom-media-object" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">
+                                        </div>
+                                        <div class="media-body custom-media-body">
+                                            <h4 class="media-heading custom-media-heading">{{stu.first_name}}</h4>
+                                            <h5 class="media-eading-h5" ng-if="stu.city && stu.state">{{ stu.city }}, {{ stu.state }}</h5>
+                                            <span  class="media-right-arrow"><i class="fa fa-angle-right"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div><!--media-->
+                            </div><!--media-group-container-->
+                        </div><!--panel-->
+                    </div><!--col-sm-12-->
+                </div><!--slide-->
+            </div><!--slider-companies-designation-->
+        </div><!--row-->
     </div><!--container-->
-  </section>
-  <!--[Student category Section end]-->
+</section>
+<!--[Student category Section end]-->

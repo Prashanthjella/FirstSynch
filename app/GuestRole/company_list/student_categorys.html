@@ -9,7 +9,27 @@
               <!-- Default panel contents -->
               <div class="panel-heading custom-panel-heading-companies">
                 <h3 class="h3 custom-h3">{{ student_det.category }}
-                  <span class="small custom-small-h3 pull-right">{{student_det.employees.length}}</span>
+                  <span class="small pull-right" ng-class="{'custom-small-h3': student_det.employees.length > 3}">{{student_det.employees.length}}
+                      <div class="company-list-tooltip">
+                          <div class="media-group-container">
+                              <!-- ngRepeat: stu in student_det.students | limitTo:3 -->
+                              <div class="media custom-media custom-media-student ng-scope" ng-repeat="stu in student_det.employees | startFrom : 3" ng-if="student_det.employees.length > 3">
+                                  <a href="/student/karina-yancy-c1dadea1" class="student-categories-list">
+                                      <div class="media-left media-middle custom-media-left">
+                                          <div ng-if="!stu.profile_picture" class="grey_logo_icon media-object custom-media-object">
+                                              <ng-letter-avatar ng-if="!stu.profile_picture" alphabetcolors="grey" charCount="2" data="{{stu.first_name}}"></ng-letter-avatar>
+                                          </div>
+                                          <img class="media-object custom-media-object ng-scope" ng-if="stu.profile_picture" ng-src="{{stu.profile_picture}}" alt="Student Logo">
+                                      </div>
+                                      <div class="media-body custom-media-body">
+                                          <h4 class="media-heading custom-media-heading ng-binding">{{stu.first_name}}</h4>
+                                          <h5 class="media-eading-h5 ng-binding ng-scope" ng-if="stu.city && stu.state">{{ stu.city }}, {{ stu.state }}</h5><!-- end ngIf: stu.city && stu.state -->
+                                      </div>
+                                  </a>
+                              </div><!-- end ngRepeat: stu in student_det.students | limitTo:3 -->
+                          </div>
+                      </div>
+                  </span>
                 </h3>
               </div>
               <div class="media-group-container">
