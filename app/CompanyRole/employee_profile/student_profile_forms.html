@@ -15,7 +15,7 @@
         <div class="panel-heading custom-accordion-heading">
           <h4 class="panel-title custom-accordion-title">
             <a href="#" data-target="#sbasicinformation" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Basic Profile</a>
-            
+
             <span class="pull-right accordion-total-value">+12%</span>
           </h4>
         </div>
@@ -120,7 +120,7 @@
                                                   || epbasicprofile.github_url.$invalid
                                                   || epbasicprofile.stackoverflow_url.$invalid
                                                   || epbasicprofile.website.$invalid
-                                                  || epbasicprofile.file.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit"/>
+                                                  || epbasicprofile.file.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit"/>
                           </p>
                       </div>
                   </div>
@@ -131,7 +131,7 @@
   <div class="panel panel-default custom-accordion-panel-default" id="student_profile_hobbies" ng-if="employee_profile_details.hobby.length ==0">
     <div class="panel-heading custom-accordion-heading">
       <h4 class="panel-title custom-accordion-title">
-        <a href="#" data-target="#shobbies" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a> 
+        <a href="#" data-target="#shobbies" class="collapsed"  data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Hobbies</a>
         <span class="pull-right accordion-total-value">+3%</span>
       </h4>
     </div>
@@ -169,7 +169,7 @@
 <div class="panel panel-default custom-accordion-panel-default" id="student_profile_characteristics" ng-if="employee_profile_details.student_characteristic.length == 0">
   <div class="panel-heading custom-accordion-heading">
     <h4 class="panel-title custom-accordion-title">
-      <a href="#" data-target="#scharactertics" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a> 
+      <a href="#" data-target="#scharactertics" class="collapsed" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon custom-glyphicon-accordion"></span>Charactertics</a>
       <span class="pull-right accordion-total-value">+5%</span>
     </h4>
   </div>
@@ -242,7 +242,7 @@
             <label for="official-employment" class="checkbox-label"> Official employment</label>
         </div>
         <p class="btn-panel-group">
-            <input  ng-disabled="!pwhatiamlookingbtndisable" type="submit" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+            <input  ng-disabled="!pwhatiamlookingbtndisable" type="submit" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
         </p>
       </div>
     </form>
@@ -444,7 +444,7 @@
                     <input ng-class="{'has-success': projectsform.image}" ng-class="{'has-success': epprojecteditform.completation_date.$valid}" type="file" ngf-select ngf-max-size="2MB" ng-model="projectsform.image" name="files" accept="image/*" >
                 </div>
                 <p class="edt-pro-btn-group">
-                    <input type="submit" ng-disabled="!dateerrcondition||epprojecteditform.title.$invalid || epprojecteditform.start_date.$invalid || epprojecteditform.completation_date.$invalid" value="Submit" class="btn btn-default custom-btn btn-lg btn-submit" />
+                    <input type="submit" ng-disabled="!dateerrcondition||epprojecteditform.title.$invalid || epprojecteditform.start_date.$invalid || epprojecteditform.completation_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
                 </p>
             </div>
         </div>

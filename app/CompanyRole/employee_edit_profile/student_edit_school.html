@@ -61,7 +61,7 @@
                         <input maxlength="10" type="number" min="1" max="4" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': educationform.gpa.$touched, 'has-success': epeeducationform.gpa.$valid}" required>
                     </div>
                     <p class="edt-pro-btn-group">
-                        <input type="submit" value="Submit" ng-disabled="!dateerrcondition||epeeducationform.gpa.$invalid||epeeducationform.school_name.$invalid || epeeducationform.major.$invalid || epeeducationform.year_started.$invalid || epeeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
+                        <input type="submit" value="Save" ng-disabled="!dateerrcondition||epeeducationform.gpa.$invalid||epeeducationform.school_name.$invalid || epeeducationform.major.$invalid || epeeducationform.year_started.$invalid || epeeducationform.year_graduated.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
                         <button type="button" ng-click="employee_edit_school_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>
