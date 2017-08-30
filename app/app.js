@@ -753,6 +753,8 @@ FirstSynch.controller("LogoutUser", function ($cookies,$scope, $http, $location,
       $rootScope.dashboardc = true;
       $rootScope.student_login = false;
       $rootScope.company_login = false;
+      $scope.username = '';
+      $scope.password = '';
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id
@@ -774,6 +776,8 @@ FirstSynch.controller("LogoutUser", function ($cookies,$scope, $http, $location,
       $cookies.remove('request_member_id');
       $cookies.remove('company_userid');
       $cookies.remove('student_id');
+      $scope.username = '';
+      $scope.password = '';
       delete $rootScope.companyuserInfo
       delete $rootScope.studentuserInfo
       delete $rootScope.token_id

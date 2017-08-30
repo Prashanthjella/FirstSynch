@@ -491,6 +491,33 @@ FirstSynch.controller("companyeditprofiles" , function ($window,Upload,$rootScop
             }
         }
     };
+    // founder information
+    $scope.founder_image_edit = function(){
+        $http.get(apiUrl+"api/v1/setups/api/v1/get_founder_details/"+$rootScope.companyedit_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+                $scope.founder_image = response.data;
+            }, function errorCallback(response){
+                console.log("Unable to perform get office gallery details");
+        });
+    };
+
+    $scope.founder_image_submit = function(uploadimags){
+        if (uploadimags && uploadimags.length) {
+            for (var i = 0; i < uploadimags.length; i++) {
+              Upload.upload({
+                  url: apiUrl+"api/v1/setups/api/v1/founder/",
+                  data: {company:$rootScope.company_userid,photo: uploadimags[i]},
+                  method:'POST',
+              }).then(function(response){
+                  $scope.foundermessage = 'Successfully updated';
+                  $scope.founder_image_edit();
+                  $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
+                  $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+              });
+            }
+        }
+    };
     // company profile date of location edit
     $scope.locationform = {
         id:"",
@@ -567,6 +594,78 @@ FirstSynch.controller("companyeditprofiles" , function ($window,Upload,$rootScop
             });
         }
 
+    };
+
+
+    // employees section
+    $scope.employees_edit = function(){
+        $http.get(apiUrl+"api/v1/setups/company_employees/"+$rootScope.companyedit_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+            $scope.c_edit_employees = response.data;
+            }, function errorCallback(response){
+                console.log("Unable to perform get departure_rate details");
+        });
+    };
+
+    // interview section
+    $scope.interviewform = {
+        interview_question:"",
+        existing_id : 0
+    };
+    $scope.interview_edit = function(){
+        $http.get(apiUrl+"api/v1/setups/company_interview_questions/"+$rootScope.companyedit_id+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+            $scope.c_edit_interview = response.data;
+            }, function errorCallback(response){
+                console.log("Unable to perform get departure_rate details");
+        });
+    };
+
+    $scope.company_edit_interview_reset = function(){
+        $scope.interview_edit();
+        $scope.interviewform.interview_question = '';
+        $scope.interviewform.existing_id = 0;
+    }
+    $scope.editinterview = function(interview){
+        $scope.interviewform.existing_id = interview.id;
+        $scope.interviewform.interview_question = interview.question;
+    };
+    $scope.removeinterview = function(interviewid){
+        $http.delete(apiUrl+"api/v1/setups/api/v1/interview_question/"+interviewid+"/")
+        .then(function (response) {
+            $scope.interviewmessage = 'Successfully Deleted';
+            $scope.interview_edit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+        });
+    };
+    $scope.interviewsubmit = function(){
+        var interview_data = {
+            company : $rootScope.companyedit_id,
+            question : $scope.interviewform.interview_question
+        }
+        // alert(JSON.stringify(workhistroy_data));
+        if($scope.interviewform.existing_id){
+            $http.patch(apiUrl+"api/v1/setups/api/v1/interview_question/"+$scope.interviewform.existing_id+"/",interview_data)
+            .then(function (response) {
+                $scope.interviewmessage = 'Successfully updated';
+                $scope.interview_edit();
+                $scope.interviewform.interview_question = '';
+                $scope.interviewform.existing_id = 0;
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+            });
+        }
+        else{
+            $http.post(apiUrl+"api/v1/setups/api/v1/interview_question/",interview_data)
+            .then(function (response) {
+                $scope.interviewmessage = 'Successfully Added';
+                $scope.interview_edit();
+                $scope.interviewform.interview_question = '';
+                $scope.interviewform.existing_id = 0;
+                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+            });
+        }
     };
 
 });

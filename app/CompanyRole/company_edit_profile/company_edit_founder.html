@@ -1,25 +1,25 @@
-<div id="company_gallery" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
+<div id="company_founder" class="tab-pane tabe-pane-lidarship hide company_edit_profile_main_content_child">
     <div class="contanier-inside">
-        <div class="text-center alert alert-success success_top_act" ng-if="gallerymessage">{{gallerymessage}}</div>
-        <h1 class="custom-h1-01 custom-h1-btm-space-55">Office</h1>
+        <div class="text-center alert alert-success success_top_act" ng-if="foundermessage">{{foundermessage}}</div>
+        <h1 class="custom-h1-01 custom-h1-btm-space-55">Founder</h1>
         <div class="row custom-row-10">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="thumbnail thumbnail-templates create-template text-center fileContainer">
                     <span class="glyphicon glyphicon-plus"></span>
                     <h5 class="h5 custom-h5-01">
-                        Add Office Images
+                        Add Founder Images
                     </h5>
-                    <input type="file" ngf-multiple="true" ngf-select="gallerysubmit(galleryform.photos)" ngf-pattern="image/*" ng-model="galleryform.photos" name="file" accept="image/*" required>
+                    <input type="file" ngf-multiple="true" ngf-select="founder_image_submit(founderform.photos)" ngf-pattern="image/*" ng-model="founderform.photos" name="file" accept="image/*" required>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 student_uploaded_video{{$index}}" ng-repeat="off_img in office_image">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 student_uploaded_video{{$index}}" ng-repeat="founder_img in founder_image">
                 <div class="thumbnail thumbnail-templates">
                     <div class="icon-template-action" style="z-index: 9;">
                         <!-- <button style="background:none; border:none;" type="button" ng-confirm-click="Are you sure to delete this video ?" confirmed-click="deleteVideo(vid.id,$index)">
                         <span class="glyphicon glyphicon-trash circle-icon"></span>
                     </button> -->
                     </div>
-                    <img ng-src="{{off_img.photo}}" class="img-responsive custom-img-responsive">
+                    <img ng-src="{{founder_img.photo}}" class="img-responsive custom-img-responsive">
                 </div>
             </div>
         </div>
