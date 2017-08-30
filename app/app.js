@@ -215,9 +215,10 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
 //            };
 //     });
 //LoginUser
-FirstSynch.controller("video_cmt_form_controller", function ($scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
-  var token_id = $rootScope.token_id;
+FirstSynch.controller("video_cmt_form_controller", function ($cookies,$scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
+
   $scope.video_comment_form_submit = function(videoid){
+    var token_id = $cookies.get('token');
     var videocomment_data = {
       comment : $scope.videocomment
     }
