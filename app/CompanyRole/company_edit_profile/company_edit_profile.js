@@ -493,7 +493,7 @@ FirstSynch.controller("companyeditprofiles" , function ($window,Upload,$rootScop
     };
     // founder information
     $scope.founder_image_edit = function(){
-        $http.get(apiUrl+"api/v1/setups/api/v1/get_founder_details/"+$rootScope.companyedit_id+"/",{
+        $http.get(apiUrl+"api/v1/setups/api/v1/get_company_founders/"+$rootScope.companyedit_id+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
                 $scope.founder_image = response.data;
