@@ -72,8 +72,9 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             fd.append("created_by", $rootScope.user_id);
             if(angular.element('#published-allow')[0].value == 'allow'){
               fd.append("published", 'True');
-            }else{
-              fd.append("published", 'True');
+            }
+			if(angular.element('#published-Forbid')[0].value == 'deny'){
+              fd.append("published", 'False');
             }
 
             var xhr = new XMLHttpRequest()
