@@ -564,40 +564,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
          $('.domainsearch_show').show();
     }
     if(allow_domainsearch == 0){
-    //   if(file){
-    //       var datawf = {
-    //         company_info : {
-    //           address:{
-    //             address_1:$('#domainaddress1').val(),
-    //             city: $('#domaincity').val(),
-    //             contact_no: $('#domaincontact_no').val(),
-    //             country: $('#domaincountry').val(),
-    //             e_mail: $('#domaine_mail').val(),
-    //             state: $('#domainstate').val(),
-    //             zip_code: $('#domainzip_code').val(),
-    //           },
-    //           description:$('#domaindescription').val(),
-    //           employees : $('#domaintotal_emp').val(),
-    //           establishment_date : $('#domain_est_date').val(),
-    //           linkedin_url : $('#domainliurl').val(),
-    //           facebook_url : $('#domainfburl').val(),
-    //           logo :$scope.domainimageupload,
-    //           name : $('#domaincmpy_name').val(),
-    //           website : $('#domainwebsite').val(),
-    //           city:$scope.current_city,
-    //           state : $scope.current_state,
-    //         },
-    //         company_name:$scope.cname,
-    //         user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
-    //         employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
-    //       }
-    //       file.upload = Upload.upload({
-    //           url: apiUrl+'api/v1/employee/api/employee_signup/',
-    //           data: datawf ,
-    //           method:'POST',
-    //       });
-    //   }
-    //   else{
           var datae = {
             company_info : {
               address:{
@@ -624,46 +590,88 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
             user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
             employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
           }
-      $http({
-        url: apiUrl+'api/v1/employee/api/employee_signup/',
-        method: "POST",
-        data: datae,
-        headers: {'Content-Type': 'application/json'}
-      })
-      .then(function successCallback(data, status, headers, config) {
-        $('.peoplesearch_remove').show();
-        jQuery("#companyregistration").modal('hide');
-        jQuery("#companysignUpSuccess").modal('show');
-        jQuery('form#reset_forms').trigger("reset");
-        jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
-        $('#domain_search').val('1');
-        $scope.domainsearch = 'allow';
-        $scope.name = '';
-        $scope.lname = '';
-        $scope.cname = '';
-        $scope.password = '';
-        $scope.domainimage = '';
-        $scope.domaincmpy_name= '';
-        $scope.domainwebsite= '';
-        $scope.domain_est_date= '';
-        $scope.domainfburl= '';
-        $scope.domainliurl= '';
-        $scope.domaintotal_emp= '';
-        $scope.domaindescription = '';
-        $scope.domainaddress1= '';
-        $scope.domaincity= '';
-        $scope.domainstate= '';
-        $scope.domaincountry= '';
-        $scope.domainzip_code= '';
-        $scope.domaine_mail= '';
-        $scope.domaincontact_no= '';
-        $timeout( function(){
-          $route.reload();
-        }, 5000 );
-      },
-      function errorCallback(data, status, headers, config) {
-        $scope.status = data.data.status;
-      });
+          if(file){
+              Upload.upload({
+                  url: apiUrl+'api/v1/employee/api/employee_signup/',
+                  data: { json_data : JSON.stringify(datae), logo : file },
+                  method:'POST',
+              }).then(function(resp) {
+                  $('.peoplesearch_remove').show();
+                  jQuery("#companyregistration").modal('hide');
+                  jQuery("#companysignUpSuccess").modal('show');
+                  jQuery('form#reset_forms').trigger("reset");
+                  jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                  $('#domain_search').val('1');
+                  $scope.domainsearch = 'allow';
+                  $scope.name = '';
+                  $scope.lname = '';
+                  $scope.cname = '';
+                  $scope.password = '';
+                  $scope.domainimage = '';
+                  $scope.domaincmpy_name= '';
+                  $scope.domainwebsite= '';
+                  $scope.domain_est_date= '';
+                  $scope.domainfburl= '';
+                  $scope.domainliurl= '';
+                  $scope.domaintotal_emp= '';
+                  $scope.domaindescription = '';
+                  $scope.domainaddress1= '';
+                  $scope.domaincity= '';
+                  $scope.domainstate= '';
+                  $scope.domaincountry= '';
+                  $scope.domainzip_code= '';
+                  $scope.domaine_mail= '';
+                  $scope.domaincontact_no= '';
+                  $timeout( function(){
+                    $route.reload();
+                  }, 5000 );
+              }, function(resp) {
+                // handle error
+              }, function(evt) {
+                // progress notify
+              });
+          }
+          else{
+              $http({
+                url: apiUrl+'api/v1/employee/api/employee_signup/',
+                method: "POST",
+                data: { json_data : JSON.stringify(datae) },
+              })
+              .then(function successCallback(data, status, headers, config) {
+                $('.peoplesearch_remove').show();
+                jQuery("#companyregistration").modal('hide');
+                jQuery("#companysignUpSuccess").modal('show');
+                jQuery('form#reset_forms').trigger("reset");
+                jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
+                $('#domain_search').val('1');
+                $scope.domainsearch = 'allow';
+                $scope.name = '';
+                $scope.lname = '';
+                $scope.cname = '';
+                $scope.password = '';
+                $scope.domainimage = '';
+                $scope.domaincmpy_name= '';
+                $scope.domainwebsite= '';
+                $scope.domain_est_date= '';
+                $scope.domainfburl= '';
+                $scope.domainliurl= '';
+                $scope.domaintotal_emp= '';
+                $scope.domaindescription = '';
+                $scope.domainaddress1= '';
+                $scope.domaincity= '';
+                $scope.domainstate= '';
+                $scope.domaincountry= '';
+                $scope.domainzip_code= '';
+                $scope.domaine_mail= '';
+                $scope.domaincontact_no= '';
+                $timeout( function(){
+                  $route.reload();
+                }, 5000 );
+              },
+              function errorCallback(data, status, headers, config) {
+                $scope.status = data.data.status;
+              });
+          }
      //}
     }
   };//company Registratoin - function end

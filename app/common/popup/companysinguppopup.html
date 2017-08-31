@@ -79,7 +79,7 @@
                 <h1 class="h1 custom-h1">GETTING STARTED</h1>
               </div>
               <div class="pull-right">
-                <button ng-disabled="companyregistrations.domaincontact_no.$invalid||companyregistrations.domaine_mail.$invalid||companyregistrations.domainzip_code.$invalid||companyregistrations.domaincountry.$invalid||companyregistrations.domainstate.$invalid||companyregistrations.domaincity.$invalid||companyregistrations.domaincmpy_name.$invalid || companyregistrations.domainwebsite.$invalid || companyregistrations.domain_est_date.$invalid || companyregistrations.domainfburl.$invalid || companyregistrations.domainliurl.$invalid || companyregistrations.domaintotal_emp.$invalid ||companyregistrations.domaindescription.$invalid || companyregistrations.domainaddress1.$invalid" ng-click="CompanyRegistratoin()" type="submit" class="btn btn-default btn-large custom-btn-approve-info">SUBMIT Information</button>
+                <button ng-disabled="companyregistrations.domaincontact_no.$invalid||companyregistrations.domaine_mail.$invalid||companyregistrations.domainzip_code.$invalid||companyregistrations.domaincountry.$invalid||companyregistrations.domainstate.$invalid||companyregistrations.domaincity.$invalid||companyregistrations.domaincmpy_name.$invalid || companyregistrations.domainwebsite.$invalid || companyregistrations.domain_est_date.$invalid || companyregistrations.domainfburl.$invalid || companyregistrations.domainliurl.$invalid || companyregistrations.domaintotal_emp.$invalid ||companyregistrations.domaindescription.$invalid || companyregistrations.domainaddress1.$invalid" ng-click="CompanyRegistratoin(domainimageupload)" type="submit" class="btn btn-default btn-large custom-btn-approve-info">SUBMIT Information</button>
               </div>
             </div>
           </div>
@@ -178,9 +178,10 @@
                               <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainimage.$valid}">
                                 LOGO
                               </label>
-                              <img src="{{domainimage}}" height="100" width="100"/>
-                              <input type="hidden" class=" custom-form-control-br-bottom" ng-model="domainimage" name="domainimage" value="{{domainimage}}" id="domainimage">
-                              <!-- <input type="file" ngf-select class=" custom-form-control-br-bottom" accept="image/*" ng-model="domainimageupload" name="domainimageupload" value="{{domainimageupload}}" id="domainimageupload"> -->
+                              <img ng-if="domainimage || !domainimageupload "  src="{{domainimage}}" height="100" width="100"/>
+                              <img ng-if="!domainimage" ngf-thumbnail="domainimageupload"  height="100" width="100">
+                              <input type="hidden" class=" custom-form-control-br-bottom" ng-model="domainimage"  value="{{domainimage}}" id="domainimage">
+                              <input type="file" ngf-select class=" custom-form-control-br-bottom" accept="image/*" ng-model="domainimageupload" name="domainimageupload" id="domainimageupload">
                             </div>
                           </div>
                         </div>
