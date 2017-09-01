@@ -13,7 +13,7 @@
 	/*.container {
 	padding: 0 20px;
 	}*/
-	
+
 	.custom-navbar-default {
 		position: fixed;
 		left: 0;
@@ -3894,14 +3894,14 @@
 	.departure-section-new {
 		margin-top: 201px;
 	}
-	.form-group-educations input.has-error, 
+	.form-group-educations input.has-error,
 	.form-group-educations input.ng-dirty.ng-invalid{
 		border-bottom:none !important;
 		}
 	.has-success .angucomplete-holder input.custom-form-control-br-bottom{
-		border-bottom-color:transparent !important; 
+		border-bottom-color:transparent !important;
 		}
-	.text-onboard-0-space{margin-top:15px !important}	
+	.text-onboard-0-space{margin-top:15px !important}
 	.text-overlay-textarea{
 		  opacity: 0.2;
 	  font-size: 11px;
@@ -3909,7 +3909,7 @@
 	  letter-spacing: -0.2px;
 	  text-align: right;
 	  color: #0d0d0d;
-	 
+
 		  position: absolute;
 		bottom: -6px;
 		right: 10px;
@@ -3939,11 +3939,11 @@
 		width:290px;
 		left:-275px;
 		display:none;
-		
+
 		margin-top:0;
 		box-shadow:0px 10px 20px 0 rgba(0, 0, 0, 0.2);
-		
-		}	
+
+		}
 		.custom-small-h3:hover .company-list-tooltip{
 			display:block
 			}
@@ -3953,23 +3953,23 @@
 			}
 	.custom-media-object, .slide-companies img.custom-media-object
 	{width:25px !important; height:25px !important;
-		}	
-		
+		}
+
 	.custom-panel-heading-companies .custom-small-h3 .company-list-tooltip:before{
 		bottom:inherit;
 		top:-10px;
-		
+
 		left:93%;
 		right:0;
 		-webkit-transform:rotate(180deg);
 		-moz-transform:rotate(180deg);
 		transform:rotate(180deg);
-		}	
+		}
 	.custom-panel-heading-companies .custom-small-h3 .company-list-tooltip .custom-media-heading {
 		font-size:13px;
 		}
-	.custom-panel-heading-companies .company-list-tooltip .media-eading-h5{font-size:11px;}			
-	
+	.custom-panel-heading-companies .company-list-tooltip .media-eading-h5{font-size:11px;}
+
 	.companies_act_categ .custom-panel-heading-companies .media-group-container .media-left{height:auto}
 	@media (min-width: 1200px) {
 		.container {
@@ -5058,10 +5058,10 @@
 		}
 	.custom-thumbnail-company-tooltip .media-body{
 		overflow:visible;
-		}	
+		}
 	.custom-thumbnail-company-tooltip .company-list-tooltip{
 		display:block;
-		}	
+		}
 	.company-list-tooltip{
 		width: 340px;
 	  height: 165.5px;
@@ -5076,8 +5076,8 @@
 	  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 		}
 	.company-list-tooltip:before{
-		 width: 0; 
-	  height: 0; 
+		 width: 0;
+	  height: 0;
 	  position:absolute;
 	  bottom:-10px;
 	  left:35%;
@@ -5085,20 +5085,20 @@
 	  border-right: 10px solid transparent;
 	  content:'';
 	  border-top: 10px solid #fff;
-	 
-		}	
+
+		}
 	.company-list-tooltip .media-heading{
-		
+
 	  font-size: 20px;
 	  font-weight: bold;
 	  line-height: 1.2;
 	  letter-spacing: -0.8px;
 	  text-align: left;
 	  color: #303030;
-		}	
+		}
 	.company-list-tooltip .total-followers{color:#000;}
 	.company-list-tooltip .media-eading-h5{opacity: 0.4;
-	 
+
 	  font-size: 12px;
 	  font-weight: 600;
 	  letter-spacing: -0.3px;
@@ -5107,7 +5107,7 @@
 		}
 		.tooltip-socila-network{
 			width:100%; float:left;
-			}	
+			}
 	.company-list-tooltip .group-followers{
 		 font-size: 12px;
 	  font-weight: 600;
@@ -5118,7 +5118,7 @@
 	  margin-left:0;
 	  margin-right:10px;
 	  float:left;
-		}	
+		}
 	/*******************Privacy Policy************************************/
 	.company-verify {
 		width: 500px;
@@ -5430,3 +5430,19 @@
 	input:focus::-webkit-input-placeholder{
 		color: transparent;
 	}
+.red_heart {
+	background: url(../images/like_red.png) no-repeat;
+	width: 22px;
+  height: 19px;
+  display: block;
+  float: left;
+  margin-right: 8px;
+}
+.grey_heart {
+	background: url(../images/like_grey.png) no-repeat;
+	width: 22px;
+  height: 19px;
+  display: block;
+  float: left;
+  margin-right: 8px;
+}

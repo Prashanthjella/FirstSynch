@@ -1,127 +1,128 @@
 <div class="modal fade custom-model" id="VideoPopup1" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content custom-modal-video-content">
-            <div class="video_loader_bk">
-                <div class="video_loader">
-                    <div class="sk-spinner sk-spinner-fading-circle">
-                        <div class="sk-circle4 sk-circle"></div>
-                        <div class="sk-circle1 sk-circle"></div>
-                        <div class="sk-circle2 sk-circle"></div>
-                        <div class="sk-circle3 sk-circle"></div>
-                        <div class="sk-circle5 sk-circle"></div>
-                        <div class="sk-circle6 sk-circle"></div>
-                        <div class="sk-circle7 sk-circle"></div>
-                        <div class="sk-circle8 sk-circle"></div>
-                        <div class="sk-circle9 sk-circle"></div>
-                        <div class="sk-circle10 sk-circle"></div>
-                        <div class="sk-circle11 sk-circle"></div>
-                        <div class="sk-circle12 sk-circle"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-header cusom-model-dashboard-header">
-                <div class="media cusom-model-media">
-                    <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
-                    <div class="media-left cusom-model-media-left">
-                        <a href="#">
-                            <img ng-if="vid.video.company_video" ng-src="{{vid.video.company.logo}}" class="media-object-user img-circle">
-                            <img ng-if="vid.video.student_video" ng-src="{{vid.video.student.profile_picture}}" class="media-object-user img-circle">
-                            <div class="custom-model-logo02">
-                                <img ng-if="vid.video.company_video" class="media-object media-object-logos img-circle" ng-src="{{vid.video.company.logo}}" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="media-body cusom-media-model-body">
-                        <div class="pull-left">
-                            <h3 class="custom-h3">{{vid.video.title}}</h3>
-                            <h6 class="custom-h6-model" ng-if="vid.video.company_video"> from <span class="highlighted-green">{{vid.video.company.name}}</span></h6>
-                            <h6 class="custom-h6-model" ng-if="vid.video.student_video"> By <span class="highlighted-green">{{vid.video.student.first_name}}</span></h6>
-                            <!-- <h6 class="custom-h6-model">{{vid.video.created_by.created_at | date:"dd/MM/yyyy"}}</h6> -->
-                            <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
-                        </div>
-                        <div class="pull-right">
-                            <div class="custom-right-icons">
-                              <a href="#" class="icons-model">
-                                <i class="fa fa-heart-o" ng-if="!companyuserInfo && !studentuserInfo" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
-                                <i class="fa fa-heart-o" ng-if="(companyuserInfo || studentuserInfo) && !videolikedisable" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i>
-                                <i class="fa fa-heart-o" ng-if="(companyuserInfo || studentuserInfo) && videolikedisable" id="videolikebtn"></i>
-                                <span id="video_like_wrapper">{{videolikedcount}}</span>
-                              </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>--> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body custom-video-modal-body">
-                <section class="video-model-container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <ul class="nav nav-tabs custom-tabs-model" role="tablist">
-                                <li role="presentation" class="active" ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
-                                    <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
-                                    <div id='jwplayer'>Loading the player...</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <div class="row custom-row-10">
-                    <div class="col-sm-8">
-                        <div class="media-group-container video_cmt_append_act">
-                            <h6 class="h6-label-black text-uppercase"><span>{{vid.video.comments.length}}</span> Comments <span style="color: green; display: none;" id="comment_succ_msg"> - You have successfully added comments.</span></h6>
-                            <div class="media custom-media">
-                                <div class="media-left media-top custom-media-left">
-                                  <img class="media-object-user img-circle" src="{{profileimage}}" alt="FirstSynch">
-                                </div>
-                                <div class="media-body custom-media-body" ng-controller="video_cmt_form_controller">
-                                    <form name="video_comment_form" ng-submit="video_comment_form_submit(vid.video.id)">
-                                        <div class="form-group custom-lider-form-group">
-                                            <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" id="videocomment" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>
-                                        </div>
-                                        <div class="form-group custom-lider-form-group">
-                                            <input type="submit" value="Submit" ng-disabled="video_comment_form.videocomment.$invalid" class="btn btn-default custom-btn btn-lg">
-                                            </div>
-                                    </form>
-                                </div>
-                                <div> </div>
-                            </div>
-                            <div class="media custom-media" ng-repeat="comment in vid.video.comments | orderBy: 'updated_at'">
-                                <div class="media-left media-middle custom-media-left">
-                                  <img class="media-object-user img-circle" src="{{comment.image}}" alt="FirstSynch">
-                                </div>
-                                <div class="media-body custom-media-body">
-                                    <h5 class="media-heading highlighted-green custom-media-heading">{{comment.username}}</h5>
-                                    <h5 class="media-eading-h5">{{comment.comment}}</h5>
-                                    <h6 class="custom-h6-model">{{ today | amDifference:  comment.comment : 'days'}}</h6>
-                                </div>
-                                <div> </div>
-                            </div>
-                            <!--media-->
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="col-right-30px">
-                            <div class="row custom-row-15">
-                            <div class="col-sm-12">
-                                <h6 class="h6-label-black text-uppercase">More videos  by <span class="highlighted-green" ng-if="vid.video.company_video">{{vid.video.company.name}}</span><span class="highlighted-green" ng-if="vid.video.student_video">{{vid.video.student.first_name}}</span></h6></div>
-                                <div class="col-sm-6" ng-repeat="vid in vid.related_video">
-                                    <a data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-3 custom-thumbs-box-views">
-                                        <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
-                                        <div class="overlay "></div>
-                                        <span class="icon-btn-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content custom-modal-video-content">
+      <div class="video_loader_bk">
+        <div class="video_loader">
+          <div class="sk-spinner sk-spinner-fading-circle">
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+          </div>
         </div>
+      </div>
+      <div class="modal-header cusom-model-dashboard-header">
+        <div class="media cusom-model-media">
+          <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+          <div class="media-left cusom-model-media-left">
+            <a href="#">
+              <img ng-if="vid.video.company_video" ng-src="{{vid.video.company.logo}}" class="media-object-user img-circle">
+              <img ng-if="vid.video.student_video" ng-src="{{vid.video.student.profile_picture}}" class="media-object-user img-circle">
+              <div class="custom-model-logo02">
+                <img ng-if="vid.video.company_video" class="media-object media-object-logos img-circle" ng-src="{{vid.video.company.logo}}" alt="img">
+              </div>
+            </a>
+          </div>
+          <div class="media-body cusom-media-model-body">
+            <div class="pull-left">
+              <h3 class="custom-h3">{{vid.video.title}}</h3>
+              <h6 class="custom-h6-model" ng-if="vid.video.company_video"> from <span class="highlighted-green">{{vid.video.company.name}}</span></h6>
+              <h6 class="custom-h6-model" ng-if="vid.video.student_video"> By <span class="highlighted-green">{{vid.video.student.first_name}}</span></h6>
+              <!-- <h6 class="custom-h6-model">{{vid.video.created_by.created_at | date:"dd/MM/yyyy"}}</h6> -->
+              <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
+            </div>
+            <div class="pull-right">
+              <div class="custom-right-icons">
+                <a href="#" class="icons-model">
+                  <i class="grey_heart" ng-if="!companyuserInfo && !studentuserInfo" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
+                  <i class="grey_heart" ng-if="(companyuserInfo || studentuserInfo) && !videolikedisable" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i>
+                  <i class="red_heart" ng-if="(companyuserInfo || studentuserInfo) && videolikedisable" id="videolikebtn"></i>
+                  <span id="video_like_wrapper">{{videolikedcount}}</span>
+                </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>--> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body custom-video-modal-body">
+          <section class="video-model-container">
+            <div class="row">
+              <div class="col-sm-3">
+                <ul class="nav nav-tabs custom-tabs-model" role="tablist">
+                  <li role="presentation" class="active" ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
+                    <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-9">
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
+                    <div id='jwplayer'>Loading the player...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="row custom-row-10">
+            <div class="col-sm-8">
+              <div class="media-group-container video_cmt_append_act">
+                <h6 class="h6-label-black text-uppercase"><span>{{vid.video.comments.length}}</span> Comments <span style="color: green; display: none;" id="comment_succ_msg"> - You have successfully added comments.</span></h6>
+                <div class="media custom-media">
+                  <div class="media-left media-top custom-media-left">
+                    <img ng-if="!profileimage" class="media-object-user img-circle" src="assets/images/profileicon.png" alt="FirstSynch">
+                    <img ng-if="profileimage" class="media-object-user img-circle" src="{{profileimage}}" alt="FirstSynch">
+                  </div>
+                  <div class="media-body custom-media-body" ng-controller="video_cmt_form_controller">
+                    <form name="video_comment_form" ng-submit="video_comment_form_submit(vid.video.id)">
+                      <div class="form-group custom-lider-form-group">
+                        <textarea ng-focus="LoginPopupopen()" class="form-control custom-text-area" id="videocomment" name="videocomment" ng-model="videocomment" rows="2" placeholder="Add Public Comments" maxlength="150" required></textarea>
+                      </div>
+                      <div class="form-group custom-lider-form-group">
+                        <input type="submit" value="Save" ng-disabled="video_comment_form.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
+                      </div>
+                    </form>
+                  </div>
+                  <div> </div>
+                </div>
+                <div class="media custom-media" ng-repeat="comment in vid.video.comments | orderBy: '-'">
+                  <div class="media-left media-middle custom-media-left">
+                    <img class="media-object-user img-circle" src="{{comment.image}}" alt="FirstSynch">
+                  </div>
+                  <div class="media-body custom-media-body">
+                    <h5 class="media-heading highlighted-green custom-media-heading">{{comment.username}}</h5>
+                    <h5 class="media-eading-h5">{{comment.comment}}</h5>
+                    <h6 class="custom-h6-label-model">about {{ today | amDifference:  comment.created_at : 'days'}} days ago</h6>
+                  </div>
+                  <div> </div>
+                </div>
+                <!--media-->
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="col-right-30px">
+                <div class="row custom-row-15">
+                  <div class="col-sm-12">
+                    <h6 class="h6-label-black text-uppercase">More videos  by <span class="highlighted-green" ng-if="vid.video.company_video">{{vid.video.company.name}}</span><span class="highlighted-green" ng-if="vid.video.student_video">{{vid.video.student.first_name}}</span></h6></div>
+                    <div class="col-sm-6" ng-repeat="vid in vid.related_video">
+                      <a data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-3 custom-thumbs-box-views">
+                        <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
+                        <div class="overlay "></div>
+                        <span class="icon-btn-play"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>

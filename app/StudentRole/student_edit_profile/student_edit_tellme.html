@@ -125,9 +125,10 @@
         <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your title" maxlength="250" required id="title" name="title" ng-model="title"></textarea>
       </div>
 
-      <div class="form-group custom-addvideo-form-group">
+      <div class="form-group custom-addvideo-form-group custom-form-group-new">
         <label class="text-uppercase">Description</label>
         <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your description" maxlength="250" required id="description" name="description" ng-model="description"></textarea>
+        <p class="text-overlay-textarea">{{500 - description.length}}</p>
       </div>
 
       <div class="form-group custom-addvideo-form-group">
