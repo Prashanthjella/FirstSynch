@@ -6,41 +6,31 @@
             <input id="hobbies" class="checkbox-input" checked="" type="checkbox">
             <label for="hobbies" class="checkbox-label"> {{hobbies.name}}</label>
         </div> -->
-        <form name="epehobbyform" ng-repeat="epehobbyupdateform in epehobbyform" ng-submit="epehobbyupdatesubmit(epehobbyupdateform.id,epehobbyupdateform.employee,epehobbyupdateform.name,epehobbyupdateform.description,epehobbyupdateform.updateimage)">
-            <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1 student_edit_hobbies_toggle" style="width:200px"> <span class="glyphicon glyphicon-minus custom-glyphicon-circle"></span><div class="hobbies_hide hide">Hobby#{{$index+1}}</div></div>
-                <div class="col-sm-12 col-md-12 student_edit_hobbies_toggle_collapsable">
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epehobbyform.name.$valid}">Hobby</label> <span ng-show="epehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                        <input type="hidden" name="hobby_id" ng-model="epehobbyupdateform.id" value="{{hobbyupdateform.id}}">
-                        <input type="hidden" name="stud_id" ng-model="epehobbyupdateform.employee" value="{{hobbyupdateform.employee}}">
-                        <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom"ng-model="epehobbyupdateform.name" placeholder="Give it a name" name="name" value="{{epehobbyupdateform.name}}" ng-class="{'has-error': epehobbyform.name.$touched, 'has-success': epehobbyform.name.$valid}" required>
-                    </div>
-                    <div class="form-group custom-lider-form-group custom-form-group-new">
-                        <label class="text-uppercase" ng-class="{'has-success': epehobbyupdateform.description}">Description</label>
-                        <textarea ng-class="{'has-success': epehobbyupdateform.description}" class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="epehobbyupdateform.description" maxlength="150">{{epehobbyupdateform.description}}</textarea>
-                        <p class="text-overlay-textarea">{{500 - epehobbyupdateform.description.length}}</p>
-                    </div>
-                    <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epehobbyupdateform.updateimage || epehobbyupdateform.image }">Picture</label>
-                        <input ng-class="{'has-success': epehobbyupdateform.updateimage || epehobbyupdateform.image }" type="file" ngf-select ng-model="epehobbyupdateform.updateimage" name="file" accept="image/*" >
-                        <img ng-if="epehobbyupdateform.image && !epehobbyupdateform.updateimage" src="{{epehobbyupdateform.image}}" height="50">
-                        <img ngf-thumbnail="epehobbyupdateform.updateimage" height="100" width="100">
-                    </div>
-                    <p class="edt-pro-btn-group">
-                        <input type="submit" ng-disabled="epehobbyform.name.$invalid" value="Add hobby"  class="btn btn-default custom-btn btn-lg btn-submit"/>
-                    </p>
-                </div>
-            </div>
+        <table class="table table-striped" ng-show="epehobbyform.length > 0">
+           <tr>
+               <th>S.no</th>
+               <th>Hobby</th>
+               <th>Description</th>
+               <th>Action</th>
+           </tr>
 
-        </form>
-        <form name="epeahobbyform" ng-submit="epehobbysubmit(epehobbyformadd.image)">
+           <tr ng-repeat="hobby in epehobbyform">
+               <td>{{ $index+1 }}</td>
+               <td>{{ hobby.name }}</td>
+               <td>{{ hobby.description }}</td>
+               <td><a ng-click="epeedithobby( hobby )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
+                   <a ng-confirm-click="Are you sure to delete your work project details?" confirmed-click="eperemovehobby( hobby.id )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
+           </tr>
+
+       </table>
+        <form name="epeahobbyform" ng-submit="epehobbysubmit(epehobbyformadd.image,epehobbyformadd.existing_id)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': epeahobbyform.name.$valid}">Hobby</label> <span ng-show="epeahobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" name="stud_id" ng-model="epehobbyformadd.stud_id">
+                        <input type="hidden" name="existing_id" ng-model="epehobbyformadd.existing_id">
                         <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="epehobbyformadd.name" ng-class="{'has-error': epeahobbyform.name.$touched, 'has-success': epeahobbyform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">
@@ -53,6 +43,7 @@
                         <span ng-show="epeahobbyform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
                         <input ng-class="{'has-success': epehobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="epehobbyformadd.image" name="file" accept="image/*" >
                         <img ngf-thumbnail="epehobbyformadd.image" height="100" width="100">
+                        <img ng-if="!epehobbyformadd.image" src="{{epehobbyformadd.imagesrc}}" height="100" width="100">
                     </div>
                 </div>
                 <!-- <hr class="hr-line-lidership"> -->

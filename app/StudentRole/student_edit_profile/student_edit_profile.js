@@ -137,11 +137,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     // student edit profile - hobbies
     $scope.hobbyformadd = {
         user:"",
-        name : ""
-    };
-    $scope.hobbyupdateform = {
-        user:"",
-        name : ""
+        name : "",
+        existing_id : 0
     };
     $scope.hobbies_edit = function(){
 
@@ -157,59 +154,67 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
     $scope.student_edit_profile_hobbies_reset = function(){
         $scope.hobbyformadd.name = "";
         $scope.hobbyformadd.description = "";
-        $scope.hobbyformadd.image = "";
+        $scope.hobbyformadd.imagesrc = "";
+        $scope.hobbyformadd.existing_id = 0;
     }
-    $scope.hobbyupdatesubmit = function(id,student,name,description,hobbiesimag){
-        if(hobbiesimag){
-            var data = {student:student,image: hobbiesimag,name:name,description:description};
-        }else{
-            var data = {student:student,name:name,description:description};
+    $scope.hobbysubmit = function(hobbiesimag,existid){
+        if(existid){
+            if(hobbiesimag){
+                var data = {student:$rootScope.stud_id,image: hobbiesimag,name:$scope.hobbyformadd.name,description:$scope.hobbyformadd.description};
+            }else{
+                var data = {student:$rootScope.stud_id,name:$scope.hobbyformadd.name,description:$scope.hobbyformadd.description};
+            }
+            Upload.upload({
+                url: apiUrl+"api/v1/student/api/v1/hobbyinfo/"+existid+"/",
+                data: data,
+                method:'PUT',
+            }).then(function(resp) {
+              // file is uploaded successfully
+              $scope.hobbiesmessage = 'Successfully updated';
+              $scope.hobbies_edit();
+              $scope.hobbyformadd.name = "";
+              $scope.hobbyformadd.description = "";
+              $scope.hobbyformadd.image = "";
+              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+            }, function(resp) {
+              // handle error
+            }, function(evt) {
+              // progress notify
+            });
         }
-        Upload.upload({
-            url: apiUrl+"api/v1/student/api/v1/hobbyinfo/"+id+"/",
-            data: data,
-            method:'PUT',
-        }).then(function(resp) {
-          // file is uploaded successfully
-          $scope.hobbiesmessage = 'Successfully updated';
-          $scope.hobbies_edit();
-          $scope.hobbyform.name = "";
-          $scope.hobbyform.description = "";
-          $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-        }, function(resp) {
-          // handle error
-        }, function(evt) {
-          // progress notify
-        });
+        else{
+            Upload.upload({
+                url: apiUrl+"api/v1/student/api/v1/hobbyinfo/",
+                data: {student:$scope.hobbyformadd.stud_id,image: hobbiesimag,name:$scope.hobbyformadd.name,description:$scope.hobbyformadd.description},
+                method:'POST',
+            }).then(function(resp) {
+              // file is uploaded successfully
+              $scope.hobbiesmessage = 'Successfully updated';
+              $scope.hobbies_edit();
+              $scope.hobbyformadd.name = "";
+              $scope.hobbyformadd.description = "";
+              $scope.hobbyformadd.imagesrc = "";
+              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+            }, function(resp) {
+              // handle error
+            }, function(evt) {
+              // progress notify
+            });
+        }
+
     };
-    $scope.hobbysubmit = function(hobbiesimag){
-        // var hobbies_data = {
-        //     name : $scope.hobbiesform.name,
-        //     student : $scope.hobbiesform.stud_id
-        // }
-        // //alert(JSON.stringify(hobbies_data));
-        // $http.post(apiUrl+"api/v1/student/api/v1/hobbyinfo/",JSON.stringify(hobbies_data))
-        // .then(function (response) {
-        //     $scope.hobbiesmessage = 'Successfully updated';
-        //     $scope.hobbiesform.splice(0, 0, response.data);
-        //     $scope.hobbiesform.name = "";
-        // });
-        Upload.upload({
-            url: apiUrl+"api/v1/student/api/v1/hobbyinfo/",
-            data: {student:$scope.hobbyformadd.stud_id,image: hobbiesimag,name:$scope.hobbyformadd.name,description:$scope.hobbyformadd.description},
-            method:'POST',
-        }).then(function(resp) {
-          // file is uploaded successfully
-          $scope.hobbiesmessage = 'Successfully updated';
-          $scope.hobbies_edit();
-          $scope.hobbyformadd.name = "";
-          $scope.hobbyformadd.description = "";
-          $scope.hobbyformadd.image = "";
-          $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-        }, function(resp) {
-          // handle error
-        }, function(evt) {
-          // progress notify
+    $scope.edithobby= function(hobby){
+        $scope.hobbyformadd.existing_id = hobby.id;
+        $scope.hobbyformadd.imagesrc = hobby.image;
+        $scope.hobbyformadd.name = hobby.name;
+        $scope.hobbyformadd.description = hobby.description;
+    };
+    $scope.removehobby = function(id){
+        $http.delete(apiUrl+"api/v1/student/api/v1/hobbyinfo/"+id+"/")
+        .then(function (response) {
+            $scope.hobbiesmessage = 'Successfully Deleted';
+            $scope.hobbies_edit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
         });
     };
     $scope.secharacterbtndisable =  false;
