@@ -109,7 +109,7 @@
                             <div class="pull-left">
                                 <h1 class="h1 custom-h1">GETTING STARTED</h1>
                             </div>
-                            <div class="pull-right"> <button type="submit" ng-click="StudentRegistratoin()" class="btn btn-default btn-large custom-btn-approve-info">SUBMIT INFORMATION</button> </div>
+                            <div class="pull-right"> <button type="submit" ng-click="StudentRegistratoin(piplimageupload)" class="btn btn-default btn-large custom-btn-approve-info">SUBMIT INFORMATION</button> </div>
                         </div>
                     </div>
                     <div class="modal-body custom-video-modal-body peoplesearch_show" style="display:none;">
@@ -122,11 +122,35 @@
                                     <section class="page-section-education">
                                         <div class="page-header custom-page-header">
                                             <div class="pull-left">
+                                                <h3 class="h3 custom-h3">Profile Picture</h3>
+                                            </div>
+                                        </div>
+                                        <div class="page-header custom-page-header-brline">
+                                            <h4 class="h4 custom-h4-02">Image</h4>
+                                        </div>
+                                        <div class="panel-group custom-panel-onboarding-group">
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': studentregistration.piplschool_name.$valid}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <img ng-if="!piplimageupload "  src="{{piplimage}}" height="100" width="100"/>
+                                                            <img ngf-thumbnail="piplimageupload"  height="100" width="100">
+                                                            <input type="hidden" class=" custom-form-control-br-bottom" ng-model="piplimage"  value="{{piplimage}}" id="piplimage">
+                                                            <input type="file" ngf-select class=" custom-form-control-br-bottom" accept="image/*" ng-model="piplimageupload" name="piplimageupload" id="piplimageupload">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="page-section-education">
+                                        <div class="page-header custom-page-header">
+                                            <div class="pull-left">
                                                 <h3 class="h3 custom-h3">Education</h3>
-                                                <p class="text-onboard text-onboard-0-space"> 
+                                                <p class="text-onboard text-onboard-0-space">
                                             Sharing your education history gives recruiter and future employer a taste of the skills and competencies you have acquired.</p>
                                             </div>
-                                             
+
                                         </div>
                                         <div class="page-header custom-page-header-brline">
                                             <h4 class="h4 custom-h4-02">School#1</h4>
