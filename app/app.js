@@ -368,7 +368,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
 
   };//find user - function end
 
-  $scope.StudentRegistratoin = function () {
+  $scope.StudentRegistratoin = function (image) {
     //alert($scope.piplsearch);
     var allow_pipl_check = parseInt($('#allow_pipl').val());
     var workhistroy_arry = [];
@@ -397,36 +397,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         else {
             $scope.workhistroy_count = 1;
         }
-
-        //if($scope.piplimage || $scope.piplschool_name || $scope.pipldateattended || $scope.piplmajor || $scope.pipljobs){
-          $('#allow_pipl').val('0');
-          $('.peoplesearch_remove').hide();
-          $('.peoplesearch_show').show();
-        //}
-        // else{
-        //   $http({
-        //     url: apiUrl+'api/v1/student/student_signup/',
-        //     method: "POST",
-        //     data: data
-        //   })
-        //   .then(function successCallback(data, status, headers, config) {
-        //     jQuery("#signUp").modal('hide');
-        //     jQuery("#signUpSuccess").modal('show');
-        //     jQuery('form#reset_forms').trigger("reset");
-        //     jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
-        //     $('#universities_value').val('');
-        //     $scope.name = null;
-        //     $scope.lname = null;
-        //     $scope.selecteduniversity.originalObject.Institution_Name = null;
-        //     $scope.password = null;
-        //     $scope.gpa = null;
-        //     $scope.piplsearch = 'allow';
-        //   },
-        //   function errorCallback(data, status, headers, config) {
-        //     $scope.status = data.data.status;
-        //
-        //   });
-        // }
+        $('#allow_pipl').val('0');
+        $('.peoplesearch_remove').hide();
+        $('.peoplesearch_show').show();
 
       }, function errorCallback(response){
         console.log("Unable to perform get company basic profile details");
@@ -462,30 +435,54 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       }
       var datap = {
         education : {school_name : $scope.piplschool_name,gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
-        student : {first_name : $scope.name},
+        student : {first_name : $scope.name,profile_picture:$('#piplimage').val()},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry
       }
-      $http({
-        url: apiUrl+'api/v1/student/student_signup/',
-        method: "POST",
-        data: datap
-      })
-      .then(function successCallback(data, status, headers, config) {
-        jQuery("#signUp").modal('hide');
-        jQuery("#signUpSuccess").modal('show');
-        $scope.piplsearch = 'allow';
-        $('#allow_pipl').val('1');
-        $scope.name = null;
-        $scope.lname = null;
-        $scope.selecteduniversity.originalObject.Institution_Name = null;
-        $scope.password = null;
-        $scope.gpa = null;
-        $scope.piplsearch = 'allow';
-      },
-      function errorCallback(data, status, headers, config) {
-        $scope.status = data.data.status;
-      });
+      if(image){
+          Upload.upload({
+              url: apiUrl+'api/v1/student/student_signup/',
+              data: { json_data : JSON.stringify(datap), profile_picture : image },
+              method:'POST',
+          }).then(function(resp) {
+              jQuery("#signUp").modal('hide');
+              jQuery("#signUpSuccess").modal('show');
+              $scope.piplsearch = 'allow';
+              $('#allow_pipl').val('1');
+              $scope.name = null;
+              $scope.lname = null;
+              $scope.selecteduniversity.originalObject.Institution_Name = null;
+              $scope.password = null;
+              $scope.gpa = null;
+              $scope.piplsearch = 'allow';
+          }, function(resp) {
+            // handle error
+          }, function(evt) {
+            // progress notify
+          });
+      }
+      else{
+          $http({
+            url: apiUrl+'api/v1/student/student_signup/',
+            method: "POST",
+            data: { json_data : JSON.stringify(datap) },
+          })
+          .then(function successCallback(data, status, headers, config) {
+            jQuery("#signUp").modal('hide');
+            jQuery("#signUpSuccess").modal('show');
+            $scope.piplsearch = 'allow';
+            $('#allow_pipl').val('1');
+            $scope.name = null;
+            $scope.lname = null;
+            $scope.selecteduniversity.originalObject.Institution_Name = null;
+            $scope.password = null;
+            $scope.gpa = null;
+            $scope.piplsearch = 'allow';
+          },
+          function errorCallback(data, status, headers, config) {
+            $scope.status = data.data.status;
+          });
+      }
     }
     //alert(JSON.stringify(data));allow_pipl
 
