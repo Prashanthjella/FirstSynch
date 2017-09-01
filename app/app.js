@@ -363,10 +363,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     },
     function errorCallback(data, status, headers, config) {
       $scope.error = data.data.data;
-      $timeout( function(){
-        $scope.error = '';
-        $scope.e_mail = '';
-    }, 1000 );
+      $scope.error1 = data.data;
     });
 
   };//find user - function end
