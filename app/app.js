@@ -104,10 +104,19 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     $rootScope.current_city = response.data.city;
     $rootScope.current_state = response.data.region;
   });
+  $rootScope.userlogform = {
+      username : '',
+      password : ''
+  }
   $rootScope.reloadRoutec = function() {
       $rootScope.dashboardc = true;
-      $rootScope.username = '';
-      $rootScope.password = '';
+      $rootScope.userlogform = {
+          username : '',
+          password : ''
+      }
+      $('#username').removeClass('ng-valid ng-valid-email').addClass('ng-invalid ng-invalid-required has-error');
+      $('#password').removeClass('ng-valid').addClass('ng-invalid ng-invalid-required has-error')
+      $('#loginbtn').attr('disabled','disabled');
       angular.element(jQuery('.filtered_kw_industryc,.filtered_kw_salary_c,.filtered_kw_employement_c,.filtered_kw_skills_c,.filtered_kw_company_c')).text('Not specified');
       angular.element(jQuery('.filter_job_countc,.video_filter_search_resultc')).empty();
       angular.element(jQuery('.video_filter_search_result_emptyc')).show();
@@ -254,8 +263,8 @@ FirstSynch.controller("Login", function ($cookies,$scope ,$http, apiUrl, $locati
     var redirectulrs = $('#redirecturl').val();
     var videoid = $('#videoid').val();
     var data = $.param({
-      username: $scope.username,
-      password: $scope.password,
+      username: $scope.userlogform.username,
+      password: $scope.userlogform.password,
     });
     $http({
       url: apiUrl+'api/v1/accounts/login/',
