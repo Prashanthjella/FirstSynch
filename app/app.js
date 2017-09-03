@@ -362,12 +362,24 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       }
     },
     function errorCallback(data, status, headers, config) {
+      $scope.signup_error_mgs = true;
       $scope.error = data.data.data;
       $scope.error1 = data.data;
+      $timeout(function() {
+         $scope.signup_error_mgs = false;
+      }, 3000);
     });
 
   };//find user - function end
-
+  $scope.student_signup_clear = function(){
+      $scope.name = null;
+      $scope.lname = null;
+      $scope.selecteduniversity.originalObject.Institution_Name = null;
+      $('#universities_value').val('');
+      $scope.password = null;
+      $scope.gpa = null;
+      $scope.piplsearch = 'allow';
+  }
   $scope.StudentRegistratoin = function (image) {
     //alert($scope.piplsearch);
     var allow_pipl_check = parseInt($('#allow_pipl').val());
@@ -488,6 +500,12 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
 
   };//userStudentRegistratoin - function end
 
+  $scope.company_signup_clear = function(){
+      $scope.name = '';
+      $scope.lname = '';
+      $scope.cname = '';
+      $scope.password = '';
+  }
 
   $scope.CompanyRegistratoin = function (file) {
     var allow_domainsearch = parseInt($('#domain_search').val());
