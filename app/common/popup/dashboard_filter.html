@@ -492,7 +492,7 @@
                                 <div class="form-group" ng-repeat="cmpnyname in all_company_names">
                                     <div class="checkbox">
                                         <input id="{{cmpnyname.name|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
-                                        <label for="{{cmpnyname.name|removeSpaces}}" class="checkbox-label"> {{cmpnyname.name}}</label>
+                                        <label for="{{cmpnyname.name|removeSpaces}}" class="checkbox-label"> {{cmpnyname.name|truncate:25: true}}</label>
                                     </div>
                                     </div>
                                 </div>

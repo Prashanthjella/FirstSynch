@@ -86,7 +86,7 @@
                                     <div class="form-group" ng-repeat="stud_indus_c in student_indus_list_c | unique:'major'| orderBy : 'major' ">
                                         <div class="checkbox">
                                             <input id="{{stud_indus_c.major|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
-                                            <label for="{{stud_indus_c.major|removeSpaces}}" class="checkbox-label"> {{stud_indus_c.major}}</label>
+                                            <label for="{{stud_indus_c.major|removeSpaces}}" class="checkbox-label"> {{stud_indus_c.major|truncate:25: true}}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@
                                 <div class="form-group" ng-repeat="universityc in student_univ_list_c | unique:'school_name'| orderBy : 'school_name' ">
                                     <div class="checkbox">
                                         <input id="{{universityc.school_name|removeSpaces}}" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form_c()">
-                                        <label for="{{universityc.school_name|removeSpaces}}" class="checkbox-label"> {{universityc.school_name}}</label>
+                                        <label for="{{universityc.school_name|removeSpaces}}" class="checkbox-label"> {{universityc.school_name|truncate:25: true}}</label>
                                     </div>
                                     </div>
                                 </div>
