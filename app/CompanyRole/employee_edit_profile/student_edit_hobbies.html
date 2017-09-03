@@ -39,9 +39,9 @@
                         <p class="text-overlay-textarea">{{500 - epehobbyformadd.description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epehobbyformadd.image}">Picture</label>
+                        <label class="text-uppercase" ng-class="{'has-success': epehobbyformadd.image}">Picture</label> <sup class="asterisk">*</sup>
                         <span ng-show="epeahobbyform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                        <input ng-class="{'has-success': epehobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="epehobbyformadd.image" name="file" accept="image/*" >
+                        <input required ng-class="{'has-success': epehobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="epehobbyformadd.image" name="file" accept="image/*" >
                         <img ngf-thumbnail="epehobbyformadd.image" height="100" width="100">
                         <img ng-if="!epehobbyformadd.image" src="{{epehobbyformadd.imagesrc}}" height="100" width="100">
                     </div>
@@ -49,7 +49,7 @@
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
              <p class="edt-pro-btn-group">
-            <input type="submit" ng-disabled="epeahobbyform.name.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit"/>
+            <input type="submit" ng-disabled="epeahobbyform.name.$invalid || epeahobbyform.file.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit"/>
             <button type="button" ng-click="employee_edit_profile_hobbies_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
             </p>
             <!-- <div class="row">

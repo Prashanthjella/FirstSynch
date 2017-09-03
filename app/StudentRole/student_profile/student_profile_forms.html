@@ -150,13 +150,14 @@
                                         </div>
                                         <div class="form-group custom-lider-form-group">
                                             <div class="upload-container">
-                                                <span ng-show="hobbiesforms.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                                                <input ngf-max-size="2MB" type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
+                                                <label class="text-uppercase" ng-class="{'has-success': hobbiesform.image}">Picture</label> <sup class="asterisk">*</sup>
+                                                <span ng-show="hobbiesforms.hobbiesimage.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+                                                <input required ngf-max-size="2MB" type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
                                                 <img ngf-thumbnail="hobbiesform.image" height="100" width="100">
                                             </div>
                                         </div>
                                         <p class="btn-panel-group">
-                                            <input type="submit" ng-disabled="hobbiesforms.name.$invalid || hobbiesforms.file.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+                                            <input type="submit" ng-disabled="hobbiesforms.name.$invalid || hobbiesforms.hobbiesimage.$invalid" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
                                         </p>
                                     </div>
                                 </div>
