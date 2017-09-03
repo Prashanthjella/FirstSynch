@@ -31,19 +31,19 @@
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                <div class="col-sm-12 col-md-12">
                    <div class="form-group custom-lider-form-group">
-                       <label class="text-uppercase" ng-class="{'has-success': epeworkhistroy.company.$valid}">Work</label>
+                       <label class="text-uppercase" ng-class="{'has-success': epeworkhistroy.company.$valid}">Work</label> <sup class="asterisk">*</sup>
                        <span ng-show="epeworkhistroy.company.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="workhistroyform.user" name="user">
                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="workhistroyform.editid" name="workhistroyeditid">
                        <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.company" placeholder="Company Name" name="company" ng-class="{'has-error': epeworkhistroy.company.$touched, 'has-success': epeworkhistroy.company.$valid}" required>
                    </div>
                    <div class="form-group custom-lider-form-group">
-                       <label class="text-uppercase" ng-class="{'has-success': epeworkhistroy.start_date.$valid}">Start Date</label>
+                       <label class="text-uppercase" ng-class="{'has-success': epeworkhistroy.start_date.$valid}">Start Date</label> <sup class="asterisk">*</sup>
                        <span ng-show="epeworkhistroy.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                        <input maxlength="12" type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': epeworkhistroy.start_date.$touched, 'has-success': epeworkhistroy.start_date.$valid}" required>
                    </div>
                    <div class="form-group custom-lider-form-group">
-                       <label class="text-uppercase" ng-class="{'has-success': epeworkhistroy.leave_date.$valid}">Leave Date</label>
+                       <label class="text-uppercase" ng-class="{'has-success': epeworkhistroy.leave_date.$valid}">Leave Date</label> <sup class="asterisk">*</sup>
                        <span ng-show="epeworkhistroy.leave_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                        <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
                        <input maxlength="12" type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': epeworkhistroy.leave_date.$touched, 'has-success': epeworkhistroy.leave_date.$valid}" required>

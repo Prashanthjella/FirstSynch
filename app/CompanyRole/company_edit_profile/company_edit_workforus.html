@@ -9,18 +9,18 @@
         </div>
 
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.benefits.$valid}">Benefits</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.benefits.$valid}">Benefits</label> <sup class="asterisk">*</sup>
                         <span ng-show="cpworkforusform.benefits.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" ng-model="workforusform.id">
                         <input maxlength="200" type="text" name="benefits"  ng-pattern="/^[a-zA-Z\s]*$/" ng-model="workforusform.benefits" class="form-control custom-form-control-br-bottom" placeholder="Give it a benefits" ng-class="{'has-error': cpworkforusform.benefits.$touched, 'has-success': cpworkforusform.benefits.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.perks.$valid}">Perks</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.perks.$valid}">Perks</label> <sup class="asterisk">*</sup>
                         <span ng-show="cpworkforusform.perks.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input maxlength="200" type="text" name="perks" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="workforusform.perks" class="form-control custom-form-control-br-bottom" placeholder="Give it a Perks" ng-class="{'has-error': cpworkforusform.perks.$touched, 'has-success': cpworkforusform.perks.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.culture.$valid}">Culture</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cpworkforusform.culture.$valid}">Culture</label> <sup class="asterisk">*</sup>
                         <span ng-show="cpworkforusform.culture.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input maxlength="200" type="text" name="culture" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="workforusform.culture" class="form-control custom-form-control-br-bottom" placeholder="Give it a Culture" ng-class="{'has-error': cpworkforusform.culture.$touched, 'has-success': cpworkforusform.culture.$valid}" required>
                     </div>

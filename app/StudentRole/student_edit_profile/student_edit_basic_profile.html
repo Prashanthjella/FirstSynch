@@ -11,21 +11,21 @@
                         <input type="hidden" name="id" ng-model="basicprofileform.id">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.first_name.$valid}">First Name</label><span ng-show="basicprofile_form.first_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.first_name.$valid}">First Name</label><sup class="asterisk">*</sup><sup class="asterisk">*</sup><span ng-show="basicprofile_form.first_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input maxlength="200" id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="basicprofileform.first_name" ng-class="{'has-error': basicprofile_form.first_name.$touched, 'has-success': basicprofile_form.first_name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.last_name.$valid}">Last Name</label><span ng-show="basicprofile_form.last_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.last_name.$valid}">Last Name</label><sup class="asterisk">*</sup><span ng-show="basicprofile_form.last_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" name="last_name" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': basicprofile_form.last_name.$touched, 'has-success': basicprofile_form.last_name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.dob.$valid}">Date of Birth</label><span ng-show="basicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.dob.$valid}">Date of Birth</label><sup class="asterisk">*</sup><span ng-show="basicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                         <input maxlength="12" type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': basicprofile_form.dob.$touched, 'has-success': basicprofile_form.dob.$valid}" required>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
                             <div class="form-group custom-lider-form-group">
-                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.gender.$valid}">Gender</label>
+                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.gender.$valid}">Gender</label><sup class="asterisk">*</sup>
                                 <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom"  ng-class="{'has-error': basicprofile_form.gender.$touched, 'has-success': basicprofile_form.gender.$valid}" required>
                                     <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
                                     <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
                             <div class="form-group custom-lider-form-group">
-                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.category.$valid}">Category</label>
+                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.category.$valid}">Category</label> <sup class="asterisk">*</sup>
                                 <select name="category" ng-model="basicprofileform.category" class="form-control custom-form-control-br-bottom" ng-class="{'has-error': basicprofile_form.category.$touched, 'has-success': basicprofile_form.category.$valid}" required>
                                     <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
                                     <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>

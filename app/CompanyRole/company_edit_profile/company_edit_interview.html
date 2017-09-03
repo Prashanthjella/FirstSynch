@@ -26,7 +26,7 @@
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cepinterviewform.interview_question.$valid}">Question</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cepinterviewform.interview_question.$valid}">Question</label> <sup class="asterisk">*</sup>
                         <span ng-show="cepinterviewform.interview_question.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                         <input maxlength=200 type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/"  class="form-control custom-form-control-br-bottom" ng-model="interviewform.interview_question" placeholder="Interview question" name="interview_question" ng-class="{'has-error': cepinterviewform.interview_question.$touched, 'has-success': cepinterviewform.interview_question.$valid}" required>
                     </div>

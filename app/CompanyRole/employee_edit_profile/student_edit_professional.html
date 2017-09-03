@@ -15,14 +15,14 @@
                         <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="skillsetprofessionalform.skill_type" name="skill_type">
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epeskillsetprofessionalform.name.$valid}">Name</label>
+                        <label class="text-uppercase" ng-class="{'has-success': epeskillsetprofessionalform.name.$valid}">Name</label> <sup class="asterisk">*</sup>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetprofessionalform.name" name="name" placeholder="Skill Name" ng-class="{'has-error': epeskillsetprofessionalform.name.$touched, 'has-success': epeskillsetprofessionalform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epeskillsetprofessionalform.rating.$valid}">Rating</label>
+                        <label class="text-uppercase" ng-class="{'has-success': epeskillsetprofessionalform.rating.$valid}">Rating</label> <sup class="asterisk">*</sup>
                         <input type="text" class="form-control custom-form-control-br-bottom" ng-model="skillsetprofessionalform.rating" name="rating" placeholder="Skill Rating" ng-class="{'has-error': epeskillsetprofessionalform.rating.$touched, 'has-success': epeskillsetprofessionalform.rating.$valid}" required>
                     </div>
-             
+
                  <p class="edt-pro-btn-group">
                 <input type="submit" ng-disabled="epeskillsetprofessionalform.name.$invalid || epeskillsetprofessionalform.rating.$invalid" value="Save" class="
 btn btn-default custom-btn btn-lg btn-submit" />

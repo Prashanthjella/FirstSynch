@@ -7,7 +7,7 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group"></div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.hire_rates.$valid}">HIRE RATE</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.hire_rates.$valid}">HIRE RATE</label> <sup class="asterisk">*</sup>
                         <span ng-if="cphirerateform.hire_rates.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input type="hidden" name="id" ng-model="hirerateform.id">
                         <input maxlength="20" type="text"  name="hire_rates" ng-model="hirerateform.hire_rates" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="On average, how many new employees do you hire per year?" ng-class="{'has-error': cphirerateform.hire_rates.$touched, 'has-success': cphirerateform.hire_rates.$valid}" required >
@@ -18,7 +18,7 @@
                         <p class="text-overlay-textarea">{{500 - hirerateform.hire_rates_description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.departure_rate.$valid}">Departure Rate</label>
+                        <label class="text-uppercase" ng-class="{'has-success': cphirerateform.departure_rate.$valid}">Departure Rate</label> <sup class="asterisk">*</sup>
                         <span ng-if="cphirerateform.departure_rate.$error.pattern" class="validation_msg">Enter only numerals between 0 to 9</span>
                         <input maxlength="20" type="text" name="departure_rate" ng-model="hirerateform.departure_rate" ng-pattern="/^[0-9]{1,10}$/" class="form-control custom-form-control-br-bottom" placeholder="On average, how many employees leave your business each year?" ng-class="{'has-error': cphirerateform.departure_rate.$touched, 'has-success': cphirerateform.departure_rate.$valid}" required >
                     </div>

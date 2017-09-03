@@ -27,21 +27,21 @@
                                         <input type="hidden" name="id" ng-model="basicprofileform.id">
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.first_name.$valid}">First Name</label><span ng-show="basicprofile_form.first_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.first_name.$valid}">First Name</label> <sup class="asterisk">*</sup><span ng-show="basicprofile_form.first_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                                         <input maxlength="200" id="first_name" type="text" class="form-control custom-form-control-br-bottom" name="first_name" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="basicprofileform.first_name" ng-class="{'has-error': basicprofile_form.first_name.$touched, 'has-success': basicprofile_form.first_name.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.last_name.$valid}">Last Name</label><span ng-show="basicprofile_form.last_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.last_name.$valid}">Last Name</label> <sup class="asterisk">*</sup><span ng-show="basicprofile_form.last_name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" name="last_name" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': basicprofile_form.last_name.$touched, 'has-success': basicprofile_form.last_name.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.dob.$valid}">Date of Birth</label><span ng-show="basicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                                        <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.dob.$valid}">Date of Birth</label> <sup class="asterisk">*</sup><span ng-show="basicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                         <input maxlength="12" type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': basicprofile_form.dob.$touched, 'has-success': basicprofile_form.dob.$valid}" required>
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
                                             <div class="form-group custom-lider-form-group">
-                                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.gender.$valid}">Gender</label>
+                                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.gender.$valid}">Gender</label> <sup class="asterisk">*</sup>
                                                 <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom"  ng-class="{'has-error': basicprofile_form.gender.$touched, 'has-success': basicprofile_form.gender.$valid}" required>
                                                     <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
                                                     <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
                                             <div class="form-group custom-lider-form-group">
-                                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.category.$valid}">Category</label>
+                                                <label class="text-uppercase" ng-class="{'has-success': basicprofile_form.category.$valid}">Category</label> <sup class="asterisk">*</sup>
                                                 <select name="category" ng-model="basicprofileform.category" class="form-control custom-form-control-br-bottom" ng-class="{'has-error': basicprofile_form.category.$touched, 'has-success': basicprofile_form.category.$valid}" required>
                                                     <option value="Creative Thinker" ng-selected="{{ basicprofileform.category == 'Creative Thinker' }}">Creative Thinker</option>
                                                     <option value="Working Hand" ng-selected="{{ basicprofileform.category == 'Working Hand' }}">Working Hand</option>
@@ -139,7 +139,7 @@
                                 <div class="col-sm-12 col-md-12">
                                     <div class="form-group-edit-profile">
                                         <div class="form-group custom-lider-form-group">
-                                            <label class="text-uppercase" ng-class="{'has-success': hobbiesforms.name.$valid}">Hobby</label> <span ng-show="hobbiesforms.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                            <label class="text-uppercase" ng-class="{'has-success': hobbiesforms.name.$valid}">Hobby</label> <sup class="asterisk">*</sup> <span ng-show="hobbiesforms.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                                             <input type="hidden" name="id" ng-model="hobbiesform.id">
                                             <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbiesform.name" ng-class="{'has-error': hobbiesforms.name.$touched, 'has-success': hobbiesforms.name.$valid}" required>
                                         </div>
@@ -265,7 +265,7 @@
                             <div class="col-sm-12  col-md-12">
                                 <div class="form-group-edit-profile">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': spleadershipform.leadership_role.$valid}">Lidership role</label><span ng-show="spleadershipform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                        <label class="text-uppercase" ng-class="{'has-success': spleadershipform.leadership_role.$valid}">Lidership role</label> <sup class="asterisk">*</sup><span ng-show="spleadershipform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                                         <input type="hidden" class="form-control custom-textbox"  ng-model="leadershipform.id" name="student">
                                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': spleadershipform.leadership_role.$touched, 'has-success': spleadershipform.leadership_role.$valid}" required>
                                     </div>
@@ -298,7 +298,7 @@
                             <div class="col-sm-12 col-md-12">
                                 <div class="form-group-edit-profile">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.school_name.$valid}">School</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.school_name.$valid}">School</label> <sup class="asterisk">*</sup>
                                         <input type="hidden" class="form-control custom-textbox" ng-model="educationform.id" name="user">
                                         <div angucomplete-alt id="universities"
                                             placeholder="Search universities"
@@ -317,23 +317,23 @@
                                         <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{studentprofileuniversity.originalObject.Institution_Name}}" required ng-model="studentprofileuniversity.originalObject.Institution_Name"/>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.major.$valid}">Major</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.major.$valid}">Major</label> <sup class="asterisk">*</sup>
                                         <span ng-show="student_profile_education_form.major.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                                         <input maxlength="200" type="text" max-length="150" ng-pattern="/^[a-zA-Z0-9\s]*$/" class="form-control custom-form-control-br-bottom" ng-model="educationform.major" placeholder="Major"  name="major" ng-class="{'has-error': student_profile_education_form.major.$touched, 'has-success': student_profile_education_form.major.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.year_started.$valid}">Year Started</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.year_started.$valid}">Year Started</label> <sup class="asterisk">*</sup>
                                         <span ng-show="student_profile_education_form.year_started.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                         <input maxlength="12" type="text" class="form-control custom-form-control-br-bottom" ng-change="datecheckErr(educationform.year_started,educationform.year_graduated)" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_started" datepicker placeholder="Start Date"  name="year_started" ng-class="{'has-error': student_profile_education_form.year_started.$touched, 'has-success': student_profile_education_form.year_started.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.year_graduated.$valid}">Graduated Year</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.year_graduated.$valid}">Graduated Year</label> <sup class="asterisk">*</sup>
                                         <span ng-show="student_profile_education_form.year_graduated.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                         <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
                                         <input maxlength="12" type="text" class="form-control custom-form-control-br-bottom" ng-change="datecheckErr(educationform.year_started,educationform.year_graduated)" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="educationform.year_graduated" datepicker  placeholder="Graduated Year" name="year_graduated" ng-class="{'has-error': student_profile_education_form.year_graduated.$touched, 'has-success': student_profile_education_form.year_graduated.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.gpa.$valid}">GPA</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': student_profile_education_form.gpa.$valid}">GPA</label> <sup class="asterisk">*</sup>
                                         <span ng-show="student_profile_education_form.gpa.$error.pattern" class="validation_msg">Enter the value 0 to 4 only with two decimals</span>
                                         <input maxlength="7" type="number" min="1" max="4" class="form-control custom-form-control-br-bottom" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" name="gpa" ng-model="educationform.gpa" placeholder="GPA" ng-class="{'has-error': student_profile_education_form.gpa.$touched, 'has-success': student_profile_education_form.gpa.$valid}" required>
                                     </div>
@@ -362,18 +362,18 @@
                             <div class="col-sm-12  col-md-12">
                                 <div class="form-group-edit-profile">
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.company.$valid}">Work</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.company.$valid}">Work</label> <sup class="asterisk">*</sup>
                                         <span ng-show="sworkhistroyform.company.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                                         <input type="hidden" class="form-control custom-textbox" ng-model="workhistroyform.id" name="user">
                                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.company" placeholder="Company Name" name="company" ng-class="{'has-error': sworkhistroyform.company.$touched, 'has-success': sworkhistroyform.company.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.start_date.$valid}">Start Date</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.start_date.$valid}">Start Date</label> <sup class="asterisk">*</sup>
                                         <span ng-show="sworkhistroyform.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                         <input maxlength="12" type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': sworkhistroyform.start_date.$touched, 'has-success': sworkhistroyform.start_date.$valid}" required>
                                     </div>
                                     <div class="form-group custom-lider-form-group">
-                                        <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.leave_date.$valid}">Leave Date</label>
+                                        <label class="text-uppercase" ng-class="{'has-success': sworkhistroyform.leave_date.$valid}">Leave Date</label> <sup class="asterisk">*</sup>
                                         <span ng-show="sworkhistroyform.leave_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                         <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
                                         <input maxlength="12" type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': sworkhistroyform.leave_date.$touched, 'has-success': sworkhistroyform.leave_date.$valid}" required>
@@ -413,7 +413,7 @@
                             <div class="col-sm-12 col-md-12">
                             	<div class="form-group-edit-profile">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.title.$valid}">Projects</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.title.$valid}">Projects</label> <sup class="asterisk">*</sup>
                                     <span ng-show="sprojectform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                                     <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projectsform.id" name="user">
                                     <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-form-control-br-bottom" ng-model="projectsform.title" placeholder="Project title" name="title" ng-class="{'has-error': sprojectform.title.$touched, 'has-success': sprojectform.title.$valid}" required>
@@ -421,14 +421,14 @@
                                 <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.start_date.$valid}">Start Date</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.start_date.$valid}">Start Date</label> <sup class="asterisk">*</sup>
                                     <span ng-show="sprojectform.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                     <input maxlength="12" type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-form-control-br-bottom" ng-model="projectsform.start_date" datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" placeholder="Start Date" name="start_date" ng-class="{'has-error': sprojectform.start_date.$touched, 'has-success': sprojectform.start_date.$valid}" required>
                                 </div>
                                 </div>
                                  <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group custom-lider-form-group">
-                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.completation_date.$valid}">End Date</label>
+                                    <label class="text-uppercase" ng-class="{'has-success': sprojectform.completation_date.$valid}">End Date</label> <sup class="asterisk">*</sup>
                                     <span ng-show="sprojectform.completation_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                     <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
                                     <input maxlength="12" type="text" ng-change="datecheckErr(projectsform.start_date,projectsform.completation_date)" class="form-control custom-form-control-br-bottom" ng-model="projectsform.completation_date" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" datepicker placeholder="End date" name="completation_date" ng-class="{'has-error': sprojectform.completation_date.$touched, 'has-success': sprojectform.completation_date.$valid}" required>
