@@ -5,7 +5,7 @@
     <div class="page-control-container">
       <a href="/com/careerfair" title="Career Fairs" class="page-prev"><span class="glyphicon glyphicon-chevron-left"></span>Fairs</a>
     </div>
-    <div class="row custom-row-15">
+    <div class="row custom-row-15"  ng-show="careerfair_details.slug">
 
       <div class="col-sm-6 col-md-5">
         <h3 class="h3 custom-h3">{{ careerfair_details.title }}</h3>
@@ -36,7 +36,7 @@
       </div>
 
 
-      <div class="row custom-row-15">
+      <div class="row custom-row-15"  ng-show="careerfair_details.slug">
         <div class="col-sm-12 slider-bottom-solical">
           <div class="pull-left">
             <p class="date-location">{{ careerfair_details.start_time | date:"MMMM d, y"  }}<span> <i class="fa fa-circle small-list" ></i> {{ careerfair_details.start_time | date:"h:mma"  }} - {{ careerfair_details.stop_time | date:"h:mma"  }} </span></p>
@@ -58,6 +58,8 @@
           </div>
         </div>
       </div>
+
+      <div class="text-center" ng-if="!careerfair_details.slug"><h1>Sorry! No career fair found!</h1></div>
     </div>
 
 
