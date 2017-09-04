@@ -784,7 +784,6 @@ FirstSynch.controller("employeebasicprofileupload" , function ($timeout,$window,
                 $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
                 $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
                 $scope.basicprofileform.about_me = response.data[0].about_me;
-                $scope.basicprofileform.about_me = response.data[0].profile_picture;
             }, function errorCallback(response){
                 console.log("Unable to perform get student basic profile details");
         });
