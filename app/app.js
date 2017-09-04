@@ -388,6 +388,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       $scope.password = null;
       $scope.gpa = null;
       $scope.piplsearch = 'allow';
+      $('#allow_pipl').val('1');
   }
   $scope.StudentRegistratoin = function (image) {
     //alert($scope.piplsearch);
