@@ -457,9 +457,10 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       }
       var datap = {
         education : {school_name : $scope.piplschool_name,gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
-        student : {first_name : $scope.name,profile_picture:$('#piplimage').val()},
+        student : {first_name : $scope.name},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
-        jobs:workhistroy_arry
+        jobs:workhistroy_arry,
+        image : $('#piplimage').val()
       }
       if(image){
           Upload.upload({
