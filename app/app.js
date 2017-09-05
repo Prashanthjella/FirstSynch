@@ -130,10 +130,17 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
   }
   $anchorScroll.yOffset = 100;
-  $rootScope.videoPopup = function (value) {
+  $rootScope.videoPopup = function (value,verifyvideo=false) {
       $('#comment_succ_msg').hide();
     jQuery("#VideoPopup1").modal('show');
     $('.video_loader_bk').fadeIn();
+    if(verifyvideo){
+        $('#company_verify_popop').val('1');
+        jQuery("#companyverify").modal('hide');
+    }
+    else{
+        $('#company_verify_popop').val('0');
+    }
     var id = value;
     if (angular.isDefined($rootScope.token_id)) {
       var token_id = $rootScope.token_id;
@@ -333,18 +340,30 @@ FirstSynch.controller("Login", function ($cookies,$scope ,$http, apiUrl, $locati
   };// user login - function end
 });
 
-
+FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
+    $scope.CompanyVerifying = function () {
+        var data = {e_mail:$scope.companyemail}
+        $http({
+          url: apiUrl+'api/v1/companyadmin/careerfair_video/',
+          method: "POST",
+          data: data
+        })
+        .then(function successCallback(data, status, headers, config) {
+            setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
+            $scope.companyverifyvideo = data.data;
+        },
+        function errorCallback(data, status, headers, config) {
+          $scope.status = data.data.status;
+          if(data.data.error){
+              $rootScope.SendData($scope.companyemail);
+          }
+        });
+    };
+});
 FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
 
-  // $http.get("school.json")
-  //     .then(function successCallback(response){
-  //         $scope.university = response.data;
-  //     }, function errorCallback(response){
-  //         console.log("Unable to perform get company profile details");
-  // });
-
-  $scope.SendData = function () {
-    var data = 'e_mail=' + $scope.e_mail;
+  $rootScope.SendData = function (mailiid) {
+    var data = 'e_mail=' + mailiid;
     $http({
       url: apiUrl+'api/v1/accounts/signupemail/',
       method: "POST",
@@ -354,6 +373,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     .then(function successCallback(data, status, headers, config) {
       if(data.data.user_type == '38OD2'){
         jQuery("#registration").modal('hide');
+        jQuery("#companyverify").modal('hide');
         jQuery("#signUp").modal('show');
         $('.peoplesearch_remove').show();
         $('.peoplesearch_show').hide();
@@ -362,6 +382,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $scope.e_mail = '';
       }else{
         jQuery("#registration").modal('hide');
+        jQuery("#companyverify").modal('hide');
         jQuery("#companyregistration").modal('show');
         $('.domainsearch_remove').show();
         $('.domainsearch_show').hide();

@@ -29,7 +29,7 @@
                 <li data-icon="—" class="icon-list">Post Jobs</li>
               </ul>
               </div>
-              <!-- <a href="#" class="link-all link-green link-green-popup">I've made a video on a recent Careeer Fair</a> -->
+              <a data-toggle="modal" data-dismiss="modal" data-target="#companyverify" style="cursor:pointer" class="link-all link-green link-green-popup">I've made a video on a recent Careeer Fair</a>
             </div>
             <div class="col-sm-6">
              <div class="list-register-group">
@@ -51,7 +51,7 @@
 
           <div class="modal-footer custom-login-modal-footer">
             <a href="{{facebookloginurl}}" class="btn btn-default custom-btn-login bg-facebook">Sign up with Facebook</a>
-            <button ng-click="SendData()" ng-disabled="findusertype.$invalid" class="btn btn-default custom-btn-login">Next</button>
+            <button ng-click="SendData(e_mail)" ng-disabled="findusertype.$invalid" class="btn btn-default custom-btn-login">Next</button>
           </div>
 
         </div>
