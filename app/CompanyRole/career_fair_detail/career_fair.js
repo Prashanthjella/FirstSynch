@@ -65,6 +65,7 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
   };
 
   //Upload New Video Here
+  //Upload New Video Here
       $scope.getCareerFileDetails = function (e) {
           $scope.files = [];
           $scope.$apply(function () {
@@ -78,15 +79,13 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
       };
 
       $scope.uploadFile = function() {
-        $('#video_end').modal('show');
-        $('#page-video-edit').css({'z-index':'999'});
+        $('.custom_fade').show();
+        $('#video_end').show();
           var fd = new FormData()
-
           for (var i in $scope.files) {
               fd.append("video_file", $scope.files[i])
           }
           fd.append("title", angular.element('#title')[0].value);
-
           fd.append("company", $scope.companypk);
           fd.append("skill_text", angular.element('#skill_text')[0].value);
           fd.append("video_chapters", angular.element('#result')[0].value);
@@ -95,12 +94,8 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
           fd.append("active", 'True');
           fd.append("company_video", 'True');
           fd.append("created_by", $rootScope.user_id);
-          if(angular.element('#published-allow')[0].value == 'allow'){
-            fd.append("published", 'True');
-          }else{
-            fd.append("published", 'True');
-          }
-
+          var pub_date = $("input[name='published']:checked").val();
+          fd.append("published", pub_date);
           var xhr = new XMLHttpRequest()
           xhr.upload.addEventListener("progress", uploadProgress, false)
           xhr.addEventListener("load", uploadComplete, false)
@@ -122,8 +117,10 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
       function uploadComplete(evt) {
           /* This event is raised when the server send back a response */
           $('#page-video-edit').modal('hide');
-          $('#video_end').modal('hide');
-          $('#page-video-edit').css({'z-index':'1050'});
+          $('.after_video_process').hide();
+          $('.before_video_process').show();
+          $('.custom_fade').hide();
+          $('#video_end').hide();
           $('#chapterss ul').empty();
           $("#chapter_maker_thumb").show();
           $("#question").show();
@@ -133,6 +130,15 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
           $("#inoutbar").removeAttr("style");
           $('#inoutbar').empty();
           $('#chapterss ul').empty();
+          $('#page-video-edit form').trigger("reset");
+          $scope.$apply(function(){
+            $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
+                .then(function successCallback(response){
+                    $scope.video_list = response.data;
+                }, function errorCallback(response){
+                    console.log("Unable to perform get student videos details");
+            });
+          });
       }
 
       function uploadFailed(evt) {

@@ -124,6 +124,13 @@ $(document).ready(function() {
     $("#inoutbar").removeAttr("style");
     $('#inoutbar').empty();
     $('#chapterss ul').empty();
+    $('.after_video_process').hide();
+    $('.before_video_process').show();
+    $("#chapter_maker_thumb").show();
+    $("#question").show();
+    $('.second_video_data').hide();
+    $('.none').show();
+    $('#btn-upload').hide();
   });
 
   $(document).on('hide.bs.modal','#error_msg_model', function () {

@@ -5446,3 +5446,12 @@
   float: left;
   margin-right: 8px;
 }
+/****my changes****/
+#page-video-edit .text-overlay-textarea {
+    bottom: 11px;
+    right: 23px;
+}
+#page-video-edit textarea.custom-text-area-36 {
+    height: 36px;
+    resize: none;
+}

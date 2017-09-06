@@ -24,16 +24,15 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
       };//CEdit Video Popup - function end
 
       $scope.uploadvideolist = function(){
-          $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
-              .then(function successCallback(response){
-                  $scope.video_list = response.data;
-              }, function errorCallback(response){
-                  console.log("Unable to perform get student videos details");
-          });
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
+            .then(function successCallback(response){
+                $scope.video_list = response.data;
+            }, function errorCallback(response){
+                console.log("Unable to perform get Company videos details");
+        });
       };
-      // GET THE FILE INFORMATION.
-      $scope.getFileDetails = function (e) {
 
+      $scope.getFileDetails = function (e) {
           $scope.files = [];
           $scope.$apply(function () {
 
@@ -41,52 +40,90 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
               for (var i = 0; i < e.files.length; i++) {
                   $scope.files.push(e.files[i])
               }
-
+              $scope.progressVisible = false
           });
       };
 
-      // NOW UPLOAD THE FILES.
-      $scope.uploadFiles = function () {
-          //FILL FormData WITH FILE DETAILS.
-          $('#video_end').modal('show');
-          var data = new FormData();
+      $scope.uploadFile = function() {
+        if ($rootScope.request_member_id){
+          $scope.companypk = $rootScope.request_member_id;
+        }
+        if($rootScope.company_userid){
+          $scope.companypk = $rootScope.company_userid;
+        }
+        $('.custom_fade').show();
+        $('#video_end').show();
+          var fd = new FormData()
           for (var i in $scope.files) {
-              data.append("video_file", $scope.files[i]);
+              fd.append("video_file", $scope.files[i])
           }
-          //alert(angular.element('#result')[0].value);
-          data.append("title", angular.element('#title')[0].value);
-          data.append("student", $rootScope.stud_id);
-          data.append("skill_text", angular.element('#skill_text')[0].value);
-          data.append("video_chapters", angular.element('#result')[0].value);
-          data.append("description", angular.element('#description')[0].value);
-          data.append("student_video", 'True');
-          data.append("active", 'True');
-          data.append("published", angular.element('#published')[0].value);
-
-          // ADD LISTENERS.
-          var objXhr = new XMLHttpRequest();
-          objXhr.addEventListener("progress", updateProgress, false);
-          objXhr.addEventListener("load", transferComplete, false);
-
-          // SEND FILE DETAILS TO THE API.
-          objXhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/");
-          objXhr.send(data);
+          fd.append("title", angular.element('#title')[0].value);
+          fd.append("company", $scope.companypk);
+          fd.append("skill_text", angular.element('#skill_text')[0].value);
+          fd.append("video_chapters", angular.element('#result')[0].value);
+          fd.append("description", angular.element('#description')[0].value);
+          fd.append("company_video", 'True');
+          fd.append("active", 'True');
+          fd.append("created_by", $rootScope.user_id);
+          var pub_date = $("input[name='published']:checked").val();
+          fd.append("published", pub_date);
+          var xhr = new XMLHttpRequest()
+          xhr.upload.addEventListener("progress", uploadProgress, false)
+          xhr.addEventListener("load", uploadComplete, false)
+          xhr.open("POST", apiUrl+"api/v1/career_fairs/api/v1/video/")
+          $scope.progressVisible = true
+          xhr.send(fd)
       }
 
-      // UPDATE PROGRESS BAR.
-      function updateProgress(e) {
-          if (e.lengthComputable) {
-              document.getElementById('pro').setAttribute('value', e.loaded);
-              document.getElementById('pro').setAttribute('max', e.total);
-          }
+      function uploadProgress(evt) {
+          $scope.$apply(function(){
+              if (evt.lengthComputable) {
+                  $scope.progress = Math.round(evt.loaded * 100 / evt.total)
+              } else {
+                  $scope.progress = 'unable to compute'
+              }
+          })
       }
 
-      // CONFIRMATION.
-      function transferComplete(e) {
-          //alert("Files uploaded successfully.");
-          $('#video_end').modal('hide');
+      function uploadComplete(evt) {
+          /* This event is raised when the server send back a response */
           $('#page-video-edit').modal('hide');
+          $('.after_video_process').hide();
+          $('.before_video_process').show();
+          $('.custom_fade').hide();
+          $('#video_end').hide();
+          $('#chapterss ul').empty();
+          $("#chapter_maker_thumb").show();
+          $("#question").show();
+          $('.second_video_data').hide();
+          $('.none').show();
+          $('#btn-upload').hide();
+          $("#inoutbar").removeAttr("style");
+          $('#inoutbar').empty();
+          $('#chapterss ul').empty();
+          $('#page-video-edit form').trigger("reset");
+          $scope.$apply(function(){
+            $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
+                .then(function successCallback(response){
+                    $scope.video_list = response.data;
+                }, function errorCallback(response){
+                    console.log("Unable to perform get Company videos details");
+            });
+          });
       }
+
+      function uploadFailed(evt) {
+          console("There was an error attempting to upload the file.")
+      }
+
+      function uploadCanceled(evt) {
+          $scope.$apply(function(){
+              $scope.progressVisible = false
+          })
+          console("The upload has been canceled by the user or the browser dropped the connection.")
+      }
+  //Upload Video End
+
     $scope.epehobbyformadd = {
         user:"",
         name : "",
