@@ -152,9 +152,9 @@
                       </div>
                       <div class="form-group custom-lider-form-group">
                           <div class="upload-container">
-                              <label class="text-uppercase" ng-class="{'has-success': hobbiesform.image}">Picture</label> <sup class="asterisk">*</sup>
+                              <label class="text-uppercase" ng-class="{'has-success': hobbiesform.image}">Picture</label>
                               <span ng-show="ephobbyform.hobbiesimage.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                              <input required ngf-max-size="2MB" type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
+                              <input ngf-max-size="2MB" type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
                               <img ngf-thumbnail="hobbiesform.image" height="100" width="100">
                           </div>
                       </div>

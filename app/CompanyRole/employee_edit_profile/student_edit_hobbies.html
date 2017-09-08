@@ -39,9 +39,9 @@
                         <p class="text-overlay-textarea">{{500 - epehobbyformadd.description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': epehobbyformadd.image}">Picture</label> <sup class="asterisk">*</sup>
+                        <label class="text-uppercase" ng-class="{'has-success': epehobbyformadd.image}">Picture</label>
                         <span ng-show="epeahobbyform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                        <input required ng-class="{'has-success': epehobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="epehobbyformadd.image" name="file" accept="image/*" >
+                        <input ng-class="{'has-success': epehobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="epehobbyformadd.image" name="file" accept="image/*" >
                         <img ngf-thumbnail="epehobbyformadd.image" height="100" width="100">
                         <img ng-if="!epehobbyformadd.image" src="{{epehobbyformadd.imagesrc}}" height="100" width="100">
                     </div>
