@@ -17,6 +17,7 @@
                                     <h3 class="custom-h3">Filters</h3>
                                     <button type="reset" class="btn-reset" ng-click="reset_filter_form()">Reset all</button>
                                 </div>
+                                <div class="scroll-filter">
                                 <div class="media custom-media">
                                     <a href="#" ng-click="filter_option = 'industry'">
                                         <div class="media-body custom-media-body">
@@ -77,9 +78,10 @@
                                     <div>
                                     </div>
                                 </div>
+								</div>
                             </div>
                         </div>
-                        <div class="col-sm-6  bg-grey custom-col-justify mobile-filter-cols mobile-filter-cols-visible" style="padding-right:0"> 
+                        <div class="col-sm-6  bg-grey custom-col-justify mobile-filter-cols" style="padding-right:0"> 
                         <div class="row">
                         <div class="col-sm-12" ng-show="filter_option == 'industry'">
                             <div class="media-group-container all_industry_type">

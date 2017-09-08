@@ -39,9 +39,9 @@
                         <p class="text-overlay-textarea">{{500 - hobbyformadd.description.length}}</p>
                     </div>
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': hobbyformadd.image}">Picture</label> <sup class="asterisk">*</sup>
+                        <label class="text-uppercase" ng-class="{'has-success': hobbyformadd.image}">Picture</label>
                         <span ng-show="sehobbyform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                        <input required ng-class="{'has-success': hobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="hobbyformadd.image" name="file" accept="image/*" >
+                        <input ng-class="{'has-success': hobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="hobbyformadd.image" name="file" accept="image/*" >
                         <img ngf-thumbnail="hobbyformadd.image" height="100" width="100">
                         <img ng-if="!hobbyformadd.image" src="{{hobbyformadd.imagesrc}}" height="100" width="100">
                     </div>

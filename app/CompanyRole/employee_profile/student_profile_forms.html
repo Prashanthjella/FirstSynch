@@ -152,9 +152,9 @@
                       </div>
                       <div class="form-group custom-lider-form-group">
                           <div class="upload-container">
-                              <label class="text-uppercase" ng-class="{'has-success': hobbiesform.image}">Picture</label> <sup class="asterisk">*</sup>
+                              <label class="text-uppercase" ng-class="{'has-success': hobbiesform.image}">Picture</label>
                               <span ng-show="ephobbyform.hobbiesimage.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                              <input required ngf-max-size="2MB" type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
+                              <input ngf-max-size="2MB" type="file" ngf-select ng-model="hobbiesform.image" name="hobbiesimage" accept="image/*" >
                               <img ngf-thumbnail="hobbiesform.image" height="100" width="100">
                           </div>
                       </div>
@@ -220,7 +220,7 @@
         </div>
         <div class="checkbox custom-checkbox checkbox-circle">
             <input id="extremely-productive-and-creative" class="checkbox-input" ng-click="plookingcheck($event,'Extremely productive and creative')" ng-model="pwhatiamlooking['Extremely productive and creative']" type="checkbox">
-            <label for="extremely-productive-anng-class="{'has-success': sleadershipform.name.$valid}" d-creative" class="checkbox-label"> Extremely productive and creative</label>
+            <label for="extremely-productive-and-creative" class="checkbox-label"> Extremely productive and creative</label>
         </div>
         <div class="checkbox custom-checkbox checkbox-circle">
             <input id="friendly-staff" class="checkbox-input" ng-click="plookingcheck($event,'Friendly staff')" ng-model="pwhatiamlooking['Friendly staff']" type="checkbox">

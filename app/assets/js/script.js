@@ -99,15 +99,31 @@ $(document).ready(function() {
 
 
   $(window).load(function (){
+	  
+	  var winwidth=$(window).width();
+if (winwidth <= 767 ) {
+	
+	$('.dashboard-filter .media').click(function(){
+		$('.mobile-filter-cols').addClass('mobile-filter-cols-visible');
+		});
+	
+		
+	$('.media-mobile-left-arrow').click(function(){
+		$('.mobile-filter-cols').removeClass('mobile-filter-cols-visible');
+		
+		});	
+		
+}
+	  
     $('#reset_forms label, #reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
     $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
 
-$(document).on('click','#dashboard-filter .modal-content', function () {
+$(document).on('click','#dashboard-filter .modal-header', function () {
     $('#dashboard-filter').addClass('active');
   });
 
-  $(document).on('click','#dashboard-filter.active .modal-content', function () {
+  $(document).on('click','#dashboard-filter.active .modal-header', function () {
     $('#dashboard-filter').removeClass('active');
   });
 
@@ -294,6 +310,10 @@ $(this).addClass('active');
           $(this).find('.hobbies_hide').addClass('hide');
       }
   });
+  
+  
+
+
 
   //Compay Account Settings Function End
 });
