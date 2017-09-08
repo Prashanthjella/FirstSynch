@@ -405,7 +405,7 @@
 </div>
 <!-- Modal Registration content End-->
 <div class="modal fade custom-model  custom-model-registration" id="fbsignUp" ng-controller="FbLogin" tabindex="-1" role="dialog"  data-backdrop="static">
-    <form ng-submit="fbsignup()">
+    <form name="fbstusignup" ng-submit="fbsignup()">
         <div class="modal-dialog">
             <div class="modal-content custom-modal-video-content">
                 <div class="modal-header page-bg-gray cusom-model-onboard-header ">
@@ -429,76 +429,83 @@
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
                                         <div class="panel panel-default custom-panel-onboarding-default">
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h5 class="h4 custom-h5">
-                                                        First Name
-                                                    </h5>
-                                                    <input type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbfirstname">
-                                                    <!-- <h5 class="h5 custom-h5-01"></h5> -->
-                                                </div>
-                                                <!-- <div class="col-sm-4 text-right">
-                                                    <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit FirstName</a>
-                                                </div> -->
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h5 class="h4 custom-h5">
-                                                        Last Name
-                                                    </h5>
-                                                    <input type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fblastname">
-                                                    <!-- <h5 class="h5 custom-h5-01"></h5> -->
-                                                </div>
-                                                <!-- <div class="col-sm-4 text-right">
-                                                    <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit LastName</a>
-                                                </div> -->
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h5 class="h4 custom-h5">
-                                                        Email
-                                                    </h5>
-                                                    <input type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbemail">
-                                                    <!-- <h5 class="h5 custom-h5-01"></h5> -->
-                                                </div>
-                                                <!-- <div class="col-sm-4 text-right">
-                                                    <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit E-mail</a>
-                                                </div> -->
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h5 class="h4 custom-h5">
-                                                        Profile Image
-                                                    </h5>
-                                                    <input type="hidden" class="custom-form-control-br-bottom" ng-model="facebookform.fbimage">
-                                                    <img src="{{facebookform.fbimage}}" ng-if="facebookform.fbimage" / >
-                                                    <!-- <h5 class="h5 custom-h5-01"></h5> -->
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !facebookform.fbfirstname , 'has-success': facebookform.fbfirstname}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fbfirstname}">
+                                                                First Name
+                                                            </label>
+                                                            <input type="text" class=" custom-form-control-br-bottom" name="fbfirstname" ng-model="facebookform.fbfirstname" value="{{facebookform.fbfirstname}}" id="fbfirstname">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h5 class="h4 custom-h5">
-                                                        Gender
-                                                    </h5>
-                                                    <select style="width:100px" name="gender" ng-model="facebookform.fbgender" class="form-control custom-form-control-br-bottom" >
-                                                        <option value="male" ng-selected="{{ facebookform.fbgender == 'male' }}">Male</option>
-                                                        <option value="female" ng-selected="{{ facebookform.fbgender == 'female' }}">Female</option>
-                                                    </select>
-                                                    <!-- <h5 class="h5 custom-h5-01"></h5> -->
+                                            <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': !facebookform.fblastname , 'has-success': facebookform.fblastname}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fblastname}">
+                                                                Last Name
+                                                            </label>
+                                                            <input type="text" class=" custom-form-control-br-bottom" name="fblastname" ng-model="facebookform.fblastname" value="{{facebookform.fblastname}}" id="fblastname">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h5 class="h4 custom-h5">
-                                                        Date of Birth
-                                                    </h5>
-                                                    <input datepicker type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbdob">
-                                                    <input type="hidden" id="fbjob_count" value="{{facebookform.fbjobscount}}">
-                                                    <input type="hidden" id="fbeducation_count" value="{{facebookform.fbeducationcount}}">
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !facebookform.fbemail , 'has-success': facebookform.fbemail}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fbemail}">
+                                                                Email
+                                                            </label>
+                                                            <input type="text" class=" custom-form-control-br-bottom" name="fbemail" ng-model="facebookform.fbemail" value="{{facebookform.fbemail}}" id="fbemail">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- <div class="col-sm-4 text-right">
-                                                    <a href="#" class="btn btn-default custom-btn-default-02 edit_option">Edit DOB</a>
-                                                </div> -->
+                                            </div>
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !facebookform.fbimage , 'has-success': facebookform.fbimage}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fbimage}">
+                                                                Profile Image
+                                                            </label>
+                                                            <input type="hidden" class="custom-form-control-br-bottom" ng-model="facebookform.fbimage">
+                                                            <img src="{{facebookform.fbimage}}" ng-if="facebookform.fbimage" / >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !facebookform.fbgender , 'has-success': facebookform.fbgender}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fbgender}">
+                                                                Gender
+                                                            </label>
+                                                            <select style="width:100px" name="gender" ng-model="facebookform.fbgender" class="form-control custom-form-control-br-bottom" >
+                                                                <option value="male" ng-selected="{{ facebookform.fbgender == 'male' }}">Male</option>
+                                                                <option value="female" ng-selected="{{ facebookform.fbgender == 'female' }}">Female</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': !facebookform.fbdob , 'has-success': facebookform.fbdob}">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group form-group-educations">
+                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fbdob}">
+                                                                Date of Birth
+                                                            </label>
+                                                            <input datepicker type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbdob">
+                                                            <input type="hidden" id="fbjob_count" value="{{facebookform.fbjobscount}}">
+                                                            <input type="hidden" id="fbeducation_count" value="{{facebookform.fbeducationcount}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -519,11 +526,11 @@
                                         <h4 class="h4 custom-h4-02">Job#{{$index+1}}</h4>
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup['fb_company_name'+$index].$invalid , 'has-success': fbstusignup['fb_company_name'+$index].$valid}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fbstusignup['fb_company_name'+$index].$valid}">
                                                             Company Name
                                                         </label>
                                                         <input type="text" class=" custom-form-control-br-bottom" name="fb_company_name{{$index}}" value="{{fb_jobs.company_name}}" id="fb_company_name{{$index}}">
@@ -534,14 +541,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup['fb_datestarted'+$index].$invalid , 'has-success': fbstusignup['fb_datestarted'+$index].$valid}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fbstusignup['fb_datestarted'+$index].$valid}">
                                                             Dates Started
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_datestarted{{$index}}" value="{{fb_jobs.datestarted}}" id="fb_datestarted{{$index}}">
+                                                        <input datepicker type="text" class=" custom-form-control-br-bottom" name="fb_datestarted{{$index}}" value="{{fb_jobs.datestarted}}" id="fb_datestarted{{$index}}">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -549,14 +556,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup['fb_leavedate'+$index].$invalid , 'has-success': fbstusignup['fb_leavedate'+$index].$valid}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fbstusignup['fb_leavedate'+$index].$valid}">
                                                             Leave Date
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_leavedate{{$index}}" value="{{fb_jobs.leavedate}}" id="fb_leavedate{{$index}}">
+                                                        <input datepicker type="text" class=" custom-form-control-br-bottom" name="fb_leavedate{{$index}}" value="{{fb_jobs.leavedate}}" id="fb_leavedate{{$index}}">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -564,11 +571,11 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup['fb_jobtitle'+$index].$invalid , 'has-success': fbstusignup['fb_jobtitle'+$index].$valid}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fbstusignup['fb_jobtitle'+$index].$valid}">
                                                             Job title
                                                         </label>
                                                         <input type="text" class=" custom-form-control-br-bottom" name="fb_jobtitle{{$index}}" value="{{fb_jobs.jobtitle}}" id="fb_jobtitle{{$index}}">
@@ -579,11 +586,11 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup['fb_jobdescription'+$index].$invalid , 'has-success': fbstusignup['fb_jobdescription'+$index].$valid}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fbstusignup['fb_jobdescription'+$index].$valid}">
                                                             Job description
                                                         </label>
                                                         <textarea class="piplsearch_ta  custom-form-control-br-bottom" id="fb_jobdescription{{$index}}" name="fb_jobdescription{{$index}}">{{fb_jobs.jobdescription}}</textarea>
@@ -616,14 +623,14 @@
                                         <h4 class="h4 custom-h4-02">Job#1</h4>
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_company_name0 , 'has-success': fb_company_name0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_company_name0}">
                                                             Company Name
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_company_name0" value="" id="fb_company_name0">
+                                                        <input type="text" maxlength="200" class=" custom-form-control-br-bottom" ng-model="fb_company_name0" name="fb_company_name0" value="" id="fb_company_name0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -631,14 +638,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_datestarted0 , 'has-success': fb_datestarted0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_datestarted0}">
                                                             Dates Started
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_datestarted0" value="" id="fb_datestarted0">
+                                                        <input datepicker type="text"  maxlength="12"  ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class=" custom-form-control-br-bottom" ng-model="fb_datestarted0" name="fb_datestarted0" value="" id="fb_datestarted0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -646,14 +653,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_leavedate0 , 'has-success': fb_leavedate0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_leavedate0}">
                                                             Leave Date
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_leavedate0" value="" id="fb_leavedate0">
+                                                        <input datepicker maxlength="12"  ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" type="text" class=" custom-form-control-br-bottom" name="fb_leavedate0" ng-model="fb_leavedate0" value="" id="fb_leavedate0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -661,14 +668,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_jobtitle0 , 'has-success': fb_jobtitle0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_jobtitle0}">
                                                             Job title
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_jobtitle0" value="" id="fb_jobtitle0">
+                                                        <input maxlength="200" type="text" class=" custom-form-control-br-bottom" name="fb_jobtitle0" ng-model="fb_jobtitle0" value="" id="fb_jobtitle0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -676,14 +683,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_jobdescription0 , 'has-success': fb_jobdescription0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_jobdescription0}">
                                                             Job description
                                                         </label>
-                                                        <textarea class="piplsearch_ta  custom-form-control-br-bottom" id="fb_jobdescription0" name="fb_jobdescription0"></textarea>
+                                                        <textarea maxlength="500" class="piplsearch_ta  custom-form-control-br-bottom" id="fb_jobdescription0" ng-model="fb_jobdescription0" name="fb_jobdescription0"></textarea>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -773,14 +780,14 @@
                                         <h4 class="h4 custom-h4-02">School#1</h4>
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_school_name0 , 'has-success': fb_school_name0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_school_name0}">
                                                             School
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_school_name" value="" id="fb_school_name0">
+                                                        <input maxlength="200" type="text" class=" custom-form-control-br-bottom" name="fb_school_name" value="" id="fb_school_name0" ng-model="fb_school_name0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -788,14 +795,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_dateattended0 , 'has-success': fb_dateattended0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_dateattended0}">
                                                             Dates Attended
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_dateattended" value="" id="fb_dateattended0">
+                                                        <input maxlength="12" type="text" class=" custom-form-control-br-bottom" name="fb_dateattended" value="" id="fb_dateattended0" ng-model="fb_dateattended0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -803,14 +810,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default ">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_major0 , 'has-success': fb_major0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
-                                                        <label class="text-uppercase">
+                                                        <label class="text-uppercase" ng-class="{'has-success': fb_major0}">
                                                             Major
                                                         </label>
-                                                        <input type="text" class=" custom-form-control-br-bottom" name="fb_major" value="" id="fb_major0">
+                                                        <input maxlength="200" type="text" class=" custom-form-control-br-bottom" name="fb_major" value="" id="fb_major0" ng-model="fb_major0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
