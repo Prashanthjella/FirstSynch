@@ -103,6 +103,14 @@ $(document).ready(function() {
     $('.company_reset_forms label, .company_reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
   });
 
+$(document).on('click','#dashboard-filter .modal-content', function () {
+    $('#dashboard-filter').addClass('active');
+  });
+
+  $(document).on('click','#dashboard-filter.active .modal-content', function () {
+    $('#dashboard-filter').removeClass('active');
+  });
+
   $(document).on('hide.bs.modal','#registration, #logIn, #ForgotPassword', function () {
     $('.common_js_remove_clas').empty();
     $('#reset_forms label, #reset_forms input').removeClass('has-success has-error ng-invalid ng-not-empty ng-dirty ng-invalid-email ng-valid-required ng-touched');
