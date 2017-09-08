@@ -480,7 +480,7 @@
                                                     <h5 class="h4 custom-h5">
                                                         Gender
                                                     </h5>
-                                                    <select name="gender" ng-model="facebookform.fbgender" class="form-control custom-form-control-br-bottom" >
+                                                    <select style="width:100px" name="gender" ng-model="facebookform.fbgender" class="form-control custom-form-control-br-bottom" >
                                                         <option value="male" ng-selected="{{ facebookform.fbgender == 'male' }}">Male</option>
                                                         <option value="female" ng-selected="{{ facebookform.fbgender == 'female' }}">Female</option>
                                                     </select>
@@ -492,7 +492,7 @@
                                                     <h5 class="h4 custom-h5">
                                                         Date of Birth
                                                     </h5>
-                                                    <input type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbdob">
+                                                    <input datepicker type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbdob">
                                                     <input type="hidden" id="fbjob_count" value="{{facebookform.fbjobscount}}">
                                                     <input type="hidden" id="fbeducation_count" value="{{facebookform.fbeducationcount}}">
                                                 </div>
