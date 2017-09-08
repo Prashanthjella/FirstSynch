@@ -6,7 +6,7 @@
                 <h2 class="h2 custom-title custom-h2-04">
                     <span class="dropdown">
         				<span ng-bind="upcomingValue" class="highlighted dropdown-toggle"  id="upcoming" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Upcoming</span>
-		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" upcoming-menu="upcomingValue" aria-labelledby="upcoming">
+		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-upcoming" upcoming-menu="upcomingValue" aria-labelledby="upcoming">
 		    				<li ng-click="careerfair_filters($event)" datavalue="next"><a href="" title="upcoming">Upcoming</a></li>
 		    				<li ng-click="careerfair_filters($event)" datavalue="prev"><a href="" title="previous">Previous</a></li>
                             <li ng-click="careerfair_filters($event)" datavalue="now"><a href="" title="Current">Current</a></li>
@@ -21,9 +21,9 @@
 						</ul>
     				</span>
                     with
-                    <span class="dropdown" ng-controller="all_companies">
+                    <span class="dropdown col-mob-12" ng-controller="all_companies">
         				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_cer_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Allcompanies</span>
-		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
+		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-companies" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
 		    				<li ng-click="careerfair_filters($event)"  datavalue=""><a href="" title="All companies">All companies</a></li>
 		    				<li ng-click="careerfair_filters($event)" ng-repeat="allcompanies in all_company | unique:'name' | orderBy : 'name'" datavalue="{{allcompanies.name}}"><a href="" title="{{allcompanies.name}}">{{allcompanies.name}}</a></li>
 						</ul>

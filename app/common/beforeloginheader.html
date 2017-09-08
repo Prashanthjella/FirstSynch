@@ -1,18 +1,34 @@
 <div class="container">
 	<div class="navbar-header">
+    <ul class="visible-xs pull-right mobile-login-img">
+    <li  class="mob-navi-search"><a href="/search" title="Search" class="pull-right visible-xs navi-search" ><i class="glyphicon glyphicon-search"></i></a></li>
+        <li class="user-profile-dropdown">
+				<a href="#" title="User Name"  data-toggle="dropdown" class="signoff-avator-img-mob">
+					<img src="../assets/images/profile-icon-mob.png" alt=""><!--img-user-avator.png-->
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="" data-toggle="modal" data-target="#logIn" ng-click="reloadRoutec();reloadRoute()" style="cursor:pointer" data-dismiss="modal" id="userlogin">Log in</a></li>
+					<li><a href="" data-toggle="modal" data-target="#registration" ng-click="reloadRoutec();reloadRoute()" style="cursor:pointer" data-dismiss="modal">Sign up</a></li>
+					
+				</ul>
+
+			</li>
+            </ul>
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        
 		<a class="navbar-brand custom-navbar-brand" href="/" title="FirstSync">
 			<img class="firstsynch_logo_act" src="assets/images/logo.png" alt="FirstSynch">
 		</a>
+        
 	</div>
 	<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav navbar-right custom-navbar-nav" nav-menu="active">
 			<li class="carrer_nav"><a href="/careerfair" title="Fairs">Fairs</a></li>
 			<li class="company_nav"><a href="/companies" title="Jobs">Jobs</a></li>
 			<li class="student_nav"><a href="/students" title="Seekers">Seekers</a></li>
-			<li><a href="/search" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
-			<li><a href="" data-toggle="modal" data-target="#logIn" ng-click="reloadRoutec();reloadRoute()" style="cursor:pointer" data-dismiss="modal" id="userlogin">Log in</a></li>
-			<li><a href="" data-toggle="modal" data-target="#registration" ng-click="reloadRoutec();reloadRoute()" style="cursor:pointer" data-dismiss="modal" class="btn btn-default pull-right custom-btn-sign-up">Sign up</a></li>
+			<li class="hidden-xs"><a href="/search" title="Search"><i class="glyphicon glyphicon-search"></i></a></li>
+			<li class="hidden-xs"><a href="" data-toggle="modal" data-target="#logIn" ng-click="reloadRoutec();reloadRoute()" style="cursor:pointer" data-dismiss="modal" id="userlogin">Log in</a></li>
+			<li class="hidden-xs"><a href="" data-toggle="modal" data-target="#registration" ng-click="reloadRoutec();reloadRoute()" style="cursor:pointer" data-dismiss="modal" class="btn btn-default pull-right custom-btn-sign-up">Sign up</a></li>
 		</ul>
 	</div>
 </div>

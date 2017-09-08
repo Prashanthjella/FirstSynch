@@ -36,14 +36,14 @@
             </a>
           </div>
           <div class="media-body cusom-media-model-body">
-            <div class="pull-left">
+            <div class="col-mob-75 pull-left">
               <h3 class="custom-h3">{{vid.video.title}}</h3>
               <h6 class="custom-h6-model" ng-if="vid.video.company_video"> from <span class="highlighted-green">{{vid.video.company.name}}</span></h6>
               <h6 class="custom-h6-model" ng-if="vid.video.student_video"> By <span class="highlighted-green">{{vid.video.student.first_name}}</span></h6>
               <!-- <h6 class="custom-h6-model">{{vid.video.created_by.created_at | date:"dd/MM/yyyy"}}</h6> -->
               <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
             </div>
-            <div class="pull-right">
+            <div class="col-mob-25 pull-right">
               <div class="custom-right-icons">
                 <a href="#" class="icons-model">
                   <i class="grey_heart" ng-if="!companyuserInfo && !studentuserInfo" data-toggle="modal" data-target="#logIn" videoid="{{vid.video.id}}"  data-dismiss="modal" id="userlogin"></i>
@@ -60,7 +60,7 @@
             <div class="row">
               <div class="col-sm-3">
                 <ul class="nav nav-tabs custom-tabs-model" role="tablist">
-                  <li role="presentation" class="active" ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
+                  <li role="presentation"  ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
                     <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
                   </li>
                 </ul>
@@ -114,7 +114,7 @@
                 <div class="row custom-row-15">
                   <div class="col-sm-12">
                     <h6 class="h6-label-black text-uppercase">More videos  by <span class="highlighted-green" ng-if="vid.video.company_video">{{vid.video.company.name}}</span><span class="highlighted-green" ng-if="vid.video.student_video">{{vid.video.student.first_name}}</span></h6></div>
-                    <div class="col-sm-6" ng-repeat="vid in vid.related_video">
+                    <div class="col-xs-6 col-md-6 col-sm-6" ng-repeat="vid in vid.related_video">
                       <a data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class="thumbnail customn-thumbs-color-3 custom-thumbs-box-views">
                         <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
                         <div class="overlay "></div>

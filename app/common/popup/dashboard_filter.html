@@ -1,4 +1,4 @@
-<div id="dashboard-filter" class="modal fade dashboard-filter" role="dialog" ng-controller="dashboard_filter_process">
+<div id="dashboard-filter" class="dashboard-filter" role="dialog" ng-controller="dashboard_filter_process">
     <form>
         <div class="modal-dialog custom-modal-600">
             <!-- Modal content-->
@@ -79,9 +79,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'industry'">
+                        <div class="col-sm-6  bg-grey custom-col-justify mobile-filter-cols mobile-filter-cols-visible" style="padding-right:0"> 
+                        <div class="row">
+                        <div class="col-sm-12" ng-show="filter_option == 'industry'">
                             <div class="media-group-container all_industry_type">
-                                <h3 class="custom-h3">Industry</h3>
+                            <div class="reset-control">
+                                <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
+                                            </span> <h3 class="custom-h3">Industry</h3>
+                                 <button type="reset" class="btn-reset pull-right" ng-click="reset_filter_form()">Reset all</button>
+                                 </div>
                                 <div class="scroll-filter">
                                 <div class="form-group">
                                     <div class="checkbox">
@@ -404,90 +410,117 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'salary'">
+                        <div class="col-sm-12" ng-show="filter_option == 'salary'">
                             <div class="media-group-container all_salary_range">
+                            <div class="reset-control">
+                            <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
+                                            </span>
                                 <h3 class="custom-h3">Salary range</h3>
+                                 <button type="reset" class="btn-reset pull-right" ng-click="reset_filter_form()">Reset all</button>
+                                 </div>
+                                 <div class="scroll-filter">
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <input id="s600" name="salary_range" class="salary_range" type="radio" value="600" data-value='$300-$600' ng-click="dashboard_filter_form()"> $300 - $600
+                                        <input id="s300" name="salary_range" class="salary_range checkbox-input" type="checkbox" value="600" data-value='$300-$600' ng-click="dashboard_filter_form()"> <label for="s300" class="checkbox-label">$300 - $600</label>
                                         <!-- <label data-val="600"> $300 - $600</label> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="900" data-value="$600-$900" ng-click="dashboard_filter_form()"> $600 - $900
+                                        <input id="s600" name="salary_range"  class="salary_range checkbox-input" type="checkbox" value="900" data-value="$600-$900" ng-click="dashboard_filter_form()"> <label for="s600" class="checkbox-label">$600 - $900</label>
                                         <!-- <input id="s900" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="900"> -->
                                         <!-- <label data-val="900" > $600 - $900</label> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="1200" data-value="$900-$1200" ng-click="dashboard_filter_form()"> $900 - $1200
+                                        <input id="s900" name="salary_range"  class="salary_range checkbox-input" type="checkbox" value="1200" data-value="$900-$1200" ng-click="dashboard_filter_form()"> <label for="s900" class="checkbox-label">$900 - $1200</label>
                                         <!-- <input id="s1200" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="1200"> -->
                                         <!-- <label data-val="1200"> $900 - $1200</label> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="1500" data-value="$1200-$1500" ng-click="dashboard_filter_form()"> $1200 - $1500
+                                        <input id="s1200" name="salary_range"  class="salary_range checkbox-input" type="checkbox" value="1500" data-value="$1200-$1500" ng-click="dashboard_filter_form()"> <label for="s1200" class="checkbox-label">$1200 - $1500</label>
                                         <!-- <input id="s1500" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="1500"> -->
                                         <!-- <label data-val="1500"> $1200 - $1500</label> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <input id="s600" name="salary_range"  class="salary_range" type="radio" value="negotiable" data-value="negotiable" ng-click="dashboard_filter_form()"> Negotiable
+                                        <input id="negotiable" name="salary_range"  class="salary_range checkbox-input" type="checkbox" value="negotiable" data-value="negotiable" ng-click="dashboard_filter_form()"> <label for="negotiable" class="checkbox-label">Negotiable</label>
                                         <!-- <input id="Negotiable" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()" value="Negotiable"> -->
                                         <!-- <label data-val="negotiable"> Negotiable</label> -->
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'employement'">
+                        <div class="col-sm-12" ng-show="filter_option == 'employement'">
                             <div class="media-group-container all_employeement_type">
+                             <div class="reset-control">
+                             <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
+                                            </span>
                                 <h3 class="custom-h3">Employement Type</h3>
+                                  <button type="reset" class="btn-reset pull-right" ng-click="reset_filter_form()">Reset all</button>
+                                  </div>
+                                    <div class="scroll-filter">
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <!-- <input id="partime" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
                                         <label for="partime" class="checkbox-label"> Part time</label> -->
-                                        <input name="employement" data-val = 'Part Time'  class="employement" type="radio" value="Part Time" ng-click="dashboard_filter_form()"> Part time
+                                        <input name="employement" data-val = 'Part Time'  class="checkbox-input employement" type="checkbox" value="Part Time" ng-click="dashboard_filter_form()" id="partime"> <label for="partime" class="checkbox-label">Part time</label>
                                     </div>
                                 </div>
+                              
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <!-- <input id="Fulltime" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
                                         <label for="Fulltime" class="checkbox-label"> Full time</label> -->
-                                        <input name="employement" data-val = 'Full Time' class="employement" type="radio" value="Full Time" ng-click="dashboard_filter_form()"> Full time
+                                        <input name="employement" data-val = 'Full Time' class="checkbox-input employement" type="checkbox" value="Full Time" ng-click="dashboard_filter_form()" id="fullime"> <label for="fullime" class="checkbox-label">Full time</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <!-- <input id="internship" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
                                         <label for="internship" class="checkbox-label"> Internship</label> -->
-                                        <input name="employement" data-val = 'Internship'  class="employement" type="radio" value="Internship" ng-click="dashboard_filter_form()"> Internship
+                                        <input name="employement" data-val = 'Internship' class="checkbox-input employement" type="checkbox" value="Internship" ng-click="dashboard_filter_form()" id="internship"> <label for="internship" class="checkbox-label">Internship</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <!-- <input id="Consultant" class="checkbox-input" type="checkbox" ng-click="dashboard_filter_form()">
                                         <label for="Consultant" class="checkbox-label"> Consultant</label> -->
-                                        <input name="employement" data-val = 'Consultant'  class="employement" type="radio" value="Consultant" ng-click="dashboard_filter_form()"> Consultant
+                                        <input name="employement" data-val = 'Consultant' class="checkbox-input employement" type="checkbox" value="Consultant" ng-click="dashboard_filter_form()" id="consultant"> <label for="consultant" class="checkbox-label">Consultant</label>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_option == 'skills'">
+                        <div class="col-sm-12" ng-show="filter_option == 'skills'">
                             <div class="media-group-container all_skills_filter">
+                             <div class="reset-control">
+                             <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
+                                            </span>
                                 <h3 class="custom-h3">Skills</h3>
+                                  <button type="reset" class="btn-reset pull-right" ng-click="reset_filter_form()">Reset all</button>
+                                </div>
+                                <div class="scroll-filter">
                                 <div class="form-group">
                                 <input type="text" class="form-control form-control-transparent custom-form-control-br-bottom skillname"  name="skillname" ng-model="skillname" required=""/>
                                 </div>
                                 <button class="btn btn-default custom-btn-login" style="opacity:1;color:#303030;" ng-click="dashboard_filter_form()">+ Add</button>
                             </div>
+                            </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-controller="all_companies_namess" ng-show="filter_option == 'companyf'">
+                        <div class="col-sm-12" ng-controller="all_companies_namess" ng-show="filter_option == 'companyf'">
                             <div class="media-group-container all_company_filter">
+                             <div class="reset-control">
+                             <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
+                                            </span>
                                 <h3 class="custom-h3">Company</h3>
+                                  <button type="reset" class="btn-reset pull-right" ng-click="reset_filter_form()">Reset all</button>
+                                  </div>
                                 <div class="scroll-filter">
                                 <div class="form-group" ng-repeat="cmpnyname in all_company_names">
                                     <div class="checkbox">
@@ -498,6 +531,8 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
