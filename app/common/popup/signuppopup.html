@@ -1,6 +1,6 @@
 <!-- Modal Registration content Start-->
 <div class="modal fade custom-model custom-model-registration" role="dialog" id="registration" ng-controller="IdentifyUser">
-  <form name="findusertype" id="reset_forms">
+  <form name="findusertype">
     <div class="modal-dialog custom-modal-880">
       <div class="modal-content custom-modal-video-content">
         <div class="modal-header cusom-model-dashboard-header">
@@ -12,10 +12,10 @@
         </div>
 
         <div class="modal-body custom-modal-body-login">
-          <div style="color: red; font-weight: bold;" class="common_js_remove_cla" ng-if="signup_error_mgs">{{error}}</div>
+          <div style="color: red; font-weight: bold;" class="common_js_remove_cla" ng-show="signuperrormgs">{{signuperror}}</div>
           <div class="form-group">
-            <label for="Your Emai" class="text-uppercase" ng-class="{'has-success': findusertype.e_mail.$valid}">Your Email</label> <sup class="asterisk">*</sup>
-            <input type="email" name="e_mail" ng-model="e_mail" class="form-control custom-form-control-br-bottom" id="your-email" placeholder="Sign up to FirstSynch with your email address" required ng-class="{'has-error': findusertype.e_mail.$touched && findusertype.e_mail.$error, 'has-success': findusertype.e_mail.$valid}"/>
+            <label for="Your Emai" class="text-uppercase" ng-class="{'has-success': findusertype.email.$valid}">Your Email</label> <sup class="asterisk">*</sup>
+            <input type="email" name="email" ng-model="usersignup.email" class="form-control custom-form-control-br-bottom" id="your-email" placeholder="Sign up to FirstSynch with your email address" required ng-class="{'has-error': findusertype.email.$invalid || findusertype.email.$error, 'has-success': findusertype.email.$valid}"/>
           </div>
           <div class="row custom-row-20">
             <div class="col-sm-6">
@@ -51,7 +51,7 @@
 
           <div class="modal-footer custom-login-modal-footer">
             <a href="{{facebookloginurl}}" class="btn btn-default custom-btn-login bg-facebook">Sign up with Facebook</a>
-            <button ng-click="SendData(e_mail)" ng-disabled="findusertype.$invalid" class="btn btn-default custom-btn-login">Next</button>
+            <button ng-click="SendData(usersignup.email)" ng-disabled="findusertype.$invalid" class="btn btn-default custom-btn-login">Next</button>
           </div>
 
         </div>

@@ -108,11 +108,17 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       username : '',
       password : ''
   }
+  $rootScope.usersignup = {
+      email : ''
+  }
   $rootScope.reloadRoutec = function() {
       $rootScope.dashboardc = true;
       $rootScope.userlogform = {
           username : '',
           password : ''
+      }
+      $rootScope.usersignup = {
+          email : ''
       }
       $('#username').removeClass('ng-valid ng-valid-email').addClass('ng-invalid ng-invalid-required has-error');
       $('#password').removeClass('ng-valid').addClass('ng-invalid ng-invalid-required has-error')
@@ -378,8 +384,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.peoplesearch_remove').show();
         $('.peoplesearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = $scope.e_mail;
-        $scope.e_mail = '';
+        $rootScope.e_mail = $scope.usersignup.email;
       }else{
         jQuery("#registration").modal('hide');
         jQuery("#companyverify").modal('hide');
@@ -387,17 +392,16 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.domainsearch_remove').show();
         $('.domainsearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = $scope.e_mail;
-        $scope.e_mail = '';
+        $rootScope.e_mail = $scope.usersignup.email;
       }
     },
     function errorCallback(data, status, headers, config) {
-      $scope.signup_error_mgs = true;
-      $scope.error = data.data.data;
+      $scope.signuperrormgs = true;
+      $scope.signuperror = data.data.data;
       $scope.error1 = data.data;
       $timeout(function() {
-         $scope.signup_error_mgs = false;
-      }, 3000);
+         $scope.signuperrormgs = false;
+      }, 5000);
     });
 
   };//find user - function end
@@ -430,7 +434,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       .then(function successCallback(response){
 
         $scope.piplimage = response.data.image ? response.data.image : null ;
-        $scope.piplschool_name = response.data.school_name ? response.data.school_name : null ;
+        $scope.piplschoolname = response.data.school_name ? response.data.school_name : null ;
         $scope.pipldateattended = response.data.dateattended ? response.data.dateattended : null;
         $scope.piplmajor = response.data.major ?response.data.major :null;
         $scope.pipljobs = response.data.jobs ? response.data.jobs : null ;
@@ -449,27 +453,15 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       });
     }
     else if($scope.piplsearch == 'deny') {
-      $http({
-        url: apiUrl+'api/v1/student/student_signup/',
-        method: "POST",
-        data: data
-      })
-      .then(function successCallback(data, status, headers, config) {
-        jQuery("#signUp").modal('hide');
-        jQuery("#signUpSuccess").modal('show');
-        $('#universities_value').val('');
-        $('form#reset_forms').trigger("reset");
-        $('#allow_pipl').val('1');
-        $scope.name = null;
-        $scope.lname = null;
-        $scope.selecteduniversity.originalObject.Institution_Name = null;
-        $scope.password = null;
-        $scope.gpa = null;
-        $scope.piplsearch = 'allow';
-      },
-      function errorCallback(data, status, headers, config) {
-        $scope.status = data.data.status;
-      });
+        $scope.piplimage = null ;
+        $scope.piplschoolname =  null ;
+        $scope.pipldateattended = null;
+        $scope.piplmajor = null;
+        $scope.pipljobs = null ;
+        $scope.workhistroy_count = 1;
+        $('#allow_pipl').val('0');
+        $('.peoplesearch_remove').hide();
+        $('.peoplesearch_show').show();
     }
 
     if(allow_pipl_check == 0){
@@ -477,7 +469,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
       }
       var datap = {
-        education : {school_name : $scope.piplschool_name,gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
+        education : {school_name : $('#piplschool_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
         student : {first_name : $scope.name},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry,
@@ -491,14 +483,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
           }).then(function(resp) {
               jQuery("#signUp").modal('hide');
               jQuery("#signUpSuccess").modal('show');
-              $scope.piplsearch = 'allow';
-              $('#allow_pipl').val('1');
-              $scope.name = null;
-              $scope.lname = null;
-              $scope.selecteduniversity.originalObject.Institution_Name = null;
-              $scope.password = null;
-              $scope.gpa = null;
-              $scope.piplsearch = 'allow';
+              $scope.student_signup_clear();
           }, function(resp) {
             // handle error
           }, function(evt) {
@@ -514,14 +499,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
           .then(function successCallback(data, status, headers, config) {
             jQuery("#signUp").modal('hide');
             jQuery("#signUpSuccess").modal('show');
-            $scope.piplsearch = 'allow';
-            $('#allow_pipl').val('1');
-            $scope.name = null;
-            $scope.lname = null;
-            $scope.selecteduniversity.originalObject.Institution_Name = null;
-            $scope.password = null;
-            $scope.gpa = null;
-            $scope.piplsearch = 'allow';
+            $scope.student_signup_clear();
           },
           function errorCallback(data, status, headers, config) {
             $scope.status = data.data.status;
@@ -962,7 +940,11 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
       }
     },
     function errorCallback(data, status, headers, config) {
-      $scope.error = data.data.data;
+      $scope.signuperrormgs = true;
+      $scope.signuperror = data.data.data;
+      $timeout(function() {
+         $scope.signuperrormgs = false;
+      }, 5000);
     });
   };
   var url = window.location.href
