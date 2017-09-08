@@ -3338,17 +3338,30 @@ textarea.custom-text-area-new {
 	right: 0;
 }
 .dashboard-filter .custom-modal-600 {
-	position: absolute;
+	position: fixed;
 	left: 25%;
 	right: 25%;
-	bottom: 0;
-	z-index: 1
+	
+	bottom:-482px;
+	z-index: 1;
+	
+	
+	 -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
+.dashboard-filter.active  .custom-modal-600{
+	/*	height:auto;
+	overflow:hidden;*/
+	bottom:0;
+	}
 .dashboard-filter.active {
 	bottom: 0;
 	top: 0;
 	z-index: 1050;
 	background-color: rgba(0,0,0,0.5);
+
 }
 .dashboard-filter.active .modal-header .arrow-down-filter {
 	-webkit-transform: rotate(-135deg);
@@ -3359,13 +3372,13 @@ textarea.custom-text-area-new {
 	margin-bottom: 0
 }
 .dashboard-filter .modal-body {
-	height: 0;
-	visibility: hidden
+	/*height: 0;
+	visibility: hidden*/
 }
-.dashboard-filter.active .modal-body {
+/*.dashboard-filter.active .modal-body {
 	height: auto;
 	visibility: visible;
-}
+}*/
 .dashboard-filter .modal-header {
 	background-color: #0bbe98;
 	color: #fff;
@@ -3386,6 +3399,7 @@ textarea.custom-text-area-new {
 	float: none;
 	display: table-cell;
 	vertical-align: top;
+	padding-right:0
 }
 .bg-grey {
 	background-color: #f8f8f8
@@ -3453,7 +3467,7 @@ textarea.custom-text-area-new {
 	padding-bottom: 12px
 }
 .scroll-filter {
-	height: 350px;
+	max-height: 400px;
 	overflow: auto;
 	clear: both;
 }
@@ -5700,3 +5714,7 @@ textarea.custom-text-area-100 {
     height: 36px;
     resize: none;
 }
+
+.custom-model-registration-started{
+	overflow:hidden !important
+	}

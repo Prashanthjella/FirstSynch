@@ -15,7 +15,7 @@
 }
 </style>
 <!-- Modal Registration content Start-->
-<div class="modal fade custom-model  custom-model-registration" id="signUp" role="dialog"  ng-controller="IdentifyUser">
+<div class="modal fade custom-model  custom-model-registration"  id="signUp" role="dialog"  ng-controller="IdentifyUser">
     <form name="studentregistration" id="reset_forms" novalidate>
         <div class="modal-dialog custom-modal-880">
             <div class="modal-content custom-modal-video-content">
@@ -131,7 +131,7 @@
                                         <div class="panel-group custom-panel-onboarding-group">
                                             <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': studentregistration.piplschool_name.$valid}">
                                                 <div class="row">
-                                                    <div class="col-sm-8">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
                                                             <img ng-if="!piplimageupload"  src="{{piplimage}}" height="100" width="100"/>
                                                             <img ngf-thumbnail="piplimageupload"  height="100" width="100">
@@ -158,7 +158,7 @@
                                         <div class="panel-group custom-panel-onboarding-group">
                                             <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': studentregistration.piplschool_name.$valid}">
                                                 <div class="row">
-                                                    <div class="col-sm-8">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplschool_name.$valid}">
                                                                 School
@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="panel panel-default custom-panel-onboarding-default "ng-class="{'has-error': studentregistration.pipldateattended.$touched , 'has-success': studentregistration.pipldateattended.$valid}">
                                                 <div class="row">
-                                                    <div class="col-sm-8">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipldateattended.$valid}">
                                                                 Years Attended
@@ -182,7 +182,7 @@
                                             </div>
                                             <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplmajor.$touched , 'has-success': studentregistration.piplmajor.$valid}">
                                                 <div class="row">
-                                                    <div class="col-sm-8">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplmajor.$valid}">
                                                                 Major
@@ -208,7 +208,7 @@
                                             <div class="panel-group custom-panel-onboarding-group">
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_company_name'+$index].$touched , 'has-success': studentregistration['pipl_company_name'+$index].$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_company_name'+$index].$valid}">
                                                                     Company Name
@@ -220,7 +220,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_datestarted'+$index].$touched , 'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
                                                                     Dates Started
@@ -232,7 +232,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_leavedate'+$index].$touched , 'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
                                                                     Leave Date
@@ -244,7 +244,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobtitle'+$index].$touched , 'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
                                                                     Job title
@@ -256,7 +256,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobdescription'+$index].$touched , 'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
                                                                     Job description
@@ -283,7 +283,7 @@
                                             <div class="panel-group custom-panel-onboarding-group">
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_company_name0.$touched , 'has-success': studentregistration.pipl_company_name0.$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_company_name0.$valid}">
                                                                     Company Name
@@ -295,7 +295,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_datestarted0.$touched , 'has-success': studentregistration.pipl_datestarted0.$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_datestarted0.$valid}">
                                                                     Dates Started
@@ -307,7 +307,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_leavedate0.$touched , 'has-success': studentregistration.pipl_leavedate0.$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_leavedate0.$valid}">
                                                                     Leave Date
@@ -319,7 +319,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobtitle0.$touched , 'has-success': studentregistration.pipl_jobtitle0.$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_jobtitle0.$valid}">
                                                                     Job title
@@ -331,7 +331,7 @@
                                                 </div>
                                                 <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobdescription0.$touched , 'has-success': studentregistration.pipl_jobdescription0.$valid}">
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
                                                                 <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_jobdescription0.$valid}">
                                                                     Job description
