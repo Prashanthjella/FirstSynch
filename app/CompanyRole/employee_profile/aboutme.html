@@ -8,15 +8,24 @@
 
                     <div class="col-sm-12">
                     <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.hobby.length > 0">Hobbies</h1>
-                        <p class="cont-experience">Point of sale hardware, the till at a shop check out, has become very complex over
-                            the past ten years, modern POS hardware inckudes the cash till, bar-code readers,
-                            scales, belts, communications system and modern.
-                        </p>
-                        <div class="row custom-row-10">
-                            <div class="col-sm-4" ng-repeat="studenthobby in employee_profile_details.hobby">
-                                <div class="thumbnail custom-thumbnail-profile-views"> <img ng-src="{{studenthobby.image}}" class="img-responsive custom-img-responsive"> </div>
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-sm-6 col-sm-character" ng-repeat="hobby in employee_profile_details.hobby">
+                          <div class="cont-character">
+                            <h2 class="counter-number">{{$index+1}}</h2>
+                            <h5 class="custom-h5-02">{{hobby.name}}</h5>
+                            <p>{{hobby.description}}</p>
+                          </div>
+                          <div ng-if="hobby.image" class="row custom-row-10 custom-thumbnail-profile-20">
+                            <div class="col-sm-12">
+                              <div class="thumbnail custom-thumbnail-profile-views ">
+                                <img ng-if="hobby.image" ng-src="{{hobby.image}}" class="img-responsive custom-img-responsive">
+                              </div>
                             </div>
+                          </div>
                         </div>
+                      </div><!--row-->
+                    </div><!--col-sm-12-->
                     </div>
                 </div>
                 <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="employee_profile_details.characteristic.length > 0">Characteristics</h1>

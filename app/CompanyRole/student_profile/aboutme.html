@@ -5,17 +5,24 @@
                 <h1 class="h1 custom-page-h1">About me</h1>
                 <h1 class="h1 custom-h1" ng-if="student_profile_details.hobby.length > 0">Hobbies</h1>
                 <div class="row" ng-if="student_profile_details.hobby.length > 0">
-                    <div class="col-sm-9">
-                        <p class="cont-experience">Point of sale hardware, the till at a shop check out, has become very complex over
-                            the past ten years, modern POS hardware inckudes the cash till, bar-code readers,
-                            scales, belts, communications system and modern.
-                        </p>
-                        <div class="row custom-row-10">
-                            <div class="col-sm-4" ng-repeat="studenthobby in student_profile_details.hobby">
-                                <div class="thumbnail custom-thumbnail-profile-views"> <img ng-src="{{studenthobby.image}}" class="img-responsive custom-img-responsive"> </div>
-                            </div>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-character" ng-repeat="hobby in student_profile_details.hobby">
+                        <div class="cont-character">
+                          <h2 class="counter-number">{{$index+1}}</h2>
+                          <h5 class="custom-h5-02">{{hobby.name}}</h5>
+                          <p>{{hobby.description}}</p>
                         </div>
-                    </div>
+                        <div ng-if="hobby.image" class="row custom-row-10 custom-thumbnail-profile-20">
+                          <div class="col-sm-12">
+                            <div class="thumbnail custom-thumbnail-profile-views ">
+                              <img ng-if="hobby.image" ng-src="{{hobby.image}}" class="img-responsive custom-img-responsive">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!--row-->
+                  </div><!--col-sm-12-->
                 </div>
                 <h1 class="h1 custom-h1" ng-if="student_profile_details.student_characteristic.length > 0">Characteristics</h1>
                 <div class="row" ng-if="student_profile_details.student_characteristic.length > 0">

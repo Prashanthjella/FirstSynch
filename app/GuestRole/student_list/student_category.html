@@ -14,7 +14,7 @@
                                             <div class="media-group-container">
                                                 <!-- ngRepeat: stu in student_det.students | limitTo:3 -->
                                                 <div class="media custom-media custom-media-student ng-scope" ng-repeat="stu in student_det.students | startFrom : 3" ng-if="student_det.students.length > 3">
-                                                    <a href="/student/karina-yancy-c1dadea1" class="student-categories-list">
+                                                    <a href="/student/{{stu.slug}}" class="student-categories-list">
                                                         <div class="media-left media-middle custom-media-left">
                                                             <div ng-if="!stu.profile_picture" class="grey_logo_icon media-object custom-media-object">
                                                                 <ng-letter-avatar ng-if="!stu.profile_picture" alphabetcolors="grey" charCount="2" data="{{stu.first_name}}"></ng-letter-avatar>
