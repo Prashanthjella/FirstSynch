@@ -37,14 +37,14 @@
                 <div class="modal-body custom-modal-body-login peoplesearch_remove">
                     <span style="color: green; font-weight: bold;">{{message}}</span>
                     <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.name.$valid}">First Name</label>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.name.$valid}">First Name</label> <sup class="asterisk">*</sup>
                         <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required ng-class="{'has-error': studentregistration.name.$touched && studentregistration.name.$error.required, 'has-success': studentregistration.name.$valid}"/>
                         <input type="hidden" id="e_mail" name="e_mail" ng-model="e_mail" />
                         <input type="hidden" id="allow_pipl" value="1">
                         <input type="hidden" name="iaccept" value="true" ng-model="iaccept" />
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase"  ng-class="{'has-success': studentregistration.lname.$valid}">Last Name</label>
+                        <label class="text-uppercase"  ng-class="{'has-success': studentregistration.lname.$valid}">Last Name</label> <sup class="asterisk">*</sup>
                         <input type="text" class="form-control custom-form-control-br-bottom" id="your-lname" name="lname" ng-model="lname" required ng-class="{'has-error': studentregistration.lname.$touched && studentregistration.lname.$error.required, 'has-success': studentregistration.lname.$valid}"/>
                     </div>
                     <style>
@@ -54,7 +54,7 @@
                     }
                     </style>
                     <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.school_name.$valid}">University Name</label>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.school_name.$valid}">University Name</label> <sup class="asterisk">*</sup>
                         <div angucomplete-alt id="universities"
                             placeholder=""
                             maxlength="200"
@@ -72,11 +72,11 @@
                         <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" required ng-model="selecteduniversity.originalObject.Institution_Name"/>
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.gpa.$valid}">Your Gpa</label>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.gpa.$valid}">Your Gpa</label> <sup class="asterisk">*</sup>
                         <input type="number" min="1" max="4" class="form-control custom-form-control-br-bottom" id="gpa" name="gpa" ng-model="gpa" ng-pattern="/^([0-3]|4(\.0{1,2})?$)(\.[0-9]{1,2})?$/" required ng-class="{'has-error': studentregistration.gpa.$touched && studentregistration.gpa.$error.required && studentregistration.gpa.$invalid, 'has-success': studentregistration.gpa.$valid}" />
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.password.$valid}">Password</label>
+                        <label class="text-uppercase" ng-class="{'has-success': studentregistration.password.$valid}">Password</label> <sup class="asterisk">*</sup>
                         <input type="password" class="form-control custom-form-control-br-bottom" id="create-password" name="password" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." ng-class="{'has-error':   studentregistration.password.$touched && studentregistration.password.$error.required && studentregistration.password.$invalid, 'has-success': studentregistration.password.$valid}"/>
                     </div>
                     <div class="form-group form-group-allow-control clearfix">
@@ -133,7 +133,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <div class="form-group form-group-educations">
-                                                            <img ng-if="!piplimageupload "  src="{{piplimage}}" height="100" width="100"/>
+                                                            <img ng-if="!piplimageupload"  src="{{piplimage}}" height="100" width="100"/>
                                                             <img ngf-thumbnail="piplimageupload"  height="100" width="100">
                                                             <input type="hidden" class=" custom-form-control-br-bottom" ng-model="piplimage"  value="{{piplimage}}" id="piplimage">
                                                             <input type="file" ngf-select class=" custom-form-control-br-bottom" accept="image/*" ng-model="piplimageupload" name="piplimageupload" id="piplimageupload">
@@ -163,7 +163,7 @@
                                                             <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplschool_name.$valid}">
                                                                 School
                                                             </label>
-                                                            <input type="text" class=" custom-form-control-br-bottom" required value="{{piplschool_name}}" ng-model="piplschool_name" name="piplschool_name" id="piplschool_name">
+                                                            <input type="text" class=" custom-form-control-br-bottom" required ng-model="piplschoolname" name="piplschool_name" id="piplschool_name">
                                                         </div>
                                                     </div>
                                                 </div>

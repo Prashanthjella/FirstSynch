@@ -70,13 +70,8 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             fd.append("student_video", 'True');
             fd.append("active", 'True');
             fd.append("created_by", $rootScope.user_id);
-            if(angular.element('#published-allow')[0].value == 'allow'){
-              fd.append("published", 'True');
-            }
-			if(angular.element('#published-Forbid')[0].value == 'deny'){
-              fd.append("published", 'False');
-            }
-
+            var pub_date = $("input[name='published']:checked").val();
+            fd.append("published", pub_date);
             var xhr = new XMLHttpRequest()
             xhr.upload.addEventListener("progress", uploadProgress, false)
             xhr.addEventListener("load", uploadComplete, false)
@@ -111,6 +106,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             $("#inoutbar").removeAttr("style");
             $('#inoutbar').empty();
             $('#chapterss ul').empty();
+            $('#page-video-edit form').trigger("reset");
             $scope.$apply(function(){
               $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
                   .then(function successCallback(response){
