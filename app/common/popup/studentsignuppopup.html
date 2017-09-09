@@ -156,11 +156,11 @@
                                             <h4 class="h4 custom-h4-02">School#1</h4>
                                         </div>
                                         <div class="panel-group custom-panel-onboarding-group">
-                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': studentregistration.piplschool_name.$valid}">
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplschool_name.$touched , 'has-success': piplschoolname}">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
-                                                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplschool_name.$valid}">
+                                                            <label class="text-uppercase" ng-class="{'has-success': piplschoolname}">
                                                                 School
                                                             </label>
                                                             <input type="text" class=" custom-form-control-br-bottom" required ng-model="piplschoolname" name="piplschool_name" id="piplschool_name">
@@ -168,11 +168,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-default custom-panel-onboarding-default "ng-class="{'has-error': studentregistration.pipldateattended.$touched , 'has-success': studentregistration.pipldateattended.$valid}">
+                                            <div class="panel panel-default custom-panel-onboarding-default "ng-class="{'has-error': studentregistration.pipldateattended.$touched , 'has-success': pipldateattended}">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
-                                                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipldateattended.$valid}">
+                                                            <label class="text-uppercase" ng-class="{'has-success': pipldateattended}">
                                                                 Years Attended
                                                             </label>
                                                             <input type="text" class=" custom-form-control-br-bottom" ng-model="pipldateattended" name="pipldateattended" value="{{pipldateattended}}" id="pipl_dateattended" required>
@@ -180,11 +180,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplmajor.$touched , 'has-success': studentregistration.piplmajor.$valid}">
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.piplmajor.$touched , 'has-success': piplmajor}">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-educations">
-                                                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplmajor.$valid}">
+                                                            <label class="text-uppercase" ng-class="{'has-success': piplmajor}">
                                                                 Major
                                                             </label>
                                                             <input type="hidden" id="workhistroy_count" value="{{workhistroy_count}}">
@@ -209,11 +209,11 @@
                                                 <h4 class="h4 custom-h4-02">Job#{{$index+1}}</h4>
                                             </div>
                                             <div class="panel-group custom-panel-onboarding-group">
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_company_name'+$index].$touched , 'has-success': studentregistration['pipl_company_name'+$index].$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_company_name'+$index].$touched , 'has-success': stu_jobs.company_name}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_company_name'+$index].$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': stu_jobs.company_name}">
                                                                     Company Name
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" ng-model="stu_jobs.company_name" name="pipl_company_name{{$index}}" value="{{stu_jobs.company_name}}" id="pipl_company_name{{$index}}" required>
@@ -221,11 +221,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_datestarted'+$index].$touched , 'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_datestarted'+$index].$touched , 'has-success': stu_jobs.datestarted}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_datestarted'+$index].$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': stu_jobs.datestarted}">
                                                                     Dates Started
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" datepicker ng-model="stu_jobs.datestarted" name="pipl_datestarted{{$index}}" value="{{stu_jobs.datestarted}}" id="pipl_datestarted{{$index}}" required>
@@ -233,11 +233,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_leavedate'+$index].$touched , 'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_leavedate'+$index].$touched , 'has-success': stu_jobs.leavedate}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_leavedate'+$index].$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': stu_jobs.leavedate}">
                                                                     Leave Date
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" datepicker ng-model="stu_jobs.leavedate" name="pipl_leavedate{{$index}}" value="{{stu_jobs.leavedate}}" id="pipl_leavedate{{$index}}">
@@ -245,11 +245,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobtitle'+$index].$touched , 'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobtitle'+$index].$touched , 'has-success': stu_jobs.jobtitle}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobtitle'+$index].$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': stu_jobs.jobtitle}">
                                                                     Job title
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" ng-model="stu_jobs.jobtitle" name="pipl_jobtitle{{$index}}" value="{{stu_jobs.jobtitle}}" id="pipl_jobtitle{{$index}}" required>
@@ -257,11 +257,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobdescription'+$index].$touched , 'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration['pipl_jobdescription'+$index].$touched , 'has-success': stu_jobs.jobdescription}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration['pipl_jobdescription'+$index].$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': stu_jobs.jobdescription}">
                                                                     Job description
                                                                 </label>
                                                                 <textarea class="piplsearch_ta  custom-form-control-br-bottom" id="pipl_jobdescription{{$index}}" ng-model="stu_jobs.jobdescription" name="pipl_jobdescription{{$index}}" >{{stu_jobs.jobdescription}}</textarea>
@@ -287,11 +287,11 @@
                                                 <h4 class="h4 custom-h4-02">Job#</h4>
                                             </div>
                                             <div class="panel-group custom-panel-onboarding-group">
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_company_name0.$touched , 'has-success': studentregistration.pipl_company_name0.$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_company_name0.$touched , 'has-success': pipl_company_name0}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_company_name0.$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': pipl_company_name0}">
                                                                     Company Name
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" required ng-model="pipl_company_name0" name="pipl_company_name0" id="pipl_company_name0">
@@ -299,11 +299,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_datestarted0.$touched , 'has-success': studentregistration.pipl_datestarted0.$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_datestarted0.$touched , 'has-success': pipl_datestarted0}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_datestarted0.$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': pipl_datestarted0}">
                                                                     Dates Started
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" required datepicker ng-model="pipl_datestarted0" name="pipl_datestarted0" id="pipl_datestarted0">
@@ -311,11 +311,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_leavedate0.$touched , 'has-success': studentregistration.pipl_leavedate0.$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_leavedate0.$touched , 'has-success': pipl_leavedate0}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_leavedate0.$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': pipl_leavedate0}">
                                                                     Leave Date
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" required datepicker ng-model="pipl_leavedate0" name="pipl_leavedate0" id="pipl_leavedate0">
@@ -323,11 +323,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobtitle0.$touched , 'has-success': studentregistration.pipl_jobtitle0.$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobtitle0.$touched , 'has-success': pipl_jobtitle0}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_jobtitle0.$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': pipl_jobtitle0}">
                                                                     Job title
                                                                 </label>
                                                                 <input type="text" class=" custom-form-control-br-bottom" required ng-model="pipl_jobtitle0" name="pipl_jobtitle0" id="pipl_jobtitle0">
@@ -335,11 +335,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobdescription0.$touched , 'has-success': studentregistration.pipl_jobdescription0.$valid}">
+                                                <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': studentregistration.pipl_jobdescription0.$touched , 'has-success': pipl_jobdescription0}">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-educations">
-                                                                <label class="text-uppercase" ng-class="{'has-success': studentregistration.pipl_jobdescription0.$valid}">
+                                                                <label class="text-uppercase" ng-class="{'has-success': pipl_jobdescription0}">
                                                                     Job description
                                                                 </label>
                                                                 <textarea class="piplsearch_ta  custom-form-control-br-bottom" required id="pipl_jobdescription0" ng-model="pipl_jobdescription0" name="pipl_jobdescription0" ></textarea>
