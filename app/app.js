@@ -396,11 +396,13 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       }
     },
     function errorCallback(data, status, headers, config) {
-      $scope.signuperrormgs = true;
-      $scope.signuperror = data.data.data;
+    //   $scope.signuperrormgs = true;
+    //   $scope.signuperror = data.data.data;
       $scope.error1 = data.data;
+    //   alert(data.data.data)
+      $('.signuperrormsg').text(data.data.data);
       $timeout(function() {
-         $scope.signuperrormgs = false;
+         $('.signuperrormsg').text('');
       }, 5000);
     });
 
