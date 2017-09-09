@@ -195,36 +195,64 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
             $('.filtered_kw_industry').text(keywords.substring(1));
             industries = keywords.substring(1);
         }
-        document.querySelectorAll(".all_salary_range .salary_range").forEach(function(rd){
-            rd.addEventListener("mousedown",function(){
-    		    if (this.checked) {
-                    this.onclick =  function(){
-                                        this.checked=false;
-                                        $('.filtered_kw_salary').text('Not specified');
-                                        salary ='';
-                                        jQuery('.video_filter_search_result').empty();
-                                    }
-                }
-                else{
-                    this.onclick=null
-                }
-    	    })
+        // document.querySelectorAll(".all_salary_range .salary_range").forEach(function(rd){
+        //     rd.addEventListener("mousedown",function(){
+    	// 	    if (this.checked) {
+        //             this.onclick =  function(){
+        //                                 this.checked=false;
+        //                                 $('.filtered_kw_salary').text('Not specified');
+        //                                 salary ='';
+        //                                 jQuery('.video_filter_search_result').empty();
+        //                             }
+        //         }
+        //         else{
+        //             this.onclick=null
+        //         }
+    	//     })
+        // });
+        var salaries = '';
+        var salariestext = '';
+        $('.filtered_kw_salary').empty();
+        $('.all_salary_range .salary_range:checked').each(function(){
+            salaries += ','+$(this).val();
+            salariestext += ','+$(this).next().text();
         });
-        if($('.all_salary_range .salary_range:checked').val() === undefined){
+        // if($('.all_salary_range .salary_range:checked').val() === undefined){
+        //     $('.filtered_kw_salary').text('Not specified');
+        //     salary ='';
+        // }
+        // else{
+        //     $('.filtered_kw_salary').text($('.all_salary_range .salary_range:checked').attr('data-value'));
+        //     salary = $('.all_salary_range .salary_range:checked').val();
+        // }
+        if(salariestext.substring(1)==''){
             $('.filtered_kw_salary').text('Not specified');
-            salary ='';
+            salary = '';
         }
         else{
-            $('.filtered_kw_salary').text($('.all_salary_range .salary_range:checked').attr('data-value'));
-            salary = $('.all_salary_range .salary_range:checked').val();
+            $('.filtered_kw_salary').text(salariestext.substring(1));
+            salary = salaries.substring(1);
         }
-        if($('.all_employeement_type .employement:checked').val() === undefined){
+        // if($('.all_employeement_type .employement:checked').val() === undefined){
+        //     $('.filtered_kw_employement').text('Not specified');
+        //     employee_type = '';
+        // }
+        // else{
+        //     $('.filtered_kw_employement').text($('.all_employeement_type .employement:checked').val());
+        //     employee_type = $('.all_employeement_type .employement:checked').attr('data-val');
+        // }
+        var emptype = '';
+        $('.filtered_kw_employement').empty();
+        $('.all_employeement_type .employement:checked').each(function(){
+            emptype += ','+$(this).next().text();
+        });
+        if(emptype.substring(1)==''){
             $('.filtered_kw_employement').text('Not specified');
             employee_type = '';
         }
         else{
-            $('.filtered_kw_employement').text($('.all_employeement_type .employement:checked').val());
-            employee_type = $('.all_employeement_type .employement:checked').attr('data-val');
+            $('.filtered_kw_employement').text(emptype.substring(1));
+            employee_type = emptype.substring(1);
         }
         var prev_skill_data = $('.filtered_kw_skills').text();
         if($('.all_skills_filter .skillname').val() == '' && prev_skill_data.replace(/\s/g, '')=="Notspecified"){

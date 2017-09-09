@@ -190,36 +190,64 @@ FirstSynch.controller("dashboard_filter_process_company" ,function ($rootScope,$
             $('.filtered_kw_industry_c').text(keywords.substring(1));
             industries = keywords.substring(1);
         }
-        document.querySelectorAll(".all_salary_rangec .salary_range").forEach(function(rd){
-            rd.addEventListener("mousedown",function(){
-    		    if (this.checked) {
-                    this.onclick =  function(){
-                                        this.checked=false;
-                                        $('.filtered_kw_salary_c').text('Not specified');
-                                        salary ='';
-                                        jQuery('.video_filter_search_resultc').empty();
-                                    }
-                }
-                else{
-                    this.onclick=null
-                }
-    	    })
+        // document.querySelectorAll(".all_salary_rangec .salary_range").forEach(function(rd){
+        //     rd.addEventListener("mousedown",function(){
+    	// 	    if (this.checked) {
+        //             this.onclick =  function(){
+        //                                 this.checked=false;
+        //                                 $('.filtered_kw_salary_c').text('Not specified');
+        //                                 salary ='';
+        //                                 jQuery('.video_filter_search_resultc').empty();
+        //                             }
+        //         }
+        //         else{
+        //             this.onclick=null
+        //         }
+    	//     })
+        // });
+        // if($('.all_salary_rangec .salary_range:checked').val() === undefined){
+        //     $('.filtered_kw_salary_c').text('Not specified');
+        //     salary ='';
+        // }
+        // else{
+        //     $('.filtered_kw_salary_c').text($('.all_salary_rangec .salary_range:checked').attr('data-value'));
+        //     salary = $('.all_salary_rangec .salary_range:checked').val();
+        // }
+        var salariesc = '';
+        var salariestextc = '';
+        $('.filtered_kw_salary_c').empty();
+        $('.all_salary_rangec .salary_range:checked').each(function(){
+            salariesc += ','+$(this).val();
+            salariestextc += ','+$(this).next().text();
         });
-        if($('.all_salary_rangec .salary_range:checked').val() === undefined){
+        if(salariestextc.substring(1)==''){
             $('.filtered_kw_salary_c').text('Not specified');
-            salary ='';
+            salary = '';
         }
         else{
-            $('.filtered_kw_salary_c').text($('.all_salary_rangec .salary_range:checked').attr('data-value'));
-            salary = $('.all_salary_rangec .salary_range:checked').val();
+            $('.filtered_kw_salary_c').text(salariestextc.substring(1));
+            salary = salariesc.substring(1);
         }
-        if($('.all_employeement_typec .employement:checked').val() === undefined){
+        // if($('.all_employeement_typec .employement:checked').val() === undefined){
+        //     $('.filtered_kw_employement_c').text('Not specified');
+        //     employee_type = '';
+        // }
+        // else{
+        //     $('.filtered_kw_employement_c').text($('.all_employeement_typec .employement:checked').val());
+        //     employee_type = $('.all_employeement_typec .employement:checked').attr('data-val');
+        // }
+        var emptype = '';
+        $('.filtered_kw_employement_c').empty();
+        $('.all_employeement_typec .employement:checked').each(function(){
+            emptype += ','+$(this).next().text();
+        });
+        if(emptype.substring(1)==''){
             $('.filtered_kw_employement_c').text('Not specified');
             employee_type = '';
         }
         else{
-            $('.filtered_kw_employement_c').text($('.all_employeement_typec .employement:checked').val());
-            employee_type = $('.all_employeement_typec .employement:checked').attr('data-val');
+            $('.filtered_kw_employement_c').text(emptype.substring(1));
+            employee_type = emptype.substring(1);
         }
         var prev_skill_data = $('.filtered_kw_skills_c').text();
         if($('.all_skills_filterc .skillname').val() == '' && prev_skill_data.replace(/\s/g, '')=="Notspecified"){
