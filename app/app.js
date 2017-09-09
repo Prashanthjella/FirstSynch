@@ -936,6 +936,7 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
           $cookies.put('company_userid', data.data.company_id);
           $location.search('code', null);
           $location.search('state', null);
+          $location.search('_', null);
           jQuery("#fbsignUp").modal('hide');
           $rootScope.guest_login = false;
           $rootScope.company_login = true;
@@ -985,6 +986,7 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
           $rootScope.companyuserInfo = window.sessionStorage.getItem("token");
           $location.search('code', null);
           $location.search('state', null);
+          $location.search('_', null);
           $rootScope.guest_login = false;
           $rootScope.company_login = true;
           $location.path( "/com");
@@ -993,6 +995,7 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
           $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
           $location.search('code', null);
           $location.search('state', null);
+          $location.search('_', null);
           $rootScope.guest_login = false;
           $rootScope.student_login = true;
           $location.path( "/stu" );
@@ -1021,6 +1024,7 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
         }
         $location.search('code', null);
         $location.search('state', null);
+        $location.search('_', null);
         jQuery("#fbsignUp").modal('show');
       }
     },

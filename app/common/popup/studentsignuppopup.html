@@ -38,7 +38,7 @@
                     <span style="color: green; font-weight: bold;">{{message}}</span>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': studentregistration.name.$valid}">First Name</label> <sup class="asterisk">*</sup>
-                        <input type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required ng-class="{'has-error': studentregistration.name.$touched && studentregistration.name.$error.required, 'has-success': studentregistration.name.$valid}"/>
+                        <input maxlength="200" ng-pattern="/^[a-zA-Z\s]*$/" type="text" class="form-control custom-form-control-br-bottom" id="your-name" name="name" ng-model="name"  required ng-class="{'has-error': studentregistration.name.$touched && studentregistration.name.$error.required, 'has-success': studentregistration.name.$valid}"/>
                         <input type="hidden" id="e_mail" name="e_mail" ng-model="e_mail" />
                         <input type="hidden" id="allow_pipl" value="1">
                         <input type="hidden" name="iaccept" value="true" ng-model="iaccept" />
@@ -406,7 +406,7 @@
 <!-- Modal Registration content End-->
 <div class="modal fade custom-model  custom-model-registration" id="fbsignUp" ng-controller="FbLogin" tabindex="-1" role="dialog"  data-backdrop="static">
     <form name="fbstusignup" ng-submit="fbsignup()">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scroll">
             <div class="modal-content custom-modal-video-content">
                 <div class="modal-header page-bg-gray cusom-model-onboard-header ">
                     <button type="button" class="close custom-modal-close" ng-click="student_signup_clear()" data-dismiss="modal">&times;</button>
@@ -429,38 +429,41 @@
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
                                         <div class="panel panel-default custom-panel-onboarding-default">
-                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !facebookform.fbfirstname , 'has-success': facebookform.fbfirstname}">
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fbfirstname.$error.pattern , 'has-success': facebookform.fbfirstname}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': facebookform.fbfirstname}">
                                                                 First Name
                                                             </label>
-                                                            <input type="text" class=" custom-form-control-br-bottom" name="fbfirstname" ng-model="facebookform.fbfirstname" value="{{facebookform.fbfirstname}}" id="fbfirstname">
+                                                            <span ng-show="fbstusignup.fbfirstname.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                                            <input maxlength="200" ng-pattern="/^[a-zA-Z\s]*$/" type="text" class=" custom-form-control-br-bottom" name="fbfirstname" ng-model="facebookform.fbfirstname" value="{{facebookform.fbfirstname}}" id="fbfirstname">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': !facebookform.fblastname , 'has-success': facebookform.fblastname}">
+                                            <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': fbstusignup.fblastname.$error.pattern , 'has-success': facebookform.fblastname}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': facebookform.fblastname}">
                                                                 Last Name
                                                             </label>
-                                                            <input type="text" class=" custom-form-control-br-bottom" name="fblastname" ng-model="facebookform.fblastname" value="{{facebookform.fblastname}}" id="fblastname">
+                                                            <span ng-show="fbstusignup.fblastname.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                                            <input maxlength="200" ng-pattern="/^[a-zA-Z\s]*$/" type="text" class=" custom-form-control-br-bottom" name="fblastname" ng-model="facebookform.fblastname" value="{{facebookform.fblastname}}" id="fblastname">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !facebookform.fbemail , 'has-success': facebookform.fbemail}">
+                                            <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fbemail.$invalid , 'has-success': fbstusignup.fbemail.$valid}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <div class="form-group form-group-educations">
-                                                            <label class="text-uppercase" ng-class="{'has-success': facebookform.fbemail}">
+                                                            <label class="text-uppercase" ng-class="{'has-success': fbstusignup.fbemail.$valid}">
                                                                 Email
                                                             </label>
-                                                            <input type="text" class=" custom-form-control-br-bottom" name="fbemail" ng-model="facebookform.fbemail" value="{{facebookform.fbemail}}" id="fbemail">
+                                                            <span ng-show="fbstusignup.fbemail.$invalid" class="validation_msg">Enter the valid email ID</span>
+                                                            <input type="email" class=" custom-form-control-br-bottom" name="fbemail" ng-model="facebookform.fbemail" value="{{facebookform.fbemail}}" id="fbemail">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,14 +496,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': !facebookform.fbdob , 'has-success': facebookform.fbdob}">
+                                            <div class="panel panel-default custom-panel-onboarding-default" ng-class="{'has-error': fbstusignup.dob.$error.pattern , 'has-success': facebookform.fbdob}">
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <div class="form-group form-group-educations">
                                                             <label class="text-uppercase" ng-class="{'has-success': facebookform.fbdob}">
                                                                 Date of Birth
                                                             </label>
-                                                            <input datepicker type="text" class="custom-form-control-br-bottom" ng-model="facebookform.fbdob">
+                                                            <span ng-show="fbstusignup.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                                                            <input datepicker ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" type="text" class="custom-form-control-br-bottom" name="dob" ng-model="facebookform.fbdob">
                                                             <input type="hidden" id="fbjob_count" value="{{facebookform.fbjobscount}}">
                                                             <input type="hidden" id="fbeducation_count" value="{{facebookform.fbeducationcount}}">
                                                         </div>
@@ -623,14 +627,15 @@
                                         <h4 class="h4 custom-h4-02">Job#1</h4>
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_company_name0 , 'has-success': fb_company_name0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_company_name0.$error.pattern , 'has-success': fb_company_name0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
                                                         <label class="text-uppercase" ng-class="{'has-success': fb_company_name0}">
                                                             Company Name
                                                         </label>
-                                                        <input type="text" maxlength="200" class=" custom-form-control-br-bottom" ng-model="fb_company_name0" name="fb_company_name0" value="" id="fb_company_name0">
+                                                        <span ng-show="fbstusignup.fb_company_name0.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
+                                                        <input type="text" maxlength="200" ng-pattern="/^[a-zA-Z0-9\s]*$/" class=" custom-form-control-br-bottom" ng-model="fb_company_name0" name="fb_company_name0" value="" id="fb_company_name0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -638,13 +643,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_datestarted0 , 'has-success': fb_datestarted0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_datestarted0.$error.pattern , 'has-success': fb_datestarted0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
                                                         <label class="text-uppercase" ng-class="{'has-success': fb_datestarted0}">
                                                             Dates Started
                                                         </label>
+                                                        <span ng-show="fbstusignup.fb_datestarted0.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                                         <input datepicker type="text"  maxlength="12"  ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" class=" custom-form-control-br-bottom" ng-model="fb_datestarted0" name="fb_datestarted0" value="" id="fb_datestarted0">
                                                     </div>
                                                 </div>
@@ -653,13 +659,14 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_leavedate0 , 'has-success': fb_leavedate0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_leavedate0.$error.pattern , 'has-success': fb_leavedate0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
                                                         <label class="text-uppercase" ng-class="{'has-success': fb_leavedate0}">
                                                             Leave Date
                                                         </label>
+                                                        <span ng-show="fbstusignup.fb_leavedate0.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
                                                         <input datepicker maxlength="12"  ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" type="text" class=" custom-form-control-br-bottom" name="fb_leavedate0" ng-model="fb_leavedate0" value="" id="fb_leavedate0">
                                                     </div>
                                                 </div>
@@ -668,14 +675,15 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_jobtitle0 , 'has-success': fb_jobtitle0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_jobtitle0.$error.pattern , 'has-success': fb_jobtitle0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
                                                         <label class="text-uppercase" ng-class="{'has-success': fb_jobtitle0}">
                                                             Job title
                                                         </label>
-                                                        <input maxlength="200" type="text" class=" custom-form-control-br-bottom" name="fb_jobtitle0" ng-model="fb_jobtitle0" value="" id="fb_jobtitle0">
+                                                        <span ng-show="fbstusignup.fb_jobtitle0.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                                                        <input maxlength="200" ng-pattern="/^[a-zA-Z\s]*$/" type="text" class=" custom-form-control-br-bottom" name="fb_jobtitle0" ng-model="fb_jobtitle0" value="" id="fb_jobtitle0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -683,7 +691,7 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_jobdescription0 , 'has-success': fb_jobdescription0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_jobdescription0.$invalid , 'has-success': fb_jobdescription0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
@@ -691,6 +699,7 @@
                                                             Job description
                                                         </label>
                                                         <textarea maxlength="500" class="piplsearch_ta  custom-form-control-br-bottom" id="fb_jobdescription0" ng-model="fb_jobdescription0" name="fb_jobdescription0"></textarea>
+                                                        <p class="text-overlay-textarea">{{500 - fb_jobdescription0.length}}</p>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -780,14 +789,15 @@
                                         <h4 class="h4 custom-h4-02">School#1</h4>
                                     </div>
                                     <div class="panel-group custom-panel-onboarding-group">
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_school_name0 , 'has-success': fb_school_name0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_school_name.$error.pattern , 'has-success': fb_school_name0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
                                                         <label class="text-uppercase" ng-class="{'has-success': fb_school_name0}">
                                                             School
                                                         </label>
-                                                        <input maxlength="200" type="text" class=" custom-form-control-br-bottom" name="fb_school_name" value="" id="fb_school_name0" ng-model="fb_school_name0">
+                                                        <span ng-show="fbstusignup.fb_school_name.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
+                                                        <input maxlength="200" ng-pattern="/^[a-zA-Z0-9\s]*$/" type="text" class=" custom-form-control-br-bottom" name="fb_school_name" value="" id="fb_school_name0" ng-model="fb_school_name0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
@@ -795,7 +805,7 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_dateattended0 , 'has-success': fb_dateattended0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_dateattended.$invalid , 'has-success': fb_dateattended0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
@@ -810,14 +820,15 @@
                                                 </div> -->
                                             </div>
                                         </div>
-                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': !fb_major0 , 'has-success': fb_major0}">
+                                        <div class="panel panel-default custom-panel-onboarding-default " ng-class="{'has-error': fbstusignup.fb_major.$error.pattern , 'has-success': fb_major0}">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group form-group-educations">
                                                         <label class="text-uppercase" ng-class="{'has-success': fb_major0}">
                                                             Major
                                                         </label>
-                                                        <input maxlength="200" type="text" class=" custom-form-control-br-bottom" name="fb_major" value="" id="fb_major0" ng-model="fb_major0">
+                                                        <span ng-show="fbstusignup.fb_major.$error.pattern" class="validation_msg">Enter only alphabets,numerals and spaces</span>
+                                                        <input maxlength="200" ng-pattern="/^[a-zA-Z0-9\s]*$/" type="text" class=" custom-form-control-br-bottom" name="fb_major" value="" id="fb_major0" ng-model="fb_major0">
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-4 text-right">
