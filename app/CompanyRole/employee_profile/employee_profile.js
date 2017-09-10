@@ -42,7 +42,7 @@ FirstSynch.controller("company_employee_profile" ,function ($rootScope,$timeout,
     id:""
   };
 
-  $scope.employee_student_profile_data = function(){
+  $rootScope.employee_student_profile_data = function(){
       $http.get(apiUrl+"api/v1/employee/api/v1/get_employee_profile/"+$routeParams.profileid+"/",{
         headers: {'Authorization' : 'Token '+$rootScope.token_id}
       }).then(function successCallback(response){
@@ -104,7 +104,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
     .then(function (response) {
       $('#student_profile_basic_information').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
     });
   };
 
@@ -124,7 +124,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
       // file is uploaded successfully
       $('#student_profile_hobbies').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
     }, function(resp) {
       // handle error
     }, function(evt) {
@@ -182,7 +182,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
     .then(function (response) {
       $('#student_profile_characteristics').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
     });
   };
 
@@ -221,7 +221,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
     .then(function (response) {
       $('#student_profile_whatiamlooking').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
     });
   };
   $scope.leadershipsubmit = function(){
@@ -235,7 +235,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
     .then(function (response) {
       $('#student_profile_leadership').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
 
     });
   };
@@ -253,7 +253,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
     .then(function (response) {
       $('#student_profile_histroy').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
 
     });
   };
@@ -273,7 +273,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
       // file is uploaded successfully
       $('#student_profile_projects').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
     }, function(resp) {
     }, function(evt) {
     });
@@ -293,7 +293,7 @@ FirstSynch.controller("employeeprofileform" ,function (Upload,$rootScope,$timeou
     .then(function (response) {
       $('#student_profile_myschool').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.employee_student_profile_data();
+      $rootScope.employee_student_profile_data();
     });
   };
 

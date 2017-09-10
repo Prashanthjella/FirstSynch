@@ -9,7 +9,7 @@ var FirstSynch = angular.module("CcompanyProfile", ["ngRoute","ngFileUpload"]);
 // company details
 FirstSynch.controller("company_company_profile" ,function ($rootScope,Upload,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
 
-    $scope.company_profile_form = function(){
+    $rootScope.company_profile_form = function(){
         $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
           headers: {'Authorization' : 'Token '+$rootScope.token_id}
         }).then(function successCallback(response){
@@ -49,38 +49,17 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
       data: {user:$rootScope.user_id,logo: logoimage},
       method:'PUT',
     }).then(function(response){
-      $scope.company_profile_details.logo = response.data.logo;
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-          $scope.company_profile_details = response.data;
-        }, function errorCallback(response){
-          console.log("Unable to perform get company profile details");
-        });
+      $rootScope.company_profile_form();
     });
     // alert(JSON.stringify(data));
     $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.company_userid+"/",JSON.stringify(data))
     .then(function (response) {
       $('#company_profile_basic_information').fadeOut();
-      $scope.company_profile_details.logo = response.data.logo;
-      $scope.company_profile_details.name = response.data.name;
-      $scope.company_profile_details.product_category = response.data.product_category;
-      $scope.company_profile_details.facebook_url = response.data.facebook_url;
-      $scope.company_profile_details.linkedin_url = response.data.linkedin_url;
-      $scope.company_profile_details.twitter_url = response.data.twitter_url;
-      $scope.company_profile_details.website = response.data.website;
-      $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-        headers: {'Authorization' : 'Token '+$rootScope.token_id}
-      }).then(function successCallback(response){
-        $scope.company_profile_details = response.data;
-      }, function errorCallback(response){
-        console.log("Unable to perform get company profile details");
-      });
+      $rootScope.company_profile_form();
     });
   };
   $scope.benefitperkscultrueform = {};
   $scope.benefitperkscultruesubmit = function(){
-      alert($scope.benefitperkscultrueform.benefits);
     var data = {
       company : $rootScope.companyedit_id,
       benefits:$scope.benefitperkscultrueform.benefits,
@@ -91,14 +70,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     $http.post(apiUrl+"api/v1/setups/api/v1/hiring/",JSON.stringify(data))
     .then(function (response) {
       $('#company_profile_benefitperkscultrue').fadeOut();
-      $scope.company_profile_details.hiring[0] = response.data;
-      $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-        headers: {'Authorization' : 'Token '+$rootScope.token_id}
-      }).then(function successCallback(response){
-        $scope.company_profile_details = response.data;
-      }, function errorCallback(response){
-        console.log("Unable to perform get company profile details");
-      });
+      $rootScope.company_profile_form();
     });
   };
   $scope.establishmentform = {};
@@ -111,15 +83,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.company_userid+"/",JSON.stringify(data))
     .then(function (response) {
       $('#company_profile_dateofestablishment').fadeOut();
-      $scope.company_profile_details.establishment_date = response.data.establishment_date;
-      $scope.company_profile_details.est_date_description = response.data.est_date_description;
-      $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-        headers: {'Authorization' : 'Token '+$rootScope.token_id}
-      }).then(function successCallback(response){
-        $scope.company_profile_details = response.data;
-      }, function errorCallback(response){
-        console.log("Unable to perform get company profile details");
-      });
+      $rootScope.company_profile_form();
     });
   };
   $scope.internshipform = {};
@@ -133,7 +97,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_internship').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
   $scope.companysizeform = {};
@@ -147,7 +111,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_companysize').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
   $scope.hirerateform = {};
@@ -163,7 +127,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_hireanddeparture').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
   $scope.fundingform = {};
@@ -176,15 +140,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     $http.patch(apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.company_userid+"/",JSON.stringify(data))
     .then(function (response) {
       $('#company_profile_fundingsize').fadeOut();
-      $scope.company_profile_details.departure_rate = response.data.departure_rate;
-      $scope.company_profile_details.departure_rate_description = response.data.departure_rate_description;
-      $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-        headers: {'Authorization' : 'Token '+$rootScope.token_id}
-      }).then(function successCallback(response){
-        $scope.company_profile_details = response.data;
-      }, function errorCallback(response){
-        console.log("Unable to perform get company profile details");
-      });
+      $rootScope.company_profile_form();
     });
   };
   $scope.growthrateform = {};
@@ -198,7 +154,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_growthrate').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
   $scope.investorform = {};
@@ -212,7 +168,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_inverster').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
   $scope.salaryform = {};
@@ -226,7 +182,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_averagesalary').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
   $scope.locationform = {};
@@ -247,7 +203,7 @@ FirstSynch.controller("companyprofileform" ,function (Upload,$rootScope,$timeout
     .then(function (response) {
       $('#company_profile_location').fadeOut();
       $window.scrollTo(0, 0);
-      $scope.company_profile_form();
+      $rootScope.company_profile_form();
     });
   };
 });
