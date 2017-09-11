@@ -43,7 +43,7 @@ FirstSynch.controller("company_employee_profile" ,function ($rootScope,$timeout,
   };
 
   $rootScope.employee_student_profile_data = function(){
-      $http.get(apiUrl+"api/v1/employee/api/v1/get_employee_profile/"+$routeParams.profileid+"/",{
+      $http.get(apiUrl+"api/v1/employee/api/v1/get_employee_profile/"+$rootScope.user_id+"/",{
         headers: {'Authorization' : 'Token '+$rootScope.token_id}
       }).then(function successCallback(response){
         $scope.employee_profile_details = response.data;

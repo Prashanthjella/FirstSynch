@@ -1,9 +1,9 @@
 
-<div  ng-controller="guest_student_profile">
+<div  ng-controller="guest_student_profile" ng-show="guest_seeker_notfound">
     <div class="container">
 
         <div class="row">
-            <aside class="col-sm-2 sidebar-navi-default">
+            <aside class="col-sm-2 sidebar-navi-default" ng-show="!guest_seeker_notfound">
                 <nav  class="sidebar-navigation">
                     <ul class="custom-sidebar-nav">
                         <li ng-if="student_profile_details.video.length > 0"><a scroll-to="guest_student_profile_videos" href="" title="Videos">Videos</a></li>
@@ -16,7 +16,7 @@
                 </nav>
             </aside>
 
-            <div class="col-sm-offset-2">
+            <div class="col-sm-offset-2" ng-show="guest_seeker_notfound">
 
                 <section class="page-section page-section-edit-profile">
 
@@ -29,9 +29,10 @@
                 </section>
 
             </div>
+            <div class="text-center" ng-show="!guest_seeker_notfound"><h1>Sorry! No Seekers found!</h1></div>
         </div>
     </div>
-    <div class="page-about-me-section">
+    <div class="page-about-me-section" ng-show="guest_seeker_notfound">
 
         <div ng-include ="'GuestRole/student_profile/aboutme.html'"></div>
 
@@ -41,9 +42,9 @@
 
     </div>
 
-    <div ng-include ="'GuestRole/student_profile/education.html'"></div>
+    <div ng-show="guest_seeker_notfound" ng-include ="'GuestRole/student_profile/education.html'"></div>
 
-    <div ng-include ="'GuestRole/student_profile/experience.html'"></div>
+    <div ng-show="guest_seeker_notfound" ng-include ="'GuestRole/student_profile/experience.html'"></div>
 
     <!-- <div ng-include ="'GuestRole/student_profile/skills.html'"></div> -->
 </div>

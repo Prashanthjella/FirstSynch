@@ -265,7 +265,7 @@ FirstSynch.controller("video_cmt_form_controller", function ($cookies,$scope,gue
     });
   };
 });
-FirstSynch.controller("Login", function ($cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
+FirstSynch.controller("Login", function ($timeout,$cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
   var url = window.location.href;
   var idexvalue = url.indexOf("/login");
   if(idexvalue != -1) {
@@ -341,7 +341,10 @@ FirstSynch.controller("Login", function ($cookies,$scope ,$http, apiUrl, $locati
       //$('#logIn').modal('show');
       $('.loader_icon').hide();
       $scope.status = data.data.non_field_errors[0];
-      $('.error_message').html($scope.status);
+      $('.error_message').text($scope.status);
+      $timeout(function() {
+         $('.error_message').text('');
+      }, 5000);
     });
   };// user login - function end
 });
@@ -758,7 +761,7 @@ FirstSynch.controller("ResetPassword", function ($location,$scope, $http, apiUrl
 });
 
 
-FirstSynch.controller("LogoutUser", function ($cookies,$scope, $http, $location, apiUrl, $window, $rootScope) {
+FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http, $location, apiUrl, $window, $rootScope) {
   $scope.LogoutUser = function () {
     var data = $.param({
       token: $window.sessionStorage.getItem('token'),
@@ -797,6 +800,9 @@ FirstSynch.controller("LogoutUser", function ($cookies,$scope, $http, $location,
       delete $rootScope.request_member_id
       delete $rootScope.company_userid
       delete $rootScope.student_id
+      $window.sessionStorage.setItem('token', guest_token);
+      $cookies.put('token', guest_token);
+      $rootScope.token_id = guest_token;
       $location.path( "/" );
     },
     function errorCallback(data, status, headers, config) {

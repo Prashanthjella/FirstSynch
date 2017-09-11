@@ -1,4 +1,4 @@
-<div class="container" ng-controller="guest_company_profile">
+<div class="container" ng-controller="guest_company_profile" ng-show="guest_jobs_notfound">
     <div class="row">
         <aside class="col-sm-2 sidebar-navi-default">
             <nav  class="sidebar-navigation">
@@ -19,24 +19,25 @@
         </div>
     </div>
 </div>
-<div class="page-about-we-hiresection">
+<div class="text-center" ng-show="!guest_jobs_notfound"><h1>Sorry! No Jobs found!</h1></div>
+<div class="page-about-we-hiresection" ng-show="guest_jobs_notfound">
     <div ng-include ="'GuestRole/company_profile/company_wehire.html'"></div>
     <div ng-include ="'GuestRole/company_profile/company_position.html'"></div>
     <div ng-include ="'GuestRole/company_profile/company_skill.html'"></div>
     <!-- <div ng-include ="'GuestRole/company_profile/company_questions.html'"></div> -->
 </div>
-<div class="test page-section page-section-profile-container">
+<div class="test page-section page-section-profile-container" ng-show="guest_jobs_notfound">
     <section class="page-section-profile-company">
         <div class="container">
             <div class="row">
                 <div class="col-sm-offset-2">
-<div ng-include ="'GuestRole/company_profile/company_full_profile.html'"></div>
+                    <div ng-include ="'GuestRole/company_profile/company_full_profile.html'"></div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-<section class="page-section page-section-career-fair" id="career-fairs" ng-if ="company_profile_details.careerfairs.length > 0">
+<section class="page-section page-section-career-fair" id="career-fairs" ng-if ="company_profile_details.careerfairs.length > 0" ng-show="guest_jobs_notfound">
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">
@@ -45,7 +46,7 @@
         </div>
     </div>
 </section>
-<section  id="guest_company_profile_employees" >
+<section  id="guest_company_profile_employees" ng-show="guest_jobs_notfound" >
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">

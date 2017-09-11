@@ -7,13 +7,14 @@ var FirstSynch = angular.module("StudentcareerFairDetail", ["ngRoute"]);
 
 // career fair details
 FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl,$rootScope) {
-
+  $scope.student_careerfair_notfound = true;
   $scope.initCareerFairDetails=function(){
       $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
             headers: {'Authorization' : 'Token '+$rootScope.token_id}
           })
           .then(function successCallback(response){
               $scope.careerfair_details = response.data;
+              $scope.student_careerfair_notfound = true;
               $scope.availability_followup = false;
               $scope.todaydate = $filter('date')(new Date(), 'MM/dd/yy');
               $scope.careerfair_date = $filter('date')(response.data.start_time, 'MM/dd/yy');
@@ -24,6 +25,7 @@ FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $h
                   if(parseInt(obj) == parseInt($rootScope.user_id)){$scope.availability_followup = true;}
               });
           }, function errorCallback(response){
+              $scope.student_careerfair_notfound = false;
               console.log("Unable to perform get career fair details");
       });
    };

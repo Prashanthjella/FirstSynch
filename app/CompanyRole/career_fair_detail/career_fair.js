@@ -15,12 +15,14 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
   if($rootScope.company_userid){
     $scope.companypk = $rootScope.company_userid;
   }
+  $scope.company_careerfair_notfound = true;
   $scope.initCareerFairDetails=function(){
     $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
       headers: {'Authorization' : 'Token '+$rootScope.token_id}
     })
     .then(function successCallback(response){
       $scope.careerfair_details = response.data;
+      $scope.company_careerfair_notfound = true;
       $scope.availability_followup = false;
       $scope.availability_requested = false;
       $scope.todaydate = $filter('date')(new Date(), 'MM/dd/yy');
@@ -39,7 +41,8 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
           }
         });
     }, function errorCallback(response){
-      console.log("Unable to perform get career fair details");
+        $scope.company_careerfair_notfound = false;
+        console.log("Unable to perform get career fair details");
     });
   };
 

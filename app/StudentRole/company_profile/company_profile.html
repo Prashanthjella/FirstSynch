@@ -1,4 +1,4 @@
-<div class="container" ng-controller="student_company_profile">
+<div class="container" ng-controller="student_company_profile" ng-show="student_jobs_notfound">
     <div class="row">
         <aside class="col-sm-2 sidebar-navi-default">
             <nav  class="sidebar-navigation">
@@ -19,13 +19,14 @@
         </div>
     </div>
 </div>
-<div class="page-about-we-hiresection">
+<div class="page-about-we-hiresection" ng-show="student_jobs_notfound">
     <div ng-include ="'StudentRole/company_profile/company_wehire.html'"></div>
     <div ng-include ="'StudentRole/company_profile/company_position.html'"></div>
     <div ng-include ="'StudentRole/company_profile/company_skill.html'"></div>
     <!-- <div ng-include ="'StudentRole/company_profile/company_questions.html'"></div> -->
 </div>
-<div class="page-about-company">
+<div class="text-center" ng-show="!student_jobs_notfound"><h1>Sorry! No Jobs found!</h1></div>
+<div class="page-about-company" ng-show="student_jobs_notfound">
     <section class="page-section page-company">
         <div class="container">
             <div class="row">
@@ -36,7 +37,7 @@
         </div>
     </section>
 </div>
-<section class="page-section page-section-career-fair" id="career-fairs">
+<section class="page-section page-section-career-fair" id="career-fairs" ng-show="student_jobs_notfound">
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">
@@ -45,7 +46,7 @@
         </div>
     </div>
 </section>
-<section id="employees">
+<section id="employees" ng-show="student_jobs_notfound">
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">
