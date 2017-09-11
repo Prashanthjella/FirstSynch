@@ -179,8 +179,8 @@
                                 LOGO
                               </label>
                               <span ng-show="companyregistrations.domainimageupload.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
-                              <img ng-if="domainimage || !domainimageupload "  src="{{domainimage}}" height="100" width="100"/>
-                              <img ng-if="!domainimage" ngf-thumbnail="domainimageupload"  height="100" width="100">
+                              <img ng-if="domainimage && !domainimageupload "  src="{{domainimage}}" height="100" width="100"/>
+                              <img ngf-thumbnail="domainimageupload"  height="100" width="100">
                               <input type="hidden" class=" custom-form-control-br-bottom" ng-model="domainimage"  value="{{domainimage}}" id="domainimage">
                               <input type="file" ngf-select ngf-max-size="2MB" class=" custom-form-control-br-bottom" accept="image/*" ng-model="domainimageupload" name="domainimageupload" id="domainimageupload">
                             </div>
