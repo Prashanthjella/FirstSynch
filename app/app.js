@@ -350,6 +350,16 @@ FirstSynch.controller("Login", function ($timeout,$cookies,$scope ,$http, apiUrl
 });
 
 FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
+    $http({
+      url: apiUrl+'api/v1/career_fairs/newcompany_careerfairs/',
+      method: "GET",
+    })
+    .then(function successCallback(data, status, headers, config) {
+        $scope.newcompany_careerfairs = data.data;
+    },
+    function errorCallback(data, status, headers, config) {
+    });
+
     $scope.CompanyVerifying = function () {
         var data = {e_mail:$scope.companyemail}
         $http({

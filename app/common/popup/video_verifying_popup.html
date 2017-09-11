@@ -24,6 +24,9 @@
                     </div>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Choose a career fair</label>
+                        <select>
+                            <option value="{{carerfair.title}}" ng-repeat="carerfair in newcompany_careerfairs">{{carerfair.title}}</option>
+                        </select>
                     </div>
                     <div class="form-group" ng-show="companyverifyvideo.id">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Your video</label>
