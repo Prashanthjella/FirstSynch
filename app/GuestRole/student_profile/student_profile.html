@@ -1,9 +1,9 @@
 
-<div  ng-controller="guest_student_profile" ng-show="guest_seeker_notfound">
+<div  ng-controller="guest_student_profile">
     <div class="container">
 
         <div class="row">
-            <aside class="col-sm-2 sidebar-navi-default" ng-show="!guest_seeker_notfound">
+            <aside class="col-sm-2 sidebar-navi-default" ng-show="guest_seeker_notfound">
                 <nav  class="sidebar-navigation">
                     <ul class="custom-sidebar-nav">
                         <li ng-if="student_profile_details.video.length > 0"><a scroll-to="guest_student_profile_videos" href="" title="Videos">Videos</a></li>
@@ -29,7 +29,7 @@
                 </section>
 
             </div>
-            <div class="text-center" ng-show="!guest_seeker_notfound"><h1>Sorry! No Seekers found!</h1></div>
+            <div class="text-center" ng-show="!guest_seeker_notfound"><h1>Invalid URL!</h1></div>
         </div>
     </div>
     <div class="page-about-me-section" ng-show="guest_seeker_notfound">
