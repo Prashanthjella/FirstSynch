@@ -262,10 +262,47 @@ $(this).addClass('active');
 
   $(document).keydown(function(event) {
     if (event.keyCode == 27) {
-      $('#logIn,#dashboard-filter,#dashboard-filterc,#registration').modal('hide');
+      $('#logIn,#signUp,#companyverify,#dashboard-filter,#dashboard-filterc,#registration').modal('hide');
+      $('#dashboard-filter').removeClass('active');
+      $('#dashboard-filterc').removeClass('active');
+      $('#VideoPopup1').modal('hide');
     }
   });
-
+  // $(document).on('shown.bs.modal','#registration,#logIn,#companyverify,#signUp', function () {
+  //     var form_h8 =  $(window).height();
+  //     var form_vith =  $(this).find('form .modal-content').width();
+  //     $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)+'px','margin-left':-form_vith/2+'px'});
+  // });
+  $(document).on('shown.bs.modal','#logIn,#companyverify', function () {
+      var form_h8 =  $(this).find('form .modal-content').height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-30+'px','margin-left':-form_vith/2+'px'});
+  });
+  $(document).on('shown.bs.modal','#registration', function () {
+      var form_h8 =  $(this).find('form .modal-content').height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-10+'px','margin-left':-form_vith/2+'px'});
+  });
+  $(document).on('shown.bs.modal','#signUp', function () {
+      var form_h8 =  $(window).height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)+'px','margin-left':-form_vith/2+'px'});
+  });
+  $(document).on('shown.bs.modal','#companyregistration', function () {
+      var form_h8 =  $(window).height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)+'px','margin-left':-form_vith/2+'px'});
+  });
+  $(document).on('shown.bs.modal','#ForgotPassword', function () {
+      var form_h8 =  $(this).find('form .modal-content').height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-10+'px','margin-left':-form_vith/2+'px'});
+  });
+  $(document).on('shown.bs.modal','#resetpassword', function () {
+      var form_h8 =  $(this).find('form .modal-content').height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-10+'px','margin-left':-form_vith/2+'px'});
+  });
   //Compay Account Settings Function
   //Edit Username
   $(document).on('click','.acc_show_act',function(){
