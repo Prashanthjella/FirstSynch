@@ -7,7 +7,7 @@ var FirstSynch = angular.module("SStudentSetting", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 //student page - top 3 details
-FirstSynch.controller("student_settings" ,function ($location,$timeout,$window,$scope,$rootScope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_settings" ,function ($cookies,$location,$timeout,$window,$scope,$rootScope, $http,$routeParams,apiUrl) {
   $http.get(apiUrl+"api/v1/accounts/v2/users/"+$rootScope.user_id+"/",{
     headers: {'Authorization' : 'Token '+$rootScope.token_id}
   }).then(function successCallback(response){
@@ -64,6 +64,7 @@ FirstSynch.controller("student_settings" ,function ($location,$timeout,$window,$
         $window.sessionStorage.removeItem('token');
         $window.sessionStorage.removeItem('profileimage');
         $window.sessionStorage.removeItem('usertype');
+        $cookies.remove('profileimage');
         delete $rootScope.companyuserInfo
         delete $rootScope.studentuserInfo
         delete $rootScope.token_id

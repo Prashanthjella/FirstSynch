@@ -406,7 +406,7 @@
 </div>
 <!-- Modal Registration content End-->
 <div class="modal fade custom-model  custom-model-registration" id="fbsignUp" ng-controller="FbLogin" tabindex="-1" role="dialog"  data-backdrop="static">
-    <form name="fbstusignup" ng-submit="fbsignup()">
+    <form name="fbstusignup" ng-submit="fbsignup(fbimageupload)">
         <div class="modal-dialog modal-dialog-scroll">
             <div class="modal-content custom-modal-video-content">
                 <div class="modal-header page-bg-gray cusom-model-onboard-header ">
@@ -476,8 +476,11 @@
                                                             <label class="text-uppercase" ng-class="{'has-success': facebookform.fbimage}">
                                                                 Profile Image
                                                             </label>
-                                                            <input type="hidden" class="custom-form-control-br-bottom" ng-model="facebookform.fbimage">
-                                                            <img src="{{facebookform.fbimage}}" ng-if="facebookform.fbimage" / >
+                                                            <img ng-if="!fbimageupload && facebookform.fbimage"  src="{{facebookform.fbimage}}" height="100" width="100"/>
+                                                            <img ngf-thumbnail="fbimageupload"  height="100" width="100">
+                                                            <span ng-show="fbstusignup.fbimageupload.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+                                                            <input type="hidden" class=" custom-form-control-br-bottom" ng-model="facebookform.fbimage"  value="{{facebookform.fbimage}}" id="fbimage">
+                                                            <input type="file" ngf-select ngf-max-size="2MB" class=" custom-form-control-br-bottom" accept="image/*" ng-model="fbimageupload" name="fbimageupload" id="fbimageupload">
                                                         </div>
                                                     </div>
                                                 </div>

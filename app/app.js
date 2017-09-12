@@ -859,7 +859,7 @@ FirstSynch.controller("UserActivation", function ($scope, $http, apiUrl,$locatio
     });
   }
 });
-FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $http, apiUrl,$location,companyusertype,studentusertype) {
+FirstSynch.controller("FbLogin", function (Upload,$cookies,$window,$rootScope,$scope, $http, apiUrl,$location,companyusertype,studentusertype) {
   $scope.facebookform = {
     fbfirstname:"",
     fblastname : "",
@@ -873,7 +873,7 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
   };
 
 
-  $scope.fbsignup = function(){
+  $scope.fbsignup = function(image){
     var fbworkhistroy_arry = [];
     $http({
       url: apiUrl+'api/v1/accounts/signupemail/',
@@ -887,42 +887,85 @@ FirstSynch.controller("FbLogin", function ($cookies,$window,$rootScope,$scope, $
         for(var w=0;w<parseInt($('#fbjob_count').val());w++){
           fbworkhistroy_arry.push({"company_name":$('#fb_company_name'+w).val(),"datestarted":$('#fb_datestarted'+w).val(),"leavedate":$('#fb_leavedate'+w).val(),"jobtitle":$('#fb_jobtitle'+w).val(),"jobdescription":$('#fb_jobdescription'+w).val()});
         }
+        if(image){
+            var data = {
+              is_verified : true,
+              education : {school_name : $('#fb_school_name0').val(),dateattended: $('#fb_dateattended0').val(),major:$('#fb_major0').val()},
+              student : {first_name : $scope.facebookform.fbfirstname},
+              user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname},
+              jobs:fbworkhistroy_arry
+            };
+            Upload.upload({
+                url: apiUrl+'api/v1/student/student_signup/',
+                data: { json_data : JSON.stringify(data), profile_picture : image },
+                method:'POST',
+            }).then(function(resp) {
+                $window.sessionStorage.setItem('token', resp.data.token);
+                $rootScope.token_id = resp.data.token;
+                $window.sessionStorage.setItem('user_id', resp.data.user_id);
+                $window.sessionStorage.setItem('usertype', resp.data.usertype);
+                $window.sessionStorage.setItem('profileimage', resp.data.profile_image);
+                $cookies.put('profileimage', resp.data.profile_image);
+                $rootScope.profileimage = resp.data.profile_image;
+                $rootScope.user_id = resp.data.user_id;
+                $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
+                $rootScope.e_mail = $scope.facebookform.fbemail;
+                $location.search('code', null);
+                $location.search('state', null);
+                $cookies.put('token', resp.data.token);
+                $cookies.put('usertype', resp.data.usertype);
+                $cookies.put('user_id', resp.data.user_id);
+                $cookies.put('student_id', resp.data.student_id);
+                jQuery("#fbsignUp").modal('hide');
+                $rootScope.guest_login = false;
+                $rootScope.student_login = true;
+                $location.path("/stu");
+            }, function(resp) {
+              // handle error
+            }, function(evt) {
+              // progress notify
+            });
+        }
+        else{
+            var data = {
+              is_verified : true,
+              education : {school_name : $('#fb_school_name0').val(),dateattended: $('#fb_dateattended0').val(),major:$('#fb_major0').val()},
+              image : $scope.facebookform.fbimage,
+              student : {first_name : $scope.facebookform.fbfirstname},
+              user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname},
+              jobs:fbworkhistroy_arry
+            };
+            $http({
+              url: apiUrl+'api/v1/student/student_signup/',
+              method: "POST",
+              data: { json_data : JSON.stringify(data) },
+            })
+            .then(function successCallback(data, status, headers, config) {
+              $window.sessionStorage.setItem('token', data.data.token);
+              $rootScope.token_id = data.data.token;
+              $window.sessionStorage.setItem('user_id', data.data.user_id);
+              $window.sessionStorage.setItem('usertype', data.data.usertype);
+              $window.sessionStorage.setItem('profileimage', data.data.profile_image);
+              $cookies.put('profileimage', data.data.profile_image);
+              $rootScope.profileimage = data.data.profile_image;
+              $rootScope.user_id = data.data.user_id;
+              $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
+              $rootScope.e_mail = $scope.facebookform.fbemail;
+              $location.search('code', null);
+              $location.search('state', null);
+              $cookies.put('token', data.data.token);
+              $cookies.put('usertype', data.data.usertype);
+              $cookies.put('user_id', data.data.user_id);
+              $cookies.put('student_id', data.data.student_id);
+              jQuery("#fbsignUp").modal('hide');
+              $rootScope.guest_login = false;
+              $rootScope.student_login = true;
+              $location.path("/stu");
+            },
+            function errorCallback(data, status, headers, config) {
 
-        var data = {
-          is_verified : true,
-          education : {school_name : $('#fb_school_name0').val(),dateattended: $('#fb_dateattended0').val(),major:$('#fb_major0').val()},
-          image : $scope.facebookform.fbimage,
-          student : {first_name : $scope.facebookform.fbfirstname},
-          user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname},
-          jobs:fbworkhistroy_arry
-        };
-        $http({
-          url: apiUrl+'api/v1/student/student_signup/',
-          method: "POST",
-          data: data
-        })
-        .then(function successCallback(data, status, headers, config) {
-          $window.sessionStorage.setItem('token', data.data.token);
-          $rootScope.token_id = data.data.token;
-          $window.sessionStorage.setItem('user_id', data.data.user_id);
-          $window.sessionStorage.setItem('usertype', data.data.usertype);
-          $rootScope.user_id = data.data.user_id;
-          $rootScope.studentuserInfo = window.sessionStorage.getItem("token");
-          $rootScope.e_mail = $scope.facebookform.fbemail;
-          $location.search('code', null);
-          $location.search('state', null);
-          $cookies.put('token', data.data.token);
-          $cookies.put('usertype', data.data.usertype);
-          $cookies.put('user_id', data.data.user_id);
-          $cookies.put('student_id', data.data.student_id);
-          jQuery("#fbsignUp").modal('hide');
-          $rootScope.guest_login = false;
-          $rootScope.student_login = true;
-          $location.path("/stu");
-        },
-        function errorCallback(data, status, headers, config) {
-
-        });
+            });
+        }
       }else{
         //compzny
         var data = {
