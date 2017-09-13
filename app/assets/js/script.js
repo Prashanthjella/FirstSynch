@@ -355,7 +355,22 @@ $(this).addClass('active');
       }
   });
 
+    // $("body").on('click',function(){
+    //     if($('#dashboard-filter').hasClass('active')){
+    //         $("#dashboard-filter").removeClass("active");
+    //     }
+    //     if($('#dashboard-filterc').hasClass('active')){
+    //         $("#dashboard-filterc").removeClass("active");
+    //     }
+    // });
 
+  // Prevent events from getting pass .popup
+    // $('').on('click',function(e){
+    //   e.stopPropagation();
+    // });
+    // $('#dashboard-filterc .modal-content').on('click',function(e){
+    //   e.stopPropagation();
+    // });
 
 
 
