@@ -16,11 +16,11 @@
           <div  id="success_msg">
             <div class="form-group">
               <label for="email" ng-class="{'has-success': resetpassword.password.$valid}">Please Enter your new Password</label>
-              <input type="password" id="password" name="password" class="form-control custom-form-control-br-bottom" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" password-verify="{{cpassword}}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': resetpassword.password.$touched && resetpassword.password.$error.required && resetpassword.password.$invalid, 'has-success': resetpassword.password.$valid}"/>
+              <input type="password" id="password" name="password" class="form-control custom-form-control-br-bottom" ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" password-verify="{{cpassword}}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': resetpassword.password.$touched && resetpassword.password.$error.required && resetpassword.password.$invalid, 'has-success': resetpassword.password.$valid}"/>
             </div>
             <div class="form-group">
               <label for="email" ng-class="{'has-success': resetpassword.cpassword.$valid}">Please re-confirm your Password</label>
-              <input type="password" id="cpassword" name="cpassword" class="form-control custom-form-control-br-bottom" ng-model="cpassword" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" password-verify="{{password}}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': resetpassword.cpassword.$touched && resetpassword.cpassword.$error.required && resetpassword.cpassword.$invalid, 'has-success': resetpassword.cpassword.$valid}"/>
+              <input type="password" id="cpassword" name="cpassword" class="form-control custom-form-control-br-bottom" ng-model="cpassword" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" password-verify="{{password}}" tooltip-placement="bottom" uib-tooltip="Password strength: Use at least 8 characters with combination of 1 numeric, special character, 1 capital letter." required ng-class="{'has-error': resetpassword.cpassword.$touched && resetpassword.cpassword.$error.required && resetpassword.cpassword.$invalid, 'has-success': resetpassword.cpassword.$valid}"/>
             </div>
           </div>
 
@@ -56,7 +56,7 @@
             </div>
             <div class="page-step-container">
               <!--<span class="text-uppercase text-center grey-text">Step 3 of 3</span>-->
-              <h2 class="text-uppercase text-center bold-text">Student registration</h2>
+              <h2 class="text-uppercase text-center bold-text">Reset Password</h2>
             </div>
           </div>
           <div class="modal-body custom-modal-body-login">
@@ -64,17 +64,17 @@
             <div class="row">
               <div class="col-sm-12"><!--col-sm-offset-2-->
                 <div class="form-group text-center">
-                  <div style="color: green; font-weight: bold; margin-bottom: 10px;">Congratulations! You have successfully registered!. Please activate your account by login with your register email id.</div>
-                  
+                  <div style="color: green; font-weight: bold; margin-bottom: 10px;">Congratulations! You have successfully Changed Password!. Please login with your register email id.</div>
+
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02 hide1">
           <a class="btn btn-default custom-btn-login custom-btn-login-enbled" data-toggle="modal" data-target="#logIn" href="#" data-dismiss="modal">Login</a>
         </div>
-        
+
         </div>
 
       </div><!-- /.modal-content -->

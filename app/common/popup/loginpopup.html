@@ -16,7 +16,7 @@
 
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.password.$valid}">Password</label> <sup class="asterisk">*</sup>
-            <input autocomplete="off" type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="userlogform.password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': userloginform.password.$invalid, 'has-success': userloginform.password.$valid}"/>
+            <input autocomplete="off" type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="userlogform.password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': userloginform.password.$invalid, 'has-success': userloginform.password.$valid}"/>
             <input type="hidden" name="redirecturl" id="redirecturl" value="" ng-model="redirecturl"/>
             <input type="hidden" name="videoid" id="videoid" value="" ng-model="videoid"/>
           </div>

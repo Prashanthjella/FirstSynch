@@ -6,31 +6,50 @@
             <input id="hobbies" class="checkbox-input" checked="" type="checkbox">
             <label for="hobbies" class="checkbox-label"> {{hobbies.name}}</label>
         </div> -->
-        <table class="table table-striped" ng-show="hobbyform.length > 0">
-           <tr>
-               <th>S.no</th>
-               <th>Hobby</th>
-               <th>Description</th>
-               <th>Action</th>
-           </tr>
+        <form name="updateform" ng-submit="hobbyupdatesubmit(hobbyformadd.image,hobbyformadd.id, hobbyformadd.name, hobbyformadd.description)" ng-repeat="hobbyformadd in hobbydata" style="margin-bottom: 50px;">
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
+               <div class="col-sm-12 col-md-12">
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase" ng-class="{'has-success': updateform.name.$valid}">Hobby</label><sup class="asterisk">*</sup> <span ng-show="updateform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                        <input type="hidden" name="stud_id" ng-model="hobbyformupdate.stud_id">
+                        <input type="hidden" name="existing_id" ng-model="hobbyformadd.id">
+                        <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyformadd.name" ng-class="{'has-error': updateform.name.$touched, 'has-success': updateform.name.$valid}" required>
+                    </div>
+                    <div class="form-group custom-lider-form-group custom-form-group-new">
+                        <label class="text-uppercase" ng-class="{'has-success': hobbyformadd.description}">Description</label>
+                        <textarea ng-class="{'has-success': hobbyformadd.description}" class="form-control custom-text-area" rows="4" placeholder="Write a description  about your hobbies" ng-model="hobbyformadd.description" maxlength="500"></textarea>
+                        <p class="text-overlay-textarea">{{500 - hobbyformadd.description.length}}</p>
+                    </div>
+                    <div class="form-group custom-lider-form-group">
+                        <label class="text-uppercase" ng-class="{'has-success': hobbyformadd.image}">Picture</label>
+                        <span ng-show="updateform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
+                        <input ng-class="{'has-success': hobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="hobbyformadd.image" name="file" accept="image/*" >
+                        <img ngf-thumbnail="hobbyformadd.image" height="100" width="100">
+                    </div>
+                </div>
+                <!-- <hr class="hr-line-lidership"> -->
+            </div>
+             <p class="edt-pro-btn-group">
+            <input type="submit" ng-disabled="updateform.name.$invalid||updateform.file.$invalid||" value="Update"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+            <button type="button" ng-click="student_edit_profile_hobbies_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+            <button type="button" ng-confirm-click="Are you sure to delete your hobby details?" confirmed-click="removehobby( hobbyformadd.id )" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
+            </p>
+            <!-- <div class="row">
+                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Hobby</a> </div>
+            </div> -->
+        </form>
 
-           <tr ng-repeat="hobby in hobbyform">
-               <td>{{ $index+1 }}</td>
-               <td>{{ hobby.name }}</td>
-               <td>{{ hobby.description }}</td>
-               <td><a ng-click="edithobby( hobby )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
-                   <a ng-confirm-click="Are you sure to delete your work project details?" confirmed-click="removehobby( hobby.id )" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
-           </tr>
 
-       </table>
-        <form name="sehobbyform" ng-submit="hobbysubmit(hobbyformadd.image,hobbyformadd.existing_id)">
+          <form name="sehobbyform" ng-submit="hobbysubmit(hobbyformadd.image,hobbyformadd.existing_id)">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': sehobbyform.name.$valid}">Hobby</label><sup class="asterisk">*</sup> <span ng-show="sehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input type="hidden" name="stud_id" ng-model="hobbyformadd.stud_id">
-                        <input type="hidden" name="existing_id" ng-model="hobbyformadd.existing_id">
+                        <input type="hidden" name="existing_id" ng-model="0">
                         <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyformadd.name" ng-class="{'has-error': sehobbyform.name.$touched, 'has-success': sehobbyform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">
@@ -43,13 +62,12 @@
                         <span ng-show="sehobbyform.file.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
                         <input ng-class="{'has-success': hobbyformadd.image}" ngf-max-size="2MB" type="file" ngf-select ng-model="hobbyformadd.image" name="file" accept="image/*" >
                         <img ngf-thumbnail="hobbyformadd.image" height="100" width="100">
-                        <img ng-if="!hobbyformadd.image" src="{{hobbyformadd.imagesrc}}" height="100" width="100">
                     </div>
                 </div>
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
              <p class="edt-pro-btn-group">
-            <input type="submit" ng-disabled="sehobbyform.name.$invalid||sehobbyform.file.$invalid||" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+            <input type="submit" ng-disabled="sehobbyform.name.$invalid||sehobbyform.file.$invalid||" value="Add Hobby"  class="btn btn-default custom-btn btn-lg btn-submit"/>
             <button type="button" ng-click="student_edit_profile_hobbies_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
             </p>
             <!-- <div class="row">

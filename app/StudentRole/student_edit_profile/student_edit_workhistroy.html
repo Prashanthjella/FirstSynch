@@ -2,6 +2,51 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success success_top_act" ng-if="workhistroymessage">{{workhistroymessage}}</div>
           <h1 class="custom-h1-01 custom-h1-btm-space-55">Work History</h1>
+
+          <form name="seworkhistroy" ng-submit="workhistroyupdateformsubmit(workhistroyform.id, workhistroyform.company, workhistroyform.start_date, workhistroyform.leave_date, workhistroyform.job_title, workhistroyform.job_description)" ng-repeat="workhistroyform in workhistroyupdateform" style="margin-bottom: 50px;">
+              <div class="row">
+                  <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
+                <div class="col-sm-12 col-md-12">
+                      <div class="form-group custom-lider-form-group">
+                          <label class="text-uppercase" ng-class="{'has-success': seworkhistroy.company.$valid}">Work</label> <sup class="asterisk">*</sup>
+                          <span ng-show="seworkhistroy.company.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
+                          <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.company" placeholder="Company Name" name="company" ng-class="{'has-error': seworkhistroy.company.$touched, 'has-success': seworkhistroy.company.$valid}" required>
+                      </div>
+                      <div class="form-group custom-lider-form-group">
+                          <label class="text-uppercase" ng-class="{'has-success': seworkhistroy.start_date.$valid}">Start Date</label> <sup class="asterisk">*</sup>
+                          <span ng-show="seworkhistroy.start_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                          <input maxlength="12" type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.start_date" datepicker placeholder="Start Date" name="start_date" ng-class="{'has-error': seworkhistroy.start_date.$touched, 'has-success': seworkhistroy.start_date.$valid}" required>
+                      </div>
+                      <div class="form-group custom-lider-form-group">
+                          <label class="text-uppercase" ng-class="{'has-success': seworkhistroy.leave_date.$valid}">Leave Date</label> <sup class="asterisk">*</sup>
+                          <span ng-show="seworkhistroy.leave_date.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+                          <span ng-show="dateerrMessage" class="validation_msg">{{dateerrMessage}}</span>
+                          <input maxlength="12" type="text" ng-change="datecheckErr(workhistroyform.start_date,workhistroyform.leave_date)" class="form-control custom-form-control-br-bottom" max-length="10" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="workhistroyform.leave_date" datepicker placeholder="Leave date" name="leave_date" ng-class="{'has-error': seworkhistroy.leave_date.$touched, 'has-success': seworkhistroy.leave_date.$valid}" required>
+                      </div>
+                      <div class="form-group custom-lider-form-group">
+                          <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_title}">Job Title</label>
+                          <span ng-show="seworkhistroy.job_title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
+                          <input maxlength="200" type="text" ng-class="{'has-success': workhistroyform.job_title}" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.job_title" placeholder="Job Title" name="job_title" >
+                      </div>
+                      <div class="form-group custom-lider-form-group custom-form-group-new">
+                          <label class="text-uppercase" ng-class="{'has-success': workhistroyform.job_description}">Job Description</label>
+                          <textarea ng-class="{'has-success': workhistroyform.job_description}" class="form-control custom-text-area" max-length="500" ng-model="workhistroyform.job_description" placeholder="Write a description  about your roles and responsibility"></textarea>
+                          <p class="text-overlay-textarea">{{500 - workhistroyform.job_description.length}}</p>
+                      </div>
+                       <p class="edt-pro-btn-group">
+                           <input type="submit" ng-disabled="!dateerrcondition||seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
+                           <button type="button" ng-click="student_edit_workhistroy_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                           <button type="button" ng-confirm-click="Are you sure to delete your work histroy details?" confirmed-click="removeWorkinghistrory(workhistroyform.id)" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
+                      </p>
+                  </div>
+              </div>
+              <!-- <div class="row">
+                  <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                  <div class="col-sm-12 col-md-11 "> <a href="#" title="Add role" class="btn-addrole">Add Experience</a> </div>
+              </div> -->
+          </form>
+
+
          <table class="table table-striped" ng-if="workhistroyform.length > 0">
             <tr>
                 <th>S.no</th>
@@ -33,8 +78,6 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seworkhistroy.company.$valid}">Work</label> <sup class="asterisk">*</sup>
                         <span ng-show="seworkhistroy.company.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="workhistroyform.user" name="user">
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="workhistroyform.editid" name="workhistroyeditid">
                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" max-length="100" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="workhistroyform.company" placeholder="Company Name" name="company" ng-class="{'has-error': seworkhistroy.company.$touched, 'has-success': seworkhistroy.company.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">
@@ -59,7 +102,7 @@
                         <p class="text-overlay-textarea">{{500 - workhistroyform.job_description.length}}</p>
                     </div>
                      <p class="edt-pro-btn-group">
-                         <input type="submit" ng-disabled="!dateerrcondition||seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
+                         <input type="submit" ng-disabled="!dateerrcondition||seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Add Experience" style="width: 130px;" class="btn btn-default custom-btn btn-lg btn-submit" />
                          <button type="button" ng-click="student_edit_workhistroy_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>

@@ -2,25 +2,38 @@
     <div class="contanier-inside">
         <div class="text-center alert alert-success success_top_act" ng-if="leadershipmessage">{{leadershipmessage}}</div>
            <h1 class="custom-h1-01 custom-h1-btm-space-55">Leadership roles</h1>
-        <div class="table-responsive">
-        <table class="table table-striped" ng-if="leadershipform.length > 0">
-            <tr>
-                <th>S.no</th>
-                <th>Leadership</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
+           <form name='seleadershipupdateform' ng-submit="leadershipupdatesubmit(leadershipupdateform.id, leadershipupdateform.leadership_role, leadershipupdateform.description)" ng-repeat="leadershipupdateform in leadershipupdateform" style="margin-bottom: 50px;">
+               <div class="row">
+                   <div class="col-sm-1 col-md-1 col-lidership-md-1">
+                     <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
+                   <div class="col-sm-12 col-md-12">
+                       <div class="form-group custom-lider-form-group">
+                           <label class="text-uppercase" ng-class="{'has-success': seleadershipupdateform.leadership_role.$valid}">Lidership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipupdateform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                           <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipupdateform.student" name="student">
+                           <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipupdateform.id" name="leadereditid">
+                           <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipupdateform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': seleadershipupdateform.leadership_role.$touched, 'has-success': seleadershipupdateform.leadership_role.$valid}" required>
+                       </div>
+                       <div class="form-group custom-lider-form-group custom-form-group-new">
+                           <label class="text-uppercase" ng-class="{'has-success': leadershipupdateform.description}">Description</label>
+                           <textarea ng-trim="false" ng-class="{'has-success': leadershipupdateform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipupdateform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
+                           <p class="text-overlay-textarea">{{500 - leadershipupdateform.description.length}}</p>
+                       </div>
+                       <p class="edt-pro-btn-group">
+                   <input type="submit" value="Save" ng-disabled="seleadershipupdateform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
+                   <button type="button" ng-click="student_edit_leadership_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                   <button type="button" ng-confirm-click="Are you sure to delete your leadership details?" confirmed-click="removeleadership(leadershipupdateform.id)" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
+                   </p>
+                   </div>
 
-            <tr ng-repeat="leadership in leadershipform">
-                <td>{{ $index+1 }}</td>
-                <td>{{ leadership.leadership_role }}</td>
-                <td>{{ leadership.description }}</td>
-                <td><a ng-click="editleadership(leadership)" class="button btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a ng-confirm-click="Are you sure to delete your leadership details?" confirmed-click="removeleadership(leadership.id)" class="button btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
-            </tr>
+                   <!-- <hr class="hr-line-lidership"> -->
+               </div>
+                <!-- <div class="row">
+                   <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+                   <div class="col-sm-12 col-md-12 "> <a href="#" title="Add role" class="btn-addrole">Add role</a> </div>
+               </div> -->
+           </form>
 
-        </table>
-        </div>
+
         <form name='seleadershipform' ng-submit="leadershipsubmit()" >
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
@@ -37,7 +50,7 @@
                         <p class="text-overlay-textarea">{{500 - leadershipform.description.length}}</p>
                     </div>
                     <p class="edt-pro-btn-group">
-                <input type="submit" value="Save" ng-disabled="seleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
+                <input type="submit" value="Add Role" ng-disabled="seleadershipform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
                 <button type="button" ng-click="student_edit_leadership_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                 </p>
                 </div>
@@ -49,5 +62,6 @@
                 <div class="col-sm-12 col-md-12 "> <a href="#" title="Add role" class="btn-addrole">Add role</a> </div>
             </div> -->
         </form>
+
     </div>
 </div>
