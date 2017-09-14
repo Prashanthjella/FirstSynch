@@ -4,7 +4,7 @@
        <h1 class="custom-h1-01 custom-h1-btm-space-55">Leadership roles</h1>
        <form name='epeleadershipform' ng-submit="leadershipupdatesubmit(leadershipform.id, leadershipform.leadership_role, leadershipform.description)" ng-repeat="leadershipform in leadershipform" style="margin-bottom: 50px;">
            <div class="row">
-               <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
+               <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
                <div class="col-sm-12 col-md-12">
                    <div class="form-group custom-lider-form-group">
                        <label class="text-uppercase" ng-class="{'has-success': epeleadershipform.leadership_role.$valid}">Leadership role</label> <sup class="asterisk">*</sup>
@@ -13,7 +13,7 @@
                    </div>
                    <div class="form-group custom-lider-form-group custom-form-group-new">
                        <label class="text-uppercase" ng-class="{'has-success': leadershipform.description}">Description</label>
-                       <textarea ng-trim="false" ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
+                       <textarea ng-trim="false" ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your leadership role" maxlength="500"></textarea>
                        <p class="text-overlay-textarea">{{500 - leadershipform.description.length}}</p>
                    </div>
                    <p class="edt-pro-btn-group">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': leadershipform.description}">Description</label>
-                        <textarea ng-trim="false" ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
+                        <textarea ng-trim="false" ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your leadership role" maxlength="500"></textarea>
                         <p class="text-overlay-textarea">{{500 - leadershipform.description.length}}</p>
                     </div>
                     <p class="edt-pro-btn-group">

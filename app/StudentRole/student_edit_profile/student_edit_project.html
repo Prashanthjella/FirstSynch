@@ -7,7 +7,7 @@
                   <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
                   <div class="col-sm-12 col-md-12">
                       <div class="form-group custom-lider-form-group">
-                          <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects #1</label><sup class="asterisk">*</sup>
+                          <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects</label><sup class="asterisk">*</sup>
                           <span ng-show="seprojecteditform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                           <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-form-control-br-bottom " ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': seprojecteditform.title.$touched, 'has-success': seprojecteditform.title.$valid}" required>
                       </div>
@@ -37,12 +37,12 @@
                           <label class="text-uppercase" ng-class="{'has-success': projecteditform.project_picture || !projecteditform.images}">Picture</label>
                           <span ng-show="seprojecteditform.files.$invalid" class="validation_msg">Maximum 2 MB with only image format</span>
                           <img ng-if="projecteditform.project_picture && !projecteditform.images" height="100" width="100" src="{{projecteditform.project_picture}}"/>
-                          <img ngf-thumbnail="projecteditform.images" height="100" width="100">
+                          <img ngf-thumbnail="projecteditform.image" height="100" width="100">
                           <input type="file" ngf-select ngf-max-size="2MB" ng-model="projecteditform.images" name="files" accept="image/*" >
                       </div>
 
                       <p class="edt-pro-btn-group">
-                          <input type="submit" ng-disabled="!dateerrcondition||seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
+                          <input type="submit" ng-disabled="seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
                           <!--<button type="button" ng-click="student_edit_project_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>-->
                           <button type="button" ng-confirm-click="Are you sure to delete your project details?" confirmed-click="removeprojects( projecteditform.id )" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
                       </p>
@@ -61,7 +61,7 @@
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects #1</label><sup class="asterisk">*</sup>
+                        <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects</label><sup class="asterisk">*</sup>
                         <span ng-show="seprojecteditform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
                         <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-form-control-br-bottom " ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': seprojecteditform.title.$touched, 'has-success': seprojecteditform.title.$valid}" required>
                     </div>
@@ -96,7 +96,7 @@
                     </div>
 
                     <p class="edt-pro-btn-group">
-                        <input type="submit" ng-disabled="!dateerrcondition||seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
+                        <input type="submit" ng-disabled="!dateerrcondition||seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Add Projects" style="width: 120px;" class="btn btn-default custom-btn btn-lg btn-submit" />
                         <button type="button" ng-click="student_edit_project_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
                     </p>
                 </div>

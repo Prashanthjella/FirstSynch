@@ -8,12 +8,12 @@
                      <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
                    <div class="col-sm-12 col-md-12">
                        <div class="form-group custom-lider-form-group">
-                           <label class="text-uppercase" ng-class="{'has-success': seleadershipupdateform.leadership_role.$valid}">Lidership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipupdateform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                           <label class="text-uppercase" ng-class="{'has-success': seleadershipupdateform.leadership_role.$valid}">Leadership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipupdateform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                            <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipupdateform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': seleadershipupdateform.leadership_role.$touched, 'has-success': seleadershipupdateform.leadership_role.$valid}" required>
                        </div>
                        <div class="form-group custom-lider-form-group custom-form-group-new">
                            <label class="text-uppercase" ng-class="{'has-success': leadershipupdateform.description}">Description</label>
-                           <textarea ng-trim="false" ng-class="{'has-success': leadershipupdateform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipupdateform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
+                           <textarea ng-trim="false" ng-class="{'has-success': leadershipupdateform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipupdateform.description" placeholder="Write a description  about your leadership role" maxlength="500"></textarea>
                            <p class="text-overlay-textarea">{{500 - leadershipupdateform.description.length}}</p>
                        </div>
                        <p class="edt-pro-btn-group">
@@ -37,12 +37,12 @@
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': seleadershipform.leadership_role.$valid}">Lidership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
+                        <label class="text-uppercase" ng-class="{'has-success': seleadershipform.leadership_role.$valid}">Leadership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': seleadershipform.leadership_role.$touched, 'has-success': seleadershipform.leadership_role.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">
                         <label class="text-uppercase" ng-class="{'has-success': leadershipform.description}">Description</label>
-                        <textarea ng-trim="false" ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description  about your lidership role" maxlength="500"></textarea>
+                        <textarea ng-trim="false" ng-class="{'has-success': leadershipform.description}" class="form-control custom-text-area" rows="4" ng-model="leadershipform.description" placeholder="Write a description about your leadership role" maxlength="500"></textarea>
                         <p class="text-overlay-textarea">{{500 - leadershipform.description.length}}</p>
                     </div>
                     <p class="edt-pro-btn-group">

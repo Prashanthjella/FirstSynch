@@ -156,11 +156,11 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         $scope.epehobbyformadd.imagesrc = "";
         $scope.epehobbyformadd.existing_id = 0;
     }
-    $scope.epehobbyupdatesubmit = function(hobbiesimag,idd,name,description){
+    $scope.epehobbyupdatesubmit = function(hobbiesimag,idd,name,ds){
           if(hobbiesimag && (typeof(hobbiesimag) === 'object')){
-              var data = {employee:$rootScope.stud_id,image: hobbiesimag,name:name,description:description};
+              var data = {employee:$rootScope.stud_id,image: hobbiesimag,name:name,description:ds};
           }else{
-              var data = {employee:$rootScope.stud_id,name:name,description:description};
+              var data = {employee:$rootScope.stud_id,name:name,description:ds};
           }
           Upload.upload({
               url: apiUrl+"api/v1/employee/api/v1/hobbyinfo/"+idd+"/",
@@ -507,11 +507,11 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
     $scope.workhistroyupdateformsubmit = function(idd,cm,sd,ld,jt,jd){
         var workhistroy_data = {
             employee : $rootScope.stud_id,
-            company : $scope.workhistroyform.company,
-            start_date : $scope.workhistroyform.start_date,
-            leave_date : $scope.workhistroyform.leave_date,
-            job_title : $scope.workhistroyform.job_title,
-            job_description : $scope.workhistroyform.job_description
+            company : cm,
+            start_date : sd,
+            leave_date : ld,
+            job_title : jt,
+            job_description : jd
         }
         // alert(JSON.stringify(workhistroy_data));
             $http.patch(apiUrl+"api/v1/employee/api/v1/experiencedetails/"+idd+"/",workhistroy_data)

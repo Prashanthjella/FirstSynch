@@ -483,7 +483,6 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
         editid : 0
     };
     $scope.student_edit_workhistroy_reset = function(){
-        $scope.workhistroyform.student="";
         $scope.workhistroyform.company = "";
         $scope.workhistroyform.start_date = "";
         $scope.workhistroyform.leave_date = "";
@@ -539,6 +538,11 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
             .then(function (response) {
                 $scope.workhistroymessage = 'Successfully Added';
                 $scope.workhistroyeedit();
+                $scope.workhistroyform.company = "";
+                $scope.workhistroyform.start_date = "";
+                $scope.workhistroyform.leave_date = "";
+                $scope.workhistroyform.job_title = "";
+                $scope.workhistroyform.job_description = "";
                 $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             });
     };
