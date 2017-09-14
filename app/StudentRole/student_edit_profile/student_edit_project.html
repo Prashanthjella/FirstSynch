@@ -9,8 +9,6 @@
                       <div class="form-group custom-lider-form-group">
                           <label class="text-uppercase" ng-class="{'has-success': seprojecteditform.title.$valid}">Projects #1</label><sup class="asterisk">*</sup>
                           <span ng-show="seprojecteditform.title.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
-                          <input type="hidden" class="form-control custom-form-control-br-bottom " ng-model="projecteditform.user" name="user">
-                          <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="projecteditform.editid" name="projecteditid">
                           <input maxlength="200" type="text" ng-pattern="/^[a-zA-Z0-9\s]*$/" max-length="150" class="form-control custom-form-control-br-bottom " ng-model="projecteditform.title" placeholder="Project title" name="title" ng-class="{'has-error': seprojecteditform.title.$touched, 'has-success': seprojecteditform.title.$valid}" required>
                       </div>
                       <div class="row">
@@ -45,7 +43,7 @@
 
                       <p class="edt-pro-btn-group">
                           <input type="submit" ng-disabled="!dateerrcondition||seprojecteditform.title.$invalid || seprojecteditform.start_date.$invalid || seprojecteditform.completation_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
-                          <button type="button" ng-click="student_edit_project_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                          <!--<button type="button" ng-click="student_edit_project_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>-->
                           <button type="button" ng-confirm-click="Are you sure to delete your project details?" confirmed-click="removeprojects( projecteditform.id )" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
                       </p>
                   </div>

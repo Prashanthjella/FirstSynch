@@ -35,7 +35,7 @@
                        </div>
                        <p class="edt-pro-btn-group">
                            <input type="submit" value="Save" ng-disabled="!dateerrcondition||seeducationupdateform.$invalid" class="btn btn-default custom-btn btn-lg btn-submit">
-                           <button type="button" ng-click="student_edit_school_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                           <!--<button type="button" ng-click="student_edit_school_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>-->
                            <button type="button" ng-confirm-click="Are you sure to delete your education details?" confirmed-click="removeeducation(educationform.id)" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
                        </p>
                    </div>
@@ -55,7 +55,6 @@
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seeducationform.school_name.$valid}">School</label> <sup class="asterisk">*</sup>
                         <span ng-show="seeducationform.school_name.$error.pattern" class="validation_msg">Enter only alphabets, numbers and spaces</span>
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="educationform.user" name="user">
                         <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z0-9\s]*$/"  class="form-control custom-form-control-br-bottom" ng-model="educationform.school_name" placeholder="School Name" name="school_name" ng-class="{'has-error': educationform.school_name.$touched, 'has-success': seeducationform.school_name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group">

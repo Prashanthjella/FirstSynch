@@ -9,8 +9,6 @@
                    <div class="col-sm-12 col-md-12">
                        <div class="form-group custom-lider-form-group">
                            <label class="text-uppercase" ng-class="{'has-success': seleadershipupdateform.leadership_role.$valid}">Lidership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipupdateform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                           <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipupdateform.student" name="student">
-                           <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipupdateform.id" name="leadereditid">
                            <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipupdateform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': seleadershipupdateform.leadership_role.$touched, 'has-success': seleadershipupdateform.leadership_role.$valid}" required>
                        </div>
                        <div class="form-group custom-lider-form-group custom-form-group-new">
@@ -20,7 +18,7 @@
                        </div>
                        <p class="edt-pro-btn-group">
                    <input type="submit" value="Save" ng-disabled="seleadershipupdateform.leadership_role.$invalid" class="btn btn-default custom-btn btn-lg btn-submit" />
-                   <button type="button" ng-click="student_edit_leadership_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                   <!--<button type="button" ng-click="student_edit_leadership_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>-->
                    <button type="button" ng-confirm-click="Are you sure to delete your leadership details?" confirmed-click="removeleadership(leadershipupdateform.id)" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
                    </p>
                    </div>
@@ -40,8 +38,6 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': seleadershipform.leadership_role.$valid}">Lidership role</label><sup class="asterisk">*</sup><span ng-show="seleadershipform.leadership_role.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipform.student" name="student">
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" ng-model="leadershipform.editid" name="leadereditid">
                         <input maxlength="200" type="text" class="form-control custom-form-control-br-bottom" maxlength="50" name="leadership_role" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="leadershipform.leadership_role" placeholder="Give it a leadership role" ng-class="{'has-error': seleadershipform.leadership_role.$touched, 'has-success': seleadershipform.leadership_role.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">

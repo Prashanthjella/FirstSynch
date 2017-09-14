@@ -35,7 +35,7 @@
                       </div>
                        <p class="edt-pro-btn-group">
                            <input type="submit" ng-disabled="!dateerrcondition||seworkhistroy.start_date.$invalid || seworkhistroy.company.$invalid || seworkhistroy.leave_date.$invalid" value="Save" class="btn btn-default custom-btn btn-lg btn-submit" />
-                           <button type="button" ng-click="student_edit_workhistroy_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
+                           <!--<button type="button" ng-click="student_edit_workhistroy_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>-->
                            <button type="button" ng-confirm-click="Are you sure to delete your work histroy details?" confirmed-click="removeWorkinghistrory(workhistroyform.id)" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
                       </p>
                   </div>
@@ -47,30 +47,6 @@
           </form>
 
 
-         <table class="table table-striped" ng-if="workhistroyform.length > 0">
-            <tr>
-                <th>S.no</th>
-                <th>Company name</th>
-                <th>Start Date</th>
-                <th>Leave Date</th>
-                <th>Job Title</th>
-                <th>Job Description</th>
-                <th>Action</th>
-            </tr>
-
-            <tr ng-repeat="workhistroy in workhistroyform">
-                <td>{{ $index+1 }}</td>
-                <td>{{ workhistroy.company }}</td>
-                <td>{{ workhistroy.start_date }}</td>
-                <td>{{ workhistroy.leave_date }}</td>
-                <td>{{ workhistroy.job_title }}</td>
-                <td>{{ workhistroy.job_description }}</td>
-                <td><a ng-click="editworkinghistroy( workhistroy )" class="button  btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a ng-confirm-click="Are you sure to delete your work histroy details?" confirmed-click="removeWorkinghistrory(workhistroy.id)" class="button  btn-link"><span class="glyphicon glyphicon-trash"></span></a></td>
-            </tr>
-
-        </table>
-        <!-- <hr class="hr-line-lidership"> -->
         <form name="seworkhistroy" ng-submit="workhistroyformsubmit()">
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle"></span> </div>

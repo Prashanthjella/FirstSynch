@@ -183,9 +183,9 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
 
     $scope.epehobbysubmit = function(hobbiesimag,existid){
             if(hobbiesimag){
-                var data = {employee:$scope.epehobbyformadd.stud_id,image: hobbiesimag,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
+                var data = {employee:$rootScope.stud_id,image: hobbiesimag,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
             }else{
-                var data = {employee:$scope.epehobbyformadd.stud_id,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
+                var data = {employee:$rootScope.stud_id,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
             }
             Upload.upload({
                 url: apiUrl+"api/v1/employee/api/v1/hobbyinfo/",
@@ -489,6 +489,12 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         $scope.workhistroyform.editid = 0;
         $rootScope.dateerrMessage = false;
     }
+    $http.get(apiUrl+"api/v1/employee/get_experience_details/"+$rootScope.user_id+"/")
+        .then(function successCallback(response){
+            $scope.workhistroyform = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get student profile details");
+    });
     $scope.workhistroyeedit = function(){
         $http.get(apiUrl+"api/v1/employee/get_experience_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -498,9 +504,9 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
                 console.log("Unable to perform get student profile details");
         });
     };
-    $scope.workhistroyformsubmit = function(){
+    $scope.workhistroyupdateformsubmit = function(idd,cm,sd,ld,jt,jd){
         var workhistroy_data = {
-            employee : $scope.workhistroyform.user,
+            employee : $rootScope.stud_id,
             company : $scope.workhistroyform.company,
             start_date : $scope.workhistroyform.start_date,
             leave_date : $scope.workhistroyform.leave_date,
@@ -508,23 +514,32 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
             job_description : $scope.workhistroyform.job_description
         }
         // alert(JSON.stringify(workhistroy_data));
-        if($scope.workhistroyform.editid){
-            $http.patch(apiUrl+"api/v1/employee/api/v1/experiencedetails/"+$scope.workhistroyform.editid+"/",workhistroy_data)
+            $http.patch(apiUrl+"api/v1/employee/api/v1/experiencedetails/"+idd+"/",workhistroy_data)
             .then(function (response) {
+                $scope.workhistroyeedit();
                 $scope.workhistroymessage = 'Successfully updated';
-                $scope.workhistroyeedit();
                 $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
             });
-        }
-        else{
-            $http.post(apiUrl+"api/v1/employee/api/v1/experiencedetails/",workhistroy_data)
-            .then(function (response) {
-                $scope.workhistroymessage = 'Successfully Added';
-                $scope.workhistroyeedit();
-                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-            });
-        }
     };
+
+    $scope.workhistroyformsubmit = function(){
+        var workhistroy_data = {
+            employee : $rootScope.stud_id,
+            company : $scope.workhistroyform.company,
+            start_date : $scope.workhistroyform.start_date,
+            leave_date : $scope.workhistroyform.leave_date,
+            job_title : $scope.workhistroyform.job_title,
+            job_description : $scope.workhistroyform.job_description
+        }
+        // alert(JSON.stringify(workhistroy_data));
+          $http.post(apiUrl+"api/v1/employee/api/v1/experiencedetails/",workhistroy_data)
+          .then(function (response) {
+              $scope.workhistroymessage = 'Successfully Added';
+              $scope.workhistroyeedit();
+              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+          });
+    };
+
     $scope.editworkinghistroy = function(workhistroy){
         $scope.workhistroyform.user = workhistroy.user;
         $scope.workhistroyform.editid = workhistroy.id;
@@ -563,50 +578,60 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         $scope.projecteditform.images = '';
         $rootScope.dateerrMessage = false;
     }
+    $http.get(apiUrl+"api/v1/employee/get_project_details/"+$rootScope.user_id+"/")
+        .then(function successCallback(response){
+            $scope.projecteditform = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get student profile details");
+    });
     $scope.projectsedit = function(){
         $http.get(apiUrl+"api/v1/employee/get_project_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.projecteditform = response.data;
-                $scope.projecteditform.user = $rootScope.stud_id;
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
     };
+    $scope.projectsupdatesubmit = function(projectsimage,idd,tl,sd,cd,pd){
+        if(projectsimage && (typeof(projectsimage) === 'object')){
+            var projectdata = { employee : $rootScope.stud_id,title : tl,start_date : sd,completation_date : cd,project_description : pd,image:projectsimage}
+        }
+        else{
+            var projectdata = { employee : $rootScope.stud_id,title : tl,start_date : sd,completation_date : cd,project_description : pd}
+        }
+        Upload.upload({
+            url: apiUrl+"api/v1/employee/api/v1/projectdetails/"+idd+"/",
+            data: projectdata,
+            method:'PUT',
+        }).then(function(resp) {
+            $scope.projectmessage = 'Successfully updated';
+            $scope.projectsedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+            //$scope.projecteditform.splice(0, 0, response.data);
+        }, function(resp) {
+        }, function(evt) {
+        });
+    };
+
     $scope.projectssubmit = function(projectsimage){
         if(projectsimage){
-            var projectdata = { employee : $scope.projecteditform.user,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description,image:projectsimage}
+            var projectdata = { employee : $rootScope.stud_id,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description,image:projectsimage}
         }
         else{
-            var projectdata = { employee : $scope.projecteditform.user,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description}
+            var projectdata = { employee : $rootScope.stud_id,title : $scope.projecteditform.title,start_date : $scope.projecteditform.start_date,completation_date : $scope.projecteditform.completation_date,project_description : $scope.projecteditform.project_description}
         }
-        if(!$scope.projecteditform.editid){
-            Upload.upload({
-                url: apiUrl+"api/v1/employee/api/v1/projectdetails/",
-                data: projectdata,
-                method:'POST',
-            }).then(function(resp) {
-                $scope.projectmessage = 'Successfully Added';
-                $scope.projectsedit();
-                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-                //$scope.projecteditform.splice(0, 0, response.data);
-            }, function(resp) {
-            }, function(evt) {
-            });
-        }
-        else{
-            Upload.upload({
-                url: apiUrl+"api/v1/employee/api/v1/projectdetails/"+$scope.projecteditform.editid+"/",
-                data: projectdata,
-                method:'PUT',
-            }).then(function(resp) {
-                $scope.projectmessage = 'Successfully updated';
-                $scope.projectsedit();
-                $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-                //$scope.projecteditform.splice(0, 0, response.data);
-            }, function(resp) {
-            }, function(evt) {
-            });
-        }
+        Upload.upload({
+            url: apiUrl+"api/v1/employee/api/v1/projectdetails/",
+            data: projectdata,
+            method:'POST',
+        }).then(function(resp) {
+            $scope.projectmessage = 'Successfully Added';
+            $scope.projectsedit();
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+            //$scope.projecteditform.splice(0, 0, response.data);
+        }, function(resp) {
+        }, function(evt) {
+        });
     };
     $scope.editproject = function(projects){
         $scope.projecteditform.editid = projects.id;
@@ -637,6 +662,12 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         gpa : "",
 
     };
+    $http.get(apiUrl+"api/v1/employee/api/v1/get_education_details/"+$rootScope.user_id+"/")
+        .then(function successCallback(response){
+            $scope.educationform = response.data;
+        }, function errorCallback(response){
+            console.log("Unable to perform get student profile details");
+    });
     $scope.educationedit = function(){
         $http.get(apiUrl+"api/v1/employee/api/v1/get_education_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -655,16 +686,34 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         });
     };
     $scope.employee_edit_school_reset = function(){
-        $scope.educationform.student="";
         $scope.educationform.school_name = ""
         $scope.educationform.year_started = ""
         $scope.educationform.year_graduated = "";
         $scope.educationform.major  = "";
         $scope.educationform.gpa = "";
     }
+
+    $scope.educationupdatesubmit = function(idd,sn,ys,yg,mr,gp){
+        var education_data = {
+            employee : $rootScope.stud_id,
+            school_name : sn,
+            year_started : ys,
+            year_graduated : yg,
+            major : mr,
+            gpa : gp,
+        }
+        //alert(JSON.stringify(education_data));
+          $http.patch(apiUrl+"api/v1/employee/api/v1/educationdetails/"+idd+"/",JSON.stringify(education_data))
+          .then(function (response) {
+              $scope.educationedit();
+              $scope.educationmessage = 'Successfully updated';
+              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+          });
+    };
+
     $scope.educationsubmit = function(){
         var education_data = {
-            employee : $scope.educationform.user,
+            employee : $rootScope.stud_id,
             school_name : $scope.educationform.school_name,
             year_started : $scope.educationform.year_started,
             year_graduated : $scope.educationform.year_graduated,
@@ -672,14 +721,6 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
             gpa : $scope.educationform.gpa,
         }
         //alert(JSON.stringify(education_data));
-        if ($scope.educationform.existing_id){
-          $http.patch(apiUrl+"api/v1/employee/api/v1/educationdetails/"+$scope.educationform.existing_id+"/",JSON.stringify(education_data))
-          .then(function (response) {
-              $scope.educationedit();
-              $scope.educationmessage = 'Successfully updated';
-              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-          });
-        }else{
           $http.post(apiUrl+"api/v1/employee/api/v1/educationdetails/",JSON.stringify(education_data))
           .then(function (response) {
               $scope.educationedit();
@@ -687,8 +728,8 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
               $scope.educationform.splice(0, 0, response.data);
               $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
           });
-      }
     };
+
     $scope.editeducation = function(education){
         $scope.educationform.user = education.user;
         $scope.educationform.existing_id = education.id;
