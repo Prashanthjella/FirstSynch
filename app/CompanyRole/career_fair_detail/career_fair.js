@@ -161,9 +161,9 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
 });
 
 // students
-FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $compile) {
+FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $compile, $routeParams) {
   // home page - students - default
-  $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
+    $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
   .then(function successCallback(response){
     $scope.cfdstudents = response.data;
   }, function errorCallback(response){
@@ -171,7 +171,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
   });
   //  students - showall and lessall
   $scope.showall_studentsvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
+      $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
     .then(function successCallback(response){
       if(jQuery('.for_home_stu_less_all').is(":visible")){
         jQuery('.for_home_stu_less_all').slideUp(500);
@@ -204,9 +204,9 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
 });
 
 // company
-FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $compile) {
+FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $compile, $routeParams) {
   // company - default
-  $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
+  $http.get(apiUrl+"api/v1/career_fairs/careerfair_company_videos/"+$routeParams.carredid+"/")
   .then(function successCallback(response){
     $scope.cfdcompany = response.data;
   }, function errorCallback(response){
@@ -214,7 +214,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
   });
   // company - show all and less all
   $scope.showall_companyvideo = function(){
-    $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
+    $http.get(apiUrl+"api/v1/career_fairs/careerfair_company_videos/"+$routeParams.carredid+"/")
     .then(function successCallback(response){
       if(jQuery('.for_home_com_less_all').is(":visible")){
         jQuery('.for_home_com_less_all').slideUp(500);
