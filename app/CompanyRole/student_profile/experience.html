@@ -38,7 +38,7 @@
                             <p class="medium-text grey-text text-uppercase">{{experiences.start_date | date:"MMM, y"}} - {{experiences.leave_date | date:"MMM, y"}}</p>
                         </div>
                         <div class="col-sm-5">
-                            <h2 class="">{{experiences.job_title|truncate:50}}</h2>
+                            <h2 class="">{{experiences.job_title}}</h2>
                             <p class="">
                                 {{experiences.job_description}}
                             </p>
@@ -53,7 +53,7 @@
                         <div class="col-sm-7">
                             <div class="group-experience"  ng-repeat="studentproject in student_profile_details.project">
                                 <h5>{{studentproject.start_date | date:"MMMM y"}}</h5>
-                                <h3  class="h3 custom-sub-h3">{{studentproject.title|truncate:50}}</h3>
+                                <h3  class="h3 custom-sub-h3">{{studentproject.title}}</h3>
                                 <p class="cont-experience">{{studentproject.project_description}}</p>
                                 <div class="row custom-row-15" ng-if="studentproject.image">
                                     <div class="col-sm-4">

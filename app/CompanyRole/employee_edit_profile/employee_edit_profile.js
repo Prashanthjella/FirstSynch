@@ -87,29 +87,32 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
 
       function uploadComplete(evt) {
           /* This event is raised when the server send back a response */
-          $('#page-video-edit').modal('hide');
-          $('.after_video_process').hide();
-          $('.before_video_process').show();
-          $('.custom_fade').hide();
-          $('#video_end').hide();
-          $('#chapterss ul').empty();
-          $("#chapter_maker_thumb").show();
-          $("#question").show();
-          $('.second_video_data').hide();
-          $('.none').show();
-          $('#btn-upload').hide();
-          $("#inoutbar").removeAttr("style");
-          $('#inoutbar').empty();
-          $('#chapterss ul').empty();
-          $('#page-video-edit form').trigger("reset");
-          $scope.$apply(function(){
-            $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
-                .then(function successCallback(response){
-                    $scope.video_list = response.data;
-                }, function errorCallback(response){
-                    console.log("Unable to perform get Company videos details");
-            });
-          });
+          $timeout( function(){
+              /* This event is raised when the server send back a response */
+              $('#page-video-edit').modal('hide');
+              $('.after_video_process').hide();
+              $('.before_video_process').show();
+              $('.custom_fade').hide();
+              $('#video_end').hide();
+              $('#chapterss ul').empty();
+              $("#chapter_maker_thumb").show();
+              $("#question").show();
+              $('.second_video_data').hide();
+              $('.none').show();
+              $('#btn-upload').hide();
+              $("#inoutbar").removeAttr("style");
+              $('#inoutbar').empty();
+              $('#chapterss ul').empty();
+              $('#page-video-edit form').trigger("reset");
+              $scope.$apply(function(){
+                $http.get(apiUrl+"api/v1/setups/api/v1/company_uploadedvideo_list/"+$rootScope.user_id+"/")
+                    .then(function successCallback(response){
+                        $scope.video_list = response.data;
+                    }, function errorCallback(response){
+                        console.log("Unable to perform get Company videos details");
+                });
+              });
+         }, 60000 );
       }
 
       function uploadFailed(evt) {

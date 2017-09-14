@@ -7,7 +7,7 @@ var FirstSynch = angular.module("CompanycareerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl, $rootScope) {
+FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl, $rootScope,$timeout, $window) {
 
   if ($rootScope.request_member_id){
     $scope.companypk = $rootScope.request_member_id;
@@ -119,29 +119,32 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
 
       function uploadComplete(evt) {
           /* This event is raised when the server send back a response */
-          $('#page-video-edit').modal('hide');
-          $('.after_video_process').hide();
-          $('.before_video_process').show();
-          $('.custom_fade').hide();
-          $('#video_end').hide();
-          $('#chapterss ul').empty();
-          $("#chapter_maker_thumb").show();
-          $("#question").show();
-          $('.second_video_data').hide();
-          $('.none').show();
-          $('#btn-upload').hide();
-          $("#inoutbar").removeAttr("style");
-          $('#inoutbar').empty();
-          $('#chapterss ul').empty();
-          $('#page-video-edit form').trigger("reset");
-          $scope.$apply(function(){
-            $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
+          $timeout( function(){
+              /* This event is raised when the server send back a response */
+              $('#page-video-edit').modal('hide');
+              $('.after_video_process').hide();
+              $('.before_video_process').show();
+              $('.custom_fade').hide();
+              $('#video_end').hide();
+              $('#chapterss ul').empty();
+              $("#chapter_maker_thumb").show();
+              $("#question").show();
+              $('.second_video_data').hide();
+              $('.none').show();
+              $('#btn-upload').hide();
+              $("#inoutbar").removeAttr("style");
+              $('#inoutbar').empty();
+              $('#chapterss ul').empty();
+              $('#page-video-edit form').trigger("reset");
+              $scope.$apply(function(){
+                $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
                 .then(function successCallback(response){
-                    $scope.video_list = response.data;
+                  $scope.cfdstudents = response.data;
                 }, function errorCallback(response){
-                    console.log("Unable to perform get student videos details");
-            });
-          });
+                  console.log("Unable to perform get dbstudents");
+                });
+              });
+         }, 60000 );
       }
 
       function uploadFailed(evt) {
@@ -182,7 +185,7 @@ FirstSynch.controller("company_cfdstudents" , function ($scope, $http, apiUrl, $
           +'<span class="arrow-triangle"></span>'
           +'<span class="link-new">New</span>'
           +'<div class="box-inside-content">'
-          +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
+          +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
           +'</div>'
           +'</a> '
           +'</div>';
@@ -229,7 +232,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
           +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
           +'</span>'
           +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
-          +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
+          +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
           +'</div>'
           +'</a>'
           +'</div>';
@@ -272,7 +275,7 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($rootScope,$timeo
           +'<div class="overlay"></div>'
           +'<div class="box-inside-content">'
           +' <p class="date-location">'+response.data[i].start_date+'<span> •</span> '+response.data[i].where+', '+response.data[i].country+'</p>'
-          +'<h1 class="custom-gallery-h1">'+response.data[i].title.substring(0, 10)+'...'+'</h1>'
+          +'<h1 class="custom-gallery-h1">'+response.data[i].title+'</h1>'
           +'</div>'
           +'</div>'
           +'</a>'

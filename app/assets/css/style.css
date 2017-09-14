@@ -597,6 +597,10 @@ a.thumbnail, a.custom-large-image-gallery {
 	color: #303030;
 	margin-bottom: 14px;/*	word-break: normal !important;
 		word-wrap: normal !important;*/
+	font-size: 30px;
+}
+.custom-cols-thumbs-4 .custom-gallery-h1, .col-sm-4 .custom-gallery-h1{
+	font-size: 20px;
 }
 .page-section-recent-fairs {
 	background-color: #f7f7f7;
@@ -3341,11 +3345,11 @@ textarea.custom-text-area-new {
 	position: fixed;
 	left: 25%;
 	right: 25%;
-	
+
 	bottom:-482px;
 	z-index: 1;
-	
-	
+
+
 	 -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -3934,7 +3938,7 @@ textarea.custom-text-area-new {
 .text-title-big {
 	width: 100%;
 	float: left;
-	
+
 }
 .bg-arrow-up, .bg-arrow-down {
 	position: relative;
@@ -4052,10 +4056,10 @@ textarea.custom-text-area-new {
   letter-spacing: -0.6px;
   text-align: left;
   color: #303030;}
-  
+
   .grid-item .media-eading-h5{
 	  opacity: 0.4;
- 
+
   font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.3px;
@@ -4280,7 +4284,7 @@ body {
 	width:30px; height:30px; text-align:center;
 	}
 	.dashboard-filter h3.custom-h3{font-size:18px;}
-.mobile-filter-cols  .custom-h3{margin-left:20px}	
+.mobile-filter-cols  .custom-h3{margin-left:20px}
 .dashboard-filter .custom-modal-600 {
 	left: 0;
 	right: 0;
@@ -4289,7 +4293,7 @@ body {
 	display: block;
 }
 .mobile-filter-cols {
-	
+
 	position: absolute;
 	left: 100%;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -4298,10 +4302,10 @@ body {
 	transition: all 0.5s ease-in-out;
 }
 .mobile-filter-cols-visible {
-	
+
 	left:0;
 	right:0;
-	
+
 	top: 0;
 	bottom: 0;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -5642,16 +5646,17 @@ textarea.custom-text-area-100 {
 .icon-play-button {
 	background-image: url(../images/play_btn_video_upload.png);
 	width: 100px;
-	height: 127px;
-	display: inline-block;
+    height: 127px;
+    display: block;
+    margin: 126px auto 0px;
 }
 .play-button-add-video {
 	position: absolute;
 	z-index: 1;
-	width: 100px;
-	height: 127px;
-	top: 50%;
-	left: 43%;
+	width: 640px;
+	height: 358px;
+	top: 19%;
+	left: 0%;
 	margin: -63px auto 50px;
 }
 .add-vide-sidebar .nav {

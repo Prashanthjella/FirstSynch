@@ -6,7 +6,7 @@
                 <div class="help-container" ng-repeat="help in search_help" ng-if="$odd">
                     <h4><a  class="help-container-link collapsed" data-toggle="collapse" data-target="#help-{{$index}}" aria-expanded="false" aria-controls="help-{{$index}}"><span class="circle-icon glyphicon glyphicon-menu-down"></span>
                         <span class="title-help">
-                        {{help.title|truncate:50}}</span></a>
+                        {{help.title}}</span></a>
                     </h4>
                     <div class="collapse help-content-container" id="help-{{$index}}">
                         <p>{{help.description}}</p>
@@ -16,7 +16,7 @@
             <div class="col-sm-6">
                 <div class="help-container"  ng-repeat="help in search_help" ng-if="$even">
                     <h4><a  class="help-container-link collapsed" data-toggle="collapse" data-target="#help-{{$index}}" aria-expanded="false" aria-controls="help-{{$index}}"><span class="circle-icon glyphicon glyphicon-menu-down"></span>
-                        <span class="title-help">{{help.title|truncate:50}}</span></a>
+                        <span class="title-help">{{help.title}}</span></a>
                     </h4>
                     <div class="collapse help-content-container" id="help-{{$index}}">
                         <p>{{help.description}}</p>

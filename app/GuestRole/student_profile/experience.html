@@ -26,7 +26,7 @@
 </section> -->
 <section class="page-section page-inner-experience" id="guest_student_profile_experience" ng-if="student_profile_details.experience.length > 0 || student_profile_details.project.length > 0">
     <div class="container">
-   
+
   <div class="row">
             <div class="col-sm-offset-2">
 <h1 class="h1 custom-page-h1">Experience</h1>
@@ -39,7 +39,7 @@
                            <p class="medium-text grey-text text-uppercase">{{experiences.start_date | date:"MMM, y"}} - {{experiences.leave_date | date:"MMM, y"}}</p>
                        </div>
                        <div class="col-sm-5">
-                           <h2 class="h2-insde-head">{{experiences.job_title|truncate:50}}</h2>
+                           <h2 class="h2-insde-head">{{experiences.job_title}}</h2>
                            <p class="cont-experience">
                                {{experiences.job_description}}
                            </p>
@@ -54,13 +54,13 @@
     <div class="col-sm-12">
       <div class="group-experience group-experience-new"  ng-repeat="studentproject in student_profile_details.project">
         <h5 class="custom-h5-date">{{studentproject.start_date | date:"MMMM y"}}</h5>
-        <h3  class="h3 custom-title-h3">{{studentproject.title|truncate:50}}</h3>
+        <h3  class="h3 custom-title-h3">{{studentproject.title}}</h3>
         <div class="row custom-row-15">
           <div class="col-sm-7">
             <p class="cont-experience cont-experience-new">{{studentproject.project_description}}</p>
             </div>
           </div>
-        
+
         <div class="row custom-row-10 row-experience-new" ng-if="studentproject.image">
           <div class="col-sm-3">
             <div class="thumbnail custom-thumbnail-profile-views">
@@ -73,6 +73,6 @@
     </div>
                 </section>
         </div>
-        
+
     </div>
 </section>
