@@ -8,12 +8,12 @@
         </div> -->
         <form name="updateform" ng-submit="hobbyupdatesubmit(hobbyformadd.image,hobbyformadd.id, hobbyformadd.name, hobbyformadd.description)" ng-repeat="hobbyformadd in hobbydata" style="margin-bottom: 50px;">
             <div class="row">
-                <div class="col-sm-1 col-md-1 col-lidership-md-1"> <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span> </div>
+                <div class="col-sm-1 col-md-1 col-lidership-md-1">
+                  <span class="glyphicon glyphicon-plus custom-glyphicon-circle glyphicon-minus"></span>
+                </div>
                <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': updateform.name.$valid}">Hobby</label><sup class="asterisk">*</sup> <span ng-show="updateform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                        <input type="hidden" name="stud_id" ng-model="hobbyformupdate.stud_id">
-                        <input type="hidden" name="existing_id" ng-model="hobbyformadd.id">
                         <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyformadd.name" ng-class="{'has-error': updateform.name.$touched, 'has-success': updateform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">
@@ -31,7 +31,7 @@
                 <!-- <hr class="hr-line-lidership"> -->
             </div>
              <p class="edt-pro-btn-group">
-            <input type="submit" ng-disabled="updateform.name.$invalid||updateform.file.$invalid||" value="Update"  class="btn btn-default custom-btn btn-lg btn-submit"/>
+            <input type="submit" ng-disabled="updateform.name.$invalid||updateform.file.$invalid||" value="Save"  class="btn btn-default custom-btn btn-lg btn-submit"/>
             <button type="button" ng-click="student_edit_profile_hobbies_reset()" class="btn btn-primary custom-btn btn-lg btn-cancel">Cancel</button>
             <button type="button" ng-confirm-click="Are you sure to delete your hobby details?" confirmed-click="removehobby( hobbyformadd.id )" class="btn btn-primary custom-btn btn-lg btn-cancel">Delete</button>
             </p>
@@ -48,8 +48,6 @@
                <div class="col-sm-12 col-md-12">
                     <div class="form-group custom-lider-form-group">
                         <label class="text-uppercase" ng-class="{'has-success': sehobbyform.name.$valid}">Hobby</label><sup class="asterisk">*</sup> <span ng-show="sehobbyform.name.$error.pattern" class="validation_msg">Enter only alphabets and spaces</span>
-                        <input type="hidden" name="stud_id" ng-model="hobbyformadd.stud_id">
-                        <input type="hidden" name="existing_id" ng-model="0">
                         <input maxlength="200" type="text"  ng-pattern="/^[a-zA-Z\s]*$/" class="form-control custom-form-control-br-bottom" placeholder="Give it a name" name="name"  ng-model="hobbyformadd.name" ng-class="{'has-error': sehobbyform.name.$touched, 'has-success': sehobbyform.name.$valid}" required>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new">

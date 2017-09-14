@@ -132,13 +132,20 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         name : "",
         existing_id : 0
     };
-    $scope.epehobbies_edit = function(){
 
+    $http.get(apiUrl+"api/v1/employee/api/v1/get_hobby_details/"+$rootScope.user_id+"/")
+        .then(function successCallback(response){
+            $scope.epehobbyform = response.data;
+            $scope.epehobbyformadd.stud_id = $rootScope.stud_id;
+        }, function errorCallback(response){
+            console.log("Unable to perform get student profile details");
+    });
+
+    $scope.epehobbies_edit = function(){
         $http.get(apiUrl+"api/v1/employee/api/v1/get_hobby_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $scope.epehobbyform = response.data;
                 $scope.epehobbyformadd.stud_id = $rootScope.stud_id;
-                //alert(JSON.stringify(response.data));
             }, function errorCallback(response){
                 console.log("Unable to perform get student profile details");
         });
@@ -149,35 +156,32 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         $scope.epehobbyformadd.imagesrc = "";
         $scope.epehobbyformadd.existing_id = 0;
     }
-    $scope.epehobbyupdatesubmit = function(id,employee,name,description,hobbiesimag){
-
+    $scope.epehobbyupdatesubmit = function(hobbiesimag,idd,name,description){
+          if(hobbiesimag && (typeof(hobbiesimag) === 'object')){
+              var data = {employee:$rootScope.stud_id,image: hobbiesimag,name:name,description:description};
+          }else{
+              var data = {employee:$rootScope.stud_id,name:name,description:description};
+          }
+          Upload.upload({
+              url: apiUrl+"api/v1/employee/api/v1/hobbyinfo/"+idd+"/",
+              data: data,
+              method:'PUT',
+          }).then(function(resp) {
+            // file is uploaded successfully
+            $scope.epehobbiesmessage = 'Successfully updated';
+            $scope.epehobbies_edit();
+            $scope.epehobbyformadd.name = "";
+            $scope.epehobbyformadd.description = "";
+            $scope.epehobbyformadd.image = "";
+            $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
+          }, function(resp) {
+            // handle error
+          }, function(evt) {
+            // progress notify
+          });
     };
+
     $scope.epehobbysubmit = function(hobbiesimag,existid){
-        if(existid){
-            if(hobbiesimag){
-                var data = {employee:$rootScope.stud_id,image: hobbiesimag,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
-            }else{
-                var data = {employee:$rootScope.stud_id,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
-            }
-            Upload.upload({
-                url: apiUrl+"api/v1/employee/api/v1/hobbyinfo/"+existid+"/",
-                data: data,
-                method:'PUT',
-            }).then(function(resp) {
-              // file is uploaded successfully
-              $scope.epehobbiesmessage = 'Successfully updated';
-              $scope.epehobbies_edit();
-              $scope.epehobbyformadd.name = "";
-              $scope.epehobbyformadd.description = "";
-              $scope.epehobbyformadd.image = "";
-              $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
-            }, function(resp) {
-              // handle error
-            }, function(evt) {
-              // progress notify
-            });
-        }
-        else{
             if(hobbiesimag){
                 var data = {employee:$scope.epehobbyformadd.stud_id,image: hobbiesimag,name:$scope.epehobbyformadd.name,description:$scope.epehobbyformadd.description};
             }else{
@@ -200,7 +204,6 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
             }, function(evt) {
               // progress notify
             });
-        }
 
     };
     $scope.epeedithobby= function(hobby){
@@ -704,6 +707,13 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         editid : 0,
 
     };
+    $http.get(apiUrl+"api/v1/employee/get_leadershiproles_details/"+$rootScope.user_id+"/")
+        .then(function successCallback(response){
+            $scope.leadershipform = response.data;
+            $scope.leadershipform.student = $rootScope.stud_id;
+        }, function errorCallback(response){
+            console.log("Unable to perform get student profile details");
+    });
     $scope.leadershipedit = function(){
         $http.get(apiUrl+"api/v1/employee/get_leadershiproles_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
@@ -719,15 +729,15 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
         $scope.leadershipform.description = "";
         $scope.leadershipform.editid = 0;
     }
-    $scope.leadershipsubmit = function(){
+
+    $scope.leadershipupdatesubmit = function(idd,lr,des){
         var leadership_data = {
-            employee : $scope.leadershipform.student,
-            leadership_role : $scope.leadershipform.leadership_role,
-            description : $scope.leadershipform.description
+            employee : $rootScope.stud_id,
+            leadership_role : lr,
+            description : des
         }
-        if($scope.leadershipform.editid){
             // update leadershipform
-            $http.patch(apiUrl+"api/v1/employee/api/v1/leadershipdetails/"+$scope.leadershipform.editid+"/",JSON.stringify(leadership_data))
+            $http.patch(apiUrl+"api/v1/employee/api/v1/leadershipdetails/"+idd+"/",JSON.stringify(leadership_data))
             .then(function (response) {
                 $scope.leadershipmessage = 'Successfully updated';
                 $scope.leadershipedit();
@@ -736,9 +746,14 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
                 $scope.leadershipform.description ="";
 
             });
+    };
+
+    $scope.leadershipsubmit = function(){
+        var leadership_data = {
+            employee : $rootScope.stud_id,
+            leadership_role : $scope.leadershipform.leadership_role,
+            description : $scope.leadershipform.description
         }
-        else if(!$scope.leadershipform.editid){
-            // create leadership role
             $http.post(apiUrl+"api/v1/employee/api/v1/leadershipdetails/",JSON.stringify(leadership_data))
             .then(function (response) {
                 $scope.leadershipmessage = 'Successfully Added';
@@ -746,10 +761,9 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
                 $window.scrollTo(0, angular.element(document.getElementsByClassName('success_top_act')).offsetTop);
                 $scope.leadershipform.leadership_role = "";
                 $scope.leadershipform.description ="";
-
             });
-        }
     };
+
     $scope.editleadership = function(leadership){
         $scope.leadershipform.leadership_role = leadership.leadership_role;
         $scope.leadershipform.description = leadership.description;

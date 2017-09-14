@@ -120,12 +120,12 @@ FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $h
               $('#chapterss ul').empty();
               $('#page-video-edit form').trigger("reset");
               $scope.$apply(function(){
-                $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
-                    .then(function successCallback(response){
-                        $scope.cfdstudents = response.data;
-                    }, function errorCallback(response){
-                        console.log("Unable to perform get dbstudents");
-                });
+                $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
+                  .then(function successCallback(response){
+                      $scope.cfdstudents = response.data;
+                  }, function errorCallback(response){
+                      console.log("Unable to perform get dbstudents");
+                  });
               });
          }, 60000 );
       }

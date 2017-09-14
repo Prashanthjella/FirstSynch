@@ -137,11 +137,11 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
               $('#chapterss ul').empty();
               $('#page-video-edit form').trigger("reset");
               $scope.$apply(function(){
-                $http.get(apiUrl+"api/v1/flat_pages/students_video_list/")
+                $http.get(apiUrl+"api/v1/career_fairs/careerfair_company_videos/"+$routeParams.carredid+"/")
                 .then(function successCallback(response){
-                  $scope.cfdstudents = response.data;
+                  $scope.cfdcompany = response.data;
                 }, function errorCallback(response){
-                  console.log("Unable to perform get dbstudents");
+                  console.log("Unable to perform get dbcompany");
                 });
               });
          }, 60000 );
