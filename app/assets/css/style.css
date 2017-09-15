@@ -599,7 +599,7 @@ a.thumbnail, a.custom-large-image-gallery {
 		word-wrap: normal !important;*/
 	font-size: 30px;
 }
-.custom-cols-thumbs-4 .custom-gallery-h1, .col-sm-4 .custom-gallery-h1{
+.custom-cols-thumbs-4 .custom-gallery-h1, .col-sm-4 .custom-gallery-h1 {
 	font-size: 20px;
 }
 .page-section-recent-fairs {
@@ -2459,7 +2459,7 @@ textarea.custom-text-area-new {
 	padding: 0 10px;
 	margin-bottom: 0
 }
-.dropdown-menu-cities,.dropdown-menu-upcoming,.dropdown-menu-companies {
+.dropdown-menu-cities, .dropdown-menu-upcoming, .dropdown-menu-companies {
 	min-width: 220px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -3345,27 +3345,23 @@ textarea.custom-text-area-new {
 	position: fixed;
 	left: 25%;
 	right: 25%;
-
-	bottom:-482px;
+	bottom: -502px;
 	z-index: 1;
-
-
-	 -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
 }
-.dashboard-filter.active  .custom-modal-600{
+.dashboard-filter.active .custom-modal-600 {
 	/*	height:auto;
 	overflow:hidden;*/
-	bottom:0;
-	}
+	bottom: 0;
+}
 .dashboard-filter.active {
 	bottom: 0;
 	top: 0;
 	z-index: 1050;
 	background-color: rgba(0,0,0,0.5);
-
 }
 .dashboard-filter.active .modal-header .arrow-down-filter {
 	-webkit-transform: rotate(-135deg);
@@ -3376,7 +3372,7 @@ textarea.custom-text-area-new {
 	margin-bottom: 0
 }
 .dashboard-filter .modal-body {
-	/*height: 0;
+/*height: 0;
 	visibility: hidden*/
 }
 /*.dashboard-filter.active .modal-body {
@@ -3403,7 +3399,7 @@ textarea.custom-text-area-new {
 	float: none;
 	display: table-cell;
 	vertical-align: top;
-	padding-right:0
+	padding-right: 0
 }
 .bg-grey {
 	background-color: #f8f8f8
@@ -3471,7 +3467,7 @@ textarea.custom-text-area-new {
 	padding-bottom: 12px
 }
 .scroll-filter {
-	max-height: 400px;
+	max-height: 420px;
 	overflow: auto;
 	clear: both;
 }
@@ -3938,12 +3934,10 @@ textarea.custom-text-area-new {
 .text-title-big {
 	width: 100%;
 	float: left;
-
 }
 .bg-arrow-up, .bg-arrow-down {
 	position: relative;
 }
-
 .bg-arrow-up:before {
 	position: absolute;
 	left: 0;
@@ -4050,27 +4044,29 @@ textarea.custom-text-area-new {
 	overflow: auto;
 	max-height: 500px;
 }
-.grid-item .media-heading{ font-size: 16px;
-  font-weight: bold;
-  line-height: 1.25;
-  letter-spacing: -0.6px;
-  text-align: left;
-  color: #303030;}
-
-  .grid-item .media-eading-h5{
-	  opacity: 0.4;
-
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: #0d0d0d;
-	  }
- .grid-item .para-company{ font-size: 11px;
-  font-weight: 600;
-  line-height: 1.45;
-  text-align: left;
-  color: #7f7f7f;}
+.grid-item .media-heading {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.25;
+	letter-spacing: -0.6px;
+	text-align: left;
+	color: #303030;
+}
+.grid-item .media-eading-h5 {
+	opacity: 0.4;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: -0.3px;
+	text-align: left;
+	color: #0d0d0d;
+}
+.grid-item .para-company {
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.45;
+	text-align: left;
+	color: #7f7f7f;
+}
  @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4266,25 +4262,42 @@ input[type="checkbox"].checkbox-input + label.checkbox-label:before {
 body {
 	padding-top: 30px;
 }
-.dropdown-menu-companies{left:-95px !important;}
-.dropdown-menu-cities{left:-95px !important;}
-.dropdown-menu-companies{left:0 !important;}
-.link-forgot-password{
-	margin-left:0;
-	margin-top:15px;
-	display:inherit
-	}
-	.page-section-top3-companies{margin-top:0 !important}
-	.custom-btn-login{padding-left:30px; padding-right:30px;}
-.media-mobile-left-arrow{
-	position:absolute;
-	left:0px;
-	top:30px;
-	font-size:20px;
-	width:30px; height:30px; text-align:center;
-	}
-	.dashboard-filter h3.custom-h3{font-size:18px;}
-.mobile-filter-cols  .custom-h3{margin-left:20px}
+.dropdown-menu-companies {
+	left: -95px !important;
+}
+.dropdown-menu-cities {
+	left: -95px !important;
+}
+.dropdown-menu-companies {
+	left: 0 !important;
+}
+.link-forgot-password {
+	margin-left: 0;
+	margin-top: 15px;
+	display: inherit
+}
+.page-section-top3-companies {
+	margin-top: 0 !important
+}
+.custom-btn-login {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.media-mobile-left-arrow {
+	position: absolute;
+	left: 0px;
+	top: 30px;
+	font-size: 20px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+}
+.dashboard-filter h3.custom-h3 {
+	font-size: 18px;
+}
+.mobile-filter-cols .custom-h3 {
+	margin-left: 20px
+}
 .dashboard-filter .custom-modal-600 {
 	left: 0;
 	right: 0;
@@ -4292,8 +4305,9 @@ body {
 .custom-col-justify {
 	display: block;
 }
+.company-verify{width:100% !important}
+.add-video-center-container{width:100% !important;}
 .mobile-filter-cols {
-
 	position: absolute;
 	left: 100%;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -4302,10 +4316,8 @@ body {
 	transition: all 0.5s ease-in-out;
 }
 .mobile-filter-cols-visible {
-
-	left:0;
-	right:0;
-
+	left: 0;
+	right: 0;
 	top: 0;
 	bottom: 0;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -4338,10 +4350,12 @@ body {
 .company-list-box .company-heading-group h5 {
 	text-align: left;
 }
-.container-775{
-	width:100%;
-	}
-.company-heading-group .custom-h4{font-size:18px;}
+.container-775 {
+	width: 100%;
+}
+.company-heading-group .custom-h4 {
+	font-size: 18px;
+}
 .company-heading-group {
 	width: calc(100% - 105px);
 	display: inline-block;
@@ -4362,7 +4376,9 @@ body {
 .mob-navi-search {
 	margin-top: 5px;
 }
-.mob-after-login-navi-search{margin-top:10px;}
+.mob-after-login-navi-search {
+	margin-top: 10px;
+}
 .mobile-login-img li {
 	position: relative;
 	float: left;
@@ -5646,9 +5662,9 @@ textarea.custom-text-area-100 {
 .icon-play-button {
 	background-image: url(../images/play_btn_video_upload.png);
 	width: 100px;
-    height: 127px;
-    display: block;
-    margin: 126px auto 0px;
+	height: 127px;
+	display: block;
+	margin: 126px auto 0px;
 }
 .play-button-add-video {
 	position: absolute;
@@ -5712,14 +5728,24 @@ textarea.custom-text-area-100 {
 }
 /****my changes****/
 #page-video-edit .text-overlay-textarea {
-    bottom: 11px;
-    right: 23px;
+	bottom: 11px;
+	right: 23px;
 }
 #page-video-edit textarea.custom-text-area-36 {
-    height: 36px;
-    resize: none;
+	height: 36px;
+	resize: none;
 }
-
-.custom-model-registration-started{
-	overflow:hidden !important
-	}
+.custom-model-registration-started {
+	overflow: hidden !important
+}
+ @media (min-height: 1000px) {
+.dashboard-filter .custom-modal-600 {
+	bottom: -682px;
+}
+.scroll-filter {
+	max-height: 600px;
+}
+.modal-dialog-scroll .custom-video-modal-body {
+	max-height: 800px;
+}
+}
