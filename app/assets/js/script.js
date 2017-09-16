@@ -355,6 +355,9 @@ $(this).addClass('active');
       }
   });
 
+ $(document).on('click','.custom-navbar-nav li a',function(){
+		 $('.custom-navbar-default .navbar-collapse').removeClass('in');
+	 });
     // $("body").on('click',function(){
     //     if($('#dashboard-filter').hasClass('active')){
     //         $("#dashboard-filter").removeClass("active");

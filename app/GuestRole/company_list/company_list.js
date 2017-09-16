@@ -62,7 +62,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
                                 +'</div>';
             }
             if(response.data[i].related_video[1]){
-                video_result += '<div class="col-sm-6">'
+                video_result += '<div class="col-xs-6 col-sm-6">'
                                     +'<a href="" ng-click="videoPopup('+response.data[i].related_video[1].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
                                         +'<img src="'+response.data[i].related_video[1].thumbnail+'">'
                                         +'<div class="overlay "></div>'
@@ -71,7 +71,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
                                 +'</div>';
             }
             if(response.data[i].related_video[2]){
-                video_result += '<div class="col-sm-6">'
+                video_result += '<div class="col-xs-6 col-sm-6">'
                                     +'<a href="" ng-click="videoPopup('+response.data[i].related_video[2].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
                                         +'<img src="'+response.data[i].related_video[2].thumbnail+'">'
                                         +'<div class="overlay "></div>'

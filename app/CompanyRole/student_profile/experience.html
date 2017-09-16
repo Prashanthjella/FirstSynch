@@ -33,11 +33,11 @@
                     <h2 class="h2 custom-page-h2">Work history
                     </h2>
                     <div class="row"  ng-repeat="experiences in student_profile_details.experience">
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <h2 class="">{{experiences.company}}</h2>
                             <p class="medium-text grey-text text-uppercase">{{experiences.start_date | date:"MMM, y"}} - {{experiences.leave_date | date:"MMM, y"}}</p>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-7">
                             <h2 class="">{{experiences.job_title}}</h2>
                             <p class="">
                                 {{experiences.job_description}}
