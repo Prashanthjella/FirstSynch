@@ -66,6 +66,9 @@ FirstSynch.controller("employeeeditprofiles" , function (Upload,$window,$rootSco
           fd.append("active", 'True');
           fd.append("created_by", $rootScope.user_id);
           var pub_date = $("input[name='published']:checked").val();
+          if (pub_date == null && pub_date == undefined){
+            var pub_date = 'True';
+          }
           fd.append("published", pub_date);
           var xhr = new XMLHttpRequest()
           xhr.upload.addEventListener("progress", uploadProgress, false)

@@ -101,6 +101,7 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
           if (pub_date == null && pub_date == undefined){
             var pub_date = 'True';
           }
+          fd.append("published", pub_date);
           var xhr = new XMLHttpRequest()
           xhr.upload.addEventListener("progress", uploadProgress, false)
           xhr.addEventListener("load", uploadComplete, false)
