@@ -82,7 +82,7 @@ FirstSynch.controller("student_upcoming_career_fair" ,function ($window,$scope, 
 
 // career fair page - near by all career fair
 FirstSynch.controller("student_all_career_fair_near_user" ,function ($rootScope,$scope, $http,$routeParams,apiUrl) {
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=all&location="+$rootScope.current_city)
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city)
     .then(function successCallback(response){
         $scope.all_career_fair_near_current_user = response.data;
     }, function errorCallback(response){
