@@ -1,6 +1,6 @@
-
+<div ng-controller="company_careerfair_detail">
 <!--[Career fair Details Slider Start]-->
-<section class="page-section page-bg-gray page-section-career-details"  ng-controller="company_careerfair_detail" ng-init="initCareerFairDetails()">
+<section class="page-section page-bg-gray page-section-career-details"  ng-init="initCareerFairDetails()">
   <div class="container">
     <div class="page-control-container">
       <a href="/com/careerfair" title="Career Fairs" class="page-prev"><span class="glyphicon glyphicon-chevron-left"></span>Fairs</a>
@@ -121,7 +121,7 @@
 
                   <div class="form-group custom-addvideo-form-group custom-form-group-new">
                     <label class="text-uppercase">Description</label>
-                    <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your description" maxlength="250" required id="description" name="description" ng-model="description"></textarea>
+                    <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your description" maxlength="250"  id="description" name="description" ng-model="description"></textarea>
                     <p class="text-overlay-textarea">{{500 - description.length}}</p>
                   </div>
 
@@ -196,3 +196,35 @@
 
 </section>
 <!--[Career fair Details Slider End]-->
+
+<!--[Dashboard company Start]-->
+<section class="page-section page-section-new-member" ng-show="cfdcompany.length > 0">
+  	<div class="container">
+	    <div class="page-header custom-page-header">
+	      <div class="pull-left">
+	        <h3 class="h3 custom-h3">Jobs</h3>
+	      </div>
+	      <div class="pull-right"> <a href="javascript:void(0)" ng-show="cfdcompany.length > 9" class="link-all home_company_all_link" title="Show All"  ng-click="showall_companyvideo()">Show All</a> </div>
+	    </div>
+	    <div class="row custom-row-10 for_home_com_less_all" >
+	      	<div class="col-sm-4" ng-repeat="comp in cfdcompany | limitTo:9">
+	      		<a data-id="{{comp.id}}" ng-click="videoPopup(comp.id)"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
+	      			<img ng-src="{{comp.thumbnail}}" class="img-responsive custom-img-responsive">
+	        		<div class="overlay "></div>
+	        		<span class="arrow-triangle"></span>
+	        		<span class="link-new">New</span>
+	        		<div class="box-inside-content">
+	          			<span class="logo-companies">
+	          				<img ng-src="{{comp.company.logo}}" class="img-responsive">
+	          			</span>
+	                	<h6 class="h6 custom-h6">{{comp.company.name}}</h6>
+	              		<h1 class="h1 custom-gallery-h1">{{comp.title}}</h1>
+	        		</div>
+	        	</a>
+	        </div>
+	    </div>
+	    <div class="row custom-row-10 for_home_com_show_all"></div>
+  	</div>
+</section>
+<!--[Dashboard company End]-->
+</div>
