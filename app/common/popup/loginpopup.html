@@ -8,7 +8,7 @@
         </div>
 
         <div class="modal-body custom-modal-body-login">
-          <span style="color:red;" class="error_message common_js_remove_clas"> </span>
+          <span style="color:red;" class="error_message common_js_remove_clas">{{status}}</span>
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.username.$valid}">Email Address </label> <sup class="asterisk">*</sup>
             <input autocomplete="off" type="email" name="username" class="form-control custom-form-control-br-bottom" id="username" ng-model="userlogform.username" required ng-class="{'has-error': userloginform.username.$invalid, 'has-success': userloginform.username.$valid}"/>
