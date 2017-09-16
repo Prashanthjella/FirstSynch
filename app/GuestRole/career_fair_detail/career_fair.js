@@ -119,7 +119,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl, $compile, 
 // near by career fair
 FirstSynch.controller("near_by_career_fair" ,function ($rootScope,$scope, $timeout,$http,$routeParams,apiUrl,$window,$compile) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
       .then(function successCallback(response){
           $scope.near_by_career = response.data;
       }, function errorCallback(response){
@@ -128,7 +128,7 @@ FirstSynch.controller("near_by_career_fair" ,function ($rootScope,$scope, $timeo
 
   // near by career - show all and less all
   $scope.showall_near_by_career = function(){
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
       .then(function successCallback(response){
         if(jQuery('.for_cfd_nc_less_all').is(":visible")){
           jQuery('.for_cfd_nc_less_all').slideUp(500);

@@ -9,7 +9,7 @@ var FirstSynch = angular.module("CompanycareerFair", ["ngRoute"]);
 // career fair page - near by career fair
 FirstSynch.controller("company_career_fair_near_user" ,function ($rootScope,$scope, $http,$routeParams,apiUrl) {
 
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
     .then(function successCallback(response){
         $scope.career_fair_near_current_user = response.data;
     }, function errorCallback(response){
@@ -81,7 +81,7 @@ FirstSynch.controller("company_upcoming_career_fair" ,function ($window,$scope, 
 // career fair page - near by all career fair
 FirstSynch.controller("company_all_career_fair_near_user" ,function ($rootScope,$scope, $http,$routeParams,apiUrl) {
 
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?count=all&location="+$rootScope.current_city)
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state)
     .then(function successCallback(response){
         $scope.all_career_fair_near_current_user = response.data;
     }, function errorCallback(response){

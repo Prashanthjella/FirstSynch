@@ -7,7 +7,7 @@ var FirstSynch = angular.module("CompanycareerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl, $rootScope,$timeout, $window) {
+FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl, $rootScope,$timeout, $window, $compile) {
 
   if ($rootScope.request_member_id){
     $scope.companypk = $rootScope.request_member_id;
@@ -98,6 +98,9 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
           fd.append("company_video", 'True');
           fd.append("created_by", $rootScope.user_id);
           var pub_date = $("input[name='published']:checked").val();
+          if (pub_date == null && pub_date == undefined){
+            var pub_date = 'True';
+          }
           fd.append("published", pub_date);
           var xhr = new XMLHttpRequest()
           xhr.upload.addEventListener("progress", uploadProgress, false)
@@ -158,6 +161,51 @@ FirstSynch.controller("company_careerfair_detail" ,function ($filter, $scope, $h
           console("The upload has been canceled by the user or the browser dropped the connection.")
       }
   //Upload Video End
+
+  // company - default
+  $http.get(apiUrl+"api/v1/career_fairs/careerfair_company_videos/"+$routeParams.carredid+"/")
+  .then(function successCallback(response){
+    $scope.cfdcompany = response.data;
+  }, function errorCallback(response){
+    console.log("Unable to perform get dbcompany");
+  });
+
+  // company - show all and less all
+  $scope.showall_companyvideo = function(){
+    $http.get(apiUrl+"api/v1/career_fairs/careerfair_company_videos/"+$routeParams.carredid+"/")
+    .then(function successCallback(response){
+      if(jQuery('.for_home_com_less_all').is(":visible")){
+        jQuery('.for_home_com_less_all').slideUp(500);
+        jQuery('.home_company_all_link').text('Less All');
+        jQuery('.for_home_com_show_all').slideDown(500).empty();
+        jQuery.each(response.data, function(i) {
+          var company_showall =   '<div class="col-sm-4">'
+          +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail  customn-thumbs-color-02 custom-thumbnail-image-gallery">'
+          +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
+          +'<div class="overlay "></div>'
+          +'<span class="arrow-triangle"></span>'
+          +'<span class="link-new">New</span>'
+          +'<div class="box-inside-content">'
+          +'<span class="logo-companies">'
+          +'<img src="'+response.data[i].company.logo+'" class="img-responsive">'
+          +'</span>'
+          +'<h6 class="h6 custom-h6">'+response.data[i].company.name+'</h6>'
+          +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+          +'</div>'
+          +'</a>'
+          +'</div>';
+          angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
+        })
+      }else{
+        jQuery('.for_home_com_show_all').slideUp(500);
+        jQuery('.for_home_com_less_all').slideDown(500);
+        jQuery('.home_company_all_link').text('Show All');
+      }
+    }, function errorCallback(response){
+      console.log("Unable to perform get featurevideo showall");
+    });
+  }
+
 });
 
 // students
@@ -252,7 +300,7 @@ FirstSynch.controller("company_cfdcompany" , function ($scope, $http, apiUrl, $c
 // near by career fair
 FirstSynch.controller("company_near_by_career_fair" ,function ($rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl,$compile) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
   .then(function successCallback(response){
     $scope.near_by_career = response.data;
     window.scrollTo(0, 0);
@@ -262,7 +310,7 @@ FirstSynch.controller("company_near_by_career_fair" ,function ($rootScope,$timeo
 
   // near by career - show all and less all
   $scope.showall_near_by_career = function(){
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
     .then(function successCallback(response){
       if(jQuery('.for_cfd_nc_less_all').is(":visible")){
         jQuery('.for_cfd_nc_less_all').slideUp(500);

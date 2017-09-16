@@ -265,13 +265,26 @@ FirstSynch.controller("video_cmt_form_controller", function ($cookies,$scope,gue
     });
   };
 });
-FirstSynch.controller("Login", function ($timeout,$cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
+FirstSynch.controller("Login", function ($compile, $timeout,$cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
+  $scope.resendactivation = function(value) {
+    $http({
+      url: apiUrl+'api/v1/accounts/resend/'+value+'/',
+      method: "GET",
+    })
+    .then(function successCallback(data, status, headers, config) {
+        alert('success');
+    },
+    function errorCallback(data, status, headers, config) {
+    });
+  };
+
   var url = window.location.href;
   var idexvalue = url.indexOf("/login");
   if(idexvalue != -1) {
     jQuery('#logIn').modal('show');
   }
   $scope.LoginUser = function () {
+    $('.error_message').text('');
     $('.loader_icon').show();
     var redirectulrs = $('#redirecturl').val();
     var videoid = $('#videoid').val();
@@ -341,10 +354,16 @@ FirstSynch.controller("Login", function ($timeout,$cookies,$scope ,$http, apiUrl
       //$('#logIn').modal('show');
       $('.loader_icon').hide();
       $scope.status = data.data.non_field_errors[0];
-      $('.error_message').text($scope.status);
+      if ($scope.status == 'Please activate your Firstsynch account.'){
+        $('.error_message').text('');
+         var activation_link = '<b>'+data.data.non_field_errors[0]+'<a href="#" ng-click="resendactivation('+data.data.non_field_errors[1]+')"> Resend Activation Email.</a></b>';
+         angular.element(jQuery('.error_message')).append($compile(activation_link)($scope));
+      } else {
+        $('.error_message').text($scope.status);
+      }
       $timeout(function() {
          $('.error_message').text('');
-      }, 5000);
+      }, 10000);
     });
   };// user login - function end
 });

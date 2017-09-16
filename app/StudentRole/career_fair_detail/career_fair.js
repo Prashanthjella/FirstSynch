@@ -6,7 +6,7 @@ var FirstSynch = angular.module("StudentcareerFairDetail", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair details
-FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl,$rootScope,$timeout, $window) {
+FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $http,$routeParams,apiUrl,$rootScope,$timeout, $window, $compile) {
   $scope.student_careerfair_notfound = true;
   $scope.initCareerFairDetails=function(){
       $http.get(apiUrl+"api/v1/career_fairs/"+$routeParams.carredid+"/", {
@@ -81,6 +81,9 @@ FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $h
           fd.append("student_video", 'True');
           fd.append("created_by", $rootScope.user_id);
           var pub_date = $("input[name='published']:checked").val();
+          if (pub_date == null && pub_date == undefined){
+            var pub_date = 'True';
+          }
           fd.append("published", pub_date);
           var xhr = new XMLHttpRequest()
           xhr.upload.addEventListener("progress", uploadProgress, false)
@@ -119,14 +122,12 @@ FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $h
               $('#inoutbar').empty();
               $('#chapterss ul').empty();
               $('#page-video-edit form').trigger("reset");
-              $scope.$apply(function(){
                 $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
                   .then(function successCallback(response){
                       $scope.cfdstudents = response.data;
                   }, function errorCallback(response){
                       console.log("Unable to perform get dbstudents");
                   });
-              });
          }, 60000 );
       }
 
@@ -141,6 +142,46 @@ FirstSynch.controller("student_careerfair_detail" ,function ($filter, $scope, $h
           console("The upload has been canceled by the user or the browser dropped the connection.")
       }
   //Upload Video End
+
+  // home page - students - default
+    $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
+      .then(function successCallback(response){
+          $scope.cfdstudents = response.data;
+      }, function errorCallback(response){
+          console.log("Unable to perform get dbstudents");
+    });
+  //  students - showall and lessall
+  $scope.showall_studentsvideo = function(){
+      $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
+      .then(function successCallback(response){
+        if(jQuery('.for_home_stu_less_all').is(":visible")){
+          jQuery('.for_home_stu_less_all').slideUp(500);
+          jQuery('.home_students_all_link').text('Less All');
+          jQuery('.for_home_stu_show_all').slideDown(500).empty();
+          jQuery.each(response.data, function(i) {
+            var students_showall =   '<div class="col-sm-4">'
+                                        +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
+                                          +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
+                                        +'<div class="overlay "></div>'
+                                        +'<span class="arrow-triangle"></span>'
+                                        +'<span class="link-new">New</span>'
+                                          +'<div class="box-inside-content">'
+                                              +'<h1 class="h1 custom-gallery-h1">'+response.data[i].title+'</h1>'
+                                          +'</div>'
+                                        +'</a> '
+                                      +'</div>';
+
+              angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
+          })
+        }else{
+            jQuery('.for_home_stu_show_all').slideUp(500);
+            jQuery('.for_home_stu_less_all').slideDown(500);
+            jQuery('.home_students_all_link').text('Show All');
+        }
+      }, function errorCallback(response){
+          console.log("Unable to perform get featurevideo showall");
+    });
+  }
 
 });
 
@@ -237,7 +278,7 @@ FirstSynch.controller("student_cfdcompany" , function ($scope, $http, apiUrl, $c
 // near by career fair
 FirstSynch.controller("student_near_by_career_fair" ,function ($rootScope,$timeout,$window,$scope, $http,$routeParams,apiUrl, $compile) {
 
-  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+  $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
       .then(function successCallback(response){
           $scope.near_by_career = response.data;
           window.scrollTo(0, 0);
@@ -247,7 +288,7 @@ FirstSynch.controller("student_near_by_career_fair" ,function ($rootScope,$timeo
 
   // near by career - show all and less all
   $scope.showall_near_by_career = function(){
-    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_city+"&count=10")
+    $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
       .then(function successCallback(response){
         if(jQuery('.for_cfd_nc_less_all').is(":visible")){
           jQuery('.for_cfd_nc_less_all').slideUp(500);
