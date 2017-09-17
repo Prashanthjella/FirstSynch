@@ -401,7 +401,7 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
 FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
 
   $rootScope.SendData = function (mailiid) {
-    var data = 'e_mail=' + mailiid;
+    var data = 'e_mail=' + mailiid.toLowerCase().replace(/\s/g, '');
     $http({
       url: apiUrl+'api/v1/accounts/signupemail/',
       method: "POST",
