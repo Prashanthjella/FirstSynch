@@ -73,7 +73,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
               }
           }
         }
-    }).when('/students', {
+    }).when('/seekers', {
         templateUrl: 'GuestRole/student_list/student_list.html',
         resolve:{
           "check":function($location){
@@ -83,7 +83,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
                   $location.path('/stu/employee/profile');
               }
               else{
-                  $location.path('/students');
+                  $location.path('/seekers');
               }
           }
         }
@@ -185,7 +185,7 @@ FirstSynch.config(['$locationProvider','$routeProvider', function($locationProvi
     }).when('/com/employee/editprofile', {
         templateUrl: 'CompanyRole/employee_edit_profile/employee_edit_profile.html',
         controller: 'employeeeditprofiles'
-    }).when('/com/students', {
+    }).when('/com/seekers', {
         templateUrl: 'CompanyRole/student_list/student_list.html'
     }).when('/com/student/:studentid', {
         templateUrl: 'CompanyRole/student_profile/student_profile.html',
