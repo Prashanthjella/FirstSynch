@@ -7,10 +7,11 @@
 					<img src="{{profileimage}}" alt=""><!--img-user-avator.png-->
 				</a>
 				<ul class="dropdown-menu">
-					<li><a href="/stu/student/{{user_id}}" title="My Profile">My Profile</a></li>
-					<li><a href="/stu/mycareerfair" title="My Fair">My Fair</a></li>
-					<li><a href="/stu/setting" title="Account Settings">Account Settings</a></li>
-					<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
+					<li><a href="/com/employee/profile/{{user_id}}" title="My Profile">My Profile</a></li>
+						<li><a href="/com/mycareerfair" title="My Fairs">My Fairs</a></li>
+						<li ng-if="company_userid"><a href="/com/company/{{user_id}}" title="ompany Profile">Company Profile</a></li>
+						<li><a href="/com/setting" title="Account Settings">Account Settings</a></li>
+						<li><a href="#" title="Logout" ng-click="LogoutUser()" ng-controller="LogoutUser">Logout</a></li>
 				</ul>
      </ul>
     
