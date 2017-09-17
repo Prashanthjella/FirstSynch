@@ -174,8 +174,28 @@ FirstSynch.controller("all_companies_namess" ,function ($scope, $http,$routePara
 
 });
 FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $http,$routeParams,apiUrl,$timeout,$compile) {
-    $scope.dashboard_filter_form = function(){
+    $scope.dashboard_filter_form = function(resetoption){
         $rootScope.dashboard = false;
+        if(resetoption == 'indus_reset'){
+            angular.element(jQuery('.filtered_kw_industry')).text('Not specified');
+            angular.element($("#dashboard-filter .all_industry_type input[type=checkbox]")).prop('checked', false);
+        }
+        if(resetoption == 'salary_reset'){
+            angular.element(jQuery('.filtered_kw_salary')).text('Not specified');
+            angular.element($("#dashboard-filter .all_salary_range input[type=checkbox]")).prop('checked', false);
+        }
+        if(resetoption == 'emp_type_reset'){
+            angular.element(jQuery('.filtered_kw_employement')).text('Not specified');
+            angular.element($("#dashboard-filter .all_employeement_type input[type=checkbox]")).prop('checked', false);
+        }
+        if(resetoption == 'skills_reset'){
+            angular.element(jQuery('.filtered_kw_skills')).text('Not specified');
+            angular.element($("#dashboard-filter .all_skills_filter .skillname")).val('');
+        }
+        if(resetoption == 'comp_reset'){
+            angular.element(jQuery('.filtered_kw_company')).text('Not specified');
+            angular.element($("#dashboard-filter .all_company_filter input[type=checkbox]")).prop('checked', false);
+        }
         var keywords = '';
         var industries = '';
         var salary = '';
