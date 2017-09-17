@@ -69,7 +69,7 @@
                             match-class="highlight"
                             ng-class="{'has-error': studentregistration.school_name.$touched && studentregistration.school_name.$error.required && studentregistration.school_name.$invalid, 'has-success': studentregistration.school_name.$valid}">
                         </div>
-                        <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="selecteduniversity.originalObject.Institution_Name" value="{{selecteduniversity.originalObject.Institution_Name}}" required ng-model="selecteduniversity.originalObject.Institution_Name"/>
+                        <input type="hidden" class="form-control custom-form-control-br-bottom" id="university-name" name="school_name" value="{{selecteduniversity.originalObject.Institution_Name}}" required ng-model="selecteduniversity.originalObject.Institution_Name"/>
                     </div>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': studentregistration.gpa.$valid}">Your Gpa</label> <sup class="asterisk">*</sup>

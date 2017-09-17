@@ -169,8 +169,28 @@ FirstSynch.controller("dashboard_filter_process_company" ,function ($rootScope,$
         }, function errorCallback(response){
             console.log("Unable to perform get student university list");
     });
-    $scope.dashboard_filter_form_c = function(){
+    $scope.dashboard_filter_form_c = function(resetoption){
         $rootScope.dashboardc = false;
+        if(resetoption == 'indus_reset'){
+            angular.element(jQuery('.filtered_kw_industry_c')).text('Not specified');
+            angular.element($("#dashboard-filterc .all_industry_typec input[type=checkbox]")).prop('checked', false);
+        }
+        if(resetoption == 'salary_reset'){
+            angular.element(jQuery('.filtered_kw_salary_c')).text('Not specified');
+            angular.element($("#dashboard-filterc .all_salary_rangec input[type=checkbox]")).prop('checked', false);
+        }
+        if(resetoption == 'emp_type_reset'){
+            angular.element(jQuery('.filtered_kw_employement_c')).text('Not specified');
+            angular.element($("#dashboard-filterc .all_employeement_typec input[type=checkbox]")).prop('checked', false);
+        }
+        if(resetoption == 'skills_reset'){
+            angular.element(jQuery('.filtered_kw_skills_c')).text('Not specified');
+            angular.element($("#dashboard-filterc .all_skills_filterc .skillname")).val('');
+        }
+        if(resetoption == 'comp_reset'){
+            angular.element(jQuery('.filtered_kw_company_c')).text('Not specified');
+            angular.element($("#dashboard-filterc .all_company_filterc input[type=checkbox]")).prop('checked', false);
+        }
         var keywords = '';
         var industries = '';
         var salary = '';
@@ -178,7 +198,7 @@ FirstSynch.controller("dashboard_filter_process_company" ,function ($rootScope,$
         var skiills = '';
         var companyd = '';
 
-        $('.filtered_kw_industryc').empty();
+        $('.filtered_kw_industry_c').empty();
         $('.all_industry_typec .checkbox-input:checked').each(function(){
             keywords += ','+$(this).next().text();
         });

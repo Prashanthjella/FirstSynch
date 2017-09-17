@@ -19,14 +19,14 @@
               <input maxlength="100" type="text" class="form-control custom-form-control-br-bottom" name="last_name" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="Please provide your Laste Name" ng-model="basicprofileform.last_name" ng-class="{'has-error': epebasicprofile_form.last_name.$touched, 'has-success': epebasicprofile_form.last_name.$valid}" required>
           </div>
           <div class="form-group custom-lider-form-group">
-              <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.dob.$valid}">Date of Birth</label><sup class="asterisk">*</sup><span ng-show="epebasicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
-              <input maxlength="12" type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': epebasicprofile_form.dob.$touched, 'has-success': epebasicprofile_form.dob.$valid}" required>
+              <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.dob.$valid}">Date of Birth</label> <span ng-show="epebasicprofile_form.dob.$error.pattern" class="validation_msg">Enter YYYY/MM/DD format</span>
+              <input maxlength="12" type="text" datepicker class="form-control custom-form-control-br-bottom" name="dob" placeholder="Please provide your Date of Birth" ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" ng-model="basicprofileform.dob" ng-class="{'has-error': epebasicprofile_form.dob.$touched, 'has-success': epebasicprofile_form.dob.$valid}">
           </div>
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6- col-lg-6">
                   <div class="form-group custom-lider-form-group">
-                      <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.gender.$valid}">Gender</label> <sup class="asterisk">*</sup>
-                      <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom"  ng-class="{'has-error': epebasicprofile_form.gender.$touched, 'has-success': epebasicprofile_form.gender.$valid}" required>
+                      <label class="text-uppercase" ng-class="{'has-success': epebasicprofile_form.gender.$valid}">Gender</label>
+                      <select name="gender" ng-model="basicprofileform.gender" class="form-control custom-form-control-br-bottom"  ng-class="{'has-error': epebasicprofile_form.gender.$touched, 'has-success': epebasicprofile_form.gender.$valid}">
                           <option value="Male" ng-selected="{{ basicprofileform.gender == 'Male' }}">Male</option>
                           <option value="Female" ng-selected="{{ basicprofileform.gender == 'Female' }}">FeMale</option>
                       </select>

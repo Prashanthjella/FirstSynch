@@ -401,7 +401,7 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
 FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
 
   $rootScope.SendData = function (mailiid) {
-    var data = 'e_mail=' + mailiid;
+    var data = 'e_mail=' + mailiid.toLowerCase().replace(/\s/g, '');
     $http({
       url: apiUrl+'api/v1/accounts/signupemail/',
       method: "POST",
@@ -416,7 +416,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.peoplesearch_remove').show();
         $('.peoplesearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = $scope.usersignup.email;
+        $rootScope.e_mail = ($scope.usersignup.email).toLowerCase().replace(/\s/g, '');
       }else{
         jQuery("#registration").modal('hide');
         jQuery("#companyverify").modal('hide');
@@ -424,7 +424,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.domainsearch_remove').show();
         $('.domainsearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = $scope.usersignup.email;
+        $rootScope.e_mail = ($scope.usersignup.email).toLowerCase().replace(/\s/g, '');
       }
     },
     function errorCallback(data, status, headers, config) {
@@ -453,6 +453,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     //alert($scope.piplsearch);
     var allow_pipl_check = parseInt($('#allow_pipl').val());
     var workhistroy_arry = [];
+    var education_arry = [];
     var data = {
       education : {school_name : $scope.selecteduniversity.originalObject.Institution_Name,gpa : $scope.gpa},
       user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
@@ -502,8 +503,10 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       for(var w=0;w<parseInt($('#workhistroy_count').val());w++){
         workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
       }
+      education_arry.push({school_name : $scope.selecteduniversity.originalObject.Institution_Name,gpa : $scope.gpa});
+      education_arry.push({school_name : $('#piplschool_name').val(),dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()});
       var datap = {
-        education : {school_name : $('#piplschool_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
+        educations : education_arry,
         student : {first_name : $scope.name},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry,
@@ -1181,7 +1184,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
           +'</div>'
           +'<div class="media-body custom-media-body">'
           +'<h4 class="media-heading custom-media-heading">'+response.data.company[i].name+'</h4>'
-          +'<h5 class="media-eading-h5">'+(typeof response.data.company[i].city != "undefined"?response.data.company[i].city:"")+'&bull; '+(typeof response.data.company[i].state != "undefined"?response.data.company[i].state:"")+'</h5>'
+          +'<h5 class="media-eading-h5">'+(typeof response.data.company[i].city != "undefined"?response.data.company[i].city+'&bull; ':"")+(typeof response.data.company[i].state != "undefined"?response.data.company[i].state:"")+'</h5>'
           +'<div class="searech-folow pull-left">'
           +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].employees != "undefined"?response.data.company[i].employees:"0")+'</span> Employees</span>'
           +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.company[i].followers != "undefined"?response.data.company[i].followers:"0")+'</span> followers</span>'
@@ -1210,7 +1213,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
           +'</div>'
           +'<div class="media-body custom-media-body">'
           +'<h4 class="media-heading custom-media-heading">'+response.data.student[i].first_name+'</h4>'
-          +'<h5 class="media-eading-h5">'+(typeof response.data.student[i].city != "undefined"?response.data.student[i].city:"")+'&bull; '+(typeof response.data.student[i].state != "undefined"?response.data.student[i].state:"")+'</h5>'
+          +'<h5 class="media-eading-h5">'+(typeof response.data.student[i].city != "undefined"?response.data.student[i].city+'&bull; ':"")+(typeof response.data.student[i].state != "undefined"?response.data.student[i].state:"")+'</h5>'
           +'<div class="searech-folow pull-left">'
           +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.student[i].viewed != "undefined"?response.data.student[i].viewed:"0")+'</span> Views</span>'
           +'<span class="group-followers"><span class="total-followers">'+(typeof response.data.student[i].liked != "undefined"?response.data.student[i].liked:"0")+'</span> Likes</span>'
