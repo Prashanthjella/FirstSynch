@@ -272,7 +272,10 @@ FirstSynch.controller("Login", function ($compile, $timeout,$cookies,$scope ,$ht
       method: "GET",
     })
     .then(function successCallback(data, status, headers, config) {
-        alert('success');
+        $('.error_message').html('<b>Your activation email send to your register mail id</b>');
+          $timeout(function() {
+             $('.error_message').text('');
+          }, 10000);
     },
     function errorCallback(data, status, headers, config) {
     });
@@ -356,7 +359,8 @@ FirstSynch.controller("Login", function ($compile, $timeout,$cookies,$scope ,$ht
       $scope.status = data.data.non_field_errors[0];
       if ($scope.status == 'Please activate your Firstsynch account.'){
         $('.error_message').text('');
-         var activation_link = '<b>'+data.data.non_field_errors[0]+'<a href="#" ng-click="resendactivation('+data.data.non_field_errors[1]+')"> Resend Activation Email.</a></b>';
+        var act_id = "'"+data.data.non_field_errors[1]+"'";
+         var activation_link = '<b>'+data.data.non_field_errors[0]+'<a href="#" ng-click="resendactivation('+act_id+')"> Resend Activation Email.</a></b>';
          angular.element(jQuery('.error_message')).append($compile(activation_link)($scope));
       } else {
         $('.error_message').text($scope.status);
