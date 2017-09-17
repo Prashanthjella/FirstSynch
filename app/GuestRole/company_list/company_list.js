@@ -102,7 +102,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
         else{
             description = response.data[i].description;
         }
-        var search_result = '<a href="/company/'+response.data[i].slug+'">'
+        var search_result = '<div>'
         					+'<div class="col-sm-4 custom-box">'
                             +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
                                 +'<div class="media custom-media-company-gallery">'
@@ -110,7 +110,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
                                         +'<img class="media-object custom-media-object" src="'+(response.data[i].logo != null?response.data[i].logo:"assets/images/profileicon.png")+'" alt="forester-logo.jpg">'
                                     +'</div>'
                                     +'<div class="media-body">'
-                                        +'<h4 class="media-heading">'+response.data[i].name+'</h4>'
+                                        +'<a href="/company/'+response.data[i].slug+'"><h4 class="media-heading">'+response.data[i].name+'</h4></a>'
                                         +'<h5 class="media-eading-h5">'+city+''+state+'</h5>'
                                     +'</div>'
                                     +'<div> </div>'
@@ -119,7 +119,7 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
                                 +'<div class="row custom-row-5">'
                                 +video_result
                                 +'</div>'
-                            +'</div></a>';
+                            +'</div></div>';
         angular.element(jQuery('.company_search_result')).append($compile(search_result)($scope));
         $('#company_count').text(response.data.length+" Companies");
        });

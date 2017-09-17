@@ -19,7 +19,7 @@ FirstSynch.controller("companyeditprofiles" , function ($window,Upload,$rootScop
 
   $scope.videoEditPopup = function (value) {
       var id = value;
-      $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
+      $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id+"/", {
         headers: {'Authorization' : 'Token '+$rootScope.token_id}
       })
       .then(function successCallback(response){
