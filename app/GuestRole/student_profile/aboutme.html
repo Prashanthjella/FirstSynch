@@ -47,42 +47,14 @@
             </div>
           </div>
           <div class="page-section-about-charecter">
-            <h1 class="h1 custom-h1-01 custom-h1-05">What i'm looking for</h1>
-            <div class="row">
+            <h1 class="h1 custom-h1-01 custom-h1-05" ng-if="student_profile_details.whatimlooking.length > 0">What i'm looking for</h1>
+            <div class="row" ng-if="student_profile_details.whatimlooking.length > 0">
               <div class="col-sm-12 col-md-12">
                 <div class="row custom-row-10 custom-thumbnail-profile-5" >
-                  <div class="col-sm-3">
-                    <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
+                  <div class="col-sm-3" ng-repeat="studentlooking in student_profile_details.whatimlooking">
+                    <div class="thumbnail custom-thumbnail-profile-views"> <img src="{{studentlooking.image_url}}" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
                       <div class="box-inside-content">
-                        <h1 class="h1 custom-gallery-h1">Flat Surface Project</h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
-                      <div class="box-inside-content">
-                        <h1 class="h1 custom-gallery-h1">High earnings</h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
-                      <div class="box-inside-content">
-                        <h1 class="h1 custom-gallery-h1">Official employemnet</h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
-                      <div class="box-inside-content">
-                        <h1 class="h1 custom-gallery-h1">Friendly staff</h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="thumbnail custom-thumbnail-profile-views"> <img src="assets/images/carlos-morton.jpg" alt="carlos-morton.jpg" class="img-responsive custom-img-responsive">
-                      <div class="box-inside-content">
-                        <h1 class="h1 custom-gallery-h1">Career growth</h1>
+                        <h1 class="h1 custom-gallery-h1">{{studentlooking.whatimlooking}}</h1>
                       </div>
                     </div>
                   </div>
