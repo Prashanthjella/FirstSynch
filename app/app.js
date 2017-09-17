@@ -416,7 +416,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.peoplesearch_remove').show();
         $('.peoplesearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = $scope.usersignup.email;
+        $rootScope.e_mail = ($scope.usersignup.email).toLowerCase().replace(/\s/g, '');
       }else{
         jQuery("#registration").modal('hide');
         jQuery("#companyverify").modal('hide');
@@ -424,7 +424,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.domainsearch_remove').show();
         $('.domainsearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = $scope.usersignup.email;
+        $rootScope.e_mail = ($scope.usersignup.email).toLowerCase().replace(/\s/g, '');
       }
     },
     function errorCallback(data, status, headers, config) {
@@ -453,6 +453,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     //alert($scope.piplsearch);
     var allow_pipl_check = parseInt($('#allow_pipl').val());
     var workhistroy_arry = [];
+    var education_arry = [];
     var data = {
       education : {school_name : $scope.selecteduniversity.originalObject.Institution_Name,gpa : $scope.gpa},
       user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
@@ -502,8 +503,10 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       for(var w=0;w<parseInt($('#workhistroy_count').val());w++){
         workhistroy_arry.push({"company_name":$('#pipl_company_name'+w).val(),"datestarted":$('#pipl_datestarted'+w).val(),"leavedate":$('#pipl_leavedate'+w).val(),"jobtitle":$('#pipl_jobtitle'+w).val(),"jobdescription":$('#pipl_jobdescription'+w).val()});
       }
+      education_arry.push({school_name : $scope.selecteduniversity.originalObject.Institution_Name,gpa : $scope.gpa});
+      education_arry.push({school_name : $('#piplschool_name').val(),dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()});
       var datap = {
-        education : {school_name : $('#piplschool_name').val(),gpa : $scope.gpa,dateattended: $('#pipl_dateattended').val(),major:$('#pipl_major').val()},
+        educations : education_arry,
         student : {first_name : $scope.name},
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry,
