@@ -11,7 +11,7 @@
           <span style="color:red;" class="error_message common_js_remove_clas">{{status}}</span>
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.username.$valid}">Email Address </label> <sup class="asterisk">*</sup>
-            <input autocomplete="off" type="email" name="username" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" id="username" ng-model="userlogform.username" required ng-class="{'has-error': userloginform.username.$error.pattern, 'has-success': userloginform.username.$valid}"/>
+            <input autocomplete="off" type="email" name="username" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z0-9]+\.[a-z.]{2,5}$/" id="username" ng-model="userlogform.username" required ng-class="{'has-error': userloginform.username.$error.pattern, 'has-success': userloginform.username.$valid}"/>
           </div>
 
           <div class="form-group">
