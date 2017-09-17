@@ -17,6 +17,7 @@
                                     <h3 class="custom-h3">Filters</h3>
                                     <button type="reset" class="btn-reset" ng-click="reset_filter_form_c()">Reset all</button>
                                 </div>
+                                <div class="scroll-filter">
                                 <div class="media custom-media">
                                     <a href="#" ng-click="filter_optionc = 'industryc'">
                                         <div class="media-body custom-media-body">
@@ -77,9 +78,11 @@
                                     <div>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'industryc'">
+                         <div class="col-sm-6  bg-grey custom-col-justify mobile-filter-cols" style="padding-right:0">
+                        <div class="col-sm-12" ng-show="filter_optionc == 'industryc'">
                             <div class="media-group-container all_industry_typec">
                                 <div class="reset-control">
                                 <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
@@ -97,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'salaryc'">
+                        <div class="col-sm-12" ng-show="filter_optionc == 'salaryc'">
                             <div class="media-group-container all_salary_rangec">
                                 <div class="reset-control">
                                 <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
@@ -143,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'employementc'">
+                        <div class="col-sm-12" ng-show="filter_optionc == 'employementc'">
                             <div class="media-group-container all_employeement_typec">
                                 <div class="reset-control">
                                 <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
@@ -185,7 +188,7 @@
                                       </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 bg-grey custom-col-justify" ng-show="filter_optionc == 'skillsc'">
+                        <div class="col-sm-12" ng-show="filter_optionc == 'skillsc'">
                             <div class="media-group-container all_skills_filterc">
                                 <div class="reset-control">
                                 <span class="media-mobile-left-arrow visible-xs"><i class="fa fa-angle-left"></i>
@@ -217,6 +220,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
