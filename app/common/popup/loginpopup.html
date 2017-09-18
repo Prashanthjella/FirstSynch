@@ -11,19 +11,19 @@
           <span style="color:red;" class="error_message common_js_remove_clas">{{status}}</span>
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.username.$valid}">Email Address </label> <sup class="asterisk">*</sup>
-            <input autocomplete="off" type="email" name="username" class="form-control custom-form-control-br-bottom" id="username" ng-model="userlogform.username" required ng-class="{'has-error': userloginform.username.$invalid, 'has-success': userloginform.username.$valid}"/>
+            <input autocomplete="off" type="email" name="username" class="form-control custom-form-control-br-bottom" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z0-9]+\.[a-z.]{2,5}$/" id="username" ng-model="userlogform.username" required ng-class="{'has-error': userloginform.username.$error.pattern, 'has-success': userloginform.username.$valid}"/>
           </div>
 
           <div class="form-group">
             <label class="text-uppercase" ng-class="{'has-success': userloginform.password.$valid}">Password</label> <sup class="asterisk">*</sup>
-            <input autocomplete="off" type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="userlogform.password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': userloginform.password.$invalid, 'has-success': userloginform.password.$valid}"/>
+            <input autocomplete="off" type="password" name="password" class="form-control custom-form-control-br-bottom" id="password" ng-model="userlogform.password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@_('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/" required ng-class="{'has-error': userloginform.password.$error.pattern, 'has-success': userloginform.password.$valid}"/>
             <input type="hidden" name="redirecturl" id="redirecturl" value="" ng-model="redirecturl"/>
             <input type="hidden" name="videoid" id="videoid" value="" ng-model="videoid"/>
           </div>
         </div>
 
         <div class="modal-footer custom-login-modal-footer custom-login-modal-footer-02">
-          <button id="loginbtn" ng-click="LoginUser()" ng-disabled="userloginform.username.$invalid||userloginform.password.$invalid" class="btn btn-default custom-btn-login custom-btn-login-enbled">Log in <img src="assets/images/loader.gif" class="loader_icon" style="width: 20px; margin-left: 10px; display:none;"></button>
+          <button id="loginbtn" ng-click="LoginUser()" ng-disabled="userloginform.username.$invalid ||userloginform.username.$error.pattern || userloginform.password.$error.pattern|| userloginform.password.$invalid" class="btn btn-default custom-btn-login custom-btn-login-enbled">Log in <img src="assets/images/loader.gif" class="loader_icon" style="width: 20px; margin-left: 10px; display:none;"></button>
           <a href="{{facebookloginurl}}" class="btn btn-default custom-btn-login bg-facebook">Signin with Facebook</a>
           <a data-toggle="modal" id="Forgotpswdlink" data-target="#ForgotPassword" data-dismiss="modal" href="#" class="link-forgot-password">Forgot Password?</a>
         </div>

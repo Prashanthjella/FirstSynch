@@ -120,8 +120,8 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       $rootScope.usersignup = {
           email : ''
       }
-      $('#username').removeClass('ng-valid ng-valid-email').addClass('ng-invalid ng-invalid-required has-error');
-      $('#password').removeClass('ng-valid').addClass('ng-invalid ng-invalid-required has-error')
+      $('#username').removeClass('ng-valid ng-valid-email').addClass('ng-invalid ng-invalid-required');
+      $('#password').removeClass('ng-valid ng-valid-pattern').addClass('ng-invalid ng-invalid-required')
       $('#loginbtn').attr('disabled','disabled');
       angular.element(jQuery('.filtered_kw_industryc,.filtered_kw_salary_c,.filtered_kw_employement_c,.filtered_kw_skills_c,.filtered_kw_company_c')).text('Not specified');
       angular.element(jQuery('.filter_job_countc,.video_filter_search_resultc')).empty();
