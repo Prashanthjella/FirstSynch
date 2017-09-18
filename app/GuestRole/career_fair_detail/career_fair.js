@@ -140,7 +140,7 @@ FirstSynch.controller("near_by_career_fair" ,function ($rootScope,$scope, $timeo
                                       +'<div class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery"> <img src="'+response.data[i].image+'">'
                                         +'<div class="overlay"></div>'
                                         +'<div class="box-inside-content">'
-                                         +' <p class="date-location">'+response.data[i].start_date+'<span> •</span> '+response.data[i].where+', '+response.data[i].country+'</p>'
+                                         +' <p class="date-location">'+moment(response.data[i].start_time).format("MMM, d, YYYY")+'<span> •</span> '+response.data[i].city+', '+response.data[i].state+'</p>'
                                           +'<h1 class="custom-gallery-h1">'+response.data[i].title+'</h1>'
                                         +'</div>'
                                       +'</div>'
