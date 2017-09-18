@@ -5973,26 +5973,28 @@ textarea.custom-text-area-100 {
 .custom-model-registration-started {
 	overflow: hidden !important
 }
- @media (min-height: 1000px) {
+ @media (min-height: 900px) {
 .dashboard-filter .custom-modal-600 {
 	bottom: -682px;
 }
 .scroll-filter {
 	height: 600px;
 }
+
 .modal-dialog-scroll .custom-video-modal-body {
-	max-height: 800px;
+	max-height: 770px;
 }
 }
 
-@media (min-height: 1600px) {
+@media (min-height: 1400px) {
 .dashboard-filter .custom-modal-600 {
 	bottom: -682px;
 }
 .scroll-filter {
 	height: 600px;
 }
+
 .modal-dialog-scroll .custom-video-modal-body {
-	max-height: 1000px;
+	max-height: 760px;
 }
 }
