@@ -1238,7 +1238,7 @@ FirstSynch.controller("UserSearch", function ($rootScope, $scope, $http,guest_to
         jQuery('.search_results_video_container_act').show();
         jQuery.each(response.data.video, function(i) {
           var video_result ='<div class="media custom-media">'
-          +'<a ng-click="videoPopup('+response.data.video[i].id+')" class="search-link">'
+          +'<a href="#" ng-click="videoPopup('+response.data.video[i].id+')" class="search-link">'
           +'<div class="media-left media-middle custom-media-left">'
           +'<div class="search-img-container">'
           +'<img src="'+response.data.video[i].thumbnail+'" class="logo-companies-box">'
