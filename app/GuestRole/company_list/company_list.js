@@ -16,6 +16,48 @@ FirstSynch.controller("student_categorys" ,function ($scope, $http,$routeParams,
   });
 
 });
+FirstSynch.controller("guestcompanyfilter" ,function ($timeout,$window,$scope,$rootScope,$http,$routeParams,apiUrl,$compile,$templateCache) {
+    $rootScope.company_filters = function(obj){
+    	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datacompanyval.value = obj.currentTarget.attributes.datavalue.value;
+      	var city_data = $('#all_com_city').attr('datacompanyval');
+      	var company_data = $('#all_com_company').attr('datacompanyval');
+      	var query_string = '';
+      	if(city_data != ''){
+      		query_string += 'city='+city_data;
+      	}
+      	if(company_data != ''){
+      		query_string += '&category='+company_data;
+      	}
+        $('.allcompanies_act').hide();
+        $('.companies_act_categ').hide();
+        $('.top_three_company_act').hide();
+        $('.video_filter_search_result_empty').addClass('hide');
+        $scope.companyserchfilter(query_string);
+        $('.grid').masonry({
+          itemSelector: '.grid-item',
+        });
+    };
+    $scope.companyserchfilter = function(query_string){
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_filters/?"+query_string)
+        .then(function successCallback(response){
+            if(!response.data.length){
+                $('.video_filter_search_result_empty').removeClass('hide');
+                $('.company_search_result').addClass('hide');
+                $('#company_count').text(response.data.length+" Companies");
+            }
+            else{
+                $('.company_search_result').removeClass('hide');
+                $('.video_filter_search_result_empty').addClass('hide');
+                $scope.guestcompanyfilterresult = response.data;
+                $('#company_count').text(response.data.length+" Companies");
+            }
+
+        }, function errorCallback(response){
+            console.log("Unable to perform get upcoming career fair");
+        });
+    }
+
+});
 //company page - top 3 details
 FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, $http,$routeParams,apiUrl,$compile,$templateCache) {
 
@@ -25,108 +67,6 @@ FirstSynch.controller("top_three_companies" ,function ($timeout,$window,$scope, 
       }, function errorCallback(response){
           console.log("Unable to perform get top 3 company details");
   });
-
-  $scope.company_filters = function(obj){
-  	obj.currentTarget.parentElement.parentElement.childNodes[1].attributes.datacompanyval.value = obj.currentTarget.attributes.datavalue.value;
-	var city_data = $('#all_com_city').attr('datacompanyval');
-	var company_data = $('#all_com_company').attr('datacompanyval');
-	var query_string = '';
-	if(city_data != ''){
-		query_string += 'city='+city_data;
-	}
-	if(company_data != ''){
-		query_string += '&category='+company_data;
-	}
-
-    $('.allcompanies_act').hide();
-    $('.companies_act_categ').hide();
-    $('.top_three_company_act').hide();
-    $('.company_search_result').empty();
-    $('.video_filter_search_result_empty').addClass('hide');
-    $http.get(apiUrl+"api/v1/setups/api/v1/company_filters/?"+query_string)
-    .then(function successCallback(response){
-        if(!response.data.length){
-            $('.video_filter_search_result_empty').removeClass('hide');
-            $('#company_count').text(response.data.length+" Companies");
-        }
-       jQuery.each(response.data, function(i) {
-        var video_result ='';
-        if(response.data[i].related_video.length > 0){
-            if(response.data[i].related_video[0]){
-                video_result += '<div class="col-sm-6">'
-                                    +'<a href="" ng-click="videoPopup('+response.data[i].related_video[0].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
-                                        +'<img src="'+response.data[i].related_video[0].thumbnail+'">'
-                                        +'<div class="overlay "></div>'
-                                        +'<span class="icon-btn-play"></span>'
-                                    +'</a>'
-                                +'</div>';
-            }
-            if(response.data[i].related_video[1]){
-                video_result += '<div class="col-xs-6 col-sm-6">'
-                                    +'<a href="" ng-click="videoPopup('+response.data[i].related_video[1].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
-                                        +'<img src="'+response.data[i].related_video[1].thumbnail+'">'
-                                        +'<div class="overlay "></div>'
-                                        +'<span class="icon-btn-play"></span>'
-                                    +'</a>'
-                                +'</div>';
-            }
-            if(response.data[i].related_video[2]){
-                video_result += '<div class="col-xs-6 col-sm-6">'
-                                    +'<a href="" ng-click="videoPopup('+response.data[i].related_video[2].id+')" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">'
-                                        +'<img src="'+response.data[i].related_video[2].thumbnail+'">'
-                                        +'<div class="overlay "></div>'
-                                        +'<span class="icon-btn-play"></span>'
-                                    +'</a>'
-                                +'</div>';
-            }
-
-        }
-        var city = ''
-        if(response.data[i].city  == null || response.data[i].city == '' || typeof response.data[i].city == "undefined"){
-            city = '';
-        }
-        else{
-            city = response.data[i].city;
-        }
-        var state = ''
-        if(response.data[i].state  == null || response.data[i].state == '' || typeof response.data[i].state == "undefined"){
-            state = '';
-        }
-        else{
-            state = ','+response.data[i].state;
-        }
-        var description = ''
-        if(response.data[i].description  == null || response.data[i].description == '' || typeof response.data[i].description == "undefined"){
-            description = '';
-        }
-        else{
-            description = response.data[i].description;
-        }
-        var search_result = '<div>'
-        					+'<div class="col-sm-4 custom-box">'
-                            +'<div class="thumbnail custom-thumbnail-company-visit-gallery">'
-                                +'<div class="media custom-media-company-gallery">'
-                                    +'<div class="media-left media-middle custom-media-left">'
-                                        +'<img class="media-object custom-media-object" src="'+(response.data[i].logo != null?response.data[i].logo:"assets/images/profileicon.png")+'" alt="forester-logo.jpg">'
-                                    +'</div>'
-                                    +'<div class="media-body">'
-                                        +'<a href="/company/'+response.data[i].slug+'"><h4 class="media-heading">'+response.data[i].name+'</h4></a>'
-                                        +'<h5 class="media-eading-h5">'+city+''+state+'</h5>'
-                                    +'</div>'
-                                    +'<div> </div>'
-                                +'</div>'
-                                +'<p class="para-company">'+description+'</p>'
-                                +'<div class="row custom-row-5">'
-                                +video_result
-                                +'</div>'
-                            +'</div></div>';
-        angular.element(jQuery('.company_search_result')).append($compile(search_result)($scope));
-        $('#company_count').text(response.data.length+" Companies");
-       });
-    }, function errorCallback(response){
-        console.log("Unable to perform get upcoming career fair");
-    });
-  };
   $scope.$watch('$viewContentLoaded', function(){
       $timeout( function(){
           $window.loading_screen.finish();

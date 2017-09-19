@@ -55,14 +55,37 @@
 				</div>
 			</div>
 		</div><!--top-3-companies-->
-
-		<div class="company_search_result row custom-row-35 custom-row-compaines" id="custom-row-compaines">
+		<div class="company_search_result hide grid" id="custom-row-compaines" ng-controller="guestcompanyfilter">
+			<div  class="col-sm-4 custom-box grid-item" ng-repeat="company_result in guestcompanyfilterresult" ng-show="guestcompanyfilterresult.length > 0">
+                <div class="thumbnail custom-thumbnail-company-visit-gallery">
+                    <div class="media custom-media-company-gallery">
+                        <div class="media-left media-middle custom-media-left">
+                            <img class="media-object custom-media-object" ng-src="{{company_result.logo}}" alt="forester-logo.jpg">
+                        </div>
+                        <div class="media-body">
+                            <a href="/company/'+response.data[i].slug+'">
+								<h4 class="media-heading">{{company_result.name}}</h4>
+							</a>
+                            <h5 class="media-eading-h5"><span ng-show="company_result.city">{{company_result.city}},</span> {{company_result.state}}</h5>
+                        </div>
+                        <div> </div>
+                    </div>
+                    <p class="para-company">{{company_result.description}}</p>
+                    <div class="row custom-row-5">
+						<div class="col-sm-6" ng-repeat="releatedvideo in company_result.related_video">
+                            <a href="" ng-click="videoPopup(releatedvideo.id)" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">
+                                <img src="releatedvideo.thumbnail">
+                                <div class="overlay "></div>
+                                <span class="icon-btn-play"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+			</div>
 		</div>
-
 		<div class="text-center video_filter_search_result_empty hide">
 			<h1>Sorry! No results found!</h1>
 		</div><!--text-center-->
-
 	</div><!--container-->
 </section>
 <!--[Top 3 Company Sections End]-->
