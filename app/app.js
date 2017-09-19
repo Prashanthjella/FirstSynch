@@ -6,6 +6,7 @@ var FirstSynch = angular.module("firstSync", [
   "ngRateIt",
   "angularMoment",
   "angucomplete-alt",
+  "ngTagsInput",
   "ngFileUpload",
   "hoMe",
   "careerFair",
@@ -220,6 +221,9 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
             $rootScope.dateerrcondition = false;
             return false;
         }
+    };
+    $rootScope.loadTags = function(query) {
+        return $http.get(apiUrl+'api/v1/auto/skill_list/?format=list&q=' + query);
     };
 });
 
