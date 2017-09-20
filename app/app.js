@@ -179,7 +179,8 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
           }],
         }],
       });
-      jwplayer("jwplayer").play();
+      //jwplayer("jwplayer").play();
+      primary: "flash",
       $('.video_loader_bk').fadeOut();
     }, function errorCallback(response){
       console.log("Unable to perform get Video Details");
