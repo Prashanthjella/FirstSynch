@@ -56,16 +56,30 @@ FirstSynch.controller("guestfuturedvideo", function ($scope,$window,$http, apiUr
 // home page - mostrecented fairs
 FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope,$window,$timeout, $http, apiUrl) {
 
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/")
-      .then(function successCallback(response){
-          $scope.recent_fairs = response.data;
-      }, function errorCallback(response){
-          console.log("Unable to perform get recent_fairs");
-  });
+    $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/").then(function successCallback(response){
+        $scope.recent_fairs = response.data;
+        $scope.guestRecentfairLoaded = false;
+        $timeout(function () {
+            $scope.guestRecentfairLoaded = true;
+        });
+        $scope.guestRecentfairConfig = {
+            enabled: true,
+            autoplay: false,
+            infinite: true,
+            autoplaySpeed: 1000,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            prevArrow :'<a class="bx-prev" href=""></a>',
+            nextArrow : '<a class="bx-next" href=""></a>',
+            method: {}
+          };
+    },function errorCallback(response){
+        console.log("Unable to perform get recent_fairs");
+    });
 
-  $scope.$watch('$viewContentLoaded', function(){
-      $timeout( function(){
-          $window.loading_screen.finish();
+    $scope.$watch('$viewContentLoaded', function(){
+        $timeout( function(){
+            $window.loading_screen.finish();
      }, 3000 );
 
   });

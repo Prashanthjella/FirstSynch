@@ -742,7 +742,7 @@ a.thumbnail, a.custom-large-image-gallery {
 	text-indent: 0 !important;
 	color: #303030 !important;
 	text-align: center;
-	z-index: 0 !important
+	z-index: 1 !important
 }
 .fair-prev, .bx-prev {
 	left: -15px !important;
@@ -2505,7 +2505,7 @@ textarea.custom-text-area-new {
 }
 .video-model-container {
 	background-color: #36383c;
-	
+
 	background-image: linear-gradient(to right, #3e4044, #292b2f), linear-gradient(#0d0d0d, #0d0d0d);
 	padding: 33px 30px 34px 20px;
 	margin-bottom: 20px;
@@ -2542,13 +2542,13 @@ textarea.custom-text-area-new {
 	display: inline
 }
 .custom-tabs-model>li>a, .custom-tabs-model>li {
-	
+
 	border: none;
 	padding: 0;
 	margin: 13px 0;
-	
+
 	  opacity: 0.6;
-  
+
   font-size: 11px;
   font-weight: 800;
   letter-spacing: -0.2px;
@@ -2564,7 +2564,7 @@ textarea.custom-text-area-new {
 		top:7px;
 		height:2px; width:10px;
 		background-color:#00b58e
-		} 
+		}
 .custom-tabs-model>li>a:focus, .custom-tabs-model>li>a:hover {
 	border-radius: 0;
 	opacity:1;
@@ -4931,7 +4931,7 @@ h2.custom-h2-04 {
  {
 	padding-left: 15px !important;
 	padding-right: 15px !important;
-	
+
 }
 .page-section-office .custom-thumbnail-profile-views {height:auto}
 .txt-investor{font-size:50px;}

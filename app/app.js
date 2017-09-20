@@ -8,6 +8,7 @@ var FirstSynch = angular.module("firstSync", [
   "angucomplete-alt",
   "ngTagsInput",
   "ngFileUpload",
+  "slickCarousel",
   "hoMe",
   "careerFair",
   "careerFairDetail",

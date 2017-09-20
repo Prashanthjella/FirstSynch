@@ -6,11 +6,26 @@ var FirstSynch = angular.module("CompanyList", ["ngRoute"]);
 
 
 /////////////////////////////////// Controllors ////////////////////////////////////
-FirstSynch.controller("student_categorys" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_categorys" ,function ($timeout,$scope, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/employee/employees_category/")
       .then(function successCallback(response){
           $scope.student_cate = response.data;
+          $scope.guestjobStucateLoaded = false;
+          $timeout(function () {
+              $scope.guestjobStucateLoaded = true;
+          });
+          $scope.guestjobStucateConfig = {
+              enabled: true,
+              autoplay: false,
+              infinite: true,
+              autoplaySpeed: 1000,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              prevArrow :'<a class="bx-prev" href=""></a>',
+              nextArrow : '<a class="bx-next" href=""></a>',
+              method: {}
+            };
       }, function errorCallback(response){
           console.log("Unable to perform get student details as category wise");
   });

@@ -33,8 +33,8 @@
         </div>
         <div class="" ng-if="careerfairdata">
             <div class="slider-container-recent" ng-if="visible">
-                <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: false, controls: true, minSlides: 1, maxSlides:2, slideWidth: 450, slideMargin:40, infiniteLoop: false, hideControlOnEnd: true">
-                    <div class="slide" data-ng-repeat="upcome_career in upcoming_career" data-notify-when-repeat-finished>
+                <slick class="slider" settings="guestfairRecentfairConfig" ng-if="guestfairRecentfairLoaded">
+                    <div class="slide" ng-repeat="upcome_career in upcoming_career">
                         <div class="slider-inside-large">
                             <a href="/careerfair/{{upcome_career.slug}}" style="color:#000;">
                                 <div class="slider-recent-fairs">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </slick>
             </div>
         </div>
         <div class="text-center" ng-if="!careerfairdata"><h1>Sorry! No results found!</h1></div>
