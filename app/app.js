@@ -155,7 +155,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     } else {
       var token_id = guest_token;
     }
-    $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id, {
+    $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id+"/", {
       headers: {'Authorization' : 'Token '+token_id}
     })
     .then(function successCallback(response){
