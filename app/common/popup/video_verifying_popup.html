@@ -16,19 +16,19 @@
                     <span style="color: green; font-weight: bold;">{{error}}</span>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyemail.$valid}">Your Email</label> <sup class="asterisk">*</sup>
-                        <input type="email" required maxlength="200" class="form-control custom-form-control-br-bottom" id="emailverify" name="companyemail" ng-model="companyemail" required ng-class="{'has-error': companyverifying.companyemail.$touched && companyverifying.companyemail.$error.required, 'has-success': companyverifying.companyemail.$valid}"/>
+                        <input type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z0-9]+\.[a-z.]{2,5}$/" required maxlength="200" class="form-control custom-form-control-br-bottom" id="emailverify" name="companyemail" ng-model="cvform.companyemail" required ng-class="{'has-error': companyverifying.companyemail.$error.pattern, 'has-success': companyverifying.companyemail.$valid}"/>
                     </div>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyname.$valid}">Company Name</label>
-                        <input type="text" maxlength="200" class="form-control custom-form-control-br-bottom" id="companynameverify" name="companyname" ng-model="companyname" ng-class="{'has-error': companyverifying.companyname.$touched && companyverifying.companyname.$error, 'has-success': companyverifying.companyname.$valid}"/>
+                        <input type="text" required ng-pattern="/^[a-zA-Z0-9\s]*$/" maxlength="200" class="form-control custom-form-control-br-bottom" id="companynameverify" name="companyname" ng-model="cvform.companyname" ng-class="{'has-error': companyverifying.companyname.$error.pattern, 'has-success': companyverifying.companyname.$valid}"/>
                     </div>
                     <div class="form-group">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Choose a career fair</label>
-                        <select>
+                        <select ng-model="cvform.companycareerfairverify" id="companyselectcarrerfair">
                             <option value="{{carerfair.title}}" ng-repeat="carerfair in newcompany_careerfairs">{{carerfair.title}}</option>
                         </select>
                     </div>
-                    <div class="form-group" ng-show="companyverifyvideo.id">
+                    <div class="form-group having_video hide">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Your video</label>
                         <div style="width:140px">
             	      		<a style="height:100px" href="" ng-click="videoPopup(companyverifyvideo.id,1)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
@@ -38,9 +38,9 @@
             	        </div>
                     </div>
                 </div>
-                <div class="modal-footer custom-login-modal-footer domainsearch_remove">
-                    <button type="submit" ng-show="!companyverifyvideo.id" ng-click="CompanyVerifying()" ng-disabled="companyverifying.email.$invalid" class="btn btn-default custom-btn-login">Verify</button>
-                    <button type="submit" ng-show="companyverifyvideo.id"  ng-click="SendData(companyemail)" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login">Next</button>
+                <div class="modal-footer custom-login-modal-footer">
+                    <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.email.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button>
+                    <button type="submit"  ng-click="SendData(cvform.companyemail)" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login having_video hide">Next</button>
                 </div>
             </div>
         </div>

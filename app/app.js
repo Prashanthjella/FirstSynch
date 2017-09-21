@@ -122,8 +122,17 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       $rootScope.usersignup = {
           email : ''
       }
+      $rootScope.cvform = {
+          companyemail : '',
+          companyname : '',
+          companycareerfairverify : ''
+      }
       $('#username').removeClass('ng-valid ng-valid-email').addClass('ng-invalid ng-invalid-required');
-      $('#password').removeClass('ng-valid ng-valid-pattern').addClass('ng-invalid ng-invalid-required')
+      $('#password').removeClass('ng-valid ng-valid-pattern').addClass('ng-invalid ng-invalid-required');
+      $('#emailverify').removeClass('ng-dirty ng-invalid');
+      $('#companynameverify').removeClass('ng-dirty ng-invalid');
+      $('.having_video').addClass('hide');
+      $('.having_video_initial').removeClass('hide');
       $('#loginbtn').attr('disabled','disabled');
       angular.element(jQuery('.filtered_kw_industryc,.filtered_kw_salary_c,.filtered_kw_employement_c,.filtered_kw_skills_c,.filtered_kw_company_c')).text('Not specified');
       angular.element(jQuery('.filter_job_countc,.video_filter_search_resultc')).empty();
@@ -389,20 +398,21 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
     });
 
     $scope.CompanyVerifying = function () {
-        var data = {e_mail:$scope.companyemail}
+        var data = {e_mail:$scope.cvform.companyemail}
         $http({
           url: apiUrl+'api/v1/companyadmin/careerfair_video/',
           method: "POST",
           data: data
         })
         .then(function successCallback(data, status, headers, config) {
-            setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
             $scope.companyverifyvideo = data.data;
+            $('.having_video').removeClass('hide');
+            $('.having_video_initial').addClass('hide');
         },
         function errorCallback(data, status, headers, config) {
           $scope.status = data.data.status;
           if(data.data.error){
-              $rootScope.SendData($scope.companyemail);
+              $rootScope.SendData($scope.cvform.companyemail);
           }
         });
     };
@@ -425,7 +435,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.peoplesearch_remove').show();
         $('.peoplesearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = ($scope.usersignup.email).toLowerCase().replace(/\s/g, '');
+        $rootScope.e_mail = mailiid.toLowerCase().replace(/\s/g, '');
       }else{
         jQuery("#registration").modal('hide');
         jQuery("#companyverify").modal('hide');
@@ -433,7 +443,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         $('.domainsearch_remove').show();
         $('.domainsearch_show').hide();
         setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
-        $rootScope.e_mail = ($scope.usersignup.email).toLowerCase().replace(/\s/g, '');
+        $rootScope.e_mail = mailiid.toLowerCase().replace(/\s/g, '');
       }
     },
     function errorCallback(data, status, headers, config) {
@@ -448,6 +458,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     });
 
   };//find user - function end
+  $scope.clearverifypopup = function(){
+        setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
+  }
   $scope.student_signup_clear = function(){
       $scope.name = null;
       $scope.lname = null;
