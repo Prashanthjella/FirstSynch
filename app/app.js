@@ -608,21 +608,32 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         }
         else{
           if(!data.data.company_info.error){
-              $scope.domainimage = data.data.company_info.logo ? data.data.company_info.logo : "" ;
-              $scope.domaincmpy_name= data.data.company_info.name ? data.data.company_info.name : "" ;
-              $scope.domainwebsite= data.data.company_info.website ? data.data.company_info.website :"";
-              $scope.domain_est_date= data.data.company_info.establishment_date ?data.data.company_info.establishment_date :"";
-              $scope.domainfburl= data.data.company_info.facebook_url ? data.data.company_info.facebook_url : "" ;
-              $scope.domainliurl= data.data.company_info.linkedin_url ? data.data.company_info.linkedin_url : "" ;
-              $scope.domaintotal_emp= data.data.company_info.employees ? data.data.company_info.employees : "" ;
-              $scope.domaindescription= data.data.company_info.description ? data.data.company_info.description : "" ;
-              $scope.domainaddress1= data.data.company_info.address.address_1 ? data.data.company_info.address.address_1 : "" ;
-              $scope.domaincity= data.data.company_info.address.city ? data.data.company_info.address.city : "" ;
-              $scope.domainstate= data.data.company_info.address.state ? data.data.company_info.address.state : "" ;
-              $scope.domaincountry= data.data.company_info.address.country ? data.data.company_info.address.country : "" ;
-              $scope.domainzip_code= data.data.company_info.address.zip_code ? data.data.company_info.address.zip_code : "" ;
-              $scope.domaine_mail= data.data.company_info.address.e_mail ? data.data.company_info.address.e_mail : null ;
-              $scope.domaincontact_no= data.data.company_info.address.contact_no ? data.data.company_info.address.contact_no : "" ;
+              $scope.domainimage = data.data.company_info.logo != undefined ? data.data.company_info.logo : "" ;
+              $scope.domaincmpy_name= data.data.company_info.name != undefined ? data.data.company_info.name : "" ;
+              $scope.domainwebsite= data.data.company_info.website != undefined ? data.data.company_info.website :"";
+              $scope.domain_est_date= data.data.company_info.establishment_date != undefined ?data.data.company_info.establishment_date :"";
+              $scope.domainfburl= data.data.company_info.facebook_url != undefined ? data.data.company_info.facebook_url : "" ;
+              $scope.domainliurl= data.data.company_info.linkedin_url != undefined ? data.data.company_info.linkedin_url : "" ;
+              $scope.domaintotal_emp= data.data.company_info.employees != undefined ? data.data.company_info.employees : "" ;
+              $scope.domaindescription= data.data.company_info.description != undefined ? data.data.company_info.description : "" ;
+              if(data.data.company_info.address != undefined){
+                  $scope.domainaddress1= data.data.company_info.address.address_1 != undefined ? data.data.company_info.address.address_1 : "" ;
+                  $scope.domaincity= data.data.company_info.address.city != undefined ? data.data.company_info.address.city : "" ;
+                  $scope.domainstate= data.data.company_info.address.state != undefined ? data.data.company_info.address.state : "" ;
+                  $scope.domaincountry= data.data.company_info.address.country != undefined ? data.data.company_info.address.country : "" ;
+                  $scope.domainzip_code= data.data.company_info.address.zip_code != undefined ? data.data.company_info.address.zip_code : "" ;
+                  $scope.domaine_mail= data.data.company_info.address.e_mail != undefined ? data.data.company_info.address.e_mail : null ;
+                  $scope.domaincontact_no= data.data.company_info.address.contact_no != undefined ? data.data.company_info.address.contact_no : "" ;
+              }
+              else{
+                  $scope.domainaddress1= "" ;
+                  $scope.domaincity= "" ;
+                  $scope.domainstate=  "" ;
+                  $scope.domaincountry=  "" ;
+                  $scope.domainzip_code=  "" ;
+                  $scope.domaine_mail=  null ;
+                  $scope.domaincontact_no= "" ;
+              }
               $('#domain_search').val('0');
               $('.domainsearch_remove').hide();
               $('.domainsearch_show').show();
