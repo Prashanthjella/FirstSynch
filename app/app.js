@@ -176,6 +176,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
         if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});$rootScope.videolikedisable = true;}
       });
       jwplayer("jwplayer").setup({
+        flashplayer: "player.swf",
         playlist: [{
           image: response.data.video.thumbnail,
           sources: [
