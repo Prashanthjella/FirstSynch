@@ -147,7 +147,8 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
   }
   $anchorScroll.yOffset = 100;
-  $rootScope.videoPopup = function (value,verifyvideo=false) {
+  $rootScope.videoPopup = function (value,verify) {
+      var verifyvideo = verify ? true : false ;
       $('#comment_succ_msg').hide();
     jQuery("#VideoPopup1").modal('show');
     $('.video_loader_bk').fadeIn();
