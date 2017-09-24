@@ -177,12 +177,10 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
         if(parseInt(obj.id) == parseInt($rootScope.user_id)){$('#videolikebtn').css({'color':'#00b58e'});$rootScope.videolikedisable = true;}
       });
       jwplayer("jwplayer").setup({
-        flashplayer: "player.swf",
         playlist: [{
           image: response.data.video.thumbnail,
           sources: [
-            {file: response.data.video.streaming_video},
-            {file: response.data.video.video_file}
+            {file: response.data.video.mp4_video},
           ],
           tracks: [{
             file:response.data.video.vtt_file,
@@ -191,6 +189,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
         }],
       });
       //jwplayer("jwplayer").play();
+       jwplayer("jwplayer").getRenderingMode();
       $('.video_loader_bk').fadeOut();
     }, function errorCallback(response){
       console.log("Unable to perform get Video Details");
