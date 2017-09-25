@@ -1,0 +1,60 @@
+<div class="modal fade custom-model" id="OfflineVideoPopup1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content custom-modal-video-content">
+      <div class="video_loader_bk">
+        <div class="video_loader">
+          <div class="sk-spinner sk-spinner-fading-circle">
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+          </div>
+        </div>
+      </div>
+      <!-- for company verifyvideo -->
+      <input type="hidden" id="company_verify_popop" value="">
+      <!-- end for company verifyvideo -->
+      <div class="modal-header cusom-model-dashboard-header">
+        <div class="media cusom-model-media">
+          <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+          <div class="media-body cusom-media-model-body">
+            <div class="col-mob-75 pull-left">
+              <h3 class="custom-h3">{{vid.video.title}}</h3>
+              <h6 class="custom-h6-label-model">about {{ today | amDifference:  vid.video.created_at : 'days'}} days ago</h6>
+            </div>
+            <div class="col-mob-25 pull-right">
+            </div>
+          </div>
+        </div>
+        <div class="modal-body custom-video-modal-body">
+          <section class="video-model-container">
+            <div class="row">
+              <div class="col-sm-3">
+                <ul class="nav nav-tabs custom-tabs-model" role="tablist">
+                  <li role="presentation"  ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
+                    <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-9">
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
+                    <div id='jwplayerofflinesignup'>Loading the player...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>
+        </div>
+      </div>
+    </div>
