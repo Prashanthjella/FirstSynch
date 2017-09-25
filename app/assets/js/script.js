@@ -148,9 +148,11 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
   });
 
   $(document).on('hide.bs.modal','#OfflineVideoPopup1', function () {
-    jwplayer('jwplayer').stop();
-    jQuery("#companyverify").modal('show');
-    setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
+    if ($("#OfflineVideoPopup1").data('bs.modal') && $("#OfflineVideoPopup1").data('bs.modal').isShown){
+      jwplayer('jwplayer').stop();
+      jQuery("#companyverify").modal('show');
+      setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
+    }
   });
 
   $(document).on('hide.bs.modal','#page-video-edit', function () {
@@ -268,6 +270,9 @@ $(this).addClass('active');
       $('#dashboard-filter').removeClass('active');
       $('#dashboard-filterc').removeClass('active');
       $('#VideoPopup1').modal('hide');
+      $('#OfflineVideoPopup1').modal('hide');
+      $('#companyregistration').modal('hide');
+      //$('.modal-backdrop').remove();
     }
   });
   // $(document).on('shown.bs.modal','#registration,#logIn,#companyverify,#signUp', function () {
@@ -275,7 +280,12 @@ $(this).addClass('active');
   //     var form_vith =  $(this).find('form .modal-content').width();
   //     $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)+'px','margin-left':-form_vith/2+'px'});
   // });
-  $(document).on('shown.bs.modal','#logIn,#companyverify', function () {
+  $(document).on('shown.bs.modal','#logIn', function () {
+      var form_h8 =  $(this).find('form .modal-content').height();
+      var form_vith =  $(this).find('form .modal-content').width();
+      $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-30+'px','margin-left':-form_vith/2+'px'});
+  });
+  $(document).on('shown.bs.modal','#companyverify', function () {
       var form_h8 =  $(this).find('form .modal-content').height();
       var form_vith =  $(this).find('form .modal-content').width();
       $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-30+'px','margin-left':-form_vith/2+'px'});
