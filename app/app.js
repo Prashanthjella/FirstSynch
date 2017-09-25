@@ -147,6 +147,51 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
   }
   $anchorScroll.yOffset = 100;
+
+  //Offline Company Signup Video Popup only
+  $rootScope.videoOfflinePopup = function (value,verify) {
+    var verifyvideo = verify ? true : false ;
+    jQuery("#OfflineVideoPopup1").modal('show');
+    $('.video_loader_bk').fadeIn();
+    if(verifyvideo){
+        $('#company_verify_popop').val('1');
+        jQuery("#companyverify").modal('hide');
+    }
+    else{
+        $('#company_verify_popop').val('0');
+    }
+    var id = value;
+    if (angular.isDefined($rootScope.token_id)) {
+      var token_id = $rootScope.token_id;
+    } else {
+      var token_id = guest_token;
+    }
+    $http.get(apiUrl+"api/v1/flat_pages/rest/video_detail/"+id+"/", {
+      headers: {'Authorization' : 'Token '+token_id}
+    })
+    .then(function successCallback(response){
+      $rootScope.vid = response.data;
+      jwplayer("jwplayerofflinesignup").setup({
+        playlist: [{
+          image: response.data.video.thumbnail,
+          sources: [
+            {file: response.data.video.mp4_video},
+          ],
+          tracks: [{
+            file:response.data.video.vtt_file,
+            kind:'chapters'
+          }],
+        }],
+      });
+      //jwplayer("jwplayer").play();
+       jwplayer("jwplayerofflinesignup").getRenderingMode();
+      $('.video_loader_bk').fadeOut();
+    }, function errorCallback(response){
+      console.log("Unable to perform get Video Details");
+    });
+  };//Common Video Popup - function end
+  //Offline Company Signup Video Popup only end
+
   $rootScope.videoPopup = function (value,verify) {
       var verifyvideo = verify ? true : false ;
       $('#comment_succ_msg').hide();

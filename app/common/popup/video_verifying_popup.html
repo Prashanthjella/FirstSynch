@@ -1,4 +1,4 @@
-<div class="modal fade custom-model custom-model-registration" id="companyverify" role="dialog" ng-controller="company_sigup_verify">
+<div class="modal fade custom-model custom-model-registration" id="companyverify" data-keyboard="false" data-backdrop="static" ng-controller="company_sigup_verify">
     <form name="companyverifying" id="reset_formss" >
         <div class="modal-dialog custom-modal-880">
             <div class="modal-content custom-modal-video-content">
@@ -19,7 +19,7 @@
                         <input type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z0-9]+\.[a-z.]{2,5}$/" required maxlength="200" class="form-control custom-form-control-br-bottom" id="emailverify" name="companyemail" ng-model="cvform.companyemail" required ng-class="{'has-error': companyverifying.companyemail.$error.pattern, 'has-success': companyverifying.companyemail.$valid}"/>
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyname.$valid}">Company Name</label>
+                        <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyname.$valid}">Company Name</label> <sup class="asterisk">*</sup>
                         <input type="text" required ng-pattern="/^[a-zA-Z0-9\s]*$/" maxlength="200" class="form-control custom-form-control-br-bottom" id="companynameverify" name="companyname" ng-model="cvform.companyname" ng-class="{'has-error': companyverifying.companyname.$error.pattern, 'has-success': companyverifying.companyname.$valid}"/>
                     </div>
                     <div class="form-group">
@@ -31,7 +31,7 @@
                     <div class="form-group having_video hide">
                         <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Your video</label>
                         <div style="width:140px">
-            	      		<a style="height:100px" href="" ng-click="videoPopup(companyverifyvideo.id,1)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
+            	      		<a style="height:100px" href="" ng-click="videoOfflinePopup(companyverifyvideo.id,1)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
             	      			<img ng-src="{{companyverifyvideo.thumbnail}}" class="img-responsive custom-img-responsive">
             	        		<div class="overlay "></div>
                           <span class="icon-btn-play"></span>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="modal-footer custom-login-modal-footer">
-                    <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.email.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button>
+                    <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button>
                     <button type="submit"  ng-click="SendData(cvform.companyemail)" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login having_video hide">Next</button>
                 </div>
             </div>

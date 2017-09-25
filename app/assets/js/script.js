@@ -145,10 +145,12 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
 
   $(document).on('hide.bs.modal','#VideoPopup1', function () {
     jwplayer('jwplayer').stop();
-    if(parseInt($('#company_verify_popop').val())){
-        jQuery("#companyverify").modal('show');
-        setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
-    }
+  });
+
+  $(document).on('hide.bs.modal','#OfflineVideoPopup1', function () {
+    jwplayer('jwplayer').stop();
+    jQuery("#companyverify").modal('show');
+    setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
   });
 
   $(document).on('hide.bs.modal','#page-video-edit', function () {
