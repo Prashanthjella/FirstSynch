@@ -148,7 +148,6 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
   });
 
   $(document).on('hide.bs.modal','#OfflineVideoPopup1', function () {
-    alert('offline signup process');
     jwplayer('jwplayer').stop();
     jQuery("#companyverify").modal('show');
     setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
