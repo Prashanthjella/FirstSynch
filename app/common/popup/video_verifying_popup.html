@@ -1,49 +1,182 @@
-<div class="modal fade custom-model custom-model-registration" id="companyverify" data-keyboard="false" data-backdrop="static" ng-controller="company_sigup_verify">
+<div ng-controller="company_sigup_verify">
+  <div class="modal fade custom-model custom-model-registration" id="companyverify" data-keyboard="false" data-backdrop="static">
     <form name="companyverifying" id="reset_formss" >
-        <div class="modal-dialog custom-modal-880">
-            <div class="modal-content custom-modal-video-content">
-                <div class="modal-header cusom-model-dashboard-header">
-                    <button type="button" class="close custom-modal-close" ng-click="company_signup_clear()" data-dismiss="modal">&times;</button>
-                    <div class="login-top-step-prev">
-                        <div class="pull-left">
-                        </div>
-                    </div>
-                    <div class="page-step-container">
-                    </div>
-                    <h1 class="custom-h1-01 text-center">Company Verifying</h1>
-                </div>
-                <div class="modal-body custom-modal-body-login">
-                    <span style="color: green; font-weight: bold;">{{error}}</span>
-                    <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyemail.$valid}">Your Email</label> <sup class="asterisk">*</sup>
-                        <input type="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required maxlength="200" class="form-control custom-form-control-br-bottom" id="emailverify" style="text-transform: lowercase !important;" name="companyemail" ng-model="cvform.companyemail" required ng-class="{'has-error': companyverifying.companyemail.$error.pattern, 'has-success': companyverifying.companyemail.$valid}"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyname.$valid}">Company Name</label> <sup class="asterisk">*</sup>
-                        <input type="text" required ng-pattern="/^[a-zA-Z0-9\s]*$/" maxlength="200" class="form-control custom-form-control-br-bottom" id="companynameverify" name="companyname" ng-model="cvform.companyname" ng-class="{'has-error': companyverifying.companyname.$error.pattern, 'has-success': companyverifying.companyname.$valid}"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Choose a career fair</label>
-                        <select ng-model="cvform.companycareerfairverify" id="companyselectcarrerfair" class="form-control custom-form-control-br-bottom">
-                            <option value="3E Expo and Career Fair">3E Expo and Career Fair</option>
-                        </select>
-                    </div>
-                    <div class="form-group having_video hide">
-                        <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Your video</label>
-                        <div style="width:140px">
-            	      		<a style="height:100px" href="" ng-click="videoOfflinePopup(companyverifyvideo.id,1)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
-            	      			<img ng-src="{{companyverifyvideo.thumbnail}}" class="img-responsive custom-img-responsive">
-            	        		<div class="overlay "></div>
-                          <span class="icon-btn-play"></span>
-            	        	</a>
-            	        </div>
-                    </div>
-                </div>
-                <div class="modal-footer custom-login-modal-footer">
-                    <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button>
-                    <button type="submit"  ng-click="SendData(cvform.companyemail)" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login having_video hide">Next</button>
-                </div>
+      <div class="modal-dialog custom-modal-880">
+        <div class="modal-content custom-modal-video-content">
+          <div class="modal-header cusom-model-dashboard-header">
+            <button type="button" class="close custom-modal-close" ng-click="company_signup_clear()" data-dismiss="modal">&times;</button>
+            <div class="login-top-step-prev">
+              <div class="pull-left">
+              </div>
             </div>
+            <div class="page-step-container">
+            </div>
+            <h1 class="custom-h1-01 text-center">Company Verifying</h1>
+          </div>
+          <div class="modal-body custom-modal-body-login">
+            <span style="color: green; font-weight: bold;">{{error}}</span>
+            <div class="form-group">
+              <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyemail.$valid}">Your Email</label> <sup class="asterisk">*</sup>
+              <input type="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required maxlength="200" class="form-control custom-form-control-br-bottom" id="emailverify" style="text-transform: lowercase !important;" name="companyemail" ng-model="cvform.companyemail" required ng-class="{'has-error': companyverifying.companyemail.$error.pattern, 'has-success': companyverifying.companyemail.$valid}"/>
+            </div>
+            <div class="form-group">
+              <label class="text-uppercase" ng-class="{'has-success': companyverifying.companyname.$valid}">Company Name</label> <sup class="asterisk">*</sup>
+              <input type="text" required ng-pattern="/^[a-zA-Z0-9\s]*$/" maxlength="200" class="form-control custom-form-control-br-bottom" id="companynameverify" name="companyname" ng-model="cvform.companyname" ng-class="{'has-error': companyverifying.companyname.$error.pattern, 'has-success': companyverifying.companyname.$valid}"/>
+            </div>
+            <div class="form-group">
+              <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Choose a career fair</label>
+              <select ng-model="cvform.companycareerfairverify" id="companyselectcarrerfair" class="form-control custom-form-control-br-bottom">
+                <option value="3E Expo and Career Fair">3E Expo and Career Fair</option>
+              </select>
+            </div>
+            <div class="form-group having_video hide">
+              <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Your video</label>
+              <div style="width:140px">
+                <a style="height:100px" href="" ng-click="videoOfflinePopup(companyverifyvideo.id,1)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
+                  <img ng-src="{{companyverifyvideo.thumbnail}}" class="img-responsive custom-img-responsive">
+                  <div class="overlay "></div>
+                  <span class="icon-btn-play"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer custom-login-modal-footer">
+            <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button>
+            <button type="submit"  ng-click="SendData(cvform.companyemail)" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login having_video hide">Next</button>
+          </div>
         </div>
+      </div>
     </form>
-</div>
+  </div><!--company verify popup-->
+
+  <!--video popup start-->
+  <div class="modal fade custom-model custom-model-registration" id="OfflineVideoPopup1" data-keyboard="false" data-backdrop="static">
+    <form name="csvuf" ng-submit="companysignup_video_update(companyverifyvideo.id, csvuf.published, csvuf.title, csvuf.employement_type, csvuf.salary_from, csvuf.salary_to, csvuf.skill_text, csvuf.description)">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content custom-modal-video-content">
+        <div class="video_loader_bk">
+          <div class="video_loader">
+            <div class="sk-spinner sk-spinner-fading-circle">
+              <div class="sk-circle4 sk-circle"></div>
+              <div class="sk-circle1 sk-circle"></div>
+              <div class="sk-circle2 sk-circle"></div>
+              <div class="sk-circle3 sk-circle"></div>
+              <div class="sk-circle5 sk-circle"></div>
+              <div class="sk-circle6 sk-circle"></div>
+              <div class="sk-circle7 sk-circle"></div>
+              <div class="sk-circle8 sk-circle"></div>
+              <div class="sk-circle9 sk-circle"></div>
+              <div class="sk-circle10 sk-circle"></div>
+              <div class="sk-circle11 sk-circle"></div>
+              <div class="sk-circle12 sk-circle"></div>
+            </div>
+          </div>
+        </div>
+        <!-- for company verifyvideo -->
+        <input type="hidden" id="company_verify_popop" value="">
+        <!-- end for company verifyvideo -->
+        <div class="modal-header cusom-model-dashboard-header">
+          <div class="media cusom-model-media">
+            <button type="button" class="close custom-modal-close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body custom-video-modal-body">
+          <section class="video-model-container">
+            <div class="row">
+              <div class="col-sm-3">
+                <ul class="nav nav-tabs custom-tabs-model" role="tablist">
+                  <li role="presentation"  ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
+                    <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-9">
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="tellAboutYourself">
+                    <div id='jwplayerofflinesignup'>Loading the player...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="row custom-row-10">
+              <div class="modal-body add-video-modal-body">
+                <div class="add-video-center-container">
+                  <div class="custom-addvideo-form-group add-video-player-container">
+                    <div class="form-group custom-addvideo-form-group">
+                      <div class="">
+                        <label class="text-uppercase">privacy video</label>
+                        <div class="allow-text">Allow other users to see this video?</div>
+
+                        <div class="add-video-checkbox">
+                          <div class="checkbox custom-checkbox checkbox-circle" ng-init="published='True'">
+                            <input type="radio" name="published" ng-model="published" value="True" class="checkbox-input"  id="published-allow">
+                            <label for="published-allow" class="checkbox-label-01">Allow</label>
+                          </div>
+
+                          <div class="checkbox custom-checkbox checkbox-circle">
+                            <input type="radio" name="published" ng-model="published" value="False" class="checkbox-input" id="published-Forbid">
+                            <label for="published-Forbid" class="checkbox-label-01">Forbid</label>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div><!--custom-addvideo-form-group-->
+                  </div><!--add-video-player-container-->
+                  <div class="form-group custom-addvideo-form-group custom-form-group-new">
+                    <label class="text-uppercase" ng-class="{'has-success': csvuf.title.$valid}">Title</label> <sup class="asterisk">*</sup>
+                    <textarea class="form-control custom-text-area custom-text-area-36"  rows="1" placeholder="Type your title" maxlength="30" required id="title" name="title" ng-model="title" ng-class="{'has-error': csvuf.title.$touched && csvuf.title.$error.required, 'has-success': csvuf.title.$valid}"></textarea>
+                    <p class="text-overlay-textarea">{{30 - title.length}}</p>
+                  </div>
+
+                  <div class="form-group custom-addvideo-form-group custom-form-group-new">
+                    <label class="text-uppercase" ng-class="{'has-success': csvuf.employement_type.$valid}">Employement Type</label> <sup class="asterisk">*</sup>
+                    <select ng-model="csvuf.employement_type" id="employement_type" class="form-control custom-form-control-br-bottom">
+                      <option value="FSFA">Part Time</option>
+                      <option value="SDGD">Full Time</option>
+                      <option value="HGAA">Internship</option>
+                      <option value="GREA">Consultant</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group custom-addvideo-form-group custom-form-group-new">
+                    <label class="text-uppercase">Salary Range</label>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <label class="text-uppercase" ng-class="{'has-success': csvuf.salary_from.$valid}">Minimum Salary</label> <sup class="asterisk">*</sup>
+                        <input type="number" class="form-control custom-text-area custom-text-area-36" placeholder="Type your Salary range" maxlength="10" required id="salary_from" name="salary_from" ng-model="salary_from" ng-class="{'has-error': csvuf.salary_from.$touched && csvuf.salary_from.$error.required, 'has-success': csvuf.salary_from.$valid}"/>
+                      </div><!--col-sm-9-->
+
+                      <div class="col-sm-6">
+                        <label class="text-uppercase" ng-class="{'has-success': csvuf.salary_to.$valid}">Maximum Salary</label> <sup class="asterisk">*</sup>
+                        <input type="number" class="form-control custom-text-area custom-text-area-36" placeholder="Type your Salary range" maxlength="10" required id="salary_to" name="salary_to" ng-model="salary_to" ng-class="{'has-error': csvuf.salary_to.$touched && csvuf.salary_to.$error.required, 'has-success': csvuf.salary_to.$valid}"/>
+                      </div><!--col-sm-9-->
+                    </div>
+                  </div>
+
+                  <div class="form-group custom-addvideo-form-group">
+                    <label class="text-uppercase">Skills that we are sekking (Separate with commas)</label>
+                    <textarea class="form-control custom-text-area"  rows="2" placeholder="Add skills" maxlength="150" id="skill_text" name="skill_text" ng-model="skill_text"></textarea>
+                  </div>
+
+                  <div class="form-group custom-addvideo-form-group custom-form-group-new">
+                    <label class="text-uppercase">Description</label>
+                    <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your description" maxlength="250" id="description" name="description" ng-model="description"></textarea>
+                    <p class="text-overlay-textarea">{{500 - description.length}}</p>
+                  </div>
+
+                </div><!--add-video-center-container-->
+              </div><!--after_video_process-->
+          </div>
+        </div>
+      <div class="modal-footer custom-login-modal-footer">
+        <input type="submit" ng-disabled="csvuf.$invalid" value="NEXT"  class="btn btn-default custom-btn-login"/>
+      </div>
+    </div>
+  </div>
+</form>
+  </div><!--OfflineVideoPopup1-->
+  <!--video popup end-->
+
+</div><!--controller end-->
