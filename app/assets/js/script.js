@@ -149,7 +149,7 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
 
   $(document).on('hide.bs.modal','#OfflineVideoPopup1', function () {
     if ($("#OfflineVideoPopup1").data('bs.modal') && $("#OfflineVideoPopup1").data('bs.modal').isShown){
-      jwplayer('jwplayer').stop();
+      jwplayer('jwplayerofflinesignup').stop();
       jQuery("#companyverify").modal('show');
       setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 1000);
     }

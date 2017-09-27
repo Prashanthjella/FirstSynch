@@ -444,7 +444,7 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
     });
 
     $scope.CompanyVerifying = function () {
-        var data = {e_mail:$scope.cvform.companyemail}
+        var data = {e_mail:angular.lowercase($scope.cvform.companyemail)}
         $http({
           url: apiUrl+'api/v1/companyadmin/careerfair_video/',
           method: "POST",
@@ -458,11 +458,12 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
         function errorCallback(data, status, headers, config) {
           $scope.status = data.data.status;
           if(data.data.error){
-              $rootScope.SendData($scope.cvform.companyemail);
+              $rootScope.SendData(angular.lowercase($scope.cvform.companyemail));
           }
         });
     };
 });
+
 FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
 
   $rootScope.SendData = function (mailiid) {
