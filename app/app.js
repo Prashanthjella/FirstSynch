@@ -190,7 +190,6 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       console.log("Unable to perform get Video Details");
     });
   };//Common Video Popup - function end
-  //Offline Company Signup Video Popup only end
 
   $rootScope.videoPopup = function (value,verify) {
       var verifyvideo = verify ? true : false ;
@@ -462,6 +461,26 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
           }
         });
     };
+
+    // Video update in company signup offline process
+    $scope.companysignup_video_update = function(idd,pub,tit,et,sf,st,skills,des){
+        var video_data = {
+            published : pub,
+            title : tit,
+            employement_type : et,
+            salary_from : sf,
+            salary_to : st,
+            skill_name : skills,
+            description :des,
+        }
+        $http.patch(apiUrl+"api/v1/career_fairs/api/v1/video/"+idd+"/",video_data)
+        .then(function (response) {
+          $('#OfflineVideoPopup1').modal('hide');
+          $('#companyverify').modal('show');
+        });
+    };
+    //Offline Company Signup Video Popup only end
+
 });
 
 FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $http, apiUrl, $rootScope) {
