@@ -36,51 +36,113 @@
             <div class="text-center video_filter_search_result_empty hide"><h1>Sorry! No results found!</h1></div>
             <div class="row custom-row-35">
                 <div class="col-sm-12">
-                    <div class="search-container search_results_career_page_container_act" style="display:none;">
+                    <div class="search-container" ng-show="searchresultcareer.length > 0">
                         <div class="page-header custom-search-page-header">
                             <div class="pull-left">
                                 <h3 class="h3 custom-h3 text-uppercase">Fairs</h3>
                             </div>
-                            <!-- <div class="pull-right"> <a href="#" class="link-all" title="Show All">Show All</a> </div> -->
                         </div>
-                        <div class="media-search-group-container search_results_career_page_act">
-
+                        <div class="media-search-group-container">
+                            <div class="media custom-media" ng-repeat="scareers in searchresultcareer">
+                                <a href="/careerfair/{{scareers.slug}}" class="search-link">
+                                    <div class="media-left media-middle custom-media-left">
+                                        <img style="height:117px;" class="media-object custom-media-object" ng-src="http://firstsynchvideos.s3.amazonaws.com/{{scareers.image}}" alt="">
+                                    </div>
+                                    <div class="media-body custom-media-body">
+                                        <h4 class="media-heading custom-media-heading">{{scareers.title}}</h4>
+                                        <h5 class="media-eading-h5"><span ng-show="scareers.start_time">{{scareers.start_time |limitTo: 10| date:"MMMM d, y" }} &bull;</span><span ng-show="scareers.city && scareers.state"> {{scareers.city}}, {{scareers.state}}</span></h5>
+                                        <div class="searech-folow pull-left">
+                                            <span class="group-followers"><span class="total-followers">{{scareers.followed}}</span> followers</span>
+                                            <span class="group-followers"><span class="total-followers">{{scareers.reuestedfor_careerfair}}</span> Companies</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="search-container search_results_companies_container_act" style="display:none;">
+                    <div class="search-container" ng-show="searchresultcompany.length > 0 && !company_login">
                         <div class="page-header custom-search-page-header">
                             <div class="pull-left">
                                <h3 class="h3 custom-h3 text-uppercase">Companies</h3>
                             </div>
-                            <!-- <div class="pull-right"> <a href="#" class="link-all" title="Show All">Show All</a> </div> -->
                         </div>
-                        <div class="media-search-group-container search_results_companies_act">
-
-
+                        <div class="media-search-group-container">
+                            <div class="media custom-media" ng-repeat="scompany in searchresultcompany">
+                                <a href="/company/{{scompany.slug}}" class="search-link">
+                                    <div class="media-left media-middle custom-media-left">
+                                        <div class="search-img-container">
+                                            <img ng-src="http://firstsynchvideos.s3.amazonaws.com/{{scompany.logo}}" class="logo-companies-box">
+                                        </div>
+                                    </div>
+                                    <div class="media-body custom-media-body">
+                                        <h4 class="media-heading custom-media-heading">{{scompany.name}}</h4>
+                                        <h5 class="media-eading-h5"><span ng-show="scompany.city">{{scompany.city}} &bull;</span> {{scompany.state}}</h5>
+                                        <div class="searech-folow pull-left">
+                                            <span class="group-followers"><span class="total-followers">{{scompany.employees}}</span> Employees</span>
+                                            <span class="group-followers"><span class="total-followers">{{scompany.followers}}</span> followers</span>
+                                            <span class="group-followers"><span class="total-followers">{{scompany.careerfair_company}}</span> Career fairs</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="search-container search_results_student_container_act" style="display:none;">
+                    <div class="search-container" ng-show="searchresultstudent.length > 0 && !student_login">
                         <div class="page-header custom-search-page-header">
                             <div class="pull-left">
                                <h3 class="h3 custom-h3 text-uppercase">Student</h3>
                             </div>
-                            <!-- <div class="pull-right"> <a href="#" class="link-all" title="Show All">Show All</a> </div> -->
                         </div>
-                        <div class="media-search-group-container search_results_student_act">
-
-
+                        <div class="media-search-group-container">
+                            <div class="media custom-media" ng-repeat="sstudent in searchresultstudent">
+                                <a href="/student/{{sstudent.slug}}" class="search-link">
+                                    <div class="media-left media-middle custom-media-left">
+                                        <div class="search-img-container">
+                                            <img ng-src="http://firstsynchvideos.s3.amazonaws.com/{{sstudent.profile_picture}}" class="logo-companies-box">'
+                                        </div>
+                                    </div>
+                                    <div class="media-body custom-media-body">
+                                        <h4 class="media-heading custom-media-heading">{{sstudent.first_name}}</h4>
+                                        <h5 class="media-eading-h5"><span ng-show="sstudent.city">{{sstudent.city}}&bull;</span><span ng-show="sstudent.state"> {{sstudent.state}}</span></h5>
+                                        <div class="searech-folow pull-left">
+                                            <span class="group-followers"><span class="total-followers">{{sstudent.viewed}}</span> Views</span>
+                                            <span class="group-followers"><span class="total-followers">{{sstudent.liked}}</span> Likes</span>
+                                            <span class="group-followers"><span class="total-followers">{{sstudent.followers}}</span> followers</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div> </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="search-container search_results_video_container_act" style="display:none;">
+                    <div class="search-container" ng-if="searchresultvideo.length > 0">
                         <div class="page-header custom-search-page-header">
                             <div class="pull-left">
                                 <h3 class="h3 custom-h3 text-uppercase">Videos</h3>
                             </div>
-                            <!-- <div class="pull-right"> <a href="#" class="link-all" title="Show All">Show All</a> </div> -->
                         </div>
-                        <div class="media-search-group-container search_results_video_act">
-
-
+                        <div class="media-search-group-container">
+                            <div class="media custom-media" ng-repeat="svideo in searchresultvideo">
+                                <a href="#" ng-click="videoPopup(svideo.id)" class="search-link">
+                                    <div class="media-left media-middle custom-media-left">
+                                        <div class="search-img-container">
+                                            <img ng-src="{{svideo.thumbnail}}" class="logo-companies-box">
+                                        </div>
+                                    </div>
+                                    <div class="media-body custom-media-body">
+                                        <h4 class="media-heading custom-media-heading">{{svideo.title}}</h4>
+                                        <h5 class="media-eading-h5"></h5>
+                                        <div class="searech-folow pull-left">
+                                            <span class="group-followers"><span class="total-followers">{{svideo.viewed}}</span> Views</span>
+                                            <span class="group-followers"><span class="total-followers">{{svideo.liked}}</span> Likes</span>
+                                            <span class="group-followers"><span class="total-followers">{{svideo.followers}}</span> followers</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
