@@ -46,13 +46,13 @@ var FirstSynch = angular.module("firstSync", [
   "ngCookies",
 ]);
 
-FirstSynch.constant('apiUrl', 'http://alphaapi.firstsynch.com/');
+FirstSynch.constant('apiUrl', 'https://api.firstsynch.com/');
 FirstSynch.constant('companyusertype','48KL3');
 FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
 FirstSynch.constant('Software','FDDA');
 FirstSynch.constant('Professional','RYRD');
-FirstSynch.constant('guest_token', '4742501fe20d67e63d6a9f74462d9760bd3715d3');
+FirstSynch.constant('guest_token', 'e4318eb2e222cd4f52427e272e0d1d670c2ce56e');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
@@ -186,6 +186,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       //jwplayer("jwplayer").play();
        jwplayer("jwplayerofflinesignup").getRenderingMode();
       $('.video_loader_bk').fadeOut();
+      setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
     }, function errorCallback(response){
       console.log("Unable to perform get Video Details");
     });
@@ -463,14 +464,13 @@ FirstSynch.controller("company_sigup_verify", function ($timeout,$route,$scope,U
     };
 
     // Video update in company signup offline process
-    $scope.companysignup_video_update = function(idd,pub,tit,et,sf,st,skills,des){
+    $scope.companysignup_video_update = function(idd,pub,tit,et,sf,st,des){
         var video_data = {
             published : pub,
             title : tit,
             employement_type : et,
             salary_from : sf,
             salary_to : st,
-            skill_name : skills,
             description :des,
         }
         $http.patch(apiUrl+"api/v1/career_fairs/api/v1/video/"+idd+"/",video_data)

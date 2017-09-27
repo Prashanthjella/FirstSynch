@@ -51,7 +51,7 @@
 
   <!--video popup start-->
   <div class="modal fade custom-model custom-model-registration" id="OfflineVideoPopup1" data-keyboard="false" data-backdrop="static">
-    <form name="csvuf" ng-submit="companysignup_video_update(companyverifyvideo.id, csvuf.published, csvuf.title, csvuf.employement_type, csvuf.salary_from, csvuf.salary_to, csvuf.skill_text, csvuf.description)">
+    <form name="csvuf" ng-submit="companysignup_video_update(companyverifyvideo.id, cverify.published, cverify.title, cverify.employement_type, cverify.salary_from, cverify.salary_to, cverify.description)">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content custom-modal-video-content">
@@ -110,13 +110,13 @@
                         <div class="allow-text">Allow other users to see this video?</div>
 
                         <div class="add-video-checkbox">
-                          <div class="checkbox custom-checkbox checkbox-circle" ng-init="published='True'">
-                            <input type="radio" name="published" ng-model="published" value="True" class="checkbox-input"  id="published-allow">
+                          <div class="checkbox custom-checkbox checkbox-circle" ng-init="cverify.published='True'">
+                            <input type="radio" name="published" ng-model="cverify.published" value="True" class="checkbox-input"  id="published-allow">
                             <label for="published-allow" class="checkbox-label-01">Allow</label>
                           </div>
 
                           <div class="checkbox custom-checkbox checkbox-circle">
-                            <input type="radio" name="published" ng-model="published" value="False" class="checkbox-input" id="published-Forbid">
+                            <input type="radio" name="published" ng-model="cverify.published" value="False" class="checkbox-input" id="published-Forbid">
                             <label for="published-Forbid" class="checkbox-label-01">Forbid</label>
                           </div>
 
@@ -126,13 +126,13 @@
                   </div><!--add-video-player-container-->
                   <div class="form-group custom-addvideo-form-group custom-form-group-new">
                     <label class="text-uppercase" ng-class="{'has-success': csvuf.title.$valid}">Title</label> <sup class="asterisk">*</sup>
-                    <textarea class="form-control custom-text-area custom-text-area-36"  rows="1" placeholder="Type your title" maxlength="30" required id="title" name="title" ng-model="title" ng-class="{'has-error': csvuf.title.$touched && csvuf.title.$error.required, 'has-success': csvuf.title.$valid}"></textarea>
-                    <p class="text-overlay-textarea">{{30 - title.length}}</p>
+                    <textarea class="form-control custom-text-area custom-text-area-36"  rows="1" placeholder="Type your title" maxlength="30" required id="title" name="title" ng-model="cverify.title" ng-class="{'has-error': csvuf.title.$touched && csvuf.title.$error.required, 'has-success': csvuf.title.$valid}"></textarea>
+                    <p class="text-overlay-textarea">{{30 - cverify.title.length}}</p>
                   </div>
 
                   <div class="form-group custom-addvideo-form-group custom-form-group-new">
                     <label class="text-uppercase" ng-class="{'has-success': csvuf.employement_type.$valid}">Employement Type</label> <sup class="asterisk">*</sup>
-                    <select ng-model="csvuf.employement_type" id="employement_type" class="form-control custom-form-control-br-bottom">
+                    <select ng-model="cverify.employement_type" name="employement_type" id="employement_type" class="form-control custom-form-control-br-bottom" required>
                       <option value="FSFA">Part Time</option>
                       <option value="SDGD">Full Time</option>
                       <option value="HGAA">Internship</option>
@@ -145,25 +145,25 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <label class="text-uppercase" ng-class="{'has-success': csvuf.salary_from.$valid}">Minimum Salary</label> <sup class="asterisk">*</sup>
-                        <input type="number" class="form-control custom-text-area custom-text-area-36" placeholder="Type your Salary range" maxlength="10" required id="salary_from" name="salary_from" ng-model="salary_from" ng-class="{'has-error': csvuf.salary_from.$touched && csvuf.salary_from.$error.required, 'has-success': csvuf.salary_from.$valid}"/>
+                        <input type="number" class="form-control custom-text-area custom-text-area-36" placeholder="Type your Salary range" maxlength="10" required id="salary_from" name="salary_from" ng-model="cverify.salary_from" ng-class="{'has-error': csvuf.salary_from.$touched && csvuf.salary_from.$error.required, 'has-success': csvuf.salary_from.$valid}"/>
                       </div><!--col-sm-9-->
 
                       <div class="col-sm-6">
                         <label class="text-uppercase" ng-class="{'has-success': csvuf.salary_to.$valid}">Maximum Salary</label> <sup class="asterisk">*</sup>
-                        <input type="number" class="form-control custom-text-area custom-text-area-36" placeholder="Type your Salary range" maxlength="10" required id="salary_to" name="salary_to" ng-model="salary_to" ng-class="{'has-error': csvuf.salary_to.$touched && csvuf.salary_to.$error.required, 'has-success': csvuf.salary_to.$valid}"/>
+                        <input type="number" class="form-control custom-text-area custom-text-area-36" placeholder="Type your Salary range" maxlength="10" required id="salary_to" name="salary_to" ng-model="cverify.salary_to" ng-class="{'has-error': csvuf.salary_to.$touched && csvuf.salary_to.$error.required, 'has-success': csvuf.salary_to.$valid}"/>
                       </div><!--col-sm-9-->
                     </div>
                   </div>
 
-                  <div class="form-group custom-addvideo-form-group">
+                  <!-- <div class="form-group custom-addvideo-form-group">
                     <label class="text-uppercase">Skills that we are sekking (Separate with commas)</label>
-                    <textarea class="form-control custom-text-area"  rows="2" placeholder="Add skills" maxlength="150" id="skill_text" name="skill_text" ng-model="skill_text"></textarea>
-                  </div>
+                    <textarea class="form-control custom-text-area"  rows="2" placeholder="Add skills" maxlength="150" id="skill_text" name="skill_text" ng-model="cverify.skill_text"></textarea>
+                  </div> -->
 
                   <div class="form-group custom-addvideo-form-group custom-form-group-new">
                     <label class="text-uppercase">Description</label>
-                    <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your description" maxlength="250" id="description" name="description" ng-model="description"></textarea>
-                    <p class="text-overlay-textarea">{{500 - description.length}}</p>
+                    <textarea class="form-control custom-text-area custom-text-area-100"  rows="3" placeholder="Type your description" maxlength="250" id="description" name="description" ng-model="cverify.description"></textarea>
+                    <p class="text-overlay-textarea">{{250 - cverify.description.length}}</p>
                   </div>
 
                 </div><!--add-video-center-container-->
