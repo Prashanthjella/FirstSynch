@@ -1,5 +1,5 @@
-<div ng-controller="company_sigup_verify">
-  <div class="modal fade custom-model custom-model-registration" id="companyverify" data-keyboard="false" data-backdrop="static">
+<div>
+  <div class="modal fade custom-model custom-model-registration" id="companyverify" ng-controller="company_sigup_verify"  data-keyboard="false" data-backdrop="static">
     <form name="companyverifying" id="reset_formss" >
       <div class="modal-dialog custom-modal-880">
         <div class="modal-content custom-modal-video-content">
@@ -28,9 +28,9 @@
               <select ng-model="cvform.companycareerfairverify" id="companyselectcarrerfair" class="form-control custom-form-control-br-bottom">
                 <option value="3E Expo and Career Fair">3E Expo and Career Fair</option>
               </select>
-            </div>
-            <div class="form-group having_video hide">
-              <label class="text-uppercase" ng-class="{'has-success': companyverifying.cfair.$valid}">Your video</label>
+          </div>
+            <div class="form-group having_video">
+              <label class="text-uppercase" ng-class="{'has-success': c.cfair.$valid}">Your video</label>
               <div style="width:140px">
                 <a style="height:100px" href="" ng-click="videoOfflinePopup(companyverifyvideo.id,1)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
                   <img ng-src="{{companyverifyvideo.thumbnail}}" class="img-responsive custom-img-responsive">
@@ -41,8 +41,8 @@
             </div>
           </div>
           <div class="modal-footer custom-login-modal-footer">
-            <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button>
-            <button type="submit"  ng-click="SendData(cvform.companyemail)" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login having_video hide">Next</button>
+            <!-- <button type="submit"  ng-click="CompanyVerifying()" ng-disabled="companyverifying.$invalid" class="btn btn-default custom-btn-login having_video_initial">Verify</button> -->
+            <button type="submit"  ng-click="completeverifying()" ng-disabled="companyverifying.companyemail.$invalid || companyverifying.companyname.$invalid " class="btn btn-default custom-btn-login">Next</button>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
   </div><!--company verify popup-->
 
   <!--video popup start-->
-  <div class="modal fade custom-model custom-model-registration" id="OfflineVideoPopup1" data-keyboard="false" data-backdrop="static">
+  <div class="modal fade custom-model custom-model-registration" id="OfflineVideoPopup1" data-keyboard="false" data-backdrop="static" ng-controller="company_sigup_verify">
     <form name="csvuf" ng-submit="companysignup_video_update(companyverifyvideo.id, cverify.published, cverify.title, cverify.employement_type, cverify.salary_from, cverify.salary_to, cverify.description)">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -106,7 +106,7 @@
                   <div class="custom-addvideo-form-group add-video-player-container">
                     <div class="form-group custom-addvideo-form-group">
                       <div class="">
-                        <label class="text-uppercase">privacy video</label>
+                        <label class="text-uppercase">privacy video </label>
                         <div class="allow-text">Allow other users to see this video?</div>
 
                         <div class="add-video-checkbox">
