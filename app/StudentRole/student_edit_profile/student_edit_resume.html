@@ -1,0 +1,21 @@
+<div id="student_resume" class="tab-pane tabe-pane-lidarship hide student_edit_profile_main_content_child">
+    <div class="contanier-inside">
+        <h1 class="custom-h1-01 custom-h1-btm-space-55">Resume <sup class="asterisk">*</sup></h1>
+        <span ng-if="studentresumeform.sturesume.$error.pattern || studentresumeform.sturesume.$error.maxSize || studentresumeform.sturesume.$error.minSize" class="validation_msg">Upload only documents with file type .pdf,.doc,.docx (Max 5 MB)</span>
+        <div class="row custom-row-10">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="thumbnail thumbnail-templates create-template text-center fileContainer">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <h5 class="h5 custom-h5-01">
+                        Add resume
+                    </h5>
+                    <form name="studentresumeform">
+                        <input type="file" ngf-min-size="2KB" ngf-max-size="5MB" ngf-pattern="'.pdf,.doc,.docx'" ngf-select="resumesubmit(resumeform.resume)" ng-model="resumeform.resume" name="sturesume" required>
+                    </form>
+                </div>
+            </div>
+            <div id="studentresumeid">
+            </div>
+        </div>
+    </div>
+</div>

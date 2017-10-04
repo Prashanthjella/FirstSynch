@@ -811,6 +811,33 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
 
         });
     };
+    $scope.resumegetform = {
+        resume:null
+    }
+    $scope.getstudentresume = function(){
+        $http.get(apiUrl+"api/v1/student/api/v1/studentprofile/"+$rootScope.stud_id+"/")
+            .then(function successCallback(response){
+                $scope.resumegetform = response.data;
+                $('#studentresumeid').empty();
+                var url = 'https://docs.google.com/gview?url=';
+                url += $scope.resumegetform.resume;
+                url += '&amp;embedded=true';
+                var iframe = '<iframe src="'+url+'" width="600" height="400" style="border: none;" id="document-preview"></iframe>';
+                $('#studentresumeid').html(iframe);
+            }, function errorCallback(response){
+                console.log("Unable to perform get student profile details");
+        });
+    };
+
+    $scope.resumesubmit = function(uploadresume){
+        Upload.upload({
+            url: apiUrl+"api/v1/student/api/v1/studentprofile/"+$rootScope.stud_id+"/",
+            data: {user:$rootScope.user_id,resume: uploadresume},
+            method:'PUT',
+        }).then(function(response){
+            $scope.getstudentresume();
+        });
+    };
 
 
 });
@@ -869,6 +896,7 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
                 $scope.basicprofileform.stackoverflow_url = response.data[0].stackoverflow_url;
                 $scope.basicprofileform.profile_picture = response.data[0].profile_picture;
                 $scope.basicprofileform.about_me = response.data[0].about_me;
+                $scope.basicprofileform.resume = response.data[0].resume;
             }, function errorCallback(response){
                 console.log("Unable to perform get student basic profile details");
         });

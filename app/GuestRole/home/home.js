@@ -61,7 +61,7 @@ FirstSynch.controller("guestmostrecentedfairvideo" , function ($scope,$window,$t
         $scope.guestRecentfairLoaded = false;
         $timeout(function () {
             $scope.guestRecentfairLoaded = true;
-        });
+        },3005);
         $scope.guestRecentfairConfig = {
             enabled: true,
             autoplay: false,
@@ -338,7 +338,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
             query_params += '&salary_range='+salary;
         }
         if(employee_type != ''){
-            query_params += '&employement_types='+employee_type;
+            query_params += '&employement_type='+employee_type;
         }
         if(skiills != ''){
             query_params += '&skills='+skiills;
