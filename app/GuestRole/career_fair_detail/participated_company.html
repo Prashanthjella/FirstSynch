@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-sm-2" ng-repeat="pc in participatingcompanies">
-                <a href="#" data-id="{{pc.id}}" ng-click="fairCompanyPopup(pc.id)">
+                <a href="#" data-id="{{pc.id}}" ng-click="fairCompanyPopup(pc.id)" class="custom-company-list-140">
                   <div class="thumbnail custom-thumbnail-company-logo">
                     <img ng-src="{{pc.logo}}" class="logo-companies-box">
                   </div>
@@ -61,6 +61,8 @@
                 </div>
               </div>
             </div>
+            
+            </div>
             <div class="modal-body custom-video-modal-body">
               <section class="video-model-container">
                 <div class="row">
@@ -80,25 +82,27 @@
                   </div>
                 </div>
               </section>
+              <div class="row custom-row-10">
               <div class="col-sm-12">
                 <div class="form-group custom-addvideo-form-group">
                   <label class="text-uppercase">Industry</label>
-                  <p>{{faircompanydetails.employeement_type}}</p>
+                  <p class="description-content">{{faircompanydetails.employeement_type}}</p>
                 </div>
 
                 <div class="form-group custom-addvideo-form-group">
                   <label class="text-uppercase">Description</label>
-                  <p>{{faircompanydetails.description}}</p>
+                  <p class="description-content">{{faircompanydetails.description}}</p>
                 </div>
 
                 <div class="form-group custom-addvideo-form-group">
                   <label class="text-uppercase">Internal Student Hiring</label>
-                  <p>{{faircompanydetails.international_student_hiring}}</p>
+                  <p class="description-content">{{faircompanydetails.international_student_hiring}}</p>
                 </div>
-              </div><!--col-sm-12-->
+              </div>
+              </div>
+              <!--col-sm-12-->
 
               </div>
-            </div>
           </div>
         </div>
       <!-- company details popup end-->
