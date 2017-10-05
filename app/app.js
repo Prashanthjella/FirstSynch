@@ -102,9 +102,9 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       jQuery('#logIn').modal('show');
     }
   }
-  $http.get("https://ipinfo.io").then(function successCallback(response) {
+  $http.get("http://ip-api.com/json").then(function successCallback(response) {
     $rootScope.current_city = response.data.city;
-    $rootScope.current_state = response.data.region;
+    $rootScope.current_state = response.data.regionName;
   });
   $rootScope.userlogform = {
       username : '',
