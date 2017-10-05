@@ -27,6 +27,16 @@ FirstSynch.controller("company_company_profile" ,function ($rootScope,Upload,$ti
         });
     }
 
+    $scope.profilevideoupload = function(videofile){
+        Upload.upload({
+          url: apiUrl+"api/v1/setups/api/v1/company/"+$rootScope.company_userid+"/",
+          data: {user:$rootScope.user_id,profile_video: videofile},
+          method:'PUT',
+        }).then(function(response){
+          $rootScope.company_profile_form();
+        });
+    }
+
     $scope.$watch('$viewContentLoaded', function(){
         $timeout( function(){
           $window.loading_screen.finish();

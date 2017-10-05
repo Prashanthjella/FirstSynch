@@ -12,8 +12,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 pull-left text-right">
-            </div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-left text-right">
+                <div class="video-content" ng-if="company_profile_details.profile_video">
+                    <video width="100%" controls>
+                        <source src="{{company_profile_details.profile_video}}" type="video/mp4">
+                        <source src="{{company_profile_details.profile_video}}" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+             </div>
         </div>
     </div>
     <div class="social-network-container">

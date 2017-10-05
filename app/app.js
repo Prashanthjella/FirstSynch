@@ -46,13 +46,13 @@ var FirstSynch = angular.module("firstSync", [
   "ngCookies",
 ]);
 
-FirstSynch.constant('apiUrl', 'https://api.firstsynch.com/');
+FirstSynch.constant('apiUrl', 'http://alphaapi.firstsynch.com/');
 FirstSynch.constant('companyusertype','48KL3');
 FirstSynch.constant('studentusertype','38OD2');
 FirstSynch.constant('Personal','FDHD');
 FirstSynch.constant('Software','FDDA');
 FirstSynch.constant('Professional','RYRD');
-FirstSynch.constant('guest_token', 'e4318eb2e222cd4f52427e272e0d1d670c2ce56e');
+FirstSynch.constant('guest_token', '4742501fe20d67e63d6a9f74462d9760bd3715d3');
 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
@@ -751,6 +751,9 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
             company_name:$scope.cname,
             user : {name :$scope.name+$scope.lname,e_mail:$rootScope.e_mail,password:$scope.password },
             employee : { first_name : $scope.name, last_name : $scope.lname, city:$scope.current_city, state : $scope.current_state}
+          }
+          if($rootScope.companyverifyvideo){
+              datae.video_id = $rootScope.companyverifyvideo.id;
           }
           if(file){
               Upload.upload({
