@@ -324,6 +324,44 @@ FirstSynch.controller("student_near_by_career_fair" ,function ($rootScope,$timeo
 
   });
 });
+FirstSynch.controller("sfairparicipation" , function ($scope, $http, apiUrl, $compile, $routeParams) {
+
+  $http.get(apiUrl+"api/v1/careerfairparticipation/companies_participated/"+$routeParams.carredid+"/")
+      .then(function successCallback(response){
+          $scope.participatingcompanies = response.data;
+      }, function errorCallback(response){
+          console.log("Unable to perform get participating companies list");
+  });
+
+  $scope.fairCompanyPopup = function(fair){
+    jQuery("#fairparticipatedcompanypopup").modal('show');
+    $http.get(apiUrl+"api/v1/careerfairparticipation/api/v1/fairparticipatecompanies/"+fair+"/")
+        .then(function successCallback(response){
+            $scope.faircompanydetails = response.data;
+            if (response.data.video){
+              jwplayer("careerfairjwplayer").setup({
+                playlist: [{
+                  image: response.data.video.thumbnail,
+                  sources: [
+                    {file: response.data.video.mp4_video},
+                  ],
+                  tracks: [{
+                    file:response.data.video.vtt_file,
+                    kind:'chapters'
+                  }],
+                }],
+              });
+              //jwplayer("jwplayer").play();
+               jwplayer("careerfairjwplayer").getRenderingMode();
+            }
+            $('#fairparticipatedcompanypopup .video_loader_bk').fadeOut();
+            setTimeout(function(){ jQuery("body").addClass('modal-open'); }, 3000);
+        }, function errorCallback(response){
+            console.log("Unable to perform get participating companies details");
+    });
+  }
+
+});
 /////////////////////////////////// filters ////////////////////////////////////
 
 
