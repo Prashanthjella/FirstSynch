@@ -55,16 +55,15 @@
               <div class="media-body cusom-media-model-body">
                 <div class="col-mob-75 pull-left">
                   <h3 class="custom-h3">{{faircompanydetails.company_name}}</h3>
-                  <h6 ng-if="faircompanydetails.video" class="custom-h6-label-model">about {{ today | amDifference:  faircompanydetails.video.created_at : 'days'}} days ago</h6>
                 </div>
                 <div class="col-mob-25 pull-right">
                 </div>
               </div>
             </div>
-            
+
             </div>
             <div class="modal-body custom-video-modal-body">
-              <section class="video-model-container">
+              <section class="video-model-container" ng-if="faircompanydetails.video">
                 <div class="row">
                   <div class="col-sm-3">
                     <ul class="nav nav-tabs custom-tabs-model" role="tablist">
@@ -95,7 +94,7 @@
                 </div>
 
                 <div class="form-group custom-addvideo-form-group">
-                  <label class="text-uppercase">Internal Student Hiring</label>
+                  <label class="text-uppercase">International Student Hiring</label>
                   <p class="description-content">{{faircompanydetails.international_student_hiring}}</p>
                 </div>
               </div>
