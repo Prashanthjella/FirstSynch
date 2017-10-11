@@ -315,11 +315,11 @@ $(this).addClass('active');
       var form_vith =  $(this).find('form .modal-content').width();
       $(this).find('form').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-10+'px','margin-left':-form_vith/2+'px'});
   });
-  $(document).on('shown.bs.modal','#initalVideopopup', function () {
-      var form_h8 =  $(this).find('.video-model-container').height();
-      var form_vith =  $(this).find('.video-model-container').width();
-      $(this).find('.modal-dialog').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-10+'px','margin-left':-form_vith/2+'px'});
-  });
+  // $(document).on('shown.bs.modal','#initalVideopopup', function () {
+  //     var form_h8 =  $(this).find('.video-model-container').height();
+  //     var form_vith =  $(this).find('.video-model-container').width();
+  //     $(this).find('.modal-dialog').css({'position':'absolute','top':'50%','left':'50%','margin-top':(-form_h8/2)-10+'px','margin-left':-form_vith/2+'px'});
+  // });
   //Compay Account Settings Function
   //Edit Username
   $(document).on('click','.acc_show_act',function(){
