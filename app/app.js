@@ -279,6 +279,9 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     $rootScope.loadTags = function(query) {
         return $http.get(apiUrl+'api/v1/auto/skill_list/?format=list&q=' + query);
     };
+
+
+    setTimeout(function(){ jQuery("#initalVideopopup").modal('show'); }, 3001);
 });
 
 // FirstSynch.config(['$httpProvider', function($httpProvider) {
