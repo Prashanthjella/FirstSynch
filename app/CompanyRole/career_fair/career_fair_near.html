@@ -1,6 +1,6 @@
 <!--[Upcoming career Fairs Nearby Start]-->
 <section class="page-section page-secction-career-fair-near"  ng-controller="company_career_fair_near_user">
-  <div class="container">
+  <div class="container" ng-show="career_fair_near_current_user.length > 0">
     <div class="page-header custom-page-header">
       <div class="pull-left">
         <h1 class="h1 custom-h1-01">FAIRS NEARBY</h1>
@@ -8,21 +8,21 @@
     </div>
 
     <div class="slider-container slider-container-career">
-      <div class="" id="slider-carousel" data-uix-bxslider="mode: 'horizontal', nextText: '', prevText: '', pager: true, controls: true, minSlides: 1, maxSlides:1, infiniteLoop: false, hideControlOnEnd: true">
-        <div class="slide" data-ng-repeat="career_fair_near in career_fair_near_current_user" data-notify-when-repeat-finished >
+      <slick class="slider" settings="companyfairNearfairConfig" ng-if="companyfairNearfairLoaded">
+        <div class="slide" ng-repeat="career_fair_near in career_fair_near_current_user">
           <div class="slider-inside-large">
             <a href="/com/careerfair/{{career_fair_near.slug}}">
-            <div class="slider-recent-fairs">
-              <img class="img-responsive custom-img-responsive" style="height:385px !important;" ng-src="{{career_fair_near.image_large}}" alt="img1.png">
-              <div class="box-inside-content">
-                <p class="date-location">
-                  <span class="caption-date">{{career_fair_near.start_time | date:"MMM d, y"}}</span> &bull;
-                  <span class="caption-state">{{ career_fair_near.city }}, {{ career_fair_near.state }}</span>
-                </p>
-                <h1 class="custom-gallery-h1">{{career_fair_near.title}}</h1>
+              <div class="slider-recent-fairs">
+                <img class="img-responsive custom-img-responsive" style="height:385px !important;" ng-src="{{career_fair_near.image_large}}" alt="img1.png">
+                <div class="box-inside-content">
+                  <p class="date-location">
+                    <span class="caption-date">{{career_fair_near.start_time | date:"MMM d, y"}}</span> &bull;
+                    <span class="caption-state">{{ career_fair_near.city }}, {{ career_fair_near.state }}</span>
+                  </p>
+                  <h1 class="custom-gallery-h1">{{career_fair_near.title}}</h1>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
           </div>
           <div class="slider-inside-thumbs">
             <div class="row custom-row-10">
@@ -36,7 +36,8 @@
             </div>
           </div>
         </div>
+      </slick>
     </div>
-  </div>
+    </div>
 </section>
 <!--[Upcoming career Fairs Nearby End]-->

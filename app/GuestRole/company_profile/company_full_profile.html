@@ -20,8 +20,18 @@
 
 
 
+<section class="page-section" ng-if="company_profile_details.description">
+    <div class="row row-35">
+        <div class="col-sm-12">
+            <h1 class="custom-h1-01">
+                About Us
+            </h1>
+            <p class="content-profile-view" style="text-align: justify; line-height: 28px;">{{company_profile_details.description}}</p>
+        </div>
+    </div>
+</section>
 
-<section id="guest_company_profile_companies" class="page-section page-section-date-establishment" ng-if="company_profile_details.establishment_date">
+<section class="page-section page-section-date-establishment" ng-if="company_profile_details.establishment_date">
     <div class="row row-35">
         <div class="col-sm-5 text-center">
             <h1 class="custom-h1-01">

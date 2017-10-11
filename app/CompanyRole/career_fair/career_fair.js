@@ -7,11 +7,26 @@ var FirstSynch = angular.module("CompanycareerFair", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair page - near by career fair
-FirstSynch.controller("company_career_fair_near_user" ,function ($rootScope,$scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("company_career_fair_near_user" ,function ($timeout,$rootScope,$scope, $http,$routeParams,apiUrl) {
 
     $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
     .then(function successCallback(response){
         $scope.career_fair_near_current_user = response.data;
+        $scope.companyfairNearfairLoaded = false;
+        $timeout(function () {
+            $scope.companyfairNearfairLoaded = true;
+        });
+        $scope.companyfairNearfairConfig = {
+            dots:true,
+            enabled: true,
+            autoplay: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow :'<a class="bx-prev" href=""></a>',
+            nextArrow : '<a class="bx-next" href=""></a>',
+            method: {}
+          };
     }, function errorCallback(response){
         console.log("Unable to perform get career fair near for current user");
     });
@@ -25,14 +40,21 @@ FirstSynch.controller("company_upcoming_career_fair" ,function ($window,$scope, 
   $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?count=10")
       .then(function successCallback(response){
           $scope.upcoming_career = response.data;
-          if(response.data.length > 2){
-              $('.bx-prev').show();
-              $('.bx-next').show();
-          }
-          else{
-              $('.bx-prev').hide();
-              $('.bx-next').hide();
-          }
+          $scope.companyfairRecentfairLoaded = false;
+          $timeout(function () {
+              $scope.companyfairRecentfairLoaded = true;
+          });
+          $scope.companyfairRecentfairConfig = {
+              dots:true,
+              enabled: true,
+              autoplay: false,
+              infinite: true,
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              prevArrow :'<a class="bx-prev" href=""></a>',
+              nextArrow : '<a class="bx-next" href=""></a>',
+              method: {}
+            };
       }, function errorCallback(response){
           console.log("Unable to perform get upcoming career fair");
   });
