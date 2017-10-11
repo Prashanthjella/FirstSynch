@@ -7,7 +7,7 @@
                     <ul class="custom-sidebar-nav">
                         <li ng-if="company_profile_details.video.length > 0"><a href="" scroll-to="company_company_profile_videos" title="Videos">Videos</a></li>
                         <li ng-if="company_profile_details.hiring[0].benefits || company_profile_details.hiring[0].perks || company_profile_details.hiring[0].culture"><a href="" scroll-to="company_company_profile_wearehiring" title="We are hiring">We are hiring</a></li>
-                        <li ng-if="company_profile_details.est_date_description || company_profile_details.establishment_date "><a href="" scroll-to="company_company_profile_companies" title="Company">Company</a></li>
+                        <li ng-if="company_profile_details.establishment_date || (company_profile_details.internships_to_jobs)||(company_profile_details.company_size_description && company_profile_details.company_size)||(company_profile_details.hire_rates)||(company_profile_details.departure_rate)||(company_profile_details.average_entry_level_sal)||(company_profile_details.growth_rate_description && company_profile_details.growth_rate)||(company_profile_details.investor_conf_description && company_profile_details.investor_confidence)||(company_profile_details.characteristics.length > 0)||(company_profile_details.gallery.length > 0)||(company_profile_details.contacts.length > 0)||(company_profile_details.founder.length > 0)"><a href="" scroll-to="company_company_profile_companies" title="Company">Company</a></li>
                         <li ng-if="company_profile_details.careerfairs.length > 0"><a href="" scroll-to="company_company_profile_careerfiar" title="Career fairs">Career fairs</a></li>
                         <li ng-if="company_profile_details.topemployee.length > 0"><a href="" scroll-to="company_company_profile_employees" title="Employees">Employees</a></li>
                     </ul>
@@ -28,7 +28,6 @@
     <div class="page-section page-section-profile-container">
       <section class="page-section-profile-company">
             <div class="container">
-
                 <div class="row">
                     <div class="col-sm-offset-2">
                       <div class="container-775 pull-left">

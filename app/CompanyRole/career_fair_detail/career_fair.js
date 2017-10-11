@@ -382,6 +382,32 @@ FirstSynch.controller("cfairparicipation" , function ($scope, $http, apiUrl, $co
     });
   }
 
+  $scope.showall_participatecompany = function(){
+      $http.get(apiUrl+"api/v1/careerfairparticipation/companies_participated/"+$routeParams.carredid+"/").then(function successCallback(response){
+          if(jQuery('.participatingcompanies_less_all').is(":visible")){
+            jQuery('.participatingcompanies_less_all').slideUp(500);
+            jQuery('.participating_company_fairs').text('Less All');
+            jQuery('.participatingcompanies_show_all').slideDown(500).empty();
+            jQuery.each(response.data, function(i) {
+              var featurevideo_showall =   '<div class="col-sm-2">'
+                                              +'<a href="#" data-id="'+response.data[i].id+'" ng-click="fairCompanyPopup('+response.data[i].id+')" class="custom-company-list-140">'
+                                                +'<div class="thumbnail custom-thumbnail-company-logo">'
+                                                  +'<img ng-src="'+response.data[i].logo+'" class="logo-companies-box">'
+                                                +'</div>'
+                                              +'</a>'
+                                          '</div>';
+                angular.element(jQuery('.participatingcompanies_show_all')).append($compile(featurevideo_showall)($scope));
+            })
+          }else{
+              jQuery('.participatingcompanies_show_all').slideUp(500);
+              jQuery('.participatingcompanies_less_all').slideDown(500);
+              jQuery('.participating_company_fairs').text('Show All');
+          }
+        }, function errorCallback(response){
+            console.log("Unable to perform get featurevideo showall");
+      });
+  }
+
 });
 /////////////////////////////////// filters ////////////////////////////////////
 

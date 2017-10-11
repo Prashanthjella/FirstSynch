@@ -10,7 +10,7 @@ var FirstSynch = angular.module("StudentDashboard", ["ngRoute"]);
 // home page - featured video
 FirstSynch.controller("student_futuredvideo", function ($scope, $http, apiUrl, $compile) {
   // home page - featured video - default
-  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5")
+  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
           $scope.feature = response.data;
       }, function errorCallback(response){

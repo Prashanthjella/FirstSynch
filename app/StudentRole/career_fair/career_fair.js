@@ -8,11 +8,26 @@ var FirstSynch = angular.module("StudentcareerFair", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // career fair page - near by career fair
-FirstSynch.controller("student_career_fair_near_user" ,function ($rootScope,$scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("student_career_fair_near_user" ,function ($timeout,$rootScope,$scope, $http,$routeParams,apiUrl) {
 
     $http.get(apiUrl+"api/v1/career_fairs/career_fair_near_current_user/?location="+$rootScope.current_state+"&count=10")
     .then(function successCallback(response){
         $scope.career_fair_near_current_user = response.data;
+        $scope.studentfairNearfairLoaded = false;
+        $timeout(function () {
+            $scope.studentfairNearfairLoaded = true;
+        });
+        $scope.studentfairNearfairConfig = {
+            dots:true,
+            enabled: true,
+            autoplay: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow :'<a class="bx-prev" href=""></a>',
+            nextArrow : '<a class="bx-next" href=""></a>',
+            method: {}
+          };
     }, function errorCallback(response){
         console.log("Unable to perform get career fair near for current user");
     });

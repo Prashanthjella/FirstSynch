@@ -12,7 +12,7 @@ var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync"]);
 // home page - featured video
 FirstSynch.controller("guestfuturedvideo", function ($scope,$window,$http, apiUrl,$compile,$timeout) {
   // home page - featured video - default
-  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/?count=5")
+  $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
           $scope.feature = response.data;
       }, function errorCallback(response){

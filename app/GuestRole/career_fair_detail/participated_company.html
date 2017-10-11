@@ -7,16 +7,21 @@
                     <div class="pull-left">
                         <h3 class="h3 custom-h3">Participating Companies</h3>
                     </div>
+                    <div class="pull-right">
+                      <a href="#" class="link-all participating_company_fairs" ng-show="participatingcompanies.length > 6" ng-click="showall_participatecompany()" title="Show All">Show All</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-2" ng-repeat="pc in participatingcompanies">
-                <a href="#" data-id="{{pc.id}}" ng-click="fairCompanyPopup(pc.id)" class="custom-company-list-140">
-                  <div class="thumbnail custom-thumbnail-company-logo">
-                    <img ng-src="{{pc.logo}}" class="logo-companies-box">
-                  </div>
-                </a>
+            <div class="participatingcompanies_less_all">
+                <div class="col-sm-2" ng-repeat="pc in participatingcompanies | limitTo:6">
+                    <a href="#" data-id="{{pc.id}}" ng-click="fairCompanyPopup(pc.id)" class="custom-company-list-140">
+                      <div class="thumbnail custom-thumbnail-company-logo">
+                        <img ng-src="{{pc.logo}}" class="logo-companies-box">
+                      </div>
+                    </a>
+                </div>
             </div>
-
+            <div class="participatingcompanies_show_all"></div>
         </div>
     </div>
 

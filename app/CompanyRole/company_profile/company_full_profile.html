@@ -1,5 +1,5 @@
 
-<div id="company_company_profile_companies" class="row" ng-if="(company_profile_details.est_date_description && company_profile_details.establishment_date) || (company_profile_details.internships_to_jobs)||(company_profile_details.company_size_description && company_profile_details.company_size)||(company_profile_details.hire_rates)||(company_profile_details.departure_rate)||(company_profile_details.average_entry_level_sal)||(company_profile_details.growth_rate_description && company_profile_details.growth_rate)||(company_profile_details.investor_conf_description && company_profile_details.investor_confidence)||(company_profile_details.characteristics.length > 0)||(company_profile_details.gallery.length > 0)||(company_profile_details.contacts.length > 0)||(company_profile_details.founder.length > 0)">
+<div id="company_company_profile_companies" class="row" ng-if=" company_profile_details.establishment_date || (company_profile_details.internships_to_jobs)||(company_profile_details.company_size_description && company_profile_details.company_size)||(company_profile_details.hire_rates)||(company_profile_details.departure_rate)||(company_profile_details.average_entry_level_sal)||(company_profile_details.growth_rate_description && company_profile_details.growth_rate)||(company_profile_details.investor_conf_description && company_profile_details.investor_confidence)||(company_profile_details.characteristics.length > 0)||(company_profile_details.gallery.length > 0)||(company_profile_details.contacts.length > 0)||(company_profile_details.founder.length > 0)">
 <div class="col-sm-6">
     <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
   </div>
@@ -19,7 +19,7 @@
 </div>
 
 
-<section class="page-section page-section-date-establishment" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">
+<section class="page-section page-section-date-establishment" ng-if="company_profile_details.establishment_date">
  <div class="container-775 pull-left">
   <div class="row row-35">
     <div class="col-sm-5 text-center">
@@ -56,7 +56,7 @@
   </div>
   </div>
 </section>
-<section class="page-section page-section-company-size page page-section-intership-new" ng-if="company_profile_details.company_size_description && company_profile_details.company_size">
+<section class="page-section page-section-company-size page page-section-intership-new" ng-if="company_profile_details.employees">
   <div class="row">
     <div class="col-sm-6">
       <h1 class="h1 custom-h1-01">
@@ -67,14 +67,14 @@
     <div class="col-sm-5 col-sm-offset-1">
       <img src="assets/images/company-size-icon.png" class="img-responsive" alt="">
       <div class="text-company-size">
-        {{company_profile_details.company_size}}+
+        {{company_profile_details.employees}}+
         <span class="medium-text">people work <br>for us</span>
       </div>
     </div>
 
   </div>
 </section>
-<section class="page-section page-section-hire-departure page-section-intership-new" ng-if="company_profile_details.hire_rates ">
+<section class="page-section page-section-hire-departure page-section-intership-new">
   <div class="row">
     <div class="col-sm-6 mt60 hire-section" ng-if="company_profile_details.hire_rates">
         <h1 class="h1 custom-h1-01 bg-arrow-up">
@@ -122,7 +122,7 @@
     </div>
   </div>
 </section>
-<section class="page-section page-section-company-growth page-section-intership-new" ng-if="company_profile_details.growth_rate_description && company_profile_details.growth_rate">
+<section class="page-section page-section-company-growth page-section-intership-new" ng-if="company_profile_details.growth_rate && company_profile_details.growth_rate != 0">
   <div class="row">
     <div class="col-sm-6  pull-right">
      <h1 class="h1 custom-h1-01">
@@ -138,7 +138,7 @@
 
   </div>
 </section>
-<section class="page-section page-section-investor-confidence page-section-intership-new" ng-if="company_profile_details.investor_conf_description && company_profile_details.investor_confidence">
+<section class="page-section page-section-investor-confidence page-section-intership-new" ng-if="company_profile_details.investor_confidence && company_profile_details.investor_confidence != 0">
   <div class="row">
     <div class="col-sm-5">
      <h1 class="h1 custom-h1-01">
@@ -194,7 +194,7 @@
     </div>
   </div>
 </section>
-<section class="page-section page-section-locations page-section-intership-new" ng-if="company_profile_details.contacts.length > 0">
+<section class="page-section page-section-locations page-section-intership-new" ng-if="company_profile_details.contacts[0].address_1 && company_profile_details.contacts[0].city">
   <div class="row">
     <div class="col-xs-12 col-sm-12 ">
       <div class="row">
