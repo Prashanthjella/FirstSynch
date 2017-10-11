@@ -63,7 +63,7 @@
                             <img class="media-object custom-media-object" ng-src="{{company_result.logo}}" alt="forester-logo.jpg">
                         </div>
                         <div class="media-body">
-                            <a href="/company/'+response.data[i].slug+'">
+                            <a href="/company/{{company_result.slug}}">
 								<h4 class="media-heading">{{company_result.name}}</h4>
 							</a>
                             <h5 class="media-eading-h5"><span ng-show="company_result.city">{{company_result.city}},</span> {{company_result.state}}</h5>
