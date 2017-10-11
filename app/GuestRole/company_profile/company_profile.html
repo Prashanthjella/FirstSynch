@@ -5,7 +5,7 @@
                 <ul class="custom-sidebar-nav">
                     <li ng-if="company_profile_details.video.length > 0"><a href="" scroll-to="guest_company_profile_video" title="Videos">Videos</a></li>
                     <li ng-if="company_profile_details.hiring[0].benefits || company_profile_details.hiring[0].perks || company_profile_details.hiring[0].culture "><a href="" scroll-to="guest_company_profile_wearehire" title="We are hiring">We are hiring</a></li>
-                    <li ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date"><a href="" scroll-to="guest_company_profile_companies" title="Company">Company</a></li>
+                    <li ng-if="(company_profile_details.establishment_date || company_profile_details.internships_to_jobs || company_profile_details.employees || company_profile_details.hire_rates || company_profile_details.average_entry_level_sal || (company_profile_details.growth_rate && company_profile_details.growth_rate != 0)||(company_profile_details.investor_confidence && company_profile_details.investor_confidence != 0 )||company_profile_details.characteristics.length > 0 || company_profile_details.gallery.length > 0 || (company_profile_details.contacts[0].address_1 && company_profile_details.contacts[0].city))"><a href="" scroll-to="guest_company_profile_companies" title="Company">Company</a></li>
                     <li ng-if="company_profile_details.careerfairs.length > 0"><a href="" scroll-to="guest_company_profile_careerfair" title="Career fairs">Career fairs</a></li>
                     <li ng-if="company_profile_details.topemployee.length > 0"><a href="" scroll-to="guest_company_profile_employees" title="Employees">Employees</a></li>
                 </ul>
@@ -26,7 +26,7 @@
     <div ng-include ="'GuestRole/company_profile/company_skill.html'"></div>
     <!-- <div ng-include ="'GuestRole/company_profile/company_questions.html'"></div> -->
 </div>
-<div class="test page-section page-section-profile-container" ng-show="guest_jobs_notfound && (company_profile_details.establishment_date || company_profile_details.internships_to_jobs || company_profile_details.company_size || company_profile_details.hire_rates || company_profile_details.average_entry_level_sal || (company_profile_details.growth_rate && company_profile_details.growth_rate != 0)||(company_profile_details.investor_confidence && company_profile_details.investor_confidence != 0 )||company_profile_details.characteristics.length > 0 || company_profile_details.gallery.length > 0 || (company_profile_details.contacts[0].address_1 && company_profile_details.contacts[0].city))">
+<div class="test page-section page-section-profile-container" ng-show="guest_jobs_notfound && (company_profile_details.establishment_date || company_profile_details.internships_to_jobs || company_profile_details.employees || company_profile_details.hire_rates || company_profile_details.average_entry_level_sal || (company_profile_details.growth_rate && company_profile_details.growth_rate != 0)||(company_profile_details.investor_confidence && company_profile_details.investor_confidence != 0 )||company_profile_details.characteristics.length > 0 || company_profile_details.gallery.length > 0 || (company_profile_details.contacts[0].address_1 && company_profile_details.contacts[0].city))">
     <section class="page-section-profile-company">
         <div class="container">
             <div class="row">

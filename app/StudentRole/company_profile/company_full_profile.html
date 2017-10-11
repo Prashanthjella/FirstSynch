@@ -1,31 +1,24 @@
-<section class="page-section page-section-profile-container">
-  <div class="page-section-profile-company">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-offset-2">
-          <div class="col-sm-6">
-            <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
-          </div>
-          <div class="col-sm-6">
-            <ul class="list-company-profile">
-              <li ng-if="company_profile_details.category">
-                <h6 class="h6 custom-h6 custom-h6">Industry</h6>
-                <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.category}}</h1>
-              </li>
 
-              <li ng-if="company_profile_details.product_category">
-                <h6 class="h6 custom-h6">Product category</h6>
-                <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.product_category}}</h1>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row" id="student_company_profile_companies">
+<div class="col-sm-6">
+    <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
   </div>
-</section>
+  <div class="col-sm-6">
+    <ul class="list-company-profile">
+      <li ng-if="company_profile_details.category">
+        <h6 class="h6 custom-h6 custom-h6">Industry</h6>
+        <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.category}}</h1>
+      </li>
 
-<section class="page-section page-section-date-establishment" ng-if="company_profile_details.est_date_description && company_profile_details.establishment_date">
+      <li ng-if="company_profile_details.product_category">
+        <h6 class="h6 custom-h6">Product category</h6>
+        <h1 class="h1 custom-h1-01 custom-h1-01">{{company_profile_details.product_category}}</h1>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<section class="page-section page-section-date-establishment" ng-if="company_profile_details.establishment_date">
     <div class="row row-35">
         <div class="col-sm-5 text-center">
              <h1 class="custom-h1-01">
@@ -40,7 +33,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-intership page-section-intership-new" ng-if="company_profile_details.internships_to_jobs && company_profile_details.internships_job_description">
+<section class="page-section page-section-intership page-section-intership-new" ng-if="company_profile_details.internships_to_jobs">
     <div class="row">
         <div class="col-sm-6 pull-left">
             <div class="progress-circle-new progress-circle progress-{{company_profile_details.internships_to_jobs}}"><span>{{company_profile_details.internships_to_jobs}}</span></div>
@@ -57,7 +50,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-company-size page page-section-intership-new" ng-if="company_profile_details.company_size_description && company_profile_details.company_size">
+<section class="page-section page-section-company-size page page-section-intership-new" ng-if="company_profile_details.employees">
     <div class="row">
         <div class="col-sm-6">
              <h1 class="h1 custom-h1-01">
@@ -68,7 +61,7 @@
         <div class="col-sm-5 col-sm-offset-1">
             <img src="assets/images/company-size-icon.png" class="img-responsive" alt="">
             <div class="text-company-size">
-                {{company_profile_details.company_size}}+
+                {{company_profile_details.employees}}+
                 <span class="medium-text">people work for us</span>
             </div>
         </div>
@@ -77,7 +70,7 @@
 </section>
 <section class="page-section page-section-hire-departure page-section-intership-new">
     <div class="row">
-        <div class="col-sm-6 mt60 hire-section" ng-if="company_profile_details.hire_rates && company_profile_details.hire_rates_description">
+        <div class="col-sm-6 mt60 hire-section" ng-if="company_profile_details.hire_rates">
              <h1 class="h1 custom-h1-01 bg-arrow-up">
                 Hire Rates
             </h1>
@@ -91,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 mt60 hire-section departure-section departure-section-new" ng-if="company_profile_details.departure_rate && company_profile_details.departure_rate_description">
+        <div class="col-sm-6 mt60 hire-section departure-section departure-section-new" ng-if="company_profile_details.departure_rate">
                 <h1 class="custom-h1-01 bg-arrow-down">
                 Departure Rates
             </h1>
@@ -123,7 +116,7 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-company-growth page-section-intership-new" ng-if="company_profile_details.growth_rate_description && company_profile_details.growth_rate">
+<section class="page-section page-section-company-growth page-section-intership-new" ng-if="company_profile_details.growth_rate && company_profile_details.growth_rate != 0">
     <div class="row">
         <div class="col-sm-6  pull-right">
             <h1 class="h1 custom-h1-01">
@@ -139,7 +132,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-investor-confidence page-section-intership-new" ng-if="company_profile_details.investor_conf_description && company_profile_details.investor_confidence ">
+<section class="page-section page-section-investor-confidence page-section-intership-new" ng-if="company_profile_details.investor_confidence && company_profile_details.investor_confidence != 0">
     <div class="row">
         <div class="col-sm-5">
           <h1 class="h1 custom-h1-01">
@@ -193,7 +186,7 @@
         </div>
     </div>
 </section>
-<section class="page-section page-section-locations page-section-intership-new"  ng-if="company_profile_details.contacts.length > 0">
+<section class="page-section page-section-locations page-section-intership-new"  ng-if="company_profile_details.contacts[0].address_1 && company_profile_details.contacts[0].city">
     <div class="row">
         <div class="col-xs-12 col-sm-12 ">
             <div class="row">

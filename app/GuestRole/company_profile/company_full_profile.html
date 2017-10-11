@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" id="guest_company_profile_companies">
 <div class="col-sm-6">
     <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
   </div>
@@ -54,7 +54,7 @@
 
     </div>
 </section>
-<section class="page-section page-section-company-size page page-section-intership-new" ng-if=" company_profile_details.company_size">
+<section class="page-section page-section-company-size page page-section-intership-new" ng-if=" company_profile_details.employees">
     <div class="row">
         <div class="col-sm-6">
              <h1 class="h1 custom-h1-01">
@@ -65,7 +65,7 @@
         <div class="col-sm-5 col-sm-offset-1">
             <img src="assets/images/company-size-icon.png" class="img-responsive" alt="">
             <div class="text-company-size">
-                {{company_profile_details.company_size}}+
+                {{company_profile_details.employees}}+
                 <span class="medium-text">people work for us</span>
             </div>
         </div>
