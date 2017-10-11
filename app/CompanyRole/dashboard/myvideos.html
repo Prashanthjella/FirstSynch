@@ -1,0 +1,28 @@
+<!--[Dashboard company Start]-->
+<section class="page-section page-section-new-member"  ng-controller="company_my_videos">
+  	<div class="container">
+	    <div class="page-header custom-page-header">
+	      <div class="pull-left">
+	        <h3 class="h3 custom-h3">My Videos</h3>
+	      </div>
+	    </div>
+	    <div class="row custom-row-10" >
+	      	<div class="col-sm-4" ng-repeat="comp in my_videos.video">
+	      		<a href="" ng-click="videoPopup(comp.id)" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
+	      			<img ng-src="{{comp.thumbnail}}" class="img-responsive custom-img-responsive">
+	        		<div class="overlay "></div>
+	        		<span class="arrow-triangle"></span>
+	        		<div class="box-inside-content">
+	          			<span class="logo-companies">
+	          				<img ng-src="{{comp.company.logo}}" class="img-responsive">
+	          			</span>
+	                	<h6 class="h6 custom-h6">{{comp.company.name}}</h6>
+	              		<h1 class="h1 custom-gallery-h1">{{comp.title}}</h1>
+	        		</div>
+	        	</a>
+	        </div>
+	    </div>
+
+  	</div>
+</section>
+<!--[Dashboard company End]-->

@@ -363,6 +363,19 @@ FirstSynch.controller("dashboard_filter_process_company" ,function ($rootScope,$
         $("#dashboard-filter input[type=radio],#dashboard-filter input[type=checkbox]").prop('checked', false);
     };
 });
+//////////////////////////My Videos//////////////////////////////////////////////
+// company details
+FirstSynch.controller("company_my_videos" ,function ($rootScope,Upload,$timeout,$window,$scope, $http,$routeParams,apiUrl) {
+
+        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
+          headers: {'Authorization' : 'Token '+$rootScope.token_id}
+        }).then(function successCallback(response){
+          $scope.my_videos = response.data;
+        }, function errorCallback(response){
+          console.log("Unable to perform get my bideo details");
+        });
+
+});
 /////////////////////////////////// filters ////////////////////////////////////
 
 FirstSynch.filter('startFrom', function() {
