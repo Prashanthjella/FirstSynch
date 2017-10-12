@@ -1,5 +1,5 @@
 
-<div id="company_company_profile_companies" class="row" ng-if=" company_profile_details.establishment_date || (company_profile_details.internships_to_jobs)||(company_profile_details.company_size_description && company_profile_details.company_size)||(company_profile_details.hire_rates)||(company_profile_details.departure_rate)||(company_profile_details.average_entry_level_sal)||(company_profile_details.growth_rate_description && company_profile_details.growth_rate)||(company_profile_details.investor_conf_description && company_profile_details.investor_confidence)||(company_profile_details.characteristics.length > 0)||(company_profile_details.gallery.length > 0)||(company_profile_details.contacts.length > 0)||(company_profile_details.founder.length > 0)">
+<div id="company_company_profile_companies" class="row" ng-if="company_profile_details.description|| company_profile_details.establishment_date || (company_profile_details.internships_to_jobs)||(company_profile_details.company_size_description && company_profile_details.company_size)||(company_profile_details.hire_rates)||(company_profile_details.departure_rate)||(company_profile_details.average_entry_level_sal)||(company_profile_details.growth_rate_description && company_profile_details.growth_rate)||(company_profile_details.investor_conf_description && company_profile_details.investor_confidence)||(company_profile_details.characteristics.length > 0)||(company_profile_details.gallery.length > 0)||(company_profile_details.contacts.length > 0)||(company_profile_details.founder.length > 0)">
 <div class="col-sm-6">
     <h1 class="h1 custom-page-h1 profile-company-title">Company</h1>
   </div>
@@ -18,7 +18,16 @@
   </div>
 </div>
 
-
+<section class="page-section" ng-if="company_profile_details.description">
+    <div class="row row-35">
+        <div class="col-sm-12">
+            <h1 class="custom-h1-01">
+                About Us
+            </h1>
+            <p class="content-profile-view" style="text-align: justify; line-height: 28px;">{{company_profile_details.description}}</p>
+        </div>
+    </div>
+</section>
 <section class="page-section page-section-date-establishment" ng-if="company_profile_details.establishment_date">
  <div class="container-775 pull-left">
   <div class="row row-35">

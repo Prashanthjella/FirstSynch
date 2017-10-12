@@ -130,11 +130,26 @@ FirstSynch.controller("company_all_studentss" ,function ($scope, $http,$routePar
 /////////////////////////////////// filters ////////////////////////////////////
 
 //student page - student category
-FirstSynch.controller("company_student_category" ,function ($scope, $http,$routeParams,apiUrl) {
+FirstSynch.controller("company_student_category" ,function ($timeout,$scope, $http,$routeParams,apiUrl) {
 
   $http.get(apiUrl+"api/v1/student/api/v1/student_categories/")
       .then(function successCallback(response){
           $scope.student_cate = response.data;
+          $scope.studentstucateLoaded = false;
+          $timeout(function () {
+              $scope.studentstucateLoaded = true;
+          },3005);
+          $scope.studentstucateConfig = {
+              enabled: true,
+              autoplay: false,
+              infinite: true,
+              autoplaySpeed: 1000,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              prevArrow :'<a class="bx-prev" href=""></a>',
+              nextArrow : '<a class="bx-next" href=""></a>',
+              method: {}
+            };
       }, function errorCallback(response){
           console.log("Unable to perform get student details as category wise");
   });

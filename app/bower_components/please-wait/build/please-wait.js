@@ -262,11 +262,12 @@
       }
       listener = (function(_this) {
         return function() {
-          document.body.removeChild(_this._loadingElem);
+        //   document.body.removeChild(_this._loadingElem);
+          $('.pg-loading-screen').empty();
           removeClass("pg-loading", document.body);
-          if (animationSupport) {
-            _this._loadingElem.removeEventListener(animationEvent, listener);
-          }
+        //   if (animationSupport) {
+        //     _this._loadingElem.removeEventListener(animationEvent, listener);
+        //   }
           return _this._loadingElem = null;
         };
       })(this);

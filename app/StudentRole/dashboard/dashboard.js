@@ -55,9 +55,24 @@ FirstSynch.controller("student_futuredvideo", function ($scope, $http, apiUrl, $
 // home page - mostrecented fairs
 FirstSynch.controller("student_mostrecentedfairvideo" , function ($scope,$timeout,$window, $http, apiUrl) {
 
-  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/?when=next&now&count=10")
+  $http.get(apiUrl+"api/v1/flat_pages/recent_career_fairs/")
       .then(function successCallback(response){
           $scope.recent_fairs = response.data;
+          $scope.studentRecentfairLoaded = false;
+          $timeout(function () {
+              $scope.studentRecentfairLoaded = true;
+          },3005);
+          $scope.studentRecentfairConfig = {
+              enabled: true,
+              autoplay: false,
+              infinite: true,
+              autoplaySpeed: 1000,
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              prevArrow :'<a class="bx-prev" href=""></a>',
+              nextArrow : '<a class="bx-next" href=""></a>',
+              method: {}
+            };
       }, function errorCallback(response){
           console.log("Unable to perform get recent_fairs");
   });
