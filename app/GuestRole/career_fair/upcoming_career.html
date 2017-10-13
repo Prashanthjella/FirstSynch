@@ -15,7 +15,8 @@
                     Fairs in
                     <span  class="dropdown" ng-controller="all_career_fair_near_user_city">
         				<span ng-bind="cityValue" class="highlighted dropdown-toggle"  id="all_cer_city" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Allcities</span>
-		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city">
+		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" city-menu="cityValue" aria-labelledby="all_career_fair_near_user_city" id="GuestFairCityFilter">
+                            <li><input type="text" placeholder="Search city" onkeyup="inputsearchfilter(this,'GuestFairCityFilter')"/></li>
 		        			<li ng-click="careerfair_filters($event)"  datavalue=""><a href="" title="All cities">All cities</a></li>
 		    				<li ng-click="careerfair_filters($event)"  ng-repeat="allcities in all_career_fair_near_current_user_city | unique:'city'| orderBy : 'city'" datavalue="{{allcities.city}}"><a href="" title="{{allcities.city}}">{{allcities.city}}</a></li>
 						</ul>
@@ -23,7 +24,8 @@
                     with
                     <span class="dropdown col-mob-12" ng-controller="all_companies">
         				<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_cer_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dataupcomingval="">Allcompanies</span>
-		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-companies" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company">
+		        		<ul class="dropdown-menu custom-drop-down dropdown-menu-companies" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company" id="GuestFairCompanyFilter">
+                            <li><input type="text" placeholder="Search company" onkeyup="inputsearchfilter(this,'GuestFairCompanyFilter')"/></li>
 		    				<li ng-click="careerfair_filters($event)"  datavalue=""><a href="" title="All companies">All companies</a></li>
 		    				<li ng-click="careerfair_filters($event)" ng-repeat="allcompanies in all_company | unique:'name' | orderBy : 'name'" datavalue="{{allcompanies.name}}"><a href="" title="{{allcompanies.name}}">{{allcompanies.name}}</a></li>
 						</ul>

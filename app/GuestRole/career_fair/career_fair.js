@@ -156,8 +156,8 @@ FirstSynch.directive('upcomingMenu', function() {
 
         // listen for changes
         $el.on('click', 'li', function() {
-          scope.upcomingMenu = $(this).text();
-          scope.$apply();
+                scope.upcomingMenu = $(this).text();
+                scope.$apply();
         });
       }
     };
@@ -172,12 +172,14 @@ FirstSynch.directive('cityMenu', function() {
       link: function(scope, element) {
         // set the initial value
         var $el = $(element);
-        scope.cityMenu = $el.find('li:first').text();
+        scope.cityMenu = $el.find('li:first').next().text();
 
         // listen for changes
         $el.on('click', 'li', function() {
-          scope.cityMenu = $(this).text();
-          scope.$apply();
+            if($(this).text().length > 0){
+                scope.cityMenu = $(this).text();
+                scope.$apply();
+            }
         });
       }
     };
@@ -192,12 +194,14 @@ FirstSynch.directive('companyMenu', function() {
       link: function(scope, element) {
         // set the initial value
         var $el = $(element);
-        scope.companyMenu = $el.find('li:first').text();
+        scope.companyMenu = $el.find('li:first').next().text();
 
         // listen for changes
         $el.on('click', 'li', function() {
-          scope.companyMenu = $(this).text();
-          scope.$apply();
+          if($(this).text().length > 0){
+              scope.companyMenu = $(this).text();
+              scope.$apply();
+          }
         });
       }
     };

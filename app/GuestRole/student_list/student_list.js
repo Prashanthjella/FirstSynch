@@ -165,12 +165,14 @@ FirstSynch.directive('univMenu', function() {
       link: function(scope, element) {
         // set the initial value
         var $el = $(element);
-        scope.univMenu = $el.find('li:first').text();
+        scope.univMenu = $el.find('li:first').next().text();
 
         // listen for changes
         $el.on('click', 'li', function() {
-          scope.univMenu = $(this).text();
-          scope.$apply();
+            if($(this).text().length > 0){
+                scope.univMenu = $(this).text();
+                scope.$apply();
+            }
         });
       }
     };
@@ -184,12 +186,14 @@ FirstSynch.directive('univMenu', function() {
         link: function(scope, element) {
           // set the initial value
           var $el = $(element);
-          scope.majorMenu = $el.find('li:first').text();
+          scope.majorMenu = $el.find('li:first').next().text();
 
           // listen for changes
           $el.on('click', 'li', function() {
-            scope.majorMenu = $(this).text();
-            scope.$apply();
+              if($(this).text().length > 0){
+                  scope.majorMenu = $(this).text();
+                  scope.$apply();
+              }
           });
         }
       };

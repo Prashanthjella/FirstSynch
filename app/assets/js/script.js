@@ -1,4 +1,17 @@
-
+function inputsearchfilter(element,what){
+    var value = $(element).val();
+    value = value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+        return letter.toUpperCase();
+    });
+    if (value == '') {
+        $('#'+what+' > li > a').show();
+    }
+    else {
+        $('#'+what+' > li > a:not(:contains(' + value + '))').hide();
+        $('#'+what+' > li > a:contains(' + value + ')').show();
+        $('#'+what).children('li').eq(1).find('a').show();
+    }
+}
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
 

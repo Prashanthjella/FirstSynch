@@ -24,12 +24,12 @@
         </div>
     </div>
 </section> -->
-<section id="company_student_profile_experience" class="page-section page-section-experience" ng-if="student_profile_details.experience.length > 0 || student_profile_details.project.length > 0">
+<section id="company_student_profile_experience" class="page-section page-section-experience" ng-if="(student_profile_details.experience.length > 0 && student_profile_details.experience[0].job_title) || student_profile_details.project.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-2">
                 <h1 class="h1 custom-page-h1">Experience</h1>
-                <section class="page-section page-work-history" ng-if="student_profile_details.experience.length > 0">
+                <section class="page-section page-work-history" ng-if="student_profile_details.experience.length > 0 && student_profile_details.experience[0].job_title">
                     <h2 class="h2 custom-page-h2">Work history
                     </h2>
                     <div class="row"  ng-repeat="experiences in student_profile_details.experience">
