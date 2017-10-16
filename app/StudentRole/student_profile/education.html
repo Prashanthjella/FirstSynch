@@ -15,7 +15,7 @@
                 <h3 class="school-name">{{educations.school_name}}</h3>
                 <h5 class="department">{{educations.major}}</h5>
               </div>
-              <div class="rating-container">
+              <div class="rating-container"  ng-if="educations.gpa > 0">
                 <div class="pull-left">GPA : {{educations.gpa|number}}</div>
                 <div class="pull-right">
                   <div class="rating-container">
