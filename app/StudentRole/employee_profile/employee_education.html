@@ -12,7 +12,7 @@
                                 <h3 class="school-name">{{emp_education.school_name}}</h3>
                                 <h5 class="department">{{emp_education.major}}</h5>
                             </div>
-                            <div class="rating-container">
+                            <div class="rating-container"  ng-if="emp_education.gpa > 0">
                                 <div class="pull-left">GPA : {{emp_education.gpa}}</div>
                                 <div class="pull-right">
                                     <div class="rating-container"> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="star"></span> <span class="total-star">{{emp_education.gpa_rating}}</span> </div>
