@@ -600,7 +600,7 @@ a.thumbnail, a.custom-large-image-gallery {
 	font-size: 30px;
 }
 .custom-cols-thumbs-4 .custom-gallery-h1, .col-sm-4 .custom-gallery-h1 {
-	font-size: 20px;
+	font-size: 16px; /*old size 20px*/
 }
 .page-section-recent-fairs {
 	background-color: #f7f7f7;
