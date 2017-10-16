@@ -3599,10 +3599,10 @@ textarea.custom-text-area-new {
 		}
 .custom-company-list-140:hover{
 	-webkit-box-shadow:0 5px 15px 0 rgba(0, 0, 0, 0.08);
-	-moz-box-shadow:0 5px 15px 0 rgba(0, 0, 0, 0.08);	
+	-moz-box-shadow:0 5px 15px 0 rgba(0, 0, 0, 0.08);
 	box-shadow:0 5px 15px 0 rgba(0, 0, 0, 0.08);
-	
-	
+
+
 	}
 .custom-company-list:hover {
 	text-decoration: none
@@ -6030,3 +6030,73 @@ textarea.custom-text-area-100 {
 #companyverify .custom-modal-footer, .custom-login-modal-footer {
 	margin-top: 0px !important;
 }
+/*************NEW Dashboard Shortcut Design*****************/
+.body-video-simple {
+ padding-top: 102px;
+}
+.body-video-simple .custom-navbar-default, .page-section-simple-video {
+ background: #cbe4de;
+ background: -moz-linear-gradient(left, #cbe4de 2%, #cae5e8 100%);
+ background: -webkit-linear-gradient(left, #cbe4de 2%, #cae5e8 100%);
+ background: linear-gradient(to right, #cbe4de 2%, #cae5e8 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbe4de', endColorstr='#cae5e8', GradientType=1 );
+}
+.page-section-simple-video {
+ margin: 0;
+ height: 419px;
+}
+.simple-video-text {
+ font-size: 16px;
+ font-weight: 600;
+ line-height: 1.63;
+ letter-spacing: -0.6px;
+ text-align: left;
+ color: #303030;
+ margin: 15px 0 30px 0;
+}
+.simple-video-content-group {
+ padding-left: 60px;
+}
+.btn-140-50 {
+ width: 140px;
+ height: 50px;
+ line-height: 35px;
+}
+.box-views {
+ height: 140px;
+ background-color: #ffffff;
+ -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+ -moz-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+ box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+ text-align:center;
+ width:100%;
+ float:left;
+}
+.box-views .custom-h1-01{
+ margin-top:45px;
+ margin-bottom:0
+ }
+.title-green{
+
+  color: #00b58e;
+ }
+.small-text-new{
+ opacity: 0.3;
+  color: #303030;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: -0.2px;
+  margin:0;
+
+ }
+.custom-row-views{margin-top:20px;}
+.page-section-simple-video .bx-wrapper .bx-viewport{
+
+ height:370px !important;
+
+ }
+.page-section-simple-video .bx-wrapper .bx-pager{
+
+
+ }
