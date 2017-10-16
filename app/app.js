@@ -113,6 +113,12 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
   $rootScope.usersignup = {
       email : ''
   }
+  $rootScope.loginanalytics= function(){
+      ga('send', 'event', 'Member', 'Login', 'Login Clicked');
+  }
+  $rootScope.signupanalytic= function(){
+      ga('send', 'event', 'Register', 'SignupForm', 'Signup Clicked');
+  }
   $rootScope.reloadRoutec = function() {
       $rootScope.dashboardc = true;
       $rootScope.userlogform = {
@@ -281,7 +287,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     };
 
 
-    setTimeout(function(){ jQuery("#initalVideopopup").modal('show'); }, 3001);
+    //setTimeout(function(){ jQuery("#initalVideopopup").modal('show'); }, 3001);
 });
 
 // FirstSynch.config(['$httpProvider', function($httpProvider) {
@@ -542,6 +548,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
   }
   $scope.StudentRegistratoin = function (image) {
     //alert($scope.piplsearch);
+    ga('send', 'event', 'Register', 'submitForm', 'Signup Submit');
     var allow_pipl_check = parseInt($('#allow_pipl').val());
     var workhistroy_arry = [];
     var education_arry = [];
@@ -646,6 +653,7 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
   }
 
   $scope.CompanyRegistratoin = function (file) {
+    ga('send', 'event', 'Register', 'submitForm', 'Signup Submit');
     var allow_domainsearch = parseInt($('#domain_search').val());
 
     if($scope.domainsearch == 'allow' && allow_domainsearch){
