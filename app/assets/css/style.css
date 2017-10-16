@@ -1074,8 +1074,8 @@ a.thumbnail, a.custom-large-image-gallery {
 	-webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
-	width: 80px;
-	height: 80px;
+	max-width: 200px;
+	max-height: 100%;
 	margin-bottom: 8px;
 }
 .social-network-container {
