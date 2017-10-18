@@ -160,6 +160,10 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
     jwplayer('jwplayer').stop();
   });
 
+  $(document).on('hide.bs.modal','#initalVideopopup' , function () {
+    $('#initalVideopopup iframe').attr('src',$('#initalVideopopup iframe').attr('src'));
+  });
+
   $(document).on('hide.bs.modal','#OfflineVideoPopup1', function () {
     if ($("#OfflineVideoPopup1").data('bs.modal') && $("#OfflineVideoPopup1").data('bs.modal').isShown){
       jwplayer('jwplayerofflinesignup').stop();
