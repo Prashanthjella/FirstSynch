@@ -8,11 +8,26 @@ var FirstSynch = angular.module("StudentDashboard", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // home page - featured video
-FirstSynch.controller("student_futuredvideo", function ($scope, $http, apiUrl, $compile) {
+FirstSynch.controller("student_futuredvideo", function ($timeout,$scope, $http, apiUrl, $compile) {
   // home page - featured video - default
   $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
           $scope.feature = response.data;
+          $scope.studentroleinitialcontentLoaded = false;
+          $timeout(function () {
+              $scope.studentroleinitialcontentLoaded = true;
+          },3005);
+          $scope.studentroleinitialcontentconfig = {
+              enabled: true,
+              autoplay: false,
+              infinite: true,
+              autoplaySpeed: 1000,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              prevArrow :'<a class="bx-prev" href=""></a>',
+              nextArrow : '<a class="bx-next" href=""></a>',
+              method: {}
+            };
       }, function errorCallback(response){
           console.log("Unable to perform get featurevideo");
   });

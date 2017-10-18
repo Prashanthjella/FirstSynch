@@ -7,11 +7,26 @@ var FirstSynch = angular.module("CompanyDashboard", ["ngRoute"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // home page - featured video
-FirstSynch.controller("company_futuredvideo", function ($scope, $http, apiUrl, $compile) {
+FirstSynch.controller("company_futuredvideo", function ($timeout,$scope, $http, apiUrl, $compile) {
   // home page - featured video - default
   $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
           $scope.feature = response.data;
+          $scope.companyroleinitialcontentLoaded = false;
+          $timeout(function () {
+              $scope.companyroleinitialcontentLoaded = true;
+          },3005);
+          $scope.companyroleinitialcontentconfig = {
+              enabled: true,
+              autoplay: false,
+              infinite: true,
+              autoplaySpeed: 1000,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              prevArrow :'<a class="bx-prev" href=""></a>',
+              nextArrow : '<a class="bx-next" href=""></a>',
+              method: {}
+            };
       }, function errorCallback(response){
           console.log("Unable to perform get featurevideo");
   });
