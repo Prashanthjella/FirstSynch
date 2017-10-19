@@ -846,7 +846,7 @@ FirstSynch.controller("studenteditprofiles" , function (Upload,$rootScope,$scope
 
 
 
-FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$rootScope,Upload, $scope, $http, apiUrl) {
+FirstSynch.controller("studentbasicprofileupload" , function ($location,$timeout,$window,$rootScope,Upload, $scope, $http, apiUrl) {
     // GET THE FILE INFORMATION.
     $scope.getFileDetails = function (e) {
         $scope.files = [];
@@ -877,6 +877,22 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
     };
     // student basic profile get information
     $scope.getStudentBasicProfileDetials = function(){
+      if($location.search()['addvideo']){
+        $('.accordion-toggle').removeClass('active');
+        $(".student_edit_profile_sidebar_addvideo").parents('.student_edit_profile_side_parent').find('.student_edit_profile_side_child_collapsable').toggle();
+        $('.student_edit_profile_sidebar_addvideo').addClass('active');
+        $('.student_edit_profile_main_content_child').hide();
+        $timeout( function(){
+          $(document).find('#proudest-achievement').removeClass('hide').show();
+          $http.get(apiUrl+"api/v1/student/api/v1/student_uploadedvideo_list/"+$rootScope.user_id+"/")
+              .then(function successCallback(response){
+                  $scope.video_list = response.data;
+              }, function errorCallback(response){
+                  console.log("Unable to perform get student videos details");
+          });
+        }, 1000 );
+      }
+      else {
         $http.get(apiUrl+"api/v1/student/get_student_details/"+$rootScope.user_id+"/")
             .then(function successCallback(response){
                 $rootScope.stud_id = response.data[0].id;
@@ -900,6 +916,8 @@ FirstSynch.controller("studentbasicprofileupload" , function ($timeout,$window,$
             }, function errorCallback(response){
                 console.log("Unable to perform get student basic profile details");
         });
+      }
+
     };
 
     $scope.student_edit_profile_reset = function(){

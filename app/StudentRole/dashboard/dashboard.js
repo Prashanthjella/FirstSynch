@@ -19,13 +19,14 @@ FirstSynch.controller("student_futuredvideo", function ($timeout,$scope, $http, 
           },3005);
           $scope.studentroleinitialcontentconfig = {
               enabled: true,
+              dots: true,
               autoplay: false,
               infinite: true,
               autoplaySpeed: 1000,
               slidesToShow: 1,
               slidesToScroll: 1,
-              prevArrow :'<a class="bx-prev" href=""></a>',
-              nextArrow : '<a class="bx-next" href=""></a>',
+              prevArrow :'',
+              nextArrow : '',
               method: {}
             };
       }, function errorCallback(response){

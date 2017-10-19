@@ -17,14 +17,15 @@ FirstSynch.controller("company_futuredvideo", function ($timeout,$scope, $http, 
               $scope.companyroleinitialcontentLoaded = true;
           },3005);
           $scope.companyroleinitialcontentconfig = {
+              dots: true,
               enabled: true,
               autoplay: false,
-              infinite: true,
+              infinite: false,
               autoplaySpeed: 1000,
               slidesToShow: 1,
               slidesToScroll: 1,
-              prevArrow :'<a class="bx-prev" href=""></a>',
-              nextArrow : '<a class="bx-next" href=""></a>',
+              prevArrow :'',
+              nextArrow : '',
               method: {}
             };
       }, function errorCallback(response){

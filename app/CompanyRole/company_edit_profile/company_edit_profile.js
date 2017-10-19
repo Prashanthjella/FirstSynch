@@ -673,7 +673,7 @@ FirstSynch.controller("companyeditprofiles" , function ($window,Upload,$rootScop
     };
 
 });
-FirstSynch.controller("companybasicprofileupload" , function (Upload,$timeout,$window,$rootScope, $scope, $http, apiUrl) {
+FirstSynch.controller("companybasicprofileupload" , function ($location,Upload,$timeout,$window,$rootScope, $scope, $http, apiUrl) {
     $scope.company_edit_profile_basic_data = function(){
         $scope.basicinfoform = {
             id:"",
@@ -687,24 +687,44 @@ FirstSynch.controller("companybasicprofileupload" , function (Upload,$timeout,$w
             twitter_url : "",
         };
         // Company basic information
-        $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
-          headers: {'Authorization' : 'Token '+$rootScope.token_id}
-        }).then(function successCallback(response){
-                $rootScope.comp_id = response.data.id;
-                $scope.basicinfoform.id = response.data.id;
-                $scope.basicinfoform.user = response.data.user.id;
-                $scope.basicinfoform.name = response.data.name;
-                $scope.basicinfoform.description = response.data.description;
-                $scope.basicinfoform.category = response.data.category;
-                $scope.basicinfoform.product_category = response.data.product_category;
-                $scope.basicinfoform.website = response.data.website;
-                $scope.basicinfoform.linkedin_url = response.data.linkedin_url;
-                $scope.basicinfoform.twitter_url = response.data.twitter_url;
-                $scope.basicinfoform.facebook_url = response.data.facebook_url;
-                $scope.basicinfoform.logos = response.data.logo;
-            }, function errorCallback(response){
-                console.log("Unable to perform get company basic profile details");
-        });
+        if($location.search()['addvideo']){
+          $('.accordion-toggle').removeClass('active');
+          $('.company_edit_profile_sidebar_addvideo').parents('.company_edit_profile_side_parent').find('.company_edit_profile_side_child_collapsable').toggle();
+          $('.company_edit_profile_sidebar_addvideo').addClass('active');
+          $('.company_edit_profile_main_content_child').hide();
+          $timeout( function(){
+              $(document).find('#proudest-achievementc').removeClass('hide').show();
+              $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.companyedit_id+"/",{
+                headers: {'Authorization' : 'Token '+$rootScope.token_id}
+              }).then(function successCallback(response){
+                      $scope.workforusform.id = response.data.hiring[0].id;
+                      $scope.workforusform.benefits = response.data.hiring[0].benefits;
+                      $scope.workforusform.perks = response.data.hiring[0].perks;
+                      $scope.workforusform.culture = response.data.hiring[0].culture;
+                  }, function errorCallback(response){
+                      console.log("Unable to perform growthrate_edit details");
+              });
+         }, 1000 );
+        }else{
+          $http.get(apiUrl+"api/v1/setups/api/v1/company_profile/"+$rootScope.company_userid+"/",{
+            headers: {'Authorization' : 'Token '+$rootScope.token_id}
+          }).then(function successCallback(response){
+                  $rootScope.comp_id = response.data.id;
+                  $scope.basicinfoform.id = response.data.id;
+                  $scope.basicinfoform.user = response.data.user.id;
+                  $scope.basicinfoform.name = response.data.name;
+                  $scope.basicinfoform.description = response.data.description;
+                  $scope.basicinfoform.category = response.data.category;
+                  $scope.basicinfoform.product_category = response.data.product_category;
+                  $scope.basicinfoform.website = response.data.website;
+                  $scope.basicinfoform.linkedin_url = response.data.linkedin_url;
+                  $scope.basicinfoform.twitter_url = response.data.twitter_url;
+                  $scope.basicinfoform.facebook_url = response.data.facebook_url;
+                  $scope.basicinfoform.logos = response.data.logo;
+              }, function errorCallback(response){
+                  console.log("Unable to perform get company basic profile details");
+          });
+        }
         $scope.company_edit_basic_reset = function(){
             $scope.company_edit_profile_basic_data();
         }
