@@ -6148,3 +6148,8 @@ text-align:left !important
     font-weight: normal;
     box-shadow: none !important;
 }
+.slick_custom_thumbnail_des .slick-dots{
+	position: static;
+	margin: 0px auto !important;
+	width: 10%;
+}
