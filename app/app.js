@@ -547,7 +547,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       $('#universities_value').val('');
       $scope.password = null;
       $scope.gpa = null;
-      $scope.piplsearch = 'allow';
       $('#allow_pipl').val('1');
   }
   $scope.StudentRegistratoin = function (image) {
@@ -782,7 +781,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
                   jQuery('form#reset_forms').trigger("reset");
                   jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
                   $('#domain_search').val('1');
-                  $scope.domainsearch = 'allow';
                   $scope.name = '';
                   $scope.lname = '';
                   $scope.cname = '';
@@ -824,7 +822,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
                 jQuery('form#reset_forms').trigger("reset");
                 jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
                 $('#domain_search').val('1');
-                $scope.domainsearch = 'allow';
                 $scope.name = '';
                 $scope.lname = '';
                 $scope.cname = '';
@@ -1379,7 +1376,9 @@ FirstSynch.directive('navMenu', function($location) {
         urlMap[url] = link;
       }
     }
-    $('body').addClass('body-video-simple');
+    if($location.path() =="/" || $location.path().indexOf("/stu/dashboard") > -1 || $location.path().indexOf("/com/dashboard") > -1){
+        $('body').addClass('body-video-simple');
+    }
     scope.$on('$routeChangeStart', function() {
       var path = urlMap[$location.path()];
       links.parent('li').removeClass(activeClass);
