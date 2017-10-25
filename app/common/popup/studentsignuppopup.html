@@ -82,23 +82,23 @@
                     </div>
                     <div class="form-group form-group-allow-control clearfix">
                         <div class="pull-left">
-                            <label class="text-uppercase">PERSONAL INFORMATION</label>
+                            <label class="text-uppercase" ng-class="{'has-success': studentregistration.piplsearch.$valid}">PERSONAL INFORMATION</label> <sup class="asterisk">*</sup>
                             <p class="content-allow">Do you give us permission to bring in personal<br> information from Facebook, Linkedin and Google+<br> to improve your Seeker profile?</p>
                         </div>
-                        <div class="pull-right checkbox-register" ng-init="piplsearch='allow'">
+                        <div class="pull-right checkbox-register">
                             <div class="checkbox custom-checkbox checkbox-circle">
-                                <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'allow'"class="checkbox-input"  id="student-allow">
+                                <input type="radio" required name="piplsearch" ng-model="piplsearch" ng-value="'allow'" class="checkbox-input"  id="student-allow">
                                 <label for="student-allow1" class="checkbox-label-01">Allow</label>
                             </div>
                             <div class="checkbox custom-checkbox checkbox-circle">
-                                <input type="radio" name="piplsearch" ng-model="piplsearch" ng-value="'deny'"class="checkbox-input" id="student-Forbid">
+                                <input type="radio" required name="piplsearch" ng-model="piplsearch" ng-value="'deny'" class="checkbox-input" id="student-Forbid">
                                 <label for="student-Forbid1" class="checkbox-label-01">Deny</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer custom-login-modal-footer peoplesearch_remove">
-                    <button type="submit" ng-click="StudentRegistratoin()"  ng-disabled="studentregistration.name.$invalid||studentregistration.lname.$invalid||studentregistration.school_name.$invalid||studentregistration.gpa.$invalid||studentregistration.password.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
+                    <button type="submit" ng-click="StudentRegistratoin()"  ng-disabled="studentregistration.piplsearch.$invalid||studentregistration.name.$invalid||studentregistration.lname.$invalid||studentregistration.school_name.$invalid||studentregistration.gpa.$invalid||studentregistration.password.$invalid" class="btn btn-default custom-btn-login" disabled>Sign up</button>
                     <p class="link-signup-student">By clicking "Sign Up", I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
                 </div>
             </div>

@@ -6157,3 +6157,17 @@
 		border-radius:50% !important;
 	
 		}	
+/*********filter input style********/
+.filter_search{
+	border: 2px solid #eee !important;
+    background: #fafafa !important;
+    margin: 0px 10px;
+    width: 90% !important;
+    font-weight: normal;
+    box-shadow: none !important;
+}
+.slick_custom_thumbnail_des .slick-dots{
+	position: static;
+	margin: 0px auto !important;
+	width: 10%;
+}

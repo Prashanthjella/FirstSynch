@@ -47,23 +47,23 @@
           </div>
           <div class="form-group form-group-allow-control clearfix">
             <div class="pull-left">
-              <label class="text-uppercase">Request to use information Password</label>
+              <label class="text-uppercase" ng-class="{'has-success': companyregistrations.domainsearch.$valid}">Request to use information Password</label> <sup class="asterisk">*</sup>
               <p class="content-allow">Allow us to pull your info from open sources</p>
             </div>
-            <div class="pull-right checkbox-register" ng-init="domainsearch='allow'">
+            <div class="pull-right checkbox-register">
               <div class="checkbox custom-checkbox checkbox-circle">
-                <input type="radio" name="domainsearch" ng-model="domainsearch" ng-value="'allow'"class="checkbox-input"  id="student-allow">
+                <input type="radio" required name="domainsearch" ng-model="domainsearch" ng-value="'allow'"class="checkbox-input"  id="student-allow">
                 <label for="student-allow" class="checkbox-label-01">Allow</label>
               </div>
               <div class="checkbox custom-checkbox checkbox-circle">
-                <input type="radio" name="domainsearch" ng-model="domainsearch" ng-value="'deny'"class="checkbox-input" id="student-Forbid">
+                <input type="radio" required name="domainsearch" ng-model="domainsearch" ng-value="'deny'"class="checkbox-input" id="student-Forbid">
                 <label for="student-Forbid" class="checkbox-label-01">Deny</label>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer custom-login-modal-footer domainsearch_remove">
-          <button type="submit" ng-click="CompanyRegistratoin()" ng-disabled="companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login">Sign up</button>
+          <button type="submit" ng-click="CompanyRegistratoin()" ng-disabled="companyregistrations.domainsearch.$invalid ||companyregistrations.name.$invalid || companyregistrations.lname.$invalid || companyregistrations.cname.$invalid || companyregistrations.password.$invalid" class="btn btn-default custom-btn-login">Sign up</button>
           <p class="link-signup-student">By clicking "Sign Up", I agree to FirstSynch's <a href="/termsandcondtion" target="_blank" class="link-green">Terms of Service.</a></p>
 
         </div>

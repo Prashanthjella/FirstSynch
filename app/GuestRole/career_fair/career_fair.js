@@ -44,7 +44,6 @@ FirstSynch.controller("guest_upcoming_career_fair" ,function ($timeout,$window,$
             $scope.guestfairRecentfairLoaded = true;
         });
         $scope.guestfairRecentfairConfig = {
-            dots:true,
             enabled: true,
             autoplay: false,
             infinite: true,

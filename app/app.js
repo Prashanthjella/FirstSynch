@@ -547,7 +547,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
       $('#universities_value').val('');
       $scope.password = null;
       $scope.gpa = null;
-      $scope.piplsearch = 'allow';
       $('#allow_pipl').val('1');
   }
   $scope.StudentRegistratoin = function (image) {
@@ -782,7 +781,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
                   jQuery('form#reset_forms').trigger("reset");
                   jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
                   $('#domain_search').val('1');
-                  $scope.domainsearch = 'allow';
                   $scope.name = '';
                   $scope.lname = '';
                   $scope.cname = '';
@@ -824,7 +822,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
                 jQuery('form#reset_forms').trigger("reset");
                 jQuery('#reset_forms label, #reset_forms input').removeClass('has-success');
                 $('#domain_search').val('1');
-                $scope.domainsearch = 'allow';
                 $scope.name = '';
                 $scope.lname = '';
                 $scope.cname = '';
@@ -1379,11 +1376,13 @@ FirstSynch.directive('navMenu', function($location) {
         urlMap[url] = link;
       }
     }
+    if($location.path() =="/" || $location.path().indexOf("/stu/dashboard") > -1 || $location.path().indexOf("/com/dashboard") > -1){
+        $('body').addClass('body-video-simple');
+    }
     scope.$on('$routeChangeStart', function() {
       var path = urlMap[$location.path()];
       links.parent('li').removeClass(activeClass);
       $('body').removeClass('body-career-fair-detail');
-
       if($location.path().indexOf("company/") > -1){
           $('.company_nav').addClass(activeClass);
           $('body').removeClass('body-career-fair-detail');
@@ -1400,7 +1399,12 @@ FirstSynch.directive('navMenu', function($location) {
           $('.firstsynch_logo_act').attr("src","assets/images/logo.png");
 
       }
-
+      if ($location.path() =="/" || $location.path().indexOf("/stu/dashboard") > -1 || $location.path().indexOf("/com/dashboard") > -1 ) {
+        $('body').addClass('body-video-simple');
+      }
+      else {
+        $('body').removeClass('body-video-simple');
+      }
       if($location.path().indexOf("companies") > 0){
           $('body').addClass('body-career-fair-detail');
           $('.firstsynch_logo_act').attr("src","assets/images/firstsynch_logo_grey.png");

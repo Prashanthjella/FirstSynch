@@ -46,7 +46,6 @@ FirstSynch.controller("student_upcoming_career_fair" ,function ($window,$scope, 
               $scope.studentfairRecentfairLoaded = true;
           });
           $scope.studentfairRecentfairConfig = {
-              dots:true,
               enabled: true,
               autoplay: false,
               infinite: true,
