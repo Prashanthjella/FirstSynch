@@ -4329,6 +4329,8 @@
 	body {
 		padding-top: 30px;
 	}
+	.custom-video-modal-body .close.custom-modal-close{ z-index:1000 !important}
+	.custom-modal-video-content .video-model-container{float:none}
 	.body-video-simple{padding-top:60px !important;}
 	.btn-mobile-custom {
 		width: 100%;
