@@ -4131,7 +4131,10 @@
 		}
 	.body-video-simple .container:focus,.slick-dotted.slick-slider :focus{
 		outline:none !important;
-		}	
+		}
+		.slider-container-career .slick-slide  .slider-recent-fairs  .custom-img-responsive{
+			height:385px !important
+			}
 	 @media (min-width: 1200px) {
 	.container {
 		width: 970px;
