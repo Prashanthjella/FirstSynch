@@ -173,6 +173,8 @@ FirstSynch.directive('univMenu', function() {
                 scope.univMenu = $(this).text();
                 scope.$apply();
             }
+            $(this).parent().find('li > a').show();
+            $(this).parent().find('li > input').val('');
         });
       }
     };
@@ -194,6 +196,8 @@ FirstSynch.directive('univMenu', function() {
                   scope.majorMenu = $(this).text();
                   scope.$apply();
               }
+              $(this).parent().find('li > a').show();
+              $(this).parent().find('li > input').val('');
           });
         }
       };

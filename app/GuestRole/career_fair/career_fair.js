@@ -179,6 +179,8 @@ FirstSynch.directive('cityMenu', function() {
                 scope.cityMenu = $(this).text();
                 scope.$apply();
             }
+            $(this).parent().find('li > a').show();
+            $(this).parent().find('li > input').val('');
         });
       }
     };
@@ -201,6 +203,8 @@ FirstSynch.directive('companyMenu', function() {
               scope.companyMenu = $(this).text();
               scope.$apply();
           }
+          $(this).parent().find('li > a').show();
+          $(this).parent().find('li > input').val('');
         });
       }
     };

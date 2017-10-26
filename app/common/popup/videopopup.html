@@ -55,9 +55,57 @@
             </div>
           </div>
         </div>
+        <style>
+        .video_feedback_form{
+            position: absolute;
+            top: 0px;
+            width: 94%;
+            margin: auto;
+            opacity: 0;
+            z-index: -1;
+        }
+        .video_feedback_form h1{
+            color:#fff;
+        }
+        .video_feedback_form input[type="checkbox"].checkbox-input + label.checkbox-label:before{
+            background-color: #000;
+            border: 2px solid #fff;
+        }
+        .video_feedback_form input[type="checkbox"].checkbox-input + label.checkbox-label{
+            background-color: #303030;
+            border: 2px solid #b2b2b2;
+            color: #fff;
+        }
+        .video_feedback_form input[type="checkbox"].checkbox-input:checked + label.checkbox-label{
+            border:2px solid #0cc39d;
+        }
+        .video_feedback_form input[type="checkbox"].checkbox-input:checked + label.checkbox-label:before{
+            background-color: #fff;
+        }
+        .video_feedback_reason label{
+            color: #b2b2b2;
+        }
+        .video_feedback_reason textarea{
+            border-bottom: 2px solid #b2b2b2;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background: #36383c;
+            background-image: linear-gradient(to right, #3e4044, #292b2f), linear-gradient(#0d0d0d, #0d0d0d);
+            border-radius: 0;
+            resize: none;
+            color: #fff;
+        }
+        .video_feedback_reason textarea:focus{
+            border-bottom: 2px solid #b2b2b2;
+        }
+        .video_feedback_reason textarea::placeholder{
+            color:#fff;
+        }
+        </style>
         <div class="modal-body custom-video-modal-body">
-          <section class="video-model-container">
-            <div class="row">
+          <section class="video-model-container" style="position:relative">
+            <div class="row video_player_form">
               <div class="col-sm-3">
                 <ul class="nav nav-tabs custom-tabs-model" role="tablist">
                   <li role="presentation"  ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
@@ -72,6 +120,45 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="row video_feedback_form" ng-controller="video_feedback_form_controller">
+                <button type="button" class="close custom-modal-close video_feedback_form_close_btn">&times;</button>
+                <h1 class="custom-h1-01 custom-h1-btm-space-55">What do you think?</h1>
+                <form>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="lackqualification" ng-model="selectedFeedback['Lack Qualification']" class="checkbox-input" type="checkbox">
+                        <label for="lackqualification"  class="checkbox-label">Lack Qualification</label>
+                    </div>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="wrongskillset" ng-model="selectedFeedback['Wrong Skill Set']" class="checkbox-input" type="checkbox">
+                        <label for="wrongskillset" class="checkbox-label">Wrong Skill Set</label>
+                    </div>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="greatfitsofar" ng-model="selectedFeedback['Great Fit So Far']" class="checkbox-input" type="checkbox">
+                        <label for="greatfitsofar" class="checkbox-label">Great Fit So Far</label>
+                    </div>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="unsuitablepersonality" ng-model="selectedFeedback['Unsuitable Personality']" class="checkbox-input" type="checkbox">
+                        <label for="unsuitablepersonality" class="checkbox-label">Unsuitable Personality</label>
+                    </div>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="lackofpassion" ng-model="selectedFeedback['Lack Of Passion']" class="checkbox-input" type="checkbox">
+                        <label for="lackofpassion" class="checkbox-label">Lack Of Passion</label>
+                    </div>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="jobshopping" ng-model="selectedFeedback['Job Shopping']" class="checkbox-input" type="checkbox">
+                        <label for="jobshopping" class="checkbox-label">Job Shopping</label>
+                    </div>
+                    <div class="checkbox custom-checkbox checkbox-circle">
+                        <input id="nextstepintheinterviewprocess" ng-model="selectedFeedback['Next Step In The Interview Process']" class="checkbox-input" type="checkbox">
+                        <label for="nextstepintheinterviewprocess" class="checkbox-label">Next Step In The Interview Process</label>
+                    </div>
+                    <div class="form-group custom-lider-form-group custom-form-group-new video_feedback_reason">
+                        <label class="text-uppercase ">Other Reason</label>
+                        <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Enter your reason for refusal" ng-model="videofeedbackotherreason" name="about_me" maxlength="500"></textarea>
+                    </div>
+                    <input type="submit" ng-click="videofeedbacksubmit()" value="Send a reason for refusal" class="btn btn-default custom-btn btn-lg btn-submit"/>
+                </form>
             </div>
           </section>
           <div class="row custom-row-10">
