@@ -21,7 +21,7 @@
 					<span class="dropdown" ng-controller="student_company_category">
 						<span ng-bind="companyValue" class="highlighted dropdown-toggle"  id="all_com_company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datacompanyval="">All industries</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" company-menu="companyValue" aria-labelledby="all_career_fair_near_user_company" id="StudentJobsCompanyFilter">
-							<li><input type="text" placeholder="Search company" onkeyup="inputsearchfilter(this,'StudentJobsCompanyFilter')" class="form-control filter_search"/></li>
+							<li><input type="text" placeholder="Search industry" onkeyup="inputsearchfilter(this,'StudentJobsCompanyFilter')" class="form-control filter_search"/></li>
 							<li ng-click="student_company_filters($event)"  datavalue=""><a href="" title="All industries">All industries</a></li>
 							<li ng-click="student_company_filters($event)" ng-repeat="compa_cate in company_cate | unique:'category'| orderBy : 'category' " datavalue="{{compa_cate.category}}"><a href="" title="{{compa_cate.category}}">{{compa_cate.category}}</a></li>
 						</ul>

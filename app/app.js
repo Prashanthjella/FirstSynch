@@ -60,6 +60,21 @@ FirstSynch.constant('guest_token', '4742501fe20d67e63d6a9f74462d9760bd3715d3'); 
 /////////////////////////////////////////////////Popup - Video, Login, Registration, Activate, Reset password, forgot password, logout///////////////
 //Video Popup Functionality
 FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, apiUrl,companyusertype,studentusertype,$location) {
+  var currentdate = (new Date().getDate()).toString() + (new Date().getMonth()+1).toString()+(new Date().getFullYear()).toString()
+  var exp = new Date(new Date().getFullYear()+1, new Date().getMonth(), new Date().getDate());
+  if($cookies.get('fs_last_login')){
+      if($cookies.get('fs_last_login') == currentdate ){
+          console.log('Today.  Check with cookie');
+      }
+      else{
+          console.log('Next time.  Check with cookie');
+      }
+  }
+  else{
+      $cookies.put('fs_last_login', currentdate,{'expires':exp});
+      console.log('First time. Check with cookie');
+  }
+
   // condition based header show
   var getcompanyusertype = window.sessionStorage.getItem("usertype")?window.sessionStorage.getItem("usertype"):$cookies.get('usertype');
   if(companyusertype == getcompanyusertype){
@@ -105,9 +120,9 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       jQuery('#logIn').modal('show');
     }
   }
-  $http.get("https://ipinfo.io").then(function successCallback(response) {
+  $http.get("https://pro.ip-api.com/json?key=XVlTBCli2kUrkDq").then(function successCallback(response) {
     $rootScope.current_city = response.data.city;
-    $rootScope.current_state = response.data.region;
+    $rootScope.current_state = response.data.regionName;
   });
   $rootScope.userlogform = {
       username : '',
@@ -200,6 +215,11 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
   };//Common Video Popup - function end
 
   $rootScope.videoPopup = function (value,verify) {
+      $('.video_feedback_form').css({'z-index':-1,'opacity':0});
+      $('.video_player_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+      $('.video_feedback_form input').attr('checked', false);
+      $('.video_feedback_reason textarea').val('');
+      $rootScope.videofeedbackotherreason = '';
       var verifyvideo = verify ? true : false ;
       $('#comment_succ_msg').hide();
     jQuery("#VideoPopup1").modal('show');
@@ -239,6 +259,15 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
             kind:'chapters'
           }],
         }],
+        // events:{
+        //     onComplete: function() {
+        //         $('.video_player_form').css({'z-index':-1,'opacity':0});
+        //         $('.video_feedback_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+        //         $('.video_feedback_form input').attr('checked', false);
+        //         $('.video_feedback_reason textarea').val('');
+        //
+        //     }
+        // }
       });
       //jwplayer("jwplayer").play();
        jwplayer("jwplayer").getRenderingMode();
@@ -292,6 +321,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     $rootScope.promovideo = function() {
       jQuery("#initalVideopopup").modal('show');
     }
+
 });
 
 // FirstSynch.config(['$httpProvider', function($httpProvider) {
@@ -335,6 +365,17 @@ FirstSynch.controller("video_cmt_form_controller", function ($cookies,$scope,gue
       $('#videocomment').val('');
     });
   };
+});
+FirstSynch.controller("video_feedback_form_controller", function ($cookies,$scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
+    $scope.videofeedbacksubmit = function(){
+        $scope.selectfeedback = [];
+        angular.forEach($scope.selectedFeedback, function (selected, feedback) {
+            if (selected) {
+                $scope.selectfeedback.push({feedback:feedback});
+            }
+        });
+        $scope.videofeedbackotherreason;
+    }
 });
 FirstSynch.controller("Login", function ($compile, $timeout,$cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
   $scope.resendactivation = function(value) {
@@ -555,16 +596,6 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
     var allow_pipl_check = parseInt($('#allow_pipl').val());
     var workhistroy_arry = [];
     var education_arry = [];
-    var data = {
-      education : {school_name : $scope.selecteduniversity.originalObject.Institution_Name,gpa : $scope.gpa},
-      user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password}
-    }
-    if($rootScope.current_city != '' && $rootScope.current_state != '' ){
-      data.student = {first_name : $scope.name,last_name:$scope.lname,city:$scope.current_city,state : $scope.current_state}
-    }
-    else{
-      data.student = {first_name : $scope.name,last_name:$scope.lname}
-    }
     if($scope.piplsearch == 'allow'){
       $http.get(apiUrl+"api/v1/piplapi/?email="+$rootScope.e_mail)
       .then(function successCallback(response){
@@ -612,6 +643,12 @@ FirstSynch.controller("IdentifyUser", function ($timeout,$route,$scope,Upload, $
         user : {e_mail:$rootScope.e_mail,name:$scope.name,password:$scope.password},
         jobs:workhistroy_arry,
         image : $('#piplimage').val()
+      }
+      if($rootScope.current_city != '' && $rootScope.current_state != '' ){
+        datap.student = {first_name : $scope.name,last_name:$scope.lname,city:$rootScope.current_city,state : $rootScope.current_state}
+      }
+      else{
+        datap.student = {first_name : $scope.name,last_name:$scope.lname}
       }
       if(image){
           Upload.upload({
@@ -1027,10 +1064,15 @@ FirstSynch.controller("FbLogin", function (Upload,$cookies,$window,$rootScope,$s
             var data = {
               is_verified : true,
               education : {school_name : $('#fb_school_name0').val(),dateattended: $('#fb_dateattended0').val(),major:$('#fb_major0').val()},
-              student : {first_name : $scope.facebookform.fbfirstname},
               user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname},
               jobs:fbworkhistroy_arry
             };
+            if($rootScope.current_city != '' && $rootScope.current_state != '' ){
+              data.student = {first_name : $scope.facebookform.fbfirstname,last_name:$scope.facebookform.fblastname,city:$rootScope.current_city,state : $rootScope.current_state}
+            }
+            else{
+              data.student = {first_name : $scope.facebookform.fbfirstname,last_name:$scope.facebookform.fbfirstname}
+            }
             Upload.upload({
                 url: apiUrl+'api/v1/student/student_signup/',
                 data: { json_data : JSON.stringify(data), profile_picture : image },
@@ -1067,10 +1109,15 @@ FirstSynch.controller("FbLogin", function (Upload,$cookies,$window,$rootScope,$s
               is_verified : true,
               education : {school_name : $('#fb_school_name0').val(),dateattended: $('#fb_dateattended0').val(),major:$('#fb_major0').val()},
               image : $scope.facebookform.fbimage,
-              student : {first_name : $scope.facebookform.fbfirstname},
               user : {e_mail:$scope.facebookform.fbemail,name:$scope.facebookform.fbfirstname+$scope.facebookform.fblastname},
               jobs:fbworkhistroy_arry
             };
+            if($rootScope.current_city != '' && $rootScope.current_state != '' ){
+              data.student = {first_name : $scope.facebookform.fbfirstname,last_name:$scope.facebookform.fblastname,city:$rootScope.current_city,state : $rootScope.current_state}
+            }
+            else{
+              data.student = {first_name : $scope.facebookform.fbfirstname,last_name:$scope.facebookform.fbfirstname}
+            }
             $http({
               url: apiUrl+'api/v1/student/student_signup/',
               method: "POST",

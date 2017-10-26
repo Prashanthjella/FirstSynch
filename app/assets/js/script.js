@@ -411,5 +411,9 @@ $(this).addClass('active');
 
 
 
-  //Compay Account Settings Function End
+    //Compay Account Settings Function End
+    $(document).on('click','.video_feedback_form_close_btn',function(){
+        $('.video_feedback_form').css({'z-index':-1,'opacity':0});
+        $('.video_player_form').css({'z-index':0}).animate({'opacity': 1}, 3000)
+    })
 });

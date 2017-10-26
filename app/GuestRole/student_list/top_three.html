@@ -22,7 +22,7 @@
 					<span class="dropdown">
 						<span ng-bind="univValue" class="highlighted dropdown-toggle"  id="all_stu_univ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All universities</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" univ-menu="univValue" aria-labelledby="all_student_university" id="GuestStudentUniversityFilter">
-							<li><input type="text" placeholder="Search stream" onkeyup="inputsearchfilter(this,'GuestStudentUniversityFilter')" class="form-control filter_search"/></li>
+							<li><input type="text" placeholder="Search university" onkeyup="inputsearchfilter(this,'GuestStudentUniversityFilter')" class="form-control filter_search"/></li>
 							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="All universities">All universities</a></li>
 							<li ng-click="student_filters($event)" ng-repeat="university in student_univ_list | unique:'school_name'| orderBy : 'school_name' " datavalue="{{university.school_name}}"><a href="" title="{{university.school_name}}">{{university.school_name}}</a></li>
 						</ul>
@@ -31,7 +31,7 @@
 					<span class="dropdown">
 						<span ng-bind="majorValue" class="highlighted dropdown-toggle"  id="all_stu_major" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" datastudentval="">All industries</span>
 						<ul class="dropdown-menu custom-drop-down dropdown-menu-cities" major-menu="majorValue" aria-labelledby="all_student_category" id="GuestStudentStreamFilter">
-							<li><input type="text" placeholder="Search stream" onkeyup="inputsearchfilter(this,'GuestStudentStreamFilter')" class="form-control filter_search"/></li>
+							<li><input type="text" placeholder="Search industry" onkeyup="inputsearchfilter(this,'GuestStudentStreamFilter')" class="form-control filter_search"/></li>
 							<li ng-click="student_filters($event)"  datavalue=""><a href="" title="All streams">All streams</a></li>
 							<li ng-click="student_filters($event)" ng-repeat="stud_indus in student_indus_list | unique:'major'| orderBy : 'major' " datavalue="{{stud_indus.major}}"><a href="" title="{{stud_indus.major}}">{{stud_indus.major}}</a></li>
 						</ul>
