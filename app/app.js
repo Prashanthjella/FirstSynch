@@ -63,16 +63,11 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
   var currentdate = (new Date().getDate()).toString() + (new Date().getMonth()+1).toString()+(new Date().getFullYear()).toString()
   var exp = new Date(new Date().getFullYear()+1, new Date().getMonth(), new Date().getDate());
   if($cookies.get('fs_last_login')){
-      if($cookies.get('fs_last_login') == currentdate ){
-          console.log('Today.  Check with cookie');
-      }
-      else{
-          console.log('Next time.  Check with cookie');
-      }
+      $rootScope.firsttimevisit = false;
   }
   else{
       $cookies.put('fs_last_login', currentdate,{'expires':exp});
-      console.log('First time. Check with cookie');
+      $rootScope.firsttimevisit = true;
   }
 
   // condition based header show
@@ -93,6 +88,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     }
     $rootScope.guest_login = false;
     $rootScope.company_login = true;
+    $rootScope.user_name = window.sessionStorage.getItem("user_name");
   }
   else if(studentusertype == getcompanyusertype){
     $rootScope.token_id = window.sessionStorage.getItem("token")?window.sessionStorage.getItem("token"):$cookies.get('token');
@@ -102,6 +98,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     $rootScope.student_id = window.sessionStorage.getItem('student_id')?window.sessionStorage.getItem('student_id'):$cookies.get('student_id');
     $rootScope.guest_login = false;
     $rootScope.student_login = true;
+    $rootScope.user_name = window.sessionStorage.getItem("user_name");
   }else{
     $rootScope.token_id = guest_token;
     $rootScope.guest_login = true;
@@ -259,15 +256,16 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
             kind:'chapters'
           }],
         }],
-        // events:{
-        //     onComplete: function() {
-        //         $('.video_player_form').css({'z-index':-1,'opacity':0});
-        //         $('.video_feedback_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
-        //         $('.video_feedback_form input').attr('checked', false);
-        //         $('.video_feedback_reason textarea').val('');
-        //
-        //     }
-        // }
+        events:{
+            onComplete: function() {
+                if(!$rootScope.guest_login){
+                    $('.video_player_form').css({'z-index':-1,'opacity':0});
+                    $('.video_feedback_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+                    $('.video_feedback_form input').attr('checked', false);
+                    $('.video_feedback_reason textarea').val('');
+                }
+            }
+        }
       });
       //jwplayer("jwplayer").play();
        jwplayer("jwplayer").getRenderingMode();
@@ -367,14 +365,21 @@ FirstSynch.controller("video_cmt_form_controller", function ($cookies,$scope,gue
   };
 });
 FirstSynch.controller("video_feedback_form_controller", function ($cookies,$scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
-    $scope.videofeedbacksubmit = function(){
+    $scope.videofeedbacksubmit = function(videoid){
+        var token_id = $cookies.get('token');
         $scope.selectfeedback = [];
         angular.forEach($scope.selectedFeedback, function (selected, feedback) {
             if (selected) {
-                $scope.selectfeedback.push({feedback:feedback});
+                $scope.selectfeedback.push(feedback);
             }
         });
-        $scope.videofeedbackotherreason;
+        $http.post(apiUrl+"api/v1/career_fairs/add_video_feedback/"+videoid+"/",JSON.stringify({'feedbacks':$scope.selectfeedback,'own_feedback':$scope.videofeedbackotherreason}),{
+          headers: {'Authorization' : 'Token '+token_id}
+        })
+        .then(function (response) {
+            $('.video_feedback_form').css({'z-index':-1,'opacity':0});
+            $('.video_player_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+        });
     }
 });
 FirstSynch.controller("Login", function ($compile, $timeout,$cookies,$scope ,$http, apiUrl, $location, $window,$rootScope,companyusertype,studentusertype) {
@@ -425,6 +430,8 @@ FirstSynch.controller("Login", function ($compile, $timeout,$cookies,$scope ,$ht
       $cookies.put('user_id', response.data.user_id);
       $rootScope.profileimage = response.data.profile_image;
       $rootScope.user_id = response.data.user_id;
+      $rootScope.user_name = response.data.username;
+      $window.sessionStorage.setItem('user_name', response.data.username);
       $rootScope.token_id = response.data.token;
       $rootScope.guest_login = false;
       if(response.data.company_id){
@@ -969,7 +976,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
        $cookies.remove('user_id');
       $window.sessionStorage.removeItem('student_id');
       $cookies.remove('student_id');
-
+       $window.sessionStorage.removeItem('user_name');
       $rootScope.guest_login = true;
       $rootScope.dashboard = true;
       $rootScope.dashboardc = true;
@@ -983,6 +990,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
       delete $rootScope.request_member_id
       delete $rootScope.company_userid
       delete $rootScope.student_id
+      delete $rootScope.user_name
       $window.sessionStorage.setItem('token', guest_token);
       $cookies.put('token', guest_token);
       $rootScope.token_id = guest_token;
@@ -995,6 +1003,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
       $window.sessionStorage.removeItem('usertype');
       $window.sessionStorage.removeItem('request_member_id');
       $window.sessionStorage.removeItem('student_id');
+      $window.sessionStorage.removeItem('user_name');
       $cookies.remove('token');
       $cookies.remove('profileimage');
       $cookies.remove('usertype');
@@ -1008,6 +1017,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
       delete $rootScope.token_id
       delete $rootScope.request_member_id
       delete $rootScope.student_id
+      delete $rootScope.user_name
       $location.path( "/" );
     });
   };// user logout - function end

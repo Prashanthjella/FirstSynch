@@ -50,7 +50,16 @@
                   <i class="grey_heart" ng-if="(companyuserInfo || studentuserInfo) && !videolikedisable" id="videolikebtn" ng-click="videolikesubmit(vid.video.id)"></i>
                   <i class="red_heart" ng-if="(companyuserInfo || studentuserInfo) && videolikedisable" id="videolikebtn"></i>
                   <span id="video_like_wrapper">{{videolikedcount}}</span>
-                </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>--> </div>
+                </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>-->
+                <!-- <a href="#" class="icons-model dropdown" data-toggle="dropdown"> <span class="custom-exclumation"></span> Report video -->
+                <ul class="dropdown-menu report-video-dropdown">
+					<li><a href="#">Spam</a></li>
+					<li><a href="#">Sexual content</a></li>
+					<li><a href="#">Violent content</a></li>
+					<li><a href="#">Infringes my rights</a></li>
+				</ul>
+                </a>
+            </div>
               </div>
             </div>
           </div>
@@ -125,39 +134,41 @@
                 <button type="button" class="close custom-modal-close video_feedback_form_close_btn">&times;</button>
                 <h1 class="custom-h1-01 custom-h1-btm-space-55">What do you think?</h1>
                 <form>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="lackqualification" ng-model="selectedFeedback['Lack Qualification']" class="checkbox-input" type="checkbox">
-                        <label for="lackqualification"  class="checkbox-label">Lack Qualification</label>
-                    </div>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="wrongskillset" ng-model="selectedFeedback['Wrong Skill Set']" class="checkbox-input" type="checkbox">
-                        <label for="wrongskillset" class="checkbox-label">Wrong Skill Set</label>
-                    </div>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="greatfitsofar" ng-model="selectedFeedback['Great Fit So Far']" class="checkbox-input" type="checkbox">
-                        <label for="greatfitsofar" class="checkbox-label">Great Fit So Far</label>
-                    </div>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="unsuitablepersonality" ng-model="selectedFeedback['Unsuitable Personality']" class="checkbox-input" type="checkbox">
-                        <label for="unsuitablepersonality" class="checkbox-label">Unsuitable Personality</label>
-                    </div>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="lackofpassion" ng-model="selectedFeedback['Lack Of Passion']" class="checkbox-input" type="checkbox">
-                        <label for="lackofpassion" class="checkbox-label">Lack Of Passion</label>
-                    </div>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="jobshopping" ng-model="selectedFeedback['Job Shopping']" class="checkbox-input" type="checkbox">
-                        <label for="jobshopping" class="checkbox-label">Job Shopping</label>
-                    </div>
-                    <div class="checkbox custom-checkbox checkbox-circle">
-                        <input id="nextstepintheinterviewprocess" ng-model="selectedFeedback['Next Step In The Interview Process']" class="checkbox-input" type="checkbox">
-                        <label for="nextstepintheinterviewprocess" class="checkbox-label">Next Step In The Interview Process</label>
+                    <div ng-if="company_login">
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="lackqualification" ng-model="selectedFeedback['Lack Qualification']" class="checkbox-input" type="checkbox">
+                            <label for="lackqualification"  class="checkbox-label">Lack Qualification</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="wrongskillset" ng-model="selectedFeedback['Wrong Skill Set']" class="checkbox-input" type="checkbox">
+                            <label for="wrongskillset" class="checkbox-label">Wrong Skill Set</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="greatfitsofar" ng-model="selectedFeedback['Great Fit So Far']" class="checkbox-input" type="checkbox">
+                            <label for="greatfitsofar" class="checkbox-label">Great Fit So Far</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="unsuitablepersonality" ng-model="selectedFeedback['Unsuitable Personality']" class="checkbox-input" type="checkbox">
+                            <label for="unsuitablepersonality" class="checkbox-label">Unsuitable Personality</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="lackofpassion" ng-model="selectedFeedback['Lack Of Passion']" class="checkbox-input" type="checkbox">
+                            <label for="lackofpassion" class="checkbox-label">Lack Of Passion</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="jobshopping" ng-model="selectedFeedback['Job Shopping']" class="checkbox-input" type="checkbox">
+                            <label for="jobshopping" class="checkbox-label">Job Shopping</label>
+                        </div>
+                        <div class="checkbox custom-checkbox checkbox-circle">
+                            <input id="nextstepintheinterviewprocess" ng-model="selectedFeedback['Next Step In The Interview Process']" class="checkbox-input" type="checkbox">
+                            <label for="nextstepintheinterviewprocess" class="checkbox-label">Next Step In The Interview Process</label>
+                        </div>
                     </div>
                     <div class="form-group custom-lider-form-group custom-form-group-new video_feedback_reason">
                         <label class="text-uppercase ">Other Reason</label>
                         <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Enter your reason for refusal" ng-model="videofeedbackotherreason" name="about_me" maxlength="500"></textarea>
                     </div>
-                    <input type="submit" ng-click="videofeedbacksubmit()" value="Send a reason for refusal" class="btn btn-default custom-btn btn-lg btn-submit"/>
+                    <input type="submit" ng-click="videofeedbacksubmit(vid.video.id)" value="Send a reason for refusal" class="btn btn-default custom-btn btn-lg btn-submit"/>
                 </form>
             </div>
           </section>
