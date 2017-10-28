@@ -258,7 +258,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
         }],
         events:{
             onComplete: function() {
-                if(!$rootScope.guest_login){
+                if(!$rootScope.guest_login && $.inArray($rootScope.user_id.toString(), response.data.video.feedbacks)== -1){
                     $('.video_player_form').css({'z-index':-1,'opacity':0});
                     $('.video_feedback_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
                     $('.video_feedback_form input').attr('checked', false);
@@ -973,7 +973,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
       $cookies.remove('request_member_id');
       $window.sessionStorage.removeItem('company_userid');
       $cookies.remove('company_userid');
-       $cookies.remove('user_id');
+      $cookies.remove('user_id');
       $window.sessionStorage.removeItem('student_id');
       $cookies.remove('student_id');
        $window.sessionStorage.removeItem('user_name');
@@ -991,6 +991,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
       delete $rootScope.company_userid
       delete $rootScope.student_id
       delete $rootScope.user_name
+      delete $rootScope.user_id
       $window.sessionStorage.setItem('token', guest_token);
       $cookies.put('token', guest_token);
       $rootScope.token_id = guest_token;
@@ -1018,6 +1019,7 @@ FirstSynch.controller("LogoutUser", function ($cookies,guest_token,$scope, $http
       delete $rootScope.request_member_id
       delete $rootScope.student_id
       delete $rootScope.user_name
+      delete $rootScope.user_id
       $location.path( "/" );
     });
   };// user logout - function end
