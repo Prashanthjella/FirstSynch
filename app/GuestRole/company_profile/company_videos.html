@@ -1,6 +1,6 @@
 <section class="page-section video-profile" id="guest_company_profile_video" ng-if=" company_profile_details.video.length > 0">
     <div class="row custom-row-15">
-        <div class="col-sm-6" ng-repeat="cmpny_video in company_profile_details.video">
+        <div class="col-sm-6" ng-repeat="cmpny_video in company_profile_details.video | filter:guestreportvideofilter">
             <a href=""  data-id="{{cmpny_video.id}}" ng-click="videoPopup(cmpny_video.id)"
             class="thumbnail custom-large-image-gallery customn-thumbs-color-{{10 | randomize}}">
                 <img src="{{cmpny_video.thumbnail}}" class="img-responsive custom-img-responsive">

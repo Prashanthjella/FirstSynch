@@ -74,7 +74,7 @@
                     </div>
                     <p class="para-company">{{company_result.description}}</p>
                     <div class="row custom-row-5">
-						<div class="col-sm-6" ng-repeat="releatedvideo in company_result.related_video">
+						<div class="col-sm-6" ng-repeat="releatedvideo in company_result.related_video | filter:guestreportvideofilter">
                             <a href="" ng-click="videoPopup(releatedvideo.id)" class="thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbs-box-views">
                                 <img src="releatedvideo.thumbnail">
                                 <div class="overlay "></div>

@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="media-search-group-container">
-                            <div class="media custom-media" ng-repeat="svideo in searchresultvideo">
+                            <div class="media custom-media" ng-repeat="svideo in searchresultvideo | filter:guestreportvideofilter">
                                 <a href="#" ng-click="videoPopup(svideo.id)" class="search-link">
                                     <div class="media-left media-middle custom-media-left">
                                         <div class="search-img-container">

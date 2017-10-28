@@ -51,13 +51,19 @@
                   <i class="red_heart" ng-if="(companyuserInfo || studentuserInfo) && videolikedisable" id="videolikebtn"></i>
                   <span id="video_like_wrapper">{{videolikedcount}}</span>
                 </a> <!--<a href="#" class="icons-model"> <i class="fa fa-mail-forward"></i> Reply </a>-->
-                <!-- <a href="#" class="icons-model dropdown" data-toggle="dropdown"> <span class="custom-exclumation"></span> Report video -->
-                <ul class="dropdown-menu report-video-dropdown">
-					<li><a href="#">Spam</a></li>
-					<li><a href="#">Sexual content</a></li>
-					<li><a href="#">Violent content</a></li>
-					<li><a href="#">Infringes my rights</a></li>
-				</ul>
+                <a href="#" class="icons-model dropdown" data-toggle="dropdown"> <span class="custom-exclumation"></span> Report video
+                <ul class="dropdown-menu report-video-dropdown" ng-if="!companyuserInfo && !studentuserInfo">
+        					<li><a href="#" ng-click="videoreportsubmit(vid.video.id)">Spam</a></li>
+        					<li><a href="#" ng-click="videoreportsubmit(vid.video.id)">Sexual content</a></li>
+        					<li><a href="#" ng-click="videoreportsubmit(vid.video.id)">Violent content</a></li>
+        					<li><a href="#" ng-click="videoreportsubmit(vid.video.id)">Infringes my rights</a></li>
+        				</ul>
+                <ul class="dropdown-menu report-video-dropdown" ng-if="companyuserInfo || studentuserInfo">
+        					<li><a href="#" ng-click="registredvideoreportsubmit(vid.video.id,'Spam')">Spam</a></li>
+        					<li><a href="#" ng-click="registredvideoreportsubmit(vid.video.id,'Sexual content')">Sexual content</a></li>
+        					<li><a href="#" ng-click="registredvideoreportsubmit(vid.video.id,'Violent content')">Violent content</a></li>
+        					<li><a href="#" ng-click="registredvideoreportsubmit(vid.video.id,'Infringes my rights')">Infringes my rights</a></li>
+        				</ul>
                 </a>
             </div>
               </div>

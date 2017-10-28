@@ -69,7 +69,10 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       $cookies.put('fs_last_login', currentdate,{'expires':exp});
       $rootScope.firsttimevisit = true;
   }
-
+  if(!$cookies.getObject('reportvideo')){
+    $rootScope.reportvideoid = [];
+    $cookies.putObject('reportvideo',$rootScope.reportvideoid)
+  }
   // condition based header show
   var getcompanyusertype = window.sessionStorage.getItem("usertype")?window.sessionStorage.getItem("usertype"):$cookies.get('usertype');
   if(companyusertype == getcompanyusertype){
@@ -104,6 +107,7 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     $rootScope.guest_login = true;
     $rootScope.student_login = false;
     $rootScope.company_login = false;
+    $rootScope.blocking_video = $cookies.getObject('reportvideo');
   }
   $rootScope.current_url = $location.path();
   $rootScope.today = new Date();
@@ -274,7 +278,14 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
       console.log("Unable to perform get Video Details");
     });
   };//Common Video Popup - function end
-
+  $rootScope.guestreportvideofilter = function(value){
+    if($.inArray(value.id,$rootScope.blocking_video)==-1){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
   $rootScope.videolikesubmit = function(videoid){
     $http.get(apiUrl+"api/v1/career_fairs/video_like/"+videoid+"/",{
       headers: {'Authorization' : 'Token '+$rootScope.token_id}
@@ -287,6 +298,34 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
     }, function errorCallback(response){
       console.log("Unable to perform get career fair details");
     });
+  };
+  $rootScope.registredvideoreportsubmit = function(videoid,report){
+    $http.post(apiUrl+"api/v1/career_fairs/add_video_report/"+videoid+"/",JSON.stringify({'report':report}),{
+      headers: {'Authorization' : 'Token '+$rootScope.token_id}
+    })
+    .then(function successCallback(response){
+      jQuery("#VideoPopup1").modal('hide');
+    }, function errorCallback(response){
+      console.log("Unable to perform video report");
+    });
+  };
+  $rootScope.videoreportsubmit = function(videoid){
+    if($rootScope.guest_login){
+      if($cookies.getObject('reportvideo')){
+        $rootScope.reportedvideo =  $cookies.getObject('reportvideo');
+        if($.inArray(videoid,$rootScope.reportedvideo) == -1){
+          $rootScope.reportedvideo.push(videoid);
+          $cookies.putObject('reportvideo',$rootScope.reportedvideo)
+          jQuery("#VideoPopup1").modal('hide');
+        }
+      }
+      else{
+        $rootScope.reportvideoid = [];
+        $rootScope.reportvideoid.push(videoid);
+        $cookies.putObject('reportvideo',$rootScope.reportvideoid)
+        jQuery("#VideoPopup1").modal('hide');
+      }
+    }
   };
   // facebook signin url
   $http.get(apiUrl+"api/v1/oauth/facebook_url/")
@@ -322,19 +361,6 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
 
 });
 
-// FirstSynch.config(['$httpProvider', function($httpProvider) {
-//  $httpProvider.interceptors.push('noCacheInterceptor');
-// }]).factory('noCacheInterceptor', function () {
-//             return {
-//                 request: function (config) {
-//                     if(config.method=='GET'){
-//                         var separator = config.url.indexOf('?') === -1 ? '?' : '&';
-//                         config.url = config.url+separator+'noCache=' + new Date().getTime();
-//                     }
-//                     return config;
-//                }
-//            };
-//     });
 //LoginUser
 FirstSynch.controller("video_cmt_form_controller", function ($cookies,$scope,guest_token,$http, apiUrl, $location, $window,$rootScope) {
 

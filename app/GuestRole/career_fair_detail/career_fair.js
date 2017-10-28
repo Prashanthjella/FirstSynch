@@ -27,7 +27,7 @@ FirstSynch.controller("careerfair_detail" ,function ($filter, $scope, guest_toke
 });
 
 // students
-FirstSynch.controller("cfdstudents" , function ($scope, $http, apiUrl, $compile, $routeParams) {
+FirstSynch.controller("cfdstudents" , function ($rootScope,$scope, $http, apiUrl, $compile, $routeParams) {
   // home page - students - default
   $http.get(apiUrl+"api/v1/career_fairs/careerfair_student_videos/"+$routeParams.carredid+"/")
       .then(function successCallback(response){
@@ -44,6 +44,7 @@ FirstSynch.controller("cfdstudents" , function ($scope, $http, apiUrl, $compile,
           jQuery('.home_students_all_link').text('Less All');
           jQuery('.for_home_stu_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
+            if($.inArray(response.data[i].id,$rootScope.blocking_video)==-1){
             var students_showall =   '<div class="col-sm-4">'
                                         +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                         +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
@@ -56,6 +57,7 @@ FirstSynch.controller("cfdstudents" , function ($scope, $http, apiUrl, $compile,
                                         +'</a> '
                                       +'</div>';
               angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
+            }
           })
         }else{
             jQuery('.for_home_stu_show_all').slideUp(500);
@@ -87,6 +89,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl, $compile, 
           jQuery('.home_company_all_link').text('Less All');
           jQuery('.for_home_com_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
+            if($.inArray(response.data[i].id,$rootScope.blocking_video)==-1){
             var company_showall =   '<div class="col-sm-4">'
                                       +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                         +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
@@ -104,6 +107,7 @@ FirstSynch.controller("cfdcompany" , function ($scope, $http, apiUrl, $compile, 
                                     +'</div>';
 
               angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
+            }
           })
         }else{
             jQuery('.for_home_com_show_all').slideUp(500);

@@ -8,7 +8,7 @@
 	      <div class="pull-right"> <a href="javascript:void(0)" ng-show="cfdcompany.length > 9" class="link-all home_company_all_link" title="Show All"  ng-click="showall_companyvideo()">Show All</a> </div>
 	    </div>
 	    <div class="row custom-row-10 for_home_com_less_all" >
-	      	<div class="col-sm-4" ng-repeat="comp in cfdcompany | limitTo:9">
+	      	<div class="col-sm-4" ng-repeat="comp in cfdcompany | limitTo:9 | filter:guestreportvideofilter">
 	      		<a data-id="{{comp.id}}" ng-click="videoPopup(comp.id)"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
 	      			<img ng-src="{{comp.thumbnail}}" class="img-responsive custom-img-responsive">
 	        		<div class="overlay "></div>

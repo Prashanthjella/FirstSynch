@@ -1,7 +1,7 @@
 <section class="page-section page-section-simple-video">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mobile-home-page-main">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mobile-home-page-main">
         <div class="page-header custom-page-header">
           <div class="simple-video-content-group">
             <h1 class="h1 custom-h1 custom-h1-05-new">Welcome <span ng-if="!firsttimevisit">Back</span> to FirstSynch</h1>
@@ -9,8 +9,6 @@
             <a title="Make a video" href="#" class="btn custom-btn btn-140-50 btn-submit" ng-click="promovideo()">What is FirstSynch</a> </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 mobile-home-page"> <img height="510" src="assets/images/slide_right_videos.png" class="img-mob-responsive" />      </div>
-
     </div>
   </div>
 </section>
@@ -27,7 +25,7 @@
 
     </div>
     <div class="row custom-row-10 less_all_purpose">
-      <div class="col-sm-6" ng-repeat="vid in feature | limitTo:2">
+      <div class="col-sm-6" ng-repeat="vid in feature | limitTo:2 | filter:guestreportvideofilter ">
         <a href="#" data-id="{{vid.id}}" ng-click="videoPopup(vid.id)" class = "thumbnail custom-large-image-gallery customn-thumbs-color-{{10 | randomize}}">
           <img ng-src="{{vid.thumbnail}}" class="img-responsive custom-img-responsive">
           <div class="overlay"></div>
@@ -42,7 +40,7 @@
     </div>
 
     <div class="row custom-row-10 less_all_purpose">
-      <div class="col-sm-4 custom-cols-thumbs-4" ng-repeat="sm_vid in feature | startFrom : 2 | limitTo: 3">
+      <div class="col-sm-4 custom-cols-thumbs-4" ng-repeat="sm_vid in feature | startFrom : 2 | limitTo: 3 | filter:guestreportvideofilter">
         <a href="#" data-id="{{sm_vid.id}}" ng-click="videoPopup(sm_vid.id)" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-{{10 | randomize}}">
           <img ng-src="{{sm_vid.thumbnail}}" class="img-responsive custom-img-responsive">
           <div class="overlay "></div>

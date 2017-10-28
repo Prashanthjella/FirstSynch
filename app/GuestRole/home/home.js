@@ -10,7 +10,7 @@ var FirstSynch = angular.module("hoMe", ["ngRoute","firstSync"]);
 /////////////////////////////////// Controllors ////////////////////////////////////
 
 // home page - featured video
-FirstSynch.controller("guestfuturedvideo", function ($scope,$window,$http, apiUrl,$compile,$timeout) {
+FirstSynch.controller("guestfuturedvideo", function ($rootScope,$scope,$window,$http, apiUrl,$compile,$timeout) {
   // home page - featured video - default
   $http.get(apiUrl+"api/v1/flat_pages/feature_videos/")
       .then(function successCallback(response){
@@ -27,6 +27,7 @@ FirstSynch.controller("guestfuturedvideo", function ($scope,$window,$http, apiUr
           jQuery('.home_featured_video_link').text('Less All');
           jQuery('.for_show_all_purpose').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
+            if($.inArray(response.data[i].id,$rootScope.blocking_video)==-1){
             var featurevideo_showall =   '<div class="col-sm-4 custom-cols-thumbs-4">'
               +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')" class = "thumbnail custom-thumbnail-image-gallery customn-thumbs-color-{{10 | randomize}}">'
                 +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
@@ -40,7 +41,8 @@ FirstSynch.controller("guestfuturedvideo", function ($scope,$window,$http, apiUr
               +'</a>'
             +'</div>';
               angular.element(jQuery('.for_show_all_purpose')).append($compile(featurevideo_showall)($scope));
-          })
+            }
+          });
         }else{
             jQuery('.for_show_all_purpose').slideUp(500);
             jQuery('.less_all_purpose').slideDown(500);
@@ -104,6 +106,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
           jQuery('.home_students_all_link').text('Less All');
           jQuery('.for_home_stu_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
+            if($.inArray(response.data[i].id,$rootScope.blocking_video)==-1){
             var students_showall =   '<div class="col-sm-4">'
                                         +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                           +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
@@ -117,6 +120,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
                                       +'</div>';
 
               angular.element(jQuery('.for_home_stu_show_all')).append($compile(students_showall)($scope));
+            }
           })
         }else{
             jQuery('.for_home_stu_show_all').slideUp(500);
@@ -131,7 +135,7 @@ FirstSynch.controller("guestdbstudents" , function ($scope, $http, apiUrl,$compi
 });
 
 // home page - company
-FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compile) {
+FirstSynch.controller("guestdbcompany" , function ($rootScope,$scope, $http, apiUrl, $compile) {
  // home page - company - default
   $http.get(apiUrl+"api/v1/flat_pages/companies_video_list/")
       .then(function successCallback(response){
@@ -148,6 +152,7 @@ FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compi
           jQuery('.home_company_all_link').text('Less All');
           jQuery('.for_home_com_show_all').slideDown(500).empty();
           jQuery.each(response.data, function(i) {
+            if($.inArray(response.data[i].id,$rootScope.blocking_video)==-1){
             var company_showall =   '<div class="col-sm-4">'
                                       +'<a href="#" data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                         +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
@@ -164,7 +169,7 @@ FirstSynch.controller("guestdbcompany" , function ($scope, $http, apiUrl, $compi
                                       +'</a>'
                                     +'</div>';
               angular.element(jQuery('.for_home_com_show_all')).append($compile(company_showall)($scope));
-
+            }
           })
         }else{
             jQuery('.for_home_com_show_all').slideUp(500);
@@ -359,6 +364,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
                 jQuery('.video_filter_search_result').empty();
                 jQuery('.video_filter_search_result_empty').hide();
                 jQuery.each(response.data, function(i) {
+                  if($.inArray(response.data[i].id,$rootScope.blocking_video)==-1){
                   var video_fileter_search_resul = '<div class="col-sm-4">'
                                                       +'<a data-id="'+response.data[i].id+'" ng-click="videoPopup('+response.data[i].id+')"  href="#" class = "thumbnail customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">'
                                                           +'<img src="'+response.data[i].thumbnail+'" class="img-responsive custom-img-responsive">'
@@ -371,6 +377,7 @@ FirstSynch.controller("dashboard_filter_process" ,function ($rootScope,$scope, $
                                                   +'</div>';
                     angular.element(jQuery('.video_filter_search_result')).append($compile(video_fileter_search_resul)($scope));
                     filter_job_count++;
+                  }
                 });
                 if(!filter_job_count){
                     jQuery('.video_filter_search_result_empty').show();

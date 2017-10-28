@@ -8,7 +8,7 @@
       <div class="pull-right"> <a href="javascript:void(0)" ng-show="dbstudents.length > 3" class="link-all home_students_all_link" title="Show All" ng-click="showall_studentsvideo()">Show All</a> </div>
     </div>
     <div class="row custom-row-10 for_home_stu_less_all">
-      	<div class="col-sm-4" ng-repeat="student in dbstudents | limitTo:3">
+      	<div class="col-sm-4" ng-repeat="student in dbstudents | limitTo:3 | filter:guestreportvideofilter">
       		<a data-id="{{student.id}}" ng-click="videoPopup(student.id)"  href="" class = "thumbnail  customn-thumbs-color-{{10 | randomize}} custom-thumbnail-image-gallery">
       			<img ng-src="{{student.thumbnail}}" class="img-responsive custom-img-responsive">
     			<div class="overlay "></div>
