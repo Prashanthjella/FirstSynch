@@ -411,6 +411,7 @@ FirstSynch.controller("video_feedback_form_controller", function ($cookies,$scop
         .then(function (response) {
             $('.video_feedback_form').css({'z-index':-1,'opacity':0});
             $('.video_player_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+            jQuery("#VideoPopup1").modal('hide');
         });
     }
 });
