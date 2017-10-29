@@ -357,6 +357,12 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
 
     $rootScope.promovideo = function() {
       jQuery("#initalVideopopup").modal('show');
+      jwplayer("jwplayerpromovideo").setup({
+         "file": "https://dw9u6jy0dq3vj.cloudfront.net/firstsynch_static_videos/what_is_firstsynch.mp4",
+         "image":"https://dw9u6jy0dq3vj.cloudfront.net/firstsynch_static_videos/whatisfirstsynch.png",
+         "height":850,
+         "width":375
+      });
     }
 
 });

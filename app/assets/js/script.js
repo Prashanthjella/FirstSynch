@@ -159,6 +159,10 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
   $(document).on('hide.bs.modal','#VideoPopup1', function () {
     jwplayer('jwplayer').stop();
   });
+  $(document).on('hide.bs.modal','#initalVideopopup', function () {
+    jwplayer('jwplayerpromovideo').stop();
+  });
+
 
   $(document).on('hide.bs.modal','#initalVideopopup' , function () {
     $('#initalVideopopup iframe').attr('src',$('#initalVideopopup iframe').attr('src'));
