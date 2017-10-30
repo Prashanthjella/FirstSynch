@@ -214,6 +214,14 @@ $(document).on('click','#dashboard-filter .modal-header', function () {
       $(".custom-navbar-default").removeClass("navbar-fixed-top");
       $("body").removeClass("fixed-scroll");
     }
+    if(window.location.pathname =="/" || window.location.pathname.indexOf("/stu/dashboard") > -1 || window.location.pathname.indexOf("/com/dashboard") > -1){
+      if(scroll >= 100){
+        $("body").removeClass("body-video-simple");
+      }
+      else{
+        $("body").addClass("body-video-simple");
+      }
+    }
   });
 
   $('.grid').masonry({

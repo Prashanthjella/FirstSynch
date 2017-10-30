@@ -74,8 +74,8 @@
         .video_feedback_form{
             position: absolute;
             top: 0px;
-            width: 94%;
-            margin: auto;
+            width: 91%;
+            margin: 0px 0px 0px 24px;
             opacity: 0;
             z-index: -1;
         }
@@ -100,7 +100,7 @@
         }
         .video_feedback_reason label{
           opacity: 0.6;
-  
+
   line-height: 2;
   letter-spacing: -0.2px;
   text-align: left;
@@ -123,6 +123,12 @@
         .video_feedback_reason textarea::placeholder{
             color:#fff;
         }
+        .video_feedback_reason textarea:-ms-input-placeholder{
+            color:#fff !important;
+        }
+        .video_feedback_reason textarea::-ms-input-placeholder{
+            color:#fff !important;
+        }
         </style>
         <div class="modal-body custom-video-modal-body">
           <section class="video-model-container video-model-container-new " style="position:relative">
@@ -132,7 +138,7 @@
                   <li role="presentation"  ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
                     <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
                   </li>
-                </ul>	
+                </ul>
               </div>
               <div class="col-sm-9">
                 <div class="tab-content">
@@ -180,9 +186,9 @@
                         <label class="text-uppercase ">Other Reason</label>
                         <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Enter your reason for refusal" ng-model="videofeedbackotherreason" name="about_me" maxlength="500"></textarea>
                     </div>
-                     
+
                     <input type="submit" ng-click="videofeedbacksubmit(vid.video.id)" value="Send a reason for refusal" class="btn btn-default custom-btn-feedback btn-lg btn-submit"/>
-                  
+
                 </form>
             </div>
           </section>
