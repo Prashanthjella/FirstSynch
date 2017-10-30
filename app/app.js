@@ -361,6 +361,12 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
 
     $rootScope.promovideo = function() {
       jQuery("#initalVideopopup").modal('show');
+      jwplayer("jwplayerpromovideo").setup({
+         "file": "https://dw9u6jy0dq3vj.cloudfront.net/firstsynch_static_videos/what_is_firstsynch.mp4",
+         "image":"https://dw9u6jy0dq3vj.cloudfront.net/firstsynch_static_videos/whatisfirstsynch.png",
+         "height":850,
+         "width":375
+      });
     }
 
 });
@@ -409,6 +415,7 @@ FirstSynch.controller("video_feedback_form_controller", function ($cookies,$scop
         .then(function (response) {
             $('.video_feedback_form').css({'z-index':-1,'opacity':0});
             $('.video_player_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+            jQuery("#VideoPopup1").modal('hide');
         });
     }
 });
