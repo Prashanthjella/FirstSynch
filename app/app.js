@@ -262,12 +262,16 @@ FirstSynch.run(function($cookies,$anchorScroll,$rootScope, $http, guest_token, a
         }],
         events:{
             onComplete: function() {
-                if(!$rootScope.guest_login && $.inArray($rootScope.user_id.toString(), response.data.video.feedbacks)== -1){
+				   $('.video_player_form').css({'z-index':-1,'opacity':0});
+                    $('.video_feedback_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
+                    $('.video_feedback_form input').attr('checked', false);
+                    $('.video_feedback_reason textarea').val('');
+               /* if(!$rootScope.guest_login && $.inArray($rootScope.user_id.toString(), response.data.video.feedbacks)== -1){
                     $('.video_player_form').css({'z-index':-1,'opacity':0});
                     $('.video_feedback_form').css({'z-index':0}).animate({'opacity': 1}, 3000);
                     $('.video_feedback_form input').attr('checked', false);
                     $('.video_feedback_reason textarea').val('');
-                }
+               }*/
             }
         }
       });

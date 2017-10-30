@@ -1,4 +1,4 @@
-<div class="modal fade custom-model" id="VideoPopup1" role="dialog">
+<div class="modal fade custom-model custom-model-video-popup" id="VideoPopup1" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content custom-modal-video-content">
@@ -83,11 +83,12 @@
             color:#fff;
         }
         .video_feedback_form input[type="checkbox"].checkbox-input + label.checkbox-label:before{
-            background-color: #000;
+            background-color: transparent;
             border: 2px solid #fff;
+			margin-right:4px;
         }
         .video_feedback_form input[type="checkbox"].checkbox-input + label.checkbox-label{
-            background-color: #303030;
+            background-color: transparent;
             border: 2px solid #b2b2b2;
             color: #fff;
         }
@@ -98,15 +99,20 @@
             background-color: #fff;
         }
         .video_feedback_reason label{
-            color: #b2b2b2;
+          opacity: 0.6;
+  
+  line-height: 2;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #ffffff;
         }
         .video_feedback_reason textarea{
             border-bottom: 2px solid #b2b2b2;
             border-top: none;
             border-left: none;
             border-right: none;
-            background: #36383c;
-            background-image: linear-gradient(to right, #3e4044, #292b2f), linear-gradient(#0d0d0d, #0d0d0d);
+            background-color: transparent;
+            padding-left:0;
             border-radius: 0;
             resize: none;
             color: #fff;
@@ -119,14 +125,14 @@
         }
         </style>
         <div class="modal-body custom-video-modal-body">
-          <section class="video-model-container" style="position:relative">
+          <section class="video-model-container video-model-container-new " style="position:relative">
             <div class="row video_player_form">
               <div class="col-sm-3">
                 <ul class="nav nav-tabs custom-tabs-model" role="tablist">
                   <li role="presentation"  ng-repeat="chapter in vid.video.videochapter | orderBy: 'start_time'">
                     <a style="cursor: pointer;" href="javascript:void(0)" data-id="{{chapter.cue_points}}" onclick='jwplayer().seek(this.getAttribute("data-id"));'>{{chapter.title}}</a>
                   </li>
-                </ul>
+                </ul>	
               </div>
               <div class="col-sm-9">
                 <div class="tab-content">
@@ -138,7 +144,7 @@
             </div>
             <div class="row video_feedback_form" ng-controller="video_feedback_form_controller">
                 <button type="button" class="close custom-modal-close video_feedback_form_close_btn">&times;</button>
-                <h1 class="custom-h1-01 custom-h1-btm-space-55">What do you think?</h1>
+                <h3 class="title-video-popup">What do you think?</h3>
                 <form>
                     <div ng-if="!company_video">
                         <div class="checkbox custom-checkbox checkbox-circle">
@@ -174,7 +180,9 @@
                         <label class="text-uppercase ">Other Reason</label>
                         <textarea ng-trim="false" class="form-control custom-text-area" rows="4" placeholder="Enter your reason for refusal" ng-model="videofeedbackotherreason" name="about_me" maxlength="500"></textarea>
                     </div>
-                    <input type="submit" ng-click="videofeedbacksubmit(vid.video.id)" value="Send a reason for refusal" class="btn btn-default custom-btn btn-lg btn-submit"/>
+                     
+                    <input type="submit" ng-click="videofeedbacksubmit(vid.video.id)" value="Send a reason for refusal" class="btn btn-default custom-btn-feedback btn-lg btn-submit"/>
+                  
                 </form>
             </div>
           </section>

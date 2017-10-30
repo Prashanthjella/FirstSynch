@@ -4143,6 +4143,39 @@ textarea.custom-text-area-new {
 .page-section-simple-video {
 	position: relative
 }
+.custom-model-video-popup{
+	opacity:0.97
+	}
+.video-model-container-new{
+	background:#262b37;
+	opacity:0.97;
+	}
+.title-video-popup{
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.75;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #ffffff;
+  margin-top:37px;
+}	
+.custom-form-group-new.video_feedback_reason{
+	margin-top:10px;
+	}
+	.custom-btn-feedback{
+		border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+    font-size: 11px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #303030;
+  padding:14px 33px;
+  text-transform:uppercase;
+		}
+		
+		
  @media (min-width: 1200px) {
 .container {
 	width: 970px;
@@ -4237,6 +4270,7 @@ body {
 	top: 0;
 	border-top: 0
 }
+.video-model-container-new .custom-modal-close{right:0}
 .custom-navbar-default .container-fluid, .custom-navbar-default .container, .navbar-fixed-top.custom-navbar-default .container-fluid, .navbar-fixed-top.custom-navbar-default .container {
 	padding: 20px 40px
 }
@@ -4344,6 +4378,9 @@ input[type="checkbox"].checkbox-input + label.checkbox-label:before {
 body {
 	padding-top: 30px;
 }
+.video-model-container.video-model-container-new {
+	overflow:auto;
+	}
 .custom-video-modal-body .close.custom-modal-close {
 	z-index: 1000 !important
 }
@@ -5499,6 +5536,7 @@ h3.school-name {
 	margin-bottom: 15px;
 	color: #303030;
 }
+
 .cont-experience {
 	opacity: 0.6;
 	font-size: 13px;
@@ -6086,6 +6124,7 @@ textarea.custom-text-area-100 {
 	text-align:center !important;
 	width:100% !important
 	}
+	
  @media (min-height: 900px) {
 .dashboard-filter .custom-modal-600 {
 	bottom: -682px;
