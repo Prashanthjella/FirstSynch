@@ -1,0 +1,102 @@
+Searching 9244 files for "top-3-companies"
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\assets\css\style.css:
+ 3663  	margin-bottom: 7px;
+ 3664  }
+ 3665: .top-3-companies {
+ 3666  	float: left;
+ 3667  	width: 100%;
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\CompanyRole\company_list\top_three.html:
+   39  	      		</div>
+   40  	    	</div>
+   41:             <div class="top-3-companies">
+   42  	    	<div class="row custom-row-35" ng-controller="company_top_three">
+   43  	      		<div class="col-sm-12">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\CompanyRole\student_list\top_three.html:
+   40  			</div>
+   41  		</div>
+   42: 		<div class="top-3-companies">
+   43  			<div class="row custom-row-35 top_three_student_act" ng-controller="company_top_three_students">
+   44  				<div class="col-sm-12">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\GuestRole\company_list\top_three.html:
+   33  		</div><!--page-header-->
+   34  
+   35: 		<div class="top-3-companies">
+   36  			<div class="row custom-row-35 top_three_company_act" ng-controller="top_three_companies">
+   37  				<div class="col-sm-12">
+   ..
+   57  				</div>
+   58  			</div>
+   59: 		</div><!--top-3-companies-->
+   60  		<div class="company_search_result hide grid" id="custom-row-compaines" ng-controller="guestcompanyfilter">
+   61  			<div  class="col-sm-4 custom-box grid-item" ng-repeat="company_result in guestcompanyfilterresult" ng-show="guestcompanyfilterresult.length > 0">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\GuestRole\student_list\top_three.html:
+   40  			</div>
+   41  		</div>
+   42: 		<div class="top-3-companies">
+   43  			<div class="row custom-row-35 top_three_student_act" ng-controller="top_three_students">
+   44  				<div class="col-sm-12">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\StudentRole\company_list\top_three.html:
+   30  			</div>
+   31  		</div>
+   32: 		<div class="top-3-companies">
+   33  			<div class="row custom-row-35 top_three_company_act"  ng-controller="student_top_three">
+   34  				<div class="col-sm-12">
+
+
+
+Searching 9244 files for "top-3-companies"
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\assets\css\style.css:
+ 3663  	margin-bottom: 7px;
+ 3664  }
+ 3665: .top-3-companies {
+ 3666  	float: right;
+ 3667  	width: 100%;
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\CompanyRole\company_list\top_three.html:
+   39  	      		</div>
+   40  	    	</div>
+   41:             <div class="top-3-companies">
+   42  	    	<div class="row custom-row-35" ng-controller="company_top_three">
+   43  	      		<div class="col-sm-12">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\CompanyRole\student_list\top_three.html:
+   40  			</div>
+   41  		</div>
+   42: 		<div class="top-3-companies">
+   43  			<div class="row custom-row-35 top_three_student_act" ng-controller="company_top_three_students">
+   44  				<div class="col-sm-12">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\GuestRole\company_list\top_three.html:
+   33  		</div><!--page-header-->
+   34  
+   35: 		<div class="top-3-companies">
+   36  			<div class="row custom-row-35 top_three_company_act" ng-controller="top_three_companies">
+   37  				<div class="col-sm-12">
+   ..
+   57  				</div>
+   58  			</div>
+   59: 		</div><!--top-3-companies-->
+   60  		<div class="company_search_result hide grid" id="custom-row-compaines" ng-controller="guestcompanyfilter">
+   61  			<div  class="col-sm-4 custom-box grid-item" ng-repeat="company_result in guestcompanyfilterresult" ng-show="guestcompanyfilterresult.length > 0">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\GuestRole\student_list\top_three.html:
+   40  			</div>
+   41  		</div>
+   42: 		<div class="top-3-companies">
+   43  			<div class="row custom-row-35 top_three_student_act" ng-controller="top_three_students">
+   44  				<div class="col-sm-12">
+
+C:\Users\prash\PycharmProjects\work_space\FirstSynchUI\app\StudentRole\company_list\top_three.html:
+   30  			</div>
+   31  		</div>
+   32: 		<div class="top-3-companies">
+   33  			<div class="row custom-row-35 top_three_company_act"  ng-controller="student_top_three">
+   34  				<div class="col-sm-12">
+
